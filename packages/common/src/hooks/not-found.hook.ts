@@ -3,7 +3,7 @@ import type { Hook } from '@oclif/core'
 
 import { Logger } from '@utils/logger'
 
-export const notFoundHook: Hook<'command_not_found'> = async (opts) => {
+export const notFoundHook: () => Hook<'command_not_found'> = () => async (opts) => {
   const logger = new Logger(opts.config.name)
 
   // show info

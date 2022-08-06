@@ -1,6 +1,7 @@
 import { Command as BaseCommand } from '@oclif/core'
 import type { ListrContext } from 'listr2'
 import { Manager } from 'listr2'
+import { createInterface } from 'readline'
 
 import { ConfigService, ValidatorService } from '@lib'
 import type { BaseConfig } from '@lib/config/config.interface'
@@ -34,6 +35,25 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
       nonTTYRendererOptions: { logEmptyTitle: false, logTitleChange: false }
     })
 
+    // graceful terminate
+    if (this.cs.oclif.windows) {
+      createInterface({
+        input: process.stdin,
+        output: process.stdout
+      }).on('SIGINT', () => {
+        process.kill(process.pid, 'SIGINT')
+      })
+    }
+
+    process.on('SIGINT', () => {
+      // show that we have understood that
+      this.logger.fatal('Caught terminate signal.', { context: 'exit' })
+
+      process.exit(99)
+    })
+
+    this.greet()
+
     await this.shouldRunBefore()
   }
 
@@ -46,8 +66,8 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
   /**
    * Deconstruct the class if you dont want to extend finally or catch.
    */
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public shouldRunAfter (): void | Promise<void> {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+  public shouldRunAfter (_ctx?: Ctx): void | Promise<void> {}
 
   /** Run all tasks from task manager. */
   public async runTasks (): Promise<Ctx> {
@@ -67,7 +87,7 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
     // run anything in the task queue at the end
     const ctx = await this.runTasks()
 
-    await this.shouldRunAfter()
+    await this.shouldRunAfter(ctx)
 
     return { ctx }
   }
@@ -80,5 +100,14 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
     this.logger.debug(e.stack, { context: 'crash' })
 
     process.exit(127)
+  }
+
+  private greet (): void {
+    const logo = `${this.cs.oclif.name} v${this.cs.oclif.version}`
+
+    // eslint-disable-next-line no-console
+    console.log(logo)
+    // eslint-disable-next-line no-console
+    console.log('-'.repeat(logo.length))
   }
 }
