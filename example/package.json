@@ -1,0 +1,65 @@
+{
+  "name": "oclif2",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "oclif example Hello World CLI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/cenk1cenk2/hello-world",
+  "repository": "cenk1cenk2/hello-world",
+  "author": "Cenk Kılıç @cenk1cenk2",
+  "keywords": [
+    "oclif"
+  ],
+  "bin": {
+    "oclif2": "./bin/run"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/oclif.manifest.json"
+  ],
+  "oclif": {
+    "bin": "oclif2",
+    "dirname": "oclif2",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "hooks": {
+      "init": "./dist/hooks/init.hook",
+      "command_not_found": "./dist/hooks/not-found.hook",
+      "prerun": "./dist/hooks/prerun.hook"
+    },
+    "topicSeparator": " "
+  },
+  "scripts": {
+    "dev": "./bin/dev",
+    "start": "./bin/run",
+    "prebuild": "oclif manifest && oclif readme",
+    "build": "tsup-node",
+    "dev:start": "tsup-node --watch",
+    "clean": "rimraf oclif.manifset.json",
+    "lint": "prettier --write src/ --loglevel warn && eslint --ext .ts,.js,.tsx,.jsx --fix src/",
+    "lint:check": "eslint --ext .ts,.js,.tsx,.jsx src/"
+  },
+  "dependencies": {
+    "@cenk1cenk2/oclif-common": "*",
+    "@oclif/core": "^1",
+    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-plugins": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.9.4",
+    "globby": "^11",
+    "oclif": "^3",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -3,23 +3,25 @@
   "version": "1.0.0",
   "description": "Oclif common package for oclif2 projects.",
   "repository": "https://gitlab.kilic.dev/libraries/oclif-common",
-  "type": "module",
   "author": {
     "name": "Cenk Kilic",
     "email": "cenk@kilic.dev",
     "url": "https://srcs.kilic.dev"
   },
   "license": "MIT",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     }
   },
+  "files": [
+    "dist/"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -28,16 +30,37 @@
   },
   "scripts": {
     "build": "tsup-node",
-    "dev:start": "tsup-node --watch --silent",
+    "dev:start": "tsup-node --watch",
     "lint": "prettier --write src/ --loglevel warn && eslint --ext .ts,.js,.tsx,.jsx --fix src/",
     "lint:check": "eslint --ext .ts,.js,.tsx,.jsx src/",
-    "lint:staged": "lint-staged",
     "docs:toc": "markdown-toc README.md --bullets='-' -i",
     "docs:api": "typedoc --options .typedoc.json --hideInPageTOC --hideBreadcrumbs"
   },
-  "peerDependencies": {},
-  "dependencies": {},
-  "devDependencies": {},
+  "peerDependencies": {
+    "@oclif/core": ">= 1",
+    "execa": ">= 6"
+  },
+  "peerDependenciesMeta": {
+    "execa": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "colorette": "^2.0.19",
+    "config": "^3.3.7",
+    "figures": "^3",
+    "listr2": "^5.0.2",
+    "through": "^2.3.8",
+    "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "@oclif/core": "^1.13.3",
+    "@types/config": "^3.3.0",
+    "@types/through": "^0.0.30",
+    "execa": "^6.1.0"
+  },
   "lint-staged": {
     "*.{ts,js,tsx,jsx}": [
       "prettier --loglevel warn --write",
