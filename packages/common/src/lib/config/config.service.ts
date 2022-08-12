@@ -16,9 +16,9 @@ export class ConfigService<Config extends BaseConfig = BaseConfig> {
   public command: Command['ctor']
   public oclif: Command['config']
   public defaults = join(dirname(require.main.filename), '../config', FileConstants.CONFIG_SERVICE_DEFAULTS_DIR)
-  private dir = join(dirname(require.main.filename), '../config')
+  public dir = join(dirname(require.main.filename), '../config')
+  public parser: ParserService
   private readonly logger: Logger
-  private parser = new ParserService()
 
   constructor (command: Command<any, Config>) {
     if (ConfigService.instance) {
@@ -34,7 +34,9 @@ export class ConfigService<Config extends BaseConfig = BaseConfig> {
 
     this.logger = new Logger(this.constructor.name, { level: this.config.loglevel })
 
-    this.logger.trace('Creating a new instance.')
+    this.parser = new ParserService()
+
+    this.logger.trace('Created a new instance.')
   }
 
   public async read<T extends LockableData = LockableData>(strategy: MergeStrategy, ...paths: string[]): Promise<T> {

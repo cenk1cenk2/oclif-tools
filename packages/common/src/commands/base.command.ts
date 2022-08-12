@@ -6,6 +6,7 @@ import 'reflect-metadata'
 
 import { ConfigService, ValidatorService } from '@lib'
 import { BaseConfig } from '@lib/config/config.interface'
+import { ParserService } from '@lib/parser/parser.service'
 import { isDebug, isSilent } from '@utils'
 import { Logger } from '@utils/logger'
 
@@ -16,6 +17,7 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
   public isSilent: boolean
   public isDebug: boolean
   public cs: ConfigService<Config>
+  public parser: ParserService
 
   /** Every command needs to implement run for running the command itself. */
   // make run non-abstract for other classes
@@ -32,6 +34,8 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
     this.isDebug = isDebug(this.cs.config)
 
     this.logger = new Logger(this.cs.command.id ? this.cs.command.id : this.cs.command.name, { level: this.cs.config.loglevel })
+
+    this.parser = new ParserService()
 
     this.greet()
 

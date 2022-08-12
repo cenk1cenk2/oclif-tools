@@ -8,7 +8,8 @@ import { Logger } from '@utils/logger'
 
 export class ValidatorService {
   private readonly logger = new Logger(this.constructor.name)
-  constructor (private readonly options?: ValidatorServiceOptions) {
+
+  constructor (public options?: ValidatorServiceOptions) {
     this.options = {
       validator: {
         skipMissingProperties: true,

@@ -1,5 +1,6 @@
 export function setup (): void {
   // overwrite debug and silent logger and listr through config
+  const trace = process.argv.indexOf('--trace')
   const debug = process.argv.indexOf('--debug')
   const silent = process.argv.indexOf('--silent')
   const inspect = process.argv.indexOf('--inspect')
@@ -21,6 +22,11 @@ export function setup (): void {
   if (debug !== -1) {
     process.env.LOG_LEVEL = 'debug'
     process.argv.splice(debug, 1)
+  }
+
+  if (trace !== -1) {
+    process.env.LOG_LEVEL = 'trace'
+    process.argv.splice(trace, 1)
   }
 
   if (silent !== -1) {

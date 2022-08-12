@@ -117,7 +117,7 @@ export class Logger {
       ]
     })
 
-    logger.log(LogLevels.TRACE, `Initiated new logger with level "${this.options.level}".`, { context: this.constructor.name })
+    logger.log(LogLevels.TRACE, 'Initiated new logger with level: %s', this.options.level, { context: this.constructor.name })
 
     return logger as Winston
   }
