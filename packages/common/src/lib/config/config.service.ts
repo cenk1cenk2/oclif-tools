@@ -1,4 +1,5 @@
 import config from 'config'
+import './config.d'
 import { dirname, join } from 'path'
 
 import type { BaseConfig } from './config.interface'
