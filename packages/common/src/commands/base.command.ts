@@ -7,7 +7,7 @@ import 'reflect-metadata'
 import { ConfigService, ValidatorService } from '@lib'
 import { BaseConfig } from '@lib/config/config.interface'
 import { isDebug, isSilent } from '@utils'
-import { Logger, LogLevels } from '@utils/logger'
+import { Logger } from '@utils/logger'
 
 export class Command<Ctx extends ListrContext = ListrContext, Config extends BaseConfig = BaseConfig> extends BaseCommand {
   public logger: Logger
@@ -41,8 +41,8 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
 
     // initiate manager
     this.tasks = new Manager({
-      rendererFallback: this.cs.config?.loglevel === LogLevels.DEBUG,
-      rendererSilent: this.cs.config?.loglevel === LogLevels.SILENT,
+      rendererFallback: this.isDebug,
+      rendererSilent: this.isSilent,
       nonTTYRendererOptions: { logEmptyTitle: false, logTitleChange: false }
     })
 

@@ -5,7 +5,7 @@ import { defineConfig } from 'tsup'
 export default defineConfig((options) => ({
   name: !options.watch && 'production',
 
-  entry: [ 'src/**/*' ],
+  entry: [ 'src/**/*.ts' ],
   tsconfig: options.watch ? 'tsconfig.json' : 'tsconfig.build.json',
 
   dts: options.watch && true,
@@ -20,5 +20,6 @@ export default defineConfig((options) => ({
   clean: true,
   minify: false,
 
+  onSuccess: 'yarn run manifest',
   esbuildPlugins: [ esbuildDecorators() ]
 }))

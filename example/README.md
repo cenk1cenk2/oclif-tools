@@ -1,44 +1,72 @@
-oclif-hello-world
-=================
+# oclif-hello-world
 
 oclif example Hello World CLI
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
-[![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
+[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io) [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world) [![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main) [![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world) [![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [oclif-hello-world](#oclif-hello-world)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g oclif2
 $ oclif2 COMMAND
 running command...
 $ oclif2 (--version)
-oclif2/1.0.0 linux-x64 node-v16.16.0
+oclif2/1.0.0 linux-x64 node-v18.7.0
 $ oclif2 --help [COMMAND]
 USAGE
   $ oclif2 COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`oclif2 help [COMMAND]`](#oclif2-help-command)
-* [`oclif2 plugins`](#oclif2-plugins)
-* [`oclif2 plugins:install PLUGIN...`](#oclif2-pluginsinstall-plugin)
-* [`oclif2 plugins:inspect PLUGIN...`](#oclif2-pluginsinspect-plugin)
-* [`oclif2 plugins:install PLUGIN...`](#oclif2-pluginsinstall-plugin-1)
-* [`oclif2 plugins:link PLUGIN`](#oclif2-pluginslink-plugin)
-* [`oclif2 plugins:uninstall PLUGIN...`](#oclif2-pluginsuninstall-plugin)
-* [`oclif2 plugins:uninstall PLUGIN...`](#oclif2-pluginsuninstall-plugin-1)
-* [`oclif2 plugins:uninstall PLUGIN...`](#oclif2-pluginsuninstall-plugin-2)
-* [`oclif2 plugins update`](#oclif2-plugins-update)
+
+- [`oclif2 hello [PERSON]`](#oclif2-hello-person)
+- [`oclif2 help [COMMAND]`](#oclif2-help-command)
+- [`oclif2 plugins`](#oclif2-plugins)
+- [`oclif2 plugins:install PLUGIN...`](#oclif2-pluginsinstall-plugin)
+- [`oclif2 plugins:inspect PLUGIN...`](#oclif2-pluginsinspect-plugin)
+- [`oclif2 plugins:install PLUGIN...`](#oclif2-pluginsinstall-plugin-1)
+- [`oclif2 plugins:link PLUGIN`](#oclif2-pluginslink-plugin)
+- [`oclif2 plugins:uninstall PLUGIN...`](#oclif2-pluginsuninstall-plugin)
+- [`oclif2 plugins:uninstall PLUGIN...`](#oclif2-pluginsuninstall-plugin-1)
+- [`oclif2 plugins:uninstall PLUGIN...`](#oclif2-pluginsuninstall-plugin-2)
+- [`oclif2 plugins update`](#oclif2-plugins-update)
+
+## `oclif2 hello [PERSON]`
+
+Say hello
+
+```
+USAGE
+  $ oclif2 hello [PERSON] [-f <value>]
+
+ARGUMENTS
+  PERSON  Person to say hello to
+
+FLAGS
+  -f, --from=<value>  Whom is saying hello
+
+DESCRIPTION
+  Say hello
+
+EXAMPLES
+  $ oex hello friend --from oclif
+```
+
+_See code: [dist/commands/hello/index.ts](https://github.com/cenk1cenk2/hello-world/blob/v1.0.0/dist/commands/hello/index.ts)_
 
 ## `oclif2 help [COMMAND]`
 
@@ -111,7 +139,7 @@ ALIASES
   $ oclif2 plugins add
 
 EXAMPLES
-  $ oclif2 plugins:install myplugin 
+  $ oclif2 plugins:install myplugin
 
   $ oclif2 plugins:install https://github.com/someuser/someplugin
 
@@ -171,7 +199,7 @@ ALIASES
   $ oclif2 plugins add
 
 EXAMPLES
-  $ oclif2 plugins:install myplugin 
+  $ oclif2 plugins:install myplugin
 
   $ oclif2 plugins:install https://github.com/someuser/someplugin
 
@@ -289,4 +317,5 @@ FLAGS
 DESCRIPTION
   Update installed plugins.
 ```
+
 <!-- commandsstop -->

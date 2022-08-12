@@ -71,7 +71,7 @@ export class LockerService {
 
           // check if array else merge as object
           if (typeof d.data === 'object') {
-            parsed = merge(op.get(lock, path) || Array.isArray(d.data) ? [] : {}, [ d.data ], d.merge)
+            parsed = merge(d.merge, op.get(lock, path) || Array.isArray(d.data) ? [] : {}, d.data)
           } else {
             this.logger.warn('"%s" path with type "%s" is not mergeable.', path, typeof d.data)
 

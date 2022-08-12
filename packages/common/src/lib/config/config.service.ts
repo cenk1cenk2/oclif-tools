@@ -44,7 +44,7 @@ export class ConfigService<Config extends BaseConfig = BaseConfig> {
       })
     )
 
-    return merge<T>({} as T, configs, strategy)
+    return merge<T>(strategy, {} as T, ...configs)
   }
 
   public async write<T extends LockableData = LockableData>(path: string, data: T): Promise<void> {
