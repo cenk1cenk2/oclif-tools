@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "commands": {
+    "hello": {
+      "id": "hello",
+      "description": "Say hello",
+      "strict": true,
+      "pluginName": "oclif2",
+      "pluginAlias": "oclif2",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": ["$ oex hello friend --from oclif"],
+      "flags": { "from": { "name": "from", "type": "option", "char": "f", "description": "Whom is saying hello", "required": false, "multiple": false } },
+      "args": [{ "name": "person", "description": "Person to say hello to", "required": false }]
+    }
+  }
+}

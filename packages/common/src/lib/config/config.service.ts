@@ -53,3 +53,5 @@ export class ConfigService<Config extends BaseConfig = BaseConfig> {
     return this.parser.write(path, data)
   }
 }
+
+export { config }

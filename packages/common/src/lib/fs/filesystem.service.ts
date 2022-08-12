@@ -69,7 +69,7 @@ export class FileSystemService {
 
   public writeSync (file: string, data: string | Buffer, options: fs.WriteFileOptions = {}): void {
     try {
-      fs.writeFileSync(file, data, { encoding: 'utf-8', ...options })
+      fs.writeFileSync(file, data, { encoding: 'utf-8', ...options } as any)
     } catch (e) {
       this.logger.fatal('Error while writing file to "%s": %s', file, e.message)
 
@@ -176,4 +176,30 @@ export class FileSystemService {
       throw e
     }
   }
+
+  public async readDir (directory: string): Promise<string[]> {
+    try {
+      const results = await fs.readdir(directory)
+
+      return results
+    } catch (e) {
+      this.logger.fatal('Error while reading directory from "%s": %s', directory, e.message)
+
+      throw e
+    }
+  }
+
+  public readDirSync (directory: string): string[] {
+    try {
+      const results = fs.readdirSync(directory)
+
+      return results
+    } catch (e) {
+      this.logger.fatal('Error while reading directory from "%s": %s', directory, e.message)
+
+      throw e
+    }
+  }
 }
+
+export { fs }
