@@ -1,3 +1,13 @@
+# @cenk1cenk2/oclif-common [1.7.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.6.0...@cenk1cenk2/oclif-common@1.7.0) (2022-08-12)
+
+### Bug Fixes
+
+- update init hook ([9ea9259](https://gitlab.kilic.dev/libraries/oclif-tools/commit/9ea9259095617b2290beea79a4ae9d00213443bd))
+
+### Features
+
+- add update notifier ([d462713](https://gitlab.kilic.dev/libraries/oclif-tools/commit/d462713318715442e970a6e250730702a688ad56))
+
 # @cenk1cenk2/oclif-common [1.6.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.5.1...@cenk1cenk2/oclif-common@1.6.0) (2022-08-12)
 
 ### Features
