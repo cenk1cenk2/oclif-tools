@@ -28,6 +28,8 @@ export class ConfigService<Config extends BaseConfig = BaseConfig> {
       ConfigService.instance = this
     }
 
+    process.env.SUPPRESS_NO_CONFIG_WARNING = '1'
+
     this.command = command.ctor
     this.oclif = command.config
 
