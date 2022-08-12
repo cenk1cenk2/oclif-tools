@@ -266,3 +266,66 @@ so they can be configured by the consumers of the module.
 #### Defined in
 
 node_modules/@types/config/index.d.ts:54
+
+## Properties
+
+### getCustomEnvVars
+
+• **getCustomEnvVars**: <T\>(`path`: `string`, `extensions`: `string`[]) => `Partial`<`T`\>
+
+#### Type declaration
+
+▸ <`T`\>(`path`, `extensions`): `Partial`<`T`\>
+
+##### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `Record`<`string`, `any`\> |
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `path` | `string` |
+| `extensions` | `string`[] |
+
+##### Returns
+
+`Partial`<`T`\>
+
+#### Defined in
+
+packages/common/src/lib/config/config.d.ts:6
+
+___
+
+### parseFile
+
+• **parseFile**: <T\>(`path`: `string`, `options?`: { `skipConfigSources?`: `boolean`  }) => `T`
+
+#### Type declaration
+
+▸ <`T`\>(`path`, `options?`): `T`
+
+##### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `Record`<`string`, `any`\> |
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `path` | `string` |
+| `options?` | `Object` |
+| `options.skipConfigSources?` | `boolean` |
+
+##### Returns
+
+`T`
+
+#### Defined in
+
+packages/common/src/lib/config/config.d.ts:7

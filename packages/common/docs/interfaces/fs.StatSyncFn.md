@@ -239,7 +239,7 @@ A constructor function can control which objects are recognized as its instances
 
 #### Inherited from
 
-Function.\_\_@hasInstance@16
+Function.\_\_@hasInstance@18
 
 #### Defined in
 

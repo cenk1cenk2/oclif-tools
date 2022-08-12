@@ -1,3 +1,14 @@
+# @cenk1cenk2/oclif-common [1.4.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.3.0...@cenk1cenk2/oclif-common@1.4.0) (2022-08-12)
+
+### Bug Fixes
+
+- update config for importing types ([92101a0](https://gitlab.kilic.dev/libraries/oclif-tools/commit/92101a0927d5844aa95c4ae188f51a9a3e51987f))
+- update env var ([d014b78](https://gitlab.kilic.dev/libraries/oclif-tools/commit/d014b788ca5fcfdb63367e599f6908163fca9108))
+
+### Features
+
+- expose more config types ([3ba6cde](https://gitlab.kilic.dev/libraries/oclif-tools/commit/3ba6cde07ca637bda9daa2044c5ff76568aebeb0))
+
 # @cenk1cenk2/oclif-common [1.3.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.2.1...@cenk1cenk2/oclif-common@1.3.0) (2022-08-12)
 
 ### Features
