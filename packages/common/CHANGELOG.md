@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [1.2.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.2.0...@cenk1cenk2/oclif-common@1.2.1) (2022-08-12)
+
+### Bug Fixes
+
+- remove extras ([c728ae5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c728ae51833bdf22cbdbbee9209ee2080d8dbe93))
+
 # @cenk1cenk2/oclif-common [1.2.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.1.0...@cenk1cenk2/oclif-common@1.2.0) (2022-08-12)
 
 ### Features
