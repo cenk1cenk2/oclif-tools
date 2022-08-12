@@ -2,7 +2,7 @@
   "name": "@cenk1cenk2/oclif-common",
   "version": "1.0.0",
   "description": "Oclif common package for oclif2 projects.",
-  "repository": "https://gitlab.kilic.dev/libraries/oclif-common",
+  "repository": "https://gitlab.kilic.dev/libraries/oclif-tools",
   "author": {
     "name": "Cenk Kilic",
     "email": "cenk@kilic.dev",
