@@ -14,6 +14,7 @@
 ## Functions
 
 - [figures](functions/figures.md)
+- [initHook](functions/initHook.md)
 - [notFoundHook](functions/notFoundHook.md)
 - [setup](functions/setup.md)
 - [isVerbose](functions/isVerbose.md)
