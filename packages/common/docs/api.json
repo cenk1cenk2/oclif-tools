@@ -24814,13 +24814,13 @@
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AsyncIterable.__@asyncIterator@103"
+										"name": "AsyncIterable.__@asyncIterator@105"
 									}
 								}
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "AsyncIterable.__@asyncIterator@103"
+								"name": "AsyncIterable.__@asyncIterator@105"
 							}
 						},
 						{
@@ -42751,13 +42751,13 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "stream.Readable.__@asyncIterator@103"
+										"name": "stream.Readable.__@asyncIterator@105"
 									}
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "stream.Readable.__@asyncIterator@103"
+								"name": "stream.Readable.__@asyncIterator@105"
 							}
 						}
 					],
@@ -55596,13 +55596,13 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Function.__@hasInstance@18"
+										"name": "Function.__@hasInstance@20"
 									}
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Function.__@hasInstance@18"
+								"name": "Function.__@hasInstance@20"
 							}
 						},
 						{
@@ -94985,7 +94985,7 @@
 									}
 								],
 								"name": "ExecaChildProcess",
-								"qualifiedName": "ExecaChildProcess",
+								"qualifiedName": "execa.ExecaChildProcess",
 								"package": "execa"
 							}
 						}
@@ -94993,7 +94993,7 @@
 					"type": {
 						"type": "reference",
 						"name": "ExecaChildProcess",
-						"qualifiedName": "ExecaChildProcess",
+						"qualifiedName": "execa.ExecaChildProcess",
 						"package": "execa"
 					}
 				}
@@ -95270,7 +95270,7 @@
 									}
 								],
 								"name": "ExecaChildProcess",
-								"qualifiedName": "ExecaChildProcess",
+								"qualifiedName": "execa.ExecaChildProcess",
 								"package": "execa"
 							}
 						},
@@ -95292,7 +95292,7 @@
 					"type": {
 						"type": "reference",
 						"name": "ExecaChildProcess",
-						"qualifiedName": "ExecaChildProcess",
+						"qualifiedName": "execa.ExecaChildProcess",
 						"package": "execa"
 					}
 				}

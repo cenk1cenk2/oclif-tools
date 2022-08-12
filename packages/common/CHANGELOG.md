@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [1.5.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.5.0...@cenk1cenk2/oclif-common@1.5.1) (2022-08-12)
+
+### Bug Fixes
+
+- update dep config ([ba558e8](https://gitlab.kilic.dev/libraries/oclif-tools/commit/ba558e82e4ef65cd3f4e3daba51e5ed8979e1f7b))
+
 # @cenk1cenk2/oclif-common [1.5.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.4.0...@cenk1cenk2/oclif-common@1.5.0) (2022-08-12)
 
 ### Features
