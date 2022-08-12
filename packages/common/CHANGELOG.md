@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [1.5.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.4.0...@cenk1cenk2/oclif-common@1.5.0) (2022-08-12)
+
+### Features
+
+- add init hook for config ([d0c4ba1](https://gitlab.kilic.dev/libraries/oclif-tools/commit/d0c4ba1dbf0ef7cb0f1d1a76aac2d45c5c94ee92))
+
 # @cenk1cenk2/oclif-common [1.4.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.3.0...@cenk1cenk2/oclif-common@1.4.0) (2022-08-12)
 
 ### Bug Fixes
