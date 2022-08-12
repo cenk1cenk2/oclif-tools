@@ -16,6 +16,7 @@
 - [figures](functions/figures.md)
 - [notFoundHook](functions/notFoundHook.md)
 - [setup](functions/setup.md)
+- [isVerbose](functions/isVerbose.md)
 - [isDebug](functions/isDebug.md)
 - [isSilent](functions/isSilent.md)
 - [pipeProcessThroughListr](functions/pipeProcessThroughListr.md)

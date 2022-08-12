@@ -1,6 +1,6 @@
-# Function: isDebug
+# Function: isVerbose
 
-▸ **isDebug**<`T`\>(`config`): `boolean`
+▸ **isVerbose**<`T`\>(`config`): `boolean`
 
 #### Type parameters
 
@@ -20,4 +20,4 @@
 
 #### Defined in
 
-packages/common/src/utils/environment.ts:8
+packages/common/src/utils/environment.ts:4

@@ -434,9 +434,9 @@ packages/common/src/commands/base.command.ts:16
 
 ___
 
-### isSilent
+### isVerbose
 
-• **isSilent**: `boolean`
+• **isVerbose**: `boolean`
 
 #### Defined in
 
@@ -454,13 +454,23 @@ packages/common/src/commands/base.command.ts:18
 
 ___
 
+### isSilent
+
+• **isSilent**: `boolean`
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:19
+
+___
+
 ### cs
 
 • **cs**: [`ConfigService`](ConfigService.md)<`Config`\>
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:19
+packages/common/src/commands/base.command.ts:20
 
 ___
 
@@ -470,7 +480,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:20
+packages/common/src/commands/base.command.ts:21
 
 ___
 
@@ -480,7 +490,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:21
+packages/common/src/commands/base.command.ts:22
 
 ## Accessors
 
@@ -927,7 +937,7 @@ BaseCommand.run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:25
+packages/common/src/commands/base.command.ts:26
 
 ___
 
@@ -947,7 +957,7 @@ BaseCommand.init
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:31
+packages/common/src/commands/base.command.ts:32
 
 ___
 
@@ -963,7 +973,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:79
+packages/common/src/commands/base.command.ts:81
 
 ___
 
@@ -985,7 +995,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:85
+packages/common/src/commands/base.command.ts:87
 
 ___
 
@@ -1001,7 +1011,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:88
+packages/common/src/commands/base.command.ts:90
 
 ___
 
@@ -1021,7 +1031,7 @@ BaseCommand.finally
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:101
+packages/common/src/commands/base.command.ts:103
 
 ___
 
@@ -1047,7 +1057,7 @@ BaseCommand.catch
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:112
+packages/common/src/commands/base.command.ts:114
 
 ___
 
@@ -1075,7 +1085,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:121
+packages/common/src/commands/base.command.ts:123
 
 ___
 
@@ -1089,4 +1099,4 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:136
+packages/common/src/commands/base.command.ts:138

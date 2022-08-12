@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [1.3.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.2.1...@cenk1cenk2/oclif-common@1.3.0) (2022-08-12)
+
+### Features
+
+- add isverbose ([0f3ad10](https://gitlab.kilic.dev/libraries/oclif-tools/commit/0f3ad104b2ae3ca4f9554881b01641df3ef1b78d))
+
 ## @cenk1cenk2/oclif-common [1.2.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.2.0...@cenk1cenk2/oclif-common@1.2.1) (2022-08-12)
 
 ### Bug Fixes
