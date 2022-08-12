@@ -4,10 +4,11 @@ import { validate, validateSync } from 'class-validator'
 
 import type { ValidatorServiceOptions } from './validator.interface'
 import type { ClassType } from '@interfaces/class.interface'
-import type { Logger } from '@utils/logger'
+import { Logger } from '@utils/logger'
 
 export class ValidatorService {
-  constructor (private logger: Logger, private readonly options?: ValidatorServiceOptions) {
+  private readonly logger = new Logger(this.constructor.name)
+  constructor (private readonly options?: ValidatorServiceOptions) {
     this.options = {
       validator: {
         skipMissingProperties: true,
@@ -23,19 +24,17 @@ export class ValidatorService {
   public async validate<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T): Promise<T> {
     const classObject = plainToClass(classType, object, this.options.transformer)
 
-    try {
-      await validate(classObject, this.options.validator)
+    const errors = await validate(classObject, this.options.validator)
 
-      return classObject
-    } catch (errors) {
-      if (errors.length) {
-        errors.forEach((error: ValidationError) => {
-          this.logger.error(error.toString())
-        })
+    if (errors.length) {
+      errors.forEach((error) => {
+        this.logValidationError(error)
+      })
 
-        throw new Error('Validation failed.')
-      }
+      throw new Error('Validation failed.')
     }
+
+    return classObject
   }
 
   public validateSync<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T): T {
@@ -45,12 +44,16 @@ export class ValidatorService {
 
     if (errors.length) {
       errors.forEach((error) => {
-        this.logger.error(error.toString())
+        this.logValidationError(error)
       })
 
       throw new Error('Validation failed.')
     }
 
     return classObject
+  }
+
+  private logValidationError (err: ValidationError): void {
+    this.logger.error('Field "%s" failed validation with value "%s": %s', err.property, err.value, Object.values(err.constraints).join(', '))
   }
 }

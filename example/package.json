@@ -29,7 +29,7 @@
       "@oclif/plugin-plugins"
     ],
     "hooks": {
-      "command_not_found": "./dist/hooks/not-found.hook"
+      "command_not_found": "../node_modules/@cenk1cenk2/oclif-common/dist/hooks/not-found.hook"
     },
     "topicSeparator": " "
   },
@@ -43,19 +43,44 @@
     "lint": "prettier --write src/ --loglevel warn && eslint --ext .ts,.js,.tsx,.jsx --fix src/",
     "lint:check": "eslint --ext .ts,.js,.tsx,.jsx src/"
   },
+  "simple-git-hooks": {
+    "pre-commit": "yarn exec lint-staged",
+    "prepare-commit-msg": "[ -t 1 ] && exec < /dev/tty && git cz --hook || true"
+  },
+  "lint-staged": {
+    "*.{ts,js,tsx,jsx}": [
+      "prettier --loglevel warn --write",
+      "eslint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --loglevel warn --write"
+    ]
+  },
   "dependencies": {
     "@cenk1cenk2/oclif-common": "*",
-    "@oclif/core": "^1",
+    "@oclif/core": "^1.13.10",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1"
   },
   "devDependencies": {
-    "@types/node": "^16.9.4",
+    "@anatine/esbuild-decorators": "^0.2.19",
+    "@cenk1cenk2/cz-cc": "^1.5.3",
+    "@cenk1cenk2/eslint-config": "^2.5.22",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^18.7.2",
+    "commitizen": "^4.2.5",
+    "eslint": "^8.20.0",
+    "fs-extra": "^10.1.0",
     "globby": "^11",
+    "lerna": "^5.4.0",
+    "lint-staged": "^13.0.3",
     "oclif": "^3",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
+    "simple-git-hooks": "^2.8.0",
     "ts-node": "^10.2.1",
-    "typescript": "^4.4.3"
+    "tsup": "^6.2.2",
+    "typescript": "^4.7.4"
   },
   "engines": {
     "node": ">=16.0.0"

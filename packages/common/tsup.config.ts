@@ -5,7 +5,7 @@ import { defineConfig } from 'tsup'
 export default defineConfig((options) => ({
   name: !options.watch && 'production',
 
-  entry: [ 'src/index.ts' ],
+  entry: [ 'src/index.ts', 'src/hooks/*.ts' ],
   tsconfig: options.watch ? 'tsconfig.json' : 'tsconfig.build.json',
 
   dts: true,

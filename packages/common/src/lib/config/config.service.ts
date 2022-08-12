@@ -3,19 +3,51 @@ import { dirname, join } from 'path'
 
 import type { BaseConfig } from './config.interface'
 import type { Command } from '@commands/base.command'
+import { FileConstants } from '@constants'
+import type { LockableData } from '@lib/locker'
+import { ParserService } from '@lib/parser/parser.service'
+import type { MergeStrategy } from '@utils'
+import { merge } from '@utils'
+import { Logger } from '@utils/logger'
 
 export class ConfigService<Config extends BaseConfig = BaseConfig> {
+  static instance: ConfigService<any>
   public config: Config
   public command: Command['ctor']
   public oclif: Command['config']
-  private configDir = join(dirname(require.main.filename), '../config')
+  public defaults = join(dirname(require.main.filename), '../config', FileConstants.CONFIG_SERVICE_DEFAULTS_DIR)
+  private dir = join(dirname(require.main.filename), '../config')
+  private readonly logger: Logger
+  private parser = new ParserService()
 
   constructor (command: Command<any, Config>) {
+    if (ConfigService.instance) {
+      return ConfigService.instance
+    } else {
+      ConfigService.instance = this
+    }
+
     this.command = command.ctor
     this.oclif = command.config
 
-    this.config = config.util.loadFileConfigs(this.configDir)
-    command.logger.trace('Loading user config from %s.', this.oclif.configDir)
-    this.config = config.util.extendDeep(this.config, config.util.loadFileConfigs(this.oclif.configDir))
+    this.config = config.util.loadFileConfigs(this.dir)
+
+    this.logger = new Logger(this.constructor.name, { level: this.config.loglevel })
+
+    this.logger.trace('Creating a new instance.')
+  }
+
+  public async read<T extends LockableData = LockableData>(strategy: MergeStrategy, ...paths: string[]): Promise<T> {
+    const configs = await Promise.all(
+      paths.map(async (path) => {
+        return this.parser.read<Partial<T>>(path)
+      })
+    )
+
+    return merge<T>({} as T, configs, strategy)
+  }
+
+  public async write<T extends LockableData = LockableData>(path: string, data: T): Promise<void> {
+    return this.parser.write(path, data)
   }
 }

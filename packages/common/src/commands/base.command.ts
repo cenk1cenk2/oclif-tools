@@ -1,16 +1,20 @@
 import { Command as BaseCommand } from '@oclif/core'
-import type { ListrContext } from 'listr2'
-import { Manager } from 'listr2'
+import type { ListrContext, PromptOptions } from 'listr2'
+import { createPrompt, Manager } from 'listr2'
 import { createInterface } from 'readline'
+import 'reflect-metadata'
 
 import { ConfigService, ValidatorService } from '@lib'
-import type { BaseConfig } from '@lib/config/config.interface'
+import { BaseConfig } from '@lib/config/config.interface'
+import { isDebug, isSilent } from '@utils'
 import { Logger, LogLevels } from '@utils/logger'
 
 export class Command<Ctx extends ListrContext = ListrContext, Config extends BaseConfig = BaseConfig> extends BaseCommand {
   public logger: Logger
   public tasks: Manager<Ctx, 'default'>
   public validator: ValidatorService
+  public isSilent: boolean
+  public isDebug: boolean
   public cs: ConfigService<Config>
 
   /** Every command needs to implement run for running the command itself. */
@@ -24,9 +28,16 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
   public async init (): Promise<void> {
     this.cs = new ConfigService(this)
 
+    this.isSilent = isSilent(this.cs.config)
+    this.isDebug = isDebug(this.cs.config)
+
     this.logger = new Logger(this.cs.command.id ? this.cs.command.id : this.cs.command.name, { level: this.cs.config.loglevel })
 
-    this.validator = new ValidatorService(this.logger)
+    this.greet()
+
+    this.validator = new ValidatorService()
+
+    await this.validator.validate(BaseConfig, this.cs.config)
 
     // initiate manager
     this.tasks = new Manager({
@@ -49,10 +60,8 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
       // show that we have understood that
       this.logger.fatal('Caught terminate signal.', { context: 'exit' })
 
-      process.exit(99)
+      process.exit(1)
     })
-
-    this.greet()
 
     await this.shouldRunBefore()
   }
@@ -102,12 +111,32 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
     process.exit(127)
   }
 
+  /** Gets prompt from user. */
+  public prompt<T = any>(options: PromptOptions): Promise<T> {
+    try {
+      return createPrompt(options, {
+        stdout: process.stdout,
+        cancelCallback: () => {
+          throw new Error('Cancelled prompt.')
+        }
+      })
+    } catch (e) {
+      this.logger.fatal('There was a problem getting the answer of the last question.')
+
+      throw e
+    }
+  }
+
   private greet (): void {
+    if (this.isSilent) {
+      return
+    }
+
     const logo = `${this.cs.oclif.name} v${this.cs.oclif.version}`
 
     // eslint-disable-next-line no-console
-    console.log(logo)
+    this.logger.direct(logo)
     // eslint-disable-next-line no-console
-    console.log('-'.repeat(logo.length))
+    this.logger.direct('-'.repeat(logo.length))
   }
 }

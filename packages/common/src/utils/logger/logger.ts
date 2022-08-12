@@ -21,7 +21,7 @@ export class Logger {
     this.options = {
       useIcons: true,
       ...options,
-      level: level ?? LogLevels.INFO
+      level: Object.values(LogLevels).includes(level) ? level : LogLevels.INFO
     }
 
     if (Logger.instance) {
@@ -35,6 +35,10 @@ export class Logger {
 
   public log (level: LogLevels, data: string | Buffer, ...args: any): void {
     return this.parseMessage(level, data, args)
+  }
+
+  public direct (data: string | Buffer, ...args: any): void {
+    return this.parseMessage(LogLevels.DIRECT, data, args)
   }
 
   public fatal (data: string | Buffer, ...args: any): void {
@@ -113,7 +117,7 @@ export class Logger {
       ]
     })
 
-    logger.log(LogLevels.TRACE, `Initiated new logger with level "${this.options.level}".`, { context: 'LOGGER' })
+    logger.log(LogLevels.TRACE, `Initiated new logger with level "${this.options.level}".`, { context: this.constructor.name })
 
     return logger as Winston
   }
@@ -135,6 +139,9 @@ export class Logger {
     }
 
     switch (level) {
+    case LogLevels.DIRECT:
+      return message
+
     case LogLevels.FATAL:
       coloring = (input): string => color.bgRed(color.white(input))
 

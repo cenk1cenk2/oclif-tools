@@ -1,5 +1,6 @@
 export enum LogLevels {
   SILENT = 'SILENT',
+  DIRECT = 'DIRECT',
   FATAL = 'FATAL',
   ERROR = 'ERROR',
   WARN = 'WARN',

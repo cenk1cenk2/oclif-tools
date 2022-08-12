@@ -11,7 +11,7 @@ export default class Hello extends Command {
     from: Flags.string({
       char: 'f',
       description: 'Whom is saying hello',
-      required: true
+      required: false
     })
   }
 
@@ -19,7 +19,7 @@ export default class Hello extends Command {
     {
       name: 'person',
       description: 'Person to say hello to',
-      required: true
+      required: false
     }
   ]
 

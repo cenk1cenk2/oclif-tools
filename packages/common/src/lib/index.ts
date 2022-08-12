@@ -1,3 +1,6 @@
 export * from './config'
+export * from './fs'
+export * from './locker'
+export * from './parser'
 export * from './validator'
 export * from './run'
