@@ -7,15 +7,16 @@ import 'reflect-metadata'
 import { FileSystemService, ConfigService, ValidatorService } from '@lib'
 import { BaseConfig } from '@lib/config/config.interface'
 import { ParserService } from '@lib/parser/parser.service'
-import { isDebug, isSilent } from '@utils'
+import { isDebug, isSilent, isVerbose } from '@utils'
 import { Logger } from '@utils/logger'
 
 export class Command<Ctx extends ListrContext = ListrContext, Config extends BaseConfig = BaseConfig> extends BaseCommand {
   public logger: Logger
   public tasks: Manager<Ctx, 'default'>
   public validator: ValidatorService
-  public isSilent: boolean
+  public isVerbose: boolean
   public isDebug: boolean
+  public isSilent: boolean
   public cs: ConfigService<Config>
   public parser: ParserService
   public fs: FileSystemService
@@ -31,8 +32,9 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
   public async init (): Promise<void> {
     this.cs = new ConfigService(this)
 
-    this.isSilent = isSilent(this.cs.config)
+    this.isVerbose = isVerbose(this.cs.config)
     this.isDebug = isDebug(this.cs.config)
+    this.isSilent = isSilent(this.cs.config)
 
     this.logger = new Logger(this.cs.command.id ? this.cs.command.id : this.cs.command.name, { level: this.cs.config.loglevel })
 
