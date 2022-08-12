@@ -28,14 +28,14 @@ packages/common/src/lib/parser/parser.interface.ts:2
 
 #### Type parameters
 
-| Name | Type      |
-| :--- | :-------- |
-| `T`  | `unknown` |
+| Name | Type |
+| :------ | :------ |
+| `T` | `unknown` |
 
 #### Parameters
 
-| Name   | Type                 |
-| :----- | :------------------- |
+| Name | Type |
+| :------ | :------ |
 | `data` | `string` \| `Buffer` |
 
 #### Returns
@@ -46,7 +46,7 @@ packages/common/src/lib/parser/parser.interface.ts:2
 
 packages/common/src/lib/parser/parser.interface.ts:3
 
----
+___
 
 ### stringify
 
@@ -54,15 +54,15 @@ packages/common/src/lib/parser/parser.interface.ts:3
 
 #### Type parameters
 
-| Name | Type  |
-| :--- | :---- |
-| `T`  | `any` |
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
 
 #### Parameters
 
-| Name   | Type |
-| :----- | :--- |
-| `data` | `T`  |
+| Name | Type |
+| :------ | :------ |
+| `data` | `T` |
 
 #### Returns
 

@@ -51,4 +51,4 @@
 ## Variables
 
 - [color](variables/color.md)
-- [WINSTON_INSTANCE](variables/WINSTON_INSTANCE.md)
+- [WINSTON\_INSTANCE](variables/WINSTON_INSTANCE.md)

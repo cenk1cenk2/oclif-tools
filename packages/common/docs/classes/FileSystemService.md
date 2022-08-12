@@ -10,7 +10,7 @@
 
 packages/common/src/lib/fs/filesystem.service.ts:7
 
----
+___
 
 ### logger
 
@@ -38,8 +38,8 @@ packages/common/src/lib/fs/filesystem.service.ts:10
 
 #### Parameters
 
-| Name   | Type     |
-| :----- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `path` | `string` |
 
 #### Returns
@@ -50,7 +50,7 @@ packages/common/src/lib/fs/filesystem.service.ts:10
 
 packages/common/src/lib/fs/filesystem.service.ts:20
 
----
+___
 
 ### stats
 
@@ -58,8 +58,8 @@ packages/common/src/lib/fs/filesystem.service.ts:20
 
 #### Parameters
 
-| Name   | Type     |
-| :----- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `path` | `string` |
 
 #### Returns
@@ -70,7 +70,7 @@ packages/common/src/lib/fs/filesystem.service.ts:20
 
 packages/common/src/lib/fs/filesystem.service.ts:24
 
----
+___
 
 ### dirname
 
@@ -78,8 +78,8 @@ packages/common/src/lib/fs/filesystem.service.ts:24
 
 #### Parameters
 
-| Name   | Type     |
-| :----- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `path` | `string` |
 
 #### Returns
@@ -90,7 +90,7 @@ packages/common/src/lib/fs/filesystem.service.ts:24
 
 packages/common/src/lib/fs/filesystem.service.ts:28
 
----
+___
 
 ### extname
 
@@ -98,8 +98,8 @@ packages/common/src/lib/fs/filesystem.service.ts:28
 
 #### Parameters
 
-| Name   | Type     |
-| :----- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `path` | `string` |
 
 #### Returns
@@ -110,7 +110,7 @@ packages/common/src/lib/fs/filesystem.service.ts:28
 
 packages/common/src/lib/fs/filesystem.service.ts:32
 
----
+___
 
 ### read
 
@@ -118,8 +118,8 @@ packages/common/src/lib/fs/filesystem.service.ts:32
 
 #### Parameters
 
-| Name   | Type     |
-| :----- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `file` | `string` |
 
 #### Returns
@@ -130,7 +130,7 @@ packages/common/src/lib/fs/filesystem.service.ts:32
 
 packages/common/src/lib/fs/filesystem.service.ts:36
 
----
+___
 
 ### write
 
@@ -138,11 +138,11 @@ packages/common/src/lib/fs/filesystem.service.ts:36
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `file`    | `string`             |
-| `data`    | `string` \| `Buffer` |
-| `options` | `WriteFileOptions`   |
+| Name | Type |
+| :------ | :------ |
+| `file` | `string` |
+| `data` | `string` \| `Buffer` |
+| `options` | `WriteFileOptions` |
 
 #### Returns
 
@@ -152,7 +152,7 @@ packages/common/src/lib/fs/filesystem.service.ts:36
 
 packages/common/src/lib/fs/filesystem.service.ts:48
 
----
+___
 
 ### append
 
@@ -160,9 +160,9 @@ packages/common/src/lib/fs/filesystem.service.ts:48
 
 #### Parameters
 
-| Name   | Type                 |
-| :----- | :------------------- |
-| `file` | `string`             |
+| Name | Type |
+| :------ | :------ |
+| `file` | `string` |
 | `data` | `string` \| `Buffer` |
 
 #### Returns
@@ -173,7 +173,7 @@ packages/common/src/lib/fs/filesystem.service.ts:48
 
 packages/common/src/lib/fs/filesystem.service.ts:58
 
----
+___
 
 ### remove
 
@@ -181,8 +181,8 @@ packages/common/src/lib/fs/filesystem.service.ts:58
 
 #### Parameters
 
-| Name   | Type     |
-| :----- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `file` | `string` |
 
 #### Returns
@@ -193,7 +193,7 @@ packages/common/src/lib/fs/filesystem.service.ts:58
 
 packages/common/src/lib/fs/filesystem.service.ts:68
 
----
+___
 
 ### removeFile
 
@@ -201,8 +201,8 @@ packages/common/src/lib/fs/filesystem.service.ts:68
 
 #### Parameters
 
-| Name   | Type     |
-| :----- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `file` | `string` |
 
 #### Returns
@@ -213,7 +213,7 @@ packages/common/src/lib/fs/filesystem.service.ts:68
 
 packages/common/src/lib/fs/filesystem.service.ts:80
 
----
+___
 
 ### removeDirectory
 
@@ -221,8 +221,8 @@ packages/common/src/lib/fs/filesystem.service.ts:80
 
 #### Parameters
 
-| Name        | Type     |
-| :---------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `directory` | `string` |
 
 #### Returns

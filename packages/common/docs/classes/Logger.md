@@ -12,7 +12,7 @@ A general logger for the the CLI applications.
 
 packages/common/src/utils/logger/logger.ts:14
 
----
+___
 
 ### logger
 
@@ -30,9 +30,9 @@ packages/common/src/utils/logger/logger.ts:15
 
 #### Parameters
 
-| Name       | Type                                              |
-| :--------- | :------------------------------------------------ |
-| `context?` | `string`                                          |
+| Name | Type |
+| :------ | :------ |
+| `context?` | `string` |
 | `options?` | [`LoggerOptions`](../interfaces/LoggerOptions.md) |
 
 #### Defined in
@@ -47,11 +47,11 @@ packages/common/src/utils/logger/logger.ts:17
 
 #### Parameters
 
-| Name      | Type                                 |
-| :-------- | :----------------------------------- |
-| `level`   | [`LogLevels`](../enums/LogLevels.md) |
-| `data`    | `string` \| `Buffer`                 |
-| `...args` | `any`                                |
+| Name | Type |
+| :------ | :------ |
+| `level` | [`LogLevels`](../enums/LogLevels.md) |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -61,7 +61,7 @@ packages/common/src/utils/logger/logger.ts:17
 
 packages/common/src/utils/logger/logger.ts:36
 
----
+___
 
 ### direct
 
@@ -69,10 +69,10 @@ packages/common/src/utils/logger/logger.ts:36
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `data`    | `string` \| `Buffer` |
-| `...args` | `any`                |
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -82,7 +82,7 @@ packages/common/src/utils/logger/logger.ts:36
 
 packages/common/src/utils/logger/logger.ts:40
 
----
+___
 
 ### fatal
 
@@ -90,10 +90,10 @@ packages/common/src/utils/logger/logger.ts:40
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `data`    | `string` \| `Buffer` |
-| `...args` | `any`                |
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -103,7 +103,7 @@ packages/common/src/utils/logger/logger.ts:40
 
 packages/common/src/utils/logger/logger.ts:44
 
----
+___
 
 ### error
 
@@ -111,10 +111,10 @@ packages/common/src/utils/logger/logger.ts:44
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `data`    | `string` \| `Buffer` |
-| `...args` | `any`                |
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -124,7 +124,7 @@ packages/common/src/utils/logger/logger.ts:44
 
 packages/common/src/utils/logger/logger.ts:48
 
----
+___
 
 ### warn
 
@@ -132,10 +132,10 @@ packages/common/src/utils/logger/logger.ts:48
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `data`    | `string` \| `Buffer` |
-| `...args` | `any`                |
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -145,7 +145,7 @@ packages/common/src/utils/logger/logger.ts:48
 
 packages/common/src/utils/logger/logger.ts:52
 
----
+___
 
 ### info
 
@@ -153,10 +153,10 @@ packages/common/src/utils/logger/logger.ts:52
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `data`    | `string` \| `Buffer` |
-| `...args` | `any`                |
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -166,7 +166,7 @@ packages/common/src/utils/logger/logger.ts:52
 
 packages/common/src/utils/logger/logger.ts:56
 
----
+___
 
 ### debug
 
@@ -174,10 +174,10 @@ packages/common/src/utils/logger/logger.ts:56
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `data`    | `string` \| `Buffer` |
-| `...args` | `any`                |
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -187,7 +187,7 @@ packages/common/src/utils/logger/logger.ts:56
 
 packages/common/src/utils/logger/logger.ts:60
 
----
+___
 
 ### verbose
 
@@ -195,10 +195,10 @@ packages/common/src/utils/logger/logger.ts:60
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `data`    | `string` \| `Buffer` |
-| `...args` | `any`                |
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -208,7 +208,7 @@ packages/common/src/utils/logger/logger.ts:60
 
 packages/common/src/utils/logger/logger.ts:64
 
----
+___
 
 ### trace
 
@@ -216,10 +216,10 @@ packages/common/src/utils/logger/logger.ts:64
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `data`    | `string` \| `Buffer` |
-| `...args` | `any`                |
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -229,7 +229,7 @@ packages/common/src/utils/logger/logger.ts:64
 
 packages/common/src/utils/logger/logger.ts:68
 
----
+___
 
 ### run
 
@@ -237,10 +237,10 @@ packages/common/src/utils/logger/logger.ts:68
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `data`    | `string` \| `Buffer` |
-| `...args` | `any`                |
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -250,7 +250,7 @@ packages/common/src/utils/logger/logger.ts:68
 
 packages/common/src/utils/logger/logger.ts:73
 
----
+___
 
 ### end
 
@@ -258,10 +258,10 @@ packages/common/src/utils/logger/logger.ts:73
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `data`    | `string` \| `Buffer` |
-| `...args` | `any`                |
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -271,7 +271,7 @@ packages/common/src/utils/logger/logger.ts:73
 
 packages/common/src/utils/logger/logger.ts:77
 
----
+___
 
 ### initiateLogger
 
@@ -285,7 +285,7 @@ packages/common/src/utils/logger/logger.ts:77
 
 packages/common/src/utils/logger/logger.ts:81
 
----
+___
 
 ### parseMessage
 
@@ -293,11 +293,11 @@ packages/common/src/utils/logger/logger.ts:81
 
 #### Parameters
 
-| Name      | Type                                                        |
-| :-------- | :---------------------------------------------------------- |
-| `level`   | [`LogLevels`](../enums/LogLevels.md)                        |
-| `data`    | `string` \| `Buffer`                                        |
-| `args?`   | `any`[]                                                     |
+| Name | Type |
+| :------ | :------ |
+| `level` | [`LogLevels`](../enums/LogLevels.md) |
+| `data` | `string` \| `Buffer` |
+| `args?` | `any`[] |
 | `format?` | `Partial`<[`LoggerFormat`](../interfaces/LoggerFormat.md)\> |
 
 #### Returns
@@ -308,7 +308,7 @@ packages/common/src/utils/logger/logger.ts:81
 
 packages/common/src/utils/logger/logger.ts:125
 
----
+___
 
 ### logColoring
 
@@ -316,8 +316,8 @@ packages/common/src/utils/logger/logger.ts:125
 
 #### Parameters
 
-| Name                | Type                                            |
-| :------------------ | :---------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `__namedParameters` | [`LoggerFormat`](../interfaces/LoggerFormat.md) |
 
 #### Returns

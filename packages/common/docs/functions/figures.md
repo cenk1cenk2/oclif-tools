@@ -20,8 +20,8 @@ console.log(figures.tick);
 
 #### Parameters
 
-| Name     | Type     | Description                                                                                  |
-| :------- | :------- | :------------------------------------------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `string` | `string` | String where the Unicode symbols will be replaced with fallback symbols depending on the OS. |
 
 #### Returns

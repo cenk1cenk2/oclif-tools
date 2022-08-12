@@ -10,7 +10,7 @@
 
 packages/common/src/lib/validator/validator.service.ts:10
 
----
+___
 
 ### options
 
@@ -28,8 +28,8 @@ packages/common/src/lib/validator/validator.service.ts:12
 
 #### Parameters
 
-| Name       | Type                                                                  |
-| :--------- | :-------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `options?` | [`ValidatorServiceOptions`](../interfaces/ValidatorServiceOptions.md) |
 
 #### Defined in
@@ -44,16 +44,16 @@ packages/common/src/lib/validator/validator.service.ts:12
 
 #### Type parameters
 
-| Name | Type                                    |
-| :--- | :-------------------------------------- |
-| `T`  | extends `Record`<`PropertyKey`, `any`\> |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `Record`<`PropertyKey`, `any`\> |
 
 #### Parameters
 
-| Name        | Type                                       |
-| :---------- | :----------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `classType` | [`ClassType`](../types/ClassType.md)<`T`\> |
-| `object`    | `T`                                        |
+| `object` | `T` |
 
 #### Returns
 
@@ -63,7 +63,7 @@ packages/common/src/lib/validator/validator.service.ts:12
 
 packages/common/src/lib/validator/validator.service.ts:25
 
----
+___
 
 ### validateSync
 
@@ -71,16 +71,16 @@ packages/common/src/lib/validator/validator.service.ts:25
 
 #### Type parameters
 
-| Name | Type                                    |
-| :--- | :-------------------------------------- |
-| `T`  | extends `Record`<`PropertyKey`, `any`\> |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `Record`<`PropertyKey`, `any`\> |
 
 #### Parameters
 
-| Name        | Type                                       |
-| :---------- | :----------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `classType` | [`ClassType`](../types/ClassType.md)<`T`\> |
-| `object`    | `T`                                        |
+| `object` | `T` |
 
 #### Returns
 
@@ -90,7 +90,7 @@ packages/common/src/lib/validator/validator.service.ts:25
 
 packages/common/src/lib/validator/validator.service.ts:41
 
----
+___
 
 ### logValidationError
 
@@ -98,8 +98,8 @@ packages/common/src/lib/validator/validator.service.ts:41
 
 #### Parameters
 
-| Name  | Type              |
-| :---- | :---------------- |
+| Name | Type |
+| :------ | :------ |
 | `err` | `ValidationError` |
 
 #### Returns

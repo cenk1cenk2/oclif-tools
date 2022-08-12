@@ -2,9 +2,9 @@
 
 ## Enumeration Members
 
-### CONFIG_SERVICE_DEFAULTS_DIR
+### CONFIG\_SERVICE\_DEFAULTS\_DIR
 
-• **CONFIG_SERVICE_DEFAULTS_DIR** = `"defaults"`
+• **CONFIG\_SERVICE\_DEFAULTS\_DIR** = ``"defaults"``
 
 #### Defined in
 

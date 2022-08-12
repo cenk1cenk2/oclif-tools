@@ -2,9 +2,9 @@
 
 ## Type parameters
 
-| Name | Type             |
-| :--- | :--------------- |
-| `T`  | extends `string` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `string` |
 
 ## Properties
 
@@ -16,7 +16,7 @@
 
 packages/common/src/interfaces/config-command.interface.ts:6
 
----
+___
 
 ### locker
 

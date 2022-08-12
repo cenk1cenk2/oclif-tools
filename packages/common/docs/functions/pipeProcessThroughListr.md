@@ -4,9 +4,9 @@
 
 #### Parameters
 
-| Name       | Type                           |
-| :--------- | :----------------------------- |
-| `task`     | `TaskWrapper`<`any`, `any`\>   |
+| Name | Type |
+| :------ | :------ |
+| `task` | `TaskWrapper`<`any`, `any`\> |
 | `instance` | `ExecaChildProcess`<`string`\> |
 
 #### Returns

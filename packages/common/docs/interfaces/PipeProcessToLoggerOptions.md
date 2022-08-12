@@ -12,7 +12,7 @@ Will log the command when the process starts.
 
 packages/common/src/utils/logger/pipe/pipe-process-to-logger.interface.ts:5
 
----
+___
 
 ### end
 
@@ -24,7 +24,7 @@ Will log the command when the process ends.
 
 packages/common/src/utils/logger/pipe/pipe-process-to-logger.interface.ts:7
 
----
+___
 
 ### stdout
 
@@ -36,7 +36,7 @@ enable/disable stdout
 
 packages/common/src/utils/logger/pipe/pipe-process-to-logger.interface.ts:9
 
----
+___
 
 ### stderr
 
@@ -48,7 +48,7 @@ enable/disable stderrr
 
 packages/common/src/utils/logger/pipe/pipe-process-to-logger.interface.ts:11
 
----
+___
 
 ### callback
 
@@ -62,8 +62,8 @@ will callback on error in the instance
 
 ##### Parameters
 
-| Name     | Type    |
-| :------- | :------ |
+| Name | Type |
+| :------ | :------ |
 | `error?` | `Error` |
 
 ##### Returns

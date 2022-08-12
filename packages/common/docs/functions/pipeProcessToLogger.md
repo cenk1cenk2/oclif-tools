@@ -6,10 +6,10 @@ Given the instance it will pipe process output through the logger to append pref
 
 #### Parameters
 
-| Name       | Type                                                                        |
-| :--------- | :-------------------------------------------------------------------------- |
-| `logger`   | [`Logger`](../classes/Logger.md)                                            |
-| `instance` | `ExecaChildProcess`<`string`\>                                              |
+| Name | Type |
+| :------ | :------ |
+| `logger` | [`Logger`](../classes/Logger.md) |
+| `instance` | `ExecaChildProcess`<`string`\> |
 | `options?` | [`PipeProcessToLoggerOptions`](../interfaces/PipeProcessToLoggerOptions.md) |
 
 #### Returns

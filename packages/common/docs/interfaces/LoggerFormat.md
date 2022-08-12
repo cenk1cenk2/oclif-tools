@@ -10,7 +10,7 @@
 
 packages/common/src/utils/logger/logger.interface.ts:11
 
----
+___
 
 ### message
 
@@ -20,7 +20,7 @@ packages/common/src/utils/logger/logger.interface.ts:11
 
 packages/common/src/utils/logger/logger.interface.ts:12
 
----
+___
 
 ### context
 
@@ -30,7 +30,7 @@ packages/common/src/utils/logger/logger.interface.ts:12
 
 packages/common/src/utils/logger/logger.interface.ts:13
 
----
+___
 
 ### status
 

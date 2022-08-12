@@ -18,7 +18,7 @@
 
 packages/common/src/lib/parser/yaml-parser.service.ts:7
 
----
+___
 
 ### instance
 
@@ -28,7 +28,7 @@ packages/common/src/lib/parser/yaml-parser.service.ts:7
 
 packages/common/src/lib/parser/yaml-parser.service.ts:8
 
----
+___
 
 ### logger
 
@@ -56,14 +56,14 @@ packages/common/src/lib/parser/yaml-parser.service.ts:11
 
 #### Type parameters
 
-| Name | Type      |
-| :--- | :-------- |
-| `T`  | `unknown` |
+| Name | Type |
+| :------ | :------ |
+| `T` | `unknown` |
 
 #### Parameters
 
-| Name   | Type                 |
-| :----- | :------------------- |
+| Name | Type |
+| :------ | :------ |
 | `data` | `string` \| `Buffer` |
 
 #### Returns
@@ -78,7 +78,7 @@ packages/common/src/lib/parser/yaml-parser.service.ts:11
 
 packages/common/src/lib/parser/yaml-parser.service.ts:21
 
----
+___
 
 ### stringify
 
@@ -86,15 +86,15 @@ packages/common/src/lib/parser/yaml-parser.service.ts:21
 
 #### Type parameters
 
-| Name | Type  |
-| :--- | :---- |
-| `T`  | `any` |
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
 
 #### Parameters
 
-| Name   | Type |
-| :----- | :--- |
-| `data` | `T`  |
+| Name | Type |
+| :------ | :------ |
+| `data` | `T` |
 
 #### Returns
 

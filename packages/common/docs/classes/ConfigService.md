@@ -2,8 +2,8 @@
 
 ## Type parameters
 
-| Name     | Type                                                                  |
-| :------- | :-------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `Config` | extends [`BaseConfig`](BaseConfig.md) = [`BaseConfig`](BaseConfig.md) |
 
 ## Properties
@@ -16,7 +16,7 @@
 
 packages/common/src/lib/config/config.service.ts:14
 
----
+___
 
 ### config
 
@@ -26,7 +26,7 @@ packages/common/src/lib/config/config.service.ts:14
 
 packages/common/src/lib/config/config.service.ts:15
 
----
+___
 
 ### command
 
@@ -36,7 +36,7 @@ packages/common/src/lib/config/config.service.ts:15
 
 packages/common/src/lib/config/config.service.ts:16
 
----
+___
 
 ### oclif
 
@@ -46,7 +46,7 @@ packages/common/src/lib/config/config.service.ts:16
 
 packages/common/src/lib/config/config.service.ts:17
 
----
+___
 
 ### defaults
 
@@ -56,7 +56,7 @@ packages/common/src/lib/config/config.service.ts:17
 
 packages/common/src/lib/config/config.service.ts:18
 
----
+___
 
 ### dir
 
@@ -66,7 +66,7 @@ packages/common/src/lib/config/config.service.ts:18
 
 packages/common/src/lib/config/config.service.ts:19
 
----
+___
 
 ### parser
 
@@ -76,7 +76,7 @@ packages/common/src/lib/config/config.service.ts:19
 
 packages/common/src/lib/config/config.service.ts:20
 
----
+___
 
 ### logger
 
@@ -94,14 +94,14 @@ packages/common/src/lib/config/config.service.ts:21
 
 #### Type parameters
 
-| Name     | Type                                                                             |
-| :------- | :------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `Config` | extends [`BaseConfig`](BaseConfig.md)<`Config`\> = [`BaseConfig`](BaseConfig.md) |
 
 #### Parameters
 
-| Name      | Type                                      |
-| :-------- | :---------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `command` | [`Command`](Command.md)<`any`, `Config`\> |
 
 #### Defined in
@@ -116,16 +116,16 @@ packages/common/src/lib/config/config.service.ts:23
 
 #### Type parameters
 
-| Name | Type                      |
-| :--- | :------------------------ |
-| `T`  | extends `unknown` = `any` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `unknown` = `any` |
 
 #### Parameters
 
-| Name       | Type                                         |
-| :--------- | :------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `strategy` | [`MergeStrategy`](../enums/MergeStrategy.md) |
-| `...paths` | `string`[]                                   |
+| `...paths` | `string`[] |
 
 #### Returns
 
@@ -135,7 +135,7 @@ packages/common/src/lib/config/config.service.ts:23
 
 packages/common/src/lib/config/config.service.ts:42
 
----
+___
 
 ### write
 
@@ -143,16 +143,16 @@ packages/common/src/lib/config/config.service.ts:42
 
 #### Type parameters
 
-| Name | Type                      |
-| :--- | :------------------------ |
-| `T`  | extends `unknown` = `any` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `unknown` = `any` |
 
 #### Parameters
 
-| Name   | Type     |
-| :----- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `path` | `string` |
-| `data` | `T`      |
+| `data` | `T` |
 
 #### Returns
 

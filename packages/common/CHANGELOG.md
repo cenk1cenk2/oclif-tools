@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [1.1.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.0.0...@cenk1cenk2/oclif-common@1.1.0) (2022-08-12)
+
+### Features
+
+- expose filesystemservice through commands ([2cce99e](https://gitlab.kilic.dev/libraries/oclif-tools/commit/2cce99e299a6c236c606c838d1fac5c5be93945a))
+
 # @cenk1cenk2/oclif-common 1.0.0 (2022-08-12)
 
 ### Bug Fixes

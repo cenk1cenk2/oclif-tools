@@ -4,10 +4,10 @@
 
 #### Parameters
 
-| Name      | Type                                                              |
-| :-------- | :---------------------------------------------------------------- |
-| `this`    | `Context`                                                         |
-| `options` | { `id`: `string` ; `argv?`: `string`[] } & { `config`: `Config` } |
+| Name | Type |
+| :------ | :------ |
+| `this` | `Context` |
+| `options` | { `id`: `string` ; `argv?`: `string`[]  } & { `config`: `Config`  } |
 
 #### Returns
 

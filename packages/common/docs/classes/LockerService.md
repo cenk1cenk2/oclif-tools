@@ -10,7 +10,7 @@
 
 packages/common/src/lib/locker/locker.service.ts:10
 
----
+___
 
 ### toUnlock
 
@@ -20,7 +20,7 @@ packages/common/src/lib/locker/locker.service.ts:10
 
 packages/common/src/lib/locker/locker.service.ts:11
 
----
+___
 
 ### logger
 
@@ -30,7 +30,7 @@ packages/common/src/lib/locker/locker.service.ts:11
 
 packages/common/src/lib/locker/locker.service.ts:12
 
----
+___
 
 ### fs
 
@@ -48,11 +48,11 @@ packages/common/src/lib/locker/locker.service.ts:13
 
 #### Parameters
 
-| Name     | Type                                |
-| :------- | :---------------------------------- |
-| `file`   | `string`                            |
+| Name | Type |
+| :------ | :------ |
+| `file` | `string` |
 | `parser` | [`GenericParser`](GenericParser.md) |
-| `root?`  | `string`                            |
+| `root?` | `string` |
 
 #### Defined in
 
@@ -72,7 +72,7 @@ packages/common/src/lib/locker/locker.service.ts:15
 
 packages/common/src/lib/locker/locker.service.ts:17
 
----
+___
 
 ### hasUnlock
 
@@ -86,7 +86,7 @@ packages/common/src/lib/locker/locker.service.ts:17
 
 packages/common/src/lib/locker/locker.service.ts:21
 
----
+___
 
 ### addLock
 
@@ -94,14 +94,14 @@ packages/common/src/lib/locker/locker.service.ts:21
 
 #### Type parameters
 
-| Name | Type              |
-| :--- | :---------------- |
-| `T`  | extends `unknown` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `unknown` |
 
 #### Parameters
 
-| Name   | Type                                                                                             |
-| :----- | :----------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `data` | [`LockData`](../interfaces/LockData.md)<`T`\> \| [`LockData`](../interfaces/LockData.md)<`T`\>[] |
 
 #### Returns
@@ -112,7 +112,7 @@ packages/common/src/lib/locker/locker.service.ts:21
 
 packages/common/src/lib/locker/locker.service.ts:25
 
----
+___
 
 ### addUnlock
 
@@ -120,8 +120,8 @@ packages/common/src/lib/locker/locker.service.ts:25
 
 #### Parameters
 
-| Name    | Type                                                                                         |
-| :------ | :------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `data?` | [`UnlockData`](../interfaces/UnlockData.md) \| [`UnlockData`](../interfaces/UnlockData.md)[] |
 
 #### Returns
@@ -132,7 +132,7 @@ packages/common/src/lib/locker/locker.service.ts:25
 
 packages/common/src/lib/locker/locker.service.ts:29
 
----
+___
 
 ### lockAll
 
@@ -146,7 +146,7 @@ packages/common/src/lib/locker/locker.service.ts:29
 
 packages/common/src/lib/locker/locker.service.ts:33
 
----
+___
 
 ### unlockAll
 
@@ -160,7 +160,7 @@ packages/common/src/lib/locker/locker.service.ts:33
 
 packages/common/src/lib/locker/locker.service.ts:41
 
----
+___
 
 ### lock
 
@@ -168,14 +168,14 @@ packages/common/src/lib/locker/locker.service.ts:41
 
 #### Type parameters
 
-| Name | Type              |
-| :--- | :---------------- |
-| `T`  | extends `unknown` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `unknown` |
 
 #### Parameters
 
-| Name   | Type                                                                                             |
-| :----- | :----------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `data` | [`LockData`](../interfaces/LockData.md)<`T`\> \| [`LockData`](../interfaces/LockData.md)<`T`\>[] |
 
 #### Returns
@@ -186,7 +186,7 @@ packages/common/src/lib/locker/locker.service.ts:41
 
 packages/common/src/lib/locker/locker.service.ts:49
 
----
+___
 
 ### unlock
 
@@ -194,8 +194,8 @@ packages/common/src/lib/locker/locker.service.ts:49
 
 #### Parameters
 
-| Name    | Type                                                                                         |
-| :------ | :------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `data?` | [`UnlockData`](../interfaces/UnlockData.md) \| [`UnlockData`](../interfaces/UnlockData.md)[] |
 
 #### Returns
@@ -206,7 +206,7 @@ packages/common/src/lib/locker/locker.service.ts:49
 
 packages/common/src/lib/locker/locker.service.ts:96
 
----
+___
 
 ### read
 
@@ -214,8 +214,8 @@ packages/common/src/lib/locker/locker.service.ts:96
 
 #### Type parameters
 
-| Name       | Type                      |
-| :--------- | :------------------------ |
+| Name | Type |
+| :------ | :------ |
 | `LockFile` | extends `unknown` = `any` |
 
 #### Returns
@@ -226,7 +226,7 @@ packages/common/src/lib/locker/locker.service.ts:96
 
 packages/common/src/lib/locker/locker.service.ts:137
 
----
+___
 
 ### write
 
@@ -234,14 +234,14 @@ packages/common/src/lib/locker/locker.service.ts:137
 
 #### Type parameters
 
-| Name       | Type              |
-| :--------- | :---------------- |
+| Name | Type |
+| :------ | :------ |
 | `LockFile` | extends `unknown` |
 
 #### Parameters
 
-| Name   | Type       |
-| :----- | :--------- |
+| Name | Type |
+| :------ | :------ |
 | `data` | `LockFile` |
 
 #### Returns
@@ -252,7 +252,7 @@ packages/common/src/lib/locker/locker.service.ts:137
 
 packages/common/src/lib/locker/locker.service.ts:141
 
----
+___
 
 ### buildPath
 
@@ -260,15 +260,15 @@ packages/common/src/lib/locker/locker.service.ts:141
 
 #### Type parameters
 
-| Name | Type                                                            |
-| :--- | :-------------------------------------------------------------- |
-| `T`  | extends [`CommonLockerData`](../interfaces/CommonLockerData.md) |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`CommonLockerData`](../interfaces/CommonLockerData.md) |
 
 #### Parameters
 
 | Name | Type |
-| :--- | :--- |
-| `d`  | `T`  |
+| :------ | :------ |
+| `d` | `T` |
 
 #### Returns
 

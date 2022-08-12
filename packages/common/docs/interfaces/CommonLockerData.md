@@ -18,7 +18,7 @@
 
 packages/common/src/lib/locker/locker.interface.ts:4
 
----
+___
 
 ### enabled
 
@@ -28,7 +28,7 @@ packages/common/src/lib/locker/locker.interface.ts:4
 
 packages/common/src/lib/locker/locker.interface.ts:5
 
----
+___
 
 ### root
 

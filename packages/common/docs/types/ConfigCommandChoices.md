@@ -4,9 +4,9 @@
 
 #### Type parameters
 
-| Name | Type             |
-| :--- | :--------------- |
-| `T`  | extends `string` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `string` |
 
 #### Defined in
 

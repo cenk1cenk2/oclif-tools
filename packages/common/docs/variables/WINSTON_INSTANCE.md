@@ -1,6 +1,6 @@
-# Variable: WINSTON_INSTANCE
+# Variable: WINSTON\_INSTANCE
 
-• `Const` **WINSTON_INSTANCE**: `"WINSTON_DEFAULT_LOGGER"`
+• `Const` **WINSTON\_INSTANCE**: ``"WINSTON_DEFAULT_LOGGER"``
 
 #### Defined in
 
