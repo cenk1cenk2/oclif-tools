@@ -4,7 +4,7 @@ import { createPrompt, Manager } from 'listr2'
 import { createInterface } from 'readline'
 import 'reflect-metadata'
 
-import { ConfigService, ValidatorService } from '@lib'
+import { FileSystemService, ConfigService, ValidatorService } from '@lib'
 import { BaseConfig } from '@lib/config/config.interface'
 import { ParserService } from '@lib/parser/parser.service'
 import { isDebug, isSilent } from '@utils'
@@ -18,6 +18,7 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
   public isDebug: boolean
   public cs: ConfigService<Config>
   public parser: ParserService
+  public fs: FileSystemService
 
   /** Every command needs to implement run for running the command itself. */
   // make run non-abstract for other classes
@@ -36,6 +37,7 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
     this.logger = new Logger(this.cs.command.id ? this.cs.command.id : this.cs.command.name, { level: this.cs.config.loglevel })
 
     this.parser = new ParserService()
+    this.fs = new FileSystemService()
 
     this.greet()
 
