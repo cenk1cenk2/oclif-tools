@@ -13,7 +13,5 @@ require('ts-node').register({ project })
 // In dev mode, always show stack traces
 oclif.settings.debug = true
 
-require('@cenk1cenk2/oclif-common').setup()
-
 // Start the CLI
 oclif.run().then(oclif.flush).catch(oclif.Errors.handle)

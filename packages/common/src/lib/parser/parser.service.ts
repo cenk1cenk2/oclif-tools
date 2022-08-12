@@ -27,7 +27,7 @@ export class ParserService {
 
   public getParser (file: string): GenericParser {
     const ext = this.fs.extname(file)
-    const Parser = this.parsers.find((parser) => parser.prototype.extensions.includes(ext))
+    const Parser = this.parsers.find((parser) => (parser as any).extensions.includes(ext))
 
     if (!Parser) {
       throw new Error(`Parser for the extension is not configured: ${ext}`)
