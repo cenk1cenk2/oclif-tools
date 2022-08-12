@@ -10,7 +10,7 @@ export default defineConfig((options) => ({
 
   dts: true,
 
-  format: [ 'cjs', 'esm' ],
+  format: [ 'cjs' ],
 
   target: [ 'es2021' ],
 
