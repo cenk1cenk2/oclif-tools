@@ -37,7 +37,7 @@
   "scripts": {
     "dev": "./bin/dev",
     "start": "./bin/run",
-    "prebuild": "yarn run manifest && yarn run readme",
+    "prebuild": "yarn run manifest && yarn run docs:toc",
     "build": "tsup-node",
     "dev:start": "tsup-node --watch",
     "clean": "rimraf oclif.manifset.json",
