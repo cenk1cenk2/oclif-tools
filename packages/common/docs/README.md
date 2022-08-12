@@ -1,5 +1,16 @@
 # @cenk1cenk2/oclif-common
 
+## Variables
+
+- [config](variables/config.md)
+- [color](variables/color.md)
+- [WINSTON\_INSTANCE](variables/WINSTON_INSTANCE.md)
+
+## Namespaces
+
+- [config](modules/config-1.md)
+- [fs](modules/fs.md)
+
 ## Functions
 
 - [figures](functions/figures.md)
@@ -47,8 +58,3 @@
 - [LoggerOptions](interfaces/LoggerOptions.md)
 - [LoggerFormat](interfaces/LoggerFormat.md)
 - [PipeProcessToLoggerOptions](interfaces/PipeProcessToLoggerOptions.md)
-
-## Variables
-
-- [color](variables/color.md)
-- [WINSTON\_INSTANCE](variables/WINSTON_INSTANCE.md)

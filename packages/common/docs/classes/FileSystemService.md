@@ -54,7 +54,7 @@ ___
 
 ### stats
 
-▸ **stats**(`path`): `Stats`
+▸ **stats**(`path`): [`Stats`](fs.Stats.md)
 
 #### Parameters
 
@@ -64,7 +64,7 @@ ___
 
 #### Returns
 
-`Stats`
+[`Stats`](fs.Stats.md)
 
 #### Defined in
 
@@ -132,6 +132,26 @@ packages/common/src/lib/fs/filesystem.service.ts:36
 
 ___
 
+### readSync
+
+▸ **readSync**(`file`): `string`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `file` | `string` |
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:48
+
+___
+
 ### write
 
 ▸ **write**(`file`, `data`, `options?`): `Promise`<`void`\>
@@ -142,7 +162,7 @@ ___
 | :------ | :------ |
 | `file` | `string` |
 | `data` | `string` \| `Buffer` |
-| `options` | `WriteFileOptions` |
+| `options` | [`WriteFileOptions`](../interfaces/fs.WriteFileOptions.md) |
 
 #### Returns
 
@@ -150,7 +170,29 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:48
+packages/common/src/lib/fs/filesystem.service.ts:60
+
+___
+
+### writeSync
+
+▸ **writeSync**(`file`, `data`, `options?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `file` | `string` |
+| `data` | `string` \| `Buffer` |
+| `options` | [`WriteFileOptions`](../interfaces/fs.WriteFileOptions.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:70
 
 ___
 
@@ -171,7 +213,28 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:58
+packages/common/src/lib/fs/filesystem.service.ts:80
+
+___
+
+### appendSync
+
+▸ **appendSync**(`file`, `data`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `file` | `string` |
+| `data` | `string` \| `Buffer` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:90
 
 ___
 
@@ -191,7 +254,27 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:68
+packages/common/src/lib/fs/filesystem.service.ts:100
+
+___
+
+### removeSync
+
+▸ **removeSync**(`file`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `file` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:112
 
 ___
 
@@ -211,7 +294,27 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:80
+packages/common/src/lib/fs/filesystem.service.ts:124
+
+___
+
+### removeFileSync
+
+▸ **removeFileSync**(`file`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `file` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:138
 
 ___
 
@@ -231,4 +334,64 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:94
+packages/common/src/lib/fs/filesystem.service.ts:152
+
+___
+
+### removeDirectorySync
+
+▸ **removeDirectorySync**(`directory`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `directory` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:166
+
+___
+
+### readDir
+
+▸ **readDir**(`directory`): `Promise`<`string`[]\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `directory` | `string` |
+
+#### Returns
+
+`Promise`<`string`[]\>
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:180
+
+___
+
+### readDirSync
+
+▸ **readDirSync**(`directory`): `string`[]
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `directory` | `string` |
+
+#### Returns
+
+`string`[]
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:192
