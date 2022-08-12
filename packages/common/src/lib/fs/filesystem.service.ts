@@ -176,30 +176,6 @@ export class FileSystemService {
       throw e
     }
   }
-
-  public async readDir (directory: string): Promise<string[]> {
-    try {
-      const results = await fs.readdir(directory)
-
-      return results
-    } catch (e) {
-      this.logger.fatal('Error while reading directory from "%s": %s', directory, e.message)
-
-      throw e
-    }
-  }
-
-  public readDirSync (directory: string): string[] {
-    try {
-      const results = fs.readdirSync(directory)
-
-      return results
-    } catch (e) {
-      this.logger.fatal('Error while reading directory from "%s": %s', directory, e.message)
-
-      throw e
-    }
-  }
 }
 
 export { fs }
