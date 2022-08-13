@@ -39,9 +39,7 @@ export class FileSystemService {
 
       return raw
     } catch (e) {
-      this.logger.fatal('Error while reading file from "%s": %s', file, e.message)
-
-      throw e
+      throw new Error(`Error while reading file from "${file}": ${e.message}`)
     }
   }
 
@@ -51,9 +49,7 @@ export class FileSystemService {
 
       return raw
     } catch (e) {
-      this.logger.fatal('Error while reading file from "%s": %s', file, e.message)
-
-      throw e
+      throw new Error(`Error while reading file from "${file}": ${e.message}`)
     }
   }
 
@@ -61,9 +57,7 @@ export class FileSystemService {
     try {
       await fs.writeFile(file, data, { encoding: 'utf-8', ...options })
     } catch (e) {
-      this.logger.fatal('Error while writing file to "%s": %s', file, e.message)
-
-      throw e
+      throw new Error(`Error while writing file to "${file}": ${e.message}`)
     }
   }
 
@@ -71,19 +65,15 @@ export class FileSystemService {
     try {
       fs.writeFileSync(file, data, { encoding: 'utf-8', ...options } as any)
     } catch (e) {
-      this.logger.fatal('Error while writing file to "%s": %s', file, e.message)
-
-      throw e
+      throw new Error(`Error while writing file to "${file}": ${e.message}`)
     }
   }
 
-  public async append (file: string, data: string | Buffer): Promise<void> {
+  public async append (file: string, data: string | Buffer, options?: fs.WriteFileOptions): Promise<void> {
     try {
-      await fs.appendFile(file, data)
+      await fs.appendFile(file, data, options)
     } catch (e) {
-      this.logger.fatal('Error while appending file to "%s": %s', file, e.message)
-
-      throw e
+      throw new Error(`Error while appending to file  "${file}": ${e.message}`)
     }
   }
 
@@ -91,89 +81,39 @@ export class FileSystemService {
     try {
       fs.appendFileSync(file, data)
     } catch (e) {
-      this.logger.fatal('Error while appending file to "%s": %s', file, e.message)
-
-      throw e
+      throw new Error(`Error while appending to file  "${file}": ${e.message}`)
     }
   }
 
-  public async remove (file: string): Promise<void> {
-    const stats = this.stats(file)
-
-    if (stats.isFile()) {
-      return this.removeFile(file)
-    } else if (stats.isDirectory()) {
-      return this.removeDirectory(file)
-    }
-
-    throw new Error('Not implemented!')
-  }
-
-  public removeSync (file: string): void {
-    const stats = this.stats(file)
-
-    if (stats.isFile()) {
-      return this.removeFileSync(file)
-    } else if (stats.isDirectory()) {
-      return this.removeDirectorySync(file)
-    }
-
-    throw new Error('Not implemented!')
-  }
-
-  public async removeFile (file: string): Promise<void> {
+  public async remove (file: string, options?: fs.RmOptions): Promise<void> {
     try {
-      if (this.stats(file).isFile()) {
-        await fs.unlink(file)
-      } else {
-        throw new Error('Not a file.')
-      }
+      await fs.rm(file, options)
     } catch (e) {
-      this.logger.fatal('Error while deleting file from "%s": %s', file, e.message)
-
-      throw e
+      throw new Error(`Error while deleting the file "${file}": ${e.message}`)
     }
   }
 
-  public removeFileSync (file: string): void {
+  public removeSync (file: string, options?: fs.RmOptions): void {
     try {
-      if (this.stats(file).isFile()) {
-        fs.unlinkSync(file)
-      } else {
-        throw new Error('Not a file.')
-      }
+      fs.rmSync(file, options)
     } catch (e) {
-      this.logger.fatal('Error while deleting file from "%s": %s', file, e.message)
-
-      throw e
+      throw new Error(`Error while deleting the file "${file}": ${e.message}`)
     }
   }
 
-  public async removeDirectory (directory: string): Promise<void> {
+  public async emptyDir (directory: string): Promise<void> {
     try {
-      if (this.stats(directory).isDirectory()) {
-        await fs.emptyDir(directory)
-      } else {
-        throw new Error('Not a folder.')
-      }
+      await fs.emptyDir(directory)
     } catch (e) {
-      this.logger.fatal('Error while deleting directory from "%s": %s', directory, e.message)
-
-      throw e
+      throw new Error(`Error while deleting the directory "${directory}": ${e.message}`)
     }
   }
 
-  public removeDirectorySync (directory: string): void {
+  public emptyDirSync (directory: string): void {
     try {
-      if (this.stats(directory).isDirectory()) {
-        fs.emptyDirSync(directory)
-      } else {
-        throw new Error('Not a folder.')
-      }
+      fs.emptyDirSync(directory)
     } catch (e) {
-      this.logger.fatal('Error while deleting directory from "%s": %s', directory, e.message)
-
-      throw e
+      throw new Error(`Error while deleting the directory "${directory}": ${e.message}`)
     }
   }
 }
