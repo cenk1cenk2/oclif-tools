@@ -318,3 +318,43 @@ ___
 #### Defined in
 
 packages/common/src/lib/fs/filesystem.service.ts:112
+
+___
+
+### mkdir
+
+▸ **mkdir**(`directory`): `Promise`<`void`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `directory` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:120
+
+___
+
+### mkdirSync
+
+▸ **mkdirSync**(`directory`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `directory` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:128

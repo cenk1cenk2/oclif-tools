@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [1.8.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.8.0...@cenk1cenk2/oclif-common@1.8.1) (2022-08-13)
+
+### Bug Fixes
+
+- create dir ([6f59403](https://gitlab.kilic.dev/libraries/oclif-tools/commit/6f594039fd7bd2e9e9ebd61a909604ece098a1a5))
+
 # @cenk1cenk2/oclif-common [1.8.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.7.2...@cenk1cenk2/oclif-common@1.8.0) (2022-08-13)
 
 ### Features
