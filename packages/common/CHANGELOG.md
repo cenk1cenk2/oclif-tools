@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [1.8.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.7.2...@cenk1cenk2/oclif-common@1.8.0) (2022-08-13)
+
+### Features
+
+- update filesystem service with saner defaults ([5d4cd9f](https://gitlab.kilic.dev/libraries/oclif-tools/commit/5d4cd9f0b59df42c9d4b0a354dec02393326da32))
+
 ## @cenk1cenk2/oclif-common [1.7.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.7.1...@cenk1cenk2/oclif-common@1.7.2) (2022-08-13)
 
 ### Bug Fixes
