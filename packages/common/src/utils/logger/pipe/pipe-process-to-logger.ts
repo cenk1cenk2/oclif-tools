@@ -19,7 +19,7 @@ export function pipeProcessToLogger (logger: Logger, instance: ExecaChildProcess
   }
 
   if (options.start) {
-    logger.run(instance.spawnargs.join(' '), { level: this.options.start })
+    logger.run(instance.spawnargs.join(' '), { level: options.start })
   }
 
   if (instance.stdout) {
@@ -44,7 +44,7 @@ export function pipeProcessToLogger (logger: Logger, instance: ExecaChildProcess
     logger.debug(message)
 
     if (options.end) {
-      logger.end(instance.spawnargs.join(' '), { level: this.options.end })
+      logger.end(instance.spawnargs.join(' '), { level: options.end })
     }
 
     if (options?.callback) {

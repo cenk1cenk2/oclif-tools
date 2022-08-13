@@ -135,6 +135,11 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
     }
   }
 
+  public exit (code?: number): void {
+    this.logger.trace('Exitting with code: %d', code)
+    process.exit(code ?? 0)
+  }
+
   private greet (): void {
     if (this.isSilent) {
       return
