@@ -85840,7 +85840,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 77,
+					"id": 80,
 					"name": "argv",
 					"kind": 1024,
 					"kindString": "Property",
@@ -85867,7 +85867,7 @@
 					}
 				},
 				{
-					"id": 78,
+					"id": 81,
 					"name": "config",
 					"kind": 1024,
 					"kindString": "Property",
@@ -86803,7 +86803,7 @@
 					}
 				},
 				{
-					"id": 79,
+					"id": 82,
 					"name": "id",
 					"kind": 1024,
 					"kindString": "Property",
@@ -86827,7 +86827,7 @@
 					}
 				},
 				{
-					"id": 80,
+					"id": 83,
 					"name": "debug",
 					"kind": 1024,
 					"kindString": "Property",
@@ -86845,7 +86845,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 81,
+							"id": 84,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -86859,14 +86859,14 @@
 							],
 							"signatures": [
 								{
-									"id": 82,
+									"id": 85,
 									"name": "__type",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 83,
+											"id": 86,
 											"name": "args",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -87026,7 +87026,7 @@
 					}
 				},
 				{
-					"id": 84,
+					"id": 87,
 					"name": "ctor",
 					"kind": 262144,
 					"kindString": "Accessor",
@@ -87041,7 +87041,7 @@
 						}
 					],
 					"getSignature": {
-						"id": 85,
+						"id": 88,
 						"name": "ctor",
 						"kind": 524288,
 						"kindString": "Get signature",
@@ -87068,7 +87068,7 @@
 					}
 				},
 				{
-					"id": 86,
+					"id": 89,
 					"name": "_run",
 					"kind": 2048,
 					"kindString": "Method",
@@ -87084,7 +87084,7 @@
 					],
 					"signatures": [
 						{
-							"id": 87,
+							"id": 90,
 							"name": "_run",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -87093,7 +87093,7 @@
 							},
 							"typeParameter": [
 								{
-									"id": 88,
+									"id": 91,
 									"name": "T",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -87107,7 +87107,7 @@
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 88,
+										"id": 91,
 										"name": "T",
 										"qualifiedName": "T",
 										"package": "@oclif/core"
@@ -87126,61 +87126,6 @@
 					"inheritedFrom": {
 						"type": "reference",
 						"name": "BaseCommand._run"
-					}
-				},
-				{
-					"id": 89,
-					"name": "exit",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isExternal": true
-					},
-					"sources": [
-						{
-							"fileName": "packages/common/node_modules/@oclif/core/lib/command.d.ts",
-							"line": 80,
-							"character": 4
-						}
-					],
-					"signatures": [
-						{
-							"id": 90,
-							"name": "exit",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {
-								"isExternal": true
-							},
-							"parameters": [
-								{
-									"id": 91,
-									"name": "code",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {
-										"isExternal": true,
-										"isOptional": true
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "void"
-							},
-							"inheritedFrom": {
-								"type": "reference",
-								"name": "BaseCommand.exit"
-							}
-						}
-					],
-					"inheritedFrom": {
-						"type": "reference",
-						"name": "BaseCommand.exit"
 					}
 				},
 				{
@@ -88777,6 +88722,58 @@
 				},
 				{
 					"id": 75,
+					"name": "exit",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/common/src/commands/base.command.ts",
+							"line": 138,
+							"character": 9
+						}
+					],
+					"signatures": [
+						{
+							"id": 76,
+							"name": "exit",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 77,
+									"name": "code",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "BaseCommand.exit"
+							}
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "BaseCommand.exit"
+					}
+				},
+				{
+					"id": 78,
 					"name": "greet",
 					"kind": 2048,
 					"kindString": "Method",
@@ -88786,13 +88783,13 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 138,
+							"line": 143,
 							"character": 10
 						}
 					],
 					"signatures": [
 						{
-							"id": 76,
+							"id": 79,
 							"name": "greet",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -88809,8 +88806,8 @@
 				{
 					"title": "Properties",
 					"children": [
-						77,
-						78,
+						80,
+						81,
 						2,
 						3,
 						4,
@@ -88830,8 +88827,8 @@
 						23,
 						28,
 						33,
-						79,
-						80,
+						82,
+						83,
 						44,
 						45,
 						46,
@@ -88849,7 +88846,7 @@
 						19,
 						29,
 						34,
-						84
+						87
 					]
 				},
 				{
@@ -88861,7 +88858,6 @@
 				{
 					"title": "Methods",
 					"children": [
-						86,
 						89,
 						92,
 						95,
@@ -88879,7 +88875,8 @@
 						64,
 						68,
 						71,
-						75
+						75,
+						78
 					]
 				}
 			],

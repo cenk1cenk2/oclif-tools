@@ -678,30 +678,6 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:79
 
 ___
 
-### exit
-
-▸ **exit**(`code?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `code?` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCommand.exit
-
-#### Defined in
-
-packages/common/node_modules/@oclif/core/lib/command.d.ts:80
-
-___
-
 ### warn
 
 ▸ **warn**(`input`): `string` \| `Error`
@@ -1089,6 +1065,30 @@ packages/common/src/commands/base.command.ts:123
 
 ___
 
+### exit
+
+▸ **exit**(`code?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `code?` | `number` |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+BaseCommand.exit
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:138
+
+___
+
 ### greet
 
 ▸ `Private` **greet**(): `void`
@@ -1099,4 +1099,4 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:138
+packages/common/src/commands/base.command.ts:143
