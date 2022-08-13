@@ -116,6 +116,22 @@ export class FileSystemService {
       throw new Error(`Error while deleting the directory "${directory}": ${e.message}`)
     }
   }
+
+  public async mkdir (directory: string): Promise<void> {
+    try {
+      await fs.mkdirp(directory)
+    } catch (e) {
+      throw new Error(`Error while creating the directory "${directory}": ${e.message}`)
+    }
+  }
+
+  public mkdirSync (directory: string): void {
+    try {
+      fs.mkdirSync(directory)
+    } catch (e) {
+      throw new Error(`Error while creating the directory "${directory}": ${e.message}`)
+    }
+  }
 }
 
 export { fs }
