@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [1.7.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.7.0...@cenk1cenk2/oclif-common@1.7.1) (2022-08-13)
+
+### Bug Fixes
+
+- update basic configuration ([d0adde4](https://gitlab.kilic.dev/libraries/oclif-tools/commit/d0adde414ef710ee416f3347def6e826c675f3ba))
+
 # @cenk1cenk2/oclif-common [1.7.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.6.0...@cenk1cenk2/oclif-common@1.7.0) (2022-08-12)
 
 ### Bug Fixes

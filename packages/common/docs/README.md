@@ -14,7 +14,6 @@
 ## Functions
 
 - [figures](functions/figures.md)
-- [initHook](functions/initHook.md)
 - [notFoundHook](functions/notFoundHook.md)
 - [updateNotifierHook](functions/updateNotifierHook.md)
 - [setup](functions/setup.md)
