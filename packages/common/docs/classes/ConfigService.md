@@ -133,7 +133,7 @@ packages/common/src/lib/config/config.service.ts:24
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:45
+packages/common/src/lib/config/config.service.ts:43
 
 ___
 
@@ -160,4 +160,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:55
+packages/common/src/lib/config/config.service.ts:53

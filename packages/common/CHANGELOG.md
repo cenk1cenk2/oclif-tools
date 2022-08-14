@@ -1,3 +1,10 @@
+# @cenk1cenk2/oclif-common [1.9.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.8.1...@cenk1cenk2/oclif-common@1.9.0) (2022-08-14)
+
+
+### Features
+
+* update configuration for default setup and config ([fc2de74](https://gitlab.kilic.dev/libraries/oclif-tools/commit/fc2de74335c550d53694b8bac02122a3a608c1fb))
+
 ## @cenk1cenk2/oclif-common [1.8.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.8.0...@cenk1cenk2/oclif-common@1.8.1) (2022-08-13)
 
 ### Bug Fixes
