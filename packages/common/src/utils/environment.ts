@@ -6,7 +6,7 @@ export function isVerbose<T extends BaseConfig = BaseConfig> (config: T): boolea
 }
 
 export function isDebug<T extends BaseConfig = BaseConfig> (config: T): boolean {
-  return config.loglevel === LogLevels.DEBUG
+  return [ LogLevels.DEBUG, LogLevels.TRACE ].includes(config.loglevel)
 }
 
 export function isSilent<T extends BaseConfig = BaseConfig> (config: T): boolean {
