@@ -1,4 +1,4 @@
-import config from 'config'
+import { util as config } from 'config'
 import './config.d'
 import { dirname, join } from 'path'
 
@@ -31,7 +31,7 @@ export class ConfigService<Config extends BaseConfig = BaseConfig> {
     this.command = command.ctor
     this.oclif = command.config
 
-    this.config = config.util.loadFileConfigs(this.dir)
+    this.config = config.loadFileConfigs(this.dir)
 
     this.logger = new Logger(this.constructor.name, { level: this.config.loglevel })
 

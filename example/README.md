@@ -33,7 +33,6 @@ USAGE
 
 <!-- commands -->
 
-- [`oclif2 hello [PERSON]`](#oclif2-hello-person)
 - [`oclif2 help [COMMAND]`](#oclif2-help-command)
 - [`oclif2 plugins`](#oclif2-plugins)
 - [`oclif2 plugins:install PLUGIN...`](#oclif2-pluginsinstall-plugin)
@@ -44,29 +43,6 @@ USAGE
 - [`oclif2 plugins:uninstall PLUGIN...`](#oclif2-pluginsuninstall-plugin-1)
 - [`oclif2 plugins:uninstall PLUGIN...`](#oclif2-pluginsuninstall-plugin-2)
 - [`oclif2 plugins update`](#oclif2-plugins-update)
-
-## `oclif2 hello [PERSON]`
-
-Say hello
-
-```
-USAGE
-  $ oclif2 hello [PERSON] [-f <value>]
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  Whom is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-```
-
-_See code: [dist/commands/hello/index.ts](https://github.com/cenk1cenk2/hello-world/blob/v1.0.0/dist/commands/hello/index.ts)_
 
 ## `oclif2 help [COMMAND]`
 

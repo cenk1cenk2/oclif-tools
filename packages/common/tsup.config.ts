@@ -19,6 +19,7 @@ export default defineConfig((options) => ({
   splitting: false,
   clean: true,
   minify: false,
+  keepNames: true,
 
   esbuildPlugins: [ esbuildDecorators() ]
 }))
