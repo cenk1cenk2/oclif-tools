@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [1.9.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.9.0...@cenk1cenk2/oclif-common@1.9.1) (2022-08-14)
+
+
+### Bug Fixes
+
+* change how config loading is handled ([aa786dd](https://gitlab.kilic.dev/libraries/oclif-tools/commit/aa786dd8008c566193400fbcce6857592ec45ad6))
+
 # @cenk1cenk2/oclif-common [1.9.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.8.1...@cenk1cenk2/oclif-common@1.9.0) (2022-08-14)
 
 
