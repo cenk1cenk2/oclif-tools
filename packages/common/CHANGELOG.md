@@ -1,16 +1,20 @@
-## @cenk1cenk2/oclif-common [1.9.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.9.0...@cenk1cenk2/oclif-common@1.9.1) (2022-08-14)
-
+## @cenk1cenk2/oclif-common [1.9.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.9.1...@cenk1cenk2/oclif-common@1.9.2) (2022-08-14)
 
 ### Bug Fixes
 
-* change how config loading is handled ([aa786dd](https://gitlab.kilic.dev/libraries/oclif-tools/commit/aa786dd8008c566193400fbcce6857592ec45ad6))
+- convert to type import for config type extension ([55b5f70](https://gitlab.kilic.dev/libraries/oclif-tools/commit/55b5f70c3b1ee27697f00b055d973dec760589ee))
+
+## @cenk1cenk2/oclif-common [1.9.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.9.0...@cenk1cenk2/oclif-common@1.9.1) (2022-08-14)
+
+### Bug Fixes
+
+- change how config loading is handled ([aa786dd](https://gitlab.kilic.dev/libraries/oclif-tools/commit/aa786dd8008c566193400fbcce6857592ec45ad6))
 
 # @cenk1cenk2/oclif-common [1.9.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.8.1...@cenk1cenk2/oclif-common@1.9.0) (2022-08-14)
 
-
 ### Features
 
-* update configuration for default setup and config ([fc2de74](https://gitlab.kilic.dev/libraries/oclif-tools/commit/fc2de74335c550d53694b8bac02122a3a608c1fb))
+- update configuration for default setup and config ([fc2de74](https://gitlab.kilic.dev/libraries/oclif-tools/commit/fc2de74335c550d53694b8bac02122a3a608c1fb))
 
 ## @cenk1cenk2/oclif-common [1.8.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.8.0...@cenk1cenk2/oclif-common@1.8.1) (2022-08-13)
 
