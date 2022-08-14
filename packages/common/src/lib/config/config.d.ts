@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import * as baseConfig from 'config'
+import type * as baseConfig from 'config'
 
 declare module 'config' {
   interface IUtil {
