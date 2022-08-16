@@ -46,13 +46,13 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     }
   }
 
-  public async lock<T extends LockableData>(data: LockData<T> | LockData<T>[]): Promise<void> {
+  public async lock<T extends LockableData = LockableData>(data: LockData<T> | LockData<T>[]): Promise<void> {
     // cast to array
     if (!Array.isArray(data)) {
       data = [ data ]
     }
 
-    let lock = await this.read() ?? {}
+    let lock: LockFile = await this.read() ?? ({} as LockFile)
 
     await Promise.all(
       data.map(async (d) => {
@@ -142,7 +142,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return this.fs.write(this.file, await this.parser.stringify(data))
   }
 
-  private buildPath<T extends CommonLockerData>(d: T): string {
+  private buildPath<T extends Partial<CommonLockerData>>(d: T): string {
     if (d?.root !== true && this.root) {
       return `${this.root}.${d.path}`
     }

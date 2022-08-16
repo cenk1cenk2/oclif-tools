@@ -8,7 +8,7 @@ export interface CommonLockerData {
 
 export type LockableData = any
 
-export interface LockData<T extends LockableData = LockableData> extends CommonLockerData {
+export interface LockData<T extends LockableData = LockableData> extends Partial<CommonLockerData> {
   data: T
   merge?: MergeStrategy
 }
