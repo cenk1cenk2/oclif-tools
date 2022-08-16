@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [2.1.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.1.1...@cenk1cenk2/oclif-common@2.1.2) (2022-08-16)
+
+### Bug Fixes
+
+- multiple context problem ([9f44b78](https://gitlab.kilic.dev/libraries/oclif-tools/commit/9f44b7868ae5171fc1442ea77d851556d6bfb195))
+
 ## @cenk1cenk2/oclif-common [2.1.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.1.0...@cenk1cenk2/oclif-common@2.1.1) (2022-08-16)
 
 ### Bug Fixes

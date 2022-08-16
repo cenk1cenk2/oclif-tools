@@ -979,13 +979,19 @@ ___
 
 ### runTasks
 
-▸ **runTasks**(): `Promise`<`Ctx`\>
+▸ **runTasks**<`C`\>(): `Promise`<`C`\>
 
 Run all tasks from task manager.
 
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `C` | extends `unknown` = `Ctx` |
+
 #### Returns
 
-`Promise`<`Ctx`\>
+`Promise`<`C`\>
 
 #### Defined in
 
@@ -995,13 +1001,19 @@ ___
 
 ### finally
 
-▸ **finally**(): `Promise`<{ `ctx`: `Ctx`  }\>
+▸ **finally**<`C`\>(): `Promise`<{ `ctx`: `C`  }\>
 
 Tasks to run before end of the command.
 
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `C` | extends `unknown` = `Ctx` |
+
 #### Returns
 
-`Promise`<{ `ctx`: `Ctx`  }\>
+`Promise`<{ `ctx`: `C`  }\>
 
 #### Overrides
 
