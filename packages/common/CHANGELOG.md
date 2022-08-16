@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [2.3.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.2.1...@cenk1cenk2/oclif-common@2.3.0) (2022-08-16)
+
+### Features
+
+- disable using internal singleton for winston ([628d9ae](https://gitlab.kilic.dev/libraries/oclif-tools/commit/628d9aed0cccb8c3f6fcb930052e64911d68e17f))
+
 ## @cenk1cenk2/oclif-common [2.2.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.2.0...@cenk1cenk2/oclif-common@2.2.1) (2022-08-16)
 
 ### Bug Fixes

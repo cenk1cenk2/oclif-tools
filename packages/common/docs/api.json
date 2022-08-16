@@ -84343,7 +84343,7 @@
 			]
 		},
 		{
-			"id": 4194,
+			"id": 4193,
 			"name": "figures",
 			"kind": 64,
 			"kindString": "Function",
@@ -84359,7 +84359,7 @@
 			],
 			"signatures": [
 				{
-					"id": 4195,
+					"id": 4194,
 					"name": "figures",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -84396,7 +84396,7 @@
 					},
 					"parameters": [
 						{
-							"id": 4196,
+							"id": 4195,
 							"name": "string",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -86602,7 +86602,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 4118,
+						"id": 4117,
 						"name": "Logger"
 					}
 				},
@@ -90062,7 +90062,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 4118,
+						"id": 4117,
 						"name": "Logger"
 					},
 					"inheritedFrom": {
@@ -92452,7 +92452,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 4118,
+						"id": 4117,
 						"name": "Logger"
 					}
 				},
@@ -92658,7 +92658,7 @@
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 4197,
+										"id": 4196,
 										"name": "MergeStrategy"
 									}
 								},
@@ -92877,7 +92877,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 4118,
+						"id": 4117,
 						"name": "Logger"
 					},
 					"defaultValue": "..."
@@ -94092,7 +94092,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 4197,
+						"id": 4196,
 						"name": "MergeStrategy"
 					}
 				}
@@ -94350,7 +94350,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 4118,
+						"id": 4117,
 						"name": "Logger"
 					},
 					"defaultValue": "..."
@@ -95453,7 +95453,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 4118,
+						"id": 4117,
 						"name": "Logger"
 					},
 					"defaultValue": "..."
@@ -95794,7 +95794,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 4118,
+						"id": 4117,
 						"name": "Logger"
 					},
 					"defaultValue": "..."
@@ -96130,7 +96130,7 @@
 			]
 		},
 		{
-			"id": 4181,
+			"id": 4180,
 			"name": "color",
 			"kind": 32,
 			"kindString": "Variable",
@@ -96153,7 +96153,7 @@
 			"defaultValue": "..."
 		},
 		{
-			"id": 4182,
+			"id": 4181,
 			"name": "isVerbose",
 			"kind": 64,
 			"kindString": "Function",
@@ -96167,14 +96167,14 @@
 			],
 			"signatures": [
 				{
-					"id": 4183,
+					"id": 4182,
 					"name": "isVerbose",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"typeParameter": [
 						{
-							"id": 4184,
+							"id": 4183,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -96185,7 +96185,7 @@
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 4184,
+										"id": 4183,
 										"name": "T"
 									}
 								],
@@ -96200,14 +96200,14 @@
 					],
 					"parameters": [
 						{
-							"id": 4185,
+							"id": 4184,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"id": 4184,
+								"id": 4183,
 								"name": "T"
 							}
 						}
@@ -96220,7 +96220,7 @@
 			]
 		},
 		{
-			"id": 4186,
+			"id": 4185,
 			"name": "isDebug",
 			"kind": 64,
 			"kindString": "Function",
@@ -96234,14 +96234,14 @@
 			],
 			"signatures": [
 				{
-					"id": 4187,
+					"id": 4186,
 					"name": "isDebug",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"typeParameter": [
 						{
-							"id": 4188,
+							"id": 4187,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -96252,7 +96252,7 @@
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 4188,
+										"id": 4187,
 										"name": "T"
 									}
 								],
@@ -96267,14 +96267,14 @@
 					],
 					"parameters": [
 						{
-							"id": 4189,
+							"id": 4188,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"id": 4188,
+								"id": 4187,
 								"name": "T"
 							}
 						}
@@ -96287,7 +96287,7 @@
 			]
 		},
 		{
-			"id": 4190,
+			"id": 4189,
 			"name": "isSilent",
 			"kind": 64,
 			"kindString": "Function",
@@ -96301,14 +96301,14 @@
 			],
 			"signatures": [
 				{
-					"id": 4191,
+					"id": 4190,
 					"name": "isSilent",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"typeParameter": [
 						{
-							"id": 4192,
+							"id": 4191,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -96319,7 +96319,7 @@
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 4192,
+										"id": 4191,
 										"name": "T"
 									}
 								],
@@ -96334,14 +96334,14 @@
 					],
 					"parameters": [
 						{
-							"id": 4193,
+							"id": 4192,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"id": 4192,
+								"id": 4191,
 								"name": "T"
 							}
 						}
@@ -96827,27 +96827,6 @@
 		},
 		{
 			"id": 4117,
-			"name": "WINSTON_INSTANCE",
-			"kind": 32,
-			"kindString": "Variable",
-			"flags": {
-				"isConst": true
-			},
-			"sources": [
-				{
-					"fileName": "packages/common/src/utils/logger/logger.interface.ts",
-					"line": 19,
-					"character": 13
-				}
-			],
-			"type": {
-				"type": "literal",
-				"value": "WINSTON_DEFAULT_LOGGER"
-			},
-			"defaultValue": "'WINSTON_DEFAULT_LOGGER'"
-		},
-		{
-			"id": 4118,
 			"name": "Logger",
 			"kind": 128,
 			"kindString": "Class",
@@ -96862,7 +96841,7 @@
 			},
 			"children": [
 				{
-					"id": 4119,
+					"id": 4118,
 					"name": "instance",
 					"kind": 1024,
 					"kindString": "Property",
@@ -96872,7 +96851,7 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 14,
+							"line": 13,
 							"character": 9
 						}
 					],
@@ -96883,7 +96862,7 @@
 					}
 				},
 				{
-					"id": 4124,
+					"id": 4123,
 					"name": "logger",
 					"kind": 1024,
 					"kindString": "Property",
@@ -96893,7 +96872,7 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 15,
+							"line": 14,
 							"character": 10
 						}
 					],
@@ -96904,7 +96883,7 @@
 					}
 				},
 				{
-					"id": 4120,
+					"id": 4119,
 					"name": "constructor",
 					"kind": 512,
 					"kindString": "Constructor",
@@ -96912,20 +96891,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 17,
+							"line": 16,
 							"character": 2
 						}
 					],
 					"signatures": [
 						{
-							"id": 4121,
+							"id": 4120,
 							"name": "new Logger",
 							"kind": 16384,
 							"kindString": "Constructor signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4122,
+									"id": 4121,
 									"name": "context",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -96938,7 +96917,7 @@
 									}
 								},
 								{
-									"id": 4123,
+									"id": 4122,
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -96954,14 +96933,14 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 4118,
+								"id": 4117,
 								"name": "Logger"
 							}
 						}
 					]
 				},
 				{
-					"id": 4125,
+					"id": 4124,
 					"name": "log",
 					"kind": 2048,
 					"kindString": "Method",
@@ -96971,20 +96950,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 36,
+							"line": 35,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4126,
+							"id": 4125,
 							"name": "log",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4127,
+									"id": 4126,
 									"name": "level",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -96996,7 +96975,7 @@
 									}
 								},
 								{
-									"id": 4128,
+									"id": 4127,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97018,7 +96997,7 @@
 									}
 								},
 								{
-									"id": 4129,
+									"id": 4128,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97039,7 +97018,7 @@
 					]
 				},
 				{
-					"id": 4130,
+					"id": 4129,
 					"name": "direct",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97049,20 +97028,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 40,
+							"line": 39,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4131,
+							"id": 4130,
 							"name": "direct",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4132,
+									"id": 4131,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97084,7 +97063,7 @@
 									}
 								},
 								{
-									"id": 4133,
+									"id": 4132,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97105,7 +97084,7 @@
 					]
 				},
 				{
-					"id": 4134,
+					"id": 4133,
 					"name": "fatal",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97115,20 +97094,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 44,
+							"line": 43,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4135,
+							"id": 4134,
 							"name": "fatal",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4136,
+									"id": 4135,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97150,7 +97129,7 @@
 									}
 								},
 								{
-									"id": 4137,
+									"id": 4136,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97171,7 +97150,7 @@
 					]
 				},
 				{
-					"id": 4138,
+					"id": 4137,
 					"name": "error",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97181,20 +97160,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 48,
+							"line": 47,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4139,
+							"id": 4138,
 							"name": "error",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4140,
+									"id": 4139,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97216,7 +97195,7 @@
 									}
 								},
 								{
-									"id": 4141,
+									"id": 4140,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97237,7 +97216,7 @@
 					]
 				},
 				{
-					"id": 4142,
+					"id": 4141,
 					"name": "warn",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97247,20 +97226,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 52,
+							"line": 51,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4143,
+							"id": 4142,
 							"name": "warn",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4144,
+									"id": 4143,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97282,7 +97261,7 @@
 									}
 								},
 								{
-									"id": 4145,
+									"id": 4144,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97303,7 +97282,7 @@
 					]
 				},
 				{
-					"id": 4146,
+					"id": 4145,
 					"name": "info",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97313,20 +97292,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 56,
+							"line": 55,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4147,
+							"id": 4146,
 							"name": "info",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4148,
+									"id": 4147,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97348,7 +97327,7 @@
 									}
 								},
 								{
-									"id": 4149,
+									"id": 4148,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97369,7 +97348,7 @@
 					]
 				},
 				{
-					"id": 4150,
+					"id": 4149,
 					"name": "debug",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97379,20 +97358,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 60,
+							"line": 59,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4151,
+							"id": 4150,
 							"name": "debug",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4152,
+									"id": 4151,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97414,7 +97393,7 @@
 									}
 								},
 								{
-									"id": 4153,
+									"id": 4152,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97435,7 +97414,7 @@
 					]
 				},
 				{
-					"id": 4154,
+					"id": 4153,
 					"name": "verbose",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97445,20 +97424,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 64,
+							"line": 63,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4155,
+							"id": 4154,
 							"name": "verbose",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4156,
+									"id": 4155,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97480,7 +97459,7 @@
 									}
 								},
 								{
-									"id": 4157,
+									"id": 4156,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97501,7 +97480,7 @@
 					]
 				},
 				{
-					"id": 4158,
+					"id": 4157,
 					"name": "trace",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97511,20 +97490,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 68,
+							"line": 67,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4159,
+							"id": 4158,
 							"name": "trace",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4160,
+									"id": 4159,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97546,7 +97525,7 @@
 									}
 								},
 								{
-									"id": 4161,
+									"id": 4160,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97567,7 +97546,7 @@
 					]
 				},
 				{
-					"id": 4162,
+					"id": 4161,
 					"name": "run",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97577,20 +97556,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 73,
+							"line": 72,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4163,
+							"id": 4162,
 							"name": "run",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4164,
+									"id": 4163,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97612,7 +97591,7 @@
 									}
 								},
 								{
-									"id": 4165,
+									"id": 4164,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97633,7 +97612,7 @@
 					]
 				},
 				{
-					"id": 4166,
+					"id": 4165,
 					"name": "end",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97643,20 +97622,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 77,
+							"line": 76,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 4167,
+							"id": 4166,
 							"name": "end",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4168,
+									"id": 4167,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97678,7 +97657,7 @@
 									}
 								},
 								{
-									"id": 4169,
+									"id": 4168,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97699,7 +97678,7 @@
 					]
 				},
 				{
-					"id": 4170,
+					"id": 4169,
 					"name": "initiateLogger",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97709,13 +97688,13 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 81,
+							"line": 80,
 							"character": 10
 						}
 					],
 					"signatures": [
 						{
-							"id": 4171,
+							"id": 4170,
 							"name": "initiateLogger",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -97729,7 +97708,7 @@
 					]
 				},
 				{
-					"id": 4172,
+					"id": 4171,
 					"name": "parseMessage",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97739,20 +97718,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 125,
+							"line": 124,
 							"character": 10
 						}
 					],
 					"signatures": [
 						{
-							"id": 4173,
+							"id": 4172,
 							"name": "parseMessage",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4174,
+									"id": 4173,
 									"name": "level",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97764,7 +97743,7 @@
 									}
 								},
 								{
-									"id": 4175,
+									"id": 4174,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97786,7 +97765,7 @@
 									}
 								},
 								{
-									"id": 4176,
+									"id": 4175,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97802,7 +97781,7 @@
 									}
 								},
 								{
-									"id": 4177,
+									"id": 4176,
 									"name": "format",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97832,7 +97811,7 @@
 					]
 				},
 				{
-					"id": 4178,
+					"id": 4177,
 					"name": "logColoring",
 					"kind": 2048,
 					"kindString": "Method",
@@ -97842,20 +97821,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/utils/logger/logger.ts",
-							"line": 129,
+							"line": 128,
 							"character": 10
 						}
 					],
 					"signatures": [
 						{
-							"id": 4179,
+							"id": 4178,
 							"name": "logColoring",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 4180,
+									"id": 4179,
 									"name": "__namedParameters",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -97879,40 +97858,40 @@
 				{
 					"title": "Properties",
 					"children": [
-						4119,
-						4124
+						4118,
+						4123
 					]
 				},
 				{
 					"title": "Constructors",
 					"children": [
-						4120
+						4119
 					]
 				},
 				{
 					"title": "Methods",
 					"children": [
-						4125,
-						4130,
-						4134,
-						4138,
-						4142,
-						4146,
-						4150,
-						4154,
-						4158,
-						4162,
-						4166,
-						4170,
-						4172,
-						4178
+						4124,
+						4129,
+						4133,
+						4137,
+						4141,
+						4145,
+						4149,
+						4153,
+						4157,
+						4161,
+						4165,
+						4169,
+						4171,
+						4177
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "packages/common/src/utils/logger/logger.ts",
-					"line": 13,
+					"line": 12,
 					"character": 13
 				}
 			]
@@ -98242,7 +98221,7 @@
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"id": 4118,
+								"id": 4117,
 								"name": "Logger"
 							}
 						},
@@ -98290,14 +98269,14 @@
 			]
 		},
 		{
-			"id": 4197,
+			"id": 4196,
 			"name": "MergeStrategy",
 			"kind": 8,
 			"kindString": "Enumeration",
 			"flags": {},
 			"children": [
 				{
-					"id": 4198,
+					"id": 4197,
 					"name": "OVERWRITE",
 					"kind": 16,
 					"kindString": "Enumeration Member",
@@ -98315,7 +98294,7 @@
 					}
 				},
 				{
-					"id": 4199,
+					"id": 4198,
 					"name": "EXTEND",
 					"kind": 16,
 					"kindString": "Enumeration Member",
@@ -98337,8 +98316,8 @@
 				{
 					"title": "Enumeration Members",
 					"children": [
-						4198,
-						4199
+						4197,
+						4198
 					]
 				}
 			],
@@ -98351,7 +98330,7 @@
 			]
 		},
 		{
-			"id": 4200,
+			"id": 4199,
 			"name": "merge",
 			"kind": 64,
 			"kindString": "Function",
@@ -98365,7 +98344,7 @@
 			],
 			"signatures": [
 				{
-					"id": 4201,
+					"id": 4200,
 					"name": "merge",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -98380,7 +98359,7 @@
 					},
 					"typeParameter": [
 						{
-							"id": 4202,
+							"id": 4201,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -98419,31 +98398,31 @@
 					],
 					"parameters": [
 						{
-							"id": 4203,
+							"id": 4202,
 							"name": "strategy",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"id": 4197,
+								"id": 4196,
 								"name": "MergeStrategy"
 							}
 						},
 						{
-							"id": 4204,
+							"id": 4203,
 							"name": "target",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"id": 4202,
+								"id": 4201,
 								"name": "T"
 							}
 						},
 						{
-							"id": 4205,
+							"id": 4204,
 							"name": "source",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -98457,7 +98436,7 @@
 									"typeArguments": [
 										{
 											"type": "reference",
-											"id": 4202,
+											"id": 4201,
 											"name": "T"
 										}
 									],
@@ -98470,7 +98449,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 4202,
+						"id": 4201,
 						"name": "T"
 					}
 				}
@@ -98493,16 +98472,16 @@
 		{
 			"title": "Functions",
 			"children": [
-				4194,
+				4193,
 				307,
 				316,
 				4075,
-				4182,
-				4186,
-				4190,
+				4181,
+				4185,
+				4189,
 				4077,
 				4081,
-				4200
+				4199
 			]
 		},
 		{
@@ -98517,7 +98496,7 @@
 				4027,
 				4039,
 				4056,
-				4118
+				4117
 			]
 		},
 		{
@@ -98526,7 +98505,7 @@
 				305,
 				4095,
 				4105,
-				4197
+				4196
 			]
 		},
 		{
@@ -98554,8 +98533,7 @@
 		{
 			"title": "Variables",
 			"children": [
-				4181,
-				4117
+				4180
 			]
 		}
 	],

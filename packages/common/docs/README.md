@@ -58,7 +58,6 @@
 ## Variables
 
 - [color](variables/color.md)
-- [WINSTON\_INSTANCE](variables/WINSTON_INSTANCE.md)
 
 ## Properties
 
