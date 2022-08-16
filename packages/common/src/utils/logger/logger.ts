@@ -3,7 +3,6 @@ import winston, { format, transports } from 'winston'
 
 import { LogFieldStatus, LogLevels } from './logger.constants'
 import type { LoggerFormat, LoggerOptions, Winston } from './logger.interface'
-import { WINSTON_INSTANCE } from './logger.interface'
 import { color } from '@utils/color'
 import { figures } from '@utils/figures'
 
@@ -100,7 +99,7 @@ export class Logger {
       return multiLineMessage.join(EOL)
     })
 
-    const logger = winston.loggers.add(WINSTON_INSTANCE, {
+    const logger = winston.createLogger({
       level: this.options.level,
       format: format.combine(format.splat(), format.json({ space: 2 }), format.prettyPrint(), logFormat),
       levels: Object.values(LogLevels).reduce((o, level, i) => {

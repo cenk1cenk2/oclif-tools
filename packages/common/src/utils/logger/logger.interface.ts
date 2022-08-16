@@ -15,5 +15,3 @@ export interface LoggerFormat {
 }
 
 export type Winston = WinstonLogger & Record<keyof typeof LogLevels, LeveledLogMethod>
-
-export const WINSTON_INSTANCE = 'WINSTON_DEFAULT_LOGGER'
