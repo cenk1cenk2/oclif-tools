@@ -14,7 +14,7 @@
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:15
+packages/common/src/lib/config/config.service.ts:14
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:16
+packages/common/src/lib/config/config.service.ts:15
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:17
+packages/common/src/lib/config/config.service.ts:16
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:18
+packages/common/src/lib/config/config.service.ts:17
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:19
+packages/common/src/lib/config/config.service.ts:18
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:20
+packages/common/src/lib/config/config.service.ts:19
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:21
+packages/common/src/lib/config/config.service.ts:20
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:22
+packages/common/src/lib/config/config.service.ts:21
 
 ## Constructors
 
@@ -106,13 +106,13 @@ packages/common/src/lib/config/config.service.ts:22
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:24
+packages/common/src/lib/config/config.service.ts:23
 
 ## Methods
 
 ### read
 
-▸ **read**<`T`\>(`strategy`, ...`paths`): `Promise`<`T`\>
+▸ **read**<`T`\>(`paths`): `Promise`<`T`\>
 
 #### Type parameters
 
@@ -124,8 +124,7 @@ packages/common/src/lib/config/config.service.ts:24
 
 | Name | Type |
 | :------ | :------ |
-| `strategy` | [`MergeStrategy`](../enums/MergeStrategy.md) |
-| `...paths` | `string`[] |
+| `paths` | `string` |
 
 #### Returns
 
@@ -133,7 +132,7 @@ packages/common/src/lib/config/config.service.ts:24
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:43
+packages/common/src/lib/config/config.service.ts:42
 
 ___
 
@@ -160,4 +159,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:53
+packages/common/src/lib/config/config.service.ts:65

@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [2.1.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.0.1...@cenk1cenk2/oclif-common@2.1.0) (2022-08-16)
+
+### Features
+
+- overload reading config ([1a73353](https://gitlab.kilic.dev/libraries/oclif-tools/commit/1a73353728fda62dd19a04cf29160b4baa870c0d))
+
 ## @cenk1cenk2/oclif-common [2.0.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.0.0...@cenk1cenk2/oclif-common@2.0.1) (2022-08-16)
 
 ### Bug Fixes
