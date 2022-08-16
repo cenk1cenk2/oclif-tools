@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [1.10.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.9.2...@cenk1cenk2/oclif-common@1.10.0) (2022-08-16)
+
+### Features
+
+- expose config command ([0669b96](https://gitlab.kilic.dev/libraries/oclif-tools/commit/0669b96b44ca2d15fb424d4e9190acf016d42913))
+
 ## @cenk1cenk2/oclif-common [1.9.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.9.1...@cenk1cenk2/oclif-common@1.9.2) (2022-08-14)
 
 ### Bug Fixes

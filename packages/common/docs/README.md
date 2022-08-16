@@ -20,6 +20,7 @@
 ## Classes
 
 - [Command](classes/Command.md)
+- [ConfigCommand](classes/ConfigCommand.md)
 - [BaseConfig](classes/BaseConfig.md)
 - [ConfigService](classes/ConfigService.md)
 - [FileSystemService](classes/FileSystemService.md)

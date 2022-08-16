@@ -1,19 +1,18 @@
-# Class: Command<Ctx, Config\>
+# Class: ConfigCommand<CommandChoices, Ctx, Config\>
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
+| `CommandChoices` | extends `string` |
 | `Ctx` | extends `ListrContext` = `ListrContext` |
 | `Config` | extends [`BaseConfig`](BaseConfig.md) = [`BaseConfig`](BaseConfig.md) |
 
 ## Hierarchy
 
-- `default`
+- [`Command`](Command.md)<`Ctx`, `Config`\>
 
-  ↳ **`Command`**
-
-  ↳↳ [`ConfigCommand`](ConfigCommand.md)
+  ↳ **`ConfigCommand`**
 
 ## Properties
 
@@ -23,7 +22,7 @@
 
 #### Inherited from
 
-BaseCommand.argv
+[Command](Command.md).[argv](Command.md#argv)
 
 #### Defined in
 
@@ -37,7 +36,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.config
+[Command](Command.md).[config](Command.md#config)
 
 #### Defined in
 
@@ -51,7 +50,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.\_base
+[Command](Command.md).[_base](Command.md#_base)
 
 #### Defined in
 
@@ -67,7 +66,7 @@ A command ID, used mostly in error or verbose reporting.
 
 #### Inherited from
 
-BaseCommand.id
+[Command](Command.md).[id](Command.md#id)
 
 #### Defined in
 
@@ -84,7 +83,7 @@ sub-command listing and as the header for the command help.
 
 #### Inherited from
 
-BaseCommand.summary
+[Command](Command.md).[summary](Command.md#summary)
 
 #### Defined in
 
@@ -102,7 +101,7 @@ If no summary, the first line of the description will be used as the summary.
 
 #### Inherited from
 
-BaseCommand.description
+[Command](Command.md).[description](Command.md#description)
 
 #### Defined in
 
@@ -118,7 +117,7 @@ Hide the command from help?
 
 #### Inherited from
 
-BaseCommand.hidden
+[Command](Command.md).[hidden](Command.md#hidden)
 
 #### Defined in
 
@@ -134,7 +133,7 @@ Mark the command as a given state (e.g. beta) in help?
 
 #### Inherited from
 
-BaseCommand.state
+[Command](Command.md).[state](Command.md#state)
 
 #### Defined in
 
@@ -150,7 +149,7 @@ An override string (or strings) for the default usage documentation.
 
 #### Inherited from
 
-BaseCommand.usage
+[Command](Command.md).[usage](Command.md#usage)
 
 #### Defined in
 
@@ -164,7 +163,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.help
+[Command](Command.md).[help](Command.md#help)
 
 #### Defined in
 
@@ -180,7 +179,7 @@ An array of aliases for this command.
 
 #### Inherited from
 
-BaseCommand.aliases
+[Command](Command.md).[aliases](Command.md#aliases)
 
 #### Defined in
 
@@ -196,7 +195,7 @@ When set to false, allows a variable amount of arguments
 
 #### Inherited from
 
-BaseCommand.strict
+[Command](Command.md).[strict](Command.md#strict)
 
 #### Defined in
 
@@ -210,7 +209,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.parse
+[Command](Command.md).[parse](Command.md#parse)
 
 #### Defined in
 
@@ -226,7 +225,7 @@ An order-dependent array of arguments for the command
 
 #### Inherited from
 
-BaseCommand.args
+[Command](Command.md).[args](Command.md#args)
 
 #### Defined in
 
@@ -240,7 +239,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.plugin
+[Command](Command.md).[plugin](Command.md#plugin)
 
 #### Defined in
 
@@ -267,7 +266,7 @@ EXAMPLES:
 
 #### Inherited from
 
-BaseCommand.examples
+[Command](Command.md).[examples](Command.md#examples)
 
 #### Defined in
 
@@ -281,7 +280,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.parserOptions
+[Command](Command.md).[parserOptions](Command.md#parseroptions)
 
 #### Defined in
 
@@ -295,7 +294,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.\_enableJsonFlag
+[Command](Command.md).[_enableJsonFlag](Command.md#_enablejsonflag)
 
 #### Defined in
 
@@ -326,7 +325,7 @@ instantiate and run the command
 
 #### Inherited from
 
-BaseCommand.run
+[Command](Command.md).[run](Command.md#run)
 
 #### Defined in
 
@@ -340,7 +339,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.\_globalFlags
+[Command](Command.md).[_globalFlags](Command.md#_globalflags)
 
 #### Defined in
 
@@ -356,7 +355,7 @@ A hash of flags for the command
 
 #### Inherited from
 
-BaseCommand.\_flags
+[Command](Command.md).[_flags](Command.md#_flags)
 
 #### Defined in
 
@@ -370,7 +369,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.id
+[Command](Command.md).[id](Command.md#id-1)
 
 #### Defined in
 
@@ -398,7 +397,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.debug
+[Command](Command.md).[debug](Command.md#debug)
 
 #### Defined in
 
@@ -410,6 +409,10 @@ ___
 
 • **logger**: [`Logger`](Logger.md)
 
+#### Inherited from
+
+[Command](Command.md).[logger](Command.md#logger)
+
 #### Defined in
 
 packages/common/src/commands/base.command.ts:14
@@ -419,6 +422,10 @@ ___
 ### tasks
 
 • **tasks**: `Manager`<`Ctx`, ``"default"``, ``"verbose"``\>
+
+#### Inherited from
+
+[Command](Command.md).[tasks](Command.md#tasks)
 
 #### Defined in
 
@@ -430,6 +437,10 @@ ___
 
 • **validator**: [`ValidatorService`](ValidatorService.md)
 
+#### Inherited from
+
+[Command](Command.md).[validator](Command.md#validator)
+
 #### Defined in
 
 packages/common/src/commands/base.command.ts:16
@@ -439,6 +450,10 @@ ___
 ### isVerbose
 
 • **isVerbose**: `boolean`
+
+#### Inherited from
+
+[Command](Command.md).[isVerbose](Command.md#isverbose)
 
 #### Defined in
 
@@ -450,6 +465,10 @@ ___
 
 • **isDebug**: `boolean`
 
+#### Inherited from
+
+[Command](Command.md).[isDebug](Command.md#isdebug)
+
 #### Defined in
 
 packages/common/src/commands/base.command.ts:18
@@ -459,6 +478,10 @@ ___
 ### isSilent
 
 • **isSilent**: `boolean`
+
+#### Inherited from
+
+[Command](Command.md).[isSilent](Command.md#issilent)
 
 #### Defined in
 
@@ -470,6 +493,10 @@ ___
 
 • **cs**: [`ConfigService`](ConfigService.md)<`Config`\>
 
+#### Inherited from
+
+[Command](Command.md).[cs](Command.md#cs)
+
 #### Defined in
 
 packages/common/src/commands/base.command.ts:20
@@ -479,6 +506,10 @@ ___
 ### parser
 
 • **parser**: `ParserService`
+
+#### Inherited from
+
+[Command](Command.md).[parser](Command.md#parser)
 
 #### Defined in
 
@@ -490,9 +521,33 @@ ___
 
 • **fs**: [`FileSystemService`](FileSystemService.md)
 
+#### Inherited from
+
+[Command](Command.md).[fs](Command.md#fs)
+
 #### Defined in
 
 packages/common/src/commands/base.command.ts:22
+
+___
+
+### choices
+
+• **choices**: [`ConfigCommandChoices`](../types/ConfigCommandChoices.md)<`CommandChoices`\>
+
+#### Defined in
+
+packages/common/src/commands/config.command.ts:12
+
+___
+
+### locker
+
+• **locker**: [`LockerService`](LockerService.md)
+
+#### Defined in
+
+packages/common/src/commands/config.command.ts:13
 
 ## Accessors
 
@@ -630,12 +685,13 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:78
 
 ### constructor
 
-• **new Command**<`Ctx`, `Config`\>(`argv`, `config`)
+• **new ConfigCommand**<`CommandChoices`, `Ctx`, `Config`\>(`argv`, `config`)
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
+| `CommandChoices` | extends `string` |
 | `Ctx` | extends `unknown` = `any` |
 | `Config` | extends [`BaseConfig`](BaseConfig.md)<`Config`\> = [`BaseConfig`](BaseConfig.md) |
 
@@ -648,7 +704,7 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:78
 
 #### Inherited from
 
-BaseCommand.constructor
+[Command](Command.md).[constructor](Command.md#constructor)
 
 #### Defined in
 
@@ -672,7 +728,7 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:77
 
 #### Inherited from
 
-BaseCommand.\_run
+[Command](Command.md).[_run](Command.md#_run)
 
 #### Defined in
 
@@ -696,7 +752,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.warn
+[Command](Command.md).[warn](Command.md#warn)
 
 #### Defined in
 
@@ -721,7 +777,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.error
+[Command](Command.md).[error](Command.md#error)
 
 #### Defined in
 
@@ -742,7 +798,7 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:82
 
 #### Inherited from
 
-BaseCommand.error
+[Command](Command.md).[error](Command.md#error)
 
 #### Defined in
 
@@ -767,7 +823,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.log
+[Command](Command.md).[log](Command.md#log)
 
 #### Defined in
 
@@ -792,7 +848,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.logToStderr
+[Command](Command.md).[logToStderr](Command.md#logtostderr)
 
 #### Defined in
 
@@ -810,7 +866,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.jsonEnabled
+[Command](Command.md).[jsonEnabled](Command.md#jsonenabled)
 
 #### Defined in
 
@@ -843,7 +899,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.parse
+[Command](Command.md).[parse](Command.md#parse-1)
 
 #### Defined in
 
@@ -867,7 +923,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.toSuccessJson
+[Command](Command.md).[toSuccessJson](Command.md#tosuccessjson)
 
 #### Defined in
 
@@ -891,31 +947,11 @@ ___
 
 #### Inherited from
 
-BaseCommand.toErrorJson
+[Command](Command.md).[toErrorJson](Command.md#toerrorjson)
 
 #### Defined in
 
 packages/common/node_modules/@oclif/core/lib/command.d.ts:106
-
-___
-
-### run
-
-▸ **run**(): `Promise`<`void`\>
-
-Every command needs to implement run for running the command itself.
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Overrides
-
-BaseCommand.run
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:26
 
 ___
 
@@ -929,9 +965,9 @@ Initial functions / constructor
 
 `Promise`<`void`\>
 
-#### Overrides
+#### Inherited from
 
-BaseCommand.init
+[Command](Command.md).[init](Command.md#init)
 
 #### Defined in
 
@@ -948,6 +984,10 @@ Construct the class if you dont want to extend init or constructor.
 #### Returns
 
 `void` \| `Promise`<`void`\>
+
+#### Inherited from
+
+[Command](Command.md).[shouldRunBefore](Command.md#shouldrunbefore)
 
 #### Defined in
 
@@ -971,6 +1011,10 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 `void` \| `Promise`<`void`\>
 
+#### Inherited from
+
+[Command](Command.md).[shouldRunAfter](Command.md#shouldrunafter)
+
 #### Defined in
 
 packages/common/src/commands/base.command.ts:87
@@ -986,6 +1030,10 @@ Run all tasks from task manager.
 #### Returns
 
 `Promise`<`Ctx`\>
+
+#### Inherited from
+
+[Command](Command.md).[runTasks](Command.md#runtasks)
 
 #### Defined in
 
@@ -1003,9 +1051,9 @@ Tasks to run before end of the command.
 
 `Promise`<{ `ctx`: `Ctx`  }\>
 
-#### Overrides
+#### Inherited from
 
-BaseCommand.finally
+[Command](Command.md).[finally](Command.md#finally)
 
 #### Defined in
 
@@ -1029,9 +1077,9 @@ Catch any error occurred during command.
 
 `Promise`<`void`\>
 
-#### Overrides
+#### Inherited from
 
-BaseCommand.catch
+[Command](Command.md).[catch](Command.md#catch)
 
 #### Defined in
 
@@ -1061,6 +1109,10 @@ Gets prompt from user.
 
 `Promise`<`T`\>
 
+#### Inherited from
+
+[Command](Command.md).[prompt](Command.md#prompt)
+
 #### Defined in
 
 packages/common/src/commands/base.command.ts:123
@@ -1081,9 +1133,9 @@ ___
 
 `void`
 
-#### Overrides
+#### Inherited from
 
-BaseCommand.exit
+[Command](Command.md).[exit](Command.md#exit)
 
 #### Defined in
 
@@ -1091,14 +1143,48 @@ packages/common/src/commands/base.command.ts:138
 
 ___
 
-### greet
+### run
 
-▸ `Private` **greet**(): `void`
+▸ **run**(): `Promise`<`void`\>
+
+Every command needs to implement run for running the command itself.
 
 #### Returns
 
-`void`
+`Promise`<`void`\>
+
+#### Overrides
+
+[Command](Command.md).[run](Command.md#run-1)
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:143
+packages/common/src/commands/config.command.ts:15
+
+___
+
+### generate
+
+▸ `Private` **generate**(): `Promise`<`void`\>
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+packages/common/src/commands/config.command.ts:24
+
+___
+
+### setup
+
+▸ `Abstract` **setup**(): [`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`\> \| `Promise`<[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`\>\>
+
+#### Returns
+
+[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`\> \| `Promise`<[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`\>\>
+
+#### Defined in
+
+packages/common/src/commands/config.command.ts:35
