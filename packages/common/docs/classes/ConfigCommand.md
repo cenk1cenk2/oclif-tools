@@ -1133,6 +1133,41 @@ packages/common/src/commands/base.command.ts:123
 
 ___
 
+### setDefaultsInCtx
+
+▸ **setDefaultsInCtx**<`T`, `K`\>(`options`): `void`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `Ctx` |
+| `K` | `Record`<`string`, `any`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `Object` |
+| `options.assign?` | `Object` |
+| `options.assign.from` | `K` |
+| `options.assign.keys` | keyof `K`[] |
+| `options.default?` | `Partial`<`T`\>[] |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Command](Command.md).[setDefaultsInCtx](Command.md#setdefaultsinctx)
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:138
+
+___
+
 ### exit
 
 ▸ **exit**(`code?`): `void`
@@ -1153,7 +1188,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:138
+packages/common/src/commands/base.command.ts:151
 
 ___
 

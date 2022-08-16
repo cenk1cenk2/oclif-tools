@@ -1,3 +1,13 @@
+# @cenk1cenk2/oclif-common [2.2.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.1.2...@cenk1cenk2/oclif-common@2.2.0) (2022-08-16)
+
+### Bug Fixes
+
+- types ([8ebe137](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8ebe1372c670540becef4d75becfa5562e9625f7))
+
+### Features
+
+- add extending configuration ([33c16c2](https://gitlab.kilic.dev/libraries/oclif-tools/commit/33c16c2f5b4833dfb73ef2bdcea4a66e17fcc780))
+
 ## @cenk1cenk2/oclif-common [2.1.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.1.1...@cenk1cenk2/oclif-common@2.1.2) (2022-08-16)
 
 ### Bug Fixes

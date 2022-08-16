@@ -102,19 +102,19 @@ ___
 
 ### addLock
 
-▸ **addLock**<`T`\>(`data`): `void`
+▸ **addLock**<`T`\>(...`data`): `void`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `unknown` |
+| `T` | extends `unknown` = `any` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [`LockData`](../interfaces/LockData.md)<`T`\> \| [`LockData`](../interfaces/LockData.md)<`T`\>[] |
+| `...data` | [`LockData`](../interfaces/LockData.md)<`T`\>[] |
 
 #### Returns
 
@@ -134,7 +134,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `data?` | [`UnlockData`](../interfaces/UnlockData.md) \| [`UnlockData`](../interfaces/UnlockData.md)[] |
+| `data?` | [`UnlockData`](../interfaces/UnlockData.md)[] |
 
 #### Returns
 
@@ -176,7 +176,7 @@ ___
 
 ### lock
 
-▸ **lock**<`T`\>(`data`): `Promise`<`void`\>
+▸ **lock**<`T`\>(...`data`): `Promise`<`void`\>
 
 #### Type parameters
 
@@ -188,7 +188,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [`LockData`](../interfaces/LockData.md)<`T`\> \| [`LockData`](../interfaces/LockData.md)<`T`\>[] |
+| `...data` | [`LockData`](../interfaces/LockData.md)<`T`\>[] |
 
 #### Returns
 
@@ -202,13 +202,13 @@ ___
 
 ### unlock
 
-▸ **unlock**(`data?`): `Promise`<`void`\>
+▸ **unlock**(...`data`): `Promise`<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data?` | [`UnlockData`](../interfaces/UnlockData.md) \| [`UnlockData`](../interfaces/UnlockData.md)[] |
+| `...data` | [`UnlockData`](../interfaces/UnlockData.md)[] |
 
 #### Returns
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:96
+packages/common/src/lib/locker/locker.service.ts:91
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:137
+packages/common/src/lib/locker/locker.service.ts:127
 
 ___
 
@@ -250,7 +250,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:141
+packages/common/src/lib/locker/locker.service.ts:131
 
 ___
 
@@ -276,7 +276,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:145
+packages/common/src/lib/locker/locker.service.ts:135
 
 ___
 
@@ -296,4 +296,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:153
+packages/common/src/lib/locker/locker.service.ts:143

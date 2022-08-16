@@ -14,7 +14,7 @@
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:14
+packages/common/src/lib/config/config.service.ts:15
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:15
+packages/common/src/lib/config/config.service.ts:16
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:16
+packages/common/src/lib/config/config.service.ts:17
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:17
+packages/common/src/lib/config/config.service.ts:18
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:18
+packages/common/src/lib/config/config.service.ts:19
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:19
+packages/common/src/lib/config/config.service.ts:20
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:20
+packages/common/src/lib/config/config.service.ts:21
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:21
+packages/common/src/lib/config/config.service.ts:22
 
 ## Constructors
 
@@ -106,13 +106,13 @@ packages/common/src/lib/config/config.service.ts:21
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:23
+packages/common/src/lib/config/config.service.ts:24
 
 ## Methods
 
 ### read
 
-▸ **read**<`T`\>(`paths`): `Promise`<`T`\>
+▸ **read**<`T`\>(`path`): `Promise`<`T`\>
 
 #### Type parameters
 
@@ -124,7 +124,7 @@ packages/common/src/lib/config/config.service.ts:23
 
 | Name | Type |
 | :------ | :------ |
-| `paths` | `string` |
+| `path` | `string` |
 
 #### Returns
 
@@ -132,7 +132,34 @@ packages/common/src/lib/config/config.service.ts:23
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:42
+packages/common/src/lib/config/config.service.ts:43
+
+___
+
+### extend
+
+▸ **extend**<`T`\>(`strategy`, ...`paths`): `Promise`<`T`\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `unknown` = `any` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `strategy` | [`MergeStrategy`](../enums/MergeStrategy.md) |
+| `...paths` | `string`[] |
+
+#### Returns
+
+`Promise`<`T`\>
+
+#### Defined in
+
+packages/common/src/lib/config/config.service.ts:49
 
 ___
 
@@ -159,4 +186,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:65
+packages/common/src/lib/config/config.service.ts:67
