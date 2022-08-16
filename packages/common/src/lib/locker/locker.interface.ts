@@ -1,7 +1,7 @@
 import type { MergeStrategy } from '@utils'
 
 export interface CommonLockerData {
-  path: string
+  path: string | string[]
   enabled?: boolean
   root?: boolean
 }

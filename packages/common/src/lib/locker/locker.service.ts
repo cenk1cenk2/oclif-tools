@@ -142,11 +142,15 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return this.fs.write(this.file, await this.parser.stringify(data))
   }
 
-  private buildPath<T extends Partial<CommonLockerData>>(d: T): string {
+  private buildPath<T extends Partial<CommonLockerData>>(d: T): string[] {
     if (d?.root !== true && this.root) {
-      return `${this.root}.${d.path}`
+      return [ this.root, ...this.normalizePath(d.path) ]
     }
 
-    return d.path
+    return this.normalizePath(d.path)
+  }
+
+  private normalizePath (path: string | string[]): string[] {
+    return Array.isArray(path) ? path : path.split('.')
   }
 }
