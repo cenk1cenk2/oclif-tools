@@ -2,7 +2,7 @@ import op from 'object-path-immutable'
 
 import type { CommonLockerData, LockableData, LockData, UnlockData } from './locker.interface'
 import { FileSystemService } from '@lib/fs'
-import { GenericParser } from '@lib/parser'
+import type { GenericParser } from '@lib/parser/parser.interface'
 import { merge } from '@utils'
 import { Logger } from '@utils/logger'
 
@@ -12,7 +12,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   private readonly logger = new Logger(this.constructor.name)
   private readonly fs = new FileSystemService()
 
-  constructor (private file: string, private parser: GenericParser = new GenericParser(), private root?: string) {}
+  constructor (private file: string, private parser: GenericParser, private root?: string) {}
 
   public hasLock (): boolean {
     return this.toLock.length > 0
