@@ -7,8 +7,7 @@ import type { Command } from '@commands/base.command'
 import { FileConstants } from '@constants'
 import type { LockableData } from '@lib/locker'
 import { ParserService } from '@lib/parser/parser.service'
-import type { MergeStrategy } from '@utils'
-import { merge } from '@utils'
+import { MergeStrategy, merge } from '@utils'
 import { Logger } from '@utils/logger'
 
 export class ConfigService<Config extends BaseConfig = BaseConfig> {
@@ -40,14 +39,27 @@ export class ConfigService<Config extends BaseConfig = BaseConfig> {
     this.logger.trace('Created a new instance.')
   }
 
+  public async read<T extends LockableData = LockableData>(paths: string): Promise<T>
   public async read<T extends LockableData = LockableData>(strategy: MergeStrategy, ...paths: string[]): Promise<T> {
+    if (!Array.isArray(paths)) {
+      paths = [ paths ]
+    }
+
     const configs = await Promise.all(
       paths.map(async (path) => {
-        return this.parser.read<Partial<T>>(path)
+        try {
+          const config = await this.parser.read<Partial<T>>(path)
+
+          return config
+        } catch (e) {
+          this.logger.trace(e)
+
+          return {}
+        }
       })
     )
 
-    return merge<T>(strategy, {} as T, ...configs)
+    return merge<T>(strategy ?? MergeStrategy.OVERWRITE, {} as T, ...configs)
   }
 
   public async write<T extends LockableData = LockableData>(path: string, data: T): Promise<void> {
