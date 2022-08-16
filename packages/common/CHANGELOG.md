@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [2.2.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.2.0...@cenk1cenk2/oclif-common@2.2.1) (2022-08-16)
+
+### Bug Fixes
+
+- update unlock mechansim ([c99e259](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c99e259293d4b106a6163e146b388106155f79dd))
+
 # @cenk1cenk2/oclif-common [2.2.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.1.2...@cenk1cenk2/oclif-common@2.2.0) (2022-08-16)
 
 ### Bug Fixes

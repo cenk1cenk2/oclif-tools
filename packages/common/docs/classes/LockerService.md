@@ -128,13 +128,13 @@ ___
 
 ### addUnlock
 
-▸ **addUnlock**(`data?`): `void`
+▸ **addUnlock**(...`data`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data?` | [`UnlockData`](../interfaces/UnlockData.md)[] |
+| `...data` | [`UnlockData`](../interfaces/UnlockData.md)[] |
 
 #### Returns
 

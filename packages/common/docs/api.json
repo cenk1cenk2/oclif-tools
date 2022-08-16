@@ -94627,7 +94627,7 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {
-										"isOptional": true
+										"isRest": true
 									},
 									"type": {
 										"type": "array",
