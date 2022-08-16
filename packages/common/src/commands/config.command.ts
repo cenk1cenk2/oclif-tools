@@ -5,12 +5,14 @@ import type { ConfigCommandChoices, ConfigCommandSetup } from '@interfaces'
 import type { LockerService } from '@lib'
 import type { BaseConfig } from '@lib/config'
 
-export abstract class ConfigCommand<CommandChoices extends string, Ctx extends ListrContext = ListrContext, Config extends BaseConfig = BaseConfig> extends BaseCommand<
-Ctx,
-Config
-> {
+export abstract class ConfigCommand<
+  CommandChoices extends string = string,
+  LockFile = any,
+  Ctx extends ListrContext = ListrContext,
+  Config extends BaseConfig = BaseConfig
+> extends BaseCommand<Ctx, Config> {
   public choices: ConfigCommandChoices<CommandChoices>
-  public locker: LockerService
+  public locker: LockerService<LockFile>
 
   public async run (): Promise<void> {
     const setup = await this.setup()
@@ -32,5 +34,5 @@ Config
     return this.choices[response]()
   }
 
-  public abstract setup (): ConfigCommandSetup<CommandChoices> | Promise<ConfigCommandSetup<CommandChoices>>
+  public abstract setup (): ConfigCommandSetup<CommandChoices, LockFile> | Promise<ConfigCommandSetup<CommandChoices, LockFile>>
 }
