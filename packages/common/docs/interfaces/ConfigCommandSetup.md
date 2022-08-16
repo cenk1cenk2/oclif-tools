@@ -20,7 +20,7 @@ ___
 
 ### locker
 
-• **locker**: [`LockerService`](../classes/LockerService.md)
+• **locker**: [`LockerService`](../classes/LockerService.md)<`any`\>
 
 #### Defined in
 

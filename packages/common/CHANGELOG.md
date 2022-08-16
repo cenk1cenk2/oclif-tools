@@ -1,3 +1,11 @@
+## @cenk1cenk2/oclif-common [2.0.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.0.0...@cenk1cenk2/oclif-common@2.0.1) (2022-08-16)
+
+### Bug Fixes
+
+- extend locker types ([cbf9b3b](https://gitlab.kilic.dev/libraries/oclif-tools/commit/cbf9b3bc2450777d83a8ea63ee0114de76c9bc3a))
+- extend path to utilize both ([4453800](https://gitlab.kilic.dev/libraries/oclif-tools/commit/44538002cb883fdf40c1e101c42bff454ca7559d))
+- problems with types ([f257d74](https://gitlab.kilic.dev/libraries/oclif-tools/commit/f257d747c0b134ab00cdc36dfb715310b25e449e))
+
 # @cenk1cenk2/oclif-common [2.0.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.10.0...@cenk1cenk2/oclif-common@2.0.0) (2022-08-16)
 
 ### Performance Improvements

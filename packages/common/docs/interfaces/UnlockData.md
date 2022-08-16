@@ -10,7 +10,7 @@
 
 ### path
 
-• **path**: `string`
+• **path**: `string` \| `string`[]
 
 #### Inherited from
 

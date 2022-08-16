@@ -1,4 +1,10 @@
-# Class: LockerService
+# Class: LockerService<LockFile\>
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `LockFile` | extends [`LockableData`](../types/LockableData.md) = [`LockableData`](../types/LockableData.md) |
 
 ## Properties
 
@@ -44,7 +50,13 @@ packages/common/src/lib/locker/locker.service.ts:13
 
 ### constructor
 
-• **new LockerService**(`file`, `parser`, `root?`)
+• **new LockerService**<`LockFile`\>(`file`, `parser`, `root?`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `LockFile` | extends `unknown` = `any` |
 
 #### Parameters
 
@@ -170,7 +182,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `unknown` |
+| `T` | extends `unknown` = `any` |
 
 #### Parameters
 
@@ -210,13 +222,7 @@ ___
 
 ### read
 
-▸ **read**<`LockFile`\>(): `Promise`<`LockFile`\>
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `LockFile` | extends `unknown` = `any` |
+▸ **read**(): `Promise`<`LockFile`\>
 
 #### Returns
 
@@ -230,13 +236,7 @@ ___
 
 ### write
 
-▸ **write**<`LockFile`\>(`data`): `Promise`<`void`\>
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `LockFile` | extends `unknown` |
+▸ **write**(`data`): `Promise`<`void`\>
 
 #### Parameters
 
@@ -256,13 +256,13 @@ ___
 
 ### buildPath
 
-▸ `Private` **buildPath**<`T`\>(`d`): `string`
+▸ `Private` **buildPath**<`T`\>(`d`): `string`[]
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`CommonLockerData`](../interfaces/CommonLockerData.md) |
+| `T` | extends `Partial`<[`CommonLockerData`](../interfaces/CommonLockerData.md)\> |
 
 #### Parameters
 
@@ -272,8 +272,28 @@ ___
 
 #### Returns
 
-`string`
+`string`[]
 
 #### Defined in
 
 packages/common/src/lib/locker/locker.service.ts:145
+
+___
+
+### normalizePath
+
+▸ `Private` **normalizePath**(`path`): `string`[]
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `path` | `string` \| `string`[] |
+
+#### Returns
+
+`string`[]
+
+#### Defined in
+
+packages/common/src/lib/locker/locker.service.ts:153

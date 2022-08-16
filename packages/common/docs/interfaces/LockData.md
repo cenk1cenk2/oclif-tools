@@ -8,7 +8,7 @@
 
 ## Hierarchy
 
-- [`CommonLockerData`](CommonLockerData.md)
+- `Partial`<[`CommonLockerData`](CommonLockerData.md)\>
 
   ↳ **`LockData`**
 
@@ -16,11 +16,11 @@
 
 ### path
 
-• **path**: `string`
+• `Optional` **path**: `string` \| `string`[]
 
 #### Inherited from
 
-[CommonLockerData](CommonLockerData.md).[path](CommonLockerData.md#path)
+Partial.path
 
 #### Defined in
 
@@ -34,7 +34,7 @@ ___
 
 #### Inherited from
 
-[CommonLockerData](CommonLockerData.md).[enabled](CommonLockerData.md#enabled)
+Partial.enabled
 
 #### Defined in
 
@@ -48,7 +48,7 @@ ___
 
 #### Inherited from
 
-[CommonLockerData](CommonLockerData.md).[root](CommonLockerData.md#root)
+Partial.root
 
 #### Defined in
 

@@ -4,15 +4,13 @@
 
 - **`CommonLockerData`**
 
-  ↳ [`LockData`](LockData.md)
-
   ↳ [`UnlockData`](UnlockData.md)
 
 ## Properties
 
 ### path
 
-• **path**: `string`
+• **path**: `string` \| `string`[]
 
 #### Defined in
 

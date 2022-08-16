@@ -543,7 +543,7 @@ ___
 
 ### locker
 
-• **locker**: [`LockerService`](LockerService.md)
+• **locker**: [`LockerService`](LockerService.md)<`any`\>
 
 #### Defined in
 
