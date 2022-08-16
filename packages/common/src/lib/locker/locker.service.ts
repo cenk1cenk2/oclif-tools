@@ -2,7 +2,7 @@ import op from 'object-path-immutable'
 
 import type { CommonLockerData, LockableData, LockData, UnlockData } from './locker.interface'
 import { FileSystemService } from '@lib/fs'
-import type { GenericParser } from '@lib/parser'
+import { GenericParser } from '@lib/parser'
 import { merge } from '@utils'
 import { Logger } from '@utils/logger'
 
@@ -12,7 +12,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   private readonly logger = new Logger(this.constructor.name)
   private readonly fs = new FileSystemService()
 
-  constructor (private file: string, private parser: GenericParser, private root?: string) {}
+  constructor (private file: string, private parser: GenericParser = new GenericParser(), private root?: string) {}
 
   public hasLock (): boolean {
     return this.toLock.length > 0
@@ -22,17 +22,17 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return this.toUnlock.length > 0
   }
 
-  public addLock<T extends LockableData>(data: LockData<T> | LockData<T>[]): void {
-    this.toLock = [ ...this.toLock, ...Array.isArray(data) ? data : [ data ] ]
+  public addLock<T extends LockableData = LockableData>(...data: LockData<T>[]): void {
+    this.toLock = [ ...this.toLock, ...data ]
   }
 
-  public addUnlock (data?: UnlockData | UnlockData[]): void {
-    this.toUnlock = [ ...this.toUnlock, ...Array.isArray(data) ? data : [ data ] ]
+  public addUnlock (data?: UnlockData[]): void {
+    this.toUnlock = [ ...this.toUnlock, ...data ]
   }
 
   public async lockAll (): Promise<void> {
     if (this.hasLock()) {
-      await this.lock(this.toLock)
+      await this.lock(...this.toLock)
 
       this.toLock = []
     }
@@ -40,18 +40,13 @@ export class LockerService<LockFile extends LockableData = LockableData> {
 
   public async unlockAll (): Promise<void> {
     if (this.toUnlock.length > 0) {
-      await this.unlock(this.toUnlock)
+      await this.unlock(...this.toUnlock)
 
       this.toUnlock = []
     }
   }
 
-  public async lock<T extends LockableData = LockableData>(data: LockData<T> | LockData<T>[]): Promise<void> {
-    // cast to array
-    if (!Array.isArray(data)) {
-      data = [ data ]
-    }
-
+  public async lock<T extends LockableData = LockableData>(...data: LockData<T>[]): Promise<void> {
     let lock: LockFile = await this.read() ?? ({} as LockFile)
 
     await Promise.all(
@@ -80,11 +75,11 @@ export class LockerService<LockFile extends LockableData = LockableData> {
 
           // set lock data
           lock = op.set(lock, path, parsed)
-          this.logger.verbose(`Merge lock: "${path}"`)
+          this.logger.verbose('Merge lock: %s', path)
         } else {
           // dont merge directly set the data
           lock = op.set(lock, path, d.data)
-          this.logger.verbose(`Override lock: "${path}"`)
+          this.logger.verbose('Override lock: %s', path)
         }
       })
     )
@@ -93,12 +88,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     await this.write(lock)
   }
 
-  public async unlock (data?: UnlockData | UnlockData[]): Promise<void> {
-    // cast to array
-    if (data && !Array.isArray(data)) {
-      data = [ data ]
-    }
-
+  public async unlock (...data: UnlockData[]): Promise<void> {
     // get lock file
     let lock = await this.read()
 
@@ -110,7 +100,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     }
 
     // option to delete all, or specific locks
-    if (Array.isArray(data) && data.length > 0) {
+    if (data.length > 0) {
       await Promise.all(
         data.map(async (d) => {
           // enabled flag for not if checking every time
@@ -122,12 +112,12 @@ export class LockerService<LockFile extends LockableData = LockableData> {
 
           // set unlock
           lock = op.del(lock, path)
-          this.logger.verbose(`Unlocked: ${path}`, { custom: 'locker' })
+          this.logger.verbose('Unlocked: %s', path, { custom: 'locker' })
         })
       )
     } else {
       lock = op.del(lock, this.root)
-      this.logger.verbose(`Unlocked module: ${this.root}`, { custom: 'locker' })
+      this.logger.verbose('Unlocked module: %s', this.root, { custom: 'locker' })
     }
 
     // write data

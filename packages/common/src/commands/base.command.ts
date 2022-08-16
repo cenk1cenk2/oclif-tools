@@ -135,6 +135,19 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
     }
   }
 
+  public setDefaultsInCtx<T = Ctx, K = Record<string, any>>(options: { assign?: { from: K, keys: (keyof K)[] }, default?: Partial<T>[] }): void {
+    options.assign?.keys.forEach((i) => {
+      if (options.assign.from[i]) {
+        this.tasks.ctx[i as string] = options.assign.from[i]
+      }
+    })
+
+    // defaults
+    options.default?.forEach((i) => {
+      Object.assign(this.tasks.ctx, i)
+    })
+  }
+
   public exit (code?: number): void {
     this.logger.trace('Exitting with code: %d', code)
     process.exit(code ?? 0)
