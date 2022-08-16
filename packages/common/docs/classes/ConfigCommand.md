@@ -1,10 +1,11 @@
-# Class: ConfigCommand<CommandChoices, Ctx, Config\>
+# Class: ConfigCommand<CommandChoices, LockFile, Ctx, Config\>
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `CommandChoices` | extends `string` |
+| `CommandChoices` | extends `string` = `string` |
+| `LockFile` | `any` |
 | `Ctx` | extends `ListrContext` = `ListrContext` |
 | `Config` | extends [`BaseConfig`](BaseConfig.md) = [`BaseConfig`](BaseConfig.md) |
 
@@ -537,17 +538,17 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:12
+packages/common/src/commands/config.command.ts:14
 
 ___
 
 ### locker
 
-• **locker**: [`LockerService`](LockerService.md)<`any`\>
+• **locker**: [`LockerService`](LockerService.md)<`LockFile`\>
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:13
+packages/common/src/commands/config.command.ts:15
 
 ## Accessors
 
@@ -685,13 +686,14 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:78
 
 ### constructor
 
-• **new ConfigCommand**<`CommandChoices`, `Ctx`, `Config`\>(`argv`, `config`)
+• **new ConfigCommand**<`CommandChoices`, `LockFile`, `Ctx`, `Config`\>(`argv`, `config`)
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `CommandChoices` | extends `string` |
+| `CommandChoices` | extends `string` = `string` |
+| `LockFile` | `any` |
 | `Ctx` | extends `unknown` = `any` |
 | `Config` | extends [`BaseConfig`](BaseConfig.md)<`Config`\> = [`BaseConfig`](BaseConfig.md) |
 
@@ -1159,7 +1161,7 @@ Every command needs to implement run for running the command itself.
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:15
+packages/common/src/commands/config.command.ts:17
 
 ___
 
@@ -1173,18 +1175,18 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:24
+packages/common/src/commands/config.command.ts:26
 
 ___
 
 ### setup
 
-▸ `Abstract` **setup**(): [`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`\> \| `Promise`<[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`\>\>
+▸ `Abstract` **setup**(): [`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\> \| `Promise`<[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\>\>
 
 #### Returns
 
-[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`\> \| `Promise`<[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`\>\>
+[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\> \| `Promise`<[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\>\>
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:35
+packages/common/src/commands/config.command.ts:37

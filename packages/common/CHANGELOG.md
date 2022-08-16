@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [2.1.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.1.0...@cenk1cenk2/oclif-common@2.1.1) (2022-08-16)
+
+### Bug Fixes
+
+- extend lock file to be generic ([043f45f](https://gitlab.kilic.dev/libraries/oclif-tools/commit/043f45f6f9d0fb4f576b1470a4897ee7263b81fb))
+
 # @cenk1cenk2/oclif-common [2.1.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.0.1...@cenk1cenk2/oclif-common@2.1.0) (2022-08-16)
 
 ### Features

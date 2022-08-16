@@ -1,10 +1,11 @@
-# Interface: ConfigCommandSetup<T\>
+# Interface: ConfigCommandSetup<T, LockFile\>
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `string` |
+| `T` | extends `string` = `string` |
+| `LockFile` | `any` |
 
 ## Properties
 
@@ -20,7 +21,7 @@ ___
 
 ### locker
 
-• **locker**: [`LockerService`](../classes/LockerService.md)<`any`\>
+• **locker**: [`LockerService`](../classes/LockerService.md)<`LockFile`\>
 
 #### Defined in
 
