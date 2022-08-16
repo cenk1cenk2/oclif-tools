@@ -26,7 +26,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     this.toLock = [ ...this.toLock, ...data ]
   }
 
-  public addUnlock (data?: UnlockData[]): void {
+  public addUnlock (...data: UnlockData[]): void {
     this.toUnlock = [ ...this.toUnlock, ...data ]
   }
 
