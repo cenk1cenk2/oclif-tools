@@ -6,7 +6,7 @@ import type { GenericParser } from '@lib/parser'
 import { merge } from '@utils'
 import { Logger } from '@utils/logger'
 
-export class LockerService {
+export class LockerService<LockFile extends LockableData = LockableData> {
   private toLock: LockData[] = []
   private toUnlock: UnlockData[] = []
   private readonly logger = new Logger(this.constructor.name)
@@ -134,11 +134,11 @@ export class LockerService {
     await this.write(lock)
   }
 
-  public async read<LockFile extends LockableData = LockableData>(): Promise<LockFile> {
+  public async read (): Promise<LockFile> {
     return this.parser.parse(await this.fs.read(this.file))
   }
 
-  public async write<LockFile extends LockableData>(data: LockFile): Promise<void> {
+  public async write (data: LockFile): Promise<void> {
     return this.fs.write(this.file, await this.parser.stringify(data))
   }
 
