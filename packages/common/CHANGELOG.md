@@ -1,3 +1,13 @@
+# @cenk1cenk2/oclif-common [2.0.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.10.0...@cenk1cenk2/oclif-common@2.0.0) (2022-08-16)
+
+### Performance Improvements
+
+- update peer deps for class type errors ([9e7436f](https://gitlab.kilic.dev/libraries/oclif-tools/commit/9e7436fe4e1491b135fa94e4297a8c50bd70872c))
+
+### BREAKING CHANGES
+
+- some deps has been moved to peer and now it needs to be installed
+
 # @cenk1cenk2/oclif-common [1.10.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@1.9.2...@cenk1cenk2/oclif-common@1.10.0) (2022-08-16)
 
 ### Features
