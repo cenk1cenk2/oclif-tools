@@ -87,9 +87,9 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
   public shouldRunAfter (_ctx?: Ctx): void | Promise<void> {}
 
   /** Run all tasks from task manager. */
-  public async runTasks (): Promise<Ctx> {
+  public async runTasks<C extends Ctx = Ctx>(): Promise<C> {
     try {
-      const ctx = await this.tasks.runAll<Ctx>()
+      const ctx = await this.tasks.runAll<C>()
 
       return ctx
     } catch (e) {
@@ -100,9 +100,9 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
   }
 
   /** Tasks to run before end of the command. */
-  public async finally (): Promise<{ ctx: Ctx }> {
+  public async finally<C extends Ctx = Ctx>(): Promise<{ ctx: C }> {
     // run anything in the task queue at the end
-    const ctx = await this.runTasks()
+    const ctx = await this.runTasks<C>()
 
     await this.shouldRunAfter(ctx)
 
