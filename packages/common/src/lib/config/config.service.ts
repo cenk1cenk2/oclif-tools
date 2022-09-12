@@ -141,13 +141,13 @@ export class ConfigService implements GlobalConfig {
         try {
           variable = await this.parser.parse(variable.parser, data)
         } catch (e) {
-          this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
+          this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key?.join('.'), variable.env, variable.parser)
 
           throw e
         }
       }
 
-      this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
+      this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key?.join('.'), variable.env)
 
       return op.set(config, variable.key, variable)
     }
@@ -162,7 +162,7 @@ export class ConfigService implements GlobalConfig {
           config = await cb(config, variable, data)
         }
 
-        if (variable.extensions) {
+        if (variable.extensions && variable.extensions.length > 0) {
           const timeout = 60000
           const startedAt = Date.now()
 
@@ -177,18 +177,17 @@ export class ConfigService implements GlobalConfig {
                   const clone = JSON.parse(JSON.stringify(extension)) as ConfigIterator
 
                   clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
-
-                  // this.logger.trace('Looking for environment variable element: %o', clone)
+                  clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i
 
                   data = process.env[clone.env]
 
+                  this.logger.trace('Extension: %o -> %s', clone, data)
+
                   if (!data) {
-                    this.logger.trace('No extension for environment variable: %s -> %d', clone.env, i)
+                    this.logger.trace('No extension for environment variable: %s -> %s', clone.key.join('.'), clone.env)
 
                     return
                   }
-
-                  clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i
 
                   return cb({} as T, clone, data)
                 })
