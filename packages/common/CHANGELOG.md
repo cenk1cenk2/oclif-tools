@@ -1,3 +1,27 @@
+# @cenk1cenk2/oclif-common [3.0.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.3.0...@cenk1cenk2/oclif-common@3.0.0) (2022-09-12)
+
+### Bug Fixes
+
+- add env variable overwrites ([6d2e65c](https://gitlab.kilic.dev/libraries/oclif-tools/commit/6d2e65c4eff9e33fde0084905526cf539c8f7d2f))
+- issues with imports ([4dcf26d](https://gitlab.kilic.dev/libraries/oclif-tools/commit/4dcf26d47953be96831274fc5a649a3b349492f6))
+- set parsers as default ([bc0d4a1](https://gitlab.kilic.dev/libraries/oclif-tools/commit/bc0d4a1c32a1e3d24d0bdef3c342aeac1383b3d3))
+- update assignment ([c59b6c9](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c59b6c9247a941dfdbbdb56b3ee52b1b116bd66d))
+- update configuration for passing arguments ([109c3d5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/109c3d5d3d4c2a255f2fd386e343f6a0bc26aa4c))
+- update logging configuration ([a0f5c58](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a0f5c58da1044029f6b7f58dfef228c91949db4d))
+- update parser configuration without extname ([31ed1c7](https://gitlab.kilic.dev/libraries/oclif-tools/commit/31ed1c75e6ceefa98c1e0559abf0187f936458a7))
+- update setting defaults ([56edd39](https://gitlab.kilic.dev/libraries/oclif-tools/commit/56edd3904d2681943bbacac656ff7212a20bbb54))
+- update the defaults and assign ([2c8b5c2](https://gitlab.kilic.dev/libraries/oclif-tools/commit/2c8b5c269adbd2d09821c7f2aee41e8887611366))
+- update with more verbose trace logging ([2009c37](https://gitlab.kilic.dev/libraries/oclif-tools/commit/2009c374071d8979117086951758b5f2258ee3bf))
+
+### Performance Improvements
+
+- change flag parsing ([a8c3ac7](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a8c3ac7e8b5e2021899a1dc728e15be775932af7))
+- update the methodology for brownie ([41e4d1e](https://gitlab.kilic.dev/libraries/oclif-tools/commit/41e4d1e21026299b40df8a86f47a52a17a15e127))
+
+### BREAKING CHANGES
+
+- is not compatible with the older version do to flag parsing
+
 # @cenk1cenk2/oclif-common [3.0.0-beta.10](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.0-beta.9...@cenk1cenk2/oclif-common@3.0.0-beta.10) (2022-09-12)
 
 ### Bug Fixes

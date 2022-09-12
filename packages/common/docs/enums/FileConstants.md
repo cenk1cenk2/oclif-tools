@@ -4,7 +4,7 @@
 
 ### CONFIG\_SERVICE\_DEFAULTS\_DIR
 
-• **CONFIG\_SERVICE\_DEFAULTS\_DIR** = ``"defaults"``
+• **CONFIG\_SERVICE\_DEFAULTS\_DIR** = ``"config"``
 
 #### Defined in
 

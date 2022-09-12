@@ -48,4 +48,4 @@ Fulfills with an {fs.Dir}.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:1041
+node_modules/@types/node/fs/promises.d.ts:1047

@@ -31,7 +31,7 @@ Fulfills with the `linkString` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:663
+node_modules/@types/node/fs/promises.d.ts:669
 
 ▸ **readlink**(`path`, `options`): `Promise`<`Buffer`\>
 
@@ -50,7 +50,7 @@ Asynchronous readlink(2) - read value of a symbolic link.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:669
+node_modules/@types/node/fs/promises.d.ts:675
 
 ▸ **readlink**(`path`, `options?`): `Promise`<`string` \| `Buffer`\>
 
@@ -69,4 +69,4 @@ Asynchronous readlink(2) - read value of a symbolic link.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:675
+node_modules/@types/node/fs/promises.d.ts:681

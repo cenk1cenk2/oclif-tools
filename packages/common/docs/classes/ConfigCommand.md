@@ -1,4 +1,4 @@
-# Class: ConfigCommand<CommandChoices, LockFile, Ctx, Config\>
+# Class: ConfigCommand<CommandChoices, LockFile, Ctx, Flags, Args, Store\>
 
 ## Type parameters
 
@@ -7,11 +7,13 @@
 | `CommandChoices` | extends `string` = `string` |
 | `LockFile` | `any` |
 | `Ctx` | extends `ListrContext` = `ListrContext` |
-| `Config` | extends [`BaseConfig`](BaseConfig.md) = [`BaseConfig`](BaseConfig.md) |
+| `Flags` | extends `Record`<`PropertyKey`, `any`\> = [`InferFlags`](../types/InferFlags.md)<typeof [`ConfigCommand`](ConfigCommand.md)\> |
+| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`ConfigCommand`](ConfigCommand.md)\> |
+| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
 
 ## Hierarchy
 
-- [`Command`](Command.md)<`Ctx`, `Config`\>
+- [`Command`](Command.md)<`Ctx`, `Flags`, `Args`, `Store`\>
 
   ↳ **`ConfigCommand`**
 
@@ -27,7 +29,7 @@
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:9
+node_modules/@oclif/core/lib/command.d.ts:9
 
 ___
 
@@ -41,7 +43,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:10
+node_modules/@oclif/core/lib/command.d.ts:10
 
 ___
 
@@ -55,7 +57,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:11
+node_modules/@oclif/core/lib/command.d.ts:11
 
 ___
 
@@ -71,7 +73,7 @@ A command ID, used mostly in error or verbose reporting.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:13
+node_modules/@oclif/core/lib/command.d.ts:13
 
 ___
 
@@ -88,7 +90,7 @@ sub-command listing and as the header for the command help.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:18
+node_modules/@oclif/core/lib/command.d.ts:18
 
 ___
 
@@ -106,7 +108,7 @@ If no summary, the first line of the description will be used as the summary.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:24
+node_modules/@oclif/core/lib/command.d.ts:24
 
 ___
 
@@ -122,7 +124,7 @@ Hide the command from help?
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:26
+node_modules/@oclif/core/lib/command.d.ts:26
 
 ___
 
@@ -138,7 +140,7 @@ Mark the command as a given state (e.g. beta) in help?
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:28
+node_modules/@oclif/core/lib/command.d.ts:28
 
 ___
 
@@ -154,7 +156,7 @@ An override string (or strings) for the default usage documentation.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:32
+node_modules/@oclif/core/lib/command.d.ts:32
 
 ___
 
@@ -168,7 +170,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:33
+node_modules/@oclif/core/lib/command.d.ts:33
 
 ___
 
@@ -184,7 +186,7 @@ An array of aliases for this command.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:35
+node_modules/@oclif/core/lib/command.d.ts:35
 
 ___
 
@@ -200,7 +202,7 @@ When set to false, allows a variable amount of arguments
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:37
+node_modules/@oclif/core/lib/command.d.ts:37
 
 ___
 
@@ -214,23 +216,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:38
-
-___
-
-### args
-
-▪ `Static` `Optional` **args**: `ArgInput`
-
-An order-dependent array of arguments for the command
-
-#### Inherited from
-
-[Command](Command.md).[args](Command.md#args)
-
-#### Defined in
-
-packages/common/node_modules/@oclif/core/lib/command.d.ts:40
+node_modules/@oclif/core/lib/command.d.ts:38
 
 ___
 
@@ -244,7 +230,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:41
+node_modules/@oclif/core/lib/command.d.ts:41
 
 ___
 
@@ -271,7 +257,7 @@ EXAMPLES:
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:56
+node_modules/@oclif/core/lib/command.d.ts:56
 
 ___
 
@@ -285,7 +271,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:57
+node_modules/@oclif/core/lib/command.d.ts:57
 
 ___
 
@@ -299,7 +285,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:58
+node_modules/@oclif/core/lib/command.d.ts:58
 
 ___
 
@@ -330,7 +316,7 @@ instantiate and run the command
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:67
+node_modules/@oclif/core/lib/command.d.ts:67
 
 ___
 
@@ -344,7 +330,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:68
+node_modules/@oclif/core/lib/command.d.ts:68
 
 ___
 
@@ -360,7 +346,7 @@ A hash of flags for the command
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:72
+node_modules/@oclif/core/lib/command.d.ts:72
 
 ___
 
@@ -374,7 +360,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:75
+node_modules/@oclif/core/lib/command.d.ts:75
 
 ___
 
@@ -402,7 +388,42 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:76
+node_modules/@oclif/core/lib/command.d.ts:76
+
+___
+
+### globalFlags
+
+▪ `Static` **globalFlags**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `log-level` | `OptionFlag`<`string`\> |
+| `ci` | `BooleanFlag`<`boolean`\> |
+
+#### Inherited from
+
+[Command](Command.md).[globalFlags](Command.md#globalflags)
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:21
+
+___
+
+### args
+
+▪ `Static` **args**: [`ArgInput`](../types/ArgInput.md) = `[]`
+
+#### Inherited from
+
+[Command](Command.md).[args](Command.md#args)
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:38
 
 ___
 
@@ -416,7 +437,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:14
+packages/common/src/commands/base.command.ts:40
 
 ___
 
@@ -430,7 +451,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:15
+packages/common/src/commands/base.command.ts:41
 
 ___
 
@@ -444,55 +465,13 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:16
-
-___
-
-### isVerbose
-
-• **isVerbose**: `boolean`
-
-#### Inherited from
-
-[Command](Command.md).[isVerbose](Command.md#isverbose)
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:17
-
-___
-
-### isDebug
-
-• **isDebug**: `boolean`
-
-#### Inherited from
-
-[Command](Command.md).[isDebug](Command.md#isdebug)
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:18
-
-___
-
-### isSilent
-
-• **isSilent**: `boolean`
-
-#### Inherited from
-
-[Command](Command.md).[isSilent](Command.md#issilent)
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:19
+packages/common/src/commands/base.command.ts:42
 
 ___
 
 ### cs
 
-• **cs**: [`ConfigService`](ConfigService.md)<`Config`\>
+• **cs**: [`ConfigService`](ConfigService.md)
 
 #### Inherited from
 
@@ -500,13 +479,13 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:20
+packages/common/src/commands/base.command.ts:43
 
 ___
 
 ### parser
 
-• **parser**: `ParserService`
+• **parser**: [`ParserService`](ParserService.md)
 
 #### Inherited from
 
@@ -514,7 +493,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:21
+packages/common/src/commands/base.command.ts:44
 
 ___
 
@@ -528,7 +507,49 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:22
+packages/common/src/commands/base.command.ts:45
+
+___
+
+### store
+
+• **store**: [`StoreService`](StoreService.md)<`Store`\>
+
+#### Inherited from
+
+[Command](Command.md).[store](Command.md#store)
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:46
+
+___
+
+### flags
+
+• **flags**: `Flags`
+
+#### Inherited from
+
+[Command](Command.md).[flags](Command.md#flags-1)
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:48
+
+___
+
+### args
+
+• **args**: `Args`
+
+#### Inherited from
+
+[Command](Command.md).[args](Command.md#args-1)
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:49
 
 ___
 
@@ -538,7 +559,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:14
+packages/common/src/commands/config.command.ts:15
 
 ___
 
@@ -548,7 +569,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:15
+packages/common/src/commands/config.command.ts:16
 
 ## Accessors
 
@@ -566,7 +587,7 @@ BaseCommand.enableJsonFlag
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:59
+node_modules/@oclif/core/lib/command.d.ts:59
 
 • `Static` `set` **enableJsonFlag**(`value`): `void`
 
@@ -586,45 +607,7 @@ BaseCommand.enableJsonFlag
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:60
-
-___
-
-### globalFlags
-
-• `Static` `get` **globalFlags**(): `object`
-
-#### Returns
-
-`object`
-
-#### Inherited from
-
-BaseCommand.globalFlags
-
-#### Defined in
-
-packages/common/node_modules/@oclif/core/lib/command.d.ts:69
-
-• `Static` `set` **globalFlags**(`flags`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `flags` | `object` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCommand.globalFlags
-
-#### Defined in
-
-packages/common/node_modules/@oclif/core/lib/command.d.ts:70
+node_modules/@oclif/core/lib/command.d.ts:60
 
 ___
 
@@ -642,7 +625,7 @@ BaseCommand.flags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:73
+node_modules/@oclif/core/lib/command.d.ts:73
 
 • `Static` `set` **flags**(`flags`): `void`
 
@@ -662,7 +645,7 @@ BaseCommand.flags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:74
+node_modules/@oclif/core/lib/command.d.ts:74
 
 ___
 
@@ -680,13 +663,13 @@ BaseCommand.ctor
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:78
+node_modules/@oclif/core/lib/command.d.ts:78
 
 ## Constructors
 
 ### constructor
 
-• **new ConfigCommand**<`CommandChoices`, `LockFile`, `Ctx`, `Config`\>(`argv`, `config`)
+• **new ConfigCommand**<`CommandChoices`, `LockFile`, `Ctx`, `Flags`, `Args`, `Store`\>(`argv`, `config`)
 
 #### Type parameters
 
@@ -695,7 +678,9 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:78
 | `CommandChoices` | extends `string` = `string` |
 | `LockFile` | `any` |
 | `Ctx` | extends `unknown` = `any` |
-| `Config` | extends [`BaseConfig`](BaseConfig.md)<`Config`\> = [`BaseConfig`](BaseConfig.md) |
+| `Flags` | extends `Record`<`PropertyKey`, `any`\> = `Object` & { `json`: `boolean`  } |
+| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`ConfigCommand`](ConfigCommand.md)\> |
+| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
 
 #### Parameters
 
@@ -710,7 +695,7 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:78
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:77
+node_modules/@oclif/core/lib/command.d.ts:77
 
 ## Methods
 
@@ -734,7 +719,7 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:77
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:79
+node_modules/@oclif/core/lib/command.d.ts:79
 
 ___
 
@@ -758,7 +743,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:81
+node_modules/@oclif/core/lib/command.d.ts:81
 
 ___
 
@@ -783,7 +768,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:82
+node_modules/@oclif/core/lib/command.d.ts:82
 
 ▸ **error**(`input`, `options?`): `never`
 
@@ -804,7 +789,7 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:82
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:86
+node_modules/@oclif/core/lib/command.d.ts:86
 
 ___
 
@@ -829,7 +814,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:90
+node_modules/@oclif/core/lib/command.d.ts:90
 
 ___
 
@@ -854,7 +839,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:91
+node_modules/@oclif/core/lib/command.d.ts:91
 
 ___
 
@@ -872,7 +857,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:92
+node_modules/@oclif/core/lib/command.d.ts:92
 
 ___
 
@@ -905,7 +890,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:98
+node_modules/@oclif/core/lib/command.d.ts:98
 
 ___
 
@@ -929,7 +914,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:105
+node_modules/@oclif/core/lib/command.d.ts:105
 
 ___
 
@@ -953,7 +938,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:106
+node_modules/@oclif/core/lib/command.d.ts:106
 
 ___
 
@@ -973,7 +958,7 @@ Initial functions / constructor
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:32
+packages/common/src/commands/base.command.ts:53
 
 ___
 
@@ -993,7 +978,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:81
+packages/common/src/commands/base.command.ts:116
 
 ___
 
@@ -1019,7 +1004,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:87
+packages/common/src/commands/base.command.ts:122
 
 ___
 
@@ -1045,7 +1030,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:90
+packages/common/src/commands/base.command.ts:125
 
 ___
 
@@ -1071,7 +1056,7 @@ Tasks to run before end of the command.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:103
+packages/common/src/commands/base.command.ts:138
 
 ___
 
@@ -1097,7 +1082,7 @@ Catch any error occurred during command.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:114
+packages/common/src/commands/base.command.ts:149
 
 ___
 
@@ -1129,30 +1114,19 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:123
+packages/common/src/commands/base.command.ts:158
 
 ___
 
-### setDefaultsInCtx
+### setCtxDefaults
 
-▸ **setDefaultsInCtx**<`T`, `K`\>(`options`): `void`
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | `Ctx` |
-| `K` | `Record`<`string`, `any`\> |
+▸ **setCtxDefaults**(...`defaults`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
-| `options.assign?` | `Object` |
-| `options.assign.from` | `K` |
-| `options.assign.keys` | keyof `K`[] |
-| `options.default?` | `Partial`<`T`\>[] |
+| `...defaults` | `Partial`<`Ctx`\>[] |
 
 #### Returns
 
@@ -1160,11 +1134,41 @@ ___
 
 #### Inherited from
 
-[Command](Command.md).[setDefaultsInCtx](Command.md#setdefaultsinctx)
+[Command](Command.md).[setCtxDefaults](Command.md#setctxdefaults)
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:138
+packages/common/src/commands/base.command.ts:173
+
+___
+
+### setCtxAssign
+
+▸ **setCtxAssign**<`K`\>(...`assigns`): `void`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `K` | `Record`<`PropertyKey`, `any`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...assigns` | [`SetCtxAssignOptions`](../interfaces/SetCtxAssignOptions.md)<`K`\>[] |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Command](Command.md).[setCtxAssign](Command.md#setctxassign)
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:177
 
 ___
 
@@ -1188,7 +1192,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:151
+packages/common/src/commands/base.command.ts:181
 
 ___
 
@@ -1208,7 +1212,7 @@ Every command needs to implement run for running the command itself.
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:17
+packages/common/src/commands/config.command.ts:18
 
 ___
 
@@ -1222,7 +1226,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:26
+packages/common/src/commands/config.command.ts:27
 
 ___
 
@@ -1236,4 +1240,4 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:37
+packages/common/src/commands/config.command.ts:38

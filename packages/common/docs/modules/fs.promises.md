@@ -12,6 +12,10 @@
 - [CreateWriteStreamOptions](../interfaces/fs.promises.CreateWriteStreamOptions.md)
 - [FileHandle](../interfaces/fs.promises.FileHandle.md)
 
+## Variables
+
+- [constants](../variables/fs.promises.constants.md)
+
 ## Functions
 
 - [access](../functions/fs.promises.access.md)

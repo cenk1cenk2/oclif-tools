@@ -21,8 +21,8 @@ v10.0.0
 | Name | Type |
 | :------ | :------ |
 | `path` | [`PathLike`](../types/fs.PathLike.md) |
-| `atime` | `string` \| `number` \| `Date` |
-| `mtime` | `string` \| `number` \| `Date` |
+| `atime` | [`TimeLike`](../types/fs.TimeLike.md) |
+| `mtime` | [`TimeLike`](../types/fs.TimeLike.md) |
 
 #### Returns
 
@@ -32,4 +32,4 @@ Fulfills with `undefined` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:783
+node_modules/@types/node/fs/promises.d.ts:789
