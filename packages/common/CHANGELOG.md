@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.10](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.9...@cenk1cenk2/oclif-common@3.1.0-beta.10) (2022-09-12)
+
+### Bug Fixes
+
+- typo problems ([8fe63d9](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8fe63d9b5c0c572d476cc7cfdf2d0b6ac39a28a4))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.9](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.8...@cenk1cenk2/oclif-common@3.1.0-beta.9) (2022-09-12)
 
 ### Bug Fixes
