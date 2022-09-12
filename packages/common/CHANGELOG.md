@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.5](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.4...@cenk1cenk2/oclif-common@3.1.0-beta.5) (2022-09-12)
+
+### Bug Fixes
+
+- check for array first ([8bf78aa](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8bf78aa664f558d936c8712f0363e1e2c23dae11))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.4](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.3...@cenk1cenk2/oclif-common@3.1.0-beta.4) (2022-09-12)
 
 ### Bug Fixes
