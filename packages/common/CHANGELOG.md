@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.7](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.6...@cenk1cenk2/oclif-common@3.1.0-beta.7) (2022-09-12)
+
+### Bug Fixes
+
+- flatten ([f6b1277](https://gitlab.kilic.dev/libraries/oclif-tools/commit/f6b1277608e2a592bb7f64993b03ea89061930fd))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.6](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.5...@cenk1cenk2/oclif-common@3.1.0-beta.6) (2022-09-12)
 
 ### Bug Fixes
