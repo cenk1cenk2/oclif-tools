@@ -1,7 +1,7 @@
 import type { ListrContext } from 'listr2'
 
 import { Command as BaseCommand } from './base.command'
-import type { ConfigCommandChoices, ConfigCommandSetup } from '@interfaces'
+import type { ConfigCommandChoices, ConfigCommandSetup, InferArgs, InferFlags } from '@interfaces'
 import type { LockerService } from '@lib'
 
 export abstract class ConfigCommand<

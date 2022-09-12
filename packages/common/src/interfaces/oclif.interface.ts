@@ -5,6 +5,6 @@ export type InferFlags<T extends typeof BaseCommand> = InferredFlags<T['globalFl
 
 export type InferArgs<T extends typeof BaseCommand> = Record<T['args'][number]['name'], string>
 
-export type { ArgInput, FlagInput, Arg, Flag } from '@oclif/core/lib/interfaces'
+export type { ArgInput, FlagInput, Arg, Flag, InferredFlags } from '@oclif/core/lib/interfaces'
 
 export { Flags } from '@oclif/core'
