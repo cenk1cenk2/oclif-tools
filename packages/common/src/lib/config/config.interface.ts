@@ -16,4 +16,5 @@ export interface ConfigIterator {
   key: (string | number)[]
   env: string
   parser?: string
+  extensions?: ConfigIterator[]
 }

@@ -99,12 +99,12 @@ export class ConfigService implements GlobalConfig {
           if (typeof value === 'string') {
             return [ { key: location, env: value } ]
           } else if (typeof value === 'object') {
-            const extras = []
+            let extensions: ConfigIterator['extensions']
 
             if (ConfigEnvKeys.ELEMENT in value) {
               this.logger.trace('Expanding location to elements: %s', location)
 
-              extras.push(...await iter(value[ConfigEnvKeys.ELEMENT], [ ...location, ConfigEnvKeys.ELEMENT ]))
+              extensions = await iter(value[ConfigEnvKeys.ELEMENT], [ ...location, ConfigEnvKeys.ELEMENT ])
             }
 
             if (ConfigEnvKeys.NAME in value && ConfigEnvKeys.PARSER in value) {
@@ -114,9 +114,9 @@ export class ConfigService implements GlobalConfig {
                   // eslint-disable-next-line no-underscore-dangle
                   env: value[ConfigEnvKeys.NAME] as string,
                   // eslint-disable-next-line no-underscore-dangle
-                  parser: value[ConfigEnvKeys.PARSER] as string
-                },
-                ...extras
+                  parser: value[ConfigEnvKeys.PARSER] as string,
+                  extensions
+                }
               ]
 
               // this.logger.trace('Added to search for environment variables: %o', variable)
@@ -136,7 +136,7 @@ export class ConfigService implements GlobalConfig {
 
     this.logger.trace('Environment variable injection: %o', parsed)
 
-    const cb = async (variable: ConfigIterator, data: string): Promise<T> => {
+    const cb = async (config: T, variable: ConfigIterator, data: string): Promise<T> => {
       if (variable.parser) {
         try {
           variable = await this.parser.parse(variable.parser, data)
@@ -147,18 +147,22 @@ export class ConfigService implements GlobalConfig {
         }
       }
 
-      return op.update(config, variable.key, () => {
-        this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
+      this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
 
-        return variable
-      })
+      return op.set(config, variable.key, variable)
     }
 
     await Promise.all(
       parsed.map(async (variable) => {
         let data: string
 
-        if (variable.key?.includes(ConfigEnvKeys.ELEMENT)) {
+        data = process.env[variable.env]
+
+        if (data) {
+          config = await cb(config, variable, data)
+        }
+
+        if (variable.extensions) {
           const timeout = 60000
           const startedAt = Date.now()
 
@@ -167,35 +171,39 @@ export class ConfigService implements GlobalConfig {
               throw new Error(`Timed-out in ${timeout}ms while looking for element environment variables.`)
             }
 
-            const clone = JSON.parse(JSON.stringify(variable)) as ConfigIterator
+            const extensions = (
+              await Promise.all(
+                variable.extensions.map(async (extension) => {
+                  const clone = JSON.parse(JSON.stringify(extension)) as ConfigIterator
 
-            clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
+                  clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
 
-            this.logger.trace('Looking for environment variable element: %o', clone)
+                  // this.logger.trace('Looking for environment variable element: %o', clone)
 
-            data = process.env[clone.env]
+                  data = process.env[clone.env]
 
-            if (!data) {
-              this.logger.trace('No more variable available: %s -> %d', variable.env, i)
+                  if (!data) {
+                    this.logger.trace('No extension for environment variable: %s -> %d', clone.env, i)
+
+                    return
+                  }
+
+                  clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i
+
+                  return cb({} as T, clone, data)
+                })
+              )
+            ).filter(Boolean)
+
+            if (extensions.length === 0) {
+              this.logger.trace('No more extensions for environment variables: %s -> %d', variable.key.join('.'), i)
 
               break
             }
 
-            clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i
-
-            config = await cb(clone, data)
+            config = this.merge([ config, ...extensions ])
           }
-
-          return
         }
-
-        data = process.env[variable.env]
-
-        if (!data) {
-          return
-        }
-
-        config = await cb(variable, data)
       })
     )
 
