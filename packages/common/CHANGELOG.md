@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [3.0.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.0...@cenk1cenk2/oclif-common@3.0.1) (2022-09-12)
+
+### Bug Fixes
+
+- just output the message ([3d7c289](https://gitlab.kilic.dev/libraries/oclif-tools/commit/3d7c28963e8c8c25a8405cd68238ef84b38a056c))
+
 # @cenk1cenk2/oclif-common [3.0.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.3.0...@cenk1cenk2/oclif-common@3.0.0) (2022-09-12)
 
 ### Bug Fixes
