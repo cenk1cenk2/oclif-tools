@@ -108,7 +108,7 @@ export class ConfigService implements GlobalConfig {
             }
 
             if (ConfigEnvKeys.NAME in value && ConfigEnvKeys.PARSER in value) {
-              return [
+              const variable = [
                 {
                   key: location,
                   // eslint-disable-next-line no-underscore-dangle
@@ -118,6 +118,10 @@ export class ConfigService implements GlobalConfig {
                 },
                 ...extras
               ]
+
+              this.logger.trace('Added to search for environment variables: %o', variable)
+
+              return variable
             } else {
               return iter(value, location)
             }
@@ -158,6 +162,8 @@ export class ConfigService implements GlobalConfig {
             }
 
             const clone = JSON.parse(JSON.stringify(variable)) as ConfigIterator
+
+            this.logger.trace('Looking for environment variable element: %o', clone)
 
             data = process.env[clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())]
 
