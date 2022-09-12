@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [2.3.1-beta.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.3.0...@cenk1cenk2/oclif-common@2.3.1-beta.1) (2022-09-12)
+
+### Performance Improvements
+
+- update the methodology for brownie ([41e4d1e](https://gitlab.kilic.dev/libraries/oclif-tools/commit/41e4d1e21026299b40df8a86f47a52a17a15e127))
+
 # @cenk1cenk2/oclif-common [2.3.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.2.1...@cenk1cenk2/oclif-common@2.3.0) (2022-08-16)
 
 ### Features
