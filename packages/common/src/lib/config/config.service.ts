@@ -123,7 +123,13 @@ export class ConfigService implements GlobalConfig {
         }
 
         if (variable.parser) {
-          data = await this.parser.parse(variable.parser, data)
+          try {
+            data = await this.parser.parse(variable.parser, data)
+          } catch (e) {
+            this.logger.trace('Can not parse environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
+
+            throw e
+          }
         }
 
         config = op.update(config, variable.key, () => {
