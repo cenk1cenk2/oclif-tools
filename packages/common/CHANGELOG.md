@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.0.0-beta.6](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.0-beta.5...@cenk1cenk2/oclif-common@3.0.0-beta.6) (2022-09-12)
+
+### Bug Fixes
+
+- update assignment ([c59b6c9](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c59b6c9247a941dfdbbdb56b3ee52b1b116bd66d))
+
 # @cenk1cenk2/oclif-common [3.0.0-beta.5](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.0-beta.4...@cenk1cenk2/oclif-common@3.0.0-beta.5) (2022-09-12)
 
 ### Bug Fixes
