@@ -129,10 +129,13 @@ export class ConfigService implements GlobalConfig {
         })
       )
 
-      return data.flatMap((d) => d)
+      return data.flatMap((d) => d).filter(Boolean)
     }
 
     const parsed = await iter(env)
+
+    this.logger.trace('Environment variable injection: %o', parsed)
+
     const cb = async (variable: ConfigIterator, data: string): Promise<T> => {
       if (variable.parser) {
         try {
@@ -155,7 +158,7 @@ export class ConfigService implements GlobalConfig {
       parsed.map(async (variable) => {
         let data: string
 
-        if (variable.key.length && variable.key.includes(ConfigEnvKeys.ELEMENT)) {
+        if (variable.key?.includes(ConfigEnvKeys.ELEMENT)) {
           const timeout = 60000
           const startedAt = Date.now()
 
