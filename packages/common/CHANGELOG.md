@@ -1,3 +1,10 @@
+# @cenk1cenk2/oclif-common [3.0.0-beta.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.0-beta.1...@cenk1cenk2/oclif-common@3.0.0-beta.2) (2022-09-12)
+
+### Bug Fixes
+
+- issues with imports ([4dcf26d](https://gitlab.kilic.dev/libraries/oclif-tools/commit/4dcf26d47953be96831274fc5a649a3b349492f6))
+- update configuration for passing arguments ([109c3d5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/109c3d5d3d4c2a255f2fd386e343f6a0bc26aa4c))
+
 # @cenk1cenk2/oclif-common [3.0.0-beta.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.3.1-beta.1...@cenk1cenk2/oclif-common@3.0.0-beta.1) (2022-09-12)
 
 ### Performance Improvements
