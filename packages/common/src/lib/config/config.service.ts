@@ -86,7 +86,7 @@ export class ConfigService implements GlobalConfig {
     return merge<T>(strategy, configs.some((config) => Array.isArray(config)) ? ([] as T) : {} as T, ...configs)
   }
 
-  public async env<T extends LockableData = LockableData>(definition: string | T, config: T): Promise<T> {
+  public async env<T extends LockableData = LockableData>(definition: string | Record<PropertyKey, any>, config: T): Promise<T> {
     const env = typeof definition === 'string' ? await this.parser.read<T>(definition) : definition
 
     this.logger.trace('Environment variable extensions read: %o', definition)
@@ -134,22 +134,22 @@ export class ConfigService implements GlobalConfig {
 
     const parsed = await iter(env)
 
-    this.logger.trace('Environment variable injection: %o', parsed)
+    // this.logger.trace('Environment variable injection: %o', parsed)
 
-    const cb = async (config: T, variable: ConfigIterator, data: string): Promise<T> => {
+    const cb = async (config: T, variable: ConfigIterator, data: any): Promise<T> => {
       if (variable.parser) {
         try {
-          variable = await this.parser.parse(variable.parser, data)
+          data = await this.parser.parse(variable.parser, data)
         } catch (e) {
-          this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key?.join('.'), variable.env, variable.parser)
+          this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
 
           throw e
         }
       }
 
-      this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key?.join('.'), variable.env)
+      this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
 
-      return op.set(config, variable.key, variable)
+      return op.set(config, variable.key, data)
     }
 
     await Promise.all(
@@ -181,7 +181,7 @@ export class ConfigService implements GlobalConfig {
 
                   data = process.env[clone.env]
 
-                  this.logger.trace('Extension: %o -> %s', clone, data)
+                  // this.logger.trace('Extension: %o -> %s', clone, data)
 
                   if (!data) {
                     this.logger.trace('No extension for environment variable: %s -> %s', clone.key.join('.'), clone.env)
@@ -200,7 +200,7 @@ export class ConfigService implements GlobalConfig {
               break
             }
 
-            config = this.merge([ config, ...extensions ])
+            config = this.merge<T>([ config, ...extensions ], MergeStrategy.EXTEND)
           }
         }
       })
