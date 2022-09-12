@@ -104,7 +104,7 @@ export class ConfigService implements GlobalConfig {
             if (ConfigEnvKeys.ELEMENT in value) {
               this.logger.trace('Expanding location to elements: %s', location)
 
-              extras.push(await iter(value[ConfigEnvKeys.ELEMENT], [ ...location, ConfigEnvKeys.ELEMENT ]))
+              extras.push(...await iter(value[ConfigEnvKeys.ELEMENT], [ ...location, ConfigEnvKeys.ELEMENT ]))
             }
 
             if (ConfigEnvKeys.NAME in value && ConfigEnvKeys.PARSER in value) {
