@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.0.0-beta.10](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.0-beta.9...@cenk1cenk2/oclif-common@3.0.0-beta.10) (2022-09-12)
+
+### Bug Fixes
+
+- update logging configuration ([a0f5c58](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a0f5c58da1044029f6b7f58dfef228c91949db4d))
+
 # @cenk1cenk2/oclif-common [3.0.0-beta.9](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.0-beta.8...@cenk1cenk2/oclif-common@3.0.0-beta.9) (2022-09-12)
 
 ### Bug Fixes
