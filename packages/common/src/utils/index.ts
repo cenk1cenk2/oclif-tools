@@ -1,6 +1,5 @@
 export * from './logger'
 export * from './color'
 export * from './environment'
-export * from './figures'
 export * from './merge.constants'
 export * from './merge'

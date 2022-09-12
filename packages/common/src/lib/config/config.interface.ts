@@ -1,10 +1,15 @@
-import { Transform } from 'class-transformer'
-import { IsEnum } from 'class-validator'
+import type { LogLevels } from '@utils/logger'
 
-import { LogLevels } from '@utils/logger'
+export interface GlobalConfig {
+  logLevel: LogLevels
 
-export class BaseConfig {
-  @Transform((p) => p.value.toUpperCase())
-  @IsEnum(LogLevels)
-    loglevel: LogLevels
+  ci: boolean
+
+  isVerbose: boolean
+
+  isDebug: boolean
+
+  isSilent: boolean
+
+  json: boolean
 }

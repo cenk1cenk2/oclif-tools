@@ -3,14 +3,8 @@ import type { ListrContext } from 'listr2'
 import { Command as BaseCommand } from './base.command'
 import type { ConfigCommandChoices, ConfigCommandSetup } from '@interfaces'
 import type { LockerService } from '@lib'
-import type { BaseConfig } from '@lib/config'
 
-export abstract class ConfigCommand<
-  CommandChoices extends string = string,
-  LockFile = any,
-  Ctx extends ListrContext = ListrContext,
-  Config extends BaseConfig = BaseConfig
-> extends BaseCommand<Ctx, Config> {
+export abstract class ConfigCommand<CommandChoices extends string = string, LockFile = any, Ctx extends ListrContext = ListrContext> extends BaseCommand<Ctx> {
   public choices: ConfigCommandChoices<CommandChoices>
   public locker: LockerService<LockFile>
 

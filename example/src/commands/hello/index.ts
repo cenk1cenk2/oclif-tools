@@ -24,8 +24,6 @@ export default class Hello extends Command {
   ]
 
   public async run (): Promise<void> {
-    const { args, flags } = await this.parse(Hello)
-
-    this.logger.info(`hello ${args.person} from ${flags.from}! (./src/commands/hello/index.ts)`)
+    this.logger.info(`hello ${this.args.person} from ${this.flags.from}! (./src/commands/hello/index.ts)`)
   }
 }

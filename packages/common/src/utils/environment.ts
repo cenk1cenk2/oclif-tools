@@ -1,14 +1,13 @@
 import { LogLevels } from './logger'
-import type { BaseConfig } from '@lib'
 
-export function isVerbose<T extends BaseConfig = BaseConfig> (config: T): boolean {
-  return config.loglevel === LogLevels.VERBOSE
+export function isVerbose (logLevel: LogLevels): boolean {
+  return logLevel === LogLevels.VERBOSE
 }
 
-export function isDebug<T extends BaseConfig = BaseConfig> (config: T): boolean {
-  return [ LogLevels.DEBUG, LogLevels.TRACE ].includes(config.loglevel)
+export function isDebug (logLevel: LogLevels): boolean {
+  return [ LogLevels.DEBUG, LogLevels.TRACE ].includes(logLevel)
 }
 
-export function isSilent<T extends BaseConfig = BaseConfig> (config: T): boolean {
-  return config.loglevel === LogLevels.SILENT
+export function isSilent (logLevel: LogLevels): boolean {
+  return logLevel === LogLevels.SILENT
 }

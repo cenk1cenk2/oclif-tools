@@ -1,5 +1,5 @@
 import type { GenericParser } from './parser.interface'
-import { YamlParser } from './yaml-parser.service'
+import type { ClassType } from '@interfaces'
 import { FileSystemService } from '@lib/fs'
 import type { LockableData } from '@lib/locker'
 import { Logger } from '@utils/logger'
@@ -7,21 +7,16 @@ import { Logger } from '@utils/logger'
 export class ParserService {
   static extensions: string[] = []
   static instance: ParserService
-  public parsers: (new () => GenericParser)[]
   private readonly logger = new Logger(this.constructor.name)
   private readonly fs = new FileSystemService()
 
-  constructor (parsers?: new () => GenericParser) {
+  constructor (public parsers: ClassType<GenericParser>[] = []) {
     if (ParserService.instance) {
       return ParserService.instance
     } else {
       ParserService.instance = this
 
       this.logger.trace('Created a new instance.')
-    }
-
-    if (!parsers) {
-      this.parsers = [ YamlParser ]
     }
   }
 
@@ -34,6 +29,10 @@ export class ParserService {
     }
 
     return new Parser()
+  }
+
+  public addParsers (...parsers: ClassType<GenericParser>[]): void {
+    this.parsers.push(...parsers)
   }
 
   public async read<T = unknown>(file: string): Promise<T> {

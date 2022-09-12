@@ -41,38 +41,39 @@
     "@oclif/core": ">= 1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "enquirer": ">= 2",
     "execa": ">= 6",
     "listr2": ">= 4",
-    "enquirer": ">= 2"
+    "update-notifier": "^5"
   },
   "peerDependenciesMeta": {
     "execa": {
       "optional": true
+    },
+    "update-notifier": {
+      "optional": true
     }
   },
   "dependencies": {
-    "@types/config": "^3.3.0",
     "@types/fs-extra": "^9.0.13",
     "colorette": "^2.0.19",
-    "config": "^3.3.7",
     "deepmerge": "^4.2.2",
-    "figures": "^3",
     "fs-extra": "^10.1.0",
     "object-path-immutable": "^4.1.2",
     "reflect-metadata": "^0.1.13",
     "through": "^2.3.8",
     "update-notifier": "^5",
-    "winston": "^3.8.1",
+    "winston": "^3.8.2",
     "yaml": "^2.1.1"
   },
   "devDependencies": {
-    "@oclif/core": "^1.13.10",
+    "@oclif/core": "^1.16.1",
     "@types/through": "^0.0.30",
     "@types/update-notifier": "^5",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "enquirer": "^2.3.6",
     "execa": "^5",
-    "listr2": "^5.0.2",
-    "enquirer": "^2.3.6"
+    "listr2": "^5.0.5"
   }
 }

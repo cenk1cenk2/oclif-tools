@@ -1,6 +1,4 @@
 export function setup (): void {
-  process.env.SUPPRESS_NO_CONFIG_WARNING = '1'
-
   // debug port
   const inspect = process.argv.indexOf('--inspect')
 
