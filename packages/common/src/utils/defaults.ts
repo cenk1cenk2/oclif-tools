@@ -1,17 +1,24 @@
 import type { ListrContext } from 'listr2'
 
-export function setDefaultsInCtx<T extends ListrContext = ListrContext, K = Record<PropertyKey, any>> (
-  ctx: T,
-  options: { assign?: { from: K, keys: (keyof K)[] }, default?: Partial<T>[] }
-): void {
-  options.assign?.keys.forEach((i) => {
-    if (options.assign.from[i]) {
-      ctx[i as PropertyKey] = options.assign.from[i]
-    }
-  })
+export type SetCtxDefaultsOptions<T extends ListrContext = ListrContext> = Partial<T>
+export interface SetCtxAssignOptions<K = Record<PropertyKey, any>> {
+  from: K
+  keys: (keyof K)[]
+}
 
+export function setCtxDefaults<T extends ListrContext = ListrContext> (ctx: T, ...defaults: SetCtxDefaultsOptions<T>[]): void {
   // defaults
-  options.default?.forEach((i) => {
+  defaults?.forEach((i) => {
     Object.assign(ctx, i)
+  })
+}
+
+export function setCtxAssign<T extends ListrContext = ListrContext, K = Record<PropertyKey, any>> (ctx: T, ...assigns: SetCtxAssignOptions<K>[]): void {
+  assigns.forEach((assign) => {
+    assign?.keys.forEach((i) => {
+      if (assign.from[i]) {
+        ctx[i as PropertyKey] = assign.from[i]
+      }
+    })
   })
 }

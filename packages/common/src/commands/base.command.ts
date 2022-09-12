@@ -6,8 +6,10 @@ import 'reflect-metadata'
 
 import { HelpGroups } from '@constants'
 import type { ArgInput, InferArgs, InferFlags } from '@interfaces'
-import { StoreService, ConfigService, FileSystemService, ValidatorService } from '@lib'
+import { ConfigService, FileSystemService, StoreService, ValidatorService } from '@lib'
 import { ParserService } from '@lib/parser/parser.service'
+import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
+import { setCtxAssign, setCtxDefaults } from '@utils'
 import { Logger, LogLevels } from '@utils/logger'
 
 export abstract class Command<
@@ -83,7 +85,8 @@ export abstract class Command<
     this.tasks = new Manager({
       rendererFallback: this.cs.isDebug,
       rendererSilent: this.cs.isSilent,
-      nonTTYRendererOptions: { logEmptyTitle: false, logTitleChange: false }
+      nonTTYRendererOptions: { logEmptyTitle: false, logTitleChange: false },
+      ctx: {} as Ctx
     })
 
     // graceful terminate
@@ -165,6 +168,14 @@ export abstract class Command<
 
       throw e
     }
+  }
+
+  public setCtxDefaults (...defaults: SetCtxDefaultsOptions<Ctx>[]): void {
+    return setCtxDefaults(this.tasks.ctx, ...defaults)
+  }
+
+  public setCtxAssign<K = Record<PropertyKey, any>>(...assigns: SetCtxAssignOptions<K>[]): void {
+    return setCtxAssign(this.tasks.ctx, ...assigns)
   }
 
   public exit (code?: number): void {
