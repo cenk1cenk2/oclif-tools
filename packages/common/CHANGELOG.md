@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.4](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.3...@cenk1cenk2/oclif-common@3.1.0-beta.4) (2022-09-12)
+
+### Bug Fixes
+
+- change the process order of elements ([2df7c83](https://gitlab.kilic.dev/libraries/oclif-tools/commit/2df7c8347822dc0c96fd26dc545859969e258b98))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.2...@cenk1cenk2/oclif-common@3.1.0-beta.3) (2022-09-12)
 
 ### Bug Fixes
