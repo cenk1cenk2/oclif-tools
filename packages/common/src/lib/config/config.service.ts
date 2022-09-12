@@ -1,6 +1,7 @@
 import op from 'object-path-immutable'
 import { join } from 'path'
 
+import { ConfigEnvKeys } from './config.constants'
 import type { GlobalConfig } from './config.interface'
 import type { Command } from '@commands/base.command'
 import { FileConstants } from '@constants'
@@ -92,15 +93,22 @@ export class ConfigService implements GlobalConfig {
           if (typeof value === 'string') {
             return [ { key: location, env: value } ]
           } else if (typeof value === 'object') {
-            if ('__name' in value && '__format' in value) {
+            const extras = []
+
+            if (ConfigEnvKeys.ELEMENT in value) {
+              extras.push(await iter(value, [ ...location, ConfigEnvKeys.ELEMENT ]))
+            }
+
+            if (ConfigEnvKeys.NAME in value && ConfigEnvKeys.PARSER in value) {
               return [
                 {
                   key: location,
                   // eslint-disable-next-line no-underscore-dangle
-                  env: value.__name as string,
+                  env: value[ConfigEnvKeys.NAME] as string,
                   // eslint-disable-next-line no-underscore-dangle
-                  parser: value.__format as string
-                }
+                  parser: value[ConfigEnvKeys.PARSER] as string
+                },
+                ...extras
               ]
             } else {
               return iter(value, location)
@@ -132,11 +140,40 @@ export class ConfigService implements GlobalConfig {
           }
         }
 
-        config = op.update(config, variable.key, () => {
-          this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
+        if (variable.key.includes(ConfigEnvKeys.ELEMENT)) {
+          const timeout = 60000
+          const startedAt = Date.now()
 
-          return data
-        })
+          for (let i = 0; i < Infinity; i++) {
+            if (Date.now() - startedAt > timeout) {
+              throw new Error(`Timed-out in ${timeout}ms while looking for element environment variables.`)
+            }
+
+            data = process.env[variable.env.replace('${i}', i.toString())]
+
+            if (!data) {
+              this.logger.trace('No more variable available: %s -> %d', variable.env, i)
+
+              break
+            }
+
+            const clone = JSON.parse(JSON.stringify(variable.key))
+
+            clone[clone.findIndex(ConfigEnvKeys.ELEMENT)] = i
+
+            config = op.update(config, clone, () => {
+              this.logger.trace('Overwriting config with element environment variable: %s -> %s', clone.join('.'), variable.env)
+
+              return data
+            })
+          }
+        } else {
+          config = op.update(config, variable.key, () => {
+            this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
+
+            return data
+          })
+        }
       })
     )
 
