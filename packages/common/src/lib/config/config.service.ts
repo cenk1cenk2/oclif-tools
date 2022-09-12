@@ -119,7 +119,7 @@ export class ConfigService implements GlobalConfig {
                 ...extras
               ]
 
-              this.logger.trace('Added to search for environment variables: %o', variable)
+              // this.logger.trace('Added to search for environment variables: %o', variable)
 
               return variable
             } else {
@@ -133,24 +133,27 @@ export class ConfigService implements GlobalConfig {
     }
 
     const parsed = await iter(env)
+    const cb = async (variable: ConfigIterator, data: string): Promise<T> => {
+      if (variable.parser) {
+        try {
+          variable = await this.parser.parse(variable.parser, data)
+        } catch (e) {
+          this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
+
+          throw e
+        }
+      }
+
+      return op.update(config, variable.key, () => {
+        this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
+
+        return variable
+      })
+    }
 
     await Promise.all(
       parsed.map(async (variable) => {
-        let data = process.env[variable.env]
-
-        if (!data) {
-          return
-        }
-
-        if (variable.parser) {
-          try {
-            data = await this.parser.parse(variable.parser, data)
-          } catch (e) {
-            this.logger.trace('Can not parse environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
-
-            throw e
-          }
-        }
+        let data: string
 
         if (variable.key.includes(ConfigEnvKeys.ELEMENT)) {
           const timeout = 60000
@@ -163,9 +166,11 @@ export class ConfigService implements GlobalConfig {
 
             const clone = JSON.parse(JSON.stringify(variable)) as ConfigIterator
 
+            clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
+
             this.logger.trace('Looking for environment variable element: %o', clone)
 
-            data = process.env[clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())]
+            data = process.env[clone.env]
 
             if (!data) {
               this.logger.trace('No more variable available: %s -> %d', variable.env, i)
@@ -175,19 +180,19 @@ export class ConfigService implements GlobalConfig {
 
             clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i
 
-            config = op.update(config, clone.key, () => {
-              this.logger.trace('Overwriting config with element environment variable: %s -> %s', clone.key.join('.'), variable.env)
-
-              return data
-            })
+            config = await cb(clone, data)
           }
-        } else {
-          config = op.update(config, variable.key, () => {
-            this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
 
-            return data
-          })
+          return
         }
+
+        data = process.env[variable.env]
+
+        if (!data) {
+          return
+        }
+
+        config = await cb(variable, data)
       })
     )
 
@@ -197,8 +202,6 @@ export class ConfigService implements GlobalConfig {
   public async write<T extends LockableData = LockableData>(path: string, data: T): Promise<void> {
     return this.parser.write(path, data)
   }
-
-  // private walk <T extends LockableData = LockableData>(data:T)
 
   private recalculate (): void {
     this.isVerbose = isVerbose(this.logLevel)
