@@ -5,14 +5,16 @@ import { createInterface } from 'readline'
 import 'reflect-metadata'
 
 import { HelpGroups } from '@constants'
+import type { ArgInput, InferArgs, InferFlags } from '@interfaces'
 import { StoreService, ConfigService, FileSystemService, ValidatorService } from '@lib'
 import { ParserService } from '@lib/parser/parser.service'
 import { Logger, LogLevels } from '@utils/logger'
 
 export abstract class Command<
   Ctx extends ListrContext = ListrContext,
-  Flags extends Record<PropertyKey, any> = { json: boolean } & Record<PropertyKey, any>,
-  Args extends Record<PropertyKey, any> = Record<PropertyKey, any>,
+  Self extends typeof BaseCommand = typeof Command,
+  Flags extends Record<PropertyKey, any> = InferFlags<Self>,
+  Args extends Record<PropertyKey, any> = InferArgs<Self>,
   Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
 > extends BaseCommand {
   static globalFlags = {
@@ -21,7 +23,8 @@ export abstract class Command<
       env: 'LOG_LEVEL',
       description: 'Set the log level of the application.',
       options: [ ...Object.values(LogLevels), ...Object.values(LogLevels).map((level) => level.toLowerCase()) ],
-      helpGroup: HelpGroups.CLI
+      helpGroup: HelpGroups.CLI,
+      parse: async (input) => (input as string)?.toUpperCase() as unknown as LogLevels
     }),
     ci: Flags.boolean({
       default: false,
@@ -30,6 +33,8 @@ export abstract class Command<
       helpGroup: HelpGroups.CLI
     })
   }
+
+  static args: ArgInput = []
 
   public logger: Logger
   public tasks: Manager<Ctx, 'default'>

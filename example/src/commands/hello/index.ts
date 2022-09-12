@@ -2,7 +2,7 @@ import { Flags } from '@oclif/core'
 
 import { Command } from '@cenk1cenk2/oclif-common'
 
-export default class Hello extends Command {
+export default class Hello extends Command<any, typeof Hello> {
   static description = 'Say hello'
 
   static examples = [ '$ oex hello friend --from oclif' ]
