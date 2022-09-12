@@ -112,6 +112,8 @@ export class ConfigService implements GlobalConfig {
 
     const parsed = await iter(env)
 
+    this.logger.trace('Environment variable extensions: %o', parsed)
+
     await Promise.all(
       parsed.map(async (variable) => {
         let data = process.env[variable.env]
