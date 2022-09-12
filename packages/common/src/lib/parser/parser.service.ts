@@ -46,22 +46,22 @@ export class ParserService {
   }
 
   public async read<T = unknown>(file: string): Promise<T> {
-    const Parser = this.getParser(file)
-
-    return this.parse(Parser, await this.fs.read(file))
+    return this.parse(file, await this.fs.read(file))
   }
 
   public async write<T = LockableData>(file: string, data: T): Promise<void> {
+    return this.fs.write(file, await this.stringify(file, data))
+  }
+
+  public parse<T = unknown>(file: string, data: string | Buffer): T | Promise<T> {
     const Parser = this.getParser(file)
 
-    return this.fs.write(file, await this.stringify(Parser, data))
+    return Parser.parse<T>(data)
   }
 
-  private parse<T = unknown>(parser: GenericParser, data: string | Buffer): T | Promise<T> {
-    return parser.parse<T>(data)
-  }
+  public stringify<T = any>(file: string, data: T): string | Promise<string> {
+    const Parser = this.getParser(file)
 
-  private stringify<T = any>(parser: GenericParser, data: T): string | Promise<string> {
-    return parser.stringify<T>(data)
+    return Parser.stringify<T>(data)
   }
 }
