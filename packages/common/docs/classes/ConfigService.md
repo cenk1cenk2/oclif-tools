@@ -231,6 +231,33 @@ packages/common/src/lib/config/config.service.ts:58
 
 ___
 
+### merge
+
+▸ **merge**<`T`\>(`configs`, `strategy?`): `Promise`<`T`\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `unknown` = `any` |
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `configs` | `Partial`<`T`\>[] | `undefined` |
+| `strategy` | [`MergeStrategy`](../enums/MergeStrategy.md) | `MergeStrategy.OVERWRITE` |
+
+#### Returns
+
+`Promise`<`T`\>
+
+#### Defined in
+
+packages/common/src/lib/config/config.service.ts:82
+
+___
+
 ### env
 
 ▸ **env**<`T`\>(`definition`, `config`): `Promise`<`T`\>
@@ -254,7 +281,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:82
+packages/common/src/lib/config/config.service.ts:90
 
 ___
 
@@ -281,7 +308,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:146
+packages/common/src/lib/config/config.service.ts:154
 
 ___
 
@@ -295,4 +322,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:152
+packages/common/src/lib/config/config.service.ts:160

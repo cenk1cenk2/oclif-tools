@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [3.0.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.1...@cenk1cenk2/oclif-common@3.0.2) (2022-09-12)
+
+### Bug Fixes
+
+- expose merge function through config ([3004dd5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/3004dd502e9cca8a4ca2dd1ed9a6f55cab6e193a))
+
 ## @cenk1cenk2/oclif-common [3.0.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.0...@cenk1cenk2/oclif-common@3.0.1) (2022-09-12)
 
 ### Bug Fixes
