@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [3.0.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.2...@cenk1cenk2/oclif-common@3.0.3) (2022-09-12)
+
+### Bug Fixes
+
+- update config with empty instead of obj ([51c5b77](https://gitlab.kilic.dev/libraries/oclif-tools/commit/51c5b77d4c115e36dd4d709b25908f483ac1c7ad))
+
 ## @cenk1cenk2/oclif-common [3.0.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.1...@cenk1cenk2/oclif-common@3.0.2) (2022-09-12)
 
 ### Bug Fixes
