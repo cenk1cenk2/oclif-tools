@@ -99705,7 +99705,7 @@
 						{
 							"fileName": "packages/common/src/lib/config/config.service.ts",
 							"line": 80,
-							"character": 15
+							"character": 9
 						}
 					],
 					"signatures": [
@@ -99772,16 +99772,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "reference",
-										"id": 658,
-										"name": "T"
-									}
-								],
-								"name": "Promise",
-								"qualifiedName": "Promise",
-								"package": "typescript"
+								"id": 658,
+								"name": "T"
 							}
 						}
 					]

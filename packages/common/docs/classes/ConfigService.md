@@ -233,7 +233,7 @@ ___
 
 ### merge
 
-▸ **merge**<`T`\>(`configs`, `strategy?`): `Promise`<`T`\>
+▸ **merge**<`T`\>(`configs`, `strategy?`): `T`
 
 #### Type parameters
 
@@ -250,7 +250,7 @@ ___
 
 #### Returns
 
-`Promise`<`T`\>
+`T`
 
 #### Defined in
 

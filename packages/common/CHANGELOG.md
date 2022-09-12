@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [3.0.4](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.3...@cenk1cenk2/oclif-common@3.0.4) (2022-09-12)
+
+### Bug Fixes
+
+- convert to sync func ([ecaf2a7](https://gitlab.kilic.dev/libraries/oclif-tools/commit/ecaf2a73206053e319153d8feea448edc38a5c91))
+
 ## @cenk1cenk2/oclif-common [3.0.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.2...@cenk1cenk2/oclif-common@3.0.3) (2022-09-12)
 
 ### Bug Fixes
