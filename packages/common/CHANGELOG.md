@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.0.0-beta.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.0-beta.2...@cenk1cenk2/oclif-common@3.0.0-beta.3) (2022-09-12)
+
+### Bug Fixes
+
+- set parsers as default ([bc0d4a1](https://gitlab.kilic.dev/libraries/oclif-tools/commit/bc0d4a1c32a1e3d24d0bdef3c342aeac1383b3d3))
+
 # @cenk1cenk2/oclif-common [3.0.0-beta.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.0-beta.1...@cenk1cenk2/oclif-common@3.0.0-beta.2) (2022-09-12)
 
 ### Bug Fixes
