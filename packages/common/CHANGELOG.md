@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.2...@cenk1cenk2/oclif-common@3.1.0-beta.3) (2022-09-12)
+
+### Bug Fixes
+
+- add more verbose logging ([e2f1d72](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e2f1d72b71970ee9c5a959db459b5d68fd00dc24))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.1...@cenk1cenk2/oclif-common@3.1.0-beta.2) (2022-09-12)
 
 ### Bug Fixes
