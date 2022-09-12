@@ -1,3 +1,13 @@
+# @cenk1cenk2/oclif-common [3.0.0-beta.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.3.1-beta.1...@cenk1cenk2/oclif-common@3.0.0-beta.1) (2022-09-12)
+
+### Performance Improvements
+
+- change flag parsing ([a8c3ac7](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a8c3ac7e8b5e2021899a1dc728e15be775932af7))
+
+### BREAKING CHANGES
+
+- is not compatible with the older version do to flag parsing
+
 ## @cenk1cenk2/oclif-common [2.3.1-beta.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@2.3.0...@cenk1cenk2/oclif-common@2.3.1-beta.1) (2022-09-12)
 
 ### Performance Improvements
