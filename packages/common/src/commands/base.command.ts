@@ -12,9 +12,8 @@ import { Logger, LogLevels } from '@utils/logger'
 
 export abstract class Command<
   Ctx extends ListrContext = ListrContext,
-  Self extends typeof BaseCommand = typeof Command,
-  Flags extends Record<PropertyKey, any> = InferFlags<Self>,
-  Args extends Record<PropertyKey, any> = InferArgs<Self>,
+  Flags extends Record<PropertyKey, any> = InferFlags<typeof Command>,
+  Args extends Record<PropertyKey, any> = InferArgs<typeof Command>,
   Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
 > extends BaseCommand {
   static globalFlags = {

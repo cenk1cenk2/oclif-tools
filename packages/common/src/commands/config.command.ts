@@ -4,7 +4,14 @@ import { Command as BaseCommand } from './base.command'
 import type { ConfigCommandChoices, ConfigCommandSetup } from '@interfaces'
 import type { LockerService } from '@lib'
 
-export abstract class ConfigCommand<CommandChoices extends string = string, LockFile = any, Ctx extends ListrContext = ListrContext> extends BaseCommand<Ctx> {
+export abstract class ConfigCommand<
+  CommandChoices extends string = string,
+  LockFile = any,
+  Ctx extends ListrContext = ListrContext,
+  Flags extends Record<PropertyKey, any> = InferFlags<typeof ConfigCommand>,
+  Args extends Record<PropertyKey, any> = InferArgs<typeof ConfigCommand>,
+  Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
+> extends BaseCommand<Ctx, Flags, Args, Store> {
   public choices: ConfigCommandChoices<CommandChoices>
   public locker: LockerService<LockFile>
 
