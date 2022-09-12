@@ -51,13 +51,23 @@ Say hello
 
 ```
 USAGE
-  $ oclif2 hello [PERSON] [-f <value>]
+  $ oclif2 hello [PERSON] [--log-level
+    SILENT|DIRECT|FATAL|ERROR|WARN|INFO|VERBOSE|DEBUG|TRACE|silent|direct|fatal|error|warn|info|verbose|debug|trace]
+    [--ci] [-f <value>]
 
 ARGUMENTS
   PERSON  Person to say hello to
 
 FLAGS
   -f, --from=<value>  Whom is saying hello
+
+CLI FLAGS
+  --ci
+      Instruct whether this is running the CI/CD configuration.
+
+  --log-level=(SILENT|DIRECT|FATAL|ERROR|WARN|INFO|VERBOSE|DEBUG|TRACE|silent|direct|fatal|error|warn|info|verbose|debug
+  |trace)
+      [default: INFO] Set the log level of the application.
 
 DESCRIPTION
   Say hello
