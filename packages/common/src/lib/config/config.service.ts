@@ -68,7 +68,7 @@ export class ConfigService implements GlobalConfig {
 
             return config
           } catch (e) {
-            this.logger.trace('Failed to extend config from: %s', e)
+            this.logger.trace('Failed to extend config from: %s', e.message)
 
             return {}
           }
