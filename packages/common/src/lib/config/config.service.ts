@@ -2,12 +2,12 @@ import op from 'object-path-immutable'
 import { join } from 'path'
 
 import { ConfigEnvKeys } from './config.constants'
-import type { GlobalConfig } from './config.interface'
+import type { ConfigIterator, GlobalConfig } from './config.interface'
 import type { Command } from '@commands/base.command'
 import { FileConstants } from '@constants'
 import type { LockableData } from '@lib/locker'
 import { ParserService } from '@lib/parser/parser.service'
-import { merge, MergeStrategy, isDebug, isSilent, isVerbose } from '@utils'
+import { isDebug, isSilent, isVerbose, merge, MergeStrategy } from '@utils'
 import type { LogLevels } from '@utils/logger'
 import { Logger } from '@utils/logger'
 
@@ -56,14 +56,14 @@ export class ConfigService implements GlobalConfig {
     return config
   }
 
-  public async extend<T extends LockableData = LockableData>(paths: string[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): Promise<T> {
-    this.logger.trace('Will generate config from: %s with %s', paths.join(', '), strategy)
+  public async extend<T extends LockableData = LockableData>(paths: (string | Partial<T>)[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): Promise<T> {
+    this.logger.trace('Will generate config from: %o with %s', paths, strategy)
 
     const configs = (
       await Promise.all(
         paths.map(async (path) => {
           try {
-            const config = await this.parser.read<Partial<T>>(path)
+            const config = typeof path === 'string' ? await this.parser.read<Partial<T>>(path) : path
 
             this.logger.trace('Extending config from: %s', path)
 
@@ -86,12 +86,12 @@ export class ConfigService implements GlobalConfig {
     return merge<T>(strategy, configs.some((config) => Array.isArray(config)) ? ([] as T) : {} as T, ...configs)
   }
 
-  public async env<T extends LockableData = LockableData>(definition: string, config: T): Promise<T> {
-    const env = await this.parser.read<T>(definition)
+  public async env<T extends LockableData = LockableData>(definition: string | T, config: T): Promise<T> {
+    const env = typeof definition === 'string' ? await this.parser.read<T>(definition) : definition
 
-    this.logger.trace('Environment variable extensions read: %s', definition)
+    this.logger.trace('Environment variable extensions read: %o', definition)
 
-    const iter = async (obj: Record<PropertyKey, any>, parent?: string[]): Promise<{ key: string[], env: string, parser?: string }[]> => {
+    const iter = async (obj: Record<PropertyKey, any>, parent?: string[]): Promise<ConfigIterator[]> => {
       const data = await Promise.all(
         Object.entries(obj).map(async ([ key, value ]) => {
           const location = [ ...parent ?? [], key ]
@@ -102,7 +102,9 @@ export class ConfigService implements GlobalConfig {
             const extras = []
 
             if (ConfigEnvKeys.ELEMENT in value) {
-              extras.push(await iter(value, [ ...location, ConfigEnvKeys.ELEMENT ]))
+              this.logger.trace('Expanding location to elements: %s', location)
+
+              extras.push(await iter(value[ConfigEnvKeys.ELEMENT], [ ...location, ConfigEnvKeys.ELEMENT ]))
             }
 
             if (ConfigEnvKeys.NAME in value && ConfigEnvKeys.PARSER in value) {
@@ -155,7 +157,9 @@ export class ConfigService implements GlobalConfig {
               throw new Error(`Timed-out in ${timeout}ms while looking for element environment variables.`)
             }
 
-            data = process.env[variable.env.replace('${i}', i.toString())]
+            const clone = JSON.parse(JSON.stringify(variable)) as ConfigIterator
+
+            data = process.env[clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())]
 
             if (!data) {
               this.logger.trace('No more variable available: %s -> %d', variable.env, i)
@@ -163,12 +167,10 @@ export class ConfigService implements GlobalConfig {
               break
             }
 
-            const clone = JSON.parse(JSON.stringify(variable.key))
+            clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i
 
-            clone[clone.findIndex(ConfigEnvKeys.ELEMENT)] = i
-
-            config = op.update(config, clone, () => {
-              this.logger.trace('Overwriting config with element environment variable: %s -> %s', clone.join('.'), variable.env)
+            config = op.update(config, clone.key, () => {
+              this.logger.trace('Overwriting config with element environment variable: %s -> %s', clone.key.join('.'), variable.env)
 
               return data
             })
