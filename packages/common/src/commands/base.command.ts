@@ -171,11 +171,11 @@ export abstract class Command<
   }
 
   public setCtxDefaults (...defaults: SetCtxDefaultsOptions<Ctx>[]): void {
-    return setCtxDefaults(this.tasks.ctx, ...defaults)
+    return setCtxDefaults(this.tasks.options.ctx, ...defaults)
   }
 
   public setCtxAssign<K = Record<PropertyKey, any>>(...assigns: SetCtxAssignOptions<K>[]): void {
-    return setCtxAssign(this.tasks.ctx, ...assigns)
+    return setCtxAssign(this.tasks.options.ctx, ...assigns)
   }
 
   public exit (code?: number): void {
