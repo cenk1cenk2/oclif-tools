@@ -77,7 +77,7 @@ export class ConfigService implements GlobalConfig {
     return this.merge<T>(configs, strategy)
   }
 
-  public async merge<T extends LockableData = LockableData>(configs: Partial<T>[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): Promise<T> {
+  public merge<T extends LockableData = LockableData>(configs: Partial<T>[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): T {
     if (configs.length === 0) {
       throw new Error('Nothing to merge, configuration files are empty.')
     }
