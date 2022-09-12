@@ -1,10 +1,10 @@
+import { figures } from 'listr2'
 import { EOL } from 'os'
 import winston, { format, transports } from 'winston'
 
 import { LogFieldStatus, LogLevels } from './logger.constants'
 import type { LoggerFormat, LoggerOptions, Winston } from './logger.interface'
 import { color } from '@utils/color'
-import { figures } from '@utils/figures'
 
 /**
  * A general logger for the the CLI applications.
@@ -14,7 +14,7 @@ export class Logger {
   private logger: Winston
 
   constructor (private context?: string, private options?: LoggerOptions) {
-    const level = options?.level.toUpperCase() as LogLevels
+    const level = options?.level?.toUpperCase() as LogLevels
 
     // set default options
     this.options = {
@@ -142,10 +142,10 @@ export class Logger {
       return message
 
     case LogLevels.FATAL:
-      coloring = (input): string => color.bgRed(color.white(input))
+      coloring = (input): string => color.red(input)
 
       if (this.options?.useIcons) {
-        icon = figures.cross
+        icon = figures.checkboxOn
       }
 
       break
@@ -181,7 +181,7 @@ export class Logger {
       coloring = color.dim
 
       if (this.options?.useIcons) {
-        icon = figures.circleQuestionMark
+        icon = figures.squareSmallFilled
       }
 
       break

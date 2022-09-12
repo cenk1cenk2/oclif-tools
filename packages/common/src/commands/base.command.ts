@@ -1,57 +1,92 @@
-import { Command as BaseCommand } from '@oclif/core'
+import { Command as BaseCommand, Flags } from '@oclif/core'
 import type { ListrContext, PromptOptions } from 'listr2'
 import { createPrompt, Manager } from 'listr2'
 import { createInterface } from 'readline'
 import 'reflect-metadata'
 
-import { FileSystemService, ConfigService, ValidatorService } from '@lib'
-import { BaseConfig } from '@lib/config/config.interface'
+import { HelpGroups } from '@constants'
+import type { ArgInput, InferArgs, InferFlags } from '@interfaces'
+import { ConfigService, FileSystemService, StoreService, ValidatorService } from '@lib'
 import { ParserService } from '@lib/parser/parser.service'
-import { isDebug, isSilent, isVerbose } from '@utils'
-import { Logger } from '@utils/logger'
+import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
+import { setCtxAssign, setCtxDefaults } from '@utils'
+import { Logger, LogLevels } from '@utils/logger'
 
-export class Command<Ctx extends ListrContext = ListrContext, Config extends BaseConfig = BaseConfig> extends BaseCommand {
+export abstract class Command<
+  Ctx extends ListrContext = ListrContext,
+  Flags extends Record<PropertyKey, any> = InferFlags<typeof Command>,
+  Args extends Record<PropertyKey, any> = InferArgs<typeof Command>,
+  Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
+> extends BaseCommand {
+  static globalFlags = {
+    ['log-level']: Flags.enum({
+      default: LogLevels.INFO,
+      env: 'LOG_LEVEL',
+      description: 'Set the log level of the application.',
+      options: [ ...Object.values(LogLevels), ...Object.values(LogLevels).map((level) => level.toLowerCase()) ],
+      helpGroup: HelpGroups.CLI,
+      parse: async (input) => (input as string)?.toUpperCase() as unknown as LogLevels
+    }),
+    ci: Flags.boolean({
+      default: false,
+      env: 'CI',
+      description: 'Instruct whether this is running the CI/CD configuration.',
+      helpGroup: HelpGroups.CLI
+    })
+  }
+
+  static args: ArgInput = []
+
   public logger: Logger
   public tasks: Manager<Ctx, 'default'>
   public validator: ValidatorService
-  public isVerbose: boolean
-  public isDebug: boolean
-  public isSilent: boolean
-  public cs: ConfigService<Config>
+  public cs: ConfigService
   public parser: ParserService
   public fs: FileSystemService
+  public store: StoreService<Store> = new StoreService()
 
-  /** Every command needs to implement run for running the command itself. */
-  // make run non-abstract for other classes
-  public async run (): Promise<void> {
-    throw new Error('This is the default output. This should not be here. Please define run() inside the extended command class.')
-  }
+  public flags: Flags = {} as Flags
+  public args: Args = {} as Args
 
   /** Initial functions / constructor */
   // can not override constructor, init function is defined by oclif
   public async init (): Promise<void> {
-    this.cs = new ConfigService(this)
+    // do the initialization first then go ahead and throw if required
+    let err: Error
 
-    this.isVerbose = isVerbose(this.cs.config)
-    this.isDebug = isDebug(this.cs.config)
-    this.isSilent = isSilent(this.cs.config)
+    try {
+      const { flags, args } = await this.parse(this.ctor)
 
-    this.logger = new Logger(this.cs.command.id ? this.cs.command.id : this.cs.command.name, { level: this.cs.config.loglevel })
+      this.flags = flags as unknown as Flags
+      this.args = args as unknown as Args
+    } catch (e) {
+      err = e
+    }
 
-    this.parser = new ParserService()
-    this.fs = new FileSystemService()
+    this.cs = new ConfigService(this.config, this.ctor, {
+      logLevel: this.flags['log-level'],
+      ci: this.flags.ci,
+      json: this.flags.json
+    })
+
+    this.logger = new Logger(this.cs.command.id ? this.cs.command.id : this.cs.command.name, { level: this.cs.logLevel })
 
     this.greet()
 
-    this.validator = new ValidatorService()
+    if (err) {
+      throw err
+    }
 
-    await this.validator.validate(BaseConfig, this.cs.config)
+    this.parser = new ParserService()
+    this.fs = new FileSystemService()
+    this.validator = new ValidatorService()
 
     // initiate manager
     this.tasks = new Manager({
-      rendererFallback: this.isDebug,
-      rendererSilent: this.isSilent,
-      nonTTYRendererOptions: { logEmptyTitle: false, logTitleChange: false }
+      rendererFallback: this.cs.isDebug,
+      rendererSilent: this.cs.isSilent,
+      nonTTYRendererOptions: { logEmptyTitle: false, logTitleChange: false },
+      ctx: {} as Ctx
     })
 
     // graceful terminate
@@ -135,17 +170,12 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
     }
   }
 
-  public setDefaultsInCtx<T = Ctx, K = Record<string, any>>(options: { assign?: { from: K, keys: (keyof K)[] }, default?: Partial<T>[] }): void {
-    options.assign?.keys.forEach((i) => {
-      if (options.assign.from[i]) {
-        this.tasks.ctx[i as string] = options.assign.from[i]
-      }
-    })
+  public setCtxDefaults (...defaults: SetCtxDefaultsOptions<Ctx>[]): void {
+    return setCtxDefaults(this.tasks.options.ctx, ...defaults)
+  }
 
-    // defaults
-    options.default?.forEach((i) => {
-      Object.assign(this.tasks.ctx, i)
-    })
+  public setCtxAssign<K = Record<PropertyKey, any>>(...assigns: SetCtxAssignOptions<K>[]): void {
+    return setCtxAssign(this.tasks.options.ctx, ...assigns)
   }
 
   public exit (code?: number): void {
@@ -154,15 +184,20 @@ export class Command<Ctx extends ListrContext = ListrContext, Config extends Bas
   }
 
   private greet (): void {
-    if (this.isSilent) {
+    if (this.cs.isSilent || this.cs.json) {
       return
     }
 
-    const logo = `${this.cs.oclif.name} v${this.cs.oclif.version}`
+    const logo = this.store.get('logo') ?? `${this.cs.oclif.name} v${this.cs.oclif.version}`
 
-    // eslint-disable-next-line no-console
     this.logger.direct(logo)
-    // eslint-disable-next-line no-console
-    this.logger.direct('-'.repeat(logo.length))
+
+    if (!this.store.has('logo')) {
+      this.logger.direct('-'.repeat(logo.length))
+    }
   }
+
+  /** Every command needs to implement run for running the command itself. */
+  // make run non-abstract for other classes
+  public abstract run (): Promise<void>
 }

@@ -1,32 +1,33 @@
+import { JsonParser } from './json-parser.service'
 import type { GenericParser } from './parser.interface'
 import { YamlParser } from './yaml-parser.service'
+import type { ClassType } from '@interfaces'
 import { FileSystemService } from '@lib/fs'
 import type { LockableData } from '@lib/locker'
 import { Logger } from '@utils/logger'
 
 export class ParserService {
-  static extensions: string[] = []
   static instance: ParserService
-  public parsers: (new () => GenericParser)[]
+  public parsers: ClassType<GenericParser>[] = [ YamlParser, JsonParser ]
   private readonly logger = new Logger(this.constructor.name)
   private readonly fs = new FileSystemService()
 
-  constructor (parsers?: new () => GenericParser) {
+  constructor (parsers?: ClassType<GenericParser>[]) {
     if (ParserService.instance) {
       return ParserService.instance
     } else {
+      if (parsers) {
+        this.parsers = parsers
+      }
+
       ParserService.instance = this
 
       this.logger.trace('Created a new instance.')
     }
-
-    if (!parsers) {
-      this.parsers = [ YamlParser ]
-    }
   }
 
   public getParser (file: string): GenericParser {
-    const ext = this.fs.extname(file)
+    const ext = file.includes('.') ? this.fs.extname(file) : file
     const Parser = this.parsers.find((parser) => (parser as any).extensions.includes(ext.replace(/^\./, '')))
 
     if (!Parser) {
@@ -36,23 +37,31 @@ export class ParserService {
     return new Parser()
   }
 
-  public async read<T = unknown>(file: string): Promise<T> {
-    const Parser = this.getParser(file)
+  public setParsers (...parsers: ClassType<GenericParser>[]): void {
+    this.parsers = parsers
+  }
 
-    return this.parse(Parser, await this.fs.read(file))
+  public addParsers (...parsers: ClassType<GenericParser>[]): void {
+    this.parsers.push(...parsers)
+  }
+
+  public async read<T = unknown>(file: string): Promise<T> {
+    return this.parse(file, await this.fs.read(file))
   }
 
   public async write<T = LockableData>(file: string, data: T): Promise<void> {
+    return this.fs.write(file, await this.stringify(file, data))
+  }
+
+  public parse<T = unknown>(file: string, data: string | Buffer): T | Promise<T> {
     const Parser = this.getParser(file)
 
-    return this.fs.write(file, await this.stringify(Parser, data))
+    return Parser.parse<T>(data)
   }
 
-  private parse<T = unknown>(parser: GenericParser, data: string | Buffer): T | Promise<T> {
-    return parser.parse<T>(data)
-  }
+  public stringify<T = any>(file: string, data: T): string | Promise<string> {
+    const Parser = this.getParser(file)
 
-  private stringify<T = any>(parser: GenericParser, data: T): string | Promise<string> {
-    return parser.stringify<T>(data)
+    return Parser.stringify<T>(data)
   }
 }
