@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.9](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.8...@cenk1cenk2/oclif-common@3.1.0-beta.9) (2022-09-12)
+
+### Bug Fixes
+
+- add verbosity ([d65c350](https://gitlab.kilic.dev/libraries/oclif-tools/commit/d65c350aa0decdfadccfda45046c58a7c9555d4c))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.8](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.7...@cenk1cenk2/oclif-common@3.1.0-beta.8) (2022-09-12)
 
 ### Bug Fixes
