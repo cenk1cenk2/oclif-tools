@@ -36,7 +36,7 @@ Fulfills with the resolved path upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:800
+node_modules/@types/node/fs/promises.d.ts:806
 
 ▸ **realpath**(`path`, `options`): `Promise`<`Buffer`\>
 
@@ -55,7 +55,7 @@ Asynchronous realpath(3) - return the canonicalized absolute pathname.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:806
+node_modules/@types/node/fs/promises.d.ts:812
 
 ▸ **realpath**(`path`, `options?`): `Promise`<`string` \| `Buffer`\>
 
@@ -74,4 +74,4 @@ Asynchronous realpath(3) - return the canonicalized absolute pathname.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:812
+node_modules/@types/node/fs/promises.d.ts:818

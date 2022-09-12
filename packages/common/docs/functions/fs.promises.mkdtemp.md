@@ -47,7 +47,7 @@ Fulfills with a string containing the filesystem path of the newly created tempo
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:840
+node_modules/@types/node/fs/promises.d.ts:846
 
 ▸ **mkdtemp**(`prefix`, `options`): `Promise`<`Buffer`\>
 
@@ -67,7 +67,7 @@ Generates six random characters to be appended behind a required `prefix` to cre
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:846
+node_modules/@types/node/fs/promises.d.ts:852
 
 ▸ **mkdtemp**(`prefix`, `options?`): `Promise`<`string` \| `Buffer`\>
 
@@ -87,4 +87,4 @@ Generates six random characters to be appended behind a required `prefix` to cre
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:852
+node_modules/@types/node/fs/promises.d.ts:858

@@ -2,6 +2,7 @@
 
 ## Implemented by
 
+- [`JsonParser`](JsonParser.md)
 - [`YamlParser`](YamlParser.md)
 
 ## Properties

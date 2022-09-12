@@ -1,18 +1,12 @@
 # Function: isDebug
 
-▸ **isDebug**<`T`\>(`config`): `boolean`
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`BaseConfig`](../classes/BaseConfig.md)<`T`\> = [`BaseConfig`](../classes/BaseConfig.md) |
+▸ **isDebug**(`logLevel`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `config` | `T` |
+| `logLevel` | [`LogLevels`](../enums/LogLevels.md) |
 
 #### Returns
 
@@ -20,4 +14,4 @@
 
 #### Defined in
 
-packages/common/src/utils/environment.ts:8
+packages/common/src/utils/environment.ts:7

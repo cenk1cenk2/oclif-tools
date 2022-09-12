@@ -16,7 +16,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:39
+node_modules/@types/node/fs/promises.d.ts:42
 
 ___
 
@@ -26,4 +26,4 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:40
+node_modules/@types/node/fs/promises.d.ts:43

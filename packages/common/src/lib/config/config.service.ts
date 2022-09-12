@@ -69,13 +69,19 @@ export class ConfigService implements GlobalConfig {
 
             return config
           } catch (e) {
-            this.logger.trace('Failed to extend config from: %s', e)
-
-            return {}
+            this.logger.trace('Failed to extend config from: %s', e.message)
           }
         })
       )
     ).filter(Boolean)
+
+    return this.merge<T>(configs, strategy)
+  }
+
+  public merge<T extends LockableData = LockableData>(configs: Partial<T>[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): T {
+    if (configs.length === 0) {
+      throw new Error('Nothing to merge, configuration files are empty.')
+    }
 
     return merge<T>(strategy, configs.some((config) => Array.isArray(config)) ? ([] as T) : {} as T, ...configs)
   }

@@ -1,11 +1,13 @@
-# Class: Command<Ctx, Config\>
+# Class: Command<Ctx, Flags, Args, Store\>
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `Ctx` | extends `ListrContext` = `ListrContext` |
-| `Config` | extends [`BaseConfig`](BaseConfig.md) = [`BaseConfig`](BaseConfig.md) |
+| `Flags` | extends `Record`<`PropertyKey`, `any`\> = [`InferFlags`](../types/InferFlags.md)<typeof [`Command`](Command.md)\> |
+| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`Command`](Command.md)\> |
+| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
 
 ## Hierarchy
 
@@ -27,7 +29,7 @@ BaseCommand.argv
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:9
+node_modules/@oclif/core/lib/command.d.ts:9
 
 ___
 
@@ -41,7 +43,7 @@ BaseCommand.config
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:10
+node_modules/@oclif/core/lib/command.d.ts:10
 
 ___
 
@@ -55,7 +57,7 @@ BaseCommand.\_base
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:11
+node_modules/@oclif/core/lib/command.d.ts:11
 
 ___
 
@@ -71,7 +73,7 @@ BaseCommand.id
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:13
+node_modules/@oclif/core/lib/command.d.ts:13
 
 ___
 
@@ -88,7 +90,7 @@ BaseCommand.summary
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:18
+node_modules/@oclif/core/lib/command.d.ts:18
 
 ___
 
@@ -106,7 +108,7 @@ BaseCommand.description
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:24
+node_modules/@oclif/core/lib/command.d.ts:24
 
 ___
 
@@ -122,7 +124,7 @@ BaseCommand.hidden
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:26
+node_modules/@oclif/core/lib/command.d.ts:26
 
 ___
 
@@ -138,7 +140,7 @@ BaseCommand.state
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:28
+node_modules/@oclif/core/lib/command.d.ts:28
 
 ___
 
@@ -154,7 +156,7 @@ BaseCommand.usage
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:32
+node_modules/@oclif/core/lib/command.d.ts:32
 
 ___
 
@@ -168,7 +170,7 @@ BaseCommand.help
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:33
+node_modules/@oclif/core/lib/command.d.ts:33
 
 ___
 
@@ -184,7 +186,7 @@ BaseCommand.aliases
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:35
+node_modules/@oclif/core/lib/command.d.ts:35
 
 ___
 
@@ -200,7 +202,7 @@ BaseCommand.strict
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:37
+node_modules/@oclif/core/lib/command.d.ts:37
 
 ___
 
@@ -214,23 +216,7 @@ BaseCommand.parse
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:38
-
-___
-
-### args
-
-▪ `Static` `Optional` **args**: `ArgInput`
-
-An order-dependent array of arguments for the command
-
-#### Inherited from
-
-BaseCommand.args
-
-#### Defined in
-
-packages/common/node_modules/@oclif/core/lib/command.d.ts:40
+node_modules/@oclif/core/lib/command.d.ts:38
 
 ___
 
@@ -244,7 +230,7 @@ BaseCommand.plugin
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:41
+node_modules/@oclif/core/lib/command.d.ts:41
 
 ___
 
@@ -271,7 +257,7 @@ BaseCommand.examples
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:56
+node_modules/@oclif/core/lib/command.d.ts:56
 
 ___
 
@@ -285,7 +271,7 @@ BaseCommand.parserOptions
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:57
+node_modules/@oclif/core/lib/command.d.ts:57
 
 ___
 
@@ -299,7 +285,7 @@ BaseCommand.\_enableJsonFlag
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:58
+node_modules/@oclif/core/lib/command.d.ts:58
 
 ___
 
@@ -330,7 +316,7 @@ BaseCommand.run
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:67
+node_modules/@oclif/core/lib/command.d.ts:67
 
 ___
 
@@ -344,7 +330,7 @@ BaseCommand.\_globalFlags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:68
+node_modules/@oclif/core/lib/command.d.ts:68
 
 ___
 
@@ -360,7 +346,7 @@ BaseCommand.\_flags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:72
+node_modules/@oclif/core/lib/command.d.ts:72
 
 ___
 
@@ -374,7 +360,7 @@ BaseCommand.id
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:75
+node_modules/@oclif/core/lib/command.d.ts:75
 
 ___
 
@@ -402,7 +388,42 @@ BaseCommand.debug
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:76
+node_modules/@oclif/core/lib/command.d.ts:76
+
+___
+
+### globalFlags
+
+▪ `Static` **globalFlags**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `log-level` | `OptionFlag`<`string`\> |
+| `ci` | `BooleanFlag`<`boolean`\> |
+
+#### Overrides
+
+BaseCommand.globalFlags
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:21
+
+___
+
+### args
+
+▪ `Static` **args**: [`ArgInput`](../types/ArgInput.md) = `[]`
+
+#### Overrides
+
+BaseCommand.args
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:38
 
 ___
 
@@ -412,7 +433,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:14
+packages/common/src/commands/base.command.ts:40
 
 ___
 
@@ -422,7 +443,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:15
+packages/common/src/commands/base.command.ts:41
 
 ___
 
@@ -432,57 +453,27 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:16
-
-___
-
-### isVerbose
-
-• **isVerbose**: `boolean`
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:17
-
-___
-
-### isDebug
-
-• **isDebug**: `boolean`
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:18
-
-___
-
-### isSilent
-
-• **isSilent**: `boolean`
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:19
+packages/common/src/commands/base.command.ts:42
 
 ___
 
 ### cs
 
-• **cs**: [`ConfigService`](ConfigService.md)<`Config`\>
+• **cs**: [`ConfigService`](ConfigService.md)
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:20
+packages/common/src/commands/base.command.ts:43
 
 ___
 
 ### parser
 
-• **parser**: `ParserService`
+• **parser**: [`ParserService`](ParserService.md)
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:21
+packages/common/src/commands/base.command.ts:44
 
 ___
 
@@ -492,7 +483,37 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:22
+packages/common/src/commands/base.command.ts:45
+
+___
+
+### store
+
+• **store**: [`StoreService`](StoreService.md)<`Store`\>
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:46
+
+___
+
+### flags
+
+• **flags**: `Flags`
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:48
+
+___
+
+### args
+
+• **args**: `Args`
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:49
 
 ## Accessors
 
@@ -510,7 +531,7 @@ BaseCommand.enableJsonFlag
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:59
+node_modules/@oclif/core/lib/command.d.ts:59
 
 • `Static` `set` **enableJsonFlag**(`value`): `void`
 
@@ -530,45 +551,7 @@ BaseCommand.enableJsonFlag
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:60
-
-___
-
-### globalFlags
-
-• `Static` `get` **globalFlags**(): `object`
-
-#### Returns
-
-`object`
-
-#### Inherited from
-
-BaseCommand.globalFlags
-
-#### Defined in
-
-packages/common/node_modules/@oclif/core/lib/command.d.ts:69
-
-• `Static` `set` **globalFlags**(`flags`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `flags` | `object` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCommand.globalFlags
-
-#### Defined in
-
-packages/common/node_modules/@oclif/core/lib/command.d.ts:70
+node_modules/@oclif/core/lib/command.d.ts:60
 
 ___
 
@@ -586,7 +569,7 @@ BaseCommand.flags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:73
+node_modules/@oclif/core/lib/command.d.ts:73
 
 • `Static` `set` **flags**(`flags`): `void`
 
@@ -606,7 +589,7 @@ BaseCommand.flags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:74
+node_modules/@oclif/core/lib/command.d.ts:74
 
 ___
 
@@ -624,20 +607,22 @@ BaseCommand.ctor
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:78
+node_modules/@oclif/core/lib/command.d.ts:78
 
 ## Constructors
 
 ### constructor
 
-• **new Command**<`Ctx`, `Config`\>(`argv`, `config`)
+• **new Command**<`Ctx`, `Flags`, `Args`, `Store`\>(`argv`, `config`)
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `Ctx` | extends `unknown` = `any` |
-| `Config` | extends [`BaseConfig`](BaseConfig.md)<`Config`\> = [`BaseConfig`](BaseConfig.md) |
+| `Flags` | extends `Record`<`PropertyKey`, `any`\> = `Object` & { `json`: `boolean`  } |
+| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`Command`](Command.md)\> |
+| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
 
 #### Parameters
 
@@ -652,7 +637,7 @@ BaseCommand.constructor
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:77
+node_modules/@oclif/core/lib/command.d.ts:77
 
 ## Methods
 
@@ -676,7 +661,7 @@ BaseCommand.\_run
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:79
+node_modules/@oclif/core/lib/command.d.ts:79
 
 ___
 
@@ -700,7 +685,7 @@ BaseCommand.warn
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:81
+node_modules/@oclif/core/lib/command.d.ts:81
 
 ___
 
@@ -725,7 +710,7 @@ BaseCommand.error
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:82
+node_modules/@oclif/core/lib/command.d.ts:82
 
 ▸ **error**(`input`, `options?`): `never`
 
@@ -746,7 +731,7 @@ BaseCommand.error
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:86
+node_modules/@oclif/core/lib/command.d.ts:86
 
 ___
 
@@ -771,7 +756,7 @@ BaseCommand.log
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:90
+node_modules/@oclif/core/lib/command.d.ts:90
 
 ___
 
@@ -796,7 +781,7 @@ BaseCommand.logToStderr
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:91
+node_modules/@oclif/core/lib/command.d.ts:91
 
 ___
 
@@ -814,7 +799,7 @@ BaseCommand.jsonEnabled
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:92
+node_modules/@oclif/core/lib/command.d.ts:92
 
 ___
 
@@ -847,7 +832,7 @@ BaseCommand.parse
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:98
+node_modules/@oclif/core/lib/command.d.ts:98
 
 ___
 
@@ -871,7 +856,7 @@ BaseCommand.toSuccessJson
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:105
+node_modules/@oclif/core/lib/command.d.ts:105
 
 ___
 
@@ -895,27 +880,7 @@ BaseCommand.toErrorJson
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:106
-
-___
-
-### run
-
-▸ **run**(): `Promise`<`void`\>
-
-Every command needs to implement run for running the command itself.
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Overrides
-
-BaseCommand.run
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:26
+node_modules/@oclif/core/lib/command.d.ts:106
 
 ___
 
@@ -935,7 +900,7 @@ BaseCommand.init
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:32
+packages/common/src/commands/base.command.ts:53
 
 ___
 
@@ -951,7 +916,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:81
+packages/common/src/commands/base.command.ts:116
 
 ___
 
@@ -973,7 +938,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:87
+packages/common/src/commands/base.command.ts:122
 
 ___
 
@@ -995,7 +960,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:90
+packages/common/src/commands/base.command.ts:125
 
 ___
 
@@ -1021,7 +986,7 @@ BaseCommand.finally
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:103
+packages/common/src/commands/base.command.ts:138
 
 ___
 
@@ -1047,7 +1012,7 @@ BaseCommand.catch
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:114
+packages/common/src/commands/base.command.ts:149
 
 ___
 
@@ -1075,30 +1040,19 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:123
+packages/common/src/commands/base.command.ts:158
 
 ___
 
-### setDefaultsInCtx
+### setCtxDefaults
 
-▸ **setDefaultsInCtx**<`T`, `K`\>(`options`): `void`
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | `Ctx` |
-| `K` | `Record`<`string`, `any`\> |
+▸ **setCtxDefaults**(...`defaults`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
-| `options.assign?` | `Object` |
-| `options.assign.from` | `K` |
-| `options.assign.keys` | keyof `K`[] |
-| `options.default?` | `Partial`<`T`\>[] |
+| `...defaults` | `Partial`<`Ctx`\>[] |
 
 #### Returns
 
@@ -1106,7 +1060,33 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:138
+packages/common/src/commands/base.command.ts:173
+
+___
+
+### setCtxAssign
+
+▸ **setCtxAssign**<`K`\>(...`assigns`): `void`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `K` | `Record`<`PropertyKey`, `any`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...assigns` | [`SetCtxAssignOptions`](../interfaces/SetCtxAssignOptions.md)<`K`\>[] |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:177
 
 ___
 
@@ -1130,7 +1110,7 @@ BaseCommand.exit
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:151
+packages/common/src/commands/base.command.ts:181
 
 ___
 
@@ -1144,4 +1124,24 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:156
+packages/common/src/commands/base.command.ts:186
+
+___
+
+### run
+
+▸ `Abstract` **run**(): `Promise`<`void`\>
+
+Every command needs to implement run for running the command itself.
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Overrides
+
+BaseCommand.run
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:202

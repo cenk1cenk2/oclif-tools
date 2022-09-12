@@ -23,7 +23,7 @@ Fulfills with the {fs.Stats} object for the given `path`.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:711
+node_modules/@types/node/fs/promises.d.ts:717
 
 ▸ **stat**(`path`, `opts`): `Promise`<[`BigIntStats`](../interfaces/fs.BigIntStats.md)\>
 
@@ -40,7 +40,7 @@ node_modules/@types/node/fs/promises.d.ts:711
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:717
+node_modules/@types/node/fs/promises.d.ts:723
 
 ▸ **stat**(`path`, `opts?`): `Promise`<[`Stats`](../classes/fs.Stats.md) \| [`BigIntStats`](../interfaces/fs.BigIntStats.md)\>
 
@@ -57,4 +57,4 @@ node_modules/@types/node/fs/promises.d.ts:717
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:723
+node_modules/@types/node/fs/promises.d.ts:729

@@ -50,7 +50,7 @@ of objects with the properties:
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:1072
+node_modules/@types/node/fs/promises.d.ts:1078
 
 ▸ **watch**(`filename`, `options?`): `AsyncIterable`<[`FileChangeInfo`](../interfaces/fs.promises.FileChangeInfo.md)<`string`\>\>
 
@@ -69,7 +69,7 @@ Watch for changes on `filename`, where `filename` is either a file or a director
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:1088
+node_modules/@types/node/fs/promises.d.ts:1094
 
 ▸ **watch**(`filename`, `options`): `AsyncIterable`<[`FileChangeInfo`](../interfaces/fs.promises.FileChangeInfo.md)<`string`\>\> \| `AsyncIterable`<[`FileChangeInfo`](../interfaces/fs.promises.FileChangeInfo.md)<`Buffer`\>\>
 
@@ -88,4 +88,4 @@ Watch for changes on `filename`, where `filename` is either a file or a director
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:1097
+node_modules/@types/node/fs/promises.d.ts:1103
