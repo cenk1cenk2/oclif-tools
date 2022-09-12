@@ -49,18 +49,24 @@ export class ConfigService implements GlobalConfig {
   public async read<T extends LockableData = LockableData>(path: string): Promise<T> {
     const config = await this.parser.read<T>(path)
 
+    this.logger.trace('Read config from: %s', path)
+
     return config
   }
 
   public async extend<T extends LockableData = LockableData>(paths: string[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): Promise<T> {
+    this.logger.trace('Will generate config from: %s with %s', paths.join(', '), strategy)
+
     const configs = await Promise.all(
       paths.map(async (path) => {
         try {
           const config = await this.parser.read<Partial<T>>(path)
 
+          this.logger.trace('Extending config from: %s', path)
+
           return config
         } catch (e) {
-          this.logger.trace(e)
+          this.logger.trace('Failed to extend config from: %s', e)
 
           return {}
         }
