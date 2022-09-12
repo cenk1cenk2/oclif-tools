@@ -27,7 +27,7 @@ export class ParserService {
   }
 
   public getParser (file: string): GenericParser {
-    const ext = this.fs.extname(file)
+    const ext = file.includes('.') ? this.fs.extname(file) : file
     const Parser = this.parsers.find((parser) => (parser as any).extensions.includes(ext.replace(/^\./, '')))
 
     if (!Parser) {

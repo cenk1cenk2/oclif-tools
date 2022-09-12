@@ -82,6 +82,8 @@ export class ConfigService implements GlobalConfig {
   public async env<T extends LockableData = LockableData>(definition: string, config: T): Promise<T> {
     const env = await this.parser.read<T>(definition)
 
+    this.logger.trace('Environment variable extensions read: %s', definition)
+
     const iter = async (obj: Record<PropertyKey, any>, parent?: string[]): Promise<{ key: string[], env: string, parser?: string }[]> => {
       const data = await Promise.all(
         Object.entries(obj).map(async ([ key, value ]) => {
@@ -112,8 +114,6 @@ export class ConfigService implements GlobalConfig {
 
     const parsed = await iter(env)
 
-    this.logger.trace('Environment variable extensions: %o', parsed)
-
     await Promise.all(
       parsed.map(async (variable) => {
         let data = process.env[variable.env]
@@ -127,7 +127,7 @@ export class ConfigService implements GlobalConfig {
         }
 
         config = op.update(config, variable.key, () => {
-          this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join(', '), variable.env)
+          this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
 
           return data
         })
