@@ -171,14 +171,13 @@ export class ConfigService implements GlobalConfig {
               throw new Error(`Timed-out in ${timeout}ms while looking for element environment variables.`)
             }
 
-            let extension = {}
+            let extension = op.get(config, [ ...variable.key, i ])
 
             await Promise.all(
               variable.extensions.map(async (e) => {
                 const clone = JSON.parse(JSON.stringify(e)) as ConfigIterator
 
                 clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
-                clone.key = clone.key.slice(clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT) + 1)
 
                 data = process.env[clone.env]
 
@@ -190,14 +189,14 @@ export class ConfigService implements GlobalConfig {
                   return
                 }
 
-                extension = cb(e, clone, data)
+                clone.key = clone.key.slice(clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT) + 1)
+
+                extension = cb(extension, clone, data)
               })
             )
 
             if (Object.keys(extension).length === 0) {
               this.logger.trace('No more extensions for environment variables: %s -> %d', variable.key.join('.'), i)
-
-              config = op.set(config, [ ...variable.key, i ], extension)
 
               break
             }
