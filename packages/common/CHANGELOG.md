@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [3.1.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0...@cenk1cenk2/oclif-common@3.1.1) (2022-09-13)
+
+### Bug Fixes
+
+- update parser error messages to propagate ([eb7f51e](https://gitlab.kilic.dev/libraries/oclif-tools/commit/eb7f51e5fbe13e82f5a8c74c737a8c3a858148b8))
+
 # @cenk1cenk2/oclif-common [3.1.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.4...@cenk1cenk2/oclif-common@3.1.0) (2022-09-13)
 
 ### Bug Fixes
