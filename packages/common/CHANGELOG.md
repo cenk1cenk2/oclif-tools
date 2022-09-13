@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.13](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.12...@cenk1cenk2/oclif-common@3.1.0-beta.13) (2022-09-13)
+
+### Bug Fixes
+
+- update extensions ([144fe7a](https://gitlab.kilic.dev/libraries/oclif-tools/commit/144fe7a9e973eeddbdeb0776cac905aadfa2e299))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.12](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.11...@cenk1cenk2/oclif-common@3.1.0-beta.12) (2022-09-13)
 
 ### Bug Fixes
