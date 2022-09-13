@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.14](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.13...@cenk1cenk2/oclif-common@3.1.0-beta.14) (2022-09-13)
+
+### Bug Fixes
+
+- extension mech ([405a094](https://gitlab.kilic.dev/libraries/oclif-tools/commit/405a094b6c977b0ae131cabd9d547f962a15640b))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.13](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.12...@cenk1cenk2/oclif-common@3.1.0-beta.13) (2022-09-13)
 
 ### Bug Fixes
