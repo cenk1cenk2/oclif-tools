@@ -194,8 +194,10 @@ export class ConfigService implements GlobalConfig {
               })
             )
 
-            if (Object.keys(extension)) {
+            if (Object.keys(extension).length === 0) {
               this.logger.trace('No more extensions for environment variables: %s -> %d', variable.key.join('.'), i)
+
+              config = op.set(config, [ ...variable.key, i ], extension)
 
               break
             }
