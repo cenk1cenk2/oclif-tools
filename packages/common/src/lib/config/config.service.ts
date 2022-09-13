@@ -136,7 +136,7 @@ export class ConfigService implements GlobalConfig {
 
     // this.logger.trace('Environment variable injection: %o', parsed)
 
-    const cb = async <T extends Record<PropertyKey, any>>(config: T, variable: ConfigIterator, data: any): Promise<T> => {
+    const cb = async (config: T, variable: ConfigIterator, data: any): Promise<T> => {
       if (variable.parser) {
         try {
           data = await this.parser.parse(variable.parser, data)
@@ -171,37 +171,36 @@ export class ConfigService implements GlobalConfig {
               throw new Error(`Timed-out in ${timeout}ms while looking for element environment variables.`)
             }
 
-            let extension = op.get(config, [ ...variable.key, i ])
+            const extensions = (
+              await Promise.all(
+                variable.extensions.map(async (extension) => {
+                  const clone = JSON.parse(JSON.stringify(extension)) as ConfigIterator
 
-            await Promise.all(
-              variable.extensions.map(async (e) => {
-                const clone = JSON.parse(JSON.stringify(e)) as ConfigIterator
+                  clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
+                  clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i
 
-                clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
+                  data = process.env[clone.env]
 
-                data = process.env[clone.env]
+                  // this.logger.trace('Extension: %o -> %s', clone, data)
 
-                // this.logger.trace('Extension: %o -> %s', clone, data)
+                  if (!data) {
+                    this.logger.trace('No extension for environment variable: %s -> %s', clone.key.join('.'), clone.env)
 
-                if (!data) {
-                  this.logger.trace('No extension for environment variable: %s -> %s', clone.key.join('.'), clone.env)
+                    return
+                  }
 
-                  return
-                }
+                  return cb(config, clone, data)
+                })
+              )
+            ).filter(Boolean)
 
-                clone.key = clone.key.slice(clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT) + 1)
-
-                extension = cb(extension, clone, data)
-              })
-            )
-
-            if (Object.keys(extension).length === 0) {
+            if (extensions.length === 0) {
               this.logger.trace('No more extensions for environment variables: %s -> %d', variable.key.join('.'), i)
 
               break
             }
 
-            config = op.set(config, [ ...variable.key, i ], extension)
+            console.log(extensions)
           }
         }
       })
