@@ -129,7 +129,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   }
 
   public async write (data: LockFile): Promise<void> {
-    return this.fs.write(this.file, await this.parser.stringify(data))
+    return this.fs.write(this.file, this.parser.stringify(data))
   }
 
   private buildPath<T extends Partial<CommonLockerData>>(d: T): string[] {

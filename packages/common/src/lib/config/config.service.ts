@@ -1,12 +1,13 @@
 import op from 'object-path-immutable'
 import { join } from 'path'
 
-import type { GlobalConfig } from './config.interface'
+import { ConfigEnvKeys } from './config.constants'
+import type { ConfigIterator, GlobalConfig } from './config.interface'
 import type { Command } from '@commands/base.command'
 import { FileConstants } from '@constants'
 import type { LockableData } from '@lib/locker'
 import { ParserService } from '@lib/parser/parser.service'
-import { merge, MergeStrategy, isDebug, isSilent, isVerbose } from '@utils'
+import { isDebug, isSilent, isVerbose, merge, MergeStrategy } from '@utils'
 import type { LogLevels } from '@utils/logger'
 import { Logger } from '@utils/logger'
 
@@ -55,14 +56,14 @@ export class ConfigService implements GlobalConfig {
     return config
   }
 
-  public async extend<T extends LockableData = LockableData>(paths: string[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): Promise<T> {
-    this.logger.trace('Will generate config from: %s with %s', paths.join(', '), strategy)
+  public async extend<T extends LockableData = LockableData>(paths: (string | Partial<T>)[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): Promise<T> {
+    this.logger.trace('Will generate config from: %o with %s', paths, strategy)
 
     const configs = (
       await Promise.all(
         paths.map(async (path) => {
           try {
-            const config = await this.parser.read<Partial<T>>(path)
+            const config = typeof path === 'string' ? await this.parser.read<Partial<T>>(path) : path
 
             this.logger.trace('Extending config from: %s', path)
 
@@ -85,12 +86,12 @@ export class ConfigService implements GlobalConfig {
     return merge<T>(strategy, configs.some((config) => Array.isArray(config)) ? ([] as T) : {} as T, ...configs)
   }
 
-  public async env<T extends LockableData = LockableData>(definition: string, config: T): Promise<T> {
-    const env = await this.parser.read<T>(definition)
+  public async env<T extends LockableData = LockableData>(definition: string | Record<PropertyKey, any>, config: T): Promise<T> {
+    const env = typeof definition === 'string' ? await this.parser.read<T>(definition) : definition
 
-    this.logger.trace('Environment variable extensions read: %s', definition)
+    this.logger.trace('Environment variable extensions read: %o', definition)
 
-    const iter = async (obj: Record<PropertyKey, any>, parent?: string[]): Promise<{ key: string[], env: string, parser?: string }[]> => {
+    const iter = async (obj: Record<PropertyKey, any>, parent?: string[]): Promise<ConfigIterator[]> => {
       const data = await Promise.all(
         Object.entries(obj).map(async ([ key, value ]) => {
           const location = [ ...parent ?? [], key ]
@@ -98,16 +99,29 @@ export class ConfigService implements GlobalConfig {
           if (typeof value === 'string') {
             return [ { key: location, env: value } ]
           } else if (typeof value === 'object') {
-            if ('__name' in value && '__format' in value) {
-              return [
+            let extensions: ConfigIterator['extensions']
+
+            if (ConfigEnvKeys.ELEMENT in value) {
+              extensions = await iter(value[ConfigEnvKeys.ELEMENT], [ ...location, ConfigEnvKeys.ELEMENT ])
+
+              this.logger.trace('Expanding location to elements: %s -> %s', location, extensions.map((extension) => extension.key.join('.')).join(', '))
+            }
+
+            if (ConfigEnvKeys.NAME in value && ConfigEnvKeys.PARSER in value) {
+              const variable = [
                 {
                   key: location,
                   // eslint-disable-next-line no-underscore-dangle
-                  env: value.__name as string,
+                  env: value[ConfigEnvKeys.NAME] as string,
                   // eslint-disable-next-line no-underscore-dangle
-                  parser: value.__format as string
+                  parser: value[ConfigEnvKeys.PARSER] as string,
+                  extensions
                 }
               ]
+
+              // this.logger.trace('Added to search for environment variables: %o', variable)
+
+              return variable
             } else {
               return iter(value, location)
             }
@@ -115,36 +129,78 @@ export class ConfigService implements GlobalConfig {
         })
       )
 
-      return data.flatMap((d) => d)
+      return data.flatMap((d) => d).filter(Boolean)
     }
 
     const parsed = await iter(env)
 
-    await Promise.all(
-      parsed.map(async (variable) => {
-        let data = process.env[variable.env]
+    // this.logger.trace('Environment variable injection: %o', parsed)
 
-        if (!data) {
-          return
+    const cb = (config: T, variable: ConfigIterator, data: any): T => {
+      if (variable.parser) {
+        try {
+          data = this.parser.parse(variable.parser, data)
+        } catch (e) {
+          this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
+
+          throw e
         }
+      }
 
-        if (variable.parser) {
-          try {
-            data = await this.parser.parse(variable.parser, data)
-          } catch (e) {
-            this.logger.trace('Can not parse environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
+      this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
 
-            throw e
+      return op.set(config, variable.key, data)
+    }
+
+    parsed.forEach((variable) => {
+      let data: string
+
+      data = process.env[variable.env]
+
+      if (data) {
+        config = cb(config, variable, data)
+      }
+
+      if (variable.extensions && variable.extensions.length > 0) {
+        const timeout = 60000
+        const startedAt = Date.now()
+
+        for (let i = 0; i < Infinity; i++) {
+          if (Date.now() - startedAt > timeout) {
+            throw new Error(`Timed-out in ${timeout}ms while looking for element environment variables.`)
+          }
+
+          const extensions = variable.extensions
+            .map((extension) => {
+              const clone = JSON.parse(JSON.stringify(extension)) as ConfigIterator
+
+              clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
+              clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i.toString()
+
+              data = process.env[clone.env]
+
+              // this.logger.trace('Extension: %o -> %s', clone, data)
+
+              if (!data) {
+                this.logger.trace('No extension for environment variable: %s -> %s', clone.key.join('.'), clone.env)
+
+                return
+              }
+
+              config = cb(config, clone, data)
+
+              return true
+            })
+            .filter(Boolean)
+
+          if (extensions.length === 0) {
+            this.logger.trace('No more extensions for environment variables: %s -> %d', variable.key.join('.'), i)
+
+            break
           }
         }
-
-        config = op.update(config, variable.key, () => {
-          this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
-
-          return data
-        })
-      })
-    )
+      }
+    })
 
     return config
   }
@@ -152,8 +208,6 @@ export class ConfigService implements GlobalConfig {
   public async write<T extends LockableData = LockableData>(path: string, data: T): Promise<void> {
     return this.parser.write(path, data)
   }
-
-  // private walk <T extends LockableData = LockableData>(data:T)
 
   private recalculate (): void {
     this.isVerbose = isVerbose(this.logLevel)
