@@ -171,7 +171,7 @@ export class ConfigService implements GlobalConfig {
           }
 
           const extensions = variable.extensions
-            .map(async (extension) => {
+            .map((extension) => {
               const clone = JSON.parse(JSON.stringify(extension)) as ConfigIterator
 
               clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
