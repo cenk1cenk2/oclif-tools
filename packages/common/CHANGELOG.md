@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.16](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.15...@cenk1cenk2/oclif-common@3.1.0-beta.16) (2022-09-13)
+
+### Bug Fixes
+
+- try as string ([7b4912f](https://gitlab.kilic.dev/libraries/oclif-tools/commit/7b4912f5f08882d007749e8a5aa9d72ab06e6dc8))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.15](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.14...@cenk1cenk2/oclif-common@3.1.0-beta.15) (2022-09-13)
 
 ### Bug Fixes
