@@ -200,7 +200,7 @@ export class ConfigService implements GlobalConfig {
               break
             }
 
-            config = this.merge<T>([ config, ...extensions ], MergeStrategy.EXTEND)
+            config = this.merge<T>([ config, this.merge(extensions, MergeStrategy.EXTEND) ])
           }
         }
       })
