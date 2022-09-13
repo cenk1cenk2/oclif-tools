@@ -20,7 +20,7 @@ export class JsonParser implements GenericParser {
     try {
       return JSON.parse(data.toString())
     } catch (e) {
-      this.logger.fatal('Error during parsing JSON file: %s', e.message)
+      this.logger.trace('Error during parsing JSON file: %s', e.message)
 
       throw e
     }

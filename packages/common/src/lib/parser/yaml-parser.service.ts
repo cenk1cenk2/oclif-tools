@@ -22,7 +22,7 @@ export class YamlParser implements GenericParser {
     try {
       return parse(data.toString())
     } catch (e) {
-      this.logger.fatal('Error during parsing YAML file: %s', e.message)
+      this.logger.trace('Error during parsing YAML file: %s', e.message)
 
       throw e
     }
