@@ -102,9 +102,9 @@ export class ConfigService implements GlobalConfig {
             let extensions: ConfigIterator['extensions']
 
             if (ConfigEnvKeys.ELEMENT in value) {
-              this.logger.trace('Expanding location to elements: %s', location)
-
               extensions = await iter(value[ConfigEnvKeys.ELEMENT], [ ...location, ConfigEnvKeys.ELEMENT ])
+
+              this.logger.trace('Expanding location to elements: %s -> %s', location, extensions.map((extension) => extension.key.join('.')).join(', '))
             }
 
             if (ConfigEnvKeys.NAME in value && ConfigEnvKeys.PARSER in value) {
@@ -136,10 +136,10 @@ export class ConfigService implements GlobalConfig {
 
     // this.logger.trace('Environment variable injection: %o', parsed)
 
-    const cb = async (config: T, variable: ConfigIterator, data: any): Promise<T> => {
+    const cb = (config: T, variable: ConfigIterator, data: any): T => {
       if (variable.parser) {
         try {
-          data = await this.parser.parse(variable.parser, data)
+          data = this.parser.parse(variable.parser, data)
         } catch (e) {
           this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
 
@@ -152,59 +152,55 @@ export class ConfigService implements GlobalConfig {
       return op.set(config, variable.key, data)
     }
 
-    await Promise.all(
-      parsed.map(async (variable) => {
-        let data: string
+    parsed.forEach((variable) => {
+      let data: string
 
-        data = process.env[variable.env]
+      data = process.env[variable.env]
 
-        if (data) {
-          config = await cb(config, variable, data)
-        }
+      if (data) {
+        config = cb(config, variable, data)
+      }
 
-        if (variable.extensions && variable.extensions.length > 0) {
-          const timeout = 60000
-          const startedAt = Date.now()
+      if (variable.extensions && variable.extensions.length > 0) {
+        const timeout = 60000
+        const startedAt = Date.now()
 
-          for (let i = 0; i < Infinity; i++) {
-            if (Date.now() - startedAt > timeout) {
-              throw new Error(`Timed-out in ${timeout}ms while looking for element environment variables.`)
-            }
+        for (let i = 0; i < Infinity; i++) {
+          if (Date.now() - startedAt > timeout) {
+            throw new Error(`Timed-out in ${timeout}ms while looking for element environment variables.`)
+          }
 
-            const extensions = (
-              await Promise.all(
-                variable.extensions.map(async (extension) => {
-                  const clone = JSON.parse(JSON.stringify(extension)) as ConfigIterator
+          const extensions = variable.extensions
+            .map(async (extension) => {
+              const clone = JSON.parse(JSON.stringify(extension)) as ConfigIterator
 
-                  clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
-                  clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i.toString()
+              clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
+              clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i.toString()
 
-                  data = process.env[clone.env]
+              data = process.env[clone.env]
 
-                  // this.logger.trace('Extension: %o -> %s', clone, data)
+              // this.logger.trace('Extension: %o -> %s', clone, data)
 
-                  if (!data) {
-                    this.logger.trace('No extension for environment variable: %s -> %s', clone.key.join('.'), clone.env)
+              if (!data) {
+                this.logger.trace('No extension for environment variable: %s -> %s', clone.key.join('.'), clone.env)
 
-                    return
-                  }
+                return
+              }
 
-                  config = await cb(config, clone, data)
+              config = cb(config, clone, data)
 
-                  return true
-                })
-              )
-            ).filter(Boolean)
+              return true
+            })
+            .filter(Boolean)
 
-            if (extensions.length === 0) {
-              this.logger.trace('No more extensions for environment variables: %s -> %d', variable.key.join('.'), i)
+          if (extensions.length === 0) {
+            this.logger.trace('No more extensions for environment variables: %s -> %d', variable.key.join('.'), i)
 
-              break
-            }
+            break
           }
         }
-      })
-    )
+      }
+    })
 
     return config
   }

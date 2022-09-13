@@ -53,7 +53,7 @@ export class ParserService {
     return this.fs.write(file, await this.stringify(file, data))
   }
 
-  public parse<T = unknown>(file: string, data: string | Buffer): T | Promise<T> {
+  public parse<T = unknown>(file: string, data: string | Buffer): T {
     const Parser = this.getParser(file)
 
     return Parser.parse<T>(data)
