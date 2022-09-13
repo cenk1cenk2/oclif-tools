@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.18](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.17...@cenk1cenk2/oclif-common@3.1.0-beta.18) (2022-09-13)
+
+### Bug Fixes
+
+- remove asnyc ([1af6955](https://gitlab.kilic.dev/libraries/oclif-tools/commit/1af695597ac617d4d8f5ea2d3dbee4cf8bc8de14))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.17](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.16...@cenk1cenk2/oclif-common@3.1.0-beta.17) (2022-09-13)
 
 ### Bug Fixes
