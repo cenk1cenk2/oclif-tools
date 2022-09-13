@@ -25,7 +25,7 @@ packages/common/src/lib/parser/parser.interface.ts:2
 
 ### parse
 
-▸ **parse**<`T`\>(`data`): `T` \| `Promise`<`T`\>
+▸ **parse**<`T`\>(`data`): `T`
 
 #### Type parameters
 
@@ -41,7 +41,7 @@ packages/common/src/lib/parser/parser.interface.ts:2
 
 #### Returns
 
-`T` \| `Promise`<`T`\>
+`T`
 
 #### Defined in
 
@@ -51,7 +51,7 @@ ___
 
 ### stringify
 
-▸ **stringify**<`T`\>(`data`): `string` \| `Promise`<`string`\>
+▸ **stringify**<`T`\>(`data`): `string`
 
 #### Type parameters
 
@@ -67,7 +67,7 @@ ___
 
 #### Returns
 
-`string` \| `Promise`<`string`\>
+`string`
 
 #### Defined in
 

@@ -1,5 +1,11 @@
 # Interface: GlobalConfig
 
+## Hierarchy
+
+- [`GlobalConfigInit`](GlobalConfigInit.md)
+
+  ↳ **`GlobalConfig`**
+
 ## Implemented by
 
 - [`ConfigService`](../classes/ConfigService.md)
@@ -10,6 +16,10 @@
 
 • **logLevel**: [`LogLevels`](../enums/LogLevels.md)
 
+#### Inherited from
+
+[GlobalConfigInit](GlobalConfigInit.md).[logLevel](GlobalConfigInit.md#loglevel)
+
 #### Defined in
 
 packages/common/src/lib/config/config.interface.ts:4
@@ -19,6 +29,24 @@ ___
 ### ci
 
 • **ci**: `boolean`
+
+#### Inherited from
+
+[GlobalConfigInit](GlobalConfigInit.md).[ci](GlobalConfigInit.md#ci)
+
+#### Defined in
+
+packages/common/src/lib/config/config.interface.ts:5
+
+___
+
+### json
+
+• **json**: `boolean`
+
+#### Inherited from
+
+[GlobalConfigInit](GlobalConfigInit.md).[json](GlobalConfigInit.md#json)
 
 #### Defined in
 
@@ -32,7 +60,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.interface.ts:8
+packages/common/src/lib/config/config.interface.ts:10
 
 ___
 
@@ -42,7 +70,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.interface.ts:10
+packages/common/src/lib/config/config.interface.ts:11
 
 ___
 
@@ -53,13 +81,3 @@ ___
 #### Defined in
 
 packages/common/src/lib/config/config.interface.ts:12
-
-___
-
-### json
-
-• **json**: `boolean`
-
-#### Defined in
-
-packages/common/src/lib/config/config.interface.ts:14

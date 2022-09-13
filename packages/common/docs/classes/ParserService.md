@@ -173,7 +173,7 @@ ___
 
 ### parse
 
-▸ **parse**<`T`\>(`file`, `data`): `T` \| `Promise`<`T`\>
+▸ **parse**<`T`\>(`file`, `data`): `T`
 
 #### Type parameters
 
@@ -190,7 +190,7 @@ ___
 
 #### Returns
 
-`T` \| `Promise`<`T`\>
+`T`
 
 #### Defined in
 

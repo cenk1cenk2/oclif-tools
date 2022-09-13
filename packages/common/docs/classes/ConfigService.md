@@ -12,7 +12,7 @@
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:14
+packages/common/src/lib/config/config.service.ts:15
 
 ___
 
@@ -22,7 +22,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:15
+packages/common/src/lib/config/config.service.ts:16
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:16
+packages/common/src/lib/config/config.service.ts:17
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:17
+packages/common/src/lib/config/config.service.ts:18
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:18
+packages/common/src/lib/config/config.service.ts:19
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:19
+packages/common/src/lib/config/config.service.ts:20
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:20
+packages/common/src/lib/config/config.service.ts:21
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:21
+packages/common/src/lib/config/config.service.ts:22
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:22
+packages/common/src/lib/config/config.service.ts:23
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:23
+packages/common/src/lib/config/config.service.ts:24
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:24
+packages/common/src/lib/config/config.service.ts:25
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:26
+packages/common/src/lib/config/config.service.ts:27
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:26
+packages/common/src/lib/config/config.service.ts:27
 
 ## Constructors
 
@@ -174,7 +174,7 @@ packages/common/src/lib/config/config.service.ts:26
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:26
+packages/common/src/lib/config/config.service.ts:27
 
 ## Methods
 
@@ -200,7 +200,7 @@ packages/common/src/lib/config/config.service.ts:26
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:50
+packages/common/src/lib/config/config.service.ts:51
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `paths` | `string`[] | `undefined` |
+| `paths` | (`string` \| `Partial`<`T`\>)[] | `undefined` |
 | `strategy` | [`MergeStrategy`](../enums/MergeStrategy.md) | `MergeStrategy.OVERWRITE` |
 
 #### Returns
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:58
+packages/common/src/lib/config/config.service.ts:59
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:80
+packages/common/src/lib/config/config.service.ts:81
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `definition` | `string` |
+| `definition` | `string` \| `Record`<`PropertyKey`, `any`\> |
 | `config` | `T` |
 
 #### Returns
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:88
+packages/common/src/lib/config/config.service.ts:89
 
 ___
 
@@ -308,7 +308,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:152
+packages/common/src/lib/config/config.service.ts:208
 
 ___
 
@@ -322,4 +322,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:158
+packages/common/src/lib/config/config.service.ts:212
