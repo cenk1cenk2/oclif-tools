@@ -15,6 +15,7 @@
 - [ConfigCommandChoices](types/ConfigCommandChoices.md)
 - [InferFlags](types/InferFlags.md)
 - [InferArgs](types/InferArgs.md)
+- [DeepPartial](types/DeepPartial.md)
 - [LockableData](types/LockableData.md)
 - [DataStore](types/DataStore.md)
 - [SetCtxDefaultsOptions](types/SetCtxDefaultsOptions.md)
@@ -24,7 +25,9 @@
 
 - [Arg](interfaces/Arg.md)
 - [ConfigCommandSetup](interfaces/ConfigCommandSetup.md)
+- [GlobalConfigInit](interfaces/GlobalConfigInit.md)
 - [GlobalConfig](interfaces/GlobalConfig.md)
+- [ConfigIterator](interfaces/ConfigIterator.md)
 - [CommonLockerData](interfaces/CommonLockerData.md)
 - [LockData](interfaces/LockData.md)
 - [UnlockData](interfaces/UnlockData.md)

@@ -1,3 +1,29 @@
+# @cenk1cenk2/oclif-common [3.1.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.0.4...@cenk1cenk2/oclif-common@3.1.0) (2022-09-13)
+
+### Bug Fixes
+
+- add more verbose logging ([e2f1d72](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e2f1d72b71970ee9c5a959db459b5d68fd00dc24))
+- add verbosity ([d65c350](https://gitlab.kilic.dev/libraries/oclif-tools/commit/d65c350aa0decdfadccfda45046c58a7c9555d4c))
+- change how extensions are handled ([869b46c](https://gitlab.kilic.dev/libraries/oclif-tools/commit/869b46c3e1e8737b715b3e67efd33e96001cc411))
+- change mechnaism for updating env ([c96dfcb](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c96dfcb0321e5ba6e279296b520099c2b295f93c))
+- change the process order of elements ([2df7c83](https://gitlab.kilic.dev/libraries/oclif-tools/commit/2df7c8347822dc0c96fd26dc545859969e258b98))
+- check for array first ([8bf78aa](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8bf78aa664f558d936c8712f0363e1e2c23dae11))
+- convert to parsers to sync ([4af4d60](https://gitlab.kilic.dev/libraries/oclif-tools/commit/4af4d6059c7c48ca0fa566a2441dbb051c436743))
+- extension mech ([405a094](https://gitlab.kilic.dev/libraries/oclif-tools/commit/405a094b6c977b0ae131cabd9d547f962a15640b))
+- extension mechnaism ([d787466](https://gitlab.kilic.dev/libraries/oclif-tools/commit/d787466222a4fcb7a552ffce4a12705d20dc4437))
+- flatten ([f6b1277](https://gitlab.kilic.dev/libraries/oclif-tools/commit/f6b1277608e2a592bb7f64993b03ea89061930fd))
+- remove asnyc ([1af6955](https://gitlab.kilic.dev/libraries/oclif-tools/commit/1af695597ac617d4d8f5ea2d3dbee4cf8bc8de14))
+- try as string ([7b4912f](https://gitlab.kilic.dev/libraries/oclif-tools/commit/7b4912f5f08882d007749e8a5aa9d72ab06e6dc8))
+- try out manual merge ([ec413bd](https://gitlab.kilic.dev/libraries/oclif-tools/commit/ec413bdaa8e128426d8d5fb02862bd944e958b19))
+- typo problems ([8fe63d9](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8fe63d9b5c0c572d476cc7cfdf2d0b6ac39a28a4))
+- update extensions ([144fe7a](https://gitlab.kilic.dev/libraries/oclif-tools/commit/144fe7a9e973eeddbdeb0776cac905aadfa2e299))
+- update for nulls ([485144a](https://gitlab.kilic.dev/libraries/oclif-tools/commit/485144a0400672bbc6d188a96886c8afade453ce))
+- update merge mechanism ([103992a](https://gitlab.kilic.dev/libraries/oclif-tools/commit/103992aed8ae5dbf88875c6e10c323f672795f22))
+
+### Features
+
+- environment element parsing ([c9ddcd0](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c9ddcd01f3b619f1e92a8304a145d46b10b9b914))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.18](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.17...@cenk1cenk2/oclif-common@3.1.0-beta.18) (2022-09-13)
 
 ### Bug Fixes
