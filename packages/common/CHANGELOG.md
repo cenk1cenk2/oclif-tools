@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.1.0-beta.17](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.16...@cenk1cenk2/oclif-common@3.1.0-beta.17) (2022-09-13)
+
+### Bug Fixes
+
+- convert to parsers to sync ([4af4d60](https://gitlab.kilic.dev/libraries/oclif-tools/commit/4af4d6059c7c48ca0fa566a2441dbb051c436743))
+
 # @cenk1cenk2/oclif-common [3.1.0-beta.16](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0-beta.15...@cenk1cenk2/oclif-common@3.1.0-beta.16) (2022-09-13)
 
 ### Bug Fixes
