@@ -177,7 +177,7 @@ export class ConfigService implements GlobalConfig {
                   const clone = JSON.parse(JSON.stringify(extension)) as ConfigIterator
 
                   clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
-                  clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i
+                  clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i.toString()
 
                   data = process.env[clone.env]
 
@@ -189,7 +189,9 @@ export class ConfigService implements GlobalConfig {
                     return
                   }
 
-                  return cb(config, clone, data)
+                  config = await cb(config, clone, data)
+
+                  return true
                 })
               )
             ).filter(Boolean)
@@ -199,8 +201,6 @@ export class ConfigService implements GlobalConfig {
 
               break
             }
-
-            console.log(extensions)
           }
         }
       })
