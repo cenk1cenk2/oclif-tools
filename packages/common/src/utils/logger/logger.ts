@@ -14,20 +14,20 @@ export class Logger {
   private logger: Winston
 
   constructor (private context?: string, private options?: LoggerOptions) {
-    const level = options?.level?.toUpperCase() as LogLevels
-    const lvl = Object.values(LogLevels).includes(level) ? level : LogLevels.INFO
+    const parsed: LogLevels = (process.env.LOG_LEVEL ?? options?.level ?? LogLevels.INFO) as LogLevels
+    const level = Object.values(LogLevels).includes(parsed) ? parsed : LogLevels.INFO
 
     // set default options
     this.options = {
       useIcons: true,
       ...options,
-      level: lvl
+      level
     }
 
     if (Logger.instance) {
-      this.logger = Logger.instance
+      Logger.instance.level = level
 
-      Logger.instance.level = lvl
+      this.logger = Logger.instance
     } else {
       this.logger = this.initiateLogger()
 
