@@ -158,7 +158,7 @@ export class Command<
   public exit (code?: number): void {
     this.logger.trace('Exitting with code: %d', code)
 
-    this.exit(code ?? 0)
+    process.exit(code ?? 0)
   }
 
   /** Run all tasks from task manager. */

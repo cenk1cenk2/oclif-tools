@@ -41,6 +41,6 @@ export class ConfigCommand<
       choices: Object.keys(this.choices)
     })
 
-    return this.choices[response]()
+    return this.choices[response].bind(this)()
   }
 }
