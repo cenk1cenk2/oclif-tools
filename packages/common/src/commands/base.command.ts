@@ -38,7 +38,7 @@ export abstract class Command<
   static args: ArgInput = []
 
   public logger: Logger
-  public tasks: Manager<Ctx, 'default'>
+  public tasks: Manager<Ctx, 'default' | 'verbose' | 'silent' | 'simple'>
   public validator: ValidatorService
   public cs: ConfigService
   public parser: ParserService

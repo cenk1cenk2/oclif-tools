@@ -4,3 +4,5 @@ export * from './environment'
 export * from './merge.constants'
 export * from './merge'
 export * from './defaults'
+
+export { CliUx } from '@oclif/core'

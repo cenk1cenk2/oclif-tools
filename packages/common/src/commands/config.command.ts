@@ -3,8 +3,9 @@ import type { ListrContext } from 'listr2'
 import { Command as BaseCommand } from './base.command'
 import type { ConfigCommandChoices, ConfigCommandSetup, InferArgs, InferFlags } from '@interfaces'
 import type { LockerService } from '@lib'
+import { CliUx } from '@utils'
 
-export abstract class ConfigCommand<
+export class ConfigCommand<
   CommandChoices extends string = string,
   LockFile = any,
   Ctx extends ListrContext = ListrContext,
@@ -24,6 +25,10 @@ export abstract class ConfigCommand<
     await this.generate()
   }
 
+  public setup (): ConfigCommandSetup<CommandChoices, LockFile> | Promise<ConfigCommandSetup<CommandChoices, LockFile>> {
+    throw new Error('The command should be setup first!')
+  }
+
   private async generate (): Promise<void> {
     // prompt user for the action
     const response: string = await this.prompt({
@@ -35,5 +40,7 @@ export abstract class ConfigCommand<
     return this.choices[response]()
   }
 
-  public abstract setup (): ConfigCommandSetup<CommandChoices, LockFile> | Promise<ConfigCommandSetup<CommandChoices, LockFile>>
+  private table (...options: Parameters<typeof CliUx.ux.table>): void {
+    CliUx.ux.table(...options)
+  }
 }
