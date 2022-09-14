@@ -46,6 +46,11 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     }
   }
 
+  public async all (): Promise<void> {
+    await this.unlockAll()
+    await this.lockAll()
+  }
+
   public async lock<T extends LockableData = LockableData>(...data: LockData<T>[]): Promise<void> {
     let lock: LockFile = await this.tryRead() ?? ({} as LockFile)
 
