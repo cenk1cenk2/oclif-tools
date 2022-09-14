@@ -4,5 +4,5 @@ export type ConfigCommandChoices<T extends string> = Record<T, () => void | Prom
 
 export interface ConfigCommandSetup<T extends string = string, LockFile = any> {
   choices: ConfigCommandChoices<T>
-  locker: LockerService<LockFile>
+  locker?: LockerService<LockFile>
 }
