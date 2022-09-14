@@ -1,3 +1,16 @@
+# @cenk1cenk2/oclif-common [3.2.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.1...@cenk1cenk2/oclif-common@3.2.0) (2022-09-14)
+
+### Bug Fixes
+
+- make returning locker optional ([eb22e0c](https://gitlab.kilic.dev/libraries/oclif-tools/commit/eb22e0c4d7bc18e9627b4f6b3079b6500dc7feff))
+- type errors ([9d14eaa](https://gitlab.kilic.dev/libraries/oclif-tools/commit/9d14eaa7942409a82fa2c0e5eb2488e74ccd3bf4))
+
+### Features
+
+- directly inject listr logger to verbose commands ([a6447c5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a6447c5466362ddae27aacbe1945b05d2c0a6b4a))
+- fix config command ([3b34ce5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/3b34ce57e5ffe6c5b28d7b1d1e3aba76f4829e8c))
+- move fs-extra to peer deps ([ae09ffa](https://gitlab.kilic.dev/libraries/oclif-tools/commit/ae09ffa2861679fc7c53f9d56a700edbc65c3c21))
+
 ## @cenk1cenk2/oclif-common [3.1.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.0...@cenk1cenk2/oclif-common@3.1.1) (2022-09-13)
 
 ### Bug Fixes

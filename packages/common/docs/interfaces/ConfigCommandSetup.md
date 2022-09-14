@@ -21,7 +21,7 @@ ___
 
 ### locker
 
-• **locker**: [`LockerService`](../classes/LockerService.md)<`LockFile`\>
+• `Optional` **locker**: [`LockerService`](../classes/LockerService.md)<`LockFile`\>
 
 #### Defined in
 

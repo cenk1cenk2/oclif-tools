@@ -2,6 +2,7 @@
 
 ## Namespaces
 
+- [CliUx](modules/CliUx.md)
 - [Flags](modules/Flags.md)
 - [fs](modules/fs.md)
 
@@ -50,6 +51,7 @@
 - [YamlParser](classes/YamlParser.md)
 - [StoreService](classes/StoreService.md)
 - [ValidatorService](classes/ValidatorService.md)
+- [ListrLogger](classes/ListrLogger.md)
 - [Logger](classes/Logger.md)
 
 ## Enumerations
@@ -77,5 +79,4 @@
 
 ## Variables
 
-- [default](variables/default.md)
 - [color](variables/color.md)

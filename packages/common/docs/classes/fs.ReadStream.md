@@ -2844,7 +2844,7 @@ ___
 
 #### Inherited from
 
-stream.Readable.\_\_@asyncIterator@174
+stream.Readable.\_\_@asyncIterator@234
 
 #### Defined in
 

@@ -439,7 +439,7 @@ ___
 
 ### tasks
 
-• **tasks**: `Manager`<`Ctx`, ``"default"``, ``"verbose"``\>
+• **tasks**: `Manager`<`Ctx`, ``"default"`` \| ``"verbose"`` \| ``"silent"`` \| ``"simple"``, ``"verbose"``\>
 
 #### Defined in
 
@@ -916,7 +916,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:116
+packages/common/src/commands/base.command.ts:123
 
 ___
 
@@ -938,7 +938,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:122
+packages/common/src/commands/base.command.ts:129
 
 ___
 
@@ -960,7 +960,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:125
+packages/common/src/commands/base.command.ts:132
 
 ___
 
@@ -986,7 +986,7 @@ BaseCommand.finally
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:138
+packages/common/src/commands/base.command.ts:145
 
 ___
 
@@ -1012,7 +1012,7 @@ BaseCommand.catch
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:149
+packages/common/src/commands/base.command.ts:156
 
 ___
 
@@ -1040,7 +1040,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:158
+packages/common/src/commands/base.command.ts:165
 
 ___
 
@@ -1060,7 +1060,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:173
+packages/common/src/commands/base.command.ts:180
 
 ___
 
@@ -1086,7 +1086,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:177
+packages/common/src/commands/base.command.ts:184
 
 ___
 
@@ -1110,7 +1110,7 @@ BaseCommand.exit
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:181
+packages/common/src/commands/base.command.ts:188
 
 ___
 
@@ -1124,7 +1124,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:186
+packages/common/src/commands/base.command.ts:193
 
 ___
 
@@ -1144,4 +1144,4 @@ BaseCommand.run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:202
+packages/common/src/commands/base.command.ts:209
