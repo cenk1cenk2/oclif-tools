@@ -10,7 +10,7 @@ import { ConfigService, FileSystemService, StoreService, ValidatorService } from
 import { ParserService } from '@lib/parser/parser.service'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
 import { setCtxAssign, setCtxDefaults } from '@utils'
-import { Logger, LogLevels } from '@utils/logger'
+import { ListrLogger, Logger, LogLevels } from '@utils/logger'
 
 export abstract class Command<
   Ctx extends ListrContext = ListrContext,
@@ -69,7 +69,9 @@ export abstract class Command<
       json: this.flags.json
     })
 
-    this.logger = new Logger(this.cs.command.id ? this.cs.command.id : this.cs.command.name, { level: this.cs.logLevel })
+    const context = this.cs.command.id ? this.cs.command.id : this.cs.command.name
+
+    this.logger = new Logger(context, { level: this.cs.logLevel })
 
     this.greet()
 
@@ -85,7 +87,11 @@ export abstract class Command<
     this.tasks = new Manager({
       rendererFallback: this.cs.isDebug,
       rendererSilent: this.cs.isSilent,
-      nonTTYRendererOptions: { logEmptyTitle: false, logTitleChange: false },
+      nonTTYRendererOptions: {
+        logEmptyTitle: false,
+        logTitleChange: false,
+        logger: new ListrLogger(context)
+      },
       ctx: {} as Ctx
     })
 
