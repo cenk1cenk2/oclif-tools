@@ -168,18 +168,12 @@ export class Command<
 
   /** Gets prompt from user. */
   public prompt<T = any>(options: PromptOptions): Promise<T> {
-    try {
-      return createPrompt(options, {
-        stdout: process.stdout,
-        cancelCallback: () => {
-          throw new Error('Cancelled prompt.')
-        }
-      })
-    } catch (e) {
-      this.logger.fatal('There was a problem getting the answer of the last question.')
-
-      throw e
-    }
+    return createPrompt(options, {
+      stdout: process.stdout,
+      cancelCallback: () => {
+        throw new Error('Cancelled prompt.')
+      }
+    })
   }
 
   public setCtxDefaults (...defaults: SetCtxDefaultsOptions<Ctx>[]): void {

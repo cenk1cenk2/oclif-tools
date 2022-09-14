@@ -15,16 +15,19 @@ export class Logger {
 
   constructor (private context?: string, private options?: LoggerOptions) {
     const level = options?.level?.toUpperCase() as LogLevels
+    const lvl = Object.values(LogLevels).includes(level) ? level : LogLevels.INFO
 
     // set default options
     this.options = {
       useIcons: true,
       ...options,
-      level: Object.values(LogLevels).includes(level) ? level : LogLevels.INFO
+      level: lvl
     }
 
     if (Logger.instance) {
       this.logger = Logger.instance
+
+      Logger.instance.level = lvl
     } else {
       this.logger = this.initiateLogger()
 
