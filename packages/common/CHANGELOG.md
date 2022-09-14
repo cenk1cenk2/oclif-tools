@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [3.2.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.2.0...@cenk1cenk2/oclif-common@3.2.1) (2022-09-14)
+
+### Bug Fixes
+
+- make command non abstract for extending properly ([27a3009](https://gitlab.kilic.dev/libraries/oclif-tools/commit/27a3009777aa3865fa632060185afd30f9c3150d))
+
 # @cenk1cenk2/oclif-common [3.2.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.1.1...@cenk1cenk2/oclif-common@3.2.0) (2022-09-14)
 
 ### Bug Fixes

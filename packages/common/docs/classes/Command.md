@@ -942,21 +942,17 @@ packages/common/src/commands/base.command.ts:129
 
 ___
 
-### runTasks
+### run
 
-▸ **runTasks**<`C`\>(): `Promise`<`C`\>
-
-Run all tasks from task manager.
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `C` | extends `unknown` = `Ctx` |
+▸ **run**(): `Promise`<`void`\>
 
 #### Returns
 
-`Promise`<`C`\>
+`Promise`<`void`\>
+
+#### Overrides
+
+BaseCommand.run
 
 #### Defined in
 
@@ -986,7 +982,7 @@ BaseCommand.finally
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:145
+packages/common/src/commands/base.command.ts:137
 
 ___
 
@@ -1012,7 +1008,53 @@ BaseCommand.catch
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:156
+packages/common/src/commands/base.command.ts:148
+
+___
+
+### exit
+
+▸ **exit**(`code?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `code?` | `number` |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+BaseCommand.exit
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:158
+
+___
+
+### runTasks
+
+▸ **runTasks**<`C`\>(): `Promise`<`C`\>
+
+Run all tasks from task manager.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `C` | extends `unknown` = `Ctx` |
+
+#### Returns
+
+`Promise`<`C`\>
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:165
 
 ___
 
@@ -1040,7 +1082,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:165
+packages/common/src/commands/base.command.ts:170
 
 ___
 
@@ -1060,7 +1102,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:180
+packages/common/src/commands/base.command.ts:185
 
 ___
 
@@ -1086,31 +1128,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:184
-
-___
-
-### exit
-
-▸ **exit**(`code?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `code?` | `number` |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-BaseCommand.exit
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:188
+packages/common/src/commands/base.command.ts:189
 
 ___
 
@@ -1125,23 +1143,3 @@ ___
 #### Defined in
 
 packages/common/src/commands/base.command.ts:193
-
-___
-
-### run
-
-▸ `Abstract` **run**(): `Promise`<`void`\>
-
-Every command needs to implement run for running the command itself.
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Overrides
-
-BaseCommand.run
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:209

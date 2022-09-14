@@ -93418,9 +93418,7 @@
 			"name": "Command",
 			"kind": 128,
 			"kindString": "Class",
-			"flags": {
-				"isAbstract": true
-			},
+			"flags": {},
 			"children": [
 				{
 					"id": 93,
@@ -96163,7 +96161,7 @@
 				},
 				{
 					"id": 64,
-					"name": "runTasks",
+					"name": "run",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
@@ -96173,60 +96171,41 @@
 						{
 							"fileName": "packages/common/src/commands/base.command.ts",
 							"line": 132,
-							"character": 15
+							"character": 9
 						}
 					],
 					"signatures": [
 						{
 							"id": 65,
-							"name": "runTasks",
+							"name": "run",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
-							"comment": {
-								"summary": [
-									{
-										"kind": "text",
-										"text": "Run all tasks from task manager."
-									}
-								]
-							},
-							"typeParameter": [
-								{
-									"id": 66,
-									"name": "C",
-									"kind": 131072,
-									"kindString": "Type parameter",
-									"flags": {},
-									"type": {
-										"type": "intrinsic",
-										"name": "unknown"
-									},
-									"default": {
-										"type": "reference",
-										"id": 40,
-										"name": "Ctx"
-									}
-								}
-							],
 							"type": {
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 66,
-										"name": "C"
+										"type": "intrinsic",
+										"name": "void"
 									}
 								],
 								"name": "Promise",
 								"qualifiedName": "Promise",
 								"package": "typescript"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "BaseCommand.run"
 							}
 						}
-					]
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "BaseCommand.run"
+					}
 				},
 				{
-					"id": 67,
+					"id": 66,
 					"name": "finally",
 					"kind": 2048,
 					"kindString": "Method",
@@ -96236,13 +96215,13 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 145,
+							"line": 137,
 							"character": 15
 						}
 					],
 					"signatures": [
 						{
-							"id": 68,
+							"id": 67,
 							"name": "finally",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -96257,7 +96236,7 @@
 							},
 							"typeParameter": [
 								{
-									"id": 69,
+									"id": 68,
 									"name": "C",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -96279,14 +96258,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 70,
+											"id": 69,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 71,
+													"id": 70,
 													"name": "ctx",
 													"kind": 1024,
 													"kindString": "Property",
@@ -96294,13 +96273,13 @@
 													"sources": [
 														{
 															"fileName": "packages/common/src/commands/base.command.ts",
-															"line": 145,
+															"line": 137,
 															"character": 57
 														}
 													],
 													"type": {
 														"type": "reference",
-														"id": 69,
+														"id": 68,
 														"name": "C"
 													}
 												}
@@ -96309,14 +96288,14 @@
 												{
 													"title": "Properties",
 													"children": [
-														71
+														70
 													]
 												}
 											],
 											"sources": [
 												{
 													"fileName": "packages/common/src/commands/base.command.ts",
-													"line": 145,
+													"line": 137,
 													"character": 55
 												}
 											]
@@ -96339,7 +96318,7 @@
 					}
 				},
 				{
-					"id": 72,
+					"id": 71,
 					"name": "catch",
 					"kind": 2048,
 					"kindString": "Method",
@@ -96349,13 +96328,13 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 156,
+							"line": 148,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 73,
+							"id": 72,
 							"name": "catch",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -96370,7 +96349,7 @@
 							},
 							"parameters": [
 								{
-									"id": 74,
+									"id": 73,
 									"name": "e",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -96407,8 +96386,60 @@
 					}
 				},
 				{
-					"id": 75,
-					"name": "prompt",
+					"id": 74,
+					"name": "exit",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/common/src/commands/base.command.ts",
+							"line": 158,
+							"character": 9
+						}
+					],
+					"signatures": [
+						{
+							"id": 75,
+							"name": "exit",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 76,
+									"name": "code",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "BaseCommand.exit"
+							}
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "BaseCommand.exit"
+					}
+				},
+				{
+					"id": 77,
+					"name": "runTasks",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
@@ -96423,7 +96454,71 @@
 					],
 					"signatures": [
 						{
-							"id": 76,
+							"id": 78,
+							"name": "runTasks",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Run all tasks from task manager."
+									}
+								]
+							},
+							"typeParameter": [
+								{
+									"id": 79,
+									"name": "C",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "unknown"
+									},
+									"default": {
+										"type": "reference",
+										"id": 40,
+										"name": "Ctx"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 79,
+										"name": "C"
+									}
+								],
+								"name": "Promise",
+								"qualifiedName": "Promise",
+								"package": "typescript"
+							}
+						}
+					]
+				},
+				{
+					"id": 80,
+					"name": "prompt",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/common/src/commands/base.command.ts",
+							"line": 170,
+							"character": 9
+						}
+					],
+					"signatures": [
+						{
+							"id": 81,
 							"name": "prompt",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -96438,7 +96533,7 @@
 							},
 							"typeParameter": [
 								{
-									"id": 77,
+									"id": 82,
 									"name": "T",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -96451,7 +96546,7 @@
 							],
 							"parameters": [
 								{
-									"id": 78,
+									"id": 83,
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -96475,7 +96570,7 @@
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 77,
+										"id": 82,
 										"name": "T"
 									}
 								],
@@ -96487,7 +96582,7 @@
 					]
 				},
 				{
-					"id": 79,
+					"id": 84,
 					"name": "setCtxDefaults",
 					"kind": 2048,
 					"kindString": "Method",
@@ -96497,20 +96592,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 180,
+							"line": 185,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 80,
+							"id": 85,
 							"name": "setCtxDefaults",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 81,
+									"id": 86,
 									"name": "defaults",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -96543,7 +96638,7 @@
 					]
 				},
 				{
-					"id": 82,
+					"id": 87,
 					"name": "setCtxAssign",
 					"kind": 2048,
 					"kindString": "Method",
@@ -96553,20 +96648,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 184,
+							"line": 189,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 83,
+							"id": 88,
 							"name": "setCtxAssign",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"typeParameter": [
 								{
-									"id": 84,
+									"id": 89,
 									"name": "K",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -96593,7 +96688,7 @@
 							],
 							"parameters": [
 								{
-									"id": 85,
+									"id": 90,
 									"name": "assigns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -96608,7 +96703,7 @@
 											"typeArguments": [
 												{
 													"type": "reference",
-													"id": 84,
+													"id": 89,
 													"name": "K"
 												}
 											],
@@ -96625,59 +96720,7 @@
 					]
 				},
 				{
-					"id": 86,
-					"name": "exit",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 188,
-							"character": 9
-						}
-					],
-					"signatures": [
-						{
-							"id": 87,
-							"name": "exit",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"parameters": [
-								{
-									"id": 88,
-									"name": "code",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {
-										"isOptional": true
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "void"
-							},
-							"overwrites": {
-								"type": "reference",
-								"name": "BaseCommand.exit"
-							}
-						}
-					],
-					"overwrites": {
-						"type": "reference",
-						"name": "BaseCommand.exit"
-					}
-				},
-				{
-					"id": 89,
+					"id": 91,
 					"name": "greet",
 					"kind": 2048,
 					"kindString": "Method",
@@ -96693,7 +96736,7 @@
 					],
 					"signatures": [
 						{
-							"id": 90,
+							"id": 92,
 							"name": "greet",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -96704,60 +96747,6 @@
 							}
 						}
 					]
-				},
-				{
-					"id": 91,
-					"name": "run",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true,
-						"isAbstract": true
-					},
-					"sources": [
-						{
-							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 209,
-							"character": 18
-						}
-					],
-					"signatures": [
-						{
-							"id": 92,
-							"name": "run",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"summary": [
-									{
-										"kind": "text",
-										"text": "Every command needs to implement run for running the command itself."
-									}
-								]
-							},
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "void"
-									}
-								],
-								"name": "Promise",
-								"qualifiedName": "Promise",
-								"package": "typescript"
-							},
-							"overwrites": {
-								"type": "reference",
-								"name": "BaseCommand.run"
-							}
-						}
-					],
-					"overwrites": {
-						"type": "reference",
-						"name": "BaseCommand.run"
-					}
 				}
 			],
 			"groups": [
@@ -96829,13 +96818,13 @@
 						59,
 						61,
 						64,
-						67,
-						72,
-						75,
-						79,
-						82,
-						86,
-						89,
+						66,
+						71,
+						74,
+						77,
+						80,
+						84,
+						87,
 						91
 					]
 				}
@@ -96844,7 +96833,7 @@
 				{
 					"fileName": "packages/common/src/commands/base.command.ts",
 					"line": 15,
-					"character": 22
+					"character": 13
 				}
 			],
 			"typeParameters": [
@@ -99910,7 +99899,7 @@
 				},
 				{
 					"id": 227,
-					"name": "runTasks",
+					"name": "finally",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
@@ -99919,14 +99908,14 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 132,
+							"line": 137,
 							"character": 15
 						}
 					],
 					"signatures": [
 						{
 							"id": 228,
-							"name": "runTasks",
+							"name": "finally",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
@@ -99934,7 +99923,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Run all tasks from task manager."
+										"text": "Tasks to run before end of the command."
 									}
 								]
 							},
@@ -99960,90 +99949,16 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 66,
-										"name": "C"
-									}
-								],
-								"name": "Promise",
-								"qualifiedName": "Promise",
-								"package": "typescript"
-							},
-							"inheritedFrom": {
-								"type": "reference",
-								"id": 65,
-								"name": "Command.runTasks"
-							}
-						}
-					],
-					"inheritedFrom": {
-						"type": "reference",
-						"id": 64,
-						"name": "Command.runTasks"
-					}
-				},
-				{
-					"id": 230,
-					"name": "finally",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 145,
-							"character": 15
-						}
-					],
-					"signatures": [
-						{
-							"id": 231,
-							"name": "finally",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"summary": [
-									{
-										"kind": "text",
-										"text": "Tasks to run before end of the command."
-									}
-								]
-							},
-							"typeParameter": [
-								{
-									"id": 232,
-									"name": "C",
-									"kind": 131072,
-									"kindString": "Type parameter",
-									"flags": {},
-									"type": {
-										"type": "intrinsic",
-										"name": "unknown"
-									},
-									"default": {
-										"type": "reference",
-										"id": 192,
-										"name": "Ctx"
-									}
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
 										"type": "reflection",
 										"declaration": {
-											"id": 233,
+											"id": 230,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 234,
+													"id": 231,
 													"name": "ctx",
 													"kind": 1024,
 													"kindString": "Property",
@@ -100051,13 +99966,13 @@
 													"sources": [
 														{
 															"fileName": "packages/common/src/commands/base.command.ts",
-															"line": 145,
+															"line": 137,
 															"character": 57
 														}
 													],
 													"type": {
 														"type": "reference",
-														"id": 69,
+														"id": 68,
 														"name": "C"
 													}
 												}
@@ -100066,14 +99981,14 @@
 												{
 													"title": "Properties",
 													"children": [
-														234
+														231
 													]
 												}
 											],
 											"sources": [
 												{
 													"fileName": "packages/common/src/commands/base.command.ts",
-													"line": 145,
+													"line": 137,
 													"character": 55
 												}
 											]
@@ -100086,19 +100001,19 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 68,
+								"id": 67,
 								"name": "Command.finally"
 							}
 						}
 					],
 					"inheritedFrom": {
 						"type": "reference",
-						"id": 67,
+						"id": 66,
 						"name": "Command.finally"
 					}
 				},
 				{
-					"id": 235,
+					"id": 232,
 					"name": "catch",
 					"kind": 2048,
 					"kindString": "Method",
@@ -100108,13 +100023,13 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 156,
+							"line": 148,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 236,
+							"id": 233,
 							"name": "catch",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -100129,7 +100044,7 @@
 							},
 							"parameters": [
 								{
-									"id": 237,
+									"id": 234,
 									"name": "e",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -100156,20 +100071,74 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 73,
+								"id": 72,
 								"name": "Command.catch"
 							}
 						}
 					],
 					"inheritedFrom": {
 						"type": "reference",
-						"id": 72,
+						"id": 71,
 						"name": "Command.catch"
 					}
 				},
 				{
+					"id": 235,
+					"name": "exit",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/common/src/commands/base.command.ts",
+							"line": 158,
+							"character": 9
+						}
+					],
+					"signatures": [
+						{
+							"id": 236,
+							"name": "exit",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 237,
+									"name": "code",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 75,
+								"name": "Command.exit"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 74,
+						"name": "Command.exit"
+					}
+				},
+				{
 					"id": 238,
-					"name": "prompt",
+					"name": "runTasks",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
@@ -100185,6 +100154,80 @@
 					"signatures": [
 						{
 							"id": 239,
+							"name": "runTasks",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Run all tasks from task manager."
+									}
+								]
+							},
+							"typeParameter": [
+								{
+									"id": 240,
+									"name": "C",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "unknown"
+									},
+									"default": {
+										"type": "reference",
+										"id": 192,
+										"name": "Ctx"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 79,
+										"name": "C"
+									}
+								],
+								"name": "Promise",
+								"qualifiedName": "Promise",
+								"package": "typescript"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 78,
+								"name": "Command.runTasks"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 77,
+						"name": "Command.runTasks"
+					}
+				},
+				{
+					"id": 241,
+					"name": "prompt",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/common/src/commands/base.command.ts",
+							"line": 170,
+							"character": 9
+						}
+					],
+					"signatures": [
+						{
+							"id": 242,
 							"name": "prompt",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -100199,7 +100242,7 @@
 							},
 							"typeParameter": [
 								{
-									"id": 240,
+									"id": 243,
 									"name": "T",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -100212,7 +100255,7 @@
 							],
 							"parameters": [
 								{
-									"id": 241,
+									"id": 244,
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -100236,7 +100279,7 @@
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 77,
+										"id": 82,
 										"name": "T"
 									}
 								],
@@ -100246,19 +100289,19 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 76,
+								"id": 81,
 								"name": "Command.prompt"
 							}
 						}
 					],
 					"inheritedFrom": {
 						"type": "reference",
-						"id": 75,
+						"id": 80,
 						"name": "Command.prompt"
 					}
 				},
 				{
-					"id": 242,
+					"id": 245,
 					"name": "setCtxDefaults",
 					"kind": 2048,
 					"kindString": "Method",
@@ -100268,20 +100311,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 180,
+							"line": 185,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 243,
+							"id": 246,
 							"name": "setCtxDefaults",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 244,
+									"id": 247,
 									"name": "defaults",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -100312,19 +100355,19 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 80,
+								"id": 85,
 								"name": "Command.setCtxDefaults"
 							}
 						}
 					],
 					"inheritedFrom": {
 						"type": "reference",
-						"id": 79,
+						"id": 84,
 						"name": "Command.setCtxDefaults"
 					}
 				},
 				{
-					"id": 245,
+					"id": 248,
 					"name": "setCtxAssign",
 					"kind": 2048,
 					"kindString": "Method",
@@ -100334,20 +100377,20 @@
 					"sources": [
 						{
 							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 184,
+							"line": 189,
 							"character": 9
 						}
 					],
 					"signatures": [
 						{
-							"id": 246,
+							"id": 249,
 							"name": "setCtxAssign",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"typeParameter": [
 								{
-									"id": 247,
+									"id": 250,
 									"name": "K",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -100374,7 +100417,7 @@
 							],
 							"parameters": [
 								{
-									"id": 248,
+									"id": 251,
 									"name": "assigns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -100389,7 +100432,7 @@
 											"typeArguments": [
 												{
 													"type": "reference",
-													"id": 84,
+													"id": 89,
 													"name": "K"
 												}
 											],
@@ -100404,69 +100447,15 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 83,
+								"id": 88,
 								"name": "Command.setCtxAssign"
 							}
 						}
 					],
 					"inheritedFrom": {
 						"type": "reference",
-						"id": 82,
+						"id": 87,
 						"name": "Command.setCtxAssign"
-					}
-				},
-				{
-					"id": 249,
-					"name": "exit",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "packages/common/src/commands/base.command.ts",
-							"line": 188,
-							"character": 9
-						}
-					],
-					"signatures": [
-						{
-							"id": 250,
-							"name": "exit",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"parameters": [
-								{
-									"id": 251,
-									"name": "code",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {
-										"isOptional": true
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "void"
-							},
-							"inheritedFrom": {
-								"type": "reference",
-								"id": 87,
-								"name": "Command.exit"
-							}
-						}
-					],
-					"inheritedFrom": {
-						"type": "reference",
-						"id": 86,
-						"name": "Command.exit"
 					}
 				},
 				{
@@ -100547,14 +100536,6 @@
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
-							"comment": {
-								"summary": [
-									{
-										"kind": "text",
-										"text": "Every command needs to implement run for running the command itself."
-									}
-								]
-							},
 							"type": {
 								"type": "reference",
 								"typeArguments": [
@@ -100569,14 +100550,14 @@
 							},
 							"overwrites": {
 								"type": "reference",
-								"id": 92,
+								"id": 65,
 								"name": "Command.run"
 							}
 						}
 					],
 					"overwrites": {
 						"type": "reference",
-						"id": 91,
+						"id": 64,
 						"name": "Command.run"
 					}
 				},
@@ -100872,12 +100853,12 @@
 						222,
 						224,
 						227,
-						230,
+						232,
 						235,
 						238,
-						242,
+						241,
 						245,
-						249,
+						248,
 						202,
 						204,
 						206,
