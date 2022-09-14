@@ -47,7 +47,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   }
 
   public async lock<T extends LockableData = LockableData>(...data: LockData<T>[]): Promise<void> {
-    let lock: LockFile = await this.read() ?? ({} as LockFile)
+    let lock: LockFile = await this.tryRead() ?? ({} as LockFile)
 
     await Promise.all(
       data.map(async (d) => {
@@ -90,7 +90,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
 
   public async unlock (...data: UnlockData[]): Promise<void> {
     // get lock file
-    let lock = await this.read()
+    let lock = await this.tryRead()
 
     // write data
     if (!lock) {
@@ -132,7 +132,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     try {
       return this.parser.parse(await this.fs.read(this.file))
     } catch {
-      this.logger.trace('Can not read file therefore not parsing: %s', this.file)
+      this.logger.trace('Can not read lockfile: %s', this.file)
     }
   }
 
@@ -149,6 +149,12 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   }
 
   private normalizePath (path: string | string[]): string[] {
-    return Array.isArray(path) ? path : path.split('.')
+    if (Array.isArray(path)) {
+      return path
+    } else if (typeof path === 'string') {
+      return path.split('.')
+    }
+
+    return []
   }
 }
