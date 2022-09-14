@@ -1,3 +1,13 @@
+# @cenk1cenk2/oclif-common [3.4.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.3.0...@cenk1cenk2/oclif-common@3.4.0) (2022-09-14)
+
+### Bug Fixes
+
+- update handling paths ([e51d8b5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e51d8b581e6de915c6605cc4e6ae9017d1a2ad95))
+
+### Features
+
+- add locker function to do everything ([62933a0](https://gitlab.kilic.dev/libraries/oclif-tools/commit/62933a098124072368b1acf8fddb3715e66b68de))
+
 # @cenk1cenk2/oclif-common [3.3.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.2.2...@cenk1cenk2/oclif-common@3.3.0) (2022-09-14)
 
 ### Features

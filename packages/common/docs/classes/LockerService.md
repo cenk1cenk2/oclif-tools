@@ -174,6 +174,20 @@ packages/common/src/lib/locker/locker.service.ts:41
 
 ___
 
+### all
+
+▸ **all**(): `Promise`<`void`\>
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+packages/common/src/lib/locker/locker.service.ts:49
+
+___
+
 ### lock
 
 ▸ **lock**<`T`\>(...`data`): `Promise`<`void`\>
@@ -196,7 +210,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:49
+packages/common/src/lib/locker/locker.service.ts:54
 
 ___
 
@@ -216,7 +230,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:91
+packages/common/src/lib/locker/locker.service.ts:96
 
 ___
 
@@ -230,7 +244,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:127
+packages/common/src/lib/locker/locker.service.ts:132
 
 ___
 
@@ -244,7 +258,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:131
+packages/common/src/lib/locker/locker.service.ts:136
 
 ___
 
@@ -264,7 +278,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:139
+packages/common/src/lib/locker/locker.service.ts:144
 
 ___
 
@@ -290,7 +304,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:143
+packages/common/src/lib/locker/locker.service.ts:148
 
 ___
 
@@ -310,4 +324,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:151
+packages/common/src/lib/locker/locker.service.ts:156
