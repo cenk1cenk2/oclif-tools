@@ -234,6 +234,20 @@ packages/common/src/lib/locker/locker.service.ts:127
 
 ___
 
+### tryRead
+
+▸ **tryRead**(): `Promise`<`LockFile`\>
+
+#### Returns
+
+`Promise`<`LockFile`\>
+
+#### Defined in
+
+packages/common/src/lib/locker/locker.service.ts:131
+
+___
+
 ### write
 
 ▸ **write**(`data`): `Promise`<`void`\>
@@ -250,7 +264,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:131
+packages/common/src/lib/locker/locker.service.ts:139
 
 ___
 
@@ -276,7 +290,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:135
+packages/common/src/lib/locker/locker.service.ts:143
 
 ___
 
@@ -296,4 +310,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:143
+packages/common/src/lib/locker/locker.service.ts:151

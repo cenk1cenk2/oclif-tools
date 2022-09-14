@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.3.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.2.2...@cenk1cenk2/oclif-common@3.3.0) (2022-09-14)
+
+### Features
+
+- add try function to locker ([d243c33](https://gitlab.kilic.dev/libraries/oclif-tools/commit/d243c338d4c1011aa589cf03a05ab95ab23b57a1))
+
 ## @cenk1cenk2/oclif-common [3.2.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.2.1...@cenk1cenk2/oclif-common@3.2.2) (2022-09-14)
 
 ### Bug Fixes
