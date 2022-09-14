@@ -32516,13 +32516,13 @@
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AsyncIterable.__@asyncIterator@235"
+										"name": "AsyncIterable.__@asyncIterator@273"
 									}
 								}
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "AsyncIterable.__@asyncIterator@235"
+								"name": "AsyncIterable.__@asyncIterator@273"
 							}
 						},
 						{
@@ -50453,13 +50453,13 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "stream.Readable.__@asyncIterator@235"
+										"name": "stream.Readable.__@asyncIterator@273"
 									}
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "stream.Readable.__@asyncIterator@235"
+								"name": "stream.Readable.__@asyncIterator@273"
 							}
 						}
 					],
