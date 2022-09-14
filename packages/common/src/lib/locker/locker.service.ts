@@ -128,6 +128,14 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return this.parser.parse(await this.fs.read(this.file))
   }
 
+  public async tryRead (): Promise<LockFile | undefined> {
+    try {
+      return this.parser.parse(await this.fs.read(this.file))
+    } catch {
+      this.logger.trace('Can not read file therefore not parsing: %s', this.file)
+    }
+  }
+
   public async write (data: LockFile): Promise<void> {
     return this.fs.write(this.file, this.parser.stringify(data))
   }
