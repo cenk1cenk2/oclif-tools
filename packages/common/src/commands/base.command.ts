@@ -12,7 +12,7 @@ import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
 import { setCtxAssign, setCtxDefaults } from '@utils'
 import { ListrLogger, Logger, LogLevels } from '@utils/logger'
 
-export abstract class Command<
+export class Command<
   Ctx extends ListrContext = ListrContext,
   Flags extends Record<PropertyKey, any> = InferFlags<typeof Command>,
   Args extends Record<PropertyKey, any> = InferArgs<typeof Command>,
@@ -128,17 +128,9 @@ export abstract class Command<
   // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   public shouldRunAfter (_ctx?: Ctx): void | Promise<void> {}
 
-  /** Run all tasks from task manager. */
-  public async runTasks<C extends Ctx = Ctx>(): Promise<C> {
-    try {
-      const ctx = await this.tasks.runAll<C>()
-
-      return ctx
-    } catch (e) {
-      this.logger.fatal(e.message)
-      this.logger.debug(e.stack, { context: 'crash' })
-      process.exit(126)
-    }
+  // make run non-abstract for other classes
+  public run (): Promise<void> {
+    return
   }
 
   /** Tasks to run before end of the command. */
@@ -158,7 +150,20 @@ export abstract class Command<
     this.logger.fatal(e.message)
     this.logger.debug(e.stack, { context: 'crash' })
 
-    process.exit(127)
+    this.exit(127)
+
+    return
+  }
+
+  public exit (code?: number): void {
+    this.logger.trace('Exitting with code: %d', code)
+
+    this.exit(code ?? 0)
+  }
+
+  /** Run all tasks from task manager. */
+  public runTasks<C extends Ctx = Ctx>(): Promise<C> {
+    return this.tasks.runAll<C>()
   }
 
   /** Gets prompt from user. */
@@ -185,11 +190,6 @@ export abstract class Command<
     return setCtxAssign(this.tasks.options.ctx, ...assigns)
   }
 
-  public exit (code?: number): void {
-    this.logger.trace('Exitting with code: %d', code)
-    process.exit(code ?? 0)
-  }
-
   private greet (): void {
     if (this.cs.isSilent || this.cs.json) {
       return
@@ -203,8 +203,4 @@ export abstract class Command<
       this.logger.direct('-'.repeat(logo.length))
     }
   }
-
-  /** Every command needs to implement run for running the command itself. */
-  // make run non-abstract for other classes
-  public abstract run (): Promise<void>
 }
