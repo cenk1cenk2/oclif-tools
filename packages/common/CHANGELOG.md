@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [3.2.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.2.1...@cenk1cenk2/oclif-common@3.2.2) (2022-09-14)
+
+### Bug Fixes
+
+- issue with exitting ([efc38d6](https://gitlab.kilic.dev/libraries/oclif-tools/commit/efc38d60881a897217ee952f022ae71f28b62a58))
+
 ## @cenk1cenk2/oclif-common [3.2.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.2.0...@cenk1cenk2/oclif-common@3.2.1) (2022-09-14)
 
 ### Bug Fixes
