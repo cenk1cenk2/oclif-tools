@@ -59,7 +59,7 @@ packages/common/src/utils/logger/logger.ts:16
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:35
+packages/common/src/utils/logger/logger.ts:38
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:39
+packages/common/src/utils/logger/logger.ts:42
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:43
+packages/common/src/utils/logger/logger.ts:46
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:47
+packages/common/src/utils/logger/logger.ts:50
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:51
+packages/common/src/utils/logger/logger.ts:54
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:55
+packages/common/src/utils/logger/logger.ts:58
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:59
+packages/common/src/utils/logger/logger.ts:62
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:63
+packages/common/src/utils/logger/logger.ts:66
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:67
+packages/common/src/utils/logger/logger.ts:70
 
 ___
 
@@ -248,7 +248,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:72
+packages/common/src/utils/logger/logger.ts:75
 
 ___
 
@@ -269,7 +269,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:76
+packages/common/src/utils/logger/logger.ts:79
 
 ___
 
@@ -283,7 +283,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:80
+packages/common/src/utils/logger/logger.ts:83
 
 ___
 
@@ -306,7 +306,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:124
+packages/common/src/utils/logger/logger.ts:127
 
 ___
 
@@ -326,4 +326,4 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:128
+packages/common/src/utils/logger/logger.ts:131
