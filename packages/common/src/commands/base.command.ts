@@ -1,16 +1,16 @@
-import { Command as BaseCommand, Flags } from '@oclif/core'
+import { Command as BaseCommand } from '@oclif/core'
 import type { ListrContext, PromptOptions } from 'listr2'
 import { createPrompt, Manager } from 'listr2'
 import { createInterface } from 'readline'
 import 'reflect-metadata'
 
-import { HelpGroups } from '@constants'
-import type { ArgInput, InferArgs, InferFlags } from '@interfaces'
+import { CLI_FLAGS } from '@constants'
+import type { FlagInput, InferArgs, InferFlags } from '@interfaces'
 import { ConfigService, FileSystemService, StoreService, ValidatorService } from '@lib'
 import { ParserService } from '@lib/parser/parser.service'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
 import { setCtxAssign, setCtxDefaults } from '@utils'
-import { ListrLogger, Logger, LogLevels } from '@utils/logger'
+import { ListrLogger, Logger } from '@utils/logger'
 
 export class Command<
   Ctx extends ListrContext = ListrContext,
@@ -18,24 +18,7 @@ export class Command<
   Args extends Record<PropertyKey, any> = InferArgs<typeof Command>,
   Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
 > extends BaseCommand {
-  static globalFlags = {
-    ['log-level']: Flags.enum({
-      default: LogLevels.INFO,
-      env: 'LOG_LEVEL',
-      description: 'Set the log level of the application.',
-      options: [ ...Object.values(LogLevels), ...Object.values(LogLevels).map((level) => level.toLowerCase()) ],
-      helpGroup: HelpGroups.CLI,
-      parse: async (input) => (input as string)?.toUpperCase() as unknown as LogLevels
-    }),
-    ci: Flags.boolean({
-      default: false,
-      env: 'CI',
-      description: 'Instruct whether this is running the CI/CD configuration.',
-      helpGroup: HelpGroups.CLI
-    })
-  }
-
-  static args: ArgInput = []
+  static globalFlags: FlagInput = CLI_FLAGS
 
   public logger: Logger
   public tasks: Manager<Ctx, 'default' | 'verbose' | 'silent' | 'simple'>
@@ -79,6 +62,8 @@ export class Command<
       throw err
     }
 
+    this.logger.trace('init', { status: 'stage' })
+
     this.parser = new ParserService()
     this.fs = new FileSystemService()
     this.validator = new ValidatorService()
@@ -113,6 +98,7 @@ export class Command<
       process.exit(1)
     })
 
+    this.logger.trace('should run before', { status: 'stage' })
     await this.shouldRunBefore()
   }
 
@@ -136,8 +122,10 @@ export class Command<
   /** Tasks to run before end of the command. */
   public async finally<C extends Ctx = Ctx>(): Promise<{ ctx: C }> {
     // run anything in the task queue at the end
+    this.logger.trace('tasks', { status: 'stage' })
     const ctx = await this.runTasks<C>()
 
+    this.logger.trace('should run after', { status: 'stage' })
     await this.shouldRunAfter(ctx)
 
     return { ctx }
@@ -177,11 +165,15 @@ export class Command<
   }
 
   public setCtxDefaults (...defaults: SetCtxDefaultsOptions<Ctx>[]): void {
-    return setCtxDefaults(this.tasks.options.ctx, ...defaults)
+    setCtxDefaults(this.tasks.options.ctx, ...defaults)
+
+    this.logger.trace('updated  with defaults: %o', this.tasks.options.ctx, { status: 'ctx' })
   }
 
   public setCtxAssign<K = Record<PropertyKey, any>>(...assigns: SetCtxAssignOptions<K>[]): void {
-    return setCtxAssign(this.tasks.options.ctx, ...assigns)
+    setCtxAssign(this.tasks.options.ctx, ...assigns)
+
+    this.logger.trace('updated with assign: %o', this.tasks.options.ctx, { status: 'ctx' })
   }
 
   private greet (): void {

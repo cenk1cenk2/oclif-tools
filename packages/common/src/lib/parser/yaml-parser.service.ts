@@ -5,7 +5,7 @@ import { Logger } from '@utils/logger'
 
 export class YamlParser implements GenericParser {
   static extensions: string[] = [ 'yaml', 'yml' ]
-  static instance: YamlParser
+  private static instance: YamlParser
   private readonly logger = new Logger(this.constructor.name)
 
   constructor () {

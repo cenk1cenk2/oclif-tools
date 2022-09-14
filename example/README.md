@@ -53,7 +53,7 @@ Say hello
 USAGE
   $ oclif2 hello [PERSON] [--log-level
     SILENT|DIRECT|FATAL|ERROR|WARN|INFO|VERBOSE|DEBUG|TRACE|silent|direct|fatal|error|warn|info|verbose|debug|trace]
-    [--ci] [-f <value>]
+    [--ci] [--json] [-f <value>]
 
 ARGUMENTS
   PERSON  Person to say hello to
@@ -64,6 +64,9 @@ FLAGS
 CLI FLAGS
   --ci
       Instruct whether this is running the CI/CD configuration.
+
+  --json
+      Put the CLI to respond in JSON.
 
   --log-level=(SILENT|DIRECT|FATAL|ERROR|WARN|INFO|VERBOSE|DEBUG|TRACE|silent|direct|fatal|error|warn|info|verbose|debug
   |trace)

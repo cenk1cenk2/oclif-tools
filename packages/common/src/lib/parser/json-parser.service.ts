@@ -3,7 +3,7 @@ import { Logger } from '@utils/logger'
 
 export class JsonParser implements GenericParser {
   static extensions: string[] = [ 'json' ]
-  static instance: JsonParser
+  private static instance: JsonParser
   private readonly logger = new Logger(this.constructor.name)
 
   constructor () {

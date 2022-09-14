@@ -1,7 +1,7 @@
 import type { DataStore } from './store.interface'
 
 export class StoreService<T extends Record<PropertyKey, any> = Record<PropertyKey, any>> {
-  static instance: StoreService
+  private static instance: StoreService
   private store: DataStore<T> = {} as DataStore<T>
 
   constructor () {

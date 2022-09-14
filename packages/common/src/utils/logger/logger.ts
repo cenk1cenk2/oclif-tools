@@ -10,11 +10,11 @@ import { color } from '@utils/color'
  * A general logger for the the CLI applications.
  */
 export class Logger {
-  static instance: Winston
+  private static instance: Winston
   private logger: Winston
 
   constructor (private context?: string, private options?: LoggerOptions) {
-    const parsed: LogLevels = (process.env.LOG_LEVEL ?? options?.level ?? LogLevels.INFO) as LogLevels
+    const parsed: LogLevels = (process.env.LOG_LEVEL ?? options?.level ?? LogLevels.INFO).toUpperCase() as LogLevels
     const level = Object.values(LogLevels).includes(parsed) ? parsed : LogLevels.INFO
 
     // set default options
@@ -25,8 +25,6 @@ export class Logger {
     }
 
     if (Logger.instance) {
-      Logger.instance.level = level
-
       this.logger = Logger.instance
     } else {
       this.logger = this.initiateLogger()

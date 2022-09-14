@@ -12,7 +12,7 @@ import type { LogLevels } from '@utils/logger'
 import { Logger } from '@utils/logger'
 
 export class ConfigService implements GlobalConfig {
-  static instance: ConfigService
+  private static instance: ConfigService
   public defaults: string
   public root: string
   public parser: ParserService

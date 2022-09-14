@@ -7,7 +7,7 @@ import type { LockableData } from '@lib/locker'
 import { Logger } from '@utils/logger'
 
 export class ParserService {
-  static instance: ParserService
+  private static instance: ParserService
   public parsers: ClassType<GenericParser>[] = [ YamlParser, JsonParser ]
   private readonly logger = new Logger(this.constructor.name)
   private readonly fs = new FileSystemService()

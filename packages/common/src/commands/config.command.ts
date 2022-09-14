@@ -1,7 +1,8 @@
 import type { ListrContext } from 'listr2'
 
 import { Command as BaseCommand } from './base.command'
-import type { ConfigCommandChoices, ConfigCommandSetup, InferArgs, InferFlags } from '@interfaces'
+import { CLI_FLAGS } from '@constants'
+import type { ConfigCommandChoices, ConfigCommandSetup, FlagInput, InferArgs, InferFlags } from '@interfaces'
 import type { LockerService } from '@lib'
 import { CliUx } from '@utils'
 
@@ -13,6 +14,8 @@ export class ConfigCommand<
   Args extends Record<PropertyKey, any> = InferArgs<typeof ConfigCommand>,
   Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
 > extends BaseCommand<Ctx, Flags, Args, Store> {
+  static globalFlags: FlagInput = CLI_FLAGS
+
   public choices: ConfigCommandChoices<CommandChoices>
   public locker: LockerService<LockFile>
 

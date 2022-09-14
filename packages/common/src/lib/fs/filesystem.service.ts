@@ -4,7 +4,7 @@ import { extname, dirname } from 'path'
 import { Logger } from '@utils/logger'
 
 export class FileSystemService {
-  static instance: FileSystemService
+  private static instance: FileSystemService
   private readonly logger = new Logger(this.constructor.name)
 
   constructor () {

@@ -40,6 +40,6 @@ export class ListrLogger extends BaseLogger {
   }
 
   public rollback (message: string): void {
-    this.logger.warn(message, { status: 'rollback' })
+    this.logger.error(message, { status: 'rollback' })
   }
 }
