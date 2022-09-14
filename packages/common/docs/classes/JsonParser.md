@@ -22,7 +22,7 @@ ___
 
 ### instance
 
-▪ `Static` **instance**: [`JsonParser`](JsonParser.md)
+▪ `Static` `Private` **instance**: [`JsonParser`](JsonParser.md)
 
 #### Defined in
 

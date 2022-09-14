@@ -4,7 +4,7 @@
 
 ### instance
 
-▪ `Static` **instance**: [`FileSystemService`](FileSystemService.md)
+▪ `Static` `Private` **instance**: [`FileSystemService`](FileSystemService.md)
 
 #### Defined in
 

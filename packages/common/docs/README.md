@@ -62,6 +62,11 @@
 - [LogFieldStatus](enums/LogFieldStatus.md)
 - [MergeStrategy](enums/MergeStrategy.md)
 
+## Variables
+
+- [CLI\_FLAGS](variables/CLI_FLAGS.md)
+- [color](variables/color.md)
+
 ## Functions
 
 - [notFoundHook](functions/notFoundHook.md)
@@ -76,7 +81,3 @@
 - [pipeProcessThroughListr](functions/pipeProcessThroughListr.md)
 - [pipeProcessToLogger](functions/pipeProcessToLogger.md)
 - [merge](functions/merge.md)
-
-## Variables
-
-- [color](variables/color.md)

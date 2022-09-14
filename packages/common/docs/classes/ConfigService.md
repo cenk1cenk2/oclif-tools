@@ -8,7 +8,7 @@
 
 ### instance
 
-▪ `Static` **instance**: [`ConfigService`](ConfigService.md)
+▪ `Static` `Private` **instance**: [`ConfigService`](ConfigService.md)
 
 #### Defined in
 
