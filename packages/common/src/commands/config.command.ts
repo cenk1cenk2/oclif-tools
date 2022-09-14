@@ -29,6 +29,10 @@ export class ConfigCommand<
     throw new Error('The command should be setup first!')
   }
 
+  protected table (...options: Parameters<typeof CliUx.ux.table>): void {
+    CliUx.ux.table(...options)
+  }
+
   private async generate (): Promise<void> {
     // prompt user for the action
     const response: string = await this.prompt({
@@ -38,9 +42,5 @@ export class ConfigCommand<
     })
 
     return this.choices[response]()
-  }
-
-  private table (...options: Parameters<typeof CliUx.ux.table>): void {
-    CliUx.ux.table(...options)
   }
 }

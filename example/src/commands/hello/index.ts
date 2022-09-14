@@ -26,5 +26,15 @@ export default class Hello extends Command<any, InferFlags<typeof Hello>> {
 
   public async run (): Promise<void> {
     this.logger.info(`hello ${this.args.person} from ${this.flags.from}! (./src/commands/hello/index.ts)`)
+
+    this.tasks.add([
+      {
+        task: (_, task): void => {
+          task.output = 'doing something'
+
+          task.title = 'Test task'
+        }
+      }
+    ])
   }
 }

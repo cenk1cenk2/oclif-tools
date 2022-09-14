@@ -90,7 +90,8 @@ export abstract class Command<
       nonTTYRendererOptions: {
         logEmptyTitle: false,
         logTitleChange: false,
-        logger: new ListrLogger(context)
+        logger: ListrLogger,
+        options: [ context ]
       },
       ctx: {} as Ctx
     })
