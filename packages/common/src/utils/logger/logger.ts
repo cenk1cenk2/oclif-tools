@@ -186,7 +186,7 @@ export class Logger {
       coloring = color.dim
 
       if (this.options?.useIcons) {
-        icon = figures.squareSmallFilled
+        icon = '☇'
       }
 
       break
@@ -206,7 +206,7 @@ export class Logger {
       msgColoring = color.dim
 
       if (this.options?.useIcons) {
-        icon = ''
+        icon = '⚱'
       }
 
       break

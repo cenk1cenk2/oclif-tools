@@ -11,9 +11,9 @@ export enum LogLevels {
 }
 
 export enum LogFieldStatus {
-  RUN = 'RUN',
-  END = 'END',
-  STAGE = 'STAGE',
-  EXIT = 'EXIT',
-  TERMINATE = 'TERMINATE'
+  RUN = 'run',
+  END = 'end',
+  STAGE = 'stage',
+  EXIT = 'exit',
+  TERMINATE = 'terminate'
 }

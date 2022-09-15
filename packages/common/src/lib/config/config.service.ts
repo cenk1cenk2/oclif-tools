@@ -22,7 +22,7 @@ export class ConfigService implements GlobalConfig {
   public isSilent: boolean
   public ci: boolean
   public json: boolean
-  private readonly logger: Logger
+  private logger: Logger
 
   constructor (public oclif: Command['config'], public command: Command['ctor'], config: Omit<GlobalConfig, 'isVerbose' | 'isDebug' | 'isSilent'>) {
     if (ConfigService.instance) {

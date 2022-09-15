@@ -9,10 +9,13 @@ import { Logger } from '@utils/logger'
 export class LockerService<LockFile extends LockableData = LockableData> {
   private toLock: LockData[] = []
   private toUnlock: UnlockData[] = []
-  private readonly logger = new Logger(this.constructor.name)
-  private readonly fs = new FileSystemService()
+  private logger: Logger
+  private fs: FileSystemService
 
-  constructor (private file: string, private parser: GenericParser, private root?: string) {}
+  constructor (private file: string, private parser: GenericParser, private root?: string, context?: string) {
+    this.logger = new Logger(context ?? this.constructor.name)
+    this.fs = new FileSystemService()
+  }
 
   public hasLock (): boolean {
     return this.toLock.length > 0
@@ -80,11 +83,11 @@ export class LockerService<LockFile extends LockableData = LockableData> {
 
           // set lock data
           lock = op.set(lock, path, parsed)
-          this.logger.verbose('Merge lock: %s', path)
+          this.logger.verbose('Merge lock: %s -> %o', path, parsed)
         } else {
           // dont merge directly set the data
           lock = op.set(lock, path, d.data)
-          this.logger.verbose('Override lock: %s', path)
+          this.logger.verbose('Override lock: %s -> %o', path, d.data)
         }
       })
     )
@@ -117,12 +120,12 @@ export class LockerService<LockFile extends LockableData = LockableData> {
 
           // set unlock
           lock = op.del(lock, path)
-          this.logger.verbose('Unlocked: %s', path, { custom: 'locker' })
+          this.logger.verbose('Unlocked: %s', path)
         })
       )
     } else {
       lock = op.del(lock, this.root)
-      this.logger.verbose('Unlocked module: %s', this.root, { custom: 'locker' })
+      this.logger.verbose('Unlocked module: %s', this.root)
     }
 
     // write data

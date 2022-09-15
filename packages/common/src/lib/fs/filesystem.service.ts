@@ -5,13 +5,15 @@ import { Logger } from '@utils/logger'
 
 export class FileSystemService {
   private static instance: FileSystemService
-  private readonly logger = new Logger(this.constructor.name)
+  private logger: Logger
 
   constructor () {
     if (FileSystemService.instance) {
       return FileSystemService.instance
     } else {
       FileSystemService.instance = this
+
+      this.logger = new Logger(this.constructor.name)
 
       this.logger.trace('Created a new instance.')
     }

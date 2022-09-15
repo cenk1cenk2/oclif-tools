@@ -6,16 +6,18 @@ import { Logger } from '@utils/logger'
 export class YamlParser implements GenericParser {
   static extensions: string[] = [ 'yaml', 'yml' ]
   private static instance: YamlParser
-  private readonly logger = new Logger(this.constructor.name)
+  private logger: Logger
 
   constructor () {
     if (YamlParser.instance) {
       return YamlParser.instance
-    } else {
-      YamlParser.instance = this
-
-      this.logger.trace('Created a new instance.')
     }
+
+    YamlParser.instance = this
+
+    this.logger = new Logger(this.constructor.name)
+
+    this.logger.trace('Created a new instance.')
   }
 
   public parse<T = unknown>(data: string | Buffer): T {

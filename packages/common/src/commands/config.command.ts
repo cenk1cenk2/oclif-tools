@@ -33,7 +33,7 @@ export class ConfigCommand<
 
     this.logger.stage('Will run selection: %s', response)
 
-    return this.choices[response]()
+    return this.choices[response].bind(this)()
   }
 
   public setup (): ConfigCommandSetup<CommandChoices, LockFile> | Promise<ConfigCommandSetup<CommandChoices, LockFile>> {

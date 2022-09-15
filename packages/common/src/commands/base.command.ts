@@ -26,7 +26,7 @@ export class Command<
   public cs: ConfigService
   public parser: ParserService
   public fs: FileSystemService
-  public store: StoreService<Store> = new StoreService()
+  public store: StoreService<Store>
 
   public flags: Flags = {} as Flags
   public args: Args = {} as Args
@@ -55,6 +55,8 @@ export class Command<
     const context = this.cs.command.id ? this.cs.command.id : this.cs.command.name
 
     this.logger = new Logger(context, { level: this.cs.logLevel })
+
+    this.store = new StoreService<Store>()
 
     this.greet()
 

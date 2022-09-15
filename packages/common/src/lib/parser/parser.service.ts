@@ -9,8 +9,8 @@ import { Logger } from '@utils/logger'
 export class ParserService {
   private static instance: ParserService
   public parsers: ClassType<GenericParser>[] = [ YamlParser, JsonParser ]
-  private readonly logger = new Logger(this.constructor.name)
-  private readonly fs = new FileSystemService()
+  private logger: Logger
+  private fs: FileSystemService
 
   constructor (parsers?: ClassType<GenericParser>[]) {
     if (ParserService.instance) {
@@ -19,6 +19,9 @@ export class ParserService {
       if (parsers) {
         this.parsers = parsers
       }
+
+      this.logger = new Logger(this.constructor.name)
+      this.fs = new FileSystemService()
 
       ParserService.instance = this
 

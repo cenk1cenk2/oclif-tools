@@ -7,9 +7,14 @@ import type { ClassType } from '@interfaces/class.interface'
 import { Logger } from '@utils/logger'
 
 export class ValidatorService {
-  private readonly logger = new Logger(this.constructor.name)
+  private static instance: ValidatorService
+  private logger: Logger
 
   constructor (public options?: ValidatorServiceOptions) {
+    if (ValidatorService.instance) {
+      return ValidatorService.instance
+    }
+
     this.options = {
       validator: {
         skipMissingProperties: true,
@@ -20,12 +25,18 @@ export class ValidatorService {
       transformer: { enableImplicitConversion: true },
       ...options ?? {}
     }
+
+    this.logger = new Logger(this.constructor.name)
+
+    ValidatorService.instance = this
+
+    this.logger.trace('Created a new instance.')
   }
 
-  public async validate<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T): Promise<T> {
-    const classObject = plainToClass(classType, object, this.options.transformer)
+  public async validate<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorServiceOptions): Promise<T> {
+    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...options.transformer ?? {} })
 
-    const errors = await validate(classObject, this.options.validator)
+    const errors = await validate(classObject, { ...this.options.validator, ...options.validator ?? {} })
 
     if (errors.length) {
       errors.forEach((error) => {
@@ -38,10 +49,10 @@ export class ValidatorService {
     return classObject
   }
 
-  public validateSync<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T): T {
-    const classObject = plainToClass(classType, object, this.options.transformer)
+  public validateSync<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorServiceOptions): T {
+    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...options.transformer ?? {} })
 
-    const errors = validateSync(classObject, this.options.validator)
+    const errors = validateSync(classObject, { ...this.options.validator, ...options.validator ?? {} })
 
     if (errors.length) {
       errors.forEach((error) => {
