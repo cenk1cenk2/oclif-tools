@@ -38,7 +38,7 @@ export class Command<
     let err: Error
 
     try {
-      const { flags, args } = await this.parse(this.ctor)
+      const { flags, args } = await this.parse()
 
       this.flags = flags as unknown as Flags
       this.args = args as unknown as Args
