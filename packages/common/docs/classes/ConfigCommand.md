@@ -578,7 +578,7 @@ packages/common/src/commands/config.command.ts:20
 
 #### Inherited from
 
-BaseCommand.enableJsonFlag
+Command.enableJsonFlag
 
 #### Defined in
 
@@ -598,7 +598,7 @@ node_modules/@oclif/core/lib/command.d.ts:59
 
 #### Inherited from
 
-BaseCommand.enableJsonFlag
+Command.enableJsonFlag
 
 #### Defined in
 
@@ -616,7 +616,7 @@ ___
 
 #### Inherited from
 
-BaseCommand.flags
+Command.flags
 
 #### Defined in
 
@@ -636,7 +636,7 @@ node_modules/@oclif/core/lib/command.d.ts:73
 
 #### Inherited from
 
-BaseCommand.flags
+Command.flags
 
 #### Defined in
 
@@ -654,7 +654,7 @@ typeof `default`
 
 #### Inherited from
 
-BaseCommand.ctor
+Command.ctor
 
 #### Defined in
 

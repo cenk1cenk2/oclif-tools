@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [3.5.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.5.0...@cenk1cenk2/oclif-common@3.5.1) (2022-09-15)
+
+### Bug Fixes
+
+- assigning empty ([a2db45a](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a2db45abf2bae32ae6b338a2caf8468dae62967e))
+- update deps and arg parsing ([eb8e16c](https://gitlab.kilic.dev/libraries/oclif-tools/commit/eb8e16c6b067e212cb8c7698b4550ea21235d429))
+
 # @cenk1cenk2/oclif-common [3.5.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.4.3...@cenk1cenk2/oclif-common@3.5.0) (2022-09-14)
 
 ### Features

@@ -97504,7 +97504,7 @@
 						},
 						"inheritedFrom": {
 							"type": "reference",
-							"name": "BaseCommand.enableJsonFlag"
+							"name": "Command.enableJsonFlag"
 						}
 					},
 					"setSignature": {
@@ -97536,7 +97536,7 @@
 						},
 						"inheritedFrom": {
 							"type": "reference",
-							"name": "BaseCommand.enableJsonFlag"
+							"name": "Command.enableJsonFlag"
 						}
 					},
 					"inheritedFrom": {
@@ -97751,7 +97751,7 @@
 						},
 						"inheritedFrom": {
 							"type": "reference",
-							"name": "BaseCommand.flags"
+							"name": "Command.flags"
 						}
 					},
 					"setSignature": {
@@ -97783,7 +97783,7 @@
 						},
 						"inheritedFrom": {
 							"type": "reference",
-							"name": "BaseCommand.flags"
+							"name": "Command.flags"
 						}
 					},
 					"inheritedFrom": {
@@ -98195,7 +98195,7 @@
 						},
 						"inheritedFrom": {
 							"type": "reference",
-							"name": "BaseCommand.ctor"
+							"name": "Command.ctor"
 						}
 					},
 					"inheritedFrom": {
@@ -108399,7 +108399,7 @@
 			"sources": [
 				{
 					"fileName": "packages/common/src/utils/defaults.ts",
-					"line": 16,
+					"line": 18,
 					"character": 16
 				}
 			],
