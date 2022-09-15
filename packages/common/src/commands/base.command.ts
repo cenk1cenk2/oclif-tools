@@ -5,7 +5,7 @@ import { createInterface } from 'readline'
 import 'reflect-metadata'
 
 import { CLI_FLAGS } from '@constants'
-import type { FlagInput, InferArgs, InferFlags } from '@interfaces'
+import type { InferArgs, InferFlags } from '@interfaces'
 import { ConfigService, FileSystemService, StoreService, ValidatorService } from '@lib'
 import { ParserService } from '@lib/parser/parser.service'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
@@ -18,7 +18,7 @@ export class Command<
   Args extends Record<PropertyKey, any> = InferArgs<typeof Command>,
   Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
 > extends BaseCommand {
-  static globalFlags: FlagInput = CLI_FLAGS
+  static globalFlags = CLI_FLAGS
 
   public logger: Logger
   public tasks: Manager<Ctx, 'default' | 'verbose' | 'silent' | 'simple'>
@@ -116,7 +116,7 @@ export class Command<
 
   // make run non-abstract for other classes
   public run (): Promise<void> {
-    return
+    throw new Error('The command should have a run function to do something!')
   }
 
   /** Tasks to run before end of the command. */

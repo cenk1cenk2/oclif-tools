@@ -2,7 +2,7 @@ import type { ListrContext } from 'listr2'
 
 import { Command } from './base.command'
 import { CLI_FLAGS } from '@constants'
-import type { ConfigCommandChoices, ConfigCommandSetup, FlagInput, InferArgs, InferFlags } from '@interfaces'
+import type { ConfigCommandChoices, ConfigCommandSetup, InferArgs, InferFlags } from '@interfaces'
 import type { LockerService } from '@lib'
 import { CliUx } from '@utils'
 
@@ -14,29 +14,33 @@ export class ConfigCommand<
   Args extends Record<PropertyKey, any> = InferArgs<typeof ConfigCommand>,
   Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
 > extends Command<Ctx, Flags, Args, Store> {
-  static globalFlags: FlagInput = CLI_FLAGS
+  static globalFlags = CLI_FLAGS
 
   public choices: ConfigCommandChoices<CommandChoices>
   public locker: LockerService<LockFile>
 
+  private ux = CliUx.ux
+
   public async run (): Promise<void> {
-    const setup = await this.setup()
+    const setup = await this.construct()
 
     this.choices = setup.choices
     this.locker = setup.locker
 
-    await this.generate()
+    const response = await this.select()
+
+    return this.choices[response].bind(this)()
   }
 
-  public setup (): ConfigCommandSetup<CommandChoices, LockFile> | Promise<ConfigCommandSetup<CommandChoices, LockFile>> {
+  public construct (): ConfigCommandSetup<CommandChoices, LockFile> | Promise<ConfigCommandSetup<CommandChoices, LockFile>> {
     throw new Error('The command should be setup first!')
   }
 
   protected table (...options: Parameters<typeof CliUx.ux.table>): void {
-    CliUx.ux.table(...options)
+    this.ux.table(...options)
   }
 
-  private async generate (): Promise<void> {
+  private async select (): Promise<string> {
     // prompt user for the action
     const response: string = await this.prompt({
       type: 'Select',
@@ -44,6 +48,6 @@ export class ConfigCommand<
       choices: Object.keys(this.choices)
     })
 
-    return this.choices[response].bind(this)()
+    return response
   }
 }
