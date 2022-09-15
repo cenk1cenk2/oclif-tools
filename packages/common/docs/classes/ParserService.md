@@ -4,7 +4,7 @@
 
 ### instance
 
-▪ `Static` **instance**: [`ParserService`](ParserService.md)
+▪ `Static` `Private` **instance**: [`ParserService`](ParserService.md)
 
 #### Defined in
 

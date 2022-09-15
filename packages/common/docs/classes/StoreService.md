@@ -10,7 +10,7 @@
 
 ### instance
 
-▪ `Static` **instance**: [`StoreService`](StoreService.md)<`Record`<`PropertyKey`, `any`\>\>
+▪ `Static` `Private` **instance**: [`StoreService`](StoreService.md)<`Record`<`PropertyKey`, `any`\>\>
 
 #### Defined in
 

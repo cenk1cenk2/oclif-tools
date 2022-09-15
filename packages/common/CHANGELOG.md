@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.5.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.4.3...@cenk1cenk2/oclif-common@3.5.0) (2022-09-14)
+
+### Features
+
+- hide instances update the logger to fallback ([8dbf5fb](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8dbf5fb86b0fa5745042db5790729a59eea902bb))
+
 ## @cenk1cenk2/oclif-common [3.4.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.4.2...@cenk1cenk2/oclif-common@3.4.3) (2022-09-14)
 
 ### Bug Fixes

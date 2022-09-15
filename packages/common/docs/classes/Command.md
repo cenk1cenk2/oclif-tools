@@ -220,6 +220,22 @@ node_modules/@oclif/core/lib/command.d.ts:38
 
 ___
 
+### args
+
+▪ `Static` `Optional` **args**: [`ArgInput`](../types/ArgInput.md)
+
+An order-dependent array of arguments for the command
+
+#### Inherited from
+
+BaseCommand.args
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:40
+
+___
+
 ### plugin
 
 ▪ `Static` **plugin**: `Plugin`
@@ -394,14 +410,7 @@ ___
 
 ### globalFlags
 
-▪ `Static` **globalFlags**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `log-level` | `OptionFlag`<`string`\> |
-| `ci` | `BooleanFlag`<`boolean`\> |
+▪ `Static` **globalFlags**: `object` = `CLI_FLAGS`
 
 #### Overrides
 
@@ -413,27 +422,13 @@ packages/common/src/commands/base.command.ts:21
 
 ___
 
-### args
-
-▪ `Static` **args**: [`ArgInput`](../types/ArgInput.md) = `[]`
-
-#### Overrides
-
-BaseCommand.args
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:38
-
-___
-
 ### logger
 
 • **logger**: [`Logger`](Logger.md)
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:40
+packages/common/src/commands/base.command.ts:23
 
 ___
 
@@ -443,7 +438,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:41
+packages/common/src/commands/base.command.ts:24
 
 ___
 
@@ -453,7 +448,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:42
+packages/common/src/commands/base.command.ts:25
 
 ___
 
@@ -463,7 +458,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:43
+packages/common/src/commands/base.command.ts:26
 
 ___
 
@@ -473,7 +468,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:44
+packages/common/src/commands/base.command.ts:27
 
 ___
 
@@ -483,7 +478,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:45
+packages/common/src/commands/base.command.ts:28
 
 ___
 
@@ -493,7 +488,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:46
+packages/common/src/commands/base.command.ts:29
 
 ___
 
@@ -503,7 +498,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:48
+packages/common/src/commands/base.command.ts:31
 
 ___
 
@@ -513,7 +508,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:49
+packages/common/src/commands/base.command.ts:32
 
 ## Accessors
 
@@ -620,7 +615,7 @@ node_modules/@oclif/core/lib/command.d.ts:78
 | Name | Type |
 | :------ | :------ |
 | `Ctx` | extends `unknown` = `any` |
-| `Flags` | extends `Record`<`PropertyKey`, `any`\> = `Object` & { `json`: `boolean`  } |
+| `Flags` | extends `Record`<`PropertyKey`, `any`\> = `unknown` |
 | `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`Command`](Command.md)\> |
 | `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
 
@@ -900,7 +895,7 @@ BaseCommand.init
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:53
+packages/common/src/commands/base.command.ts:36
 
 ___
 
@@ -916,7 +911,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:123
+packages/common/src/commands/base.command.ts:109
 
 ___
 
@@ -938,7 +933,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:129
+packages/common/src/commands/base.command.ts:115
 
 ___
 
@@ -956,7 +951,7 @@ BaseCommand.run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:132
+packages/common/src/commands/base.command.ts:118
 
 ___
 
@@ -982,7 +977,7 @@ BaseCommand.finally
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:137
+packages/common/src/commands/base.command.ts:123
 
 ___
 
@@ -1008,7 +1003,7 @@ BaseCommand.catch
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:148
+packages/common/src/commands/base.command.ts:136
 
 ___
 
@@ -1032,7 +1027,7 @@ BaseCommand.exit
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:158
+packages/common/src/commands/base.command.ts:146
 
 ___
 
@@ -1054,7 +1049,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:165
+packages/common/src/commands/base.command.ts:153
 
 ___
 
@@ -1082,7 +1077,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:170
+packages/common/src/commands/base.command.ts:158
 
 ___
 
@@ -1102,7 +1097,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:179
+packages/common/src/commands/base.command.ts:167
 
 ___
 
@@ -1128,7 +1123,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:183
+packages/common/src/commands/base.command.ts:173
 
 ___
 
@@ -1142,4 +1137,4 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:187
+packages/common/src/commands/base.command.ts:179

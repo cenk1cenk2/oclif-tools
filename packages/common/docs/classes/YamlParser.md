@@ -22,7 +22,7 @@ ___
 
 ### instance
 
-▪ `Static` **instance**: [`YamlParser`](YamlParser.md)
+▪ `Static` `Private` **instance**: [`YamlParser`](YamlParser.md)
 
 #### Defined in
 
