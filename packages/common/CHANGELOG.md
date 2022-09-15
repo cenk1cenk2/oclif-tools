@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [3.5.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.5.1...@cenk1cenk2/oclif-common@3.5.2) (2022-09-15)
+
+### Bug Fixes
+
+- desperate attempts ([347b72e](https://gitlab.kilic.dev/libraries/oclif-tools/commit/347b72e06c41e8a7a2b9c7605144367dc72024fa))
+
 ## @cenk1cenk2/oclif-common [3.5.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.5.0...@cenk1cenk2/oclif-common@3.5.1) (2022-09-15)
 
 ### Bug Fixes

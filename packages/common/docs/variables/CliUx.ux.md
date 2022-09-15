@@ -9,9 +9,9 @@
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `config` | [`Config`](../classes/CliUx.Config.md) | - |
-| `warn` | typeof `Errors.warn` | - |
-| `error` | typeof `Errors.error` | - |
-| `exit` | typeof `Errors.exit` | - |
+| `warn` | typeof [`__type`](../classes/ConfigCommand.md#__type) | - |
+| `error` | typeof [`__type`](../classes/ConfigCommand.md#__type) | - |
+| `exit` | typeof [`__type`](../classes/ConfigCommand.md#__type) | - |
 | `prompt` | `prompt` | - |
 | `anykey` | `anykey` | "press anykey to continue" |
 | `confirm` | `confirm` | - |

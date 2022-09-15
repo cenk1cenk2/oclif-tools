@@ -566,6 +566,46 @@ ___
 
 packages/common/src/commands/config.command.ts:20
 
+___
+
+### ux
+
+• `Private` **ux**: `Object` = `CliUx.ux`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `config` | [`Config`](CliUx.Config.md) |
+| `warn` | (`input`: `string` \| `Error`) => `void` |
+| `error` | (`input`: `string` \| `Error`, `options`: { `exit`: ``false``  } & `PrettyPrintableError`) => `void`(`input`: `string` \| `Error`, `options?`: { `exit?`: `number`  } & `PrettyPrintableError`) => `never` |
+| `exit` | (`code?`: `number`) => `never` |
+| `prompt` | (`name`: `string`, `options?`: [`IPromptOptions`](../interfaces/CliUx.IPromptOptions.md)) => `Promise`<`any`\> |
+| `anykey` | (`message?`: `string`) => `Promise`<`void`\> |
+| `confirm` | (`message`: `string`) => `Promise`<`boolean`\> |
+| `action` | [`ActionBase`](CliUx.ActionBase.md) |
+| `prideAction` | [`ActionBase`](CliUx.ActionBase.md) |
+| `styledObject` | (`obj`: `any`, `keys?`: `string`[]) => `void` |
+| `styledHeader` | (`header`: `string`) => `void` |
+| `styledJSON` | (`obj`: `any`) => `void` |
+| `table` | typeof [`table`](../functions/CliUx.Table.table.md) |
+| `tree` | () => `Tree` |
+| `open` | (`target`: `string`, `opts?`: `Options`) => `Promise`<`unknown`\> |
+| `wait` | (`ms?`: `number`) => `Promise`<`unknown`\> |
+| `progress` | (`options?`: `any`) => `any` |
+| `done` | () => `Promise`<`void`\> |
+| `trace` | (`format`: `string`, ...`args`: `string`[]) => `void` |
+| `debug` | (`format`: `string`, ...`args`: `string`[]) => `void` |
+| `info` | (`format`: `string`, ...`args`: `string`[]) => `void` |
+| `log` | (`format?`: `string`, ...`args`: `string`[]) => `void` |
+| `url` | (`text`: `string`, `uri`: `string`, `params?`: {}) => `void` |
+| `annotation` | (`text`: `string`, `annotation`: `string`) => `void` |
+| `flush` | (`ms?`: `number`) => `Promise`<`void`\> |
+
+#### Defined in
+
+packages/common/src/commands/config.command.ts:22
+
 ## Accessors
 
 ### enableJsonFlag
@@ -1205,13 +1245,13 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:22
+packages/common/src/commands/config.command.ts:24
 
 ___
 
-### setup
+### construct
 
-▸ **setup**(): [`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\> \| `Promise`<[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\>\>
+▸ **construct**(): [`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\> \| `Promise`<[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\>\>
 
 #### Returns
 
@@ -1219,7 +1259,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:31
+packages/common/src/commands/config.command.ts:35
 
 ___
 
@@ -1239,18 +1279,18 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:35
+packages/common/src/commands/config.command.ts:39
 
 ___
 
-### generate
+### select
 
-▸ `Private` **generate**(): `Promise`<`void`\>
+▸ `Private` **select**(): `Promise`<`string`\>
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`<`string`\>
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:39
+packages/common/src/commands/config.command.ts:43
