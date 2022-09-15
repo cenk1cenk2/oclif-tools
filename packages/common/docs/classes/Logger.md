@@ -273,6 +273,27 @@ packages/common/src/utils/logger/logger.ts:77
 
 ___
 
+### stage
+
+▸ **stage**(`data`, ...`args`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | `string` \| `Buffer` |
+| `...args` | `any` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/utils/logger/logger.ts:81
+
+___
+
 ### initiateLogger
 
 ▸ `Private` **initiateLogger**(): [`Winston`](../types/Winston.md)
@@ -283,7 +304,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:81
+packages/common/src/utils/logger/logger.ts:85
 
 ___
 
@@ -306,7 +327,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:125
+packages/common/src/utils/logger/logger.ts:129
 
 ___
 
@@ -326,4 +347,4 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:129
+packages/common/src/utils/logger/logger.ts:133

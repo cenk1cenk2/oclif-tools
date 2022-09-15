@@ -570,7 +570,7 @@ ___
 
 ### ux
 
-• `Private` **ux**: `Object` = `CliUx.ux`
+• `Protected` **ux**: `Object` = `CliUx.ux`
 
 #### Type declaration
 
@@ -1013,7 +1013,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:109
+packages/common/src/commands/base.command.ts:110
 
 ___
 
@@ -1039,7 +1039,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:115
+packages/common/src/commands/base.command.ts:116
 
 ___
 
@@ -1065,7 +1065,7 @@ Tasks to run before end of the command.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:123
+packages/common/src/commands/base.command.ts:124
 
 ___
 
@@ -1091,7 +1091,7 @@ Catch any error occurred during command.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:136
+packages/common/src/commands/base.command.ts:140
 
 ___
 
@@ -1115,7 +1115,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:146
+packages/common/src/commands/base.command.ts:150
 
 ___
 
@@ -1141,7 +1141,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:153
+packages/common/src/commands/base.command.ts:157
 
 ___
 
@@ -1173,7 +1173,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:158
+packages/common/src/commands/base.command.ts:162
 
 ___
 
@@ -1197,7 +1197,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:167
+packages/common/src/commands/base.command.ts:171
 
 ___
 
@@ -1227,7 +1227,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:173
+packages/common/src/commands/base.command.ts:177
 
 ___
 
@@ -1249,9 +1249,9 @@ packages/common/src/commands/config.command.ts:24
 
 ___
 
-### construct
+### setup
 
-▸ **construct**(): [`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\> \| `Promise`<[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\>\>
+▸ **setup**(): [`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\> \| `Promise`<[`ConfigCommandSetup`](../interfaces/ConfigCommandSetup.md)<`CommandChoices`, `LockFile`\>\>
 
 #### Returns
 
@@ -1259,7 +1259,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:35
+packages/common/src/commands/config.command.ts:39
 
 ___
 
@@ -1279,13 +1279,13 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:39
+packages/common/src/commands/config.command.ts:43
 
 ___
 
 ### select
 
-▸ `Private` **select**(): `Promise`<`string`\>
+▸ `Protected` **select**(): `Promise`<`string`\>
 
 #### Returns
 
@@ -1293,4 +1293,4 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:43
+packages/common/src/commands/config.command.ts:47

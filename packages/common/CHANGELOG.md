@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [3.5.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.5.2...@cenk1cenk2/oclif-common@3.5.3) (2022-09-15)
+
+### Bug Fixes
+
+- more verbose logging for brownie problems ([408aa6f](https://gitlab.kilic.dev/libraries/oclif-tools/commit/408aa6f253bb35e2e3350a09b7ee3b3e74c3f0b1))
+
 ## @cenk1cenk2/oclif-common [3.5.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.5.1...@cenk1cenk2/oclif-common@3.5.2) (2022-09-15)
 
 ### Bug Fixes

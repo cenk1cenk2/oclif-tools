@@ -19,3 +19,33 @@ ___
 #### Defined in
 
 packages/common/src/utils/logger/logger.constants.ts:15
+
+___
+
+### STAGE
+
+• **STAGE** = ``"STAGE"``
+
+#### Defined in
+
+packages/common/src/utils/logger/logger.constants.ts:16
+
+___
+
+### EXIT
+
+• **EXIT** = ``"EXIT"``
+
+#### Defined in
+
+packages/common/src/utils/logger/logger.constants.ts:17
+
+___
+
+### TERMINATE
+
+• **TERMINATE** = ``"TERMINATE"``
+
+#### Defined in
+
+packages/common/src/utils/logger/logger.constants.ts:18

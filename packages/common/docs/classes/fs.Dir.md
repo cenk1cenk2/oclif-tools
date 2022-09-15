@@ -65,7 +65,7 @@ Asynchronously iterates over the directory via `readdir(3)` until all entries ha
 
 #### Implementation of
 
-AsyncIterable.\_\_@asyncIterator@282
+AsyncIterable.\_\_@asyncIterator@283
 
 #### Defined in
 
