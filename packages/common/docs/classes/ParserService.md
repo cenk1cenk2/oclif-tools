@@ -24,7 +24,7 @@ ___
 
 ### logger
 
-• `Private` `Readonly` **logger**: [`Logger`](Logger.md)
+• `Private` **logger**: [`Logger`](Logger.md)
 
 #### Defined in
 
@@ -34,7 +34,7 @@ ___
 
 ### fs
 
-• `Private` `Readonly` **fs**: [`FileSystemService`](FileSystemService.md)
+• `Private` **fs**: [`FileSystemService`](FileSystemService.md)
 
 #### Defined in
 
@@ -74,7 +74,7 @@ packages/common/src/lib/parser/parser.service.ts:15
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:29
+packages/common/src/lib/parser/parser.service.ts:32
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:40
+packages/common/src/lib/parser/parser.service.ts:43
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:44
+packages/common/src/lib/parser/parser.service.ts:47
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:48
+packages/common/src/lib/parser/parser.service.ts:51
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:52
+packages/common/src/lib/parser/parser.service.ts:55
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:56
+packages/common/src/lib/parser/parser.service.ts:59
 
 ___
 
@@ -221,4 +221,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:62
+packages/common/src/lib/parser/parser.service.ts:65

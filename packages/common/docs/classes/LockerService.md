@@ -30,7 +30,7 @@ ___
 
 ### logger
 
-• `Private` `Readonly` **logger**: [`Logger`](Logger.md)
+• `Private` **logger**: [`Logger`](Logger.md)
 
 #### Defined in
 
@@ -40,7 +40,7 @@ ___
 
 ### fs
 
-• `Private` `Readonly` **fs**: [`FileSystemService`](FileSystemService.md)
+• `Private` **fs**: [`FileSystemService`](FileSystemService.md)
 
 #### Defined in
 
@@ -50,7 +50,7 @@ packages/common/src/lib/locker/locker.service.ts:13
 
 ### constructor
 
-• **new LockerService**<`LockFile`\>(`file`, `parser`, `root?`)
+• **new LockerService**<`LockFile`\>(`file`, `parser`, `root?`, `context?`)
 
 #### Type parameters
 
@@ -65,6 +65,7 @@ packages/common/src/lib/locker/locker.service.ts:13
 | `file` | `string` |
 | `parser` | [`GenericParser`](GenericParser.md) |
 | `root?` | `string` |
+| `context?` | `string` |
 
 #### Defined in
 
@@ -82,7 +83,7 @@ packages/common/src/lib/locker/locker.service.ts:15
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:17
+packages/common/src/lib/locker/locker.service.ts:20
 
 ___
 
@@ -96,7 +97,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:21
+packages/common/src/lib/locker/locker.service.ts:24
 
 ___
 
@@ -122,7 +123,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:25
+packages/common/src/lib/locker/locker.service.ts:28
 
 ___
 
@@ -142,7 +143,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:29
+packages/common/src/lib/locker/locker.service.ts:32
 
 ___
 
@@ -156,7 +157,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:33
+packages/common/src/lib/locker/locker.service.ts:36
 
 ___
 
@@ -170,7 +171,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:41
+packages/common/src/lib/locker/locker.service.ts:44
 
 ___
 
@@ -184,7 +185,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:49
+packages/common/src/lib/locker/locker.service.ts:52
 
 ___
 
@@ -210,7 +211,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:54
+packages/common/src/lib/locker/locker.service.ts:57
 
 ___
 
@@ -230,7 +231,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:96
+packages/common/src/lib/locker/locker.service.ts:99
 
 ___
 
@@ -244,7 +245,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:132
+packages/common/src/lib/locker/locker.service.ts:135
 
 ___
 
@@ -258,7 +259,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:136
+packages/common/src/lib/locker/locker.service.ts:139
 
 ___
 
@@ -278,7 +279,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:144
+packages/common/src/lib/locker/locker.service.ts:147
 
 ___
 
@@ -304,7 +305,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:148
+packages/common/src/lib/locker/locker.service.ts:151
 
 ___
 
@@ -324,4 +325,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/locker/locker.service.ts:156
+packages/common/src/lib/locker/locker.service.ts:159

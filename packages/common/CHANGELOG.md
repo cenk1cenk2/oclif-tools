@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.6.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.5.3...@cenk1cenk2/oclif-common@3.6.0) (2022-09-15)
+
+### Features
+
+- update ocnfiguration for singletons ([c6b0124](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c6b0124b1e7f656b3d888b37164bea6cd6cb896d))
+
 ## @cenk1cenk2/oclif-common [3.5.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.5.2...@cenk1cenk2/oclif-common@3.5.3) (2022-09-15)
 
 ### Bug Fixes

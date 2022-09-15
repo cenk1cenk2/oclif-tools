@@ -14,7 +14,7 @@ ___
 
 ### logger
 
-• `Private` `Readonly` **logger**: [`Logger`](Logger.md)
+• `Private` **logger**: [`Logger`](Logger.md)
 
 #### Defined in
 
@@ -48,7 +48,7 @@ packages/common/src/lib/fs/filesystem.service.ts:10
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:20
+packages/common/src/lib/fs/filesystem.service.ts:22
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:24
+packages/common/src/lib/fs/filesystem.service.ts:26
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:28
+packages/common/src/lib/fs/filesystem.service.ts:30
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:32
+packages/common/src/lib/fs/filesystem.service.ts:34
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:36
+packages/common/src/lib/fs/filesystem.service.ts:38
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:46
+packages/common/src/lib/fs/filesystem.service.ts:48
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:56
+packages/common/src/lib/fs/filesystem.service.ts:58
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:64
+packages/common/src/lib/fs/filesystem.service.ts:66
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:72
+packages/common/src/lib/fs/filesystem.service.ts:74
 
 ___
 
@@ -235,7 +235,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:80
+packages/common/src/lib/fs/filesystem.service.ts:82
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:88
+packages/common/src/lib/fs/filesystem.service.ts:90
 
 ___
 
@@ -277,7 +277,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:96
+packages/common/src/lib/fs/filesystem.service.ts:98
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:104
+packages/common/src/lib/fs/filesystem.service.ts:106
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:112
+packages/common/src/lib/fs/filesystem.service.ts:114
 
 ___
 
@@ -337,7 +337,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:120
+packages/common/src/lib/fs/filesystem.service.ts:122
 
 ___
 
@@ -357,4 +357,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:128
+packages/common/src/lib/fs/filesystem.service.ts:130

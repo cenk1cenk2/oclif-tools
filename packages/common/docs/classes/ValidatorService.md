@@ -2,13 +2,23 @@
 
 ## Properties
 
-### logger
+### instance
 
-• `Private` `Readonly` **logger**: [`Logger`](Logger.md)
+▪ `Static` `Private` **instance**: [`ValidatorService`](ValidatorService.md)
 
 #### Defined in
 
 packages/common/src/lib/validator/validator.service.ts:10
+
+___
+
+### logger
+
+• `Private` **logger**: [`Logger`](Logger.md)
+
+#### Defined in
+
+packages/common/src/lib/validator/validator.service.ts:11
 
 ___
 
@@ -18,7 +28,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/validator/validator.service.ts:12
+packages/common/src/lib/validator/validator.service.ts:13
 
 ## Constructors
 
@@ -34,13 +44,13 @@ packages/common/src/lib/validator/validator.service.ts:12
 
 #### Defined in
 
-packages/common/src/lib/validator/validator.service.ts:12
+packages/common/src/lib/validator/validator.service.ts:13
 
 ## Methods
 
 ### validate
 
-▸ **validate**<`T`\>(`classType`, `object`): `Promise`<`T`\>
+▸ **validate**<`T`\>(`classType`, `object`, `options?`): `Promise`<`T`\>
 
 #### Type parameters
 
@@ -54,6 +64,7 @@ packages/common/src/lib/validator/validator.service.ts:12
 | :------ | :------ |
 | `classType` | [`ClassType`](../types/ClassType.md)<`T`\> |
 | `object` | `T` |
+| `options?` | [`ValidatorServiceOptions`](../interfaces/ValidatorServiceOptions.md) |
 
 #### Returns
 
@@ -61,13 +72,13 @@ packages/common/src/lib/validator/validator.service.ts:12
 
 #### Defined in
 
-packages/common/src/lib/validator/validator.service.ts:25
+packages/common/src/lib/validator/validator.service.ts:36
 
 ___
 
 ### validateSync
 
-▸ **validateSync**<`T`\>(`classType`, `object`): `T`
+▸ **validateSync**<`T`\>(`classType`, `object`, `options?`): `T`
 
 #### Type parameters
 
@@ -81,6 +92,7 @@ ___
 | :------ | :------ |
 | `classType` | [`ClassType`](../types/ClassType.md)<`T`\> |
 | `object` | `T` |
+| `options?` | [`ValidatorServiceOptions`](../interfaces/ValidatorServiceOptions.md) |
 
 #### Returns
 
@@ -88,7 +100,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/validator/validator.service.ts:41
+packages/common/src/lib/validator/validator.service.ts:52
 
 ___
 
@@ -108,4 +120,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/validator/validator.service.ts:57
+packages/common/src/lib/validator/validator.service.ts:68

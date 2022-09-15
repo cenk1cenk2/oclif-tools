@@ -132,7 +132,7 @@ ___
 
 ### logger
 
-• `Private` `Readonly` **logger**: [`Logger`](Logger.md)
+• `Private` **logger**: [`Logger`](Logger.md)
 
 #### Defined in
 

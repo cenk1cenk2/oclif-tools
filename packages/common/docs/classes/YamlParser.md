@@ -32,7 +32,7 @@ ___
 
 ### logger
 
-• `Private` `Readonly` **logger**: [`Logger`](Logger.md)
+• `Private` **logger**: [`Logger`](Logger.md)
 
 #### Defined in
 
@@ -76,7 +76,7 @@ packages/common/src/lib/parser/yaml-parser.service.ts:11
 
 #### Defined in
 
-packages/common/src/lib/parser/yaml-parser.service.ts:21
+packages/common/src/lib/parser/yaml-parser.service.ts:23
 
 ___
 
@@ -106,4 +106,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/yaml-parser.service.ts:31
+packages/common/src/lib/parser/yaml-parser.service.ts:33

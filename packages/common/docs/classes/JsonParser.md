@@ -32,7 +32,7 @@ ___
 
 ### logger
 
-• `Private` `Readonly` **logger**: [`Logger`](Logger.md)
+• `Private` **logger**: [`Logger`](Logger.md)
 
 #### Defined in
 
@@ -76,7 +76,7 @@ packages/common/src/lib/parser/json-parser.service.ts:9
 
 #### Defined in
 
-packages/common/src/lib/parser/json-parser.service.ts:19
+packages/common/src/lib/parser/json-parser.service.ts:21
 
 ___
 
@@ -106,4 +106,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/json-parser.service.ts:29
+packages/common/src/lib/parser/json-parser.service.ts:31

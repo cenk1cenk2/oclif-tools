@@ -4,7 +4,7 @@
 
 ### RUN
 
-• **RUN** = ``"RUN"``
+• **RUN** = ``"run"``
 
 #### Defined in
 
@@ -14,7 +14,7 @@ ___
 
 ### END
 
-• **END** = ``"END"``
+• **END** = ``"end"``
 
 #### Defined in
 
@@ -24,7 +24,7 @@ ___
 
 ### STAGE
 
-• **STAGE** = ``"STAGE"``
+• **STAGE** = ``"stage"``
 
 #### Defined in
 
@@ -34,7 +34,7 @@ ___
 
 ### EXIT
 
-• **EXIT** = ``"EXIT"``
+• **EXIT** = ``"exit"``
 
 #### Defined in
 
@@ -44,7 +44,7 @@ ___
 
 ### TERMINATE
 
-• **TERMINATE** = ``"TERMINATE"``
+• **TERMINATE** = ``"terminate"``
 
 #### Defined in
 

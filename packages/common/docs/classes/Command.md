@@ -911,7 +911,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:110
+packages/common/src/commands/base.command.ts:112
 
 ___
 
@@ -933,7 +933,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:116
+packages/common/src/commands/base.command.ts:118
 
 ___
 
@@ -951,7 +951,7 @@ BaseCommand.run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:119
+packages/common/src/commands/base.command.ts:121
 
 ___
 
@@ -977,7 +977,7 @@ BaseCommand.finally
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:124
+packages/common/src/commands/base.command.ts:126
 
 ___
 
@@ -1003,7 +1003,7 @@ BaseCommand.catch
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:140
+packages/common/src/commands/base.command.ts:142
 
 ___
 
@@ -1027,7 +1027,7 @@ BaseCommand.exit
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:150
+packages/common/src/commands/base.command.ts:152
 
 ___
 
@@ -1049,7 +1049,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:157
+packages/common/src/commands/base.command.ts:159
 
 ___
 
@@ -1077,7 +1077,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:162
+packages/common/src/commands/base.command.ts:164
 
 ___
 
@@ -1097,7 +1097,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:171
+packages/common/src/commands/base.command.ts:173
 
 ___
 
@@ -1123,7 +1123,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:177
+packages/common/src/commands/base.command.ts:179
 
 ___
 
@@ -1137,4 +1137,4 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:183
+packages/common/src/commands/base.command.ts:185
