@@ -19,20 +19,24 @@ export class ConfigCommand<
   public choices: ConfigCommandChoices<CommandChoices>
   public locker: LockerService<LockFile>
 
-  private ux = CliUx.ux
+  protected ux = CliUx.ux
 
   public async run (): Promise<void> {
-    const setup = await this.construct()
+    this.logger.stage('Setting up config command.')
+    const setup = await this.setup()
 
     this.choices = setup.choices
     this.locker = setup.locker
 
+    this.logger.stage('User selection for configuration.')
     const response = await this.select()
 
-    return this.choices[response].bind(this)()
+    this.logger.stage('Will run selection: %s', response)
+
+    return this.choices[response]()
   }
 
-  public construct (): ConfigCommandSetup<CommandChoices, LockFile> | Promise<ConfigCommandSetup<CommandChoices, LockFile>> {
+  public setup (): ConfigCommandSetup<CommandChoices, LockFile> | Promise<ConfigCommandSetup<CommandChoices, LockFile>> {
     throw new Error('The command should be setup first!')
   }
 
@@ -40,7 +44,7 @@ export class ConfigCommand<
     this.ux.table(...options)
   }
 
-  private async select (): Promise<string> {
+  protected async select (): Promise<string> {
     // prompt user for the action
     const response: string = await this.prompt({
       type: 'Select',

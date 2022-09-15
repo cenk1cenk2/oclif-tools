@@ -10,7 +10,7 @@ import { ConfigService, FileSystemService, StoreService, ValidatorService } from
 import { ParserService } from '@lib/parser/parser.service'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
 import { setCtxAssign, setCtxDefaults } from '@utils'
-import { ListrLogger, Logger } from '@utils/logger'
+import { ListrLogger, LogFieldStatus, Logger } from '@utils/logger'
 
 export class Command<
   Ctx extends ListrContext = ListrContext,
@@ -62,7 +62,7 @@ export class Command<
       throw err
     }
 
-    this.logger.trace('init', { status: 'stage' })
+    this.logger.stage('Initiating services.')
 
     this.parser = new ParserService()
     this.fs = new FileSystemService()
@@ -93,13 +93,14 @@ export class Command<
 
     process.on('SIGINT', () => {
       // show that we have understood that
-      this.logger.fatal('Caught terminate signal.', { context: 'exit' })
+      this.logger.fatal('Caught terminate signal.', { status: LogFieldStatus.TERMINATE })
 
       process.exit(1)
     })
 
-    this.logger.trace('should run before', { status: 'stage' })
+    this.logger.stage('Running shouldRunBefore.')
     await this.shouldRunBefore()
+    this.logger.stage('Finished shouldRunBefore.')
   }
 
   /**
@@ -122,11 +123,14 @@ export class Command<
   /** Tasks to run before end of the command. */
   public async finally<C extends Ctx = Ctx>(): Promise<{ ctx: C }> {
     // run anything in the task queue at the end
-    this.logger.trace('tasks', { status: 'stage' })
+    this.logger.stage('Running tasks.')
     const ctx = await this.runTasks<C>()
 
-    this.logger.trace('should run after', { status: 'stage' })
+    this.logger.stage('Finished tasks.')
+
+    this.logger.stage('Running shouldRunAfter.')
     await this.shouldRunAfter(ctx)
+    this.logger.stage('Finished shouldRunAfter.')
 
     return { ctx }
   }
@@ -144,7 +148,7 @@ export class Command<
   }
 
   public exit (code?: number): void {
-    this.logger.trace('Exitting with code: %d', code)
+    this.logger.trace('Code -> %d', code, { status: LogFieldStatus.EXIT })
 
     process.exit(code ?? 0)
   }

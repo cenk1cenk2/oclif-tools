@@ -78,6 +78,10 @@ export class Logger {
     return this.parseMessage(LogLevels.INFO, data, args, { status: LogFieldStatus.END })
   }
 
+  public stage (data: string | Buffer, ...args: any): void {
+    return this.parseMessage(LogLevels.TRACE, data, args, { status: LogFieldStatus.STAGE })
+  }
+
   private initiateLogger (): Winston {
     const logFormat = format.printf(({ level, message, context, status }: LoggerFormat) => {
       // parse multi line messages
