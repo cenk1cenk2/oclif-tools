@@ -107,7 +107,7 @@ export class FileSystemService {
     try {
       await fs.emptyDir(directory)
     } catch (e) {
-      throw new Error(`Error while deleting the directory "${directory}": ${e.message}`)
+      throw new Error(`Error while emptying the directory "${directory}": ${e.message}`)
     }
   }
 
@@ -115,7 +115,23 @@ export class FileSystemService {
     try {
       fs.emptyDirSync(directory)
     } catch (e) {
-      throw new Error(`Error while deleting the directory "${directory}": ${e.message}`)
+      throw new Error(`Error while emptying the directory "${directory}": ${e.message}`)
+    }
+  }
+
+  public async removeDir (directory: string): Promise<void> {
+    try {
+      await fs.rmdir(directory)
+    } catch (e) {
+      throw new Error(`Error while removing the directory "${directory}": ${e.message}`)
+    }
+  }
+
+  public removeDirSync (directory: string): void {
+    try {
+      fs.rmdirSync(directory)
+    } catch (e) {
+      throw new Error(`Error while removing the directory "${directory}": ${e.message}`)
     }
   }
 

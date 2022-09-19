@@ -57,40 +57,38 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   public async lock<T extends LockableData = LockableData>(...data: LockData<T>[]): Promise<void> {
     let lock: LockFile = await this.tryRead() ?? ({} as LockFile)
 
-    await Promise.all(
-      data.map(async (d) => {
-        // enabled flag for not if checking every time
-        if (d?.enabled === false) {
-          return
-        } else if (!d?.data || Array.isArray(d?.data) && d.data.length === 0 || typeof d?.data === 'object' && Object.keys(d.data).length === 0) {
-          return
-        }
+    data.forEach((d) => {
+      // enabled flag for not if checking every time
+      if (d?.enabled === false) {
+        return
+      } else if (!d?.data || Array.isArray(d?.data) && d.data.length === 0 || typeof d?.data === 'object' && Object.keys(d.data).length === 0) {
+        return
+      }
 
-        const path = this.buildPath(d)
+      const path = this.buildPath(d)
 
-        // set lock
-        if (d?.merge) {
-          let parsed: LockableData
+      // set lock
+      if (d?.merge) {
+        let parsed: LockableData
 
-          // check if array else merge as object
-          if (typeof d.data === 'object') {
-            parsed = merge(d.merge, op.get(lock, path) || Array.isArray(d.data) ? [] : {}, d.data)
-          } else {
-            this.logger.warn('"%s" path with type "%s" is not mergeable.', path, typeof d.data)
-
-            parsed = d.data
-          }
-
-          // set lock data
-          lock = op.set(lock, path, parsed)
-          this.logger.verbose('Merge lock: %s -> %o', path, parsed)
+        // check if array else merge as object
+        if (typeof d.data === 'object') {
+          parsed = merge(d.merge, op.get(lock, path) || Array.isArray(d.data) ? [] : {}, d.data)
         } else {
-          // dont merge directly set the data
-          lock = op.set(lock, path, d.data)
-          this.logger.verbose('Override lock: %s -> %o', path, d.data)
+          this.logger.warn('"%s" path with type "%s" is not mergeable.', path, typeof d.data)
+
+          parsed = d.data
         }
-      })
-    )
+
+        // set lock data
+        lock = op.set(lock, path, parsed)
+        this.logger.verbose('Merge lock: %s -> %o', path, parsed)
+      } else {
+        // dont merge directly set the data
+        lock = op.set(lock, path, d.data)
+        this.logger.verbose('Override lock: %s -> %o', path, d.data)
+      }
+    })
 
     // write data
     await this.write(lock)
@@ -109,20 +107,18 @@ export class LockerService<LockFile extends LockableData = LockableData> {
 
     // option to delete all, or specific locks
     if (data.length > 0) {
-      await Promise.all(
-        data.map(async (d) => {
-          // enabled flag for not if checking every time
-          if (d?.enabled === false) {
-            return
-          }
+      data.forEach((d) => {
+        // enabled flag for not if checking every time
+        if (d?.enabled === false) {
+          return
+        }
 
-          const path = this.buildPath(d)
+        const path = this.buildPath(d)
 
-          // set unlock
-          lock = op.del(lock, path)
-          this.logger.verbose('Unlocked: %s', path)
-        })
-      )
+        // set unlock
+        lock = op.del(lock, path)
+        this.logger.verbose('Unlocked: %s', path)
+      })
     } else {
       lock = op.del(lock, this.root)
       this.logger.verbose('Unlocked module: %s', this.root)
