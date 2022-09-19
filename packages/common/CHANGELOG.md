@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [3.7.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.7.1...@cenk1cenk2/oclif-common@3.7.2) (2022-09-19)
+
+
+### Bug Fixes
+
+* update locker to work sync ([97aca98](https://gitlab.kilic.dev/libraries/oclif-tools/commit/97aca9830cbbd955c754eec61d2b9d8b9bdd68e7))
+
 ## @cenk1cenk2/oclif-common [3.7.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.7.0...@cenk1cenk2/oclif-common@3.7.1) (2022-09-19)
 
 ### Bug Fixes

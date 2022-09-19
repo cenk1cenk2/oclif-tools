@@ -321,6 +321,46 @@ packages/common/src/lib/fs/filesystem.service.ts:114
 
 ___
 
+### removeDir
+
+▸ **removeDir**(`directory`): `Promise`<`void`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `directory` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:122
+
+___
+
+### removeDirSync
+
+▸ **removeDirSync**(`directory`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `directory` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/lib/fs/filesystem.service.ts:130
+
+___
+
 ### mkdir
 
 ▸ **mkdir**(`directory`): `Promise`<`void`\>
@@ -337,7 +377,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:122
+packages/common/src/lib/fs/filesystem.service.ts:138
 
 ___
 
@@ -357,4 +397,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/fs/filesystem.service.ts:130
+packages/common/src/lib/fs/filesystem.service.ts:146
