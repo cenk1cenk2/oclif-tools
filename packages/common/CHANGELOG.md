@@ -1,3 +1,13 @@
+# @cenk1cenk2/oclif-common [3.7.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.6.0...@cenk1cenk2/oclif-common@3.7.0) (2022-09-19)
+
+### Bug Fixes
+
+- update configuration for brownie ([63fb6de](https://gitlab.kilic.dev/libraries/oclif-tools/commit/63fb6deffd7c77729aaac08bc577f1164ab00975))
+
+### Features
+
+- add cli flags as base fix build error ([5d496b5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/5d496b529b625d624051ab7699e4ee096ab051ba))
+
 # @cenk1cenk2/oclif-common [3.6.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.5.3...@cenk1cenk2/oclif-common@3.6.0) (2022-09-15)
 
 ### Features

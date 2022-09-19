@@ -19,34 +19,6 @@
 
 ## Properties
 
-### argv
-
-• **argv**: `string`[]
-
-#### Inherited from
-
-BaseCommand.argv
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:9
-
-___
-
-### config
-
-• **config**: `Config`
-
-#### Inherited from
-
-BaseCommand.config
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:10
-
-___
-
 ### \_base
 
 ▪ `Static` **\_base**: `string`
@@ -408,27 +380,13 @@ node_modules/@oclif/core/lib/command.d.ts:76
 
 ___
 
-### globalFlags
-
-▪ `Static` **globalFlags**: `object` = `CLI_FLAGS`
-
-#### Overrides
-
-BaseCommand.globalFlags
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:21
-
-___
-
 ### logger
 
 • **logger**: [`Logger`](Logger.md)
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:23
+packages/common/src/commands/base.command.ts:34
 
 ___
 
@@ -438,7 +396,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:24
+packages/common/src/commands/base.command.ts:35
 
 ___
 
@@ -448,7 +406,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:25
+packages/common/src/commands/base.command.ts:36
 
 ___
 
@@ -458,7 +416,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:26
+packages/common/src/commands/base.command.ts:37
 
 ___
 
@@ -468,7 +426,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:27
+packages/common/src/commands/base.command.ts:38
 
 ___
 
@@ -478,7 +436,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:28
+packages/common/src/commands/base.command.ts:39
 
 ___
 
@@ -488,7 +446,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:29
+packages/common/src/commands/base.command.ts:40
 
 ___
 
@@ -498,7 +456,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:31
+packages/common/src/commands/base.command.ts:42
 
 ___
 
@@ -508,7 +466,35 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:32
+packages/common/src/commands/base.command.ts:43
+
+___
+
+### argv
+
+• **argv**: `string`[]
+
+#### Inherited from
+
+BaseCommand.argv
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:45
+
+___
+
+### config
+
+• **config**: `Config`
+
+#### Inherited from
+
+BaseCommand.config
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:45
 
 ## Accessors
 
@@ -604,61 +590,45 @@ BaseCommand.ctor
 
 node_modules/@oclif/core/lib/command.d.ts:78
 
-## Constructors
+___
 
-### constructor
+### globalFlags
 
-• **new Command**<`Ctx`, `Flags`, `Args`, `Store`\>(`argv`, `config`)
+• `Static` `get` **globalFlags**(): `object`
 
-#### Type parameters
+#### Returns
 
-| Name | Type |
-| :------ | :------ |
-| `Ctx` | extends `unknown` = `any` |
-| `Flags` | extends `Record`<`PropertyKey`, `any`\> = `unknown` |
-| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`Command`](Command.md)\> |
-| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
+`object`
+
+#### Overrides
+
+BaseCommand.globalFlags
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:23
+
+• `Static` `set` **globalFlags**(`flags`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `argv` | `string`[] |
-| `config` | `Config` |
-
-#### Inherited from
-
-BaseCommand.constructor
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:77
-
-## Methods
-
-### \_run
-
-▸ **_run**<`T`\>(): `Promise`<`T`\>
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
+| `flags` | `object` |
 
 #### Returns
 
-`Promise`<`T`\>
+`void`
 
-#### Inherited from
+#### Overrides
 
-BaseCommand.\_run
+BaseCommand.globalFlags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:79
+packages/common/src/commands/base.command.ts:28
 
-___
+## Methods
 
 ### warn
 
@@ -879,26 +849,6 @@ node_modules/@oclif/core/lib/command.d.ts:106
 
 ___
 
-### init
-
-▸ **init**(): `Promise`<`void`\>
-
-Initial functions / constructor
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Overrides
-
-BaseCommand.init
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:36
-
-___
-
 ### shouldRunBefore
 
 ▸ **shouldRunBefore**(): `void` \| `Promise`<`void`\>
@@ -911,7 +861,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:112
+packages/common/src/commands/base.command.ts:53
 
 ___
 
@@ -933,17 +883,23 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:118
+packages/common/src/commands/base.command.ts:59
 
 ___
 
 ### run
 
-▸ **run**(): `Promise`<`void`\>
+▸ **run**<`T`\>(): `Promise`<`T`\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `void` |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`<`T`\>
 
 #### Overrides
 
@@ -951,59 +907,31 @@ BaseCommand.run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:121
+packages/common/src/commands/base.command.ts:62
 
 ___
 
-### finally
+### \_run
 
-▸ **finally**<`C`\>(): `Promise`<{ `ctx`: `C`  }\>
-
-Tasks to run before end of the command.
+▸ **_run**<`T`\>(): `Promise`<`T`\>
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `C` | extends `unknown` = `Ctx` |
+| Name |
+| :------ |
+| `T` |
 
 #### Returns
 
-`Promise`<{ `ctx`: `C`  }\>
+`Promise`<`T`\>
 
 #### Overrides
 
-BaseCommand.finally
+BaseCommand.\_run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:126
-
-___
-
-### catch
-
-▸ **catch**(`e`): `Promise`<`void`\>
-
-Catch any error occurred during command.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `e` | `Error` |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Overrides
-
-BaseCommand.catch
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:142
+packages/common/src/commands/base.command.ts:67
 
 ___
 
@@ -1027,7 +955,7 @@ BaseCommand.exit
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:152
+packages/common/src/commands/base.command.ts:88
 
 ___
 
@@ -1049,7 +977,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:159
+packages/common/src/commands/base.command.ts:95
 
 ___
 
@@ -1077,13 +1005,13 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:164
+packages/common/src/commands/base.command.ts:100
 
 ___
 
 ### setCtxDefaults
 
-▸ **setCtxDefaults**(...`defaults`): `void`
+▸ `Protected` **setCtxDefaults**(...`defaults`): `void`
 
 #### Parameters
 
@@ -1097,13 +1025,13 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:173
+packages/common/src/commands/base.command.ts:109
 
 ___
 
 ### setCtxAssign
 
-▸ **setCtxAssign**<`K`\>(...`assigns`): `void`
+▸ `Protected` **setCtxAssign**<`K`\>(...`assigns`): `void`
 
 #### Type parameters
 
@@ -1123,7 +1051,79 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:179
+packages/common/src/commands/base.command.ts:115
+
+___
+
+### init
+
+▸ `Protected` **init**(): `Promise`<`void`\>
+
+Initial functions / constructor
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Overrides
+
+BaseCommand.init
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:123
+
+___
+
+### finally
+
+▸ `Protected` **finally**<`C`\>(): `Promise`<{ `ctx`: `C`  }\>
+
+Tasks to run before end of the command.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `C` | extends `unknown` = `Ctx` |
+
+#### Returns
+
+`Promise`<{ `ctx`: `C`  }\>
+
+#### Overrides
+
+BaseCommand.finally
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:197
+
+___
+
+### catch
+
+▸ `Protected` **catch**(`e`): `Promise`<`void`\>
+
+Catch any error occurred during command.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | `Error` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Overrides
+
+BaseCommand.catch
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:213
 
 ___
 
@@ -1137,4 +1137,34 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:185
+packages/common/src/commands/base.command.ts:223
+
+## Constructors
+
+### constructor
+
+• **new Command**<`Ctx`, `Flags`, `Args`, `Store`\>(`argv`, `config`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Ctx` | extends `unknown` = `any` |
+| `Flags` | extends `Record`<`PropertyKey`, `any`\> = `unknown` |
+| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`Command`](Command.md)\> |
+| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `argv` | `string`[] |
+| `config` | `Config` |
+
+#### Overrides
+
+BaseCommand.constructor
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:45
