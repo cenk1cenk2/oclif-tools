@@ -889,17 +889,11 @@ ___
 
 ### run
 
-▸ **run**<`T`\>(): `Promise`<`T`\>
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | `void` |
+▸ **run**(): `Promise`<`any`\>
 
 #### Returns
 
-`Promise`<`T`\>
+`Promise`<`any`\>
 
 #### Overrides
 

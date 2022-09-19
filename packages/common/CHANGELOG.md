@@ -1,3 +1,9 @@
+## @cenk1cenk2/oclif-common [3.7.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.7.0...@cenk1cenk2/oclif-common@3.7.1) (2022-09-19)
+
+### Bug Fixes
+
+- issues with global flags ([b931d29](https://gitlab.kilic.dev/libraries/oclif-tools/commit/b931d29160cc1abbe024791937811107c06bbb88))
+
 # @cenk1cenk2/oclif-common [3.7.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.6.0...@cenk1cenk2/oclif-common@3.7.0) (2022-09-19)
 
 ### Bug Fixes
