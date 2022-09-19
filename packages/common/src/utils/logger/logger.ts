@@ -4,13 +4,14 @@ import winston, { format, transports } from 'winston'
 
 import { LogFieldStatus, LogLevels } from './logger.constants'
 import type { LoggerFormat, LoggerOptions, Winston } from './logger.interface'
+import { ConfigService } from '@lib'
 import { color } from '@utils/color'
 
 /**
  * A general logger for the the CLI applications.
  */
 export class Logger {
-  private static instance: Winston
+  public static instance: Winston
   private logger: Winston
 
   constructor (private context?: string, private options?: LoggerOptions) {
@@ -26,8 +27,10 @@ export class Logger {
 
     if (Logger.instance) {
       this.logger = Logger.instance
-    } else {
+    } else if (context === ConfigService.name) {
       this.logger = this.initiateLogger()
+
+      this.trace('Logger singleton initiated from context: %s', context)
 
       Logger.instance = this.logger
     }
@@ -127,6 +130,12 @@ export class Logger {
   }
 
   private parseMessage (level: LogLevels, data: string | Buffer, args?: any[], format?: Partial<LoggerFormat>): void {
+    if (!this.logger && !Logger.instance) {
+      return
+    } else if (Logger.instance) {
+      this.logger = Logger.instance
+    }
+
     this.logger.log(level, data.toString(), ...args ?? [], { context: this.context, ...format ?? {} })
   }
 

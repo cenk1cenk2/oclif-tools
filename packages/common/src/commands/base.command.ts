@@ -1,4 +1,3 @@
-import type { Config } from '@oclif/core'
 import { Command as BaseCommand } from '@oclif/core'
 import type { ListrContext, PromptOptions } from 'listr2'
 import { createPrompt, Manager } from 'listr2'
@@ -12,7 +11,7 @@ import { ConfigService, FileSystemService, StoreService, ValidatorService } from
 import { ParserService } from '@lib/parser/parser.service'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
 import { CliUx, setCtxAssign, setCtxDefaults } from '@utils'
-import { Logger, ListrLogger, LogFieldStatus } from '@utils/logger'
+import { ListrLogger, LogFieldStatus, Logger } from '@utils/logger'
 
 export class Command<
   Ctx extends ListrContext = ListrContext,
@@ -42,10 +41,6 @@ export class Command<
   public flags: Flags = {} as Flags
   public args: Args = {} as Args
 
-  constructor (public argv: string[], public config: Config) {
-    super(argv, config)
-  }
-
   /**
    * Construct the class if you dont want to extend init or constructor.
    */
@@ -72,10 +67,9 @@ export class Command<
       delete process.env[this.config.scopedEnvVarKey('REDIRECTED')]
       await this.init()
       result = await this.run()
-    } catch (error: any) {
-      await this.catch(error)
-    } finally {
       await this.finally()
+    } catch (error) {
+      await this.catch(error, 127)
     }
 
     if (result && this.jsonEnabled()) {
@@ -99,23 +93,21 @@ export class Command<
   /** Gets prompt from user. */
   public prompt<T = any>(options: PromptOptions): Promise<T> {
     return createPrompt(options, {
-      stdout: process.stdout,
-      cancelCallback: () => {
-        throw new Error('Cancelled prompt.')
-      }
+      error: true,
+      stdout: process.stdout
     })
   }
 
   protected setCtxDefaults (...defaults: SetCtxDefaultsOptions<Ctx>[]): void {
     setCtxDefaults(this.tasks.options.ctx, ...defaults)
 
-    this.logger.trace('updated  with defaults: %o', this.tasks.options.ctx, { status: 'ctx' })
+    this.logger.trace('Updated context with defaults: %o', this.tasks.options.ctx, { status: 'ctx' })
   }
 
   protected setCtxAssign<K = Record<PropertyKey, any>>(...assigns: SetCtxAssignOptions<K>[]): void {
     setCtxAssign(this.tasks.options.ctx, ...assigns)
 
-    this.logger.trace('updated with assign: %o', this.tasks.options.ctx, { status: 'ctx' })
+    this.logger.trace('Updated context with assign: %o', this.tasks.options.ctx, { status: 'ctx' })
   }
 
   /** Initial functions / constructor */
@@ -181,12 +173,15 @@ export class Command<
       })
     }
 
-    process.on('SIGINT', () => {
+    const terminate = (): never => {
       // show that we have understood that
       this.logger.fatal('Caught terminate signal.', { status: LogFieldStatus.TERMINATE })
 
       process.exit(1)
-    })
+    }
+
+    process.on('SIGINT', terminate)
+    process.on('SIGTERM', terminate)
 
     this.logger.stage('Running shouldRunBefore.')
     await this.shouldRunBefore()
@@ -210,12 +205,14 @@ export class Command<
 
   /** Catch any error occurred during command. */
   // catch all those errors, not verbose
-  protected catch (e: Error): Promise<void> {
+  protected catch (e: Error, exit?: number): Promise<void> {
     // log the error
     this.logger.fatal(e.message)
     this.logger.debug(e.stack, { context: 'crash' })
 
-    this.exit(127)
+    if (exit > 0) {
+      this.exit(exit)
+    }
 
     return
   }

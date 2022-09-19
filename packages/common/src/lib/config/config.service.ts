@@ -83,7 +83,7 @@ export class ConfigService implements GlobalConfig {
       throw new Error('Nothing to merge, configuration files are empty.')
     }
 
-    return merge<T>(strategy, configs.some((config) => Array.isArray(config)) ? ([] as T) : {} as T, ...configs)
+    return merge<T>(strategy, ...configs)
   }
 
   public async env<T extends LockableData = LockableData>(definition: string | Record<PropertyKey, any>, config: T): Promise<T> {

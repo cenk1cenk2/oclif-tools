@@ -1,7 +1,7 @@
 import type { MergeStrategy } from '@utils'
 
 export interface CommonLockerData {
-  path: string | string[]
+  path?: string | string[]
   enabled?: boolean
   root?: boolean
 }
@@ -13,4 +13,6 @@ export interface LockData<T extends LockableData = LockableData> extends Partial
   merge?: MergeStrategy
 }
 
-export interface UnlockData extends CommonLockerData {}
+export interface UnlockData extends CommonLockerData {
+  path: string | string[]
+}

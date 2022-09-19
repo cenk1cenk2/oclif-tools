@@ -1,3 +1,4 @@
+import { EnvironmentVariableParser } from './env-parser.service'
 import { JsonParser } from './json-parser.service'
 import type { GenericParser } from './parser.interface'
 import { YamlParser } from './yaml-parser.service'
@@ -8,7 +9,7 @@ import { Logger } from '@utils/logger'
 
 export class ParserService {
   private static instance: ParserService
-  public parsers: ClassType<GenericParser>[] = [ YamlParser, JsonParser ]
+  public parsers: ClassType<GenericParser>[] = [ YamlParser, JsonParser, EnvironmentVariableParser ]
   private logger: Logger
   private fs: FileSystemService
 
@@ -30,8 +31,8 @@ export class ParserService {
   }
 
   public getParser (file: string): GenericParser {
-    const ext = file.includes('.') ? this.fs.extname(file) : file
-    const Parser = this.parsers.find((parser) => (parser as any).extensions.includes(ext.replace(/^\./, '')))
+    const ext = (file.includes('.') ? this.fs.extname(file) : file).replace(/^\./, '')
+    const Parser = this.parsers.find((parser) => (parser as any).extensions.includes(ext))
 
     if (!Parser) {
       throw new Error(`Parser for the extension is not configured: ${ext}`)
@@ -42,10 +43,20 @@ export class ParserService {
 
   public setParsers (...parsers: ClassType<GenericParser>[]): void {
     this.parsers = parsers
+
+    this.logger.trace(
+      'Set parsers: %s',
+      this.parsers.map((p) => p.name)
+    )
   }
 
   public addParsers (...parsers: ClassType<GenericParser>[]): void {
     this.parsers.push(...parsers)
+
+    this.logger.trace(
+      'Added parser, current parsers: %s',
+      this.parsers.map((p) => p.name)
+    )
   }
 
   public async read<T = unknown>(file: string): Promise<T> {
@@ -57,14 +68,18 @@ export class ParserService {
   }
 
   public parse<T = unknown>(file: string, data: string | Buffer): T {
-    const Parser = this.getParser(file)
+    const parser = this.getParser(file)
 
-    return Parser.parse<T>(data)
+    this.logger.trace('Parsing file: %s -> %s', file, parser.constructor.name)
+
+    return parser.parse<T>(data)
   }
 
   public stringify<T = any>(file: string, data: T): string | Promise<string> {
-    const Parser = this.getParser(file)
+    const parser = this.getParser(file)
 
-    return Parser.stringify<T>(data)
+    this.logger.trace('Stringifying file: %s -> %s', file, parser.constructor.name)
+
+    return parser.stringify<T>(data)
   }
 }

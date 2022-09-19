@@ -26,6 +26,7 @@ export class ConfigCommand<
     this.locker = setup.locker
 
     this.logger.stage('User selection for configuration.')
+
     const response = await this.select()
 
     this.logger.stage('Will run selection: %s', response)
