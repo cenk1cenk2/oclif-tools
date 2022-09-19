@@ -1,3 +1,4 @@
+import type { Config } from '@oclif/core'
 import { Command as BaseCommand } from '@oclif/core'
 import type { ListrContext, PromptOptions } from 'listr2'
 import { createPrompt, Manager } from 'listr2'
@@ -21,12 +22,12 @@ export class Command<
 > extends BaseCommand {
   static get globalFlags (): FlagInput {
     // eslint-disable-next-line no-underscore-dangle
-    return this._globalFlags
+    return { CLI_FLAGS, ...this._globalFlags }
   }
 
   static set globalFlags (flags: FlagInput) {
     // eslint-disable-next-line no-underscore-dangle
-    this._globalFlags = Object.assign(CLI_FLAGS, this.globalFlags, flags)
+    this._globalFlags = Object.assign({}, this.globalFlags, flags)
     this.flags = {} // force the flags setter to run
   }
 
@@ -40,6 +41,10 @@ export class Command<
 
   public flags: Flags = {} as Flags
   public args: Args = {} as Args
+
+  constructor (public argv: string[], public config: Config) {
+    super(argv, config)
+  }
 
   /**
    * Construct the class if you dont want to extend init or constructor.
