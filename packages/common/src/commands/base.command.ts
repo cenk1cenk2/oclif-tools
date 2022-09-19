@@ -2,15 +2,16 @@ import { Command as BaseCommand } from '@oclif/core'
 import type { ListrContext, PromptOptions } from 'listr2'
 import { createPrompt, Manager } from 'listr2'
 import { createInterface } from 'readline'
+
 import 'reflect-metadata'
 
 import { CLI_FLAGS } from '@constants'
-import type { InferArgs, InferFlags } from '@interfaces'
+import type { FlagInput, InferArgs, InferFlags } from '@interfaces'
 import { ConfigService, FileSystemService, StoreService, ValidatorService } from '@lib'
 import { ParserService } from '@lib/parser/parser.service'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
-import { setCtxAssign, setCtxDefaults } from '@utils'
-import { ListrLogger, LogFieldStatus, Logger } from '@utils/logger'
+import { CliUx, setCtxAssign, setCtxDefaults } from '@utils'
+import { Logger, ListrLogger, LogFieldStatus } from '@utils/logger'
 
 export class Command<
   Ctx extends ListrContext = ListrContext,
@@ -18,7 +19,16 @@ export class Command<
   Args extends Record<PropertyKey, any> = InferArgs<typeof Command>,
   Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
 > extends BaseCommand {
-  static globalFlags = CLI_FLAGS
+  static get globalFlags (): FlagInput {
+    // eslint-disable-next-line no-underscore-dangle
+    return this._globalFlags
+  }
+
+  static set globalFlags (flags: FlagInput) {
+    // eslint-disable-next-line no-underscore-dangle
+    this._globalFlags = Object.assign(CLI_FLAGS, this.globalFlags, flags)
+    this.flags = {} // force the flags setter to run
+  }
 
   public logger: Logger
   public tasks: Manager<Ctx, 'default' | 'verbose' | 'silent' | 'simple'>
@@ -31,9 +41,82 @@ export class Command<
   public flags: Flags = {} as Flags
   public args: Args = {} as Args
 
+  /**
+   * Construct the class if you dont want to extend init or constructor.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  public shouldRunBefore (): void | Promise<void> {}
+
+  /**
+   * Deconstruct the class if you dont want to extend finally or catch.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+  public shouldRunAfter (_ctx?: Ctx): void | Promise<void> {}
+
+  // make run non-abstract for other classes
+  public run<T = void>(): Promise<T> {
+    throw new Error('The command should have a run function to do something!')
+  }
+
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  public async _run<T>(): Promise<T | undefined> {
+    let result: T
+
+    try {
+      // remove redirected env var to allow subsessions to run autoupdated client
+      delete process.env[this.config.scopedEnvVarKey('REDIRECTED')]
+      await this.init()
+      result = await this.run<T>()
+    } catch (error: any) {
+      await this.catch(error)
+    } finally {
+      await this.finally()
+    }
+
+    if (result && this.jsonEnabled()) {
+      CliUx.ux.styledJSON(this.toSuccessJson(result))
+    }
+
+    return result
+  }
+
+  public exit (code?: number): void {
+    this.logger.trace('Code -> %d', code, { status: LogFieldStatus.EXIT })
+
+    process.exit(code ?? 0)
+  }
+
+  /** Run all tasks from task manager. */
+  public runTasks<C extends Ctx = Ctx>(): Promise<C> {
+    return this.tasks.runAll<C>()
+  }
+
+  /** Gets prompt from user. */
+  public prompt<T = any>(options: PromptOptions): Promise<T> {
+    return createPrompt(options, {
+      stdout: process.stdout,
+      cancelCallback: () => {
+        throw new Error('Cancelled prompt.')
+      }
+    })
+  }
+
+  protected setCtxDefaults (...defaults: SetCtxDefaultsOptions<Ctx>[]): void {
+    setCtxDefaults(this.tasks.options.ctx, ...defaults)
+
+    this.logger.trace('updated  with defaults: %o', this.tasks.options.ctx, { status: 'ctx' })
+  }
+
+  protected setCtxAssign<K = Record<PropertyKey, any>>(...assigns: SetCtxAssignOptions<K>[]): void {
+    setCtxAssign(this.tasks.options.ctx, ...assigns)
+
+    this.logger.trace('updated with assign: %o', this.tasks.options.ctx, { status: 'ctx' })
+  }
+
   /** Initial functions / constructor */
   // can not override constructor, init function is defined by oclif
-  public async init (): Promise<void> {
+  protected async init (): Promise<void> {
+    await super.init()
     // do the initialization first then go ahead and throw if required
     let err: Error
 
@@ -105,25 +188,8 @@ export class Command<
     this.logger.stage('Finished shouldRunBefore.')
   }
 
-  /**
-   * Construct the class if you dont want to extend init or constructor.
-   */
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public shouldRunBefore (): void | Promise<void> {}
-
-  /**
-   * Deconstruct the class if you dont want to extend finally or catch.
-   */
-  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-  public shouldRunAfter (_ctx?: Ctx): void | Promise<void> {}
-
-  // make run non-abstract for other classes
-  public run (): Promise<void> {
-    throw new Error('The command should have a run function to do something!')
-  }
-
   /** Tasks to run before end of the command. */
-  public async finally<C extends Ctx = Ctx>(): Promise<{ ctx: C }> {
+  protected async finally<C extends Ctx = Ctx>(): Promise<{ ctx: C }> {
     // run anything in the task queue at the end
     this.logger.stage('Running tasks.')
     const ctx = await this.runTasks<C>()
@@ -139,7 +205,7 @@ export class Command<
 
   /** Catch any error occurred during command. */
   // catch all those errors, not verbose
-  public catch (e: Error): Promise<void> {
+  protected catch (e: Error): Promise<void> {
     // log the error
     this.logger.fatal(e.message)
     this.logger.debug(e.stack, { context: 'crash' })
@@ -147,39 +213,6 @@ export class Command<
     this.exit(127)
 
     return
-  }
-
-  public exit (code?: number): void {
-    this.logger.trace('Code -> %d', code, { status: LogFieldStatus.EXIT })
-
-    process.exit(code ?? 0)
-  }
-
-  /** Run all tasks from task manager. */
-  public runTasks<C extends Ctx = Ctx>(): Promise<C> {
-    return this.tasks.runAll<C>()
-  }
-
-  /** Gets prompt from user. */
-  public prompt<T = any>(options: PromptOptions): Promise<T> {
-    return createPrompt(options, {
-      stdout: process.stdout,
-      cancelCallback: () => {
-        throw new Error('Cancelled prompt.')
-      }
-    })
-  }
-
-  public setCtxDefaults (...defaults: SetCtxDefaultsOptions<Ctx>[]): void {
-    setCtxDefaults(this.tasks.options.ctx, ...defaults)
-
-    this.logger.trace('updated  with defaults: %o', this.tasks.options.ctx, { status: 'ctx' })
-  }
-
-  public setCtxAssign<K = Record<PropertyKey, any>>(...assigns: SetCtxAssignOptions<K>[]): void {
-    setCtxAssign(this.tasks.options.ctx, ...assigns)
-
-    this.logger.trace('updated with assign: %o', this.tasks.options.ctx, { status: 'ctx' })
   }
 
   private greet (): void {
