@@ -18,7 +18,7 @@ export class ConfigCommand<
 
   protected ux = CliUx.ux
 
-  public async run<T = void>(): Promise<T> {
+  public async run (): Promise<any> {
     this.logger.stage('Setting up config command.')
     const setup = await this.setup()
 

@@ -22,7 +22,7 @@ export class Command<
 > extends BaseCommand {
   static get globalFlags (): FlagInput {
     // eslint-disable-next-line no-underscore-dangle
-    return { CLI_FLAGS, ...this._globalFlags }
+    return { ...CLI_FLAGS, ...this._globalFlags }
   }
 
   static set globalFlags (flags: FlagInput) {
@@ -59,7 +59,7 @@ export class Command<
   public shouldRunAfter (_ctx?: Ctx): void | Promise<void> {}
 
   // make run non-abstract for other classes
-  public run<T = void>(): Promise<T> {
+  public run (): Promise<any> {
     throw new Error('The command should have a run function to do something!')
   }
 
@@ -71,7 +71,7 @@ export class Command<
       // remove redirected env var to allow subsessions to run autoupdated client
       delete process.env[this.config.scopedEnvVarKey('REDIRECTED')]
       await this.init()
-      result = await this.run<T>()
+      result = await this.run()
     } catch (error: any) {
       await this.catch(error)
     } finally {
