@@ -8,7 +8,7 @@
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:10
+packages/common/src/lib/parser/parser.service.ts:11
 
 ___
 
@@ -18,7 +18,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:11
+packages/common/src/lib/parser/parser.service.ts:12
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:12
+packages/common/src/lib/parser/parser.service.ts:13
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:13
+packages/common/src/lib/parser/parser.service.ts:14
 
 ## Constructors
 
@@ -54,7 +54,7 @@ packages/common/src/lib/parser/parser.service.ts:13
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:15
+packages/common/src/lib/parser/parser.service.ts:16
 
 ## Methods
 
@@ -74,7 +74,7 @@ packages/common/src/lib/parser/parser.service.ts:15
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:32
+packages/common/src/lib/parser/parser.service.ts:33
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:43
+packages/common/src/lib/parser/parser.service.ts:44
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:47
+packages/common/src/lib/parser/parser.service.ts:53
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:51
+packages/common/src/lib/parser/parser.service.ts:62
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:55
+packages/common/src/lib/parser/parser.service.ts:66
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:59
+packages/common/src/lib/parser/parser.service.ts:70
 
 ___
 
@@ -221,4 +221,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/parser/parser.service.ts:65
+packages/common/src/lib/parser/parser.service.ts:78

@@ -45,6 +45,7 @@
 - [ConfigService](classes/ConfigService.md)
 - [FileSystemService](classes/FileSystemService.md)
 - [LockerService](classes/LockerService.md)
+- [EnvironmentVariableParser](classes/EnvironmentVariableParser.md)
 - [JsonParser](classes/JsonParser.md)
 - [GenericParser](classes/GenericParser.md)
 - [ParserService](classes/ParserService.md)
@@ -81,3 +82,4 @@
 - [pipeProcessThroughListr](functions/pipeProcessThroughListr.md)
 - [pipeProcessToLogger](functions/pipeProcessToLogger.md)
 - [merge](functions/merge.md)
+- [uniqueFilter](functions/uniqueFilter.md)

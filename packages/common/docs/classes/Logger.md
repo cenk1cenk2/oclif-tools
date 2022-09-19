@@ -6,11 +6,11 @@ A general logger for the the CLI applications.
 
 ### instance
 
-▪ `Static` `Private` **instance**: [`Winston`](../types/Winston.md)
+▪ `Static` **instance**: [`Winston`](../types/Winston.md)
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:13
+packages/common/src/utils/logger/logger.ts:14
 
 ___
 
@@ -20,7 +20,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:14
+packages/common/src/utils/logger/logger.ts:15
 
 ## Constructors
 
@@ -37,7 +37,7 @@ packages/common/src/utils/logger/logger.ts:14
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:16
+packages/common/src/utils/logger/logger.ts:17
 
 ## Methods
 
@@ -59,7 +59,7 @@ packages/common/src/utils/logger/logger.ts:16
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:36
+packages/common/src/utils/logger/logger.ts:39
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:40
+packages/common/src/utils/logger/logger.ts:43
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:44
+packages/common/src/utils/logger/logger.ts:47
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:48
+packages/common/src/utils/logger/logger.ts:51
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:52
+packages/common/src/utils/logger/logger.ts:55
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:56
+packages/common/src/utils/logger/logger.ts:59
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:60
+packages/common/src/utils/logger/logger.ts:63
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:64
+packages/common/src/utils/logger/logger.ts:67
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:68
+packages/common/src/utils/logger/logger.ts:71
 
 ___
 
@@ -248,7 +248,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:73
+packages/common/src/utils/logger/logger.ts:76
 
 ___
 
@@ -269,7 +269,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:77
+packages/common/src/utils/logger/logger.ts:80
 
 ___
 
@@ -290,7 +290,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:81
+packages/common/src/utils/logger/logger.ts:84
 
 ___
 
@@ -304,7 +304,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:85
+packages/common/src/utils/logger/logger.ts:88
 
 ___
 
@@ -327,7 +327,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:129
+packages/common/src/utils/logger/logger.ts:132
 
 ___
 
@@ -347,4 +347,4 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:133
+packages/common/src/utils/logger/logger.ts:142

@@ -10,7 +10,7 @@
 
 ### path
 
-• **path**: `string` \| `string`[]
+• `Optional` **path**: `string` \| `string`[]
 
 #### Defined in
 

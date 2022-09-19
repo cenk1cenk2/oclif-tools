@@ -1,6 +1,6 @@
 # Function: merge
 
-▸ **merge**<`T`\>(`strategy`, `target`, ...`source`): `T`
+▸ **merge**<`T`\>(`strategy`, ...`source`): `T`
 
 Merge objects deep from overwriting the properties from source to target.
 Does not mutate the object
@@ -16,7 +16,6 @@ Does not mutate the object
 | Name | Type |
 | :------ | :------ |
 | `strategy` | [`MergeStrategy`](../enums/MergeStrategy.md) |
-| `target` | `T` |
 | `...source` | `Partial`<`T`\>[] |
 
 #### Returns

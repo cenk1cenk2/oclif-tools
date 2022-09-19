@@ -19,6 +19,34 @@
 
 ## Properties
 
+### argv
+
+• **argv**: `string`[]
+
+#### Inherited from
+
+BaseCommand.argv
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:9
+
+___
+
+### config
+
+• **config**: `Config`
+
+#### Inherited from
+
+BaseCommand.config
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:10
+
+___
+
 ### \_base
 
 ▪ `Static` **\_base**: `string`
@@ -386,7 +414,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:34
+packages/common/src/commands/base.command.ts:33
 
 ___
 
@@ -396,7 +424,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:35
+packages/common/src/commands/base.command.ts:34
 
 ___
 
@@ -406,7 +434,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:36
+packages/common/src/commands/base.command.ts:35
 
 ___
 
@@ -416,7 +444,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:37
+packages/common/src/commands/base.command.ts:36
 
 ___
 
@@ -426,7 +454,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:38
+packages/common/src/commands/base.command.ts:37
 
 ___
 
@@ -436,7 +464,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:39
+packages/common/src/commands/base.command.ts:38
 
 ___
 
@@ -446,7 +474,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:40
+packages/common/src/commands/base.command.ts:39
 
 ___
 
@@ -456,7 +484,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:42
+packages/common/src/commands/base.command.ts:41
 
 ___
 
@@ -466,35 +494,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:43
-
-___
-
-### argv
-
-• **argv**: `string`[]
-
-#### Inherited from
-
-BaseCommand.argv
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:45
-
-___
-
-### config
-
-• **config**: `Config`
-
-#### Inherited from
-
-BaseCommand.config
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:45
+packages/common/src/commands/base.command.ts:42
 
 ## Accessors
 
@@ -606,7 +606,7 @@ BaseCommand.globalFlags
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:23
+packages/common/src/commands/base.command.ts:22
 
 • `Static` `set` **globalFlags**(`flags`): `void`
 
@@ -626,7 +626,37 @@ BaseCommand.globalFlags
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:28
+packages/common/src/commands/base.command.ts:27
+
+## Constructors
+
+### constructor
+
+• **new Command**<`Ctx`, `Flags`, `Args`, `Store`\>(`argv`, `config`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Ctx` | extends `unknown` = `any` |
+| `Flags` | extends `Record`<`PropertyKey`, `any`\> = `unknown` |
+| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`Command`](Command.md)\> |
+| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `argv` | `string`[] |
+| `config` | `Config` |
+
+#### Inherited from
+
+BaseCommand.constructor
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:77
 
 ## Methods
 
@@ -861,7 +891,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:53
+packages/common/src/commands/base.command.ts:48
 
 ___
 
@@ -883,7 +913,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:59
+packages/common/src/commands/base.command.ts:54
 
 ___
 
@@ -901,7 +931,7 @@ BaseCommand.run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:62
+packages/common/src/commands/base.command.ts:57
 
 ___
 
@@ -925,7 +955,7 @@ BaseCommand.\_run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:67
+packages/common/src/commands/base.command.ts:62
 
 ___
 
@@ -949,7 +979,7 @@ BaseCommand.exit
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:88
+packages/common/src/commands/base.command.ts:82
 
 ___
 
@@ -971,7 +1001,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:95
+packages/common/src/commands/base.command.ts:89
 
 ___
 
@@ -999,7 +1029,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:100
+packages/common/src/commands/base.command.ts:94
 
 ___
 
@@ -1019,7 +1049,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:109
+packages/common/src/commands/base.command.ts:101
 
 ___
 
@@ -1045,7 +1075,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:115
+packages/common/src/commands/base.command.ts:107
 
 ___
 
@@ -1065,7 +1095,7 @@ BaseCommand.init
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:123
+packages/common/src/commands/base.command.ts:115
 
 ___
 
@@ -1091,13 +1121,13 @@ BaseCommand.finally
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:197
+packages/common/src/commands/base.command.ts:192
 
 ___
 
 ### catch
 
-▸ `Protected` **catch**(`e`): `Promise`<`void`\>
+▸ `Protected` **catch**(`e`, `exit?`): `Promise`<`void`\>
 
 Catch any error occurred during command.
 
@@ -1106,6 +1136,7 @@ Catch any error occurred during command.
 | Name | Type |
 | :------ | :------ |
 | `e` | `Error` |
+| `exit?` | `number` |
 
 #### Returns
 
@@ -1117,7 +1148,7 @@ BaseCommand.catch
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:213
+packages/common/src/commands/base.command.ts:208
 
 ___
 
@@ -1131,34 +1162,4 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:223
-
-## Constructors
-
-### constructor
-
-• **new Command**<`Ctx`, `Flags`, `Args`, `Store`\>(`argv`, `config`)
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `Ctx` | extends `unknown` = `any` |
-| `Flags` | extends `Record`<`PropertyKey`, `any`\> = `unknown` |
-| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`Command`](Command.md)\> |
-| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `argv` | `string`[] |
-| `config` | `Config` |
-
-#### Overrides
-
-BaseCommand.constructor
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:45
+packages/common/src/commands/base.command.ts:220

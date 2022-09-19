@@ -1,3 +1,10 @@
+# @cenk1cenk2/oclif-common [3.8.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.7.2...@cenk1cenk2/oclif-common@3.8.0) (2022-09-19)
+
+
+### Features
+
+* update logger init method ([8779d03](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8779d037fec90a2e76bac5d3b075a04c606a756e))
+
 ## @cenk1cenk2/oclif-common [3.7.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.7.1...@cenk1cenk2/oclif-common@3.7.2) (2022-09-19)
 
 

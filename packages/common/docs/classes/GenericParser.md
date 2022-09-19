@@ -2,6 +2,7 @@
 
 ## Implemented by
 
+- [`EnvironmentVariableParser`](EnvironmentVariableParser.md)
 - [`JsonParser`](JsonParser.md)
 - [`YamlParser`](YamlParser.md)
 

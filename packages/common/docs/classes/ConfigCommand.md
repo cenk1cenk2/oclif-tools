@@ -19,6 +19,34 @@
 
 ## Properties
 
+### argv
+
+• **argv**: `string`[]
+
+#### Inherited from
+
+[Command](Command.md).[argv](Command.md#argv)
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:9
+
+___
+
+### config
+
+• **config**: `Config`
+
+#### Inherited from
+
+[Command](Command.md).[config](Command.md#config)
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:10
+
+___
+
 ### \_base
 
 ▪ `Static` **\_base**: `string`
@@ -390,7 +418,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:34
+packages/common/src/commands/base.command.ts:33
 
 ___
 
@@ -404,7 +432,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:35
+packages/common/src/commands/base.command.ts:34
 
 ___
 
@@ -418,7 +446,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:36
+packages/common/src/commands/base.command.ts:35
 
 ___
 
@@ -432,7 +460,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:37
+packages/common/src/commands/base.command.ts:36
 
 ___
 
@@ -446,7 +474,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:38
+packages/common/src/commands/base.command.ts:37
 
 ___
 
@@ -460,7 +488,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:39
+packages/common/src/commands/base.command.ts:38
 
 ___
 
@@ -474,7 +502,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:40
+packages/common/src/commands/base.command.ts:39
 
 ___
 
@@ -488,7 +516,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:42
+packages/common/src/commands/base.command.ts:41
 
 ___
 
@@ -502,35 +530,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:43
-
-___
-
-### argv
-
-• **argv**: `string`[]
-
-#### Inherited from
-
-[Command](Command.md).[argv](Command.md#argv)
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:45
-
-___
-
-### config
-
-• **config**: `Config`
-
-#### Inherited from
-
-[Command](Command.md).[config](Command.md#config)
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:45
+packages/common/src/commands/base.command.ts:42
 
 ___
 
@@ -702,7 +702,7 @@ Command.globalFlags
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:23
+packages/common/src/commands/base.command.ts:22
 
 • `Static` `set` **globalFlags**(`flags`): `void`
 
@@ -722,7 +722,39 @@ Command.globalFlags
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:28
+packages/common/src/commands/base.command.ts:27
+
+## Constructors
+
+### constructor
+
+• **new ConfigCommand**<`CommandChoices`, `LockFile`, `Ctx`, `Flags`, `Args`, `Store`\>(`argv`, `config`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `CommandChoices` | extends `string` = `string` |
+| `LockFile` | `any` |
+| `Ctx` | extends `unknown` = `any` |
+| `Flags` | extends `Record`<`PropertyKey`, `any`\> = `unknown` |
+| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`ConfigCommand`](ConfigCommand.md)\> |
+| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `argv` | `string`[] |
+| `config` | `Config` |
+
+#### Inherited from
+
+[Command](Command.md).[constructor](Command.md#constructor)
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:77
 
 ## Methods
 
@@ -961,7 +993,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:53
+packages/common/src/commands/base.command.ts:48
 
 ___
 
@@ -987,7 +1019,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:59
+packages/common/src/commands/base.command.ts:54
 
 ___
 
@@ -1011,7 +1043,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:67
+packages/common/src/commands/base.command.ts:62
 
 ___
 
@@ -1035,7 +1067,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:88
+packages/common/src/commands/base.command.ts:82
 
 ___
 
@@ -1061,7 +1093,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:95
+packages/common/src/commands/base.command.ts:89
 
 ___
 
@@ -1093,7 +1125,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:100
+packages/common/src/commands/base.command.ts:94
 
 ___
 
@@ -1117,7 +1149,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:109
+packages/common/src/commands/base.command.ts:101
 
 ___
 
@@ -1147,7 +1179,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:115
+packages/common/src/commands/base.command.ts:107
 
 ___
 
@@ -1167,7 +1199,7 @@ Initial functions / constructor
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:123
+packages/common/src/commands/base.command.ts:115
 
 ___
 
@@ -1193,13 +1225,13 @@ Tasks to run before end of the command.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:197
+packages/common/src/commands/base.command.ts:192
 
 ___
 
 ### catch
 
-▸ `Protected` **catch**(`e`): `Promise`<`void`\>
+▸ `Protected` **catch**(`e`, `exit?`): `Promise`<`void`\>
 
 Catch any error occurred during command.
 
@@ -1208,6 +1240,7 @@ Catch any error occurred during command.
 | Name | Type |
 | :------ | :------ |
 | `e` | `Error` |
+| `exit?` | `number` |
 
 #### Returns
 
@@ -1219,7 +1252,7 @@ Catch any error occurred during command.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:213
+packages/common/src/commands/base.command.ts:208
 
 ___
 
@@ -1251,7 +1284,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:36
+packages/common/src/commands/config.command.ts:37
 
 ___
 
@@ -1271,7 +1304,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:40
+packages/common/src/commands/config.command.ts:41
 
 ___
 
@@ -1285,36 +1318,4 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:44
-
-## Constructors
-
-### constructor
-
-• **new ConfigCommand**<`CommandChoices`, `LockFile`, `Ctx`, `Flags`, `Args`, `Store`\>(`argv`, `config`)
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `CommandChoices` | extends `string` = `string` |
-| `LockFile` | `any` |
-| `Ctx` | extends `unknown` = `any` |
-| `Flags` | extends `Record`<`PropertyKey`, `any`\> = `unknown` |
-| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`ConfigCommand`](ConfigCommand.md)\> |
-| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `argv` | `string`[] |
-| `config` | `Config` |
-
-#### Inherited from
-
-[Command](Command.md).[constructor](Command.md#constructor)
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:45
+packages/common/src/commands/config.command.ts:45

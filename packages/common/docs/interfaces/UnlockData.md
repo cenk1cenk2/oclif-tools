@@ -8,20 +8,6 @@
 
 ## Properties
 
-### path
-
-• **path**: `string` \| `string`[]
-
-#### Inherited from
-
-[CommonLockerData](CommonLockerData.md).[path](CommonLockerData.md#path)
-
-#### Defined in
-
-packages/common/src/lib/locker/locker.interface.ts:4
-
-___
-
 ### enabled
 
 • `Optional` **enabled**: `boolean`
@@ -47,3 +33,17 @@ ___
 #### Defined in
 
 packages/common/src/lib/locker/locker.interface.ts:6
+
+___
+
+### path
+
+• **path**: `string` \| `string`[]
+
+#### Overrides
+
+[CommonLockerData](CommonLockerData.md).[path](CommonLockerData.md#path)
+
+#### Defined in
+
+packages/common/src/lib/locker/locker.interface.ts:17
