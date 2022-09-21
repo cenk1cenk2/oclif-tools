@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [3.8.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.8.0...@cenk1cenk2/oclif-common@3.8.1) (2022-09-21)
+
+
+### Bug Fixes
+
+* update for nullable fields ([4ee2794](https://gitlab.kilic.dev/libraries/oclif-tools/commit/4ee279483adfe759ab35036621eef7ac7f542315))
+
 # @cenk1cenk2/oclif-common [3.8.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.7.2...@cenk1cenk2/oclif-common@3.8.0) (2022-09-19)
 
 
