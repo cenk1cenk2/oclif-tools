@@ -34,9 +34,9 @@ export class ValidatorService {
   }
 
   public async validate<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorServiceOptions): Promise<T> {
-    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...options.transformer ?? {} })
+    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...options?.transformer ?? {} })
 
-    const errors = await validate(classObject, { ...this.options.validator, ...options.validator ?? {} })
+    const errors = await validate(classObject, { ...this.options.validator, ...options?.validator ?? {} })
 
     if (errors.length) {
       errors.forEach((error) => {
@@ -50,9 +50,9 @@ export class ValidatorService {
   }
 
   public validateSync<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorServiceOptions): T {
-    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...options.transformer ?? {} })
+    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...options?.transformer ?? {} })
 
-    const errors = validateSync(classObject, { ...this.options.validator, ...options.validator ?? {} })
+    const errors = validateSync(classObject, { ...this.options.validator, ...options?.validator ?? {} })
 
     if (errors.length) {
       errors.forEach((error) => {
