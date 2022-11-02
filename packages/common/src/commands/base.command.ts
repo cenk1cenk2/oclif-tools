@@ -134,7 +134,7 @@ export class Command<
 
     const context = this.cs.command.id ? this.cs.command.id : this.cs.command.name
 
-    this.logger = new Logger(context, { level: this.cs.logLevel })
+    this.logger = new Logger(null, { level: this.cs.logLevel })
 
     this.store = new StoreService<Store>()
 
