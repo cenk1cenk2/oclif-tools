@@ -32,16 +32,16 @@
     "@cenk1cenk2/eslint-config": "^2.5.34",
     "commitizen": "^4.2.5",
     "eslint": "^8.23.1",
-    "eslint-plugin-import": "^2.23.0",
+    "eslint-plugin-import": "^2.26.0",
     "lerna": "^6.0.1",
     "lint-staged": "^13.0.3",
     "markdown-toc": "^1.2.0",
     "prettier": "^2.7.1",
     "simple-git-hooks": "^2.8.0",
-    "tsup": "^6.2.3",
-    "typedoc": "^0.23.14",
+    "tsup": "^6.3.0",
+    "typedoc": "^0.23.19",
     "typedoc-plugin-markdown": "^3.13.6",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.4"
   },
   "config": {
     "commitizen": {
