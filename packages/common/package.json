@@ -45,7 +45,7 @@
     "execa": ">= 5",
     "fs-extra": ">= 10",
     "listr2": ">= 4",
-    "update-notifier": "^5"
+    "update-notifier": "^5 || ^6.0.0"
   },
   "peerDependenciesMeta": {
     "execa": {
