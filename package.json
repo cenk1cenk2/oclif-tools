@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "@anatine/esbuild-decorators": "^0.2.19",
-    "@cenk1cenk2/cz-cc": "^1.5.3",
-    "@cenk1cenk2/eslint-config": "^2.5.27",
+    "@cenk1cenk2/cz-cc": "^1.5.4",
+    "@cenk1cenk2/eslint-config": "^2.5.34",
     "commitizen": "^4.2.5",
     "eslint": "^8.23.1",
     "eslint-plugin-import": "^2.23.0",
