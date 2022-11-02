@@ -1,23 +1,26 @@
-## @cenk1cenk2/oclif-common [3.8.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.8.0...@cenk1cenk2/oclif-common@3.8.1) (2022-09-21)
-
+## @cenk1cenk2/oclif-common [3.8.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.8.1...@cenk1cenk2/oclif-common@3.8.2) (2022-11-02)
 
 ### Bug Fixes
 
-* update for nullable fields ([4ee2794](https://gitlab.kilic.dev/libraries/oclif-tools/commit/4ee279483adfe759ab35036621eef7ac7f542315))
+- peer dependency problem with execa ([78fc69f](https://gitlab.kilic.dev/libraries/oclif-tools/commit/78fc69f765c27ec420e2ec2082e80c4e9bad2114))
+
+## @cenk1cenk2/oclif-common [3.8.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.8.0...@cenk1cenk2/oclif-common@3.8.1) (2022-09-21)
+
+### Bug Fixes
+
+- update for nullable fields ([4ee2794](https://gitlab.kilic.dev/libraries/oclif-tools/commit/4ee279483adfe759ab35036621eef7ac7f542315))
 
 # @cenk1cenk2/oclif-common [3.8.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.7.2...@cenk1cenk2/oclif-common@3.8.0) (2022-09-19)
 
-
 ### Features
 
-* update logger init method ([8779d03](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8779d037fec90a2e76bac5d3b075a04c606a756e))
+- update logger init method ([8779d03](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8779d037fec90a2e76bac5d3b075a04c606a756e))
 
 ## @cenk1cenk2/oclif-common [3.7.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.7.1...@cenk1cenk2/oclif-common@3.7.2) (2022-09-19)
 
-
 ### Bug Fixes
 
-* update locker to work sync ([97aca98](https://gitlab.kilic.dev/libraries/oclif-tools/commit/97aca9830cbbd955c754eec61d2b9d8b9bdd68e7))
+- update locker to work sync ([97aca98](https://gitlab.kilic.dev/libraries/oclif-tools/commit/97aca9830cbbd955c754eec61d2b9d8b9bdd68e7))
 
 ## @cenk1cenk2/oclif-common [3.7.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.7.0...@cenk1cenk2/oclif-common@3.7.1) (2022-09-19)
 
