@@ -1,3 +1,9 @@
+# @cenk1cenk2/oclif-common [3.9.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.8.2...@cenk1cenk2/oclif-common@3.9.0) (2022-11-02)
+
+### Features
+
+- send no context from the command itself ([a5e5a03](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a5e5a03ebdf75d1c273201e48488b9bb0980ab3b))
+
 ## @cenk1cenk2/oclif-common [3.8.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.8.1...@cenk1cenk2/oclif-common@3.8.2) (2022-11-02)
 
 ### Bug Fixes
