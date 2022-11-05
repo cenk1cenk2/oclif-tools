@@ -28,7 +28,7 @@ v16.7.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3855
+node_modules/@types/node/ts4.8/fs.d.ts:3855
 
 ▸ **cp**(`source`, `destination`, `opts`, `callback`): `void`
 
@@ -47,4 +47,4 @@ node_modules/@types/node/fs.d.ts:3855
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3856
+node_modules/@types/node/ts4.8/fs.d.ts:3856

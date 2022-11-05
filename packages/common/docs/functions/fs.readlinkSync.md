@@ -30,7 +30,7 @@ v0.1.31
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1227
+node_modules/@types/node/ts4.8/fs.d.ts:1227
 
 ▸ **readlinkSync**(`path`, `options`): `Buffer`
 
@@ -49,7 +49,7 @@ Synchronous readlink(2) - read value of a symbolic link.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1233
+node_modules/@types/node/ts4.8/fs.d.ts:1233
 
 ▸ **readlinkSync**(`path`, `options?`): `string` \| `Buffer`
 
@@ -68,4 +68,4 @@ Synchronous readlink(2) - read value of a symbolic link.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1239
+node_modules/@types/node/ts4.8/fs.d.ts:1239

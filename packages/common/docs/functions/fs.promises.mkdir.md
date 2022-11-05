@@ -30,7 +30,7 @@ Upon success, fulfills with `undefined` if `recursive` is `false`, or the first 
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:558
+node_modules/@types/node/ts4.8/fs/promises.d.ts:576
 
 ▸ **mkdir**(`path`, `options?`): `Promise`<`void`\>
 
@@ -49,7 +49,7 @@ Asynchronous mkdir(2) - create a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:570
+node_modules/@types/node/ts4.8/fs/promises.d.ts:588
 
 ▸ **mkdir**(`path`, `options?`): `Promise`<`string` \| `undefined`\>
 
@@ -68,4 +68,4 @@ Asynchronous mkdir(2) - create a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:585
+node_modules/@types/node/ts4.8/fs/promises.d.ts:603

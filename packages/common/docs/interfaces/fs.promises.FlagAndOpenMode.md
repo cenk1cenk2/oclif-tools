@@ -10,7 +10,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:46
+node_modules/@types/node/ts4.8/fs/promises.d.ts:47
 
 ___
 
@@ -20,4 +20,4 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:47
+node_modules/@types/node/ts4.8/fs/promises.d.ts:48

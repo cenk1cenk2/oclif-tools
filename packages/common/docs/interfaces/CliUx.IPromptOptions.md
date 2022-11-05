@@ -10,7 +10,7 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:2
+packages/common/node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:2
 
 ___
 
@@ -20,7 +20,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:3
+packages/common/node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:3
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:4
+packages/common/node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:4
 
 ___
 
@@ -42,7 +42,7 @@ Requires user input if true, otherwise allows empty input
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:8
+packages/common/node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:8
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:9
+packages/common/node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:9

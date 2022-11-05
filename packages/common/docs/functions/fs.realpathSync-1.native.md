@@ -17,7 +17,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1346
+node_modules/@types/node/ts4.8/fs.d.ts:1346
 
 ▸ **native**(`path`, `options`): `Buffer`
 
@@ -34,7 +34,7 @@ node_modules/@types/node/fs.d.ts:1346
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1347
+node_modules/@types/node/ts4.8/fs.d.ts:1347
 
 ▸ **native**(`path`, `options?`): `string` \| `Buffer`
 
@@ -51,4 +51,4 @@ node_modules/@types/node/fs.d.ts:1347
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1348
+node_modules/@types/node/ts4.8/fs.d.ts:1348

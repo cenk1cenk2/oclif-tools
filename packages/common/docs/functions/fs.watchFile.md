@@ -66,7 +66,7 @@ v0.1.31
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2895
+node_modules/@types/node/ts4.8/fs.d.ts:2895
 
 ▸ **watchFile**(`filename`, `options`, `listener`): [`StatWatcher`](../interfaces/fs.StatWatcher.md)
 
@@ -84,7 +84,7 @@ node_modules/@types/node/fs.d.ts:2895
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2904
+node_modules/@types/node/ts4.8/fs.d.ts:2904
 
 ▸ **watchFile**(`filename`, `listener`): [`StatWatcher`](../interfaces/fs.StatWatcher.md)
 
@@ -103,4 +103,4 @@ Watch for changes on `filename`. The callback `listener` will be called each tim
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2917
+node_modules/@types/node/ts4.8/fs.d.ts:2917

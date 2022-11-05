@@ -4,4 +4,4 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:36
+packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:36

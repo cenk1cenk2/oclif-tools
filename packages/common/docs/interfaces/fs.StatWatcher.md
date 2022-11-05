@@ -45,7 +45,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:317
+node_modules/@types/node/ts4.8/events.d.ts:354
 
 ___
 
@@ -100,7 +100,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:348
+node_modules/@types/node/ts4.8/events.d.ts:385
 
 ___
 
@@ -153,7 +153,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:377
+node_modules/@types/node/ts4.8/events.d.ts:414
 
 ___
 
@@ -259,7 +259,7 @@ EventEmitter.removeListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:457
+node_modules/@types/node/ts4.8/events.d.ts:494
 
 ___
 
@@ -290,7 +290,7 @@ EventEmitter.off
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:462
+node_modules/@types/node/ts4.8/events.d.ts:499
 
 ___
 
@@ -326,7 +326,7 @@ EventEmitter.removeAllListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:473
+node_modules/@types/node/ts4.8/events.d.ts:510
 
 ___
 
@@ -361,7 +361,7 @@ EventEmitter.setMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:483
+node_modules/@types/node/ts4.8/events.d.ts:520
 
 ___
 
@@ -386,7 +386,7 @@ EventEmitter.getMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:489
+node_modules/@types/node/ts4.8/events.d.ts:526
 
 ___
 
@@ -424,7 +424,7 @@ EventEmitter.listeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:502
+node_modules/@types/node/ts4.8/events.d.ts:539
 
 ___
 
@@ -479,7 +479,7 @@ EventEmitter.rawListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:532
+node_modules/@types/node/ts4.8/events.d.ts:569
 
 ___
 
@@ -546,7 +546,7 @@ EventEmitter.emit
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:573
+node_modules/@types/node/ts4.8/events.d.ts:610
 
 ___
 
@@ -576,7 +576,7 @@ EventEmitter.listenerCount
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:579
+node_modules/@types/node/ts4.8/events.d.ts:616
 
 ___
 
@@ -618,7 +618,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:597
+node_modules/@types/node/ts4.8/events.d.ts:634
 
 ___
 
@@ -658,7 +658,7 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:613
+node_modules/@types/node/ts4.8/events.d.ts:650
 
 ___
 
@@ -696,7 +696,7 @@ EventEmitter.eventNames
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:632
+node_modules/@types/node/ts4.8/events.d.ts:669
 
 ___
 
@@ -721,7 +721,7 @@ v14.3.0, v12.20.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:279
+node_modules/@types/node/ts4.8/fs.d.ts:279
 
 ___
 
@@ -745,4 +745,4 @@ v14.3.0, v12.20.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:288
+node_modules/@types/node/ts4.8/fs.d.ts:288

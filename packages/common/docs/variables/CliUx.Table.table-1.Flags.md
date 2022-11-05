@@ -19,4 +19,4 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:4
+packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:4

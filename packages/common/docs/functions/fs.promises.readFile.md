@@ -61,7 +61,7 @@ Fulfills with the contents of the file.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:977
+node_modules/@types/node/ts4.8/fs/promises.d.ts:995
 
 ▸ **readFile**(`path`, `options`): `Promise`<`string`\>
 
@@ -80,7 +80,7 @@ Asynchronously reads the entire contents of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:993
+node_modules/@types/node/ts4.8/fs/promises.d.ts:1011
 
 ▸ **readFile**(`path`, `options?`): `Promise`<`string` \| `Buffer`\>
 
@@ -99,4 +99,4 @@ Asynchronously reads the entire contents of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:1009
+node_modules/@types/node/ts4.8/fs/promises.d.ts:1027

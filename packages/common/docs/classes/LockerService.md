@@ -46,6 +46,36 @@ ___
 
 packages/common/src/lib/locker/locker.service.ts:14
 
+___
+
+### file
+
+• `Private` **file**: `string`
+
+#### Defined in
+
+packages/common/src/lib/locker/locker.service.ts:16
+
+___
+
+### parser
+
+• `Private` `Optional` **parser**: [`GenericParser`](GenericParser.md)
+
+#### Defined in
+
+packages/common/src/lib/locker/locker.service.ts:16
+
+___
+
+### root
+
+• `Private` `Optional` **root**: `string`[]
+
+#### Defined in
+
+packages/common/src/lib/locker/locker.service.ts:16
+
 ## Constructors
 
 ### constructor

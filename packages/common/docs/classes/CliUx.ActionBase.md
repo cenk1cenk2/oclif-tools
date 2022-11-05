@@ -16,7 +16,7 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:11
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:11
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:12
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:12
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:13
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:13
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:14
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:14
 
 ## Methods
 
@@ -68,7 +68,7 @@ node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:14
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:15
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:15
 
 ___
 
@@ -88,28 +88,34 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:16
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:16
 
 ___
 
 ### pauseAsync
 
-▸ **pauseAsync**(`fn`, `icon?`): `Promise`<`any`\>
+▸ **pauseAsync**<`T`\>(`fn`, `icon?`): `Promise`<`T`\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `unknown` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `fn` | () => `Promise`<`any`\> |
+| `fn` | () => `Promise`<`T`\> |
 | `icon?` | `string` |
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`<`T`\>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:25
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:25
 
 ___
 
@@ -130,7 +136,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:26
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:26
 
 ___
 
@@ -144,7 +150,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:27
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:27
 
 ___
 
@@ -164,7 +170,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:28
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:28
 
 ___
 
@@ -178,7 +184,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:29
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:29
 
 ___
 
@@ -198,7 +204,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:30
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:30
 
 ___
 
@@ -219,7 +225,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:31
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:31
 
 ___
 
@@ -239,7 +245,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:32
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:32
 
 ___
 
@@ -253,7 +259,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:33
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:33
 
 ___
 
@@ -274,7 +280,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:34
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:34
 
 ## Accessors
 
@@ -288,7 +294,7 @@ node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:34
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:17
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:17
 
 ___
 
@@ -302,7 +308,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:18
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:18
 
 • `set` **task**(`task`): `void`
 
@@ -318,7 +324,7 @@ node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:18
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:19
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:19
 
 ___
 
@@ -332,7 +338,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:20
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:20
 
 • `Protected` `set` **output**(`output`): `void`
 
@@ -348,7 +354,7 @@ node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:20
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:21
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:21
 
 ___
 
@@ -362,7 +368,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:22
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:22
 
 ___
 
@@ -376,7 +382,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:23
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:23
 
 • `set` **status**(`status`): `void`
 
@@ -392,4 +398,4 @@ node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:23
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:24
+packages/common/node_modules/@oclif/core/lib/cli-ux/action/base.d.ts:24

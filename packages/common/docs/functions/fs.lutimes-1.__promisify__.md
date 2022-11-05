@@ -22,4 +22,4 @@ dereferenced: instead, the timestamps of the symbolic link itself are changed.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:723
+node_modules/@types/node/ts4.8/fs.d.ts:723

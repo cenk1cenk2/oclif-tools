@@ -8,4 +8,4 @@ Constant for fs.open(). Flag indicating that if the file exists and is a regular
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3187
+node_modules/@types/node/ts4.8/fs.d.ts:3187

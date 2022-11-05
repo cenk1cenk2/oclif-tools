@@ -22,6 +22,26 @@ ___
 
 packages/common/src/utils/logger/logger.ts:15
 
+___
+
+### context
+
+• `Private` `Optional` **context**: `string`
+
+#### Defined in
+
+packages/common/src/utils/logger/logger.ts:17
+
+___
+
+### options
+
+• `Private` `Optional` **options**: [`LoggerOptions`](../interfaces/LoggerOptions.md)
+
+#### Defined in
+
+packages/common/src/utils/logger/logger.ts:17
+
 ## Constructors
 
 ### constructor

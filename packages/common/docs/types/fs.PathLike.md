@@ -8,4 +8,4 @@ Valid types for path values in "fs".
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:30
+node_modules/@types/node/ts4.8/fs.d.ts:30

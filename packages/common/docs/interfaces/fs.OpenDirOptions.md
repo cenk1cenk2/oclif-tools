@@ -10,7 +10,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3743
+node_modules/@types/node/ts4.8/fs.d.ts:3743
 
 ___
 
@@ -28,4 +28,4 @@ performance but higher memory usage.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3750
+node_modules/@types/node/ts4.8/fs.d.ts:3750

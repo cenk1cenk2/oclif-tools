@@ -20,7 +20,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2244
+node_modules/@types/node/ts4.8/fs.d.ts:2244
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2248
+node_modules/@types/node/ts4.8/fs.d.ts:2248
 
 ___
 
@@ -48,4 +48,4 @@ null
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2252
+node_modules/@types/node/ts4.8/fs.d.ts:2252

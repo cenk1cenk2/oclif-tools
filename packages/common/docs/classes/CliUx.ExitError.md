@@ -8,43 +8,34 @@
 
   ↳ **`ExitError`**
 
-## Properties
+## Methods
 
-### cli-ux
+### captureStackTrace
 
-• **cli-ux**: `Object`
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
 
-#### Type declaration
+Create .stack property on a target object
+
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `exit` | `number` |
+| `targetObject` | `object` |
+| `constructorOpt?` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Error.captureStackTrace
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/exit.d.ts:2
+node_modules/@types/node/ts4.8/globals.d.ts:4
 
-___
-
-### code
-
-• **code**: ``"EEXIT"``
-
-#### Defined in
-
-node_modules/@oclif/core/lib/cli-ux/exit.d.ts:5
-
-___
-
-### error
-
-• `Optional` **error**: `Error`
-
-#### Defined in
-
-node_modules/@oclif/core/lib/cli-ux/exit.d.ts:6
-
-___
+## Properties
 
 ### prepareStackTrace
 
@@ -77,7 +68,7 @@ Error.prepareStackTrace
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:11
+node_modules/@types/node/ts4.8/globals.d.ts:11
 
 ___
 
@@ -91,7 +82,7 @@ Error.stackTraceLimit
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:13
+node_modules/@types/node/ts4.8/globals.d.ts:13
 
 ___
 
@@ -149,6 +140,42 @@ Error.stack
 
 node_modules/typescript/lib/lib.es5.d.ts:1042
 
+___
+
+### cli-ux
+
+• **cli-ux**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `exit` | `number` |
+
+#### Defined in
+
+packages/common/node_modules/@oclif/core/lib/cli-ux/exit.d.ts:2
+
+___
+
+### code
+
+• **code**: ``"EEXIT"``
+
+#### Defined in
+
+packages/common/node_modules/@oclif/core/lib/cli-ux/exit.d.ts:5
+
+___
+
+### error
+
+• `Optional` **error**: `Error`
+
+#### Defined in
+
+packages/common/node_modules/@oclif/core/lib/cli-ux/exit.d.ts:6
+
 ## Constructors
 
 ### constructor
@@ -168,31 +195,4 @@ Error.constructor
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/exit.d.ts:7
-
-## Methods
-
-### captureStackTrace
-
-▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
-
-Create .stack property on a target object
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `targetObject` | `object` |
-| `constructorOpt?` | `Function` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Error.captureStackTrace
-
-#### Defined in
-
-node_modules/@types/node/globals.d.ts:4
+packages/common/node_modules/@oclif/core/lib/cli-ux/exit.d.ts:7

@@ -8,4 +8,4 @@ Constant for fs.access(). File can be written by the calling process.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3153
+node_modules/@types/node/ts4.8/fs.d.ts:3153

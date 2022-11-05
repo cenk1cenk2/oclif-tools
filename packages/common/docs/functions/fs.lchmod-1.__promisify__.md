@@ -19,4 +19,4 @@ Asynchronous lchmod(2) - Change permissions of a file. Does not dereference symb
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:805
+node_modules/@types/node/ts4.8/fs.d.ts:805

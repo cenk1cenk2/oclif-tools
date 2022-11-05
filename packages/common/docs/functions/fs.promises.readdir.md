@@ -44,7 +44,7 @@ Fulfills with an array of the names of the files in the directory excluding `'.'
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:610
+node_modules/@types/node/ts4.8/fs/promises.d.ts:628
 
 ▸ **readdir**(`path`, `options`): `Promise`<`Buffer`[]\>
 
@@ -63,7 +63,7 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:624
+node_modules/@types/node/ts4.8/fs/promises.d.ts:642
 
 ▸ **readdir**(`path`, `options?`): `Promise`<`string`[] \| `Buffer`[]\>
 
@@ -82,7 +82,7 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:638
+node_modules/@types/node/ts4.8/fs/promises.d.ts:656
 
 ▸ **readdir**(`path`, `options`): `Promise`<[`Dirent`](../classes/fs.Dirent.md)[]\>
 
@@ -101,4 +101,4 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:652
+node_modules/@types/node/ts4.8/fs/promises.d.ts:670

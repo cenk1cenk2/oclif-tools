@@ -104,7 +104,7 @@ v9.2.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1320
+node_modules/@types/node/ts4.8/fs.d.ts:1320
 
 ▸ **native**(`path`, `options`, `callback`): `void`
 
@@ -122,7 +122,7 @@ node_modules/@types/node/fs.d.ts:1320
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1321
+node_modules/@types/node/ts4.8/fs.d.ts:1321
 
 ▸ **native**(`path`, `options`, `callback`): `void`
 
@@ -140,7 +140,7 @@ node_modules/@types/node/fs.d.ts:1321
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1322
+node_modules/@types/node/ts4.8/fs.d.ts:1322
 
 ▸ **native**(`path`, `callback`): `void`
 
@@ -157,4 +157,4 @@ node_modules/@types/node/fs.d.ts:1322
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1323
+node_modules/@types/node/ts4.8/fs.d.ts:1323

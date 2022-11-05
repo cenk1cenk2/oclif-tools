@@ -6,8 +6,8 @@
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `FlagOutput` = `object` |
+| `T` | extends `FlagOutput` = { `[flag: string]`: `any`;  } |
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:246
+packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:263

@@ -8,4 +8,4 @@ Constant for fs.copyFile. Flag indicating the destination file should not be ove
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3158
+node_modules/@types/node/ts4.8/fs.d.ts:3158

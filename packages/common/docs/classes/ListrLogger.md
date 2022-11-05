@@ -29,7 +29,7 @@ BaseLogger.parseMessage
 
 #### Defined in
 
-packages/common/node_modules/listr2/dist/index.d.ts:540
+node_modules/listr2/dist/index.d.ts:540
 
 ___
 
@@ -55,7 +55,7 @@ BaseLogger.logColoring
 
 #### Defined in
 
-packages/common/node_modules/listr2/dist/index.d.ts:541
+node_modules/listr2/dist/index.d.ts:541
 
 ___
 

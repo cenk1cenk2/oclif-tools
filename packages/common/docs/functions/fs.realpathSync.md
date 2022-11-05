@@ -26,7 +26,7 @@ v0.1.31
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1332
+node_modules/@types/node/ts4.8/fs.d.ts:1332
 
 ▸ **realpathSync**(`path`, `options`): `Buffer`
 
@@ -45,7 +45,7 @@ Synchronous realpath(3) - return the canonicalized absolute pathname.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1338
+node_modules/@types/node/ts4.8/fs.d.ts:1338
 
 ▸ **realpathSync**(`path`, `options?`): `string` \| `Buffer`
 
@@ -64,4 +64,4 @@ Synchronous realpath(3) - return the canonicalized absolute pathname.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1344
+node_modules/@types/node/ts4.8/fs.d.ts:1344

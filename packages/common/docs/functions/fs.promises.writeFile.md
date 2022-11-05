@@ -70,4 +70,4 @@ Fulfills with `undefined` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:909
+node_modules/@types/node/ts4.8/fs/promises.d.ts:927

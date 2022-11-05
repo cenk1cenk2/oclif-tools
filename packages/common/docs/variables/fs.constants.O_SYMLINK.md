@@ -8,4 +8,4 @@ Constant for fs.open(). Flag indicating to open the symbolic link itself rather 
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3206
+node_modules/@types/node/ts4.8/fs.d.ts:3206

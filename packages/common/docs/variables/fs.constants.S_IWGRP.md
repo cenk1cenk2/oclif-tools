@@ -8,4 +8,4 @@ Constant for fs.Stats mode property for determining access permissions for a fil
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3242
+node_modules/@types/node/ts4.8/fs.d.ts:3242
