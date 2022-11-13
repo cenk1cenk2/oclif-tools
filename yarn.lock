@@ -6311,12 +6311,12 @@ object.values@^1.1.5:
     define-properties "^1.1.4"
     es-abstract "^1.20.4"
 
-oclif@^3.2.25:
-  version "3.2.25"
-  resolved "https://registry.yarnpkg.com/oclif/-/oclif-3.2.25.tgz#a51a1a20daf45f37a3c9a0cb12693b5f7a40cd0c"
-  integrity sha512-1nwdWHOBW5DkMBBu3HNrwM+WIAL7kDLBeoM8BNJLbnE4hlxBmeubwQTF0oGzmv+0vUomWMiNSbQF7AfzFbwUwA==
+oclif@^3.2.26:
+  version "3.2.26"
+  resolved "https://registry.yarnpkg.com/oclif/-/oclif-3.2.26.tgz#ef4b671300101d746545cf65a79cb84e6127a940"
+  integrity sha512-WnMBKPj2OwMx/83dxGW2MxC95KLm0K6tJxLAB/6ncCqSkhk3qUESc2MhM5noR2ni2Yq+B6z7BJZd8UZYpTBBLw==
   dependencies:
-    "@oclif/core" "^1.20.0"
+    "@oclif/core" "^1.20.4"
     "@oclif/plugin-help" "^5.1.16"
     "@oclif/plugin-not-found" "^2.3.7"
     "@oclif/plugin-warn-if-update-available" "^2.0.6"
