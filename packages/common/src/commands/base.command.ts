@@ -98,7 +98,7 @@ export class Command<
     })
   }
 
-  protected setCtxDefaults (...defaults: SetCtxDefaultsOptions<Ctx>[]): void {
+  protected setCtxDefaults<T extends Ctx = Ctx>(...defaults: SetCtxDefaultsOptions<T>[]): void {
     setCtxDefaults(this.tasks.options.ctx, ...defaults)
 
     this.logger.trace('Updated context with defaults: %o', this.tasks.options.ctx, { status: 'ctx' })
