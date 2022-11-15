@@ -41,7 +41,8 @@ export class ConfigService implements GlobalConfig {
 
     this.parser = new ParserService()
 
-    Object.assign(ConfigService.instance, config)
+    Object.assign(this, config)
+    ConfigService.instance = this
 
     this.recalculate()
 
