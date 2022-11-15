@@ -27,11 +27,13 @@ export class ConfigService implements GlobalConfig {
   constructor (public oclif: Command['config'], public command: Command['ctor'], config: Omit<GlobalConfig, 'isVerbose' | 'isDebug' | 'isSilent'>) {
     if (ConfigService.instance) {
       // config might be updated?
-      Object.assign(ConfigService.instance, config)
+      if (Object.entries(config).some(([ key, value ]) => value !== ConfigService.instance[key])) {
+        Object.assign(ConfigService.instance, config)
+
+        ConfigService.instance.recalculate()
+      }
 
       return ConfigService.instance
-    } else {
-      ConfigService.instance = this
     }
 
     this.root = this.oclif.root
@@ -42,9 +44,10 @@ export class ConfigService implements GlobalConfig {
     this.parser = new ParserService()
 
     Object.assign(this, config)
-    ConfigService.instance = this
 
     this.recalculate()
+
+    ConfigService.instance = this
 
     this.logger.trace('Created a new instance.')
   }
