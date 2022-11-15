@@ -79,7 +79,7 @@ packages/common/src/utils/logger/logger.ts:17
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:39
+packages/common/src/utils/logger/logger.ts:40
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:43
+packages/common/src/utils/logger/logger.ts:44
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:47
+packages/common/src/utils/logger/logger.ts:48
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:51
+packages/common/src/utils/logger/logger.ts:52
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:55
+packages/common/src/utils/logger/logger.ts:56
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:59
+packages/common/src/utils/logger/logger.ts:60
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:63
+packages/common/src/utils/logger/logger.ts:64
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:67
+packages/common/src/utils/logger/logger.ts:68
 
 ___
 
@@ -247,7 +247,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:71
+packages/common/src/utils/logger/logger.ts:72
 
 ___
 
@@ -268,7 +268,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:76
+packages/common/src/utils/logger/logger.ts:77
 
 ___
 
@@ -289,7 +289,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:80
+packages/common/src/utils/logger/logger.ts:81
 
 ___
 
@@ -310,7 +310,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:84
+packages/common/src/utils/logger/logger.ts:85
 
 ___
 
@@ -324,7 +324,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:88
+packages/common/src/utils/logger/logger.ts:89
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:132
+packages/common/src/utils/logger/logger.ts:133
 
 ___
 
@@ -367,4 +367,4 @@ ___
 
 #### Defined in
 
-packages/common/src/utils/logger/logger.ts:142
+packages/common/src/utils/logger/logger.ts:143

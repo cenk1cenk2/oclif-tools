@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [3.9.6](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.5...@cenk1cenk2/oclif-common@3.9.6) (2022-11-15)
+
+
+### Bug Fixes
+
+* **config-service:** issues with config initialization ([c9c8353](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c9c8353a3f17772c123a2a875c2bd1feca3e6620))
+
 ## @cenk1cenk2/oclif-common [3.9.5](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.4...@cenk1cenk2/oclif-common@3.9.5) (2022-11-15)
 
 

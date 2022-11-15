@@ -438,13 +438,23 @@ node_modules/@oclif/core/lib/command.d.ts:82
 
 ___
 
+### context
+
+• **context**: `string`
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:22
+
+___
+
 ### logger
 
 • **logger**: [`Logger`](Logger.md)
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:33
+packages/common/src/commands/base.command.ts:23
 
 ___
 
@@ -454,7 +464,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:34
+packages/common/src/commands/base.command.ts:24
 
 ___
 
@@ -464,7 +474,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:35
+packages/common/src/commands/base.command.ts:25
 
 ___
 
@@ -474,7 +484,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:36
+packages/common/src/commands/base.command.ts:26
 
 ___
 
@@ -484,7 +494,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:37
+packages/common/src/commands/base.command.ts:27
 
 ___
 
@@ -494,7 +504,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:38
+packages/common/src/commands/base.command.ts:28
 
 ___
 
@@ -504,7 +514,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:39
+packages/common/src/commands/base.command.ts:29
 
 ___
 
@@ -514,7 +524,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:41
+packages/common/src/commands/base.command.ts:31
 
 ___
 
@@ -524,7 +534,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:42
+packages/common/src/commands/base.command.ts:32
 
 ## Accessors
 
@@ -563,6 +573,44 @@ BaseCommand.enableJsonFlag
 #### Defined in
 
 node_modules/@oclif/core/lib/command.d.ts:66
+
+___
+
+### globalFlags
+
+• `Static` `get` **globalFlags**(): [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
+
+#### Returns
+
+[`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
+
+#### Inherited from
+
+BaseCommand.globalFlags
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:75
+
+• `Static` `set` **globalFlags**(`flags`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `flags` | [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\> |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCommand.globalFlags
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:76
 
 ___
 
@@ -619,44 +667,6 @@ BaseCommand.ctor
 #### Defined in
 
 node_modules/@oclif/core/lib/command.d.ts:84
-
-___
-
-### globalFlags
-
-• `Static` `get` **globalFlags**(): [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
-
-#### Returns
-
-[`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
-
-#### Overrides
-
-BaseCommand.globalFlags
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:22
-
-• `Static` `set` **globalFlags**(`flags`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `flags` | [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\> |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-BaseCommand.globalFlags
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:27
 
 ## Constructors
 
@@ -963,7 +973,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:48
+packages/common/src/commands/base.command.ts:38
 
 ___
 
@@ -985,7 +995,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:54
+packages/common/src/commands/base.command.ts:44
 
 ___
 
@@ -1003,7 +1013,7 @@ BaseCommand.run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:57
+packages/common/src/commands/base.command.ts:47
 
 ___
 
@@ -1027,7 +1037,7 @@ BaseCommand.\_run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:62
+packages/common/src/commands/base.command.ts:52
 
 ___
 
@@ -1051,7 +1061,7 @@ BaseCommand.exit
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:82
+packages/common/src/commands/base.command.ts:72
 
 ___
 
@@ -1073,7 +1083,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:89
+packages/common/src/commands/base.command.ts:79
 
 ___
 
@@ -1101,7 +1111,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:94
+packages/common/src/commands/base.command.ts:84
 
 ___
 
@@ -1127,7 +1137,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:101
+packages/common/src/commands/base.command.ts:91
 
 ___
 
@@ -1153,7 +1163,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:107
+packages/common/src/commands/base.command.ts:97
 
 ___
 
@@ -1173,7 +1183,7 @@ BaseCommand.init
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:115
+packages/common/src/commands/base.command.ts:105
 
 ___
 
@@ -1199,7 +1209,7 @@ BaseCommand.finally
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:192
+packages/common/src/commands/base.command.ts:185
 
 ___
 
@@ -1226,7 +1236,7 @@ BaseCommand.catch
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:208
+packages/common/src/commands/base.command.ts:201
 
 ___
 
@@ -1240,4 +1250,4 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:220
+packages/common/src/commands/base.command.ts:218
