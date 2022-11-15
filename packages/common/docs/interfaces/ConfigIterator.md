@@ -8,7 +8,7 @@
 
 #### Defined in
 
-packages/common/src/lib/config/config.interface.ts:16
+packages/common/src/lib/config/config.interface.ts:10
 
 ___
 
@@ -18,7 +18,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.interface.ts:17
+packages/common/src/lib/config/config.interface.ts:11
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.interface.ts:18
+packages/common/src/lib/config/config.interface.ts:12
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.interface.ts:19
+packages/common/src/lib/config/config.interface.ts:13

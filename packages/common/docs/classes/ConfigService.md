@@ -64,10 +64,6 @@ ___
 
 • **isVerbose**: `boolean`
 
-#### Implementation of
-
-[GlobalConfig](../interfaces/GlobalConfig.md).[isVerbose](../interfaces/GlobalConfig.md#isverbose)
-
 #### Defined in
 
 packages/common/src/lib/config/config.service.ts:20
@@ -78,10 +74,6 @@ ___
 
 • **isDebug**: `boolean`
 
-#### Implementation of
-
-[GlobalConfig](../interfaces/GlobalConfig.md).[isDebug](../interfaces/GlobalConfig.md#isdebug)
-
 #### Defined in
 
 packages/common/src/lib/config/config.service.ts:21
@@ -91,10 +83,6 @@ ___
 ### isSilent
 
 • **isSilent**: `boolean`
-
-#### Implementation of
-
-[GlobalConfig](../interfaces/GlobalConfig.md).[isSilent](../interfaces/GlobalConfig.md#issilent)
 
 #### Defined in
 
@@ -170,7 +158,7 @@ packages/common/src/lib/config/config.service.ts:27
 | :------ | :------ |
 | `oclif` | `Config` |
 | `command` | typeof `default` |
-| `config` | `Omit`<[`GlobalConfig`](../interfaces/GlobalConfig.md), ``"isVerbose"`` \| ``"isDebug"`` \| ``"isSilent"``\> |
+| `config` | [`GlobalConfig`](../interfaces/GlobalConfig.md) |
 
 #### Defined in
 
@@ -200,7 +188,7 @@ packages/common/src/lib/config/config.service.ts:27
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:55
+packages/common/src/lib/config/config.service.ts:51
 
 ___
 
@@ -227,7 +215,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:63
+packages/common/src/lib/config/config.service.ts:59
 
 ___
 
@@ -254,7 +242,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:85
+packages/common/src/lib/config/config.service.ts:81
 
 ___
 
@@ -281,7 +269,7 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:93
+packages/common/src/lib/config/config.service.ts:89
 
 ___
 
@@ -308,13 +296,19 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:212
+packages/common/src/lib/config/config.service.ts:208
 
 ___
 
 ### recalculate
 
-▸ `Private` **recalculate**(): `void`
+▸ `Private` **recalculate**(`config`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `config` | [`GlobalConfig`](../interfaces/GlobalConfig.md) |
 
 #### Returns
 
@@ -322,4 +316,4 @@ ___
 
 #### Defined in
 
-packages/common/src/lib/config/config.service.ts:216
+packages/common/src/lib/config/config.service.ts:212

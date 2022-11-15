@@ -26,7 +26,6 @@
 
 - [Arg](interfaces/Arg.md)
 - [ConfigCommandSetup](interfaces/ConfigCommandSetup.md)
-- [GlobalConfigInit](interfaces/GlobalConfigInit.md)
 - [GlobalConfig](interfaces/GlobalConfig.md)
 - [ConfigIterator](interfaces/ConfigIterator.md)
 - [CommonLockerData](interfaces/CommonLockerData.md)
