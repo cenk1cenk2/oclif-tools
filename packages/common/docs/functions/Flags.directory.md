@@ -16,7 +16,7 @@
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:200
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:200
 
 ▸ **directory**(`options`): `OptionFlag`<`string`[]\>
 
@@ -32,7 +32,7 @@ packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:200
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:207
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:207
 
 ▸ **directory**(`options`): `OptionFlag`<`string`\>
 
@@ -48,7 +48,7 @@ packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:207
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:210
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:210
 
 ▸ **directory**(`options?`): `OptionFlag`<`string`\>
 
@@ -64,4 +64,4 @@ packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:210
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:215
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:215

@@ -29,7 +29,7 @@
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:10
+node_modules/@oclif/core/lib/command.d.ts:10
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:11
+node_modules/@oclif/core/lib/command.d.ts:11
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:12
+node_modules/@oclif/core/lib/command.d.ts:12
 
 ___
 
@@ -73,7 +73,7 @@ A command ID, used mostly in error or verbose reporting.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:14
+node_modules/@oclif/core/lib/command.d.ts:14
 
 ___
 
@@ -90,7 +90,7 @@ sub-command listing and as the header for the command help.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:19
+node_modules/@oclif/core/lib/command.d.ts:19
 
 ___
 
@@ -108,7 +108,7 @@ If no summary, the first line of the description will be used as the summary.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:25
+node_modules/@oclif/core/lib/command.d.ts:25
 
 ___
 
@@ -124,7 +124,7 @@ Hide the command from help
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:27
+node_modules/@oclif/core/lib/command.d.ts:27
 
 ___
 
@@ -140,7 +140,7 @@ Mark the command as a given state (e.g. beta or deprecated) in help
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:29
+node_modules/@oclif/core/lib/command.d.ts:29
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:30
+node_modules/@oclif/core/lib/command.d.ts:30
 
 ___
 
@@ -170,7 +170,7 @@ Emit deprecation warning when a command alias is used
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:34
+node_modules/@oclif/core/lib/command.d.ts:34
 
 ___
 
@@ -186,7 +186,7 @@ An override string (or strings) for the default usage documentation.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:38
+node_modules/@oclif/core/lib/command.d.ts:38
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:39
+node_modules/@oclif/core/lib/command.d.ts:39
 
 ___
 
@@ -216,7 +216,7 @@ An array of aliases for this command.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:41
+node_modules/@oclif/core/lib/command.d.ts:41
 
 ___
 
@@ -232,7 +232,7 @@ When set to false, allows a variable amount of arguments
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:43
+node_modules/@oclif/core/lib/command.d.ts:43
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:44
+node_modules/@oclif/core/lib/command.d.ts:44
 
 ___
 
@@ -262,7 +262,7 @@ An order-dependent array of arguments for the command
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:46
+node_modules/@oclif/core/lib/command.d.ts:46
 
 ___
 
@@ -276,7 +276,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:47
+node_modules/@oclif/core/lib/command.d.ts:47
 
 ___
 
@@ -303,7 +303,7 @@ EXAMPLES:
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:62
+node_modules/@oclif/core/lib/command.d.ts:62
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:63
+node_modules/@oclif/core/lib/command.d.ts:63
 
 ___
 
@@ -331,7 +331,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:64
+node_modules/@oclif/core/lib/command.d.ts:64
 
 ___
 
@@ -362,7 +362,7 @@ instantiate and run the command
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:73
+node_modules/@oclif/core/lib/command.d.ts:73
 
 ___
 
@@ -376,7 +376,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:74
+node_modules/@oclif/core/lib/command.d.ts:74
 
 ___
 
@@ -392,7 +392,7 @@ A hash of flags for the command
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:78
+node_modules/@oclif/core/lib/command.d.ts:78
 
 ___
 
@@ -406,7 +406,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:81
+node_modules/@oclif/core/lib/command.d.ts:81
 
 ___
 
@@ -434,7 +434,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:82
+node_modules/@oclif/core/lib/command.d.ts:82
 
 ___
 
@@ -638,7 +638,7 @@ Command.enableJsonFlag
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:65
+node_modules/@oclif/core/lib/command.d.ts:65
 
 • `Static` `set` **enableJsonFlag**(`value`): `void`
 
@@ -658,7 +658,7 @@ Command.enableJsonFlag
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:66
+node_modules/@oclif/core/lib/command.d.ts:66
 
 ___
 
@@ -676,7 +676,7 @@ Command.flags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:79
+node_modules/@oclif/core/lib/command.d.ts:79
 
 • `Static` `set` **flags**(`flags`): `void`
 
@@ -696,7 +696,7 @@ Command.flags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:80
+node_modules/@oclif/core/lib/command.d.ts:80
 
 ___
 
@@ -714,7 +714,7 @@ Command.ctor
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:84
+node_modules/@oclif/core/lib/command.d.ts:84
 
 ___
 
@@ -784,7 +784,7 @@ packages/common/src/commands/base.command.ts:27
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:83
+node_modules/@oclif/core/lib/command.d.ts:83
 
 ## Methods
 
@@ -808,7 +808,7 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:83
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:87
+node_modules/@oclif/core/lib/command.d.ts:87
 
 ___
 
@@ -833,7 +833,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:88
+node_modules/@oclif/core/lib/command.d.ts:88
 
 ▸ **error**(`input`, `options?`): `never`
 
@@ -854,7 +854,7 @@ packages/common/node_modules/@oclif/core/lib/command.d.ts:88
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:92
+node_modules/@oclif/core/lib/command.d.ts:92
 
 ___
 
@@ -879,7 +879,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:96
+node_modules/@oclif/core/lib/command.d.ts:96
 
 ___
 
@@ -904,7 +904,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:97
+node_modules/@oclif/core/lib/command.d.ts:97
 
 ___
 
@@ -922,7 +922,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:98
+node_modules/@oclif/core/lib/command.d.ts:98
 
 ___
 
@@ -946,7 +946,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:104
+node_modules/@oclif/core/lib/command.d.ts:104
 
 ___
 
@@ -964,7 +964,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:105
+node_modules/@oclif/core/lib/command.d.ts:105
 
 ___
 
@@ -997,7 +997,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:106
+node_modules/@oclif/core/lib/command.d.ts:106
 
 ___
 
@@ -1021,7 +1021,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:111
+node_modules/@oclif/core/lib/command.d.ts:111
 
 ___
 
@@ -1045,7 +1045,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:112
+node_modules/@oclif/core/lib/command.d.ts:112
 
 ___
 
@@ -1203,13 +1203,19 @@ ___
 
 ### setCtxDefaults
 
-▸ `Protected` **setCtxDefaults**(...`defaults`): `void`
+▸ `Protected` **setCtxDefaults**<`T`\>(...`defaults`): `void`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `unknown` = `Ctx` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `...defaults` | `Partial`<`Ctx`\>[] |
+| `...defaults` | `Partial`<`T`\>[] |
 
 #### Returns
 

@@ -22,7 +22,7 @@
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/flags.d.ts:3
+node_modules/@oclif/core/lib/flags.d.ts:3
 
 ▸ **_enum**<`T`\>(`opts`): `OptionFlag`<`T`[] \| `undefined`\>
 
@@ -44,7 +44,7 @@ packages/common/node_modules/@oclif/core/lib/flags.d.ts:3
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/flags.d.ts:10
+node_modules/@oclif/core/lib/flags.d.ts:10
 
 ▸ **_enum**<`T`\>(`opts`): `OptionFlag`<`T`\>
 
@@ -66,7 +66,7 @@ packages/common/node_modules/@oclif/core/lib/flags.d.ts:10
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/flags.d.ts:13
+node_modules/@oclif/core/lib/flags.d.ts:13
 
 ▸ **_enum**<`T`\>(`opts`): `OptionFlag`<`T` \| `undefined`\>
 
@@ -88,4 +88,4 @@ packages/common/node_modules/@oclif/core/lib/flags.d.ts:13
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/flags.d.ts:18
+node_modules/@oclif/core/lib/flags.d.ts:18

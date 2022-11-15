@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [3.9.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.1...@cenk1cenk2/oclif-common@3.9.2) (2022-11-15)
+
+
+### Bug Fixes
+
+* update setting default ctx ([05226a8](https://gitlab.kilic.dev/libraries/oclif-tools/commit/05226a803e2c442767e1262c460a40b39cd8ca04))
+
 ## @cenk1cenk2/oclif-common [3.9.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.0...@cenk1cenk2/oclif-common@3.9.1) (2022-11-05)
 
 ### Bug Fixes

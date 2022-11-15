@@ -26,7 +26,7 @@ Use Flags.custom instead.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/parser/flags.d.ts:33
+node_modules/@oclif/core/lib/parser/flags.d.ts:33
 
 ▸ **build**(`defaults`): `Definition`<`string`\>
 
@@ -42,4 +42,4 @@ packages/common/node_modules/@oclif/core/lib/parser/flags.d.ts:33
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/parser/flags.d.ts:36
+node_modules/@oclif/core/lib/parser/flags.d.ts:36

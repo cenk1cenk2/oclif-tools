@@ -42,7 +42,7 @@ export const myFlag = custom<Id, IdOpts>({
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/parser/flags.d.ts:22
+node_modules/@oclif/core/lib/parser/flags.d.ts:22
 
 ▸ **custom**<`T`, `P`\>(`defaults`): `Definition`<`T`, `P`\>
 
@@ -65,7 +65,7 @@ packages/common/node_modules/@oclif/core/lib/parser/flags.d.ts:22
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/parser/flags.d.ts:26
+node_modules/@oclif/core/lib/parser/flags.d.ts:26
 
 ▸ **custom**<`T`, `P`\>(`defaults`): `Definition`<`T`, `P`\>
 
@@ -88,4 +88,4 @@ packages/common/node_modules/@oclif/core/lib/parser/flags.d.ts:26
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/parser/flags.d.ts:29
+node_modules/@oclif/core/lib/parser/flags.d.ts:29

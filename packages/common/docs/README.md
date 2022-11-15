@@ -2,9 +2,9 @@
 
 ## Namespaces
 
-- [fs](modules/fs.md)
 - [CliUx](modules/CliUx.md)
 - [Flags](modules/Flags.md)
+- [fs](modules/fs.md)
 
 ## Type Aliases
 

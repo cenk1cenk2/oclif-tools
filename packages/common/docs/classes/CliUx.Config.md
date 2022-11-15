@@ -16,7 +16,7 @@
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:9
+node_modules/@oclif/core/lib/cli-ux/config.d.ts:9
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:10
+node_modules/@oclif/core/lib/cli-ux/config.d.ts:10
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:11
+node_modules/@oclif/core/lib/cli-ux/config.d.ts:11
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:12
+node_modules/@oclif/core/lib/cli-ux/config.d.ts:12
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:13
+node_modules/@oclif/core/lib/cli-ux/config.d.ts:13
 
 ## Accessors
 
@@ -70,7 +70,7 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:13
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:14
+node_modules/@oclif/core/lib/cli-ux/config.d.ts:14
 
 • `set` **debug**(`v`): `void`
 
@@ -86,7 +86,7 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:14
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:15
+node_modules/@oclif/core/lib/cli-ux/config.d.ts:15
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:16
+node_modules/@oclif/core/lib/cli-ux/config.d.ts:16
 
 • `set` **context**(`v`): `void`
 
@@ -116,4 +116,4 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:16
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:17
+node_modules/@oclif/core/lib/cli-ux/config.d.ts:17

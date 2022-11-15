@@ -42,4 +42,4 @@ export default class Status extends BaseCommand {
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/interfaces/flags.d.ts:32
+node_modules/@oclif/core/lib/interfaces/flags.d.ts:32

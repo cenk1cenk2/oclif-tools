@@ -19,7 +19,7 @@ if the string is not a valid URL.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:200
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:200
 
 ▸ **url**(`options`): `OptionFlag`<`URL`[]\>
 
@@ -38,7 +38,7 @@ if the string is not a valid URL.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:207
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:207
 
 ▸ **url**(`options`): `OptionFlag`<`URL`\>
 
@@ -57,7 +57,7 @@ if the string is not a valid URL.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:210
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:210
 
 ▸ **url**(`options?`): `OptionFlag`<`URL`\>
 
@@ -76,4 +76,4 @@ if the string is not a valid URL.
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:215
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:215

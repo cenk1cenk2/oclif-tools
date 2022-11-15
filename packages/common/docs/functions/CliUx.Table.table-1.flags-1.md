@@ -10,7 +10,7 @@
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:17
+node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:17
 
 ▸ **flags**<`Z`\>(`opts`): `ExcludeFlags`<`IFlags`, `Z`\>
 
@@ -33,7 +33,7 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:17
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:18
+node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:18
 
 ▸ **flags**<`K`\>(`opts`): `IncludeFlags`<`IFlags`, `K`\>
 
@@ -56,4 +56,4 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:18
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:21
+node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:21
