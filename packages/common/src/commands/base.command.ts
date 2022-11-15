@@ -6,7 +6,7 @@ import { createInterface } from 'readline'
 import 'reflect-metadata'
 
 import { CLI_FLAGS } from '@constants'
-import type { FlagInput, InferArgs, InferFlags } from '@interfaces'
+import type { InferArgs, InferFlags } from '@interfaces'
 import { ConfigService, FileSystemService, StoreService, ValidatorService } from '@lib'
 import { ParserService } from '@lib/parser/parser.service'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
@@ -19,17 +19,7 @@ export class Command<
   Args extends Record<PropertyKey, any> = InferArgs<typeof Command>,
   Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
 > extends BaseCommand {
-  static get globalFlags (): FlagInput {
-    // eslint-disable-next-line no-underscore-dangle
-    return { ...CLI_FLAGS, ...this._globalFlags }
-  }
-
-  static set globalFlags (flags: FlagInput) {
-    // eslint-disable-next-line no-underscore-dangle
-    this._globalFlags = Object.assign({}, this.globalFlags, flags)
-    this.flags = {} // force the flags setter to run
-  }
-
+  public context: string
   public logger: Logger
   public tasks: Manager<Ctx, 'default' | 'verbose' | 'silent' | 'simple'>
   public validator: ValidatorService
@@ -113,7 +103,11 @@ export class Command<
   /** Initial functions / constructor */
   // can not override constructor, init function is defined by oclif
   protected async init (): Promise<void> {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.constructor.flags = Object.assign({}, CLI_FLAGS, this.constructor.flags)
     await super.init()
+
     // do the initialization first then go ahead and throw if required
     let err: Error
 
@@ -132,7 +126,7 @@ export class Command<
       json: this.flags.json
     })
 
-    const context = this.cs.command.id ? this.cs.command.id : this.cs.command.name
+    this.context = this.cs.command.id ? this.cs.command.id : this.cs.command.name
 
     this.logger = new Logger(null, { level: this.cs.logLevel })
 
@@ -157,8 +151,7 @@ export class Command<
       nonTTYRendererOptions: {
         logEmptyTitle: false,
         logTitleChange: false,
-        logger: ListrLogger,
-        options: [ context ]
+        logger: ListrLogger
       },
       ctx: {} as Ctx
     })
@@ -207,6 +200,11 @@ export class Command<
   // catch all those errors, not verbose
   protected catch (e: Error, exit?: number): Promise<void> {
     // log the error
+    if (!this.logger) {
+      console.error('Logger has not been initiated yet!')
+      console.error(e.message)
+      console.debug(e.stack)
+    }
     this.logger.fatal(e.message)
     this.logger.debug(e.stack, { context: 'crash' })
 

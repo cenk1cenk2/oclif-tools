@@ -15,24 +15,25 @@ export class Logger {
   private logger: Winston
 
   constructor (private context?: string, private options?: LoggerOptions) {
-    const parsed: LogLevels = (process.env.LOG_LEVEL ?? options?.level ?? LogLevels.INFO).toUpperCase() as LogLevels
-    const level = Object.values(LogLevels).includes(parsed) ? parsed : LogLevels.INFO
-
-    // set default options
-    this.options = {
-      useIcons: true,
-      ...options,
-      level
-    }
-
     if (Logger.instance) {
       this.logger = Logger.instance
     } else if (context === ConfigService.name) {
+      const level = Object.values(LogLevels).includes(options?.level) ? options.level : LogLevels.INFO
+
+      // set default options
+      this.options = {
+        useIcons: true,
+        ...options,
+        level
+      }
+
       this.logger = this.initiateLogger()
 
       this.trace('Logger singleton initiated from context: %s', context)
 
       Logger.instance = this.logger
+    } else {
+      throw new Error('Logger can only be initiated inside the config service context!')
     }
   }
 
