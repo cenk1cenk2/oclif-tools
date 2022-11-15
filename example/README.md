@@ -20,7 +20,7 @@ $ npm install -g oclif2
 $ oclif2 COMMAND
 running command...
 $ oclif2 (--version)
-oclif2/1.0.0 linux-x64 node-v18.7.0
+oclif2/1.0.0 linux-x64 node-v16.18.0
 $ oclif2 --help [COMMAND]
 USAGE
   $ oclif2 COMMAND
@@ -51,26 +51,13 @@ Say hello
 
 ```
 USAGE
-  $ oclif2 hello [PERSON] [--log-level
-    SILENT|DIRECT|FATAL|ERROR|WARN|INFO|VERBOSE|DEBUG|TRACE|silent|direct|fatal|error|warn|info|verbose|debug|trace]
-    [--ci] [--json] [-f <value>]
+  $ oclif2 hello [PERSON] [-f <value>]
 
 ARGUMENTS
   PERSON  Person to say hello to
 
 FLAGS
   -f, --from=<value>  Whom is saying hello
-
-CLI FLAGS
-  --ci
-      Instruct whether this is running the CI/CD configuration.
-
-  --json
-      Put the CLI to respond in JSON.
-
-  --log-level=(SILENT|DIRECT|FATAL|ERROR|WARN|INFO|VERBOSE|DEBUG|TRACE|silent|direct|fatal|error|warn|info|verbose|debug
-  |trace)
-      [default: INFO] Set the log level of the application.
 
 DESCRIPTION
   Say hello
@@ -99,7 +86,7 @@ DESCRIPTION
   Display help for oclif2.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.19/src/commands/help.ts)_
 
 ## `oclif2 plugins`
 
@@ -119,7 +106,7 @@ EXAMPLES
   $ oclif2 plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.7/src/commands/plugins/index.ts)_
 
 ## `oclif2 plugins:install PLUGIN...`
 
@@ -139,7 +126,6 @@ FLAGS
 
 DESCRIPTION
   Installs a plugin into the CLI.
-
   Can be installed from npm or a git url.
 
   Installation of a user-installed plugin will override a core plugin.
@@ -147,6 +133,7 @@ DESCRIPTION
   e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
   will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
   the CLI without the need to patch and update the whole CLI.
+
 
 ALIASES
   $ oclif2 plugins add
@@ -199,7 +186,6 @@ FLAGS
 
 DESCRIPTION
   Installs a plugin into the CLI.
-
   Can be installed from npm or a git url.
 
   Installation of a user-installed plugin will override a core plugin.
@@ -207,6 +193,7 @@ DESCRIPTION
   e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
   will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
   the CLI without the need to patch and update the whole CLI.
+
 
 ALIASES
   $ oclif2 plugins add
@@ -236,11 +223,11 @@ FLAGS
 
 DESCRIPTION
   Links a plugin into the CLI for development.
-
   Installation of a linked plugin will override a user-installed or core plugin.
 
   e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
   command will override the user-installed or core plugin implementation. This is useful for development work.
+
 
 EXAMPLES
   $ oclif2 plugins:link myplugin

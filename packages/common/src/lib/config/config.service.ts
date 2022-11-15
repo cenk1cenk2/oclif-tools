@@ -24,13 +24,11 @@ export class ConfigService implements GlobalConfig {
   public json: boolean
   private logger: Logger
 
-  constructor (public oclif: Command['config'], public command: Command['ctor'], config: Omit<GlobalConfig, 'isVerbose' | 'isDebug' | 'isSilent'>) {
+  constructor (public oclif: Command['config'], public command: Command['ctor'], config: GlobalConfig) {
     if (ConfigService.instance) {
       // config might be updated?
       if (Object.entries(config).some(([ key, value ]) => value !== ConfigService.instance[key])) {
-        Object.assign(ConfigService.instance, config)
-
-        ConfigService.instance.recalculate()
+        ConfigService.instance.recalculate(config)
       }
 
       return ConfigService.instance
@@ -43,9 +41,7 @@ export class ConfigService implements GlobalConfig {
 
     this.parser = new ParserService()
 
-    Object.assign(this, config)
-
-    this.recalculate()
+    this.recalculate(config)
 
     ConfigService.instance = this
 
@@ -213,9 +209,12 @@ export class ConfigService implements GlobalConfig {
     return this.parser.write(path, data)
   }
 
-  private recalculate (): void {
-    this.isVerbose = isVerbose(this.logLevel)
-    this.isDebug = isDebug(this.logLevel)
-    this.isSilent = isSilent(this.logLevel)
+  private recalculate (config: GlobalConfig): void {
+    this.ci = config.ci
+    this.json = config.json
+    this.logLevel = config.logLevel
+    this.isVerbose = isVerbose(config.logLevel)
+    this.isDebug = isDebug(config.logLevel)
+    this.isSilent = isSilent(config.logLevel)
   }
 }
