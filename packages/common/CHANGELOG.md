@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [3.9.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.2...@cenk1cenk2/oclif-common@3.9.3) (2022-11-15)
+
+
+### Bug Fixes
+
+* **config:** issue with deciding the log level on config service ([d0901b3](https://gitlab.kilic.dev/libraries/oclif-tools/commit/d0901b3ce7302f4151ee63e7667ee22e385c352c))
+
 ## @cenk1cenk2/oclif-common [3.9.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.1...@cenk1cenk2/oclif-common@3.9.2) (2022-11-15)
 
 
