@@ -70,7 +70,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "enquirer": "^2.3.6",
-    "listr2": "^5.0.5"
+    "listr2": "^5.0.6"
   },
   "devDependencies": {
     "@anatine/esbuild-decorators": "^0.2.19",
