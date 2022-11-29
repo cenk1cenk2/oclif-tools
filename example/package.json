@@ -82,7 +82,7 @@
     "eslint": "^8.28.0",
     "fs-extra": "^10.1.0",
     "globby": "^13",
-    "lerna": "^6.0.3",
+    "lerna": "^6.1.0",
     "lint-staged": "^13.0.4",
     "oclif": "^3.3.0",
     "prettier": "^2.8.0",
