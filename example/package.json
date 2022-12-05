@@ -84,7 +84,7 @@
     "globby": "^13",
     "lerna": "^6.1.0",
     "lint-staged": "^13.1.0",
-    "oclif": "^3.4.0",
+    "oclif": "^3.4.1",
     "prettier": "^2.8.0",
     "rimraf": "^3.0.2",
     "simple-git-hooks": "^2.8.1",
