@@ -80,7 +80,7 @@
     "commitizen": "^4.2.6",
     "eslint": "^8.29.0",
     "fs-extra": "^10.1.0",
-    "globby": "^11",
+    "globby": "^13",
     "lerna": "^6.1.0",
     "lint-staged": "^13.1.0",
     "oclif": "^3.4.2",
