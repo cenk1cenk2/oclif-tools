@@ -66,6 +66,6 @@ export class ValidatorService {
   }
 
   private logValidationError (err: ValidationError): void {
-    this.logger.error('Field "%s" failed validation with value "%s": %s', err.property, err.value, Object.values(err.constraints).join(', '))
+    this.logger.error('Field "%s" failed validation with value "%s": %o', err.property, err.value, err.constraints)
   }
 }
