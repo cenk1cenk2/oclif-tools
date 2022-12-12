@@ -73,3 +73,15 @@ will callback on error in the instance
 #### Defined in
 
 packages/common/src/utils/logger/pipe/pipe-process-to-logger.interface.ts:13
+
+___
+
+### context
+
+• `Optional` **context**: `string`
+
+context for logger
+
+#### Defined in
+
+packages/common/src/utils/logger/pipe/pipe-process-to-logger.interface.ts:15

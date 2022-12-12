@@ -444,7 +444,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:22
+packages/common/src/commands/base.command.ts:24
 
 ___
 
@@ -454,7 +454,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:23
+packages/common/src/commands/base.command.ts:25
 
 ___
 
@@ -464,7 +464,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:24
+packages/common/src/commands/base.command.ts:26
 
 ___
 
@@ -474,7 +474,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:25
+packages/common/src/commands/base.command.ts:27
 
 ___
 
@@ -484,7 +484,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:26
+packages/common/src/commands/base.command.ts:28
 
 ___
 
@@ -494,7 +494,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:27
+packages/common/src/commands/base.command.ts:29
 
 ___
 
@@ -504,7 +504,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:28
+packages/common/src/commands/base.command.ts:30
 
 ___
 
@@ -514,7 +514,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:29
+packages/common/src/commands/base.command.ts:31
 
 ___
 
@@ -524,7 +524,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:31
+packages/common/src/commands/base.command.ts:33
 
 ___
 
@@ -534,7 +534,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:32
+packages/common/src/commands/base.command.ts:34
 
 ## Accessors
 
@@ -973,7 +973,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:38
+packages/common/src/commands/base.command.ts:40
 
 ___
 
@@ -995,7 +995,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:44
+packages/common/src/commands/base.command.ts:46
 
 ___
 
@@ -1013,7 +1013,7 @@ BaseCommand.run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:47
+packages/common/src/commands/base.command.ts:49
 
 ___
 
@@ -1037,7 +1037,7 @@ BaseCommand.\_run
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:52
+packages/common/src/commands/base.command.ts:54
 
 ___
 
@@ -1061,7 +1061,7 @@ BaseCommand.exit
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:72
+packages/common/src/commands/base.command.ts:74
 
 ___
 
@@ -1083,7 +1083,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:79
+packages/common/src/commands/base.command.ts:81
 
 ___
 
@@ -1111,7 +1111,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:84
+packages/common/src/commands/base.command.ts:86
 
 ___
 
@@ -1137,7 +1137,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:91
+packages/common/src/commands/base.command.ts:93
 
 ___
 
@@ -1163,7 +1163,49 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:97
+packages/common/src/commands/base.command.ts:99
+
+___
+
+### pipeProcessToLogger
+
+▸ `Protected` **pipeProcessToLogger**(`instance`, `options?`): `ExecaChildProcess`<`string`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `instance` | `ExecaChildProcess`<`string`\> |
+| `options?` | [`PipeProcessToLoggerOptions`](../interfaces/PipeProcessToLoggerOptions.md) |
+
+#### Returns
+
+`ExecaChildProcess`<`string`\>
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:105
+
+___
+
+### pipeProcessThroughListr
+
+▸ `Protected` **pipeProcessThroughListr**(`task`, `instance`): `ExecaChildProcess`<`string`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `task` | `TaskWrapper`<`any`, `any`\> |
+| `instance` | `ExecaChildProcess`<`string`\> |
+
+#### Returns
+
+`ExecaChildProcess`<`string`\>
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:109
 
 ___
 
@@ -1183,7 +1225,7 @@ BaseCommand.init
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:105
+packages/common/src/commands/base.command.ts:115
 
 ___
 
@@ -1209,7 +1251,7 @@ BaseCommand.finally
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:185
+packages/common/src/commands/base.command.ts:195
 
 ___
 
@@ -1236,7 +1278,7 @@ BaseCommand.catch
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:201
+packages/common/src/commands/base.command.ts:211
 
 ___
 
@@ -1250,4 +1292,4 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:218
+packages/common/src/commands/base.command.ts:232
