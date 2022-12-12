@@ -26,4 +26,4 @@ v14.5.0, v12.19.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:731
+node_modules/@types/node/fs.d.ts:731

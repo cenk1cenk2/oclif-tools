@@ -19,7 +19,7 @@ Synchronous lstat(2) - Get file status. Does not dereference symbolic links.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:936
+node_modules/@types/node/fs.d.ts:936
 
 ▸ **lstatSync**(`path`, `options?`): [`Stats`](../classes/fs.Stats.md)
 
@@ -38,7 +38,7 @@ Synchronous lstat(2) - Get file status. Does not dereference symbolic links.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:937
+node_modules/@types/node/fs.d.ts:937
 
 ▸ **lstatSync**(`path`, `options`): [`BigIntStats`](../interfaces/fs.BigIntStats.md)
 
@@ -57,7 +57,7 @@ Synchronous lstat(2) - Get file status. Does not dereference symbolic links.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:944
+node_modules/@types/node/fs.d.ts:944
 
 ▸ **lstatSync**(`path`, `options?`): [`Stats`](../classes/fs.Stats.md)
 
@@ -76,7 +76,7 @@ Synchronous lstat(2) - Get file status. Does not dereference symbolic links.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:951
+node_modules/@types/node/fs.d.ts:951
 
 ▸ **lstatSync**(`path`, `options`): [`BigIntStats`](../interfaces/fs.BigIntStats.md)
 
@@ -95,7 +95,7 @@ Synchronous lstat(2) - Get file status. Does not dereference symbolic links.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:957
+node_modules/@types/node/fs.d.ts:957
 
 ▸ **lstatSync**(`path`, `options`): [`Stats`](../classes/fs.Stats.md) \| [`BigIntStats`](../interfaces/fs.BigIntStats.md)
 
@@ -114,7 +114,7 @@ Synchronous lstat(2) - Get file status. Does not dereference symbolic links.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:963
+node_modules/@types/node/fs.d.ts:963
 
 ▸ **lstatSync**(`path`, `options?`): [`Stats`](../classes/fs.Stats.md) \| [`BigIntStats`](../interfaces/fs.BigIntStats.md)
 
@@ -133,4 +133,4 @@ Synchronous lstat(2) - Get file status. Does not dereference symbolic links.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:970
+node_modules/@types/node/fs.d.ts:970

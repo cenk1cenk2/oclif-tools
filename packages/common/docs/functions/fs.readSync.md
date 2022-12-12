@@ -29,7 +29,7 @@ v0.1.21
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2334
+node_modules/@types/node/fs.d.ts:2334
 
 ▸ **readSync**(`fd`, `buffer`, `opts?`): `number`
 
@@ -50,4 +50,4 @@ If no `options` object is specified, it will default with the above values.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2339
+node_modules/@types/node/fs.d.ts:2339

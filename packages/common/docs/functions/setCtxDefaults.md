@@ -1,6 +1,6 @@
 # Function: setCtxDefaults
 
-▸ **setCtxDefaults**<`T`\>(`ctx`, ...`defaults`): `void`
+▸ **setCtxDefaults**<`T`\>(`ctx`, `...defaults`): `void`
 
 #### Type parameters
 

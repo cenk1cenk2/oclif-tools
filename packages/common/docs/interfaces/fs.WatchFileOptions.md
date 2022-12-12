@@ -58,7 +58,7 @@ v0.1.31
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2845
+node_modules/@types/node/fs.d.ts:2845
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2846
+node_modules/@types/node/fs.d.ts:2846
 
 ___
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2847
+node_modules/@types/node/fs.d.ts:2847

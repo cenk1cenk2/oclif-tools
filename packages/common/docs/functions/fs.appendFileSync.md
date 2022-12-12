@@ -66,4 +66,4 @@ v0.6.7
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2797
+node_modules/@types/node/fs.d.ts:2797

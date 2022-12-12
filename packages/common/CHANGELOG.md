@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [3.9.7](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.6...@cenk1cenk2/oclif-common@3.9.7) (2022-12-12)
+
+
+### Bug Fixes
+
+* update configuration for styria ([df30131](https://gitlab.kilic.dev/libraries/oclif-tools/commit/df3013187e2592d395b6faa8d5065c91577a6ec2))
+
 ## @cenk1cenk2/oclif-common [3.9.6](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.5...@cenk1cenk2/oclif-common@3.9.6) (2022-11-15)
 
 

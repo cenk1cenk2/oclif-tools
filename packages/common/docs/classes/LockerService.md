@@ -133,7 +133,7 @@ ___
 
 ### addLock
 
-▸ **addLock**<`T`\>(...`data`): `void`
+▸ **addLock**<`T`\>(`...data`): `void`
 
 #### Type parameters
 
@@ -159,7 +159,7 @@ ___
 
 ### addUnlock
 
-▸ **addUnlock**(...`data`): `void`
+▸ **addUnlock**(`...data`): `void`
 
 #### Parameters
 
@@ -221,7 +221,7 @@ ___
 
 ### lock
 
-▸ **lock**<`T`\>(...`data`): `Promise`<`void`\>
+▸ **lock**<`T`\>(`...data`): `Promise`<`void`\>
 
 #### Type parameters
 
@@ -247,7 +247,7 @@ ___
 
 ### unlock
 
-▸ **unlock**(...`data`): `Promise`<`void`\>
+▸ **unlock**(`...data`): `Promise`<`void`\>
 
 #### Parameters
 

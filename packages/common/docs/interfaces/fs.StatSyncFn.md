@@ -27,7 +27,7 @@
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:936
+node_modules/@types/node/fs.d.ts:936
 
 ### StatSyncFn
 
@@ -46,7 +46,7 @@ node_modules/@types/node/ts4.8/fs.d.ts:936
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:937
+node_modules/@types/node/fs.d.ts:937
 
 ### StatSyncFn
 
@@ -65,7 +65,7 @@ node_modules/@types/node/ts4.8/fs.d.ts:937
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:944
+node_modules/@types/node/fs.d.ts:944
 
 ### StatSyncFn
 
@@ -84,7 +84,7 @@ node_modules/@types/node/ts4.8/fs.d.ts:944
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:951
+node_modules/@types/node/fs.d.ts:951
 
 ### StatSyncFn
 
@@ -103,7 +103,7 @@ node_modules/@types/node/ts4.8/fs.d.ts:951
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:957
+node_modules/@types/node/fs.d.ts:957
 
 ### StatSyncFn
 
@@ -122,7 +122,7 @@ node_modules/@types/node/ts4.8/fs.d.ts:957
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:963
+node_modules/@types/node/fs.d.ts:963
 
 ### StatSyncFn
 
@@ -141,7 +141,7 @@ node_modules/@types/node/ts4.8/fs.d.ts:963
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:970
+node_modules/@types/node/fs.d.ts:970
 
 ## Properties
 
@@ -171,7 +171,7 @@ Function.prototype
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:306
+node_modules/typescript/lib/lib.es5.d.ts:300
 
 ___
 
@@ -185,7 +185,7 @@ Function.length
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:307
+node_modules/typescript/lib/lib.es5.d.ts:301
 
 ___
 
@@ -199,7 +199,7 @@ Function.arguments
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:310
+node_modules/typescript/lib/lib.es5.d.ts:304
 
 ___
 
@@ -213,7 +213,7 @@ Function.caller
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:311
+node_modules/typescript/lib/lib.es5.d.ts:305
 
 ## Methods
 
@@ -271,13 +271,13 @@ Function.apply
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:286
+node_modules/typescript/lib/lib.es5.d.ts:280
 
 ___
 
 ### call
 
-▸ **call**(`this`, `thisArg`, ...`argArray`): `any`
+▸ **call**(`this`, `thisArg`, `...argArray`): `any`
 
 Calls a method of an object, substituting another object for the current object.
 
@@ -299,13 +299,13 @@ Function.call
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:293
+node_modules/typescript/lib/lib.es5.d.ts:287
 
 ___
 
 ### bind
 
-▸ **bind**(`this`, `thisArg`, ...`argArray`): `any`
+▸ **bind**(`this`, `thisArg`, `...argArray`): `any`
 
 For a given function, creates a bound function that has the same body as the original function.
 The this object of the bound function is associated with the specified object, and has the specified initial parameters.
@@ -328,7 +328,7 @@ Function.bind
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:301
+node_modules/typescript/lib/lib.es5.d.ts:295
 
 ___
 
@@ -348,4 +348,4 @@ Function.toString
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:304
+node_modules/typescript/lib/lib.es5.d.ts:298

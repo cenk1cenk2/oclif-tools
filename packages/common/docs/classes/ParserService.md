@@ -80,7 +80,7 @@ ___
 
 ### setParsers
 
-▸ **setParsers**(...`parsers`): `void`
+▸ **setParsers**(`...parsers`): `void`
 
 #### Parameters
 
@@ -100,7 +100,7 @@ ___
 
 ### addParsers
 
-▸ **addParsers**(...`parsers`): `void`
+▸ **addParsers**(`...parsers`): `void`
 
 #### Parameters
 

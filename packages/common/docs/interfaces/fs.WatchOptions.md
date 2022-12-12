@@ -22,7 +22,7 @@ Abortable.signal
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:344
+node_modules/@types/node/events.d.ts:344
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2932
+node_modules/@types/node/fs.d.ts:2932
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2933
+node_modules/@types/node/fs.d.ts:2933
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2934
+node_modules/@types/node/fs.d.ts:2934

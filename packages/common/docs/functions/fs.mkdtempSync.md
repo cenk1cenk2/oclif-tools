@@ -29,7 +29,7 @@ v5.10.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:1752
+node_modules/@types/node/fs.d.ts:1752
 
 ▸ **mkdtempSync**(`prefix`, `options`): `Buffer`
 
@@ -49,7 +49,7 @@ Generates six random characters to be appended behind a required prefix to creat
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:1758
+node_modules/@types/node/fs.d.ts:1758
 
 ▸ **mkdtempSync**(`prefix`, `options?`): `string` \| `Buffer`
 
@@ -69,4 +69,4 @@ Generates six random characters to be appended behind a required prefix to creat
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:1764
+node_modules/@types/node/fs.d.ts:1764

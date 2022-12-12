@@ -10,7 +10,7 @@
 
 #### Type declaration
 
-• (...`args`)
+• (`...args`)
 
 ##### Parameters
 

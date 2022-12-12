@@ -49,7 +49,7 @@ v12.12.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:214
+node_modules/@types/node/fs.d.ts:214
 
 ## Methods
 
@@ -69,7 +69,7 @@ AsyncIterable.\_\_@asyncIterator@214
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:218
+node_modules/@types/node/fs.d.ts:218
 
 ___
 
@@ -93,7 +93,7 @@ v12.12.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:227
+node_modules/@types/node/fs.d.ts:227
 
 ▸ **close**(`cb`): `void`
 
@@ -109,7 +109,7 @@ node_modules/@types/node/ts4.8/fs.d.ts:227
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:228
+node_modules/@types/node/fs.d.ts:228
 
 ___
 
@@ -130,7 +130,7 @@ v12.12.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:234
+node_modules/@types/node/fs.d.ts:234
 
 ___
 
@@ -159,7 +159,7 @@ containing {fs.Dirent|null}
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:247
+node_modules/@types/node/fs.d.ts:247
 
 ▸ **read**(`cb`): `void`
 
@@ -175,7 +175,7 @@ node_modules/@types/node/ts4.8/fs.d.ts:247
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:248
+node_modules/@types/node/fs.d.ts:248
 
 ___
 
@@ -203,4 +203,4 @@ v12.12.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:261
+node_modules/@types/node/fs.d.ts:261

@@ -63,7 +63,7 @@ packages/common/src/utils/logger/logger.ts:17
 
 ### log
 
-▸ **log**(`level`, `data`, ...`args`): `void`
+▸ **log**(`level`, `data`, `...args`): `void`
 
 #### Parameters
 
@@ -85,7 +85,7 @@ ___
 
 ### direct
 
-▸ **direct**(`data`, ...`args`): `void`
+▸ **direct**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -106,7 +106,7 @@ ___
 
 ### fatal
 
-▸ **fatal**(`data`, ...`args`): `void`
+▸ **fatal**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -127,7 +127,7 @@ ___
 
 ### error
 
-▸ **error**(`data`, ...`args`): `void`
+▸ **error**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -148,7 +148,7 @@ ___
 
 ### warn
 
-▸ **warn**(`data`, ...`args`): `void`
+▸ **warn**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -169,7 +169,7 @@ ___
 
 ### info
 
-▸ **info**(`data`, ...`args`): `void`
+▸ **info**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -190,7 +190,7 @@ ___
 
 ### debug
 
-▸ **debug**(`data`, ...`args`): `void`
+▸ **debug**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -211,7 +211,7 @@ ___
 
 ### verbose
 
-▸ **verbose**(`data`, ...`args`): `void`
+▸ **verbose**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -232,7 +232,7 @@ ___
 
 ### trace
 
-▸ **trace**(`data`, ...`args`): `void`
+▸ **trace**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -253,7 +253,7 @@ ___
 
 ### run
 
-▸ **run**(`data`, ...`args`): `void`
+▸ **run**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -274,7 +274,7 @@ ___
 
 ### end
 
-▸ **end**(`data`, ...`args`): `void`
+▸ **end**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -295,7 +295,7 @@ ___
 
 ### stage
 
-▸ **stage**(`data`, ...`args`): `void`
+▸ **stage**(`data`, `...args`): `void`
 
 #### Parameters
 
@@ -353,13 +353,13 @@ ___
 
 ### logColoring
 
-▸ `Private` **logColoring**(`__namedParameters`): `string`
+▸ `Private` **logColoring**(`«destructured»`): `string`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `__namedParameters` | [`LoggerFormat`](../interfaces/LoggerFormat.md) |
+| `«destructured»` | [`LoggerFormat`](../interfaces/LoggerFormat.md) |
 
 #### Returns
 

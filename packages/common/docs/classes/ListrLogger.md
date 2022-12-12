@@ -35,15 +35,15 @@ ___
 
 ### logColoring
 
-▸ `Protected` **logColoring**(`__namedParameters`): `string`
+▸ `Protected` **logColoring**(`«destructured»`): `string`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `__namedParameters` | `Object` |
-| `__namedParameters.level` | `LogLevels` |
-| `__namedParameters.message` | `string` |
+| `«destructured»` | `Object` |
+| › `level` | `LogLevels` |
+| › `message` | `string` |
 
 #### Returns
 

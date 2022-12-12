@@ -77,7 +77,7 @@ Error.prepareStackTrace
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/globals.d.ts:11
+node_modules/@types/node/globals.d.ts:11
 
 ___
 
@@ -91,7 +91,7 @@ Error.stackTraceLimit
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/globals.d.ts:13
+node_modules/@types/node/globals.d.ts:13
 
 ___
 
@@ -119,7 +119,7 @@ Error.name
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1040
+node_modules/typescript/lib/lib.es5.d.ts:1053
 
 ___
 
@@ -133,7 +133,7 @@ Error.message
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1041
+node_modules/typescript/lib/lib.es5.d.ts:1054
 
 ___
 
@@ -147,7 +147,7 @@ Error.stack
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1042
+node_modules/typescript/lib/lib.es5.d.ts:1055
 
 ## Constructors
 
@@ -195,4 +195,4 @@ Error.captureStackTrace
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/globals.d.ts:4
+node_modules/@types/node/globals.d.ts:4

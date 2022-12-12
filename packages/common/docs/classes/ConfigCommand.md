@@ -416,7 +416,7 @@ ___
 
 #### Type declaration
 
-▸ (...`args`): `void`
+▸ (`...args`): `void`
 
 ##### Parameters
 
@@ -874,7 +874,7 @@ ___
 
 ### log
 
-▸ **log**(`message?`, ...`args`): `void`
+▸ **log**(`message?`, `...args`): `void`
 
 #### Parameters
 
@@ -899,7 +899,7 @@ ___
 
 ### logToStderr
 
-▸ **logToStderr**(`message?`, ...`args`): `void`
+▸ **logToStderr**(`message?`, `...args`): `void`
 
 #### Parameters
 
@@ -1217,7 +1217,7 @@ ___
 
 ### setCtxDefaults
 
-▸ `Protected` **setCtxDefaults**<`T`\>(...`defaults`): `void`
+▸ `Protected` **setCtxDefaults**<`T`\>(`...defaults`): `void`
 
 #### Type parameters
 
@@ -1247,7 +1247,7 @@ ___
 
 ### setCtxAssign
 
-▸ `Protected` **setCtxAssign**<`K`\>(...`assigns`): `void`
+▸ `Protected` **setCtxAssign**<`K`\>(`...assigns`): `void`
 
 #### Type parameters
 
@@ -1382,7 +1382,7 @@ ___
 
 ### table
 
-▸ `Protected` **table**(...`options`): `void`
+▸ `Protected` **table**(`...options`): `void`
 
 #### Parameters
 

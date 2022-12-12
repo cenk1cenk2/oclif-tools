@@ -27,4 +27,4 @@ v0.4.2
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2058
+node_modules/@types/node/fs.d.ts:2058

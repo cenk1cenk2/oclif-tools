@@ -8,4 +8,4 @@ Constant for fs.open(). Flag indicating that opening a file should fail if the O
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:3179
+node_modules/@types/node/fs.d.ts:3179

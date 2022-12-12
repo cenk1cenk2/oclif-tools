@@ -27,7 +27,7 @@ Fulfills with the {fs.Stats} object for the given symbolic link `path`.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs/promises.d.ts:718
+node_modules/@types/node/fs/promises.d.ts:718
 
 ▸ **lstat**(`path`, `opts`): `Promise`<[`BigIntStats`](../interfaces/fs.BigIntStats.md)\>
 
@@ -44,7 +44,7 @@ node_modules/@types/node/ts4.8/fs/promises.d.ts:718
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs/promises.d.ts:724
+node_modules/@types/node/fs/promises.d.ts:724
 
 ▸ **lstat**(`path`, `opts?`): `Promise`<[`Stats`](../classes/fs.Stats.md) \| [`BigIntStats`](../interfaces/fs.BigIntStats.md)\>
 
@@ -61,4 +61,4 @@ node_modules/@types/node/ts4.8/fs/promises.d.ts:724
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs/promises.d.ts:730
+node_modules/@types/node/fs/promises.d.ts:730

@@ -112,7 +112,7 @@ EventEmitter.removeListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:494
+node_modules/@types/node/events.d.ts:494
 
 ___
 
@@ -143,7 +143,7 @@ EventEmitter.off
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:499
+node_modules/@types/node/events.d.ts:499
 
 ___
 
@@ -179,7 +179,7 @@ EventEmitter.removeAllListeners
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:510
+node_modules/@types/node/events.d.ts:510
 
 ___
 
@@ -214,7 +214,7 @@ EventEmitter.setMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:520
+node_modules/@types/node/events.d.ts:520
 
 ___
 
@@ -239,7 +239,7 @@ EventEmitter.getMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:526
+node_modules/@types/node/events.d.ts:526
 
 ___
 
@@ -277,7 +277,7 @@ EventEmitter.listeners
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:539
+node_modules/@types/node/events.d.ts:539
 
 ___
 
@@ -332,13 +332,13 @@ EventEmitter.rawListeners
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:569
+node_modules/@types/node/events.d.ts:569
 
 ___
 
 ### emit
 
-▸ **emit**(`eventName`, ...`args`): `boolean`
+▸ **emit**(`eventName`, `...args`): `boolean`
 
 Synchronously calls each of the listeners registered for the event named`eventName`, in the order they were registered, passing the supplied arguments
 to each.
@@ -399,7 +399,7 @@ EventEmitter.emit
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:610
+node_modules/@types/node/events.d.ts:610
 
 ___
 
@@ -429,7 +429,7 @@ EventEmitter.listenerCount
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:616
+node_modules/@types/node/events.d.ts:616
 
 ___
 
@@ -467,7 +467,7 @@ EventEmitter.eventNames
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:669
+node_modules/@types/node/events.d.ts:669
 
 ___
 
@@ -487,7 +487,7 @@ v0.5.8
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:295
+node_modules/@types/node/fs.d.ts:295
 
 ___
 
@@ -516,7 +516,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:301
+node_modules/@types/node/fs.d.ts:301
 
 ▸ **addListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -537,7 +537,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:302
+node_modules/@types/node/fs.d.ts:302
 
 ▸ **addListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -558,7 +558,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:303
+node_modules/@types/node/fs.d.ts:303
 
 ▸ **addListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -579,7 +579,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:304
+node_modules/@types/node/fs.d.ts:304
 
 ___
 
@@ -604,7 +604,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:305
+node_modules/@types/node/fs.d.ts:305
 
 ▸ **on**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -625,7 +625,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:306
+node_modules/@types/node/fs.d.ts:306
 
 ▸ **on**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -646,7 +646,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:307
+node_modules/@types/node/fs.d.ts:307
 
 ▸ **on**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -667,7 +667,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:308
+node_modules/@types/node/fs.d.ts:308
 
 ___
 
@@ -692,7 +692,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:309
+node_modules/@types/node/fs.d.ts:309
 
 ▸ **once**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -713,7 +713,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:310
+node_modules/@types/node/fs.d.ts:310
 
 ▸ **once**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -734,7 +734,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:311
+node_modules/@types/node/fs.d.ts:311
 
 ▸ **once**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -755,7 +755,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:312
+node_modules/@types/node/fs.d.ts:312
 
 ___
 
@@ -780,7 +780,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:313
+node_modules/@types/node/fs.d.ts:313
 
 ▸ **prependListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -801,7 +801,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:314
+node_modules/@types/node/fs.d.ts:314
 
 ▸ **prependListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -822,7 +822,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:315
+node_modules/@types/node/fs.d.ts:315
 
 ▸ **prependListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -843,7 +843,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:316
+node_modules/@types/node/fs.d.ts:316
 
 ___
 
@@ -868,7 +868,7 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:317
+node_modules/@types/node/fs.d.ts:317
 
 ▸ **prependOnceListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -889,7 +889,7 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:318
+node_modules/@types/node/fs.d.ts:318
 
 ▸ **prependOnceListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -910,7 +910,7 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:319
+node_modules/@types/node/fs.d.ts:319
 
 ▸ **prependOnceListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -931,4 +931,4 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:320
+node_modules/@types/node/fs.d.ts:320

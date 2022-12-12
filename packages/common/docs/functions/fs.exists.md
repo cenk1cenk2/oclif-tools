@@ -151,4 +151,4 @@ Since v1.0.0 - Use [stat](fs.stat.md) or [access](fs.access.md) instead.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:3119
+node_modules/@types/node/fs.d.ts:3119

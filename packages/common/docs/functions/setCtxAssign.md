@@ -1,6 +1,6 @@
 # Function: setCtxAssign
 
-▸ **setCtxAssign**<`T`, `K`\>(`ctx`, ...`assigns`): `void`
+▸ **setCtxAssign**<`T`, `K`\>(`ctx`, `...assigns`): `void`
 
 #### Type parameters
 

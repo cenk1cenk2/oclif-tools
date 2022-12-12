@@ -37,7 +37,7 @@ v10.10.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:148
+node_modules/@types/node/fs.d.ts:148
 
 ___
 
@@ -58,7 +58,7 @@ v10.10.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:154
+node_modules/@types/node/fs.d.ts:154
 
 ___
 
@@ -78,7 +78,7 @@ v10.10.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:159
+node_modules/@types/node/fs.d.ts:159
 
 ___
 
@@ -98,7 +98,7 @@ v10.10.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:164
+node_modules/@types/node/fs.d.ts:164
 
 ___
 
@@ -118,7 +118,7 @@ v10.10.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:169
+node_modules/@types/node/fs.d.ts:169
 
 ___
 
@@ -139,7 +139,7 @@ v10.10.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:175
+node_modules/@types/node/fs.d.ts:175
 
 ___
 
@@ -159,7 +159,7 @@ v10.10.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:180
+node_modules/@types/node/fs.d.ts:180
 
 ## Properties
 
@@ -176,4 +176,4 @@ v10.10.0
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:186
+node_modules/@types/node/fs.d.ts:186

@@ -32,7 +32,7 @@ v0.1.21
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:1907
+node_modules/@types/node/fs.d.ts:1907
 
 ▸ **readdirSync**(`path`, `options`): `Buffer`[]
 
@@ -51,7 +51,7 @@ Synchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:1922
+node_modules/@types/node/fs.d.ts:1922
 
 ▸ **readdirSync**(`path`, `options?`): `string`[] \| `Buffer`[]
 
@@ -70,7 +70,7 @@ Synchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:1936
+node_modules/@types/node/fs.d.ts:1936
 
 ▸ **readdirSync**(`path`, `options`): [`Dirent`](../classes/fs.Dirent.md)[]
 
@@ -89,4 +89,4 @@ Synchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:1950
+node_modules/@types/node/fs.d.ts:1950

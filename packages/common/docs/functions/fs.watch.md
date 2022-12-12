@@ -39,7 +39,7 @@ v0.5.10
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2958
+node_modules/@types/node/fs.d.ts:2958
 
 ▸ **watch**(`filename`, `options?`, `listener?`): [`FSWatcher`](../interfaces/fs.FSWatcher.md)
 
@@ -59,7 +59,7 @@ Watch for changes on `filename`, where `filename` is either a file or a director
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2975
+node_modules/@types/node/fs.d.ts:2975
 
 ▸ **watch**(`filename`, `options`, `listener?`): [`FSWatcher`](../interfaces/fs.FSWatcher.md)
 
@@ -79,7 +79,7 @@ Watch for changes on `filename`, where `filename` is either a file or a director
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2984
+node_modules/@types/node/fs.d.ts:2984
 
 ▸ **watch**(`filename`, `listener?`): [`FSWatcher`](../interfaces/fs.FSWatcher.md)
 
@@ -98,4 +98,4 @@ Watch for changes on `filename`, where `filename` is either a file or a director
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2989
+node_modules/@types/node/fs.d.ts:2989

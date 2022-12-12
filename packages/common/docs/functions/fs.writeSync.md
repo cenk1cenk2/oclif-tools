@@ -29,7 +29,7 @@ The number of bytes written.
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2230
+node_modules/@types/node/fs.d.ts:2230
 
 ▸ **writeSync**(`fd`, `string`, `position?`, `encoding?`): `number`
 
@@ -50,4 +50,4 @@ Synchronously writes `string` to the file referenced by the supplied file descri
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/fs.d.ts:2238
+node_modules/@types/node/fs.d.ts:2238
