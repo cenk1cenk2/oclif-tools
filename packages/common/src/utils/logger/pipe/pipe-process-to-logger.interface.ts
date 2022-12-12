@@ -11,4 +11,6 @@ export interface PipeProcessToLoggerOptions {
   stderr?: LogLevels
   /** will callback on error in the instance */
   callback?: (error?: Error) => void
+  /** context for logger */
+  context?: string
 }

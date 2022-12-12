@@ -1,5 +1,6 @@
 import { Command as BaseCommand } from '@oclif/core'
-import type { ListrContext, PromptOptions } from 'listr2'
+import type { ExecaChildProcess } from 'execa'
+import type { ListrContext, ListrTaskWrapper, PromptOptions } from 'listr2'
 import { createPrompt, Manager } from 'listr2'
 import { createInterface } from 'readline'
 
@@ -11,7 +12,8 @@ import { ConfigService, FileSystemService, StoreService, ValidatorService } from
 import { ParserService } from '@lib/parser/parser.service'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
 import { CliUx, setCtxAssign, setCtxDefaults } from '@utils'
-import { ListrLogger, LogFieldStatus, Logger } from '@utils/logger'
+import type { PipeProcessToLoggerOptions } from '@utils/logger'
+import { pipeProcessThroughListr, ListrLogger, LogFieldStatus, Logger, pipeProcessToLogger } from '@utils/logger'
 
 export class Command<
   Ctx extends ListrContext = ListrContext,
@@ -98,6 +100,14 @@ export class Command<
     setCtxAssign(this.tasks.options.ctx, ...assigns)
 
     this.logger.trace('Updated context with assign: %o', this.tasks.options.ctx, { status: 'ctx' })
+  }
+
+  protected pipeProcessToLogger (instance: ExecaChildProcess, options?: PipeProcessToLoggerOptions): ExecaChildProcess {
+    return pipeProcessToLogger(this.logger, instance, options)
+  }
+
+  protected pipeProcessThroughListr (task: ListrTaskWrapper<any, any>, instance: ExecaChildProcess): ExecaChildProcess {
+    return pipeProcessThroughListr(task, instance)
   }
 
   /** Initial functions / constructor */
@@ -201,10 +211,14 @@ export class Command<
   protected catch (e: Error, exit?: number): Promise<void> {
     // log the error
     if (!this.logger) {
+      // eslint-disable-next-line no-console
       console.error('Logger has not been initiated yet!')
+      // eslint-disable-next-line no-console
       console.error(e.message)
+      // eslint-disable-next-line no-console
       console.debug(e.stack)
     }
+
     this.logger.fatal(e.message)
     this.logger.debug(e.stack, { context: 'crash' })
 

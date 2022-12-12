@@ -19,13 +19,13 @@ export function pipeProcessToLogger (logger: Logger, instance: ExecaChildProcess
   }
 
   if (options.start) {
-    logger.run(instance.spawnargs.join(' '), { level: options.start })
+    logger.run(instance.spawnargs.join(' '), { level: options.start, context: options.context })
   }
 
   if (instance.stdout) {
     instance.stdout.pipe(
       through((chunk: string) => {
-        logger.log(options.stdout, chunk)
+        logger.log(options.stdout, chunk, { context: options.context })
       })
     )
   }
@@ -33,7 +33,7 @@ export function pipeProcessToLogger (logger: Logger, instance: ExecaChildProcess
   if (instance.stderr) {
     instance.stderr.pipe(
       through((chunk: string) => {
-        logger.log(options.stderr, chunk)
+        logger.log(options.stderr, chunk, { context: options.context })
       })
     )
   }
@@ -41,10 +41,10 @@ export function pipeProcessToLogger (logger: Logger, instance: ExecaChildProcess
   void instance.on('exit', (code, signal) => {
     const message = `Process ended with code ${code}${signal ? ` and signal ${signal}` : ''}.`
 
-    logger.debug(message)
+    logger.debug(message, { context: options.context })
 
     if (options.end) {
-      logger.end(instance.spawnargs.join(' '), { level: options.end })
+      logger.end(instance.spawnargs.join(' '), { level: options.end, context: options.context })
     }
 
     if (options?.callback) {
@@ -53,8 +53,8 @@ export function pipeProcessToLogger (logger: Logger, instance: ExecaChildProcess
   })
 
   void instance.on('error', (error) => {
-    logger.fatal(error.message)
-    logger.debug(error.stack)
+    logger.fatal(error.message, { context: options.context })
+    logger.debug(error.stack, { context: options.context })
 
     if (options?.callback) {
       options.callback(error)
