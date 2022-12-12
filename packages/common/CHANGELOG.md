@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [3.9.8](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.7...@cenk1cenk2/oclif-common@3.9.8) (2022-12-12)
+
+
+### Bug Fixes
+
+* update logger error ([9112668](https://gitlab.kilic.dev/libraries/oclif-tools/commit/91126687a8bf1e4bcdc93adce0bc3b62ff3ff73d))
+
 ## @cenk1cenk2/oclif-common [3.9.7](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.6...@cenk1cenk2/oclif-common@3.9.7) (2022-12-12)
 
 
