@@ -81,7 +81,7 @@
     "eslint": "^8.31.0",
     "fs-extra": "^10.1.0",
     "globby": "^11",
-    "lerna": "^6.3.0",
+    "lerna": "^6.4.0",
     "lint-staged": "^13.1.0",
     "oclif": "^3.4.3",
     "prettier": "^2.8.1",
