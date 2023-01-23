@@ -1217,10 +1217,10 @@
     widest-line "^3.1.0"
     wrap-ansi "^7.0.0"
 
-"@oclif/core@^1.26.0":
-  version "1.26.0"
-  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-1.26.0.tgz#35f2e913e2d533d5384b88e5cdb02dc8158ebfd9"
-  integrity sha512-VzvxKsFOLSlmAPloeLAQHGbOe3o2eP+/T7czf5WsBS69GrsIMYHSNnOXbYoKozbpkFUX9xe1Moc2j2g3s9OmWw==
+"@oclif/core@^1.26.1":
+  version "1.26.1"
+  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-1.26.1.tgz#26e46c96143d3e2b1dd9bd558ae1653fe9a4f3fa"
+  integrity sha512-g+OWJcM7JOVI53caTEtq0BB1nPotWctRLUyFODPgvDqXhVR7QED+Qz3LwFAMD8dt7/Ar2ZNq15U3bnpnOv453A==
   dependencies:
     "@oclif/linewrap" "^1.0.0"
     "@oclif/screen" "^3.0.4"
