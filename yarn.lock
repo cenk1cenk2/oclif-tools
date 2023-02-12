@@ -1317,41 +1317,7 @@
     widest-line "^3.1.0"
     wrap-ansi "^7.0.0"
 
-"@oclif/core@^2.0.3", "@oclif/core@^2.0.8":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-2.1.1.tgz#8ffa83fe39f43bd66fb6f0731527b17911fc937e"
-  integrity sha512-t0zez9ydn3eveZM2vsMbrL2hNKzlHSfwEl4A29VlIimOxpQDB9AKZXX02lhTB3BSKbVF24UOlkzYiX7n9Bdc0A==
-  dependencies:
-    "@types/cli-progress" "^3.11.0"
-    ansi-escapes "^4.3.2"
-    ansi-styles "^4.3.0"
-    cardinal "^2.1.1"
-    chalk "^4.1.2"
-    clean-stack "^3.0.1"
-    cli-progress "^3.10.0"
-    debug "^4.3.4"
-    ejs "^3.1.6"
-    fs-extra "^9.1.0"
-    get-package-type "^0.1.0"
-    globby "^11.1.0"
-    hyperlinker "^1.0.0"
-    indent-string "^4.0.0"
-    is-wsl "^2.2.0"
-    js-yaml "^3.14.1"
-    natural-orderby "^2.0.3"
-    object-treeify "^1.1.33"
-    password-prompt "^1.1.2"
-    semver "^7.3.7"
-    string-width "^4.2.3"
-    strip-ansi "^6.0.1"
-    supports-color "^8.1.1"
-    supports-hyperlinks "^2.2.0"
-    tslib "^2.5.0"
-    widest-line "^3.1.0"
-    wordwrap "^1.0.0"
-    wrap-ansi "^7.0.0"
-
-"@oclif/core@^2.1.1":
+"@oclif/core@^2.0.3", "@oclif/core@^2.0.8", "@oclif/core@^2.1.1", "@oclif/core@^2.1.2":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@oclif/core/-/core-2.1.2.tgz#a3e47ed2274e47cb2b3dc1a16b5955cceae5d2d0"
   integrity sha512-l7Kx+80zuDgi9o4gZe39XQeYvQuj6Hf+B31kXSUSntgXpfLdDbpFSZH/GP7tsldzG4icrpmSwnLDOz8MNB40Hg==
@@ -1398,12 +1364,12 @@
     "@oclif/core" "^2.0.8"
 
 "@oclif/plugin-not-found@^2.3.7":
-  version "2.3.18"
-  resolved "https://registry.yarnpkg.com/@oclif/plugin-not-found/-/plugin-not-found-2.3.18.tgz#9dced0d69305d71a486ae6c0160eabac8f516fb2"
-  integrity sha512-yUXgdPwjE/JIuWZ23Ge6G5gM+qiw7Baq/26oBq3eusIP6hZuHYeCpwQ96Zy5aHcjm2NSZcMjkZG1jARyr9BzkQ==
+  version "2.3.19"
+  resolved "https://registry.yarnpkg.com/@oclif/plugin-not-found/-/plugin-not-found-2.3.19.tgz#34d10cd43695da44d3749cae973b8edb8abb7ce9"
+  integrity sha512-W0rY+txYSElPCP/DA4n5ffUDWQtk9EDRtL8oceP8vyXXPPjdCFk5vIXeisQGGTElD4L1+uHC4LriaFLNhysNYQ==
   dependencies:
     "@oclif/color" "^1.0.3"
-    "@oclif/core" "^2.0.3"
+    "@oclif/core" "^2.1.2"
     fast-levenshtein "^3.0.0"
     lodash "^4.17.21"
 
@@ -5998,9 +5964,9 @@ minimatch@^5.0.1:
     brace-expansion "^2.0.1"
 
 minimatch@^6.1.6:
-  version "6.1.6"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-6.1.6.tgz#5384bb324be5b5dae12a567c03d22908febd0ddd"
-  integrity sha512-6bR3UIeh/DF8+p6A9Spyuy67ShOq42rOkHWi7eUe3Ua99Zo5lZfGC6lJJWkeoK4k9jQFT3Pl7czhTXimG2XheA==
+  version "6.1.8"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-6.1.8.tgz#5a0ea694ca41342e14561bbec62802b59509f7e4"
+  integrity sha512-sTvS8Q4mIZiSnMo9192lZMxfeaGCslH5CC7B62hd9DlbifUVrc02ABTeRJINPosxKnvZlrmAaNSo8f4PZqDDdw==
   dependencies:
     brace-expansion "^2.0.1"
 
@@ -8973,9 +8939,9 @@ yeoman-environment@^3.11.1:
     untildify "^4.0.0"
 
 yeoman-generator@^5.6.1:
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/yeoman-generator/-/yeoman-generator-5.7.0.tgz#5cf24b9fca331646263749121d4f8d477698a83a"
-  integrity sha512-z9ZwgKoDOd+llPDCwn8Ax2l4In5FMhlslxdeByW4AMxhT+HbTExXKEAahsClHSbwZz1i5OzRwLwRIUdOJBr5Bw==
+  version "5.7.1"
+  resolved "https://registry.yarnpkg.com/yeoman-generator/-/yeoman-generator-5.7.1.tgz#9bfd6d04978dfcb5fb0613df95e0c3f1eebd090c"
+  integrity sha512-5X9Ep5Zu7gw6JDpahkgCorsz8BUQ0iDbnLO3Ov0UgLc9GedTUMk0a2DMkEspq7+fZHtVcOQ2C/YIbzpDH/5OMg==
   dependencies:
     chalk "^4.1.0"
     dargs "^7.0.0"
