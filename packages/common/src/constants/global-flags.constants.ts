@@ -1,15 +1,15 @@
-import type { FlagInput } from '@oclif/core/lib/interfaces'
+import type { FlagInput } from '@oclif/core/lib/interfaces/parser'
 
 import { HelpGroups } from './help-groups.constants'
 import { Flags } from '@interfaces'
 import { LogLevels } from '@utils/logger'
 
 export const CLI_FLAGS: FlagInput = {
-  ['log-level']: Flags.enum({
+  ['log-level']: Flags.string({
     default: LogLevels.INFO,
     env: 'LOG_LEVEL',
     description: 'Set the log level of the application.',
-    options: [ ...Object.values(LogLevels).map((level) => level.toLowerCase()) ],
+    options: Object.values(LogLevels).map((level) => level.toLowerCase()),
     helpGroup: HelpGroups.CLI,
     parse: async (input) => (input as string)?.toUpperCase() as unknown as LogLevels
   }),

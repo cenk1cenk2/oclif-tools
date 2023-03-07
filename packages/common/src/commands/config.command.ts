@@ -3,7 +3,7 @@ import type { ListrContext } from 'listr2'
 import { Command } from './base.command'
 import type { ConfigCommandChoices, ConfigCommandSetup, InferArgs, InferFlags } from '@interfaces'
 import type { LockerService } from '@lib'
-import { CliUx } from '@utils'
+import { ux } from '@utils'
 
 export class ConfigCommand<
   CommandChoices extends string = string,
@@ -15,8 +15,6 @@ export class ConfigCommand<
 > extends Command<Ctx, Flags, Args, Store> {
   public choices: ConfigCommandChoices<CommandChoices>
   public locker: LockerService<LockFile>
-
-  protected ux = CliUx.ux
 
   public async run (): Promise<any> {
     this.logger.stage('Setting up config command.')
@@ -38,8 +36,8 @@ export class ConfigCommand<
     throw new Error('The command should be setup first!')
   }
 
-  protected table (...options: Parameters<typeof CliUx.ux.table>): void {
-    this.ux.table(...options)
+  protected table (...options: Parameters<typeof ux.table>): void {
+    ux.table(...options)
   }
 
   protected async select (): Promise<string> {

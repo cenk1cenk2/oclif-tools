@@ -66,15 +66,15 @@
     "yaml": "^2.2.1"
   },
   "devDependencies": {
-    "@oclif/core": "^1.26.2",
-    "@types/fs-extra": "^9.0.13",
+    "@oclif/core": "^2.5.0",
+    "@types/fs-extra": "^11.0.1",
     "@types/through": "^0.0.30",
     "@types/update-notifier": "^6",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "enquirer": "^2.3.6",
     "execa": "^5",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "listr2": "^5.0.7"
   }
 }

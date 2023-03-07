@@ -7,11 +7,11 @@ import { createInterface } from 'readline'
 import 'reflect-metadata'
 
 import { CLI_FLAGS } from '@constants'
-import type { InferArgs, InferFlags } from '@interfaces'
+import type { FlagInput, InferArgs, InferFlags } from '@interfaces'
 import { ConfigService, FileSystemService, StoreService, ValidatorService } from '@lib'
 import { ParserService } from '@lib/parser/parser.service'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
-import { CliUx, setCtxAssign, setCtxDefaults } from '@utils'
+import { setCtxAssign, setCtxDefaults, ux } from '@utils'
 import type { PipeProcessToLoggerOptions } from '@utils/logger'
 import { pipeProcessThroughListr, ListrLogger, LogFieldStatus, Logger, pipeProcessToLogger } from '@utils/logger'
 
@@ -21,6 +21,17 @@ export class Command<
   Args extends Record<PropertyKey, any> = InferArgs<typeof Command>,
   Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
 > extends BaseCommand {
+  static get baseFlags (): FlagInput {
+    // eslint-disable-next-line no-underscore-dangle
+    return this._baseFlags
+  }
+
+  static set baseFlags (flags: FlagInput) {
+    // eslint-disable-next-line no-underscore-dangle
+    this._baseFlags = Object.assign(CLI_FLAGS, this.baseFlags, flags)
+    this.flags = {} // force the flags setter to run
+  }
+
   public context: string
   public logger: Logger
   public tasks: Manager<Ctx, 'default' | 'verbose' | 'silent' | 'simple'>
@@ -65,7 +76,7 @@ export class Command<
     }
 
     if (result && this.jsonEnabled()) {
-      CliUx.ux.styledJSON(this.toSuccessJson(result))
+      ux.styledJSON(this.toSuccessJson(result))
     }
 
     return result

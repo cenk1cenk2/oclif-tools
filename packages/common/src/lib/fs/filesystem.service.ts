@@ -57,7 +57,7 @@ export class FileSystemService {
 
   public async write (file: string, data: string | Buffer, options: fs.WriteFileOptions = {}): Promise<void> {
     try {
-      await fs.writeFile(file, data, { encoding: 'utf-8', ...options })
+      await fs.writeFile(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
     } catch (e) {
       throw new Error(`Error while writing file to "${file}": ${e.message}`)
     }
@@ -65,7 +65,7 @@ export class FileSystemService {
 
   public writeSync (file: string, data: string | Buffer, options: fs.WriteFileOptions = {}): void {
     try {
-      fs.writeFileSync(file, data, { encoding: 'utf-8', ...options } as any)
+      fs.writeFileSync(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
     } catch (e) {
       throw new Error(`Error while writing file to "${file}": ${e.message}`)
     }
