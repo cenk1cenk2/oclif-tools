@@ -688,7 +688,7 @@
     supports-color "^8.1.1"
     tslib "^2"
 
-"@oclif/core@^2.1.1", "@oclif/core@^2.3.0", "@oclif/core@^2.4.0", "@oclif/core@^2.5.0":
+"@oclif/core@^2.1.1", "@oclif/core@^2.3.0", "@oclif/core@^2.4.0":
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/@oclif/core/-/core-2.5.0.tgz#ade1ff5cf0c2f46851eb101a036ba03e54146d9d"
   integrity sha512-gHDqrJ3orSm9eV+EacNnw1hlbBie3BAUAenWLWKa7TfJHyfseVhLGV8skkb8uA9MTRAAESJNxWAADh0gIbtZKg==
