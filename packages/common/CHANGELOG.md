@@ -1,10 +1,23 @@
-## @cenk1cenk2/oclif-common [3.9.11](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.10...@cenk1cenk2/oclif-common@3.9.11) (2022-12-30)
-
+# @cenk1cenk2/oclif-common [4.0.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.11...@cenk1cenk2/oclif-common@4.0.0) (2023-03-07)
 
 ### Bug Fixes
 
-* **deps:** update dependency yaml to ^2.2.0 ([314d8e8](https://gitlab.kilic.dev/libraries/oclif-tools/commit/314d8e82afe1acf91bb7bc269d9e738752ed6882))
-* **deps:** update dependency yaml to ^2.2.1 ([588fc4c](https://gitlab.kilic.dev/libraries/oclif-tools/commit/588fc4c2f5934f1eb2285d5ba6f42f5add4d08f2))
+- **deps:** update all minor dependency updates ([3ccf00a](https://gitlab.kilic.dev/libraries/oclif-tools/commit/3ccf00adcd5921f180c5b8f02ec410f16d537c50))
+
+### Performance Improvements
+
+- update core version ([8d569b4](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8d569b4d4e3076d44cb88830ccee9d7430e1ea02))
+
+### BREAKING CHANGES
+
+- Updates the core dependency of oclif to new major version. Moved CLIUX to ux as did the upstream.
+
+## @cenk1cenk2/oclif-common [3.9.11](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.10...@cenk1cenk2/oclif-common@3.9.11) (2022-12-30)
+
+### Bug Fixes
+
+- **deps:** update dependency yaml to ^2.2.0 ([314d8e8](https://gitlab.kilic.dev/libraries/oclif-tools/commit/314d8e82afe1acf91bb7bc269d9e738752ed6882))
+- **deps:** update dependency yaml to ^2.2.1 ([588fc4c](https://gitlab.kilic.dev/libraries/oclif-tools/commit/588fc4c2f5934f1eb2285d5ba6f42f5add4d08f2))
 
 ## @cenk1cenk2/oclif-common [3.9.10](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@3.9.9...@cenk1cenk2/oclif-common@3.9.10) (2022-12-12)
 
