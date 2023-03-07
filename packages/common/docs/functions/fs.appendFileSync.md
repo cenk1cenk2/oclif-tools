@@ -58,7 +58,7 @@ v0.6.7
 | :------ | :------ | :------ |
 | `path` | [`PathOrFileDescriptor`](../types/fs.PathOrFileDescriptor.md) | filename or file descriptor |
 | `data` | `string` \| `Uint8Array` | - |
-| `options?` | `WriteFileOptions` | - |
+| `options?` | [`WriteFileOptions`](../types/fs.WriteFileOptions.md) | - |
 
 #### Returns
 

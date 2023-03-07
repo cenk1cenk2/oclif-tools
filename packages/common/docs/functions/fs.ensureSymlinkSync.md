@@ -4,13 +4,26 @@
 
 ▸ **ensureSymlinkSync**(`src`, `dest`, `type?`): `void`
 
+Ensures that the symlink exists. If the directory structure does not exist, it is created.
+
+**`Example`**
+
+```ts
+import * as fs from 'fs-extra'
+
+const srcPath = '/tmp/file.txt'
+const destPath = '/tmp/this/path/does/not/exist/file.txt'
+fs.ensureSymlinkSync(srcPath, destPath)
+// symlink has now been created, including the directory it is to be placed in
+```
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `src` | `string` |
-| `dest` | `string` |
-| `type?` | [`SymlinkType`](../types/fs.SymlinkType.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `src` | `string` | - |
+| `dest` | `string` | - |
+| `type?` | `Type` | It is only available on Windows and ignored on other platforms. |
 
 #### Returns
 
@@ -18,4 +31,4 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:147
+node_modules/@types/fs-extra/index.d.ts:353

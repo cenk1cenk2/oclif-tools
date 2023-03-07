@@ -2,7 +2,7 @@
 
 [Flags](../modules/Flags.md).custom
 
-▸ **custom**<`T`, `P`\>(`defaults`): `Definition`<`T`, `P`\>
+▸ **custom**<`T`, `P`\>(`defaults`): `FlagDefinition`<`T`, `P`\>
 
 Create a custom flag.
 
@@ -34,17 +34,17 @@ export const myFlag = custom<Id, IdOpts>({
 
 | Name | Type |
 | :------ | :------ |
-| `defaults` | { `parse`: `FlagParser`<`T`, `string`, `P`\> ; `multiple`: ``true``  } & `Partial`<`CustomOptionFlag`<`T`, `P`, ``true``\>\> |
+| `defaults` | { `parse`: `FlagParser`<`T`, `string`, `P`\> ; `multiple`: ``true``  } & `Partial`<`OptionFlagDefaults`<`T`, `P`, ``true``\>\> |
 
 #### Returns
 
-`Definition`<`T`, `P`\>
+`FlagDefinition`<`T`, `P`\>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/parser/flags.d.ts:22
+node_modules/@oclif/core/lib/flags.d.ts:22
 
-▸ **custom**<`T`, `P`\>(`defaults`): `Definition`<`T`, `P`\>
+▸ **custom**<`T`, `P`\>(`defaults`): `FlagDefinition`<`T`, `P`\>
 
 #### Type parameters
 
@@ -57,17 +57,17 @@ node_modules/@oclif/core/lib/parser/flags.d.ts:22
 
 | Name | Type |
 | :------ | :------ |
-| `defaults` | { `parse`: `FlagParser`<`T`, `string`, `P`\>  } & `Partial`<`CustomOptionFlag`<`T`, `P`, ``false``\>\> |
+| `defaults` | { `parse`: `FlagParser`<`T`, `string`, `P`\>  } & `Partial`<`OptionFlagDefaults`<`T`, `P`, ``false``\>\> |
 
 #### Returns
 
-`Definition`<`T`, `P`\>
+`FlagDefinition`<`T`, `P`\>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/parser/flags.d.ts:26
+node_modules/@oclif/core/lib/flags.d.ts:26
 
-▸ **custom**<`T`, `P`\>(`defaults`): `Definition`<`T`, `P`\>
+▸ **custom**<`T`, `P`\>(`defaults`): `FlagDefinition`<`T`, `P`\>
 
 #### Type parameters
 
@@ -80,12 +80,12 @@ node_modules/@oclif/core/lib/parser/flags.d.ts:26
 
 | Name | Type |
 | :------ | :------ |
-| `defaults` | `Partial`<`CustomOptionFlag`<`T`, `P`, ``false``\>\> |
+| `defaults` | `Partial`<`OptionFlagDefaults`<`T`, `P`, ``false``\>\> |
 
 #### Returns
 
-`Definition`<`T`, `P`\>
+`FlagDefinition`<`T`, `P`\>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/parser/flags.d.ts:29
+node_modules/@oclif/core/lib/flags.d.ts:29

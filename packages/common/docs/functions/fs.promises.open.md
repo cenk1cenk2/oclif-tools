@@ -22,7 +22,7 @@ v10.0.0
 | :------ | :------ | :------ |
 | `path` | [`PathLike`](../types/fs.PathLike.md) | - |
 | `flags?` | `string` \| `number` | See `support of file system `flags``. |
-| `mode?` | `Mode` | Sets the file mode (permission and sticky bits) if the file is created. |
+| `mode?` | [`Mode`](../types/fs.Mode.md) | Sets the file mode (permission and sticky bits) if the file is created. |
 
 #### Returns
 

@@ -60,7 +60,7 @@ v10.0.0
 | :------ | :------ | :------ |
 | `file` | [`PathLike`](../types/fs.PathLike.md) \| [`FileHandle`](../interfaces/fs.promises.FileHandle.md) | filename or `FileHandle` |
 | `data` | `string` \| `Stream` \| `ArrayBufferView` \| `Iterable`<`string` \| `ArrayBufferView`\> \| `AsyncIterable`<`string` \| `ArrayBufferView`\> | - |
-| `options?` | `BufferEncoding` \| [`ObjectEncodingOptions`](../interfaces/fs.ObjectEncodingOptions.md) & { `mode?`: `Mode` ; `flag?`: [`OpenMode`](../types/fs.OpenMode.md)  } & `Abortable` | - |
+| `options?` | `BufferEncoding` \| [`ObjectEncodingOptions`](../interfaces/fs.ObjectEncodingOptions.md) & { `mode?`: [`Mode`](../types/fs.Mode.md) ; `flag?`: [`OpenMode`](../types/fs.OpenMode.md)  } & `Abortable` | - |
 
 #### Returns
 

@@ -2,7 +2,11 @@
 
 [fs](../modules/fs.md).createSymlink
 
-▸ **createSymlink**(`src`, `dest`, `type`): `Promise`<`void`\>
+▸ **createSymlink**(`src`, `dest`, `type?`): `Promise`<`void`\>
+
+**`See`**
+
+ensureSymlink
 
 #### Parameters
 
@@ -10,7 +14,7 @@
 | :------ | :------ |
 | `src` | `string` |
 | `dest` | `string` |
-| `type` | [`SymlinkType`](../types/fs.SymlinkType.md) |
+| `type?` | `Type` |
 
 #### Returns
 
@@ -18,9 +22,13 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:41
+node_modules/@types/fs-extra/index.d.ts:333
 
-▸ **createSymlink**(`src`, `dest`, `type`, `callback?`): `void`
+▸ **createSymlink**(`src`, `dest`, `callback`): `void`
+
+**`See`**
+
+ensureSymlink
 
 #### Parameters
 
@@ -28,8 +36,7 @@ node_modules/@types/fs-extra/index.d.ts:41
 | :------ | :------ |
 | `src` | `string` |
 | `dest` | `string` |
-| `type` | [`SymlinkType`](../types/fs.SymlinkType.md) |
-| `callback?` | (`err`: `Error`) => `void` |
+| `callback` | [`NoParamCallback`](../types/fs.NoParamCallback.md) |
 
 #### Returns
 
@@ -37,4 +44,27 @@ node_modules/@types/fs-extra/index.d.ts:41
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:42
+node_modules/@types/fs-extra/index.d.ts:334
+
+▸ **createSymlink**(`src`, `dest`, `type`, `callback`): `void`
+
+**`See`**
+
+ensureSymlink
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `src` | `string` |
+| `dest` | `string` |
+| `type` | `Type` |
+| `callback` | [`NoParamCallback`](../types/fs.NoParamCallback.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+node_modules/@types/fs-extra/index.d.ts:335

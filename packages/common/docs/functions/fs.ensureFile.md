@@ -2,13 +2,52 @@
 
 [fs](../modules/fs.md).ensureFile
 
-▸ **ensureFile**(`path`): `Promise`<`void`\>
+▸ **ensureFile**(`file`): `Promise`<`void`\>
+
+Ensures that the file exists. If the file that is requested to be created is in
+directories that do not exist, these directories are created. If the file already
+exists, it is **NOT MODIFIED**.
+
+**`Example`**
+
+```ts
+import * as fs from 'fs-extra'
+
+const file = '/tmp/this/path/does/not/exist/file.txt'
+
+// With a callback:
+fs.ensureFile(file, err => {
+  console.log(err) // => null
+  // file has now been created, including the directory it is to be placed in
+})
+
+// With Promises:
+fs.ensureFile(file)
+ .then(() => {
+   console.log('success!')
+ })
+ .catch(err => {
+   console.error(err)
+ })
+
+// With async/await:
+async function asyncAwait () {
+  try {
+    await fs.ensureFile(file)
+    console.log('success!')
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+asyncAwait()
+```
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `path` | `string` |
+| `file` | `string` |
 
 #### Returns
 
@@ -16,16 +55,16 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:132
+node_modules/@types/fs-extra/index.d.ts:212
 
-▸ **ensureFile**(`path`, `callback`): `void`
+▸ **ensureFile**(`file`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `path` | `string` |
-| `callback` | (`err`: `Error`) => `void` |
+| `file` | `string` |
+| `callback` | [`NoParamCallbackWithUndefined`](../types/fs.NoParamCallbackWithUndefined.md) |
 
 #### Returns
 
@@ -33,4 +72,4 @@ node_modules/@types/fs-extra/index.d.ts:132
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:133
+node_modules/@types/fs-extra/index.d.ts:213

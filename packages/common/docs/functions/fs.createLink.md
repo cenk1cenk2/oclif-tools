@@ -4,6 +4,10 @@
 
 ▸ **createLink**(`src`, `dest`): `Promise`<`void`\>
 
+**`See`**
+
+ensureLink
+
 #### Parameters
 
 | Name | Type |
@@ -17,9 +21,13 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:136
+node_modules/@types/fs-extra/index.d.ts:272
 
 ▸ **createLink**(`src`, `dest`, `callback`): `void`
+
+**`See`**
+
+ensureLink
 
 #### Parameters
 
@@ -27,7 +35,7 @@ node_modules/@types/fs-extra/index.d.ts:136
 | :------ | :------ |
 | `src` | `string` |
 | `dest` | `string` |
-| `callback` | (`err`: `Error`) => `void` |
+| `callback` | [`NoParamCallback`](../types/fs.NoParamCallback.md) |
 
 #### Returns
 
@@ -35,4 +43,4 @@ node_modules/@types/fs-extra/index.d.ts:136
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:137
+node_modules/@types/fs-extra/index.d.ts:273

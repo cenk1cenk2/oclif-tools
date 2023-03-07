@@ -7,12 +7,12 @@ Infer the flags that are returned by Command.parse. This is useful for when you 
 **`Example`**
 
 ```ts
-export type StatusFlags = Interfaces.InferredFlags<typeof Status.flags & typeof Status.globalFlags>
+export type StatusFlags = Interfaces.InferredFlags<typeof Status.flags & typeof Status.baseFlags>
 
 export abstract class BaseCommand extends Command {
   static enableJsonFlag = true
 
-  static globalFlags = {
+  static baseFlags = {
     config: Flags.string({
       description: 'specify config file',
     }),

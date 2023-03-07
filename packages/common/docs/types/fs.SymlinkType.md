@@ -2,8 +2,8 @@
 
 [fs](../modules/fs.md).SymlinkType
 
-Ƭ **SymlinkType**: ``"dir"`` \| ``"file"`` \| ``"junction"``
+Ƭ **SymlinkType**: `fs.symlink.Type`
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:511
+node_modules/@types/fs-extra/index.d.ts:947

@@ -29,7 +29,7 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:10
+node_modules/@oclif/core/lib/command.d.ts:12
 
 ___
 
@@ -43,21 +43,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:11
-
-___
-
-### \_base
-
-▪ `Static` **\_base**: `string`
-
-#### Inherited from
-
-[Command](Command.md).[_base](Command.md#_base)
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:12
+node_modules/@oclif/core/lib/command.d.ts:13
 
 ___
 
@@ -73,7 +59,7 @@ A command ID, used mostly in error or verbose reporting.
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:14
+node_modules/@oclif/core/lib/command.d.ts:16
 
 ___
 
@@ -90,7 +76,7 @@ sub-command listing and as the header for the command help.
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:19
+node_modules/@oclif/core/lib/command.d.ts:21
 
 ___
 
@@ -108,7 +94,7 @@ If no summary, the first line of the description will be used as the summary.
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:25
+node_modules/@oclif/core/lib/command.d.ts:27
 
 ___
 
@@ -124,7 +110,7 @@ Hide the command from help
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:27
+node_modules/@oclif/core/lib/command.d.ts:29
 
 ___
 
@@ -140,7 +126,7 @@ Mark the command as a given state (e.g. beta or deprecated) in help
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:29
+node_modules/@oclif/core/lib/command.d.ts:31
 
 ___
 
@@ -154,7 +140,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:30
+node_modules/@oclif/core/lib/command.d.ts:32
 
 ___
 
@@ -170,7 +156,7 @@ Emit deprecation warning when a command alias is used
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:34
+node_modules/@oclif/core/lib/command.d.ts:36
 
 ___
 
@@ -186,7 +172,7 @@ An override string (or strings) for the default usage documentation.
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:38
+node_modules/@oclif/core/lib/command.d.ts:40
 
 ___
 
@@ -200,7 +186,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:39
+node_modules/@oclif/core/lib/command.d.ts:41
 
 ___
 
@@ -216,7 +202,7 @@ An array of aliases for this command.
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:41
+node_modules/@oclif/core/lib/command.d.ts:43
 
 ___
 
@@ -232,29 +218,15 @@ When set to false, allows a variable amount of arguments
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:43
-
-___
-
-### parse
-
-▪ `Static` **parse**: `boolean`
-
-#### Inherited from
-
-[Command](Command.md).[parse](Command.md#parse)
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:44
+node_modules/@oclif/core/lib/command.d.ts:45
 
 ___
 
 ### args
 
-▪ `Static` `Optional` **args**: [`ArgInput`](../types/ArgInput.md)
+▪ `Static` **args**: [`ArgInput`](../types/ArgInput.md)<{ `[arg: string]`: `any`;  }\>
 
-An order-dependent array of arguments for the command
+An order-dependent object of arguments for the command
 
 #### Inherited from
 
@@ -262,7 +234,7 @@ An order-dependent array of arguments for the command
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:46
+node_modules/@oclif/core/lib/command.d.ts:47
 
 ___
 
@@ -276,7 +248,49 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:47
+node_modules/@oclif/core/lib/command.d.ts:48
+
+___
+
+### pluginName
+
+▪ `Static` `Optional` `Readonly` **pluginName**: `string`
+
+#### Inherited from
+
+[Command](Command.md).[pluginName](Command.md#pluginname)
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:49
+
+___
+
+### pluginType
+
+▪ `Static` `Optional` `Readonly` **pluginType**: `string`
+
+#### Inherited from
+
+[Command](Command.md).[pluginType](Command.md#plugintype)
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:50
+
+___
+
+### pluginAlias
+
+▪ `Static` `Optional` `Readonly` **pluginAlias**: `string`
+
+#### Inherited from
+
+[Command](Command.md).[pluginAlias](Command.md#pluginalias)
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:51
 
 ___
 
@@ -303,27 +317,27 @@ EXAMPLES:
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:62
+node_modules/@oclif/core/lib/command.d.ts:66
 
 ___
 
-### parserOptions
+### hasDynamicHelp
 
-▪ `Static` **parserOptions**: `Object`
+▪ `Static` **hasDynamicHelp**: `boolean`
 
 #### Inherited from
 
-[Command](Command.md).[parserOptions](Command.md#parseroptions)
+[Command](Command.md).[hasDynamicHelp](Command.md#hasdynamichelp)
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:63
+node_modules/@oclif/core/lib/command.d.ts:67
 
 ___
 
 ### \_enableJsonFlag
 
-▪ `Static` **\_enableJsonFlag**: `boolean`
+▪ `Static` `Protected` **\_enableJsonFlag**: `boolean`
 
 #### Inherited from
 
@@ -331,52 +345,21 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:64
+node_modules/@oclif/core/lib/command.d.ts:68
 
 ___
 
-### run
+### \_baseFlags
 
-▪ `Static` **run**: (`argv?`: `string`[], `config?`: `LoadOptions`) => `PromiseLike`<`any`\>
-
-#### Type declaration
-
-▸ (`argv?`, `config?`): `PromiseLike`<`any`\>
-
-instantiate and run the command
-
-##### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `argv?` | `string`[] | argv |
-| `config?` | `LoadOptions` | - |
-
-##### Returns
-
-`PromiseLike`<`any`\>
+▪ `Static` `Protected` **\_baseFlags**: [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
 
 #### Inherited from
 
-[Command](Command.md).[run](Command.md#run)
+[Command](Command.md).[_baseFlags](Command.md#_baseflags)
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:73
-
-___
-
-### \_globalFlags
-
-▪ `Static` `Protected` **\_globalFlags**: [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
-
-#### Inherited from
-
-[Command](Command.md).[_globalFlags](Command.md#_globalflags)
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:74
+node_modules/@oclif/core/lib/command.d.ts:80
 
 ___
 
@@ -392,7 +375,7 @@ A hash of flags for the command
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:78
+node_modules/@oclif/core/lib/command.d.ts:84
 
 ___
 
@@ -406,7 +389,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:81
+node_modules/@oclif/core/lib/command.d.ts:87
 
 ___
 
@@ -434,7 +417,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:82
+node_modules/@oclif/core/lib/command.d.ts:88
 
 ___
 
@@ -448,7 +431,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:24
+packages/common/src/commands/base.command.ts:35
 
 ___
 
@@ -462,7 +445,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:25
+packages/common/src/commands/base.command.ts:36
 
 ___
 
@@ -476,7 +459,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:26
+packages/common/src/commands/base.command.ts:37
 
 ___
 
@@ -490,7 +473,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:27
+packages/common/src/commands/base.command.ts:38
 
 ___
 
@@ -504,7 +487,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:28
+packages/common/src/commands/base.command.ts:39
 
 ___
 
@@ -518,7 +501,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:29
+packages/common/src/commands/base.command.ts:40
 
 ___
 
@@ -532,7 +515,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:30
+packages/common/src/commands/base.command.ts:41
 
 ___
 
@@ -546,7 +529,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:31
+packages/common/src/commands/base.command.ts:42
 
 ___
 
@@ -560,7 +543,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:33
+packages/common/src/commands/base.command.ts:44
 
 ___
 
@@ -574,7 +557,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:34
+packages/common/src/commands/base.command.ts:45
 
 ___
 
@@ -596,46 +579,6 @@ ___
 
 packages/common/src/commands/config.command.ts:17
 
-___
-
-### ux
-
-• `Protected` **ux**: `Object` = `CliUx.ux`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `config` | [`Config`](CliUx.Config.md) |
-| `warn` | (`input`: `string` \| `Error`) => `void` |
-| `error` | (`input`: `string` \| `Error`, `options`: { `exit`: ``false``  } & `PrettyPrintableError`) => `void`(`input`: `string` \| `Error`, `options?`: { `exit?`: `number`  } & `PrettyPrintableError`) => `never` |
-| `exit` | (`code?`: `number`) => `never` |
-| `prompt` | (`name`: `string`, `options?`: [`IPromptOptions`](../interfaces/CliUx.IPromptOptions.md)) => `Promise`<`string`\> |
-| `anykey` | (`message?`: `string`) => `Promise`<`string`\> |
-| `confirm` | (`message`: `string`) => `Promise`<`boolean`\> |
-| `action` | [`ActionBase`](CliUx.ActionBase.md) |
-| `prideAction` | [`ActionBase`](CliUx.ActionBase.md) |
-| `styledObject` | (`obj`: `any`, `keys?`: `string`[]) => `void` |
-| `styledHeader` | (`header`: `string`) => `void` |
-| `styledJSON` | (`obj`: `any`) => `void` |
-| `table` | typeof [`table`](../functions/CliUx.Table.table.md) |
-| `tree` | () => `Tree` |
-| `open` | (`target`: `string`, `opts?`: `Options`) => `Promise`<`unknown`\> |
-| `wait` | (`ms?`: `number`) => `Promise`<`unknown`\> |
-| `progress` | (`options?`: `any`) => `any` |
-| `done` | () => `Promise`<`void`\> |
-| `trace` | (`format`: `string`, ...`args`: `string`[]) => `void` |
-| `debug` | (`format`: `string`, ...`args`: `string`[]) => `void` |
-| `info` | (`format`: `string`, ...`args`: `string`[]) => `void` |
-| `log` | (`format?`: `string`, ...`args`: `string`[]) => `void` |
-| `url` | (`text`: `string`, `uri`: `string`, `params?`: {}) => `void` |
-| `annotation` | (`text`: `string`, `annotation`: `string`) => `void` |
-| `flush` | (`ms?`: `number`) => `Promise`<`void`\> |
-
-#### Defined in
-
-packages/common/src/commands/config.command.ts:19
-
 ## Accessors
 
 ### enableJsonFlag
@@ -652,7 +595,7 @@ Command.enableJsonFlag
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:65
+node_modules/@oclif/core/lib/command.d.ts:69
 
 • `Static` `set` **enableJsonFlag**(`value`): `void`
 
@@ -672,45 +615,7 @@ Command.enableJsonFlag
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:66
-
-___
-
-### globalFlags
-
-• `Static` `get` **globalFlags**(): [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
-
-#### Returns
-
-[`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
-
-#### Inherited from
-
-Command.globalFlags
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:75
-
-• `Static` `set` **globalFlags**(`flags`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `flags` | [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\> |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Command.globalFlags
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:76
+node_modules/@oclif/core/lib/command.d.ts:70
 
 ___
 
@@ -728,7 +633,7 @@ Command.flags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:79
+node_modules/@oclif/core/lib/command.d.ts:85
 
 • `Static` `set` **flags**(`flags`): `void`
 
@@ -748,17 +653,17 @@ Command.flags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:80
+node_modules/@oclif/core/lib/command.d.ts:86
 
 ___
 
 ### ctor
 
-• `get` **ctor**(): typeof `default`
+• `Protected` `get` **ctor**(): typeof `Command`
 
 #### Returns
 
-typeof `default`
+typeof `Command`
 
 #### Inherited from
 
@@ -766,41 +671,83 @@ Command.ctor
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:84
+node_modules/@oclif/core/lib/command.d.ts:90
 
-## Constructors
+___
 
-### constructor
+### baseFlags
 
-• **new ConfigCommand**<`CommandChoices`, `LockFile`, `Ctx`, `Flags`, `Args`, `Store`\>(`argv`, `config`)
+• `Static` `get` **baseFlags**(): [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
 
-#### Type parameters
+#### Returns
 
-| Name | Type |
-| :------ | :------ |
-| `CommandChoices` | extends `string` = `string` |
-| `LockFile` | `any` |
-| `Ctx` | extends `unknown` = `any` |
-| `Flags` | extends `Record`<`PropertyKey`, `any`\> = { `[flag: string]`: `any`;  } & { `json`: `boolean`  } |
-| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`ConfigCommand`](ConfigCommand.md)\> |
-| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
+[`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
+
+#### Inherited from
+
+Command.baseFlags
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:24
+
+• `Static` `set` **baseFlags**(`flags`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `argv` | `string`[] |
-| `config` | `Config` |
+| `flags` | [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\> |
+
+#### Returns
+
+`void`
 
 #### Inherited from
 
-[Command](Command.md).[constructor](Command.md#constructor)
+Command.baseFlags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:83
+packages/common/src/commands/base.command.ts:29
 
 ## Methods
+
+### run
+
+▸ `Static` **run**<`T`\>(`this`, `argv?`, `opts?`): `Promise`<`ReturnType`<`T`[``"run"``]\>\>
+
+instantiate and run the command
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `Command`<`T`\> |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `this` | (`argv`: `string`[], `config`: `Config`) => `T` | the command class |
+| `argv?` | `string`[] | argv |
+| `opts?` | `LoadOptions` | options |
+
+#### Returns
+
+`Promise`<`ReturnType`<`T`[``"run"``]\>\>
+
+result
+
+#### Inherited from
+
+[Command](Command.md).[run](Command.md#run)
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:79
+
+___
 
 ### warn
 
@@ -822,7 +769,7 @@ node_modules/@oclif/core/lib/command.d.ts:83
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:87
+node_modules/@oclif/core/lib/command.d.ts:93
 
 ___
 
@@ -847,7 +794,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:88
+node_modules/@oclif/core/lib/command.d.ts:94
 
 ▸ **error**(`input`, `options?`): `never`
 
@@ -868,7 +815,7 @@ node_modules/@oclif/core/lib/command.d.ts:88
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:92
+node_modules/@oclif/core/lib/command.d.ts:98
 
 ___
 
@@ -893,7 +840,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:96
+node_modules/@oclif/core/lib/command.d.ts:102
 
 ___
 
@@ -918,7 +865,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:97
+node_modules/@oclif/core/lib/command.d.ts:103
 
 ___
 
@@ -936,7 +883,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:98
+node_modules/@oclif/core/lib/command.d.ts:104
 
 ___
 
@@ -960,7 +907,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:104
+node_modules/@oclif/core/lib/command.d.ts:110
 
 ___
 
@@ -978,40 +925,40 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:105
+node_modules/@oclif/core/lib/command.d.ts:111
 
 ___
 
 ### parse
 
-▸ `Protected` **parse**<`F`, `G`, `A`\>(`options?`, `argv?`): `Promise`<`ParserOutput`<`F`, `G`, `A`\>\>
+▸ `Protected` **parse**<`F`, `B`, `A`\>(`options?`, `argv?`): `Promise`<`ParserOutput`<`F`, `B`, `A`\>\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `F` | extends `FlagOutput` |
-| `G` | extends `FlagOutput` |
-| `A` | extends `Object` |
+| `B` | extends `FlagOutput` |
+| `A` | extends `ArgOutput` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Input`<`F`, `G`\> |
+| `options?` | `Input`<`F`, `B`, `A`\> |
 | `argv?` | `string`[] |
 
 #### Returns
 
-`Promise`<`ParserOutput`<`F`, `G`, `A`\>\>
+`Promise`<`ParserOutput`<`F`, `B`, `A`\>\>
 
 #### Inherited from
 
-[Command](Command.md).[parse](Command.md#parse-1)
+[Command](Command.md).[parse](Command.md#parse)
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:106
+node_modules/@oclif/core/lib/command.d.ts:112
 
 ___
 
@@ -1035,7 +982,7 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:111
+node_modules/@oclif/core/lib/command.d.ts:115
 
 ___
 
@@ -1059,7 +1006,31 @@ ___
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:112
+node_modules/@oclif/core/lib/command.d.ts:116
+
+___
+
+### logJson
+
+▸ `Protected` **logJson**(`json`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `json` | `unknown` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Command](Command.md).[logJson](Command.md#logjson)
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:117
 
 ___
 
@@ -1079,7 +1050,7 @@ Construct the class if you dont want to extend init or constructor.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:40
+packages/common/src/commands/base.command.ts:51
 
 ___
 
@@ -1105,7 +1076,7 @@ Deconstruct the class if you dont want to extend finally or catch.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:46
+packages/common/src/commands/base.command.ts:57
 
 ___
 
@@ -1129,7 +1100,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:54
+packages/common/src/commands/base.command.ts:65
 
 ___
 
@@ -1153,7 +1124,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:74
+packages/common/src/commands/base.command.ts:85
 
 ___
 
@@ -1179,7 +1150,7 @@ Run all tasks from task manager.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:81
+packages/common/src/commands/base.command.ts:92
 
 ___
 
@@ -1211,7 +1182,7 @@ Gets prompt from user.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:86
+packages/common/src/commands/base.command.ts:97
 
 ___
 
@@ -1241,7 +1212,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:93
+packages/common/src/commands/base.command.ts:104
 
 ___
 
@@ -1271,7 +1242,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:99
+packages/common/src/commands/base.command.ts:110
 
 ___
 
@@ -1296,7 +1267,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:105
+packages/common/src/commands/base.command.ts:116
 
 ___
 
@@ -1321,7 +1292,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:109
+packages/common/src/commands/base.command.ts:120
 
 ___
 
@@ -1341,7 +1312,7 @@ Initial functions / constructor
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:115
+packages/common/src/commands/base.command.ts:126
 
 ___
 
@@ -1367,7 +1338,7 @@ Tasks to run before end of the command.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:195
+packages/common/src/commands/base.command.ts:206
 
 ___
 
@@ -1394,7 +1365,7 @@ Catch any error occurred during command.
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:211
+packages/common/src/commands/base.command.ts:222
 
 ___
 
@@ -1412,7 +1383,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:21
+packages/common/src/commands/config.command.ts:19
 
 ___
 
@@ -1426,7 +1397,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:37
+packages/common/src/commands/config.command.ts:35
 
 ___
 
@@ -1446,7 +1417,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:41
+packages/common/src/commands/config.command.ts:39
 
 ___
 
@@ -1460,4 +1431,36 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/config.command.ts:45
+packages/common/src/commands/config.command.ts:43
+
+## Constructors
+
+### constructor
+
+• **new ConfigCommand**<`CommandChoices`, `LockFile`, `Ctx`, `Flags`, `Args`, `Store`\>(`argv`, `config`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `CommandChoices` | extends `string` = `string` |
+| `LockFile` | `any` |
+| `Ctx` | extends `unknown` = `any` |
+| `Flags` | extends `Record`<`PropertyKey`, `any`\> = { `[flag: string]`: `any`;  } & { `json`: `boolean`  } |
+| `Args` | extends `Record`<`PropertyKey`, `any`\> = [`InferArgs`](../types/InferArgs.md)<typeof [`ConfigCommand`](ConfigCommand.md)\> |
+| `Store` | extends `Record`<`PropertyKey`, `any`\> = `Record`<`PropertyKey`, `any`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `argv` | `string`[] |
+| `config` | `Config` |
+
+#### Inherited from
+
+[Command](Command.md).[constructor](Command.md#constructor)
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:89

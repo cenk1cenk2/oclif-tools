@@ -2,6 +2,22 @@
 
 [fs](../modules/fs.md).exists
 
+▸ **exists**(`path`): `Promise`<`boolean`\>
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `path` | [`PathLike`](../types/fs.PathLike.md) | A path to a file or directory. If a URL is provided, it must use the `file:` protocol. URL support is _experimental_. |
+
+#### Returns
+
+`Promise`<`boolean`\>
+
+#### Defined in
+
+node_modules/@types/node/fs.d.ts:3126
+
 ▸ **exists**(`path`, `callback`): `void`
 
 Test whether or not the given path exists by checking with the file system.

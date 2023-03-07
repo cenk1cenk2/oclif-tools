@@ -2,14 +2,61 @@
 
 [fs](../modules/fs.md).readJSON
 
-▸ **readJSON**(`file`, `options?`): `Promise`<`any`\>
+▸ **readJSON**(`file`, `options`, `callback`): `void`
+
+**`See`**
+
+readJson
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `file` | `string` |
-| `options?` | `string` \| [`ReadOptions`](../interfaces/fs.ReadOptions.md) |
+| `file` | `Path` |
+| `options` | [`JsonReadOptions`](../types/fs.JsonReadOptions.md) |
+| `callback` | `ReadCallback` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+node_modules/@types/jsonfile/index.d.ts:59
+
+▸ **readJSON**(`file`, `callback`): `void`
+
+**`See`**
+
+readJson
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `file` | `Path` |
+| `callback` | `ReadCallback` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+node_modules/@types/jsonfile/index.d.ts:60
+
+▸ **readJSON**(`file`, `options?`): `Promise`<`any`\>
+
+**`See`**
+
+readJson
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `file` | `Path` |
+| `options?` | [`JsonReadOptions`](../types/fs.JsonReadOptions.md) |
 
 #### Returns
 
@@ -17,39 +64,4 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:78
-
-▸ **readJSON**(`file`, `callback`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `file` | `string` |
-| `callback` | (`err`: `Error`, `jsonObject`: `any`) => `void` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-node_modules/@types/fs-extra/index.d.ts:79
-
-▸ **readJSON**(`file`, `options`, `callback`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `file` | `string` |
-| `options` | `string` \| [`ReadOptions`](../interfaces/fs.ReadOptions.md) |
-| `callback` | (`err`: `Error`, `jsonObject`: `any`) => `void` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-node_modules/@types/fs-extra/index.d.ts:80
+node_modules/@types/jsonfile/index.d.ts:61

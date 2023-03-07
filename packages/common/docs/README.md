@@ -2,16 +2,17 @@
 
 ## Namespaces
 
-- [CliUx](modules/CliUx.md)
+- [ux](modules/ux.md)
 - [Flags](modules/Flags.md)
 - [fs](modules/fs.md)
 
 ## Type Aliases
 
 - [InferredFlags](types/InferredFlags.md)
-- [ArgInput](types/ArgInput.md)
+- [Arg](types/Arg.md)
 - [Flag](types/Flag.md)
 - [FlagInput](types/FlagInput.md)
+- [ArgInput](types/ArgInput.md)
 - [ClassType](types/ClassType.md)
 - [ConfigCommandChoices](types/ConfigCommandChoices.md)
 - [InferFlags](types/InferFlags.md)
@@ -21,21 +22,6 @@
 - [DataStore](types/DataStore.md)
 - [SetCtxDefaultsOptions](types/SetCtxDefaultsOptions.md)
 - [Winston](types/Winston.md)
-
-## Interfaces
-
-- [Arg](interfaces/Arg.md)
-- [ConfigCommandSetup](interfaces/ConfigCommandSetup.md)
-- [GlobalConfig](interfaces/GlobalConfig.md)
-- [ConfigIterator](interfaces/ConfigIterator.md)
-- [CommonLockerData](interfaces/CommonLockerData.md)
-- [LockData](interfaces/LockData.md)
-- [UnlockData](interfaces/UnlockData.md)
-- [ValidatorServiceOptions](interfaces/ValidatorServiceOptions.md)
-- [SetCtxAssignOptions](interfaces/SetCtxAssignOptions.md)
-- [LoggerOptions](interfaces/LoggerOptions.md)
-- [LoggerFormat](interfaces/LoggerFormat.md)
-- [PipeProcessToLoggerOptions](interfaces/PipeProcessToLoggerOptions.md)
 
 ## Classes
 
@@ -82,3 +68,17 @@
 - [pipeProcessToLogger](functions/pipeProcessToLogger.md)
 - [merge](functions/merge.md)
 - [uniqueFilter](functions/uniqueFilter.md)
+
+## Interfaces
+
+- [ConfigCommandSetup](interfaces/ConfigCommandSetup.md)
+- [GlobalConfig](interfaces/GlobalConfig.md)
+- [ConfigIterator](interfaces/ConfigIterator.md)
+- [CommonLockerData](interfaces/CommonLockerData.md)
+- [LockData](interfaces/LockData.md)
+- [UnlockData](interfaces/UnlockData.md)
+- [ValidatorServiceOptions](interfaces/ValidatorServiceOptions.md)
+- [SetCtxAssignOptions](interfaces/SetCtxAssignOptions.md)
+- [LoggerOptions](interfaces/LoggerOptions.md)
+- [LoggerFormat](interfaces/LoggerFormat.md)
+- [PipeProcessToLoggerOptions](interfaces/PipeProcessToLoggerOptions.md)

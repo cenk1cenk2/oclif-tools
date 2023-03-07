@@ -17,7 +17,7 @@ Since v10.0.0
 | Name | Type |
 | :------ | :------ |
 | `path` | [`PathLike`](../types/fs.PathLike.md) |
-| `mode` | `Mode` |
+| `mode` | [`Mode`](../types/fs.Mode.md) |
 
 #### Returns
 

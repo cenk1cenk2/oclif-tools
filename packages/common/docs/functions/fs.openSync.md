@@ -19,7 +19,7 @@ v0.1.21
 | :------ | :------ |
 | `path` | [`PathLike`](../types/fs.PathLike.md) |
 | `flags?` | [`OpenMode`](../types/fs.OpenMode.md) |
-| `mode?` | `Mode` |
+| `mode?` | [`Mode`](../types/fs.Mode.md) |
 
 #### Returns
 

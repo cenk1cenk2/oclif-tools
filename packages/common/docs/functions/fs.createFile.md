@@ -4,6 +4,10 @@
 
 ▸ **createFile**(`file`): `Promise`<`void`\>
 
+**`See`**
+
+ensureFile
+
 #### Parameters
 
 | Name | Type |
@@ -16,16 +20,20 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:37
+node_modules/@types/fs-extra/index.d.ts:212
 
 ▸ **createFile**(`file`, `callback`): `void`
+
+**`See`**
+
+ensureFile
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `file` | `string` |
-| `callback` | (`err`: `Error`) => `void` |
+| `callback` | [`NoParamCallbackWithUndefined`](../types/fs.NoParamCallbackWithUndefined.md) |
 
 #### Returns
 
@@ -33,4 +41,4 @@ node_modules/@types/fs-extra/index.d.ts:37
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:38
+node_modules/@types/fs-extra/index.d.ts:213

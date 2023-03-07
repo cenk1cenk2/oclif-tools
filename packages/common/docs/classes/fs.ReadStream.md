@@ -1830,7 +1830,7 @@ v17.0.0
 | Name | Type |
 | :------ | :------ |
 | `readableStream` | `ReadableStream`<`any`\> |
-| `options?` | `Pick`<`ReadableOptions`, ``"encoding"`` \| ``"highWaterMark"`` \| ``"objectMode"`` \| ``"signal"``\> |
+| `options?` | `Pick`<`ReadableOptions`, ``"encoding"`` \| ``"signal"`` \| ``"highWaterMark"`` \| ``"objectMode"``\> |
 
 #### Returns
 

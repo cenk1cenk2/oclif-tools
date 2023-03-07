@@ -2,13 +2,18 @@
 
 [fs](../modules/fs.md).mkdirs
 
-▸ **mkdirs**(`dir`): `Promise`<`void`\>
+▸ **mkdirs**(`path`, `options?`): `Promise`<`void`\>
+
+**`See`**
+
+ensureDir
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `dir` | `string` |
+| `path` | `string` |
+| `options?` | `number` \| [`EnsureDirOptions`](../interfaces/fs.EnsureDirOptions.md) |
 
 #### Returns
 
@@ -16,16 +21,20 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:50
+node_modules/@types/fs-extra/index.d.ts:423
 
-▸ **mkdirs**(`dir`, `callback`): `void`
+▸ **mkdirs**(`path`, `callback`): `void`
+
+**`See`**
+
+ensureDir
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `dir` | `string` |
-| `callback` | (`err`: `Error`) => `void` |
+| `path` | `string` |
+| `callback` | [`NoParamCallback`](../types/fs.NoParamCallback.md) |
 
 #### Returns
 
@@ -33,4 +42,26 @@ node_modules/@types/fs-extra/index.d.ts:50
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:51
+node_modules/@types/fs-extra/index.d.ts:424
+
+▸ **mkdirs**(`path`, `options`, `callback`): `void`
+
+**`See`**
+
+ensureDir
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `path` | `string` |
+| `options` | `number` \| [`EnsureDirOptions`](../interfaces/fs.EnsureDirOptions.md) |
+| `callback` | [`NoParamCallback`](../types/fs.NoParamCallback.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+node_modules/@types/fs-extra/index.d.ts:425

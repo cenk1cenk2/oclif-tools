@@ -1707,7 +1707,7 @@ v17.0.0
 | Name | Type |
 | :------ | :------ |
 | `writableStream` | `WritableStream`<`any`\> |
-| `options?` | `Pick`<`WritableOptions`, ``"highWaterMark"`` \| ``"objectMode"`` \| ``"signal"`` \| ``"decodeStrings"``\> |
+| `options?` | `Pick`<`WritableOptions`, ``"signal"`` \| ``"highWaterMark"`` \| ``"objectMode"`` \| ``"decodeStrings"``\> |
 
 #### Returns
 

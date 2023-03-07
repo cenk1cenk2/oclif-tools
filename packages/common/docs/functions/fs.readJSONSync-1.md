@@ -4,12 +4,16 @@
 
 ▸ **readJSONSync**(`file`, `options?`): `any`
 
+**`See`**
+
+readJsonSync
+
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `file` | `string` |
-| `options?` | `string` \| [`ReadOptions`](../interfaces/fs.ReadOptions.md) |
+| `file` | `Path` |
+| `options?` | [`JsonReadOptions`](../types/fs.JsonReadOptions.md) |
 
 #### Returns
 
@@ -17,4 +21,4 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:87
+node_modules/@types/jsonfile/index.d.ts:66

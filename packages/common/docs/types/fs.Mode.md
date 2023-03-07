@@ -2,8 +2,8 @@
 
 [fs](../modules/fs.md).Mode
 
-Ƭ **Mode**: `string` \| `number`
+Ƭ **Mode**: `number` \| `string`
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:513
+node_modules/@types/node/fs.d.ts:44

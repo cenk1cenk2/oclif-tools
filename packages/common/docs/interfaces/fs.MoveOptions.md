@@ -8,16 +8,28 @@
 
 • `Optional` **overwrite**: `boolean`
 
+Overwrite existing file or directory.
+
+**`Default`**
+
+false
+
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:535
+node_modules/@types/fs-extra/index.d.ts:999
 
 ___
 
-### limit
+### dereference
 
-• `Optional` **limit**: `number`
+• `Optional` **dereference**: `boolean`
+
+Dereference symlinks.
+
+**`Default`**
+
+false
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:536
+node_modules/@types/fs-extra/index.d.ts:1004

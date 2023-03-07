@@ -11,7 +11,7 @@
 
 ## Hierarchy
 
-- `default`
+- `Command`
 
   ↳ **`Command`**
 
@@ -29,7 +29,7 @@ BaseCommand.argv
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:10
+node_modules/@oclif/core/lib/command.d.ts:12
 
 ___
 
@@ -43,21 +43,7 @@ BaseCommand.config
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:11
-
-___
-
-### \_base
-
-▪ `Static` **\_base**: `string`
-
-#### Inherited from
-
-BaseCommand.\_base
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:12
+node_modules/@oclif/core/lib/command.d.ts:13
 
 ___
 
@@ -73,7 +59,7 @@ BaseCommand.id
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:14
+node_modules/@oclif/core/lib/command.d.ts:16
 
 ___
 
@@ -90,7 +76,7 @@ BaseCommand.summary
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:19
+node_modules/@oclif/core/lib/command.d.ts:21
 
 ___
 
@@ -108,7 +94,7 @@ BaseCommand.description
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:25
+node_modules/@oclif/core/lib/command.d.ts:27
 
 ___
 
@@ -124,7 +110,7 @@ BaseCommand.hidden
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:27
+node_modules/@oclif/core/lib/command.d.ts:29
 
 ___
 
@@ -140,7 +126,7 @@ BaseCommand.state
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:29
+node_modules/@oclif/core/lib/command.d.ts:31
 
 ___
 
@@ -154,7 +140,7 @@ BaseCommand.deprecationOptions
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:30
+node_modules/@oclif/core/lib/command.d.ts:32
 
 ___
 
@@ -170,7 +156,7 @@ BaseCommand.deprecateAliases
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:34
+node_modules/@oclif/core/lib/command.d.ts:36
 
 ___
 
@@ -186,7 +172,7 @@ BaseCommand.usage
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:38
+node_modules/@oclif/core/lib/command.d.ts:40
 
 ___
 
@@ -200,7 +186,7 @@ BaseCommand.help
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:39
+node_modules/@oclif/core/lib/command.d.ts:41
 
 ___
 
@@ -216,7 +202,7 @@ BaseCommand.aliases
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:41
+node_modules/@oclif/core/lib/command.d.ts:43
 
 ___
 
@@ -232,29 +218,15 @@ BaseCommand.strict
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:43
-
-___
-
-### parse
-
-▪ `Static` **parse**: `boolean`
-
-#### Inherited from
-
-BaseCommand.parse
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:44
+node_modules/@oclif/core/lib/command.d.ts:45
 
 ___
 
 ### args
 
-▪ `Static` `Optional` **args**: [`ArgInput`](../types/ArgInput.md)
+▪ `Static` **args**: [`ArgInput`](../types/ArgInput.md)<{ `[arg: string]`: `any`;  }\>
 
-An order-dependent array of arguments for the command
+An order-dependent object of arguments for the command
 
 #### Inherited from
 
@@ -262,7 +234,7 @@ BaseCommand.args
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:46
+node_modules/@oclif/core/lib/command.d.ts:47
 
 ___
 
@@ -276,7 +248,49 @@ BaseCommand.plugin
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:47
+node_modules/@oclif/core/lib/command.d.ts:48
+
+___
+
+### pluginName
+
+▪ `Static` `Optional` `Readonly` **pluginName**: `string`
+
+#### Inherited from
+
+BaseCommand.pluginName
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:49
+
+___
+
+### pluginType
+
+▪ `Static` `Optional` `Readonly` **pluginType**: `string`
+
+#### Inherited from
+
+BaseCommand.pluginType
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:50
+
+___
+
+### pluginAlias
+
+▪ `Static` `Optional` `Readonly` **pluginAlias**: `string`
+
+#### Inherited from
+
+BaseCommand.pluginAlias
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:51
 
 ___
 
@@ -303,27 +317,27 @@ BaseCommand.examples
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:62
+node_modules/@oclif/core/lib/command.d.ts:66
 
 ___
 
-### parserOptions
+### hasDynamicHelp
 
-▪ `Static` **parserOptions**: `Object`
+▪ `Static` **hasDynamicHelp**: `boolean`
 
 #### Inherited from
 
-BaseCommand.parserOptions
+BaseCommand.hasDynamicHelp
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:63
+node_modules/@oclif/core/lib/command.d.ts:67
 
 ___
 
 ### \_enableJsonFlag
 
-▪ `Static` **\_enableJsonFlag**: `boolean`
+▪ `Static` `Protected` **\_enableJsonFlag**: `boolean`
 
 #### Inherited from
 
@@ -331,52 +345,21 @@ BaseCommand.\_enableJsonFlag
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:64
+node_modules/@oclif/core/lib/command.d.ts:68
 
 ___
 
-### run
+### \_baseFlags
 
-▪ `Static` **run**: (`argv?`: `string`[], `config?`: `LoadOptions`) => `PromiseLike`<`any`\>
-
-#### Type declaration
-
-▸ (`argv?`, `config?`): `PromiseLike`<`any`\>
-
-instantiate and run the command
-
-##### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `argv?` | `string`[] | argv |
-| `config?` | `LoadOptions` | - |
-
-##### Returns
-
-`PromiseLike`<`any`\>
+▪ `Static` `Protected` **\_baseFlags**: [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
 
 #### Inherited from
 
-BaseCommand.run
+BaseCommand.\_baseFlags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:73
-
-___
-
-### \_globalFlags
-
-▪ `Static` `Protected` **\_globalFlags**: [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
-
-#### Inherited from
-
-BaseCommand.\_globalFlags
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:74
+node_modules/@oclif/core/lib/command.d.ts:80
 
 ___
 
@@ -392,7 +375,7 @@ BaseCommand.\_flags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:78
+node_modules/@oclif/core/lib/command.d.ts:84
 
 ___
 
@@ -406,7 +389,7 @@ BaseCommand.id
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:81
+node_modules/@oclif/core/lib/command.d.ts:87
 
 ___
 
@@ -434,7 +417,7 @@ BaseCommand.debug
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:82
+node_modules/@oclif/core/lib/command.d.ts:88
 
 ___
 
@@ -444,7 +427,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:24
+packages/common/src/commands/base.command.ts:35
 
 ___
 
@@ -454,7 +437,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:25
+packages/common/src/commands/base.command.ts:36
 
 ___
 
@@ -464,7 +447,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:26
+packages/common/src/commands/base.command.ts:37
 
 ___
 
@@ -474,7 +457,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:27
+packages/common/src/commands/base.command.ts:38
 
 ___
 
@@ -484,7 +467,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:28
+packages/common/src/commands/base.command.ts:39
 
 ___
 
@@ -494,7 +477,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:29
+packages/common/src/commands/base.command.ts:40
 
 ___
 
@@ -504,7 +487,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:30
+packages/common/src/commands/base.command.ts:41
 
 ___
 
@@ -514,7 +497,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:31
+packages/common/src/commands/base.command.ts:42
 
 ___
 
@@ -524,7 +507,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:33
+packages/common/src/commands/base.command.ts:44
 
 ___
 
@@ -534,7 +517,7 @@ ___
 
 #### Defined in
 
-packages/common/src/commands/base.command.ts:34
+packages/common/src/commands/base.command.ts:45
 
 ## Accessors
 
@@ -552,7 +535,7 @@ BaseCommand.enableJsonFlag
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:65
+node_modules/@oclif/core/lib/command.d.ts:69
 
 • `Static` `set` **enableJsonFlag**(`value`): `void`
 
@@ -572,45 +555,7 @@ BaseCommand.enableJsonFlag
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:66
-
-___
-
-### globalFlags
-
-• `Static` `get` **globalFlags**(): [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
-
-#### Returns
-
-[`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
-
-#### Inherited from
-
-BaseCommand.globalFlags
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:75
-
-• `Static` `set` **globalFlags**(`flags`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `flags` | [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\> |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCommand.globalFlags
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:76
+node_modules/@oclif/core/lib/command.d.ts:70
 
 ___
 
@@ -628,7 +573,7 @@ BaseCommand.flags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:79
+node_modules/@oclif/core/lib/command.d.ts:85
 
 • `Static` `set` **flags**(`flags`): `void`
 
@@ -648,17 +593,17 @@ BaseCommand.flags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:80
+node_modules/@oclif/core/lib/command.d.ts:86
 
 ___
 
 ### ctor
 
-• `get` **ctor**(): typeof `default`
+• `Protected` `get` **ctor**(): typeof `Command`
 
 #### Returns
 
-typeof `default`
+typeof `Command`
 
 #### Inherited from
 
@@ -666,7 +611,701 @@ BaseCommand.ctor
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:84
+node_modules/@oclif/core/lib/command.d.ts:90
+
+___
+
+### baseFlags
+
+• `Static` `get` **baseFlags**(): [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
+
+#### Returns
+
+[`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\>
+
+#### Overrides
+
+BaseCommand.baseFlags
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:24
+
+• `Static` `set` **baseFlags**(`flags`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `flags` | [`FlagInput`](../types/FlagInput.md)<{ `[flag: string]`: `any`;  }\> |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+BaseCommand.baseFlags
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:29
+
+## Methods
+
+### run
+
+▸ `Static` **run**<`T`\>(`this`, `argv?`, `opts?`): `Promise`<`ReturnType`<`T`[``"run"``]\>\>
+
+instantiate and run the command
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `Command`<`T`\> |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `this` | (`argv`: `string`[], `config`: `Config`) => `T` | the command class |
+| `argv?` | `string`[] | argv |
+| `opts?` | `LoadOptions` | options |
+
+#### Returns
+
+`Promise`<`ReturnType`<`T`[``"run"``]\>\>
+
+result
+
+#### Inherited from
+
+BaseCommand.run
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:79
+
+___
+
+### warn
+
+▸ **warn**(`input`): `string` \| `Error`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `input` | `string` \| `Error` |
+
+#### Returns
+
+`string` \| `Error`
+
+#### Inherited from
+
+BaseCommand.warn
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:93
+
+___
+
+### error
+
+▸ **error**(`input`, `options`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `input` | `string` \| `Error` |
+| `options` | { `code?`: `string` ; `exit`: ``false``  } & `PrettyPrintableError` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCommand.error
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:94
+
+▸ **error**(`input`, `options?`): `never`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `input` | `string` \| `Error` |
+| `options?` | { `code?`: `string` ; `exit?`: `number`  } & `PrettyPrintableError` |
+
+#### Returns
+
+`never`
+
+#### Inherited from
+
+BaseCommand.error
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:98
+
+___
+
+### log
+
+▸ **log**(`message?`, `...args`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `message?` | `string` |
+| `...args` | `any`[] |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCommand.log
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:102
+
+___
+
+### logToStderr
+
+▸ **logToStderr**(`message?`, `...args`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `message?` | `string` |
+| `...args` | `any`[] |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCommand.logToStderr
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:103
+
+___
+
+### jsonEnabled
+
+▸ **jsonEnabled**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+BaseCommand.jsonEnabled
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:104
+
+___
+
+### warnIfFlagDeprecated
+
+▸ `Protected` **warnIfFlagDeprecated**(`flags`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `flags` | `Record`<`string`, `unknown`\> |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCommand.warnIfFlagDeprecated
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:110
+
+___
+
+### warnIfCommandDeprecated
+
+▸ `Protected` **warnIfCommandDeprecated**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCommand.warnIfCommandDeprecated
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:111
+
+___
+
+### parse
+
+▸ `Protected` **parse**<`F`, `B`, `A`\>(`options?`, `argv?`): `Promise`<`ParserOutput`<`F`, `B`, `A`\>\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `F` | extends `FlagOutput` |
+| `B` | extends `FlagOutput` |
+| `A` | extends `ArgOutput` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options?` | `Input`<`F`, `B`, `A`\> |
+| `argv?` | `string`[] |
+
+#### Returns
+
+`Promise`<`ParserOutput`<`F`, `B`, `A`\>\>
+
+#### Inherited from
+
+BaseCommand.parse
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:112
+
+___
+
+### toSuccessJson
+
+▸ `Protected` **toSuccessJson**(`result`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `result` | `unknown` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+BaseCommand.toSuccessJson
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:115
+
+___
+
+### toErrorJson
+
+▸ `Protected` **toErrorJson**(`err`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `err` | `unknown` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+BaseCommand.toErrorJson
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:116
+
+___
+
+### logJson
+
+▸ `Protected` **logJson**(`json`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `json` | `unknown` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCommand.logJson
+
+#### Defined in
+
+node_modules/@oclif/core/lib/command.d.ts:117
+
+___
+
+### shouldRunBefore
+
+▸ **shouldRunBefore**(): `void` \| `Promise`<`void`\>
+
+Construct the class if you dont want to extend init or constructor.
+
+#### Returns
+
+`void` \| `Promise`<`void`\>
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:51
+
+___
+
+### shouldRunAfter
+
+▸ **shouldRunAfter**(`_ctx?`): `void` \| `Promise`<`void`\>
+
+Deconstruct the class if you dont want to extend finally or catch.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `_ctx?` | `Ctx` |
+
+#### Returns
+
+`void` \| `Promise`<`void`\>
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:57
+
+___
+
+### run
+
+▸ **run**(): `Promise`<`any`\>
+
+#### Returns
+
+`Promise`<`any`\>
+
+#### Overrides
+
+BaseCommand.run
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:60
+
+___
+
+### \_run
+
+▸ **_run**<`T`\>(): `Promise`<`T`\>
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Returns
+
+`Promise`<`T`\>
+
+#### Overrides
+
+BaseCommand.\_run
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:65
+
+___
+
+### exit
+
+▸ **exit**(`code?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `code?` | `number` |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+BaseCommand.exit
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:85
+
+___
+
+### runTasks
+
+▸ **runTasks**<`C`\>(): `Promise`<`C`\>
+
+Run all tasks from task manager.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `C` | extends `unknown` = `Ctx` |
+
+#### Returns
+
+`Promise`<`C`\>
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:92
+
+___
+
+### prompt
+
+▸ **prompt**<`T`\>(`options`): `Promise`<`T`\>
+
+Gets prompt from user.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `PromptOptions`<``false``\> |
+
+#### Returns
+
+`Promise`<`T`\>
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:97
+
+___
+
+### setCtxDefaults
+
+▸ `Protected` **setCtxDefaults**<`T`\>(`...defaults`): `void`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `unknown` = `Ctx` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...defaults` | `Partial`<`T`\>[] |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:104
+
+___
+
+### setCtxAssign
+
+▸ `Protected` **setCtxAssign**<`K`\>(`...assigns`): `void`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `K` | `Record`<`PropertyKey`, `any`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...assigns` | [`SetCtxAssignOptions`](../interfaces/SetCtxAssignOptions.md)<`K`\>[] |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:110
+
+___
+
+### pipeProcessToLogger
+
+▸ `Protected` **pipeProcessToLogger**(`instance`, `options?`): `ExecaChildProcess`<`string`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `instance` | `ExecaChildProcess`<`string`\> |
+| `options?` | [`PipeProcessToLoggerOptions`](../interfaces/PipeProcessToLoggerOptions.md) |
+
+#### Returns
+
+`ExecaChildProcess`<`string`\>
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:116
+
+___
+
+### pipeProcessThroughListr
+
+▸ `Protected` **pipeProcessThroughListr**(`task`, `instance`): `ExecaChildProcess`<`string`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `task` | `TaskWrapper`<`any`, `any`\> |
+| `instance` | `ExecaChildProcess`<`string`\> |
+
+#### Returns
+
+`ExecaChildProcess`<`string`\>
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:120
+
+___
+
+### init
+
+▸ `Protected` **init**(): `Promise`<`void`\>
+
+Initial functions / constructor
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Overrides
+
+BaseCommand.init
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:126
+
+___
+
+### finally
+
+▸ `Protected` **finally**<`C`\>(): `Promise`<{ `ctx`: `C`  }\>
+
+Tasks to run before end of the command.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `C` | extends `unknown` = `Ctx` |
+
+#### Returns
+
+`Promise`<{ `ctx`: `C`  }\>
+
+#### Overrides
+
+BaseCommand.finally
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:206
+
+___
+
+### catch
+
+▸ `Protected` **catch**(`e`, `exit?`): `Promise`<`void`\>
+
+Catch any error occurred during command.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | `Error` |
+| `exit?` | `number` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Overrides
+
+BaseCommand.catch
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:222
+
+___
+
+### greet
+
+▸ `Private` **greet**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+packages/common/src/commands/base.command.ts:243
 
 ## Constructors
 
@@ -696,600 +1335,4 @@ BaseCommand.constructor
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:83
-
-## Methods
-
-### warn
-
-▸ **warn**(`input`): `string` \| `Error`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `input` | `string` \| `Error` |
-
-#### Returns
-
-`string` \| `Error`
-
-#### Inherited from
-
-BaseCommand.warn
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:87
-
-___
-
-### error
-
-▸ **error**(`input`, `options`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `input` | `string` \| `Error` |
-| `options` | { `code?`: `string` ; `exit`: ``false``  } & `PrettyPrintableError` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCommand.error
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:88
-
-▸ **error**(`input`, `options?`): `never`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `input` | `string` \| `Error` |
-| `options?` | { `code?`: `string` ; `exit?`: `number`  } & `PrettyPrintableError` |
-
-#### Returns
-
-`never`
-
-#### Inherited from
-
-BaseCommand.error
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:92
-
-___
-
-### log
-
-▸ **log**(`message?`, `...args`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `message?` | `string` |
-| `...args` | `any`[] |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCommand.log
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:96
-
-___
-
-### logToStderr
-
-▸ **logToStderr**(`message?`, `...args`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `message?` | `string` |
-| `...args` | `any`[] |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCommand.logToStderr
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:97
-
-___
-
-### jsonEnabled
-
-▸ **jsonEnabled**(): `boolean`
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-BaseCommand.jsonEnabled
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:98
-
-___
-
-### warnIfFlagDeprecated
-
-▸ `Protected` **warnIfFlagDeprecated**(`flags`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `flags` | `Record`<`string`, `unknown`\> |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCommand.warnIfFlagDeprecated
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:104
-
-___
-
-### warnIfCommandDeprecated
-
-▸ `Protected` **warnIfCommandDeprecated**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCommand.warnIfCommandDeprecated
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:105
-
-___
-
-### parse
-
-▸ `Protected` **parse**<`F`, `G`, `A`\>(`options?`, `argv?`): `Promise`<`ParserOutput`<`F`, `G`, `A`\>\>
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `F` | extends `FlagOutput` |
-| `G` | extends `FlagOutput` |
-| `A` | extends `Object` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Input`<`F`, `G`\> |
-| `argv?` | `string`[] |
-
-#### Returns
-
-`Promise`<`ParserOutput`<`F`, `G`, `A`\>\>
-
-#### Inherited from
-
-BaseCommand.parse
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:106
-
-___
-
-### toSuccessJson
-
-▸ `Protected` **toSuccessJson**(`result`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `result` | `unknown` |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-BaseCommand.toSuccessJson
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:111
-
-___
-
-### toErrorJson
-
-▸ `Protected` **toErrorJson**(`err`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `err` | `unknown` |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-BaseCommand.toErrorJson
-
-#### Defined in
-
-node_modules/@oclif/core/lib/command.d.ts:112
-
-___
-
-### shouldRunBefore
-
-▸ **shouldRunBefore**(): `void` \| `Promise`<`void`\>
-
-Construct the class if you dont want to extend init or constructor.
-
-#### Returns
-
-`void` \| `Promise`<`void`\>
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:40
-
-___
-
-### shouldRunAfter
-
-▸ **shouldRunAfter**(`_ctx?`): `void` \| `Promise`<`void`\>
-
-Deconstruct the class if you dont want to extend finally or catch.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `_ctx?` | `Ctx` |
-
-#### Returns
-
-`void` \| `Promise`<`void`\>
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:46
-
-___
-
-### run
-
-▸ **run**(): `Promise`<`any`\>
-
-#### Returns
-
-`Promise`<`any`\>
-
-#### Overrides
-
-BaseCommand.run
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:49
-
-___
-
-### \_run
-
-▸ **_run**<`T`\>(): `Promise`<`T`\>
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Returns
-
-`Promise`<`T`\>
-
-#### Overrides
-
-BaseCommand.\_run
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:54
-
-___
-
-### exit
-
-▸ **exit**(`code?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `code?` | `number` |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-BaseCommand.exit
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:74
-
-___
-
-### runTasks
-
-▸ **runTasks**<`C`\>(): `Promise`<`C`\>
-
-Run all tasks from task manager.
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `C` | extends `unknown` = `Ctx` |
-
-#### Returns
-
-`Promise`<`C`\>
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:81
-
-___
-
-### prompt
-
-▸ **prompt**<`T`\>(`options`): `Promise`<`T`\>
-
-Gets prompt from user.
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | `any` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `PromptOptions`<``false``\> |
-
-#### Returns
-
-`Promise`<`T`\>
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:86
-
-___
-
-### setCtxDefaults
-
-▸ `Protected` **setCtxDefaults**<`T`\>(`...defaults`): `void`
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `unknown` = `Ctx` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `...defaults` | `Partial`<`T`\>[] |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:93
-
-___
-
-### setCtxAssign
-
-▸ `Protected` **setCtxAssign**<`K`\>(`...assigns`): `void`
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `K` | `Record`<`PropertyKey`, `any`\> |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `...assigns` | [`SetCtxAssignOptions`](../interfaces/SetCtxAssignOptions.md)<`K`\>[] |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:99
-
-___
-
-### pipeProcessToLogger
-
-▸ `Protected` **pipeProcessToLogger**(`instance`, `options?`): `ExecaChildProcess`<`string`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `instance` | `ExecaChildProcess`<`string`\> |
-| `options?` | [`PipeProcessToLoggerOptions`](../interfaces/PipeProcessToLoggerOptions.md) |
-
-#### Returns
-
-`ExecaChildProcess`<`string`\>
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:105
-
-___
-
-### pipeProcessThroughListr
-
-▸ `Protected` **pipeProcessThroughListr**(`task`, `instance`): `ExecaChildProcess`<`string`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `task` | `TaskWrapper`<`any`, `any`\> |
-| `instance` | `ExecaChildProcess`<`string`\> |
-
-#### Returns
-
-`ExecaChildProcess`<`string`\>
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:109
-
-___
-
-### init
-
-▸ `Protected` **init**(): `Promise`<`void`\>
-
-Initial functions / constructor
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Overrides
-
-BaseCommand.init
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:115
-
-___
-
-### finally
-
-▸ `Protected` **finally**<`C`\>(): `Promise`<{ `ctx`: `C`  }\>
-
-Tasks to run before end of the command.
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `C` | extends `unknown` = `Ctx` |
-
-#### Returns
-
-`Promise`<{ `ctx`: `C`  }\>
-
-#### Overrides
-
-BaseCommand.finally
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:195
-
-___
-
-### catch
-
-▸ `Protected` **catch**(`e`, `exit?`): `Promise`<`void`\>
-
-Catch any error occurred during command.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `e` | `Error` |
-| `exit?` | `number` |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Overrides
-
-BaseCommand.catch
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:211
-
-___
-
-### greet
-
-▸ `Private` **greet**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-packages/common/src/commands/base.command.ts:232
+node_modules/@oclif/core/lib/command.d.ts:89

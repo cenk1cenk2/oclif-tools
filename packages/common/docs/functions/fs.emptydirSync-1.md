@@ -4,6 +4,10 @@
 
 ▸ **emptydirSync**(`path`): `void`
 
+**`See`**
+
+emptyDirSync
+
 #### Parameters
 
 | Name | Type |
@@ -16,4 +20,4 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:153
+node_modules/@types/fs-extra/index.d.ts:858

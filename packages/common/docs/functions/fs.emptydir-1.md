@@ -4,6 +4,10 @@
 
 ▸ **emptydir**(`path`): `Promise`<`void`\>
 
+**`See`**
+
+emptyDir
+
 #### Parameters
 
 | Name | Type |
@@ -16,16 +20,20 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:149
+node_modules/@types/fs-extra/index.d.ts:842
 
 ▸ **emptydir**(`path`, `callback`): `void`
+
+**`See`**
+
+emptyDir
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `path` | `string` |
-| `callback` | (`err`: `Error`) => `void` |
+| `callback` | [`NoParamCallback`](../types/fs.NoParamCallback.md) |
 
 #### Returns
 
@@ -33,4 +41,4 @@ node_modules/@types/fs-extra/index.d.ts:149
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:150
+node_modules/@types/fs-extra/index.d.ts:843

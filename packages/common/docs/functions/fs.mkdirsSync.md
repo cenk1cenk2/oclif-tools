@@ -2,13 +2,18 @@
 
 [fs](../modules/fs.md).mkdirsSync
 
-▸ **mkdirsSync**(`dir`): `void`
+▸ **mkdirsSync**(`path`, `options?`): `void`
+
+**`See`**
+
+ensureDirSync
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `dir` | `string` |
+| `path` | `string` |
+| `options?` | `number` \| [`EnsureDirOptions`](../interfaces/fs.EnsureDirOptions.md) |
 
 #### Returns
 
@@ -16,4 +21,4 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:54
+node_modules/@types/fs-extra/index.d.ts:449

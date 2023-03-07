@@ -21,4 +21,4 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:508
+node_modules/@types/fs-extra/index.d.ts:949

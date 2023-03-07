@@ -2,39 +2,23 @@
 
 [Flags](../modules/Flags.md).string
 
-▸ **string**(`options`): `OptionFlag`<`string`[]\>
+▸ **string**(`options`): `OptionFlag`<`string`[], `CustomOptions`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Record`<`string`, `unknown`\> & { `multiple`: ``true``  } & { `required`: ``true``  } \| { `default`: `Default`<`string`[], `Record`<`string`, `unknown`\>\>  } & `Partial`<`OptionFlag`<`string`\>\> |
+| `options` | `Record`<`string`, `unknown`\> & { `multiple`: ``true``  } & { `required`: ``true``  } \| { `default`: `FlagDefault`<`string`[], `CustomOptions`\>  } & `Partial`<`OptionFlag`<`string`, `Record`<`string`, `unknown`\>\>\> |
 
 #### Returns
 
-`OptionFlag`<`string`[]\>
+`OptionFlag`<`string`[], `CustomOptions`\>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:200
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:225
 
-▸ **string**(`options`): `OptionFlag`<`string`[]\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Object` |
-
-#### Returns
-
-`OptionFlag`<`string`[]\>
-
-#### Defined in
-
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:207
-
-▸ **string**(`options`): `OptionFlag`<`string`\>
+▸ **string**(`options`): `OptionFlag`<`string`[], `CustomOptions`\>
 
 #### Parameters
 
@@ -44,13 +28,29 @@ node_modules/@oclif/core/lib/interfaces/parser.d.ts:207
 
 #### Returns
 
-`OptionFlag`<`string`\>
+`OptionFlag`<`string`[], `CustomOptions`\>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:210
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:232
 
-▸ **string**(`options?`): `OptionFlag`<`string`\>
+▸ **string**(`options`): `OptionFlag`<`string`, `CustomOptions`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `Object` |
+
+#### Returns
+
+`OptionFlag`<`string`, `CustomOptions`\>
+
+#### Defined in
+
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:235
+
+▸ **string**(`options?`): `OptionFlag`<`string`, `CustomOptions`\>
 
 #### Parameters
 
@@ -60,8 +60,8 @@ node_modules/@oclif/core/lib/interfaces/parser.d.ts:210
 
 #### Returns
 
-`OptionFlag`<`string`\>
+`OptionFlag`<`string`, `CustomOptions`\>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:215
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:240

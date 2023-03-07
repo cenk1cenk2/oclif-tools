@@ -140,7 +140,7 @@ ___
 
 ### command
 
-• **command**: typeof `default`
+• **command**: typeof `Command`
 
 #### Defined in
 
@@ -157,7 +157,7 @@ packages/common/src/lib/config/config.service.ts:27
 | Name | Type |
 | :------ | :------ |
 | `oclif` | `Config` |
-| `command` | typeof `default` |
+| `command` | typeof `Command` |
 | `config` | [`GlobalConfig`](../interfaces/GlobalConfig.md) |
 
 #### Defined in

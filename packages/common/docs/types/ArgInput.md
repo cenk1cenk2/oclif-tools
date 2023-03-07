@@ -1,7 +1,13 @@
-# Type alias: ArgInput
+# Type alias: ArgInput<T\>
 
-Ƭ **ArgInput**: [`Arg`](../interfaces/Arg.md)<`any`\>[]
+Ƭ **ArgInput**<`T`\>: { [P in keyof T]: Arg<T[P]\> }
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `ArgOutput` = { `[arg: string]`: `any`;  } |
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:36
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:284

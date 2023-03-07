@@ -17,7 +17,7 @@ v0.4.7
 | Name | Type |
 | :------ | :------ |
 | `fd` | `number` |
-| `mode` | `Mode` |
+| `mode` | [`Mode`](../types/fs.Mode.md) |
 
 #### Returns
 

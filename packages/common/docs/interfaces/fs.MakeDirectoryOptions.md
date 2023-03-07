@@ -23,7 +23,7 @@ ___
 
 ### mode
 
-• `Optional` **mode**: `Mode`
+• `Optional` **mode**: [`Mode`](../types/fs.Mode.md)
 
 A file mode. If a string is passed, it is parsed as an octal integer. If not specified
 

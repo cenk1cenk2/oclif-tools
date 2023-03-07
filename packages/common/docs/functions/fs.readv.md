@@ -2,6 +2,24 @@
 
 [fs](../modules/fs.md).readv
 
+▸ **readv**(`fd`, `buffers`, `position?`): `Promise`<[`ReadVResult`](../interfaces/fs.ReadVResult.md)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fd` | `number` |
+| `buffers` | readonly `ArrayBufferView`[] |
+| `position?` | `number` |
+
+#### Returns
+
+`Promise`<[`ReadVResult`](../interfaces/fs.ReadVResult.md)\>
+
+#### Defined in
+
+node_modules/@types/node/fs.d.ts:3733
+
 ▸ **readv**(`fd`, `buffers`, `cb`): `void`
 
 Read from a file specified by `fd` and write to an array of `ArrayBufferView`s

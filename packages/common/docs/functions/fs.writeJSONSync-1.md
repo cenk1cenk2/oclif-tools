@@ -2,15 +2,19 @@
 
 [fs](../modules/fs.md).writeJSONSync
 
-▸ **writeJSONSync**(`file`, `object`, `options?`): `void`
+▸ **writeJSONSync**(`file`, `obj`, `options?`): `void`
+
+**`See`**
+
+writeJsonSync
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `file` | `string` |
-| `object` | `any` |
-| `options?` | `string` \| [`WriteOptions`](../interfaces/fs.WriteOptions.md) |
+| `file` | `Path` |
+| `obj` | `any` |
+| `options?` | [`JsonWriteOptions`](../types/fs.JsonWriteOptions.md) |
 
 #### Returns
 
@@ -18,4 +22,4 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:130
+node_modules/@types/jsonfile/index.d.ts:78

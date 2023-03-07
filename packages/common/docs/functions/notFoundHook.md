@@ -15,4 +15,4 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/hooks.d.ts:75
+node_modules/@oclif/core/lib/interfaces/hooks.d.ts:85

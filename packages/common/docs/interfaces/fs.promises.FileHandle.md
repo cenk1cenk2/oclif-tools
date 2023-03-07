@@ -95,7 +95,7 @@ v10.0.0
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `mode` | `Mode` | the file mode bit mask. |
+| `mode` | [`Mode`](../types/fs.Mode.md) | the file mode bit mask. |
 
 #### Returns
 
@@ -723,7 +723,7 @@ ___
 
 ### writev
 
-▸ **writev**(`buffers`, `position?`): `Promise`<[`WriteVResult`](fs.WriteVResult-1.md)\>
+▸ **writev**(`buffers`, `position?`): `Promise`<[`WriteVResult`](fs.WriteVResult.md)\>
 
 Write an array of [ArrayBufferView](https://developer.mozilla.org/en-US/docs/Web/API/ArrayBufferView) s to the file.
 
@@ -749,7 +749,7 @@ v12.9.0
 
 #### Returns
 
-`Promise`<[`WriteVResult`](fs.WriteVResult-1.md)\>
+`Promise`<[`WriteVResult`](fs.WriteVResult.md)\>
 
 #### Defined in
 

@@ -1,6 +1,6 @@
 # Type alias: InferFlags<T\>
 
-Ƭ **InferFlags**<`T`\>: [`InferredFlags`](InferredFlags.md)<`T`[``"globalFlags"``] & `T`[``"flags"``]\>
+Ƭ **InferFlags**<`T`\>: [`InferredFlags`](InferredFlags.md)<`T`[``"baseFlags"``] & `T`[``"flags"``]\>
 
 #### Type parameters
 

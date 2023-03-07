@@ -21,7 +21,7 @@ v0.1.29
 | :------ | :------ | :------ |
 | `file` | [`PathOrFileDescriptor`](../types/fs.PathOrFileDescriptor.md) | filename or file descriptor |
 | `data` | `string` \| `ArrayBufferView` | - |
-| `options?` | `WriteFileOptions` | - |
+| `options?` | [`WriteFileOptions`](../types/fs.WriteFileOptions.md) | - |
 
 #### Returns
 

@@ -2,39 +2,23 @@
 
 [Flags](../modules/Flags.md).integer
 
-▸ **integer**(`options`): `OptionFlag`<`number`[]\>
+▸ **integer**(`options`): `OptionFlag`<`number`[], `CustomOptions`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | { `min?`: `number` ; `max?`: `number`  } & { `multiple`: ``true``  } & { `required`: ``true``  } \| { `default`: `Default`<`number`[], `Record`<`string`, `unknown`\>\>  } & `Partial`<`OptionFlag`<`number`\>\> |
+| `options` | { `min?`: `number` ; `max?`: `number`  } & { `multiple`: ``true``  } & { `required`: ``true``  } \| { `default`: `FlagDefault`<`number`[], `CustomOptions`\>  } & `Partial`<`OptionFlag`<`number`, { `min?`: `number` ; `max?`: `number`  }\>\> |
 
 #### Returns
 
-`OptionFlag`<`number`[]\>
+`OptionFlag`<`number`[], `CustomOptions`\>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:200
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:225
 
-▸ **integer**(`options`): `OptionFlag`<`number`[]\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Object` |
-
-#### Returns
-
-`OptionFlag`<`number`[]\>
-
-#### Defined in
-
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:207
-
-▸ **integer**(`options`): `OptionFlag`<`number`\>
+▸ **integer**(`options`): `OptionFlag`<`number`[], `CustomOptions`\>
 
 #### Parameters
 
@@ -44,13 +28,29 @@ node_modules/@oclif/core/lib/interfaces/parser.d.ts:207
 
 #### Returns
 
-`OptionFlag`<`number`\>
+`OptionFlag`<`number`[], `CustomOptions`\>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:210
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:232
 
-▸ **integer**(`options?`): `OptionFlag`<`number`\>
+▸ **integer**(`options`): `OptionFlag`<`number`, `CustomOptions`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `Object` |
+
+#### Returns
+
+`OptionFlag`<`number`, `CustomOptions`\>
+
+#### Defined in
+
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:235
+
+▸ **integer**(`options?`): `OptionFlag`<`number`, `CustomOptions`\>
 
 #### Parameters
 
@@ -60,8 +60,8 @@ node_modules/@oclif/core/lib/interfaces/parser.d.ts:210
 
 #### Returns
 
-`OptionFlag`<`number`\>
+`OptionFlag`<`number`, `CustomOptions`\>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:215
+node_modules/@oclif/core/lib/interfaces/parser.d.ts:240

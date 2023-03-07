@@ -4,6 +4,10 @@
 
 ▸ **createLinkSync**(`src`, `dest`): `void`
 
+**`See`**
+
+ensureLinkSync
+
 #### Parameters
 
 | Name | Type |
@@ -17,4 +21,4 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:140
+node_modules/@types/fs-extra/index.d.ts:289

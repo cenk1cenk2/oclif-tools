@@ -2,53 +2,17 @@
 
 [fs](../modules/fs.md).futimes
 
-▸ **futimes**(`fd`, `atime`, `mtime`, `callback`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fd` | `number` |
-| `atime` | `number` |
-| `mtime` | `number` |
-| `callback` | (`err`: `ErrnoException`) => `void` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-node_modules/@types/fs-extra/index.d.ts:219
-
-▸ **futimes**(`fd`, `atime`, `mtime`, `callback`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fd` | `number` |
-| `atime` | `Date` |
-| `mtime` | `Date` |
-| `callback` | (`err`: `ErrnoException`) => `void` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-node_modules/@types/fs-extra/index.d.ts:220
-
 ▸ **futimes**(`fd`, `atime`, `mtime`): `Promise`<`void`\>
 
+Asynchronously change file timestamps of the file referenced by the supplied file descriptor.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `fd` | `number` |
-| `atime` | `number` |
-| `mtime` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fd` | `number` | A file descriptor. |
+| `atime` | [`TimeLike`](../types/fs.TimeLike.md) | The last access time. If a string is provided, it will be coerced to number. |
+| `mtime` | [`TimeLike`](../types/fs.TimeLike.md) | The last modified time. If a string is provided, it will be coerced to number. |
 
 #### Returns
 
@@ -56,22 +20,30 @@ node_modules/@types/fs-extra/index.d.ts:220
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:221
+node_modules/@types/node/fs.d.ts:2072
 
-▸ **futimes**(`fd`, `atime`, `mtime`): `Promise`<`void`\>
+▸ **futimes**(`fd`, `atime`, `mtime`, `callback`): `void`
+
+Change the file system timestamps of the object referenced by the supplied file
+descriptor. See [utimes](fs.utimes.md).
+
+**`Since`**
+
+v0.4.2
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `fd` | `number` |
-| `atime` | `Date` |
-| `mtime` | `Date` |
+| `atime` | [`TimeLike`](../types/fs.TimeLike.md) |
+| `mtime` | [`TimeLike`](../types/fs.TimeLike.md) |
+| `callback` | [`NoParamCallback`](../types/fs.NoParamCallback.md) |
 
 #### Returns
 
-`Promise`<`void`\>
+`void`
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:222
+node_modules/@types/node/fs.d.ts:2064

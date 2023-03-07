@@ -41,7 +41,7 @@ Asynchronous mkdir(2) - create a directory.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `path` | [`PathLike`](../types/fs.PathLike.md) | A path to a file. If a URL is provided, it must use the `file:` protocol. |
-| `options?` | `Mode` \| [`MakeDirectoryOptions`](../interfaces/fs.MakeDirectoryOptions.md) & { `recursive?`: ``false``  } | Either the file mode, or an object optionally specifying the file mode and whether parent folders should be created. If a string is passed, it is parsed as an octal integer. If not specified, defaults to `0o777`. |
+| `options?` | [`Mode`](../types/fs.Mode.md) \| [`MakeDirectoryOptions`](../interfaces/fs.MakeDirectoryOptions.md) & { `recursive?`: ``false``  } | Either the file mode, or an object optionally specifying the file mode and whether parent folders should be created. If a string is passed, it is parsed as an octal integer. If not specified, defaults to `0o777`. |
 
 #### Returns
 
@@ -60,7 +60,7 @@ Asynchronous mkdir(2) - create a directory.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `path` | [`PathLike`](../types/fs.PathLike.md) | A path to a file. If a URL is provided, it must use the `file:` protocol. |
-| `options?` | [`MakeDirectoryOptions`](../interfaces/fs.MakeDirectoryOptions.md) \| `Mode` | Either the file mode, or an object optionally specifying the file mode and whether parent folders should be created. If a string is passed, it is parsed as an octal integer. If not specified, defaults to `0o777`. |
+| `options?` | [`Mode`](../types/fs.Mode.md) \| [`MakeDirectoryOptions`](../interfaces/fs.MakeDirectoryOptions.md) | Either the file mode, or an object optionally specifying the file mode and whether parent folders should be created. If a string is passed, it is parsed as an octal integer. If not specified, defaults to `0o777`. |
 
 #### Returns
 

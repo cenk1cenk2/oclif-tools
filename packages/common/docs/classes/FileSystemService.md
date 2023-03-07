@@ -162,7 +162,7 @@ ___
 | :------ | :------ |
 | `file` | `string` |
 | `data` | `string` \| `Buffer` |
-| `options` | [`WriteFileOptions`](../interfaces/fs.WriteFileOptions.md) |
+| `options` | [`WriteFileOptions`](../types/fs.WriteFileOptions.md) |
 
 #### Returns
 
@@ -184,7 +184,7 @@ ___
 | :------ | :------ |
 | `file` | `string` |
 | `data` | `string` \| `Buffer` |
-| `options` | [`WriteFileOptions`](../interfaces/fs.WriteFileOptions.md) |
+| `options` | [`WriteFileOptions`](../types/fs.WriteFileOptions.md) |
 
 #### Returns
 
@@ -206,7 +206,7 @@ ___
 | :------ | :------ |
 | `file` | `string` |
 | `data` | `string` \| `Buffer` |
-| `options?` | [`WriteFileOptions`](../interfaces/fs.WriteFileOptions.md) |
+| `options?` | [`WriteFileOptions`](../types/fs.WriteFileOptions.md) |
 
 #### Returns
 

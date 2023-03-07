@@ -6,7 +6,7 @@
 
 ### mode
 
-• `Optional` **mode**: `Mode`
+• `Optional` **mode**: [`Mode`](../types/fs.Mode.md)
 
 #### Defined in
 

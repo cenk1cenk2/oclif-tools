@@ -2,7 +2,11 @@
 
 [fs](../modules/fs.md).createSymlinkSync
 
-▸ **createSymlinkSync**(`src`, `dest`, `type`): `void`
+▸ **createSymlinkSync**(`src`, `dest`, `type?`): `void`
+
+**`See`**
+
+ensureSymlinkSync
 
 #### Parameters
 
@@ -10,7 +14,7 @@
 | :------ | :------ |
 | `src` | `string` |
 | `dest` | `string` |
-| `type` | [`SymlinkType`](../types/fs.SymlinkType.md) |
+| `type?` | `Type` |
 
 #### Returns
 
@@ -18,4 +22,4 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:43
+node_modules/@types/fs-extra/index.d.ts:353

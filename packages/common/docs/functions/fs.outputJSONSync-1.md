@@ -4,13 +4,17 @@
 
 ▸ **outputJSONSync**(`file`, `data`, `options?`): `void`
 
+**`See`**
+
+outputJsonSync
+
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `file` | `string` |
 | `data` | `any` |
-| `options?` | `string` \| [`WriteOptions`](../interfaces/fs.WriteOptions.md) |
+| `options?` | [`JsonOutputOptions`](../types/fs.JsonOutputOptions.md) |
 
 #### Returns
 
@@ -18,4 +22,4 @@
 
 #### Defined in
 
-node_modules/@types/fs-extra/index.d.ts:110
+node_modules/@types/fs-extra/index.d.ts:747
