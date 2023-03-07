@@ -20,7 +20,7 @@ $ npm install -g oclif2
 $ oclif2 COMMAND
 running command...
 $ oclif2 (--version)
-oclif2/1.0.0 linux-x64 node-v16.18.0
+oclif2/1.0.0 linux-x64 node-v16.19.0
 $ oclif2 --help [COMMAND]
 USAGE
   $ oclif2 COMMAND
@@ -34,7 +34,7 @@ USAGE
 <!-- commands -->
 
 - [`oclif2 hello [PERSON]`](#oclif2-hello-person)
-- [`oclif2 help [COMMAND]`](#oclif2-help-command)
+- [`oclif2 help [COMMANDS]`](#oclif2-help-commands)
 - [`oclif2 plugins`](#oclif2-plugins)
 - [`oclif2 plugins:install PLUGIN...`](#oclif2-pluginsinstall-plugin)
 - [`oclif2 plugins:inspect PLUGIN...`](#oclif2-pluginsinspect-plugin)
@@ -68,16 +68,16 @@ EXAMPLES
 
 _See code: [dist/commands/hello/index.ts](https://github.com/cenk1cenk2/hello-world/blob/v1.0.0/dist/commands/hello/index.ts)_
 
-## `oclif2 help [COMMAND]`
+## `oclif2 help [COMMANDS]`
 
 Display help for oclif2.
 
 ```
 USAGE
-  $ oclif2 help [COMMAND] [-n]
+  $ oclif2 help [COMMANDS] [-n]
 
 ARGUMENTS
-  COMMAND  Command to show help for.
+  COMMANDS  Command to show help for.
 
 FLAGS
   -n, --nested-commands  Include all nested commands in the output.
@@ -86,7 +86,7 @@ DESCRIPTION
   Display help for oclif2.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.20/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.7/src/commands/help.ts)_
 
 ## `oclif2 plugins`
 
@@ -106,7 +106,7 @@ EXAMPLES
   $ oclif2 plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.8/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.3.2/src/commands/plugins/index.ts)_
 
 ## `oclif2 plugins:install PLUGIN...`
 
@@ -160,6 +160,9 @@ ARGUMENTS
 FLAGS
   -h, --help     Show CLI help.
   -v, --verbose
+
+GLOBAL FLAGS
+  --json  Format output as json.
 
 DESCRIPTION
   Displays installation properties of a plugin.
