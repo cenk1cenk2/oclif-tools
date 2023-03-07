@@ -1,9 +1,9 @@
 import type { ExecaChildProcess } from 'execa'
 import through from 'through'
 
+import type { PipeProcessToLoggerOptions } from './pipe-process-to-logger.interface'
 import type { Logger } from '../logger'
 import { LogLevels } from '../logger.constants'
-import type { PipeProcessToLoggerOptions } from './pipe-process-to-logger.interface'
 
 /**
  * Given the instance it will pipe process output through the logger to append prefixes such as the application name.
