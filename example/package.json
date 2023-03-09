@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "@cenk1cenk2/oclif-common": "*",
-    "@oclif/core": "^2.5.2",
+    "@oclif/core": "^2.6.2",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.4.0",
     "class-transformer": "^0.5.1",
