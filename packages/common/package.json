@@ -69,11 +69,11 @@
     "@oclif/core": "^2.6.2",
     "@types/fs-extra": "^11.0.1",
     "@types/through": "^0.0.30",
-    "@types/update-notifier": "^6",
+    "@types/update-notifier": "^6.0.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "enquirer": "^2.3.6",
-    "execa": "^5",
+    "execa": "^5.1.1",
     "fs-extra": "^11.1.0",
     "listr2": "^5.0.7"
   }
