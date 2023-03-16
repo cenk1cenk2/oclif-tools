@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "colorette": "^2.0.19",
-    "deepmerge": "^4.3.0",
+    "deepmerge": "^4.3.1",
     "object-path-immutable": "^4.1.2",
     "reflect-metadata": "^0.1.13",
     "through": "^2.3.8",
