@@ -18,7 +18,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3733
+node_modules/@types/node/fs.d.ts:3833
 
 ▸ **readv**(`fd`, `buffers`, `cb`): `void`
 
@@ -52,7 +52,7 @@ v13.13.0, v12.17.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3721
+node_modules/@types/node/fs.d.ts:3821
 
 ▸ **readv**(`fd`, `buffers`, `position`, `cb`): `void`
 
@@ -71,4 +71,4 @@ node_modules/@types/node/fs.d.ts:3721
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3722
+node_modules/@types/node/fs.d.ts:3822

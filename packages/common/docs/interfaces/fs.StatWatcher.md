@@ -721,7 +721,7 @@ v14.3.0, v12.20.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:279
+node_modules/@types/node/fs.d.ts:315
 
 ___
 
@@ -745,4 +745,4 @@ v14.3.0, v12.20.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:288
+node_modules/@types/node/fs.d.ts:324

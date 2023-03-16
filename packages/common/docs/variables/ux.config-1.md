@@ -6,4 +6,4 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/config.d.ts:19
+packages/common/node_modules/@oclif/core/lib/cli-ux/config.d.ts:19

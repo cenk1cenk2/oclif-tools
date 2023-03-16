@@ -16,4 +16,4 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3789
+node_modules/@types/node/fs.d.ts:3889

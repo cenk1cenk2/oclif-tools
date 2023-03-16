@@ -20,7 +20,7 @@ Asynchronous open(2) - open and possibly create a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2020
+node_modules/@types/node/fs.d.ts:2120
 
 ▸ **open**(`path`, `flags?`, `mode?`, `callback`): `void`
 
@@ -56,7 +56,7 @@ v0.0.2
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2001
+node_modules/@types/node/fs.d.ts:2101
 
 ▸ **open**(`path`, `flags?`, `callback`): `void`
 
@@ -76,7 +76,7 @@ Asynchronous open(2) - open and possibly create a file. If the file is created, 
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2007
+node_modules/@types/node/fs.d.ts:2107
 
 ▸ **open**(`path`, `callback`): `void`
 
@@ -95,4 +95,4 @@ Asynchronous open(2) - open and possibly create a file. If the file is created, 
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2012
+node_modules/@types/node/fs.d.ts:2112

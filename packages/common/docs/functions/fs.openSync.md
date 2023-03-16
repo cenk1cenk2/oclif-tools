@@ -27,4 +27,4 @@ v0.1.21
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2031
+node_modules/@types/node/fs.d.ts:2131

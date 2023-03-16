@@ -27,7 +27,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:936
+node_modules/@types/node/fs.d.ts:972
 
 ### StatSyncFn
 
@@ -46,7 +46,7 @@ node_modules/@types/node/fs.d.ts:936
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:937
+node_modules/@types/node/fs.d.ts:973
 
 ### StatSyncFn
 
@@ -65,7 +65,7 @@ node_modules/@types/node/fs.d.ts:937
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:944
+node_modules/@types/node/fs.d.ts:980
 
 ### StatSyncFn
 
@@ -84,7 +84,7 @@ node_modules/@types/node/fs.d.ts:944
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:951
+node_modules/@types/node/fs.d.ts:987
 
 ### StatSyncFn
 
@@ -103,7 +103,7 @@ node_modules/@types/node/fs.d.ts:951
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:957
+node_modules/@types/node/fs.d.ts:993
 
 ### StatSyncFn
 
@@ -122,7 +122,7 @@ node_modules/@types/node/fs.d.ts:957
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:963
+node_modules/@types/node/fs.d.ts:999
 
 ### StatSyncFn
 
@@ -141,7 +141,7 @@ node_modules/@types/node/fs.d.ts:963
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:970
+node_modules/@types/node/fs.d.ts:1006
 
 ## Properties
 

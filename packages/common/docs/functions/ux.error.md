@@ -17,7 +17,7 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/errors/index.d.ts:10
+packages/common/node_modules/@oclif/core/lib/errors/index.d.ts:10
 
 ▸ **error**(`input`, `options?`): `never`
 
@@ -34,4 +34,4 @@ node_modules/@oclif/core/lib/errors/index.d.ts:10
 
 #### Defined in
 
-node_modules/@oclif/core/lib/errors/index.d.ts:13
+packages/common/node_modules/@oclif/core/lib/errors/index.d.ts:13

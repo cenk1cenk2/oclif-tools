@@ -22,4 +22,4 @@ See the POSIX [`lchown(2)`](http://man7.org/linux/man-pages/man2/lchown.2.html) 
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:703
+node_modules/@types/node/fs.d.ts:739

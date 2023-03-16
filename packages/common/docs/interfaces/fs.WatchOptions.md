@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2932
+node_modules/@types/node/fs.d.ts:3032
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2933
+node_modules/@types/node/fs.d.ts:3033
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2934
+node_modules/@types/node/fs.d.ts:3034

@@ -17,7 +17,7 @@ false
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1490
+node_modules/@types/node/fs.d.ts:1590
 
 ___
 
@@ -33,4 +33,4 @@ A file mode. If a string is passed, it is parsed as an octal integer. If not spe
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1495
+node_modules/@types/node/fs.d.ts:1595

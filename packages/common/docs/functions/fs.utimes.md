@@ -20,7 +20,7 @@ Asynchronously change file timestamps of the file referenced by the supplied pat
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2049
+node_modules/@types/node/fs.d.ts:2149
 
 ▸ **utimes**(`path`, `atime`, `mtime`, `callback`): `void`
 
@@ -50,4 +50,4 @@ v0.4.2
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2041
+node_modules/@types/node/fs.d.ts:2141

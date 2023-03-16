@@ -20,7 +20,7 @@ Generates six random characters to be appended behind a required prefix to creat
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1728
+node_modules/@types/node/fs.d.ts:1828
 
 ▸ **mkdtemp**(`prefix`, `options`): `Promise`<`Buffer`\>
 
@@ -40,7 +40,7 @@ Generates six random characters to be appended behind a required prefix to creat
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1734
+node_modules/@types/node/fs.d.ts:1834
 
 ▸ **mkdtemp**(`prefix`, `options?`): `Promise`<`string` \| `Buffer`\>
 
@@ -60,7 +60,7 @@ Generates six random characters to be appended behind a required prefix to creat
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1740
+node_modules/@types/node/fs.d.ts:1840
 
 ▸ **mkdtemp**(`prefix`, `options`, `callback`): `void`
 
@@ -137,7 +137,7 @@ v5.10.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1696
+node_modules/@types/node/fs.d.ts:1796
 
 ▸ **mkdtemp**(`prefix`, `options`, `callback`): `void`
 
@@ -158,7 +158,7 @@ Generates six random characters to be appended behind a required prefix to creat
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1702
+node_modules/@types/node/fs.d.ts:1802
 
 ▸ **mkdtemp**(`prefix`, `options`, `callback`): `void`
 
@@ -179,7 +179,7 @@ Generates six random characters to be appended behind a required prefix to creat
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1716
+node_modules/@types/node/fs.d.ts:1816
 
 ▸ **mkdtemp**(`prefix`, `callback`): `void`
 
@@ -199,4 +199,4 @@ Generates six random characters to be appended behind a required prefix to creat
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1721
+node_modules/@types/node/fs.d.ts:1821

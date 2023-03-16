@@ -28,7 +28,7 @@ Asynchronously writes `buffer` to the file referenced by the supplied file descr
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2197
+node_modules/@types/node/fs.d.ts:2297
 
 ▸ **write**(`fd`, `string`, `position?`, `encoding?`): `Promise`<{ `bytesWritten`: `number` ; `buffer`: `string`  }\>
 
@@ -49,7 +49,7 @@ Asynchronously writes `string` to the file referenced by the supplied file descr
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2214
+node_modules/@types/node/fs.d.ts:2314
 
 ▸ **write**<`TBuffer`\>(`fd`, `buffer`, `offset`, `length`, `position`, `callback`): `void`
 
@@ -102,7 +102,7 @@ v0.0.2
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2125
+node_modules/@types/node/fs.d.ts:2225
 
 ▸ **write**<`TBuffer`\>(`fd`, `buffer`, `offset`, `length`, `callback`): `void`
 
@@ -130,7 +130,7 @@ Asynchronously writes `buffer` to the file referenced by the supplied file descr
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2139
+node_modules/@types/node/fs.d.ts:2239
 
 ▸ **write**<`TBuffer`\>(`fd`, `buffer`, `offset`, `callback`): `void`
 
@@ -157,7 +157,7 @@ Asynchronously writes `buffer` to the file referenced by the supplied file descr
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2151
+node_modules/@types/node/fs.d.ts:2251
 
 ▸ **write**<`TBuffer`\>(`fd`, `buffer`, `callback`): `void`
 
@@ -183,7 +183,7 @@ Asynchronously writes `buffer` to the file referenced by the supplied file descr
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2161
+node_modules/@types/node/fs.d.ts:2261
 
 ▸ **write**(`fd`, `string`, `position`, `encoding`, `callback`): `void`
 
@@ -205,7 +205,7 @@ Asynchronously writes `string` to the file referenced by the supplied file descr
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2169
+node_modules/@types/node/fs.d.ts:2269
 
 ▸ **write**(`fd`, `string`, `position`, `callback`): `void`
 
@@ -226,7 +226,7 @@ Asynchronously writes `string` to the file referenced by the supplied file descr
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2182
+node_modules/@types/node/fs.d.ts:2282
 
 ▸ **write**(`fd`, `string`, `callback`): `void`
 
@@ -246,4 +246,4 @@ Asynchronously writes `string` to the file referenced by the supplied file descr
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2188
+node_modules/@types/node/fs.d.ts:2288

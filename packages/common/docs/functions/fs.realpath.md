@@ -19,7 +19,7 @@ Asynchronous realpath(3) - return the canonicalized absolute pathname.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1290
+node_modules/@types/node/fs.d.ts:1390
 
 ▸ **realpath**(`path`, `options`): `Promise`<`Buffer`\>
 
@@ -38,7 +38,7 @@ Asynchronous realpath(3) - return the canonicalized absolute pathname.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1296
+node_modules/@types/node/fs.d.ts:1396
 
 ▸ **realpath**(`path`, `options?`): `Promise`<`string` \| `Buffer`\>
 
@@ -57,7 +57,7 @@ Asynchronous realpath(3) - return the canonicalized absolute pathname.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1302
+node_modules/@types/node/fs.d.ts:1402
 
 ▸ **realpath**(`path`, `options`, `callback`): `void`
 
@@ -103,7 +103,7 @@ v0.1.31
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1266
+node_modules/@types/node/fs.d.ts:1366
 
 ▸ **realpath**(`path`, `options`, `callback`): `void`
 
@@ -123,7 +123,7 @@ Asynchronous realpath(3) - return the canonicalized absolute pathname.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1272
+node_modules/@types/node/fs.d.ts:1372
 
 ▸ **realpath**(`path`, `options`, `callback`): `void`
 
@@ -143,7 +143,7 @@ Asynchronous realpath(3) - return the canonicalized absolute pathname.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1278
+node_modules/@types/node/fs.d.ts:1378
 
 ▸ **realpath**(`path`, `callback`): `void`
 
@@ -162,4 +162,4 @@ Asynchronous realpath(3) - return the canonicalized absolute pathname.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1283
+node_modules/@types/node/fs.d.ts:1383

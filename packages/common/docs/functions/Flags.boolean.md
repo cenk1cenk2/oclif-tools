@@ -22,4 +22,4 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/flags.d.ts:30
+packages/common/node_modules/@oclif/core/lib/flags.d.ts:30

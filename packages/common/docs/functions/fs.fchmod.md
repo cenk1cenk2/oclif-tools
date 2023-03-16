@@ -19,7 +19,7 @@ Asynchronous fchmod(2) - Change permissions of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:779
+node_modules/@types/node/fs.d.ts:815
 
 ▸ **fchmod**(`fd`, `mode`, `callback`): `void`
 
@@ -46,4 +46,4 @@ v0.4.7
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:772
+node_modules/@types/node/fs.d.ts:808

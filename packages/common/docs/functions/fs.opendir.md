@@ -17,7 +17,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3777
+node_modules/@types/node/fs.d.ts:3877
 
 ▸ **opendir**(`path`, `cb`): `void`
 
@@ -47,7 +47,7 @@ v12.12.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3774
+node_modules/@types/node/fs.d.ts:3874
 
 ▸ **opendir**(`path`, `options`, `cb`): `void`
 
@@ -65,4 +65,4 @@ node_modules/@types/node/fs.d.ts:3774
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3775
+node_modules/@types/node/fs.d.ts:3875

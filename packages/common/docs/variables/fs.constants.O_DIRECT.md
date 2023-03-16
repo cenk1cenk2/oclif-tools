@@ -8,4 +8,4 @@ Constant for fs.open(). When set, an attempt will be made to minimize caching ef
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3208
+node_modules/@types/node/fs.d.ts:3308

@@ -19,7 +19,7 @@ Asynchronous lstat(2) - Get file status. Does not dereference symbolic links.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1070
+node_modules/@types/node/fs.d.ts:1106
 
 ▸ **lstat**(`path`, `options`): `Promise`<[`BigIntStats`](../interfaces/fs.BigIntStats.md)\>
 
@@ -36,7 +36,7 @@ node_modules/@types/node/fs.d.ts:1070
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1076
+node_modules/@types/node/fs.d.ts:1112
 
 ▸ **lstat**(`path`, `options?`): `Promise`<[`Stats`](../classes/fs.Stats.md) \| [`BigIntStats`](../interfaces/fs.BigIntStats.md)\>
 
@@ -53,7 +53,7 @@ node_modules/@types/node/fs.d.ts:1076
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1082
+node_modules/@types/node/fs.d.ts:1118
 
 ▸ **lstat**(`path`, `callback`): `void`
 
@@ -80,7 +80,7 @@ v0.1.30
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1047
+node_modules/@types/node/fs.d.ts:1083
 
 ▸ **lstat**(`path`, `options`, `callback`): `void`
 
@@ -98,7 +98,7 @@ node_modules/@types/node/fs.d.ts:1047
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1048
+node_modules/@types/node/fs.d.ts:1084
 
 ▸ **lstat**(`path`, `options`, `callback`): `void`
 
@@ -116,7 +116,7 @@ node_modules/@types/node/fs.d.ts:1048
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1057
+node_modules/@types/node/fs.d.ts:1093
 
 ▸ **lstat**(`path`, `options`, `callback`): `void`
 
@@ -134,4 +134,4 @@ node_modules/@types/node/fs.d.ts:1057
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1064
+node_modules/@types/node/fs.d.ts:1100

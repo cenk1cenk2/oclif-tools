@@ -20,7 +20,7 @@ Asynchronous chown(2) - Change ownership of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:648
+node_modules/@types/node/fs.d.ts:684
 
 ▸ **chown**(`path`, `uid`, `gid`, `callback`): `void`
 
@@ -48,4 +48,4 @@ v0.1.97
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:642
+node_modules/@types/node/fs.d.ts:678

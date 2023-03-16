@@ -16,7 +16,7 @@ v10.0.0
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:89
+node_modules/@types/node/fs/promises.d.ts:92
 
 ## Methods
 
@@ -48,7 +48,7 @@ Fulfills with `undefined` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:98
+node_modules/@types/node/fs/promises.d.ts:101
 
 ___
 
@@ -77,7 +77,7 @@ Fulfills with `undefined` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:106
+node_modules/@types/node/fs/promises.d.ts:109
 
 ___
 
@@ -105,7 +105,7 @@ Fulfills with `undefined` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:113
+node_modules/@types/node/fs/promises.d.ts:116
 
 ___
 
@@ -180,7 +180,7 @@ v16.11.0
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:167
+node_modules/@types/node/fs/promises.d.ts:170
 
 ___
 
@@ -218,7 +218,7 @@ v16.11.0
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:184
+node_modules/@types/node/fs/promises.d.ts:187
 
 ___
 
@@ -243,7 +243,7 @@ Fulfills with `undefined` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:193
+node_modules/@types/node/fs/promises.d.ts:196
 
 ___
 
@@ -267,7 +267,7 @@ Fufills with `undefined` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:201
+node_modules/@types/node/fs/promises.d.ts:204
 
 ___
 
@@ -307,7 +307,7 @@ Fulfills upon success with an object with two properties:
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:215
+node_modules/@types/node/fs/promises.d.ts:218
 
 ▸ **read**<`T`\>(`options?`): `Promise`<[`FileReadResult`](fs.promises.FileReadResult.md)<`T`\>\>
 
@@ -329,7 +329,7 @@ node_modules/@types/node/fs/promises.d.ts:215
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:216
+node_modules/@types/node/fs/promises.d.ts:219
 
 ___
 
@@ -365,7 +365,7 @@ v17.0.0
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:239
+node_modules/@types/node/fs/promises.d.ts:242
 
 ___
 
@@ -404,7 +404,7 @@ data will be a string.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:254
+node_modules/@types/node/fs/promises.d.ts:257
 
 ▸ **readFile**(`options`): `Promise`<`string`\>
 
@@ -423,7 +423,7 @@ The `FileHandle` must have been opened for reading.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:266
+node_modules/@types/node/fs/promises.d.ts:269
 
 ▸ **readFile**(`options?`): `Promise`<`string` \| `Buffer`\>
 
@@ -442,7 +442,7 @@ The `FileHandle` must have been opened for reading.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:280
+node_modules/@types/node/fs/promises.d.ts:283
 
 ___
 
@@ -478,7 +478,7 @@ v18.11.0
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:304
+node_modules/@types/node/fs/promises.d.ts:307
 
 ___
 
@@ -504,7 +504,7 @@ Fulfills with an {fs.Stats} for the file.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:309
+node_modules/@types/node/fs/promises.d.ts:312
 
 ▸ **stat**(`opts`): `Promise`<[`BigIntStats`](fs.BigIntStats.md)\>
 
@@ -520,7 +520,7 @@ node_modules/@types/node/fs/promises.d.ts:309
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:314
+node_modules/@types/node/fs/promises.d.ts:317
 
 ▸ **stat**(`opts?`): `Promise`<[`Stats`](../classes/fs.Stats.md) \| [`BigIntStats`](fs.BigIntStats.md)\>
 
@@ -536,7 +536,7 @@ node_modules/@types/node/fs/promises.d.ts:314
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:319
+node_modules/@types/node/fs/promises.d.ts:322
 
 ___
 
@@ -586,7 +586,7 @@ Fulfills with `undefined` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:348
+node_modules/@types/node/fs/promises.d.ts:351
 
 ___
 
@@ -613,7 +613,7 @@ v10.0.0
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:353
+node_modules/@types/node/fs/promises.d.ts:356
 
 ___
 
@@ -654,7 +654,7 @@ v10.0.0
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:372
+node_modules/@types/node/fs/promises.d.ts:375
 
 ___
 
@@ -699,7 +699,7 @@ v10.0.0
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:391
+node_modules/@types/node/fs/promises.d.ts:394
 
 ▸ **write**(`data`, `position?`, `encoding?`): `Promise`<{ `bytesWritten`: `number` ; `buffer`: `string`  }\>
 
@@ -717,7 +717,7 @@ node_modules/@types/node/fs/promises.d.ts:391
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:400
+node_modules/@types/node/fs/promises.d.ts:403
 
 ___
 
@@ -753,7 +753,7 @@ v12.9.0
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:423
+node_modules/@types/node/fs/promises.d.ts:426
 
 ___
 
@@ -782,7 +782,7 @@ Fulfills upon success an object containing two properties:
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:430
+node_modules/@types/node/fs/promises.d.ts:433
 
 ___
 
@@ -816,4 +816,4 @@ Fulfills with `undefined` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:448
+node_modules/@types/node/fs/promises.d.ts:451

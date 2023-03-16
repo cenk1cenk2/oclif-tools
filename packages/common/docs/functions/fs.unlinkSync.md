@@ -22,4 +22,4 @@ v0.1.21
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1381
+node_modules/@types/node/fs.d.ts:1481

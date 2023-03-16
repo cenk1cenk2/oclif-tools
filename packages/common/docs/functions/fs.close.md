@@ -18,7 +18,7 @@ Asynchronous close(2) - close a file descriptor.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1972
+node_modules/@types/node/fs.d.ts:2072
 
 ▸ **close**(`fd`, `callback?`): `void`
 
@@ -47,4 +47,4 @@ v0.0.2
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1966
+node_modules/@types/node/fs.d.ts:2066

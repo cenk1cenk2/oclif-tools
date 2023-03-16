@@ -20,7 +20,7 @@ Asynchronously change file timestamps of the file referenced by the supplied fil
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2072
+node_modules/@types/node/fs.d.ts:2172
 
 ▸ **futimes**(`fd`, `atime`, `mtime`, `callback`): `void`
 
@@ -46,4 +46,4 @@ v0.4.2
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2064
+node_modules/@types/node/fs.d.ts:2164

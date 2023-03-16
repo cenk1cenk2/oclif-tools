@@ -686,7 +686,7 @@ v0.9.4
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:415
+node_modules/@types/node/fs.d.ts:451
 
 ___
 
@@ -716,7 +716,7 @@ stream.Writable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:441
+node_modules/@types/node/fs.d.ts:477
 
 ▸ **addListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -737,7 +737,7 @@ stream.Writable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:442
+node_modules/@types/node/fs.d.ts:478
 
 ▸ **addListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -758,7 +758,7 @@ stream.Writable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:443
+node_modules/@types/node/fs.d.ts:479
 
 ▸ **addListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -779,7 +779,7 @@ stream.Writable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:444
+node_modules/@types/node/fs.d.ts:480
 
 ▸ **addListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -800,7 +800,7 @@ stream.Writable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:445
+node_modules/@types/node/fs.d.ts:481
 
 ▸ **addListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -821,7 +821,7 @@ stream.Writable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:446
+node_modules/@types/node/fs.d.ts:482
 
 ▸ **addListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -842,7 +842,7 @@ stream.Writable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:447
+node_modules/@types/node/fs.d.ts:483
 
 ▸ **addListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -863,7 +863,7 @@ stream.Writable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:448
+node_modules/@types/node/fs.d.ts:484
 
 ▸ **addListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -884,7 +884,7 @@ stream.Writable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:449
+node_modules/@types/node/fs.d.ts:485
 
 ___
 
@@ -909,7 +909,7 @@ stream.Writable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:450
+node_modules/@types/node/fs.d.ts:486
 
 ▸ **on**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -930,7 +930,7 @@ stream.Writable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:451
+node_modules/@types/node/fs.d.ts:487
 
 ▸ **on**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -951,7 +951,7 @@ stream.Writable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:452
+node_modules/@types/node/fs.d.ts:488
 
 ▸ **on**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -972,7 +972,7 @@ stream.Writable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:453
+node_modules/@types/node/fs.d.ts:489
 
 ▸ **on**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -993,7 +993,7 @@ stream.Writable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:454
+node_modules/@types/node/fs.d.ts:490
 
 ▸ **on**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1014,7 +1014,7 @@ stream.Writable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:455
+node_modules/@types/node/fs.d.ts:491
 
 ▸ **on**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1035,7 +1035,7 @@ stream.Writable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:456
+node_modules/@types/node/fs.d.ts:492
 
 ▸ **on**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1056,7 +1056,7 @@ stream.Writable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:457
+node_modules/@types/node/fs.d.ts:493
 
 ▸ **on**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1077,7 +1077,7 @@ stream.Writable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:458
+node_modules/@types/node/fs.d.ts:494
 
 ___
 
@@ -1102,7 +1102,7 @@ stream.Writable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:459
+node_modules/@types/node/fs.d.ts:495
 
 ▸ **once**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1123,7 +1123,7 @@ stream.Writable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:460
+node_modules/@types/node/fs.d.ts:496
 
 ▸ **once**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1144,7 +1144,7 @@ stream.Writable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:461
+node_modules/@types/node/fs.d.ts:497
 
 ▸ **once**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1165,7 +1165,7 @@ stream.Writable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:462
+node_modules/@types/node/fs.d.ts:498
 
 ▸ **once**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1186,7 +1186,7 @@ stream.Writable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:463
+node_modules/@types/node/fs.d.ts:499
 
 ▸ **once**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1207,7 +1207,7 @@ stream.Writable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:464
+node_modules/@types/node/fs.d.ts:500
 
 ▸ **once**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1228,7 +1228,7 @@ stream.Writable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:465
+node_modules/@types/node/fs.d.ts:501
 
 ▸ **once**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1249,7 +1249,7 @@ stream.Writable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:466
+node_modules/@types/node/fs.d.ts:502
 
 ▸ **once**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1270,7 +1270,7 @@ stream.Writable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:467
+node_modules/@types/node/fs.d.ts:503
 
 ___
 
@@ -1295,7 +1295,7 @@ stream.Writable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:468
+node_modules/@types/node/fs.d.ts:504
 
 ▸ **prependListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1316,7 +1316,7 @@ stream.Writable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:469
+node_modules/@types/node/fs.d.ts:505
 
 ▸ **prependListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1337,7 +1337,7 @@ stream.Writable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:470
+node_modules/@types/node/fs.d.ts:506
 
 ▸ **prependListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1358,7 +1358,7 @@ stream.Writable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:471
+node_modules/@types/node/fs.d.ts:507
 
 ▸ **prependListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1379,7 +1379,7 @@ stream.Writable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:472
+node_modules/@types/node/fs.d.ts:508
 
 ▸ **prependListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1400,7 +1400,7 @@ stream.Writable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:473
+node_modules/@types/node/fs.d.ts:509
 
 ▸ **prependListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1421,7 +1421,7 @@ stream.Writable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:474
+node_modules/@types/node/fs.d.ts:510
 
 ▸ **prependListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1442,7 +1442,7 @@ stream.Writable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:475
+node_modules/@types/node/fs.d.ts:511
 
 ▸ **prependListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1463,7 +1463,7 @@ stream.Writable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:476
+node_modules/@types/node/fs.d.ts:512
 
 ___
 
@@ -1488,7 +1488,7 @@ stream.Writable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:477
+node_modules/@types/node/fs.d.ts:513
 
 ▸ **prependOnceListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1509,7 +1509,7 @@ stream.Writable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:478
+node_modules/@types/node/fs.d.ts:514
 
 ▸ **prependOnceListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1530,7 +1530,7 @@ stream.Writable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:479
+node_modules/@types/node/fs.d.ts:515
 
 ▸ **prependOnceListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1551,7 +1551,7 @@ stream.Writable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:480
+node_modules/@types/node/fs.d.ts:516
 
 ▸ **prependOnceListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1572,7 +1572,7 @@ stream.Writable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:481
+node_modules/@types/node/fs.d.ts:517
 
 ▸ **prependOnceListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1593,7 +1593,7 @@ stream.Writable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:482
+node_modules/@types/node/fs.d.ts:518
 
 ▸ **prependOnceListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1614,7 +1614,7 @@ stream.Writable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:483
+node_modules/@types/node/fs.d.ts:519
 
 ▸ **prependOnceListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1635,7 +1635,7 @@ stream.Writable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:484
+node_modules/@types/node/fs.d.ts:520
 
 ▸ **prependOnceListener**(`event`, `listener`): [`WriteStream`](fs.WriteStream.md)
 
@@ -1656,7 +1656,7 @@ stream.Writable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:485
+node_modules/@types/node/fs.d.ts:521
 
 ___
 
@@ -2602,7 +2602,7 @@ v0.4.7
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:421
+node_modules/@types/node/fs.d.ts:457
 
 ___
 
@@ -2620,7 +2620,7 @@ v0.1.93
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:428
+node_modules/@types/node/fs.d.ts:464
 
 ___
 
@@ -2637,7 +2637,7 @@ v11.2.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:434
+node_modules/@types/node/fs.d.ts:470
 
 ___
 

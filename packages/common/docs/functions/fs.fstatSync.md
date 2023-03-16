@@ -25,7 +25,7 @@ v0.1.95
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1026
+node_modules/@types/node/fs.d.ts:1062
 
 ▸ **fstatSync**(`fd`, `options`): [`BigIntStats`](../interfaces/fs.BigIntStats.md)
 
@@ -42,7 +42,7 @@ node_modules/@types/node/fs.d.ts:1026
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1032
+node_modules/@types/node/fs.d.ts:1068
 
 ▸ **fstatSync**(`fd`, `options?`): [`Stats`](../classes/fs.Stats.md) \| [`BigIntStats`](../interfaces/fs.BigIntStats.md)
 
@@ -59,4 +59,4 @@ node_modules/@types/node/fs.d.ts:1032
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1038
+node_modules/@types/node/fs.d.ts:1074

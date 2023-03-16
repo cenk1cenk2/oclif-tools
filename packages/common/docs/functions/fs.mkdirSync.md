@@ -26,7 +26,7 @@ v0.1.21
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1611
+node_modules/@types/node/fs.d.ts:1711
 
 ▸ **mkdirSync**(`path`, `options?`): `void`
 
@@ -45,7 +45,7 @@ Synchronous mkdir(2) - create a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1623
+node_modules/@types/node/fs.d.ts:1723
 
 ▸ **mkdirSync**(`path`, `options?`): `string` \| `undefined`
 
@@ -64,4 +64,4 @@ Synchronous mkdir(2) - create a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1638
+node_modules/@types/node/fs.d.ts:1738

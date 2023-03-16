@@ -16,4 +16,4 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/styled/progress.d.ts:2
+packages/common/node_modules/@oclif/core/lib/cli-ux/styled/progress.d.ts:2

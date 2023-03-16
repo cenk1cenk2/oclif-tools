@@ -26,4 +26,4 @@ Fulfills with `undefined` upon success.
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:781
+node_modules/@types/node/fs/promises.d.ts:802

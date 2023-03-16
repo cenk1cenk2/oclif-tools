@@ -11,4 +11,4 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/interfaces/parser.d.ts:185
+packages/common/node_modules/@oclif/core/lib/interfaces/parser.d.ts:185

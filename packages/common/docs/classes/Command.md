@@ -29,7 +29,7 @@ BaseCommand.argv
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:12
+packages/common/node_modules/@oclif/core/lib/command.d.ts:12
 
 ___
 
@@ -43,7 +43,7 @@ BaseCommand.config
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:13
+packages/common/node_modules/@oclif/core/lib/command.d.ts:13
 
 ___
 
@@ -59,7 +59,7 @@ BaseCommand.id
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:16
+packages/common/node_modules/@oclif/core/lib/command.d.ts:16
 
 ___
 
@@ -76,7 +76,7 @@ BaseCommand.summary
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:21
+packages/common/node_modules/@oclif/core/lib/command.d.ts:21
 
 ___
 
@@ -94,7 +94,7 @@ BaseCommand.description
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:27
+packages/common/node_modules/@oclif/core/lib/command.d.ts:27
 
 ___
 
@@ -110,7 +110,7 @@ BaseCommand.hidden
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:29
+packages/common/node_modules/@oclif/core/lib/command.d.ts:29
 
 ___
 
@@ -126,7 +126,7 @@ BaseCommand.state
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:31
+packages/common/node_modules/@oclif/core/lib/command.d.ts:31
 
 ___
 
@@ -140,7 +140,7 @@ BaseCommand.deprecationOptions
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:32
+packages/common/node_modules/@oclif/core/lib/command.d.ts:32
 
 ___
 
@@ -156,7 +156,7 @@ BaseCommand.deprecateAliases
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:36
+packages/common/node_modules/@oclif/core/lib/command.d.ts:36
 
 ___
 
@@ -172,7 +172,7 @@ BaseCommand.usage
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:40
+packages/common/node_modules/@oclif/core/lib/command.d.ts:40
 
 ___
 
@@ -186,7 +186,7 @@ BaseCommand.help
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:41
+packages/common/node_modules/@oclif/core/lib/command.d.ts:41
 
 ___
 
@@ -202,7 +202,7 @@ BaseCommand.aliases
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:43
+packages/common/node_modules/@oclif/core/lib/command.d.ts:43
 
 ___
 
@@ -218,7 +218,7 @@ BaseCommand.strict
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:45
+packages/common/node_modules/@oclif/core/lib/command.d.ts:45
 
 ___
 
@@ -234,7 +234,7 @@ BaseCommand.args
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:47
+packages/common/node_modules/@oclif/core/lib/command.d.ts:47
 
 ___
 
@@ -248,7 +248,7 @@ BaseCommand.plugin
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:48
+packages/common/node_modules/@oclif/core/lib/command.d.ts:48
 
 ___
 
@@ -262,7 +262,7 @@ BaseCommand.pluginName
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:49
+packages/common/node_modules/@oclif/core/lib/command.d.ts:49
 
 ___
 
@@ -276,7 +276,7 @@ BaseCommand.pluginType
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:50
+packages/common/node_modules/@oclif/core/lib/command.d.ts:50
 
 ___
 
@@ -290,7 +290,7 @@ BaseCommand.pluginAlias
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:51
+packages/common/node_modules/@oclif/core/lib/command.d.ts:51
 
 ___
 
@@ -317,7 +317,7 @@ BaseCommand.examples
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:66
+packages/common/node_modules/@oclif/core/lib/command.d.ts:66
 
 ___
 
@@ -331,7 +331,7 @@ BaseCommand.hasDynamicHelp
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:67
+packages/common/node_modules/@oclif/core/lib/command.d.ts:67
 
 ___
 
@@ -345,7 +345,7 @@ BaseCommand.\_enableJsonFlag
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:68
+packages/common/node_modules/@oclif/core/lib/command.d.ts:68
 
 ___
 
@@ -359,7 +359,7 @@ BaseCommand.\_baseFlags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:80
+packages/common/node_modules/@oclif/core/lib/command.d.ts:80
 
 ___
 
@@ -375,7 +375,7 @@ BaseCommand.\_flags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:84
+packages/common/node_modules/@oclif/core/lib/command.d.ts:84
 
 ___
 
@@ -389,7 +389,7 @@ BaseCommand.id
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:87
+packages/common/node_modules/@oclif/core/lib/command.d.ts:87
 
 ___
 
@@ -417,7 +417,7 @@ BaseCommand.debug
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:88
+packages/common/node_modules/@oclif/core/lib/command.d.ts:88
 
 ___
 
@@ -535,7 +535,7 @@ BaseCommand.enableJsonFlag
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:69
+packages/common/node_modules/@oclif/core/lib/command.d.ts:69
 
 • `Static` `set` **enableJsonFlag**(`value`): `void`
 
@@ -555,7 +555,7 @@ BaseCommand.enableJsonFlag
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:70
+packages/common/node_modules/@oclif/core/lib/command.d.ts:70
 
 ___
 
@@ -573,7 +573,7 @@ BaseCommand.flags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:85
+packages/common/node_modules/@oclif/core/lib/command.d.ts:85
 
 • `Static` `set` **flags**(`flags`): `void`
 
@@ -593,7 +593,7 @@ BaseCommand.flags
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:86
+packages/common/node_modules/@oclif/core/lib/command.d.ts:86
 
 ___
 
@@ -611,7 +611,7 @@ BaseCommand.ctor
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:90
+packages/common/node_modules/@oclif/core/lib/command.d.ts:90
 
 ___
 
@@ -685,7 +685,7 @@ BaseCommand.run
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:79
+packages/common/node_modules/@oclif/core/lib/command.d.ts:79
 
 ___
 
@@ -709,7 +709,7 @@ BaseCommand.warn
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:93
+packages/common/node_modules/@oclif/core/lib/command.d.ts:93
 
 ___
 
@@ -734,7 +734,7 @@ BaseCommand.error
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:94
+packages/common/node_modules/@oclif/core/lib/command.d.ts:94
 
 ▸ **error**(`input`, `options?`): `never`
 
@@ -755,7 +755,7 @@ BaseCommand.error
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:98
+packages/common/node_modules/@oclif/core/lib/command.d.ts:98
 
 ___
 
@@ -780,7 +780,7 @@ BaseCommand.log
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:102
+packages/common/node_modules/@oclif/core/lib/command.d.ts:102
 
 ___
 
@@ -805,7 +805,7 @@ BaseCommand.logToStderr
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:103
+packages/common/node_modules/@oclif/core/lib/command.d.ts:103
 
 ___
 
@@ -823,7 +823,7 @@ BaseCommand.jsonEnabled
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:104
+packages/common/node_modules/@oclif/core/lib/command.d.ts:104
 
 ___
 
@@ -847,7 +847,7 @@ BaseCommand.warnIfFlagDeprecated
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:110
+packages/common/node_modules/@oclif/core/lib/command.d.ts:110
 
 ___
 
@@ -865,7 +865,7 @@ BaseCommand.warnIfCommandDeprecated
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:111
+packages/common/node_modules/@oclif/core/lib/command.d.ts:111
 
 ___
 
@@ -898,7 +898,7 @@ BaseCommand.parse
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:112
+packages/common/node_modules/@oclif/core/lib/command.d.ts:112
 
 ___
 
@@ -922,7 +922,7 @@ BaseCommand.toSuccessJson
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:115
+packages/common/node_modules/@oclif/core/lib/command.d.ts:115
 
 ___
 
@@ -946,7 +946,7 @@ BaseCommand.toErrorJson
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:116
+packages/common/node_modules/@oclif/core/lib/command.d.ts:116
 
 ___
 
@@ -970,7 +970,7 @@ BaseCommand.logJson
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:117
+packages/common/node_modules/@oclif/core/lib/command.d.ts:117
 
 ___
 
@@ -1335,4 +1335,4 @@ BaseCommand.constructor
 
 #### Defined in
 
-node_modules/@oclif/core/lib/command.d.ts:89
+packages/common/node_modules/@oclif/core/lib/command.d.ts:89

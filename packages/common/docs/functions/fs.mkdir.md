@@ -19,7 +19,7 @@ Asynchronous mkdir(2) - create a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1575
+node_modules/@types/node/fs.d.ts:1675
 
 ▸ **mkdir**(`path`, `options?`): `Promise`<`void`\>
 
@@ -38,7 +38,7 @@ Asynchronous mkdir(2) - create a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1587
+node_modules/@types/node/fs.d.ts:1687
 
 ▸ **mkdir**(`path`, `options?`): `Promise`<`string` \| `undefined`\>
 
@@ -57,7 +57,7 @@ Asynchronous mkdir(2) - create a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1602
+node_modules/@types/node/fs.d.ts:1702
 
 ▸ **mkdir**(`path`, `options`, `callback`): `void`
 
@@ -112,7 +112,7 @@ v0.1.8
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1532
+node_modules/@types/node/fs.d.ts:1632
 
 ▸ **mkdir**(`path`, `options`, `callback`): `void`
 
@@ -132,7 +132,7 @@ Asynchronous mkdir(2) - create a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1545
+node_modules/@types/node/fs.d.ts:1645
 
 ▸ **mkdir**(`path`, `options`, `callback`): `void`
 
@@ -152,7 +152,7 @@ Asynchronous mkdir(2) - create a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1562
+node_modules/@types/node/fs.d.ts:1662
 
 ▸ **mkdir**(`path`, `callback`): `void`
 
@@ -171,4 +171,4 @@ Asynchronous mkdir(2) - create a directory with a mode of `0o777`.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1567
+node_modules/@types/node/fs.d.ts:1667

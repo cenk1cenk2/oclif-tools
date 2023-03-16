@@ -11,4 +11,4 @@ This flag is available on Linux operating systems only.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3198
+node_modules/@types/node/fs.d.ts:3298

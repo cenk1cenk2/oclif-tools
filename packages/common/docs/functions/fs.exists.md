@@ -16,7 +16,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3126
+node_modules/@types/node/fs.d.ts:3226
 
 ▸ **exists**(`path`, `callback`): `void`
 
@@ -167,4 +167,4 @@ Since v1.0.0 - Use [stat](fs.stat.md) or [access](fs.access.md) instead.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3119
+node_modules/@types/node/fs.d.ts:3219

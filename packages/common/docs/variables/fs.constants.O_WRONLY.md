@@ -8,4 +8,4 @@ Constant for fs.open(). Flag indicating to open a file for write-only access.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3173
+node_modules/@types/node/fs.d.ts:3273

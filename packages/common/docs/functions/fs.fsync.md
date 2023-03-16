@@ -18,7 +18,7 @@ Asynchronous fsync(2) - synchronize a file's in-core state with the underlying s
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2092
+node_modules/@types/node/fs.d.ts:2192
 
 ▸ **fsync**(`fd`, `callback`): `void`
 
@@ -44,4 +44,4 @@ v0.1.96
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2086
+node_modules/@types/node/fs.d.ts:2186

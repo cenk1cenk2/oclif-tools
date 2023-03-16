@@ -19,7 +19,7 @@ Asynchronous ftruncate(2) - Truncate a file to a specified length.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:624
+node_modules/@types/node/fs.d.ts:660
 
 ▸ **ftruncate**(`fd`, `len?`, `callback`): `void`
 
@@ -81,7 +81,7 @@ v0.8.6
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:612
+node_modules/@types/node/fs.d.ts:648
 
 ▸ **ftruncate**(`fd`, `callback`): `void`
 
@@ -100,4 +100,4 @@ Asynchronous ftruncate(2) - Truncate a file to a specified length.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:617
+node_modules/@types/node/fs.d.ts:653

@@ -19,7 +19,7 @@ Asynchronous rename(2) - Change the name or location of a file or directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:515
+node_modules/@types/node/fs.d.ts:551
 
 ▸ **rename**(`oldPath`, `newPath`, `callback`): `void`
 
@@ -58,4 +58,4 @@ v0.0.2
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:506
+node_modules/@types/node/fs.d.ts:542

@@ -19,7 +19,7 @@ Asynchronous fstat(2) - Get file status.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1006
+node_modules/@types/node/fs.d.ts:1042
 
 ▸ **fstat**(`fd`, `options`): `Promise`<[`BigIntStats`](../interfaces/fs.BigIntStats.md)\>
 
@@ -36,7 +36,7 @@ node_modules/@types/node/fs.d.ts:1006
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1012
+node_modules/@types/node/fs.d.ts:1048
 
 ▸ **fstat**(`fd`, `options?`): `Promise`<[`Stats`](../classes/fs.Stats.md) \| [`BigIntStats`](../interfaces/fs.BigIntStats.md)\>
 
@@ -53,7 +53,7 @@ node_modules/@types/node/fs.d.ts:1012
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1018
+node_modules/@types/node/fs.d.ts:1054
 
 ▸ **fstat**(`fd`, `callback`): `void`
 
@@ -78,7 +78,7 @@ v0.1.95
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:983
+node_modules/@types/node/fs.d.ts:1019
 
 ▸ **fstat**(`fd`, `options`, `callback`): `void`
 
@@ -96,7 +96,7 @@ node_modules/@types/node/fs.d.ts:983
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:984
+node_modules/@types/node/fs.d.ts:1020
 
 ▸ **fstat**(`fd`, `options`, `callback`): `void`
 
@@ -114,7 +114,7 @@ node_modules/@types/node/fs.d.ts:984
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:993
+node_modules/@types/node/fs.d.ts:1029
 
 ▸ **fstat**(`fd`, `options`, `callback`): `void`
 
@@ -132,4 +132,4 @@ node_modules/@types/node/fs.d.ts:993
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1000
+node_modules/@types/node/fs.d.ts:1036

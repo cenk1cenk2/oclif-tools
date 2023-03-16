@@ -20,4 +20,4 @@ Promise<boolean>
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:23
+packages/common/node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:23

@@ -18,7 +18,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3630
+node_modules/@types/node/fs.d.ts:3730
 
 ▸ **copyFile**(`src`, `dest`, `callback`): `void`
 
@@ -74,7 +74,7 @@ v8.5.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3627
+node_modules/@types/node/fs.d.ts:3727
 
 ▸ **copyFile**(`src`, `dest`, `mode`, `callback`): `void`
 
@@ -93,4 +93,4 @@ node_modules/@types/node/fs.d.ts:3627
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3628
+node_modules/@types/node/fs.d.ts:3728

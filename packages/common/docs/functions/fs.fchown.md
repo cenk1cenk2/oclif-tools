@@ -20,7 +20,7 @@ Asynchronous fchown(2) - Change ownership of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:671
+node_modules/@types/node/fs.d.ts:707
 
 ▸ **fchown**(`fd`, `uid`, `gid`, `callback`): `void`
 
@@ -48,4 +48,4 @@ v0.4.7
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:665
+node_modules/@types/node/fs.d.ts:701

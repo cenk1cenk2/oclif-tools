@@ -20,7 +20,7 @@ Asynchronous symlink(2) - Create a new symbolic link to an existing file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1155
+node_modules/@types/node/fs.d.ts:1255
 
 ▸ **symlink**(`target`, `path`, `type`, `callback`): `void`
 
@@ -72,7 +72,7 @@ v0.1.31
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1140
+node_modules/@types/node/fs.d.ts:1240
 
 ▸ **symlink**(`target`, `path`, `callback`): `void`
 
@@ -92,4 +92,4 @@ Asynchronous symlink(2) - Create a new symbolic link to an existing file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1146
+node_modules/@types/node/fs.d.ts:1246

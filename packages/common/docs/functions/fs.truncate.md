@@ -19,7 +19,7 @@ Asynchronous truncate(2) - Truncate a file to a specified length.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:557
+node_modules/@types/node/fs.d.ts:593
 
 ▸ **truncate**(`path`, `len?`, `callback`): `void`
 
@@ -59,7 +59,7 @@ v0.8.6
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:545
+node_modules/@types/node/fs.d.ts:581
 
 ▸ **truncate**(`path`, `callback`): `void`
 
@@ -78,4 +78,4 @@ Asynchronous truncate(2) - Truncate a file to a specified length.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:550
+node_modules/@types/node/fs.d.ts:586

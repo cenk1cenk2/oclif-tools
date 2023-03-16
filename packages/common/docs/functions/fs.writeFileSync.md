@@ -29,4 +29,4 @@ v0.1.29
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2673
+node_modules/@types/node/fs.d.ts:2773

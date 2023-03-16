@@ -677,7 +677,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:327
+node_modules/@types/node/fs.d.ts:363
 
 ___
 
@@ -707,7 +707,7 @@ stream.Readable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:352
+node_modules/@types/node/fs.d.ts:388
 
 ▸ **addListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -728,7 +728,7 @@ stream.Readable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:353
+node_modules/@types/node/fs.d.ts:389
 
 ▸ **addListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -749,7 +749,7 @@ stream.Readable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:354
+node_modules/@types/node/fs.d.ts:390
 
 ▸ **addListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -770,7 +770,7 @@ stream.Readable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:355
+node_modules/@types/node/fs.d.ts:391
 
 ▸ **addListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -791,7 +791,7 @@ stream.Readable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:356
+node_modules/@types/node/fs.d.ts:392
 
 ▸ **addListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -812,7 +812,7 @@ stream.Readable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:357
+node_modules/@types/node/fs.d.ts:393
 
 ▸ **addListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -833,7 +833,7 @@ stream.Readable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:358
+node_modules/@types/node/fs.d.ts:394
 
 ▸ **addListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -854,7 +854,7 @@ stream.Readable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:359
+node_modules/@types/node/fs.d.ts:395
 
 ▸ **addListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -875,7 +875,7 @@ stream.Readable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:360
+node_modules/@types/node/fs.d.ts:396
 
 ▸ **addListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -896,7 +896,7 @@ stream.Readable.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:361
+node_modules/@types/node/fs.d.ts:397
 
 ___
 
@@ -921,7 +921,7 @@ stream.Readable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:362
+node_modules/@types/node/fs.d.ts:398
 
 ▸ **on**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -942,7 +942,7 @@ stream.Readable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:363
+node_modules/@types/node/fs.d.ts:399
 
 ▸ **on**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -963,7 +963,7 @@ stream.Readable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:364
+node_modules/@types/node/fs.d.ts:400
 
 ▸ **on**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -984,7 +984,7 @@ stream.Readable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:365
+node_modules/@types/node/fs.d.ts:401
 
 ▸ **on**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1005,7 +1005,7 @@ stream.Readable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:366
+node_modules/@types/node/fs.d.ts:402
 
 ▸ **on**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1026,7 +1026,7 @@ stream.Readable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:367
+node_modules/@types/node/fs.d.ts:403
 
 ▸ **on**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1047,7 +1047,7 @@ stream.Readable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:368
+node_modules/@types/node/fs.d.ts:404
 
 ▸ **on**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1068,7 +1068,7 @@ stream.Readable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:369
+node_modules/@types/node/fs.d.ts:405
 
 ▸ **on**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1089,7 +1089,7 @@ stream.Readable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:370
+node_modules/@types/node/fs.d.ts:406
 
 ▸ **on**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1110,7 +1110,7 @@ stream.Readable.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:371
+node_modules/@types/node/fs.d.ts:407
 
 ___
 
@@ -1135,7 +1135,7 @@ stream.Readable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:372
+node_modules/@types/node/fs.d.ts:408
 
 ▸ **once**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1156,7 +1156,7 @@ stream.Readable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:373
+node_modules/@types/node/fs.d.ts:409
 
 ▸ **once**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1177,7 +1177,7 @@ stream.Readable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:374
+node_modules/@types/node/fs.d.ts:410
 
 ▸ **once**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1198,7 +1198,7 @@ stream.Readable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:375
+node_modules/@types/node/fs.d.ts:411
 
 ▸ **once**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1219,7 +1219,7 @@ stream.Readable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:376
+node_modules/@types/node/fs.d.ts:412
 
 ▸ **once**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1240,7 +1240,7 @@ stream.Readable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:377
+node_modules/@types/node/fs.d.ts:413
 
 ▸ **once**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1261,7 +1261,7 @@ stream.Readable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:378
+node_modules/@types/node/fs.d.ts:414
 
 ▸ **once**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1282,7 +1282,7 @@ stream.Readable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:379
+node_modules/@types/node/fs.d.ts:415
 
 ▸ **once**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1303,7 +1303,7 @@ stream.Readable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:380
+node_modules/@types/node/fs.d.ts:416
 
 ▸ **once**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1324,7 +1324,7 @@ stream.Readable.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:381
+node_modules/@types/node/fs.d.ts:417
 
 ___
 
@@ -1349,7 +1349,7 @@ stream.Readable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:382
+node_modules/@types/node/fs.d.ts:418
 
 ▸ **prependListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1370,7 +1370,7 @@ stream.Readable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:383
+node_modules/@types/node/fs.d.ts:419
 
 ▸ **prependListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1391,7 +1391,7 @@ stream.Readable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:384
+node_modules/@types/node/fs.d.ts:420
 
 ▸ **prependListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1412,7 +1412,7 @@ stream.Readable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:385
+node_modules/@types/node/fs.d.ts:421
 
 ▸ **prependListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1433,7 +1433,7 @@ stream.Readable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:386
+node_modules/@types/node/fs.d.ts:422
 
 ▸ **prependListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1454,7 +1454,7 @@ stream.Readable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:387
+node_modules/@types/node/fs.d.ts:423
 
 ▸ **prependListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1475,7 +1475,7 @@ stream.Readable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:388
+node_modules/@types/node/fs.d.ts:424
 
 ▸ **prependListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1496,7 +1496,7 @@ stream.Readable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:389
+node_modules/@types/node/fs.d.ts:425
 
 ▸ **prependListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1517,7 +1517,7 @@ stream.Readable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:390
+node_modules/@types/node/fs.d.ts:426
 
 ▸ **prependListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1538,7 +1538,7 @@ stream.Readable.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:391
+node_modules/@types/node/fs.d.ts:427
 
 ___
 
@@ -1563,7 +1563,7 @@ stream.Readable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:392
+node_modules/@types/node/fs.d.ts:428
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1584,7 +1584,7 @@ stream.Readable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:393
+node_modules/@types/node/fs.d.ts:429
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1605,7 +1605,7 @@ stream.Readable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:394
+node_modules/@types/node/fs.d.ts:430
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1626,7 +1626,7 @@ stream.Readable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:395
+node_modules/@types/node/fs.d.ts:431
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1647,7 +1647,7 @@ stream.Readable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:396
+node_modules/@types/node/fs.d.ts:432
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1668,7 +1668,7 @@ stream.Readable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:397
+node_modules/@types/node/fs.d.ts:433
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1689,7 +1689,7 @@ stream.Readable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:398
+node_modules/@types/node/fs.d.ts:434
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1710,7 +1710,7 @@ stream.Readable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:399
+node_modules/@types/node/fs.d.ts:435
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1731,7 +1731,7 @@ stream.Readable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:400
+node_modules/@types/node/fs.d.ts:436
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ReadStream`](fs.ReadStream.md)
 
@@ -1752,7 +1752,7 @@ stream.Readable.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:401
+node_modules/@types/node/fs.d.ts:437
 
 ___
 
@@ -2930,7 +2930,7 @@ v6.4.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:332
+node_modules/@types/node/fs.d.ts:368
 
 ___
 
@@ -2948,7 +2948,7 @@ v0.1.93
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:339
+node_modules/@types/node/fs.d.ts:375
 
 ___
 
@@ -2965,7 +2965,7 @@ v11.2.0, v10.16.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:345
+node_modules/@types/node/fs.d.ts:381
 
 ___
 

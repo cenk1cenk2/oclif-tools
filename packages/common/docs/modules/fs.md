@@ -98,6 +98,8 @@
 - [lchmodSync](../functions/fs.lchmodSync.md)
 - [statSync](../functions/fs.statSync.md)
 - [fstatSync](../functions/fs.fstatSync.md)
+- [statfs](../functions/fs.statfs.md)
+- [statfsSync](../functions/fs.statfsSync.md)
 - [lstatSync](../functions/fs.lstatSync.md)
 - [linkSync](../functions/fs.linkSync.md)
 - [symlinkSync](../functions/fs.symlinkSync.md)
@@ -164,6 +166,9 @@
 - [MoveOptions](../interfaces/fs.MoveOptions.md)
 - [ObjectEncodingOptions](../interfaces/fs.ObjectEncodingOptions.md)
 - [StatsBase](../interfaces/fs.StatsBase.md)
+- [StatsFsBase](../interfaces/fs.StatsFsBase.md)
+- [BigIntStatsFs](../interfaces/fs.BigIntStatsFs.md)
+- [StatFsOptions](../interfaces/fs.StatFsOptions.md)
 - [StatWatcher](../interfaces/fs.StatWatcher.md)
 - [FSWatcher](../interfaces/fs.FSWatcher.md)
 - [StatSyncFn](../interfaces/fs.StatSyncFn.md)
@@ -186,6 +191,7 @@
 ## Classes
 
 - [Stats](../classes/fs.Stats.md)
+- [StatsFs](../classes/fs.StatsFs.md)
 - [Dirent](../classes/fs.Dirent.md)
 - [Dir](../classes/fs.Dir.md)
 - [ReadStream](../classes/fs.ReadStream.md)
@@ -194,6 +200,7 @@
 ## Namespaces
 
 - [lutimes](fs.lutimes-1.md)
+- [statfs](fs.statfs-1.md)
 - [realpathSync](fs.realpathSync-1.md)
 - [constants](fs.constants.md)
 - [promises](fs.promises.md)

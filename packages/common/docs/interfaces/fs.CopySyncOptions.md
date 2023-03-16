@@ -26,7 +26,7 @@ CopyOptionsBase.dereference
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3799
+node_modules/@types/node/fs.d.ts:3899
 
 ___
 
@@ -47,7 +47,7 @@ CopyOptionsBase.errorOnExist
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3805
+node_modules/@types/node/fs.d.ts:3905
 
 ___
 
@@ -69,7 +69,7 @@ CopyOptionsBase.force
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3812
+node_modules/@types/node/fs.d.ts:3912
 
 ___
 
@@ -90,7 +90,7 @@ CopyOptionsBase.preserveTimestamps
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3818
+node_modules/@types/node/fs.d.ts:3918
 
 ___
 
@@ -110,7 +110,7 @@ CopyOptionsBase.recursive
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3823
+node_modules/@types/node/fs.d.ts:3923
 
 ___
 
@@ -130,7 +130,7 @@ CopyOptionsBase.verbatimSymlinks
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3828
+node_modules/@types/node/fs.d.ts:3928
 
 ## Methods
 
@@ -154,4 +154,4 @@ Function to filter copied files/directories. Return
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3842
+node_modules/@types/node/fs.d.ts:3942

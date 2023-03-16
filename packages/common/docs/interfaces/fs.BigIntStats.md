@@ -394,7 +394,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3780
+node_modules/@types/node/fs.d.ts:3880
 
 ___
 
@@ -404,7 +404,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3781
+node_modules/@types/node/fs.d.ts:3881
 
 ___
 
@@ -414,7 +414,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3782
+node_modules/@types/node/fs.d.ts:3882
 
 ___
 
@@ -424,4 +424,4 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3783
+node_modules/@types/node/fs.d.ts:3883

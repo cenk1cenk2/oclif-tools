@@ -16,7 +16,7 @@ false
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1443
+node_modules/@types/node/fs.d.ts:1543
 
 ___
 
@@ -36,7 +36,7 @@ number of retries. This option is ignored if the `recursive` option is not
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1452
+node_modules/@types/node/fs.d.ts:1552
 
 ___
 
@@ -53,7 +53,7 @@ false
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1458
+node_modules/@types/node/fs.d.ts:1558
 
 ___
 
@@ -70,4 +70,4 @@ This option is ignored if the `recursive` option is not `true`.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1464
+node_modules/@types/node/fs.d.ts:1564

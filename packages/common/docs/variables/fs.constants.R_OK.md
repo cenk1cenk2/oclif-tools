@@ -8,4 +8,4 @@ Constant for fs.access(). File can be read by the calling process.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3151
+node_modules/@types/node/fs.d.ts:3251

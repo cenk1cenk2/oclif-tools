@@ -21,7 +21,7 @@ Asynchronously reads the entire contents of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2466
+node_modules/@types/node/fs.d.ts:2566
 
 ▸ **readFile**(`path`, `options`): `Promise`<`string`\>
 
@@ -40,7 +40,7 @@ Asynchronously reads the entire contents of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2481
+node_modules/@types/node/fs.d.ts:2581
 
 ▸ **readFile**(`path`, `options?`): `Promise`<`string` \| `Buffer`\>
 
@@ -59,7 +59,7 @@ Asynchronously reads the entire contents of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2498
+node_modules/@types/node/fs.d.ts:2598
 
 ▸ **readFile**(`path`, `options`, `callback`): `void`
 
@@ -144,7 +144,7 @@ v0.1.29
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2406
+node_modules/@types/node/fs.d.ts:2506
 
 ▸ **readFile**(`path`, `options`, `callback`): `void`
 
@@ -164,7 +164,7 @@ Asynchronously reads the entire contents of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2424
+node_modules/@types/node/fs.d.ts:2524
 
 ▸ **readFile**(`path`, `options`, `callback`): `void`
 
@@ -184,7 +184,7 @@ Asynchronously reads the entire contents of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2441
+node_modules/@types/node/fs.d.ts:2541
 
 ▸ **readFile**(`path`, `callback`): `void`
 
@@ -203,4 +203,4 @@ Asynchronously reads the entire contents of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2457
+node_modules/@types/node/fs.d.ts:2557

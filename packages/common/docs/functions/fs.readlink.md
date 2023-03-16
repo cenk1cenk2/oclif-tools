@@ -19,7 +19,7 @@ Asynchronous readlink(2) - read value of a symbolic link.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1202
+node_modules/@types/node/fs.d.ts:1302
 
 ▸ **readlink**(`path`, `options`): `Promise`<`Buffer`\>
 
@@ -38,7 +38,7 @@ Asynchronous readlink(2) - read value of a symbolic link.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1208
+node_modules/@types/node/fs.d.ts:1308
 
 ▸ **readlink**(`path`, `options?`): `Promise`<`string` \| `Buffer`\>
 
@@ -57,7 +57,7 @@ Asynchronous readlink(2) - read value of a symbolic link.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1214
+node_modules/@types/node/fs.d.ts:1314
 
 ▸ **readlink**(`path`, `options`, `callback`): `void`
 
@@ -89,7 +89,7 @@ v0.1.31
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1178
+node_modules/@types/node/fs.d.ts:1278
 
 ▸ **readlink**(`path`, `options`, `callback`): `void`
 
@@ -109,7 +109,7 @@ Asynchronous readlink(2) - read value of a symbolic link.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1184
+node_modules/@types/node/fs.d.ts:1284
 
 ▸ **readlink**(`path`, `options`, `callback`): `void`
 
@@ -129,7 +129,7 @@ Asynchronous readlink(2) - read value of a symbolic link.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1190
+node_modules/@types/node/fs.d.ts:1290
 
 ▸ **readlink**(`path`, `callback`): `void`
 
@@ -148,4 +148,4 @@ Asynchronous readlink(2) - read value of a symbolic link.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1195
+node_modules/@types/node/fs.d.ts:1295

@@ -487,7 +487,7 @@ v0.5.8
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:295
+node_modules/@types/node/fs.d.ts:331
 
 ___
 
@@ -516,7 +516,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:301
+node_modules/@types/node/fs.d.ts:337
 
 ▸ **addListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -537,7 +537,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:302
+node_modules/@types/node/fs.d.ts:338
 
 ▸ **addListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -558,7 +558,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:303
+node_modules/@types/node/fs.d.ts:339
 
 ▸ **addListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -579,7 +579,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:304
+node_modules/@types/node/fs.d.ts:340
 
 ___
 
@@ -604,7 +604,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:305
+node_modules/@types/node/fs.d.ts:341
 
 ▸ **on**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -625,7 +625,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:306
+node_modules/@types/node/fs.d.ts:342
 
 ▸ **on**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -646,7 +646,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:307
+node_modules/@types/node/fs.d.ts:343
 
 ▸ **on**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -667,7 +667,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:308
+node_modules/@types/node/fs.d.ts:344
 
 ___
 
@@ -692,7 +692,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:309
+node_modules/@types/node/fs.d.ts:345
 
 ▸ **once**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -713,7 +713,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:310
+node_modules/@types/node/fs.d.ts:346
 
 ▸ **once**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -734,7 +734,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:311
+node_modules/@types/node/fs.d.ts:347
 
 ▸ **once**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -755,7 +755,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:312
+node_modules/@types/node/fs.d.ts:348
 
 ___
 
@@ -780,7 +780,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:313
+node_modules/@types/node/fs.d.ts:349
 
 ▸ **prependListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -801,7 +801,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:314
+node_modules/@types/node/fs.d.ts:350
 
 ▸ **prependListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -822,7 +822,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:315
+node_modules/@types/node/fs.d.ts:351
 
 ▸ **prependListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -843,7 +843,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:316
+node_modules/@types/node/fs.d.ts:352
 
 ___
 
@@ -868,7 +868,7 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:317
+node_modules/@types/node/fs.d.ts:353
 
 ▸ **prependOnceListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -889,7 +889,7 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:318
+node_modules/@types/node/fs.d.ts:354
 
 ▸ **prependOnceListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -910,7 +910,7 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:319
+node_modules/@types/node/fs.d.ts:355
 
 ▸ **prependOnceListener**(`event`, `listener`): [`FSWatcher`](fs.FSWatcher.md)
 
@@ -931,4 +931,4 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:320
+node_modules/@types/node/fs.d.ts:356

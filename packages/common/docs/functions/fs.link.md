@@ -19,7 +19,7 @@ Asynchronous link(2) - Create a new link (also known as a hard link) to an exist
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1102
+node_modules/@types/node/fs.d.ts:1202
 
 ▸ **link**(`existingPath`, `newPath`, `callback`): `void`
 
@@ -45,4 +45,4 @@ v0.1.31
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1095
+node_modules/@types/node/fs.d.ts:1195

@@ -6,4 +6,4 @@
 
 #### Defined in
 
-node_modules/@types/node/fs/promises.d.ts:451
+node_modules/@types/node/fs/promises.d.ts:454

@@ -10,7 +10,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3729
+node_modules/@types/node/fs.d.ts:3829
 
 ___
 
@@ -20,4 +20,4 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3730
+node_modules/@types/node/fs.d.ts:3830

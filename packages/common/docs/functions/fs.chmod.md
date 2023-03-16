@@ -19,7 +19,7 @@ Asynchronous chmod(2) - Change permissions of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:755
+node_modules/@types/node/fs.d.ts:791
 
 ▸ **chmod**(`path`, `mode`, `callback`): `void`
 
@@ -55,4 +55,4 @@ v0.1.30
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:748
+node_modules/@types/node/fs.d.ts:784

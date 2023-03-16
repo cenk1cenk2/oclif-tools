@@ -19,7 +19,7 @@ Asynchronously tests a user's permissions for the file specified by path.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3432
+node_modules/@types/node/fs.d.ts:3532
 
 ▸ **access**(`path`, `mode?`, `callback`): `void`
 
@@ -198,7 +198,7 @@ v0.11.15
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3420
+node_modules/@types/node/fs.d.ts:3520
 
 ▸ **access**(`path`, `callback`): `void`
 
@@ -217,4 +217,4 @@ Asynchronously tests a user's permissions for the file specified by path.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3425
+node_modules/@types/node/fs.d.ts:3525

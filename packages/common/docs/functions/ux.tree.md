@@ -10,4 +10,4 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/styled/tree.d.ts:9
+packages/common/node_modules/@oclif/core/lib/cli-ux/styled/tree.d.ts:9

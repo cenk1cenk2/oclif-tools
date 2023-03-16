@@ -26,7 +26,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2305
+node_modules/@types/node/fs.d.ts:2405
 
 ▸ **read**<`TBuffer`\>(`fd`, `options`): `Promise`<{ `bytesRead`: `number` ; `buffer`: `TBuffer`  }\>
 
@@ -49,7 +49,7 @@ node_modules/@types/node/fs.d.ts:2305
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2315
+node_modules/@types/node/fs.d.ts:2415
 
 ▸ **read**(`fd`): `Promise`<{ `bytesRead`: `number` ; `buffer`: `NodeJS.ArrayBufferView`  }\>
 
@@ -65,7 +65,7 @@ node_modules/@types/node/fs.d.ts:2315
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2322
+node_modules/@types/node/fs.d.ts:2422
 
 ▸ **read**<`TBuffer`\>(`fd`, `buffer`, `offset`, `length`, `position`, `callback`): `void`
 
@@ -106,7 +106,7 @@ v0.0.2
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2274
+node_modules/@types/node/fs.d.ts:2374
 
 ▸ **read**<`TBuffer`\>(`fd`, `options`, `callback`): `void`
 
@@ -141,7 +141,7 @@ v12.17.0, 13.11.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2291
+node_modules/@types/node/fs.d.ts:2391
 
 ▸ **read**(`fd`, `callback`): `void`
 
@@ -158,4 +158,4 @@ node_modules/@types/node/fs.d.ts:2291
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2296
+node_modules/@types/node/fs.d.ts:2396

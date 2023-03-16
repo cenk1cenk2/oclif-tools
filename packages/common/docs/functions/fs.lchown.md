@@ -20,7 +20,7 @@ Asynchronous lchown(2) - Change ownership of a file. Does not dereference symbol
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:694
+node_modules/@types/node/fs.d.ts:730
 
 ▸ **lchown**(`path`, `uid`, `gid`, `callback`): `void`
 
@@ -44,4 +44,4 @@ See the POSIX [`lchown(2)`](http://man7.org/linux/man-pages/man2/lchown.2.html) 
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:688
+node_modules/@types/node/fs.d.ts:724

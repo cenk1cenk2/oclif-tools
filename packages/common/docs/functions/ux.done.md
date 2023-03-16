@@ -10,4 +10,4 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/index.d.ts:27
+packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:27

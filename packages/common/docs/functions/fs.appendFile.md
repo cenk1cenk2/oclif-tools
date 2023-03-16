@@ -20,7 +20,7 @@ Asynchronously append data to a file, creating the file if it does not exist.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2748
+node_modules/@types/node/fs.d.ts:2848
 
 ▸ **appendFile**(`path`, `data`, `options`, `callback`): `void`
 
@@ -93,7 +93,7 @@ v0.6.7
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2727
+node_modules/@types/node/fs.d.ts:2827
 
 ▸ **appendFile**(`file`, `data`, `callback`): `void`
 
@@ -113,4 +113,4 @@ Asynchronously append data to a file, creating the file if it does not exist.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2734
+node_modules/@types/node/fs.d.ts:2834

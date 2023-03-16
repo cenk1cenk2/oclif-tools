@@ -19,7 +19,7 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1844
+node_modules/@types/node/fs.d.ts:1944
 
 ▸ **readdir**(`path`, `options`): `Promise`<`Buffer`[]\>
 
@@ -38,7 +38,7 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1859
+node_modules/@types/node/fs.d.ts:1959
 
 ▸ **readdir**(`path`, `options?`): `Promise`<`string`[] \| `Buffer`[]\>
 
@@ -57,7 +57,7 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1873
+node_modules/@types/node/fs.d.ts:1973
 
 ▸ **readdir**(`path`, `options`): `Promise`<[`Dirent`](../classes/fs.Dirent.md)[]\>
 
@@ -76,7 +76,7 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1887
+node_modules/@types/node/fs.d.ts:1987
 
 ▸ **readdir**(`path`, `options`, `callback`): `void`
 
@@ -109,7 +109,7 @@ v0.1.8
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1778
+node_modules/@types/node/fs.d.ts:1878
 
 ▸ **readdir**(`path`, `options`, `callback`): `void`
 
@@ -129,7 +129,7 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1795
+node_modules/@types/node/fs.d.ts:1895
 
 ▸ **readdir**(`path`, `options`, `callback`): `void`
 
@@ -149,7 +149,7 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1810
+node_modules/@types/node/fs.d.ts:1910
 
 ▸ **readdir**(`path`, `callback`): `void`
 
@@ -168,7 +168,7 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1825
+node_modules/@types/node/fs.d.ts:1925
 
 ▸ **readdir**(`path`, `options`, `callback`): `void`
 
@@ -188,4 +188,4 @@ Asynchronous readdir(3) - read a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1831
+node_modules/@types/node/fs.d.ts:1931

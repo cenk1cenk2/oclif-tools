@@ -19,7 +19,7 @@ Asynchronously removes files and directories (modeled on the standard POSIX `rm`
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1477
+node_modules/@types/node/fs.d.ts:1577
 
 ▸ **rm**(`path`, `callback`): `void`
 
@@ -43,7 +43,7 @@ v14.14.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1471
+node_modules/@types/node/fs.d.ts:1571
 
 ▸ **rm**(`path`, `options`, `callback`): `void`
 
@@ -61,4 +61,4 @@ node_modules/@types/node/fs.d.ts:1471
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1472
+node_modules/@types/node/fs.d.ts:1572

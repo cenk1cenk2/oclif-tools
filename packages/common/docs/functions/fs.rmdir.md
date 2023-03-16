@@ -19,7 +19,7 @@ Asynchronous rmdir(2) - delete a directory.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1426
+node_modules/@types/node/fs.d.ts:1526
 
 ▸ **rmdir**(`path`, `callback`): `void`
 
@@ -48,7 +48,7 @@ v0.0.2
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1419
+node_modules/@types/node/fs.d.ts:1519
 
 ▸ **rmdir**(`path`, `options`, `callback`): `void`
 
@@ -66,4 +66,4 @@ node_modules/@types/node/fs.d.ts:1419
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1420
+node_modules/@types/node/fs.d.ts:1520

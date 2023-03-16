@@ -18,7 +18,7 @@ Asynchronous unlink(2) - delete a name and possibly the file it refers to.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1375
+node_modules/@types/node/fs.d.ts:1475
 
 ▸ **unlink**(`path`, `callback`): `void`
 
@@ -56,4 +56,4 @@ v0.0.2
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:1369
+node_modules/@types/node/fs.d.ts:1469

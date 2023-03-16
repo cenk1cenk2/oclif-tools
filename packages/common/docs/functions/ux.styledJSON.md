@@ -16,4 +16,4 @@
 
 #### Defined in
 
-node_modules/@oclif/core/lib/cli-ux/styled/json.d.ts:1
+packages/common/node_modules/@oclif/core/lib/cli-ux/styled/json.d.ts:1

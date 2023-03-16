@@ -20,7 +20,7 @@ Asynchronously writes data to a file, replacing the file if it already exists.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2661
+node_modules/@types/node/fs.d.ts:2761
 
 ▸ **writeFile**(`file`, `data`, `options`, `callback`): `void`
 
@@ -101,7 +101,7 @@ v0.1.29
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2640
+node_modules/@types/node/fs.d.ts:2740
 
 ▸ **writeFile**(`path`, `data`, `callback`): `void`
 
@@ -121,4 +121,4 @@ Asynchronously writes data to a file, replacing the file if it already exists.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2647
+node_modules/@types/node/fs.d.ts:2747

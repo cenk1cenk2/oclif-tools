@@ -44,7 +44,7 @@ v0.1.8
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2532
+node_modules/@types/node/fs.d.ts:2632
 
 ▸ **readFileSync**(`path`, `options`): `string`
 
@@ -63,7 +63,7 @@ Synchronously reads the entire contents of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2546
+node_modules/@types/node/fs.d.ts:2646
 
 ▸ **readFileSync**(`path`, `options?`): `string` \| `Buffer`
 
@@ -82,4 +82,4 @@ Synchronously reads the entire contents of a file.
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:2562
+node_modules/@types/node/fs.d.ts:2662

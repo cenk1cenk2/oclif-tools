@@ -18,7 +18,7 @@
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3698
+node_modules/@types/node/fs.d.ts:3798
 
 ▸ **writev**(`fd`, `buffers`, `cb`): `void`
 
@@ -57,7 +57,7 @@ v12.9.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3686
+node_modules/@types/node/fs.d.ts:3786
 
 ▸ **writev**(`fd`, `buffers`, `position`, `cb`): `void`
 
@@ -76,4 +76,4 @@ node_modules/@types/node/fs.d.ts:3686
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3687
+node_modules/@types/node/fs.d.ts:3787

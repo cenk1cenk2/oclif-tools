@@ -18,7 +18,7 @@ Asynchronous fdatasync(2) - synchronize a file's in-core state with storage devi
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3580
+node_modules/@types/node/fs.d.ts:3680
 
 ▸ **fdatasync**(`fd`, `callback`): `void`
 
@@ -44,4 +44,4 @@ v0.1.96
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3574
+node_modules/@types/node/fs.d.ts:3674

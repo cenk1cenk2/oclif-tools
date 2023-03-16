@@ -51,4 +51,4 @@ v8.5.0
 
 #### Defined in
 
-node_modules/@types/node/fs.d.ts:3666
+node_modules/@types/node/fs.d.ts:3766

@@ -31,6 +31,7 @@
 - [symlink](../functions/fs.promises.symlink.md)
 - [lstat](../functions/fs.promises.lstat.md)
 - [stat](../functions/fs.promises.stat.md)
+- [statfs](../functions/fs.promises.statfs.md)
 - [link](../functions/fs.promises.link.md)
 - [unlink](../functions/fs.promises.unlink.md)
 - [chmod](../functions/fs.promises.chmod.md)
