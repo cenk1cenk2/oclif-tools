@@ -2,6 +2,13 @@
 
 ### Bug Fixes
 
+- update nitpicks ([1a84c37](https://gitlab.kilic.dev/libraries/oclif-tools/commit/1a84c37b6894a8370915cfd60ddca676df2d863e))
+- update the nitpicks ([8071191](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8071191feb47698a985a4851d671751dc65fe709))
+
+## @cenk1cenk2/oclif-common [5.0.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.0...@cenk1cenk2/oclif-common@5.0.1) (2023-04-08)
+
+### Bug Fixes
+
 - update the nitpicks ([8071191](https://gitlab.kilic.dev/libraries/oclif-tools/commit/8071191feb47698a985a4851d671751dc65fe709))
 
 # @cenk1cenk2/oclif-common [5.0.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@4.0.3...@cenk1cenk2/oclif-common@5.0.0) (2023-04-08)
