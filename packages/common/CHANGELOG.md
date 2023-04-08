@@ -1,9 +1,14 @@
-## @cenk1cenk2/oclif-common [5.0.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.1...@cenk1cenk2/oclif-common@5.0.2) (2023-04-08)
+## @cenk1cenk2/oclif-common [5.0.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.2...@cenk1cenk2/oclif-common@5.0.3) (2023-04-08)
 
+### Bug Fixes
+
+- update flag type infer ([6e424a1](https://gitlab.kilic.dev/libraries/oclif-tools/commit/6e424a1ac680963fe0fba1d742ac2be966f55757))
+
+## @cenk1cenk2/oclif-common [5.0.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.1...@cenk1cenk2/oclif-common@5.0.2) (2023-04-08)
 
 ### Performance Improvements
 
-* update dependency usage and refactor logger ([1c87343](https://gitlab.kilic.dev/libraries/oclif-tools/commit/1c87343f269e1763826167abf19e42dc99ae2cdd))
+- update dependency usage and refactor logger ([1c87343](https://gitlab.kilic.dev/libraries/oclif-tools/commit/1c87343f269e1763826167abf19e42dc99ae2cdd))
 
 ## @cenk1cenk2/oclif-common [5.0.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.0...@cenk1cenk2/oclif-common@5.0.1) (2023-04-08)
 
