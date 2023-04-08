@@ -1,4 +1,3 @@
-export * from './listr-logger'
 export * from './pipe'
 export * from './logger.constants'
 export * from './logger.interface'

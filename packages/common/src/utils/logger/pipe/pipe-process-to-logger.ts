@@ -1,5 +1,5 @@
 import type { ExecaChildProcess } from 'execa'
-import through from 'through'
+import { Writable } from 'stream'
 
 import type { PipeProcessToLoggerOptions } from './pipe-process-to-logger.interface'
 import type { Logger } from '../logger'
@@ -23,19 +23,27 @@ export function pipeProcessToLogger (logger: Logger, instance: ExecaChildProcess
   }
 
   if (instance.stdout) {
-    instance.stdout.pipe(
-      through((chunk: string) => {
-        logger.log(options.stdout, chunk, { context: options.context })
-      })
-    )
+    const writable = new Writable()
+
+    writable.write = (chunk: Buffer | string): boolean => {
+      logger.log(options.stdout, chunk, { context: options.context })
+
+      return true
+    }
+
+    instance.stdout.pipe(writable)
   }
 
   if (instance.stderr) {
-    instance.stderr.pipe(
-      through((chunk: string) => {
-        logger.log(options.stderr, chunk, { context: options.context })
-      })
-    )
+    const writable = new Writable()
+
+    writable.write = (chunk: Buffer | string): boolean => {
+      logger.log(options.stderr, chunk, { context: options.context })
+
+      return true
+    }
+
+    instance.stderr.pipe(writable)
   }
 
   void instance.on('exit', (code, signal) => {

@@ -13,7 +13,7 @@ import { ParserService } from '@lib/parser/parser.service'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
 import { setCtxAssign, setCtxDefaults, ux } from '@utils'
 import type { PipeProcessToLoggerOptions } from '@utils/logger'
-import { pipeProcessThroughListr, ListrLogger, LogFieldStatus, Logger, pipeProcessToLogger } from '@utils/logger'
+import { pipeProcessThroughListr, LogFieldStatus, Logger, pipeProcessToLogger } from '@utils/logger'
 
 export class Command<
   Ctx extends ListrContext = ListrContext,
@@ -167,13 +167,8 @@ export class Command<
 
     // initiate manager
     this.tasks = new Manager({
-      rendererFallback: this.cs.isDebug,
-      rendererSilent: this.cs.isSilent,
-      nonTTYRendererOptions: {
-        logEmptyTitle: false,
-        logTitleChange: false,
-        logger: ListrLogger
-      },
+      fallbackRendererCondition: this.cs.isDebug,
+      silentRendererCondition: this.cs.isSilent,
       ctx: {} as Ctx
     })
 

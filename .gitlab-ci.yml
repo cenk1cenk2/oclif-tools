@@ -8,31 +8,12 @@ stages:
 variables:
   SEMANTIC_RELEASE_WORKSPACE: 'true'
   NODE_VERSION: 18-alpine
-  MARKDOWN_TOC_PATTERNS: 'README.md,./packages/*/README.md'
+  NODE_PACKAGE_MANAGER: pnpm
+  NODE_LINT_COMMAND: lint
 
 include:
   - project: devops/pipes
     file: /templates/node.gitlab-ci.yml
 
   - project: devops/pipes
-    file: /templates/markdown-toc.gitlab-ci.yml
-
-  - project: devops/pipes
     file: /templates/semantic-release.gitlab-ci.yml
-
-  - project: devops/pipes
-    file: /templates/v2/node-run.gitlab-ci.yml
-
-typedoc:
-  extends: .node-run
-  stage: docs
-  variables:
-    NODE_COMMAND_SCRIPT: docs:api
-  artifacts:
-    paths:
-      - docs/
-      - 'packages/*/docs/'
-  only:
-    refs:
-      - master
-      - main
