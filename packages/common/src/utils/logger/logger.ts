@@ -20,7 +20,7 @@ export class Logger {
       return this
     }
 
-    const l = process.env.LOG_LEVEL ?? options?.level
+    const l = options?.level ?? process.env.LOG_LEVEL
 
     const level: LogLevels = Object.values(LogLevels).includes(l as LogLevels) ? (l as LogLevels) : LogLevels.INFO
 
