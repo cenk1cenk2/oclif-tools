@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [5.0.4](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.3...@cenk1cenk2/oclif-common@5.0.4) (2023-04-08)
+
+### Bug Fixes
+
+- **logger:** improve logger to be used elsewhere ([e5d6cbc](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e5d6cbc9173f0ed4a435bc59186c1321e0fc4666))
+- **logger:** use process.env for fallback ([dadcfea](https://gitlab.kilic.dev/libraries/oclif-tools/commit/dadcfeab8247153ae759639d8114c3fd65292744))
+
 ## @cenk1cenk2/oclif-common [5.0.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.2...@cenk1cenk2/oclif-common@5.0.3) (2023-04-08)
 
 ### Bug Fixes
