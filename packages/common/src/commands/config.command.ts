@@ -40,9 +40,9 @@ export class ConfigCommand<
     ux.table(...options)
   }
 
-  protected async select (): Promise<string> {
+  protected async select (): Promise<CommandChoices> {
     // prompt user for the action
-    const response: string = await this.prompt({
+    const response = await this.prompt<CommandChoices>({
       type: 'Select',
       message: 'Please select what to do with the configuration.',
       choices: Object.keys(this.choices)

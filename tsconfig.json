@@ -1,21 +1,16 @@
 {
+  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2021",
-    "lib": ["ESNext"],
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "strictNullChecks": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "declaration": true,
     "sourceMap": true,
     "removeComments": false,
     "noUnusedLocals": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "incremental": false,
-    "strictNullChecks": false,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true
+    "incremental": false
   },
   "exclude": ["node_modules"],
   "include": ["src/**/*"]

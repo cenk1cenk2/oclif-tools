@@ -69,7 +69,7 @@ export class ConfigService implements GlobalConfig {
             this.logger.trace('Extending config from: %s', path)
 
             return config
-          } catch (e) {
+          } catch (e: any) {
             this.logger.trace('Failed to extend config from: %s', e.message)
           }
         })
@@ -141,7 +141,7 @@ export class ConfigService implements GlobalConfig {
       if (variable.parser) {
         try {
           data = this.parser.parse(variable.parser, data)
-        } catch (e) {
+        } catch (e: any) {
           this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
 
           throw e

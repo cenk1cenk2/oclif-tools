@@ -73,7 +73,7 @@ export class Command<
       await this.init()
       result = await this.run()
       await this.finally()
-    } catch (error) {
+    } catch (error: any) {
       await this.catch(error, 127)
     }
 
@@ -139,7 +139,7 @@ export class Command<
 
       this.flags = flags as unknown as Flags
       this.args = args as unknown as Args
-    } catch (e) {
+    } catch (e: any) {
       err = e
     }
 

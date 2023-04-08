@@ -21,6 +21,7 @@
     "pre-commit": "pnpm exec lint-staged",
     "prepare-commit-msg": "[ -t 1 ] && exec < /dev/tty && git cz --hook || true"
   },
+  "dependencies": {},
   "devDependencies": {
     "@cenk1cenk2/cz-cc": "^1.5.9",
     "@cenk1cenk2/eslint-config": "^2.6.4",
@@ -36,7 +37,8 @@
     "turbo": "^1.8.8",
     "typedoc": "^0.23.28",
     "typedoc-plugin-markdown": "^3.14.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "@tsconfig/node16": "^1.0.3"
   },
   "config": {
     "commitizen": {
