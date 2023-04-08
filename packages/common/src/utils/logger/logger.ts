@@ -11,17 +11,18 @@ import { ConfigService } from '@lib'
  */
 export class Logger {
   private static instance: Winston
-  private static initiated: string
   private logger: Winston
 
   constructor (private context?: string, private options?: LoggerOptions) {
-    if (Logger.instance && Logger.initiated === ConfigService.name) {
+    if (Logger.instance && context !== ConfigService.name) {
       this.logger = Logger.instance
 
       return this
     }
 
-    const level = Object.values(LogLevels).includes(options?.level) ? options.level : LogLevels.INFO
+    const l = process.env.LOG_LEVEL ?? options?.level
+
+    const level: LogLevels = Object.values(LogLevels).includes(l as LogLevels) ? (l as LogLevels) : LogLevels.INFO
 
     // set default options
     this.options = {
@@ -33,8 +34,6 @@ export class Logger {
     this.logger = this.initiateLogger()
 
     this.trace('Logger singleton initiated from context: %s', context)
-
-    Logger.initiated = context
 
     Logger.instance = this.logger
   }
