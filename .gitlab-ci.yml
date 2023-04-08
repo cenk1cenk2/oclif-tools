@@ -20,11 +20,14 @@ include:
   - project: devops/pipes
     file: /templates/semantic-release.gitlab-ci.yml
 
+  - project: devops/pipes
+    file: /templates/v2/node-run.gitlab-ci.yml
+
 typedoc:
+  extends: .node-run
   stage: docs
-  image: cenk1cenk2/pipe-node:${NODE_VERSION}
-  script:
-    - pipe run docs:api
+  variables:
+    NODE_COMMAND_SCRIPT: docs:api
   artifacts:
     paths:
       - docs/
@@ -33,5 +36,3 @@ typedoc:
     refs:
       - master
       - main
-  tags:
-    - docker
