@@ -11,30 +11,33 @@ import { color } from '@utils/color'
  * A general logger for the the CLI applications.
  */
 export class Logger {
-  public static instance: Winston
+  private static instance: Winston
+  private static initiated: string
   private logger: Winston
 
   constructor (private context?: string, private options?: LoggerOptions) {
-    if (Logger.instance) {
+    if (Logger.instance && Logger.initiated === ConfigService.name) {
       this.logger = Logger.instance
-    } else if (context === ConfigService.name) {
-      const level = Object.values(LogLevels).includes(options?.level) ? options.level : LogLevels.INFO
 
-      // set default options
-      this.options = {
-        useIcons: true,
-        ...options,
-        level
-      }
-
-      this.logger = this.initiateLogger()
-
-      this.trace('Logger singleton initiated from context: %s', context)
-
-      Logger.instance = this.logger
-    } else {
-      throw new Error('Logger can only be initiated inside the config service context!')
+      return this
     }
+
+    const level = Object.values(LogLevels).includes(options?.level) ? options.level : LogLevels.INFO
+
+    // set default options
+    this.options = {
+      useIcons: true,
+      ...options,
+      level
+    }
+
+    this.logger = this.initiateLogger()
+
+    this.trace('Logger singleton initiated from context: %s', context)
+
+    Logger.initiated = context
+
+    Logger.instance = this.logger
   }
 
   public log (level: LogLevels, data: string | Buffer, ...args: any): void {

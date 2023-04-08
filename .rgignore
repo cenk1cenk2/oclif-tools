@@ -1,4 +1,5 @@
-**/docs
-**/CHANGELOG.md
+README.md
+CHANGELOG.md
+**/docs/**
 yarn.lock
 pnpm-lock.yaml

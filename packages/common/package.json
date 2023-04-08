@@ -60,7 +60,7 @@
     "object-path-immutable": "^4.1.2",
     "reflect-metadata": "^0.1.13",
     "through": "^2.3.8",
-    "update-notifier": "^5.1.0",
+    "update-notifier": "^6.0.2",
     "winston": "^3.8.2",
     "yaml": "^2.2.1"
   },
@@ -74,6 +74,6 @@
     "enquirer": "^2.3.6",
     "execa": "^5.1.1",
     "fs-extra": "^11.1.1",
-    "listr2": "^6.0.1"
+    "listr2": "^6.0.3"
   }
 }

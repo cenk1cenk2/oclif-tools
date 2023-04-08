@@ -6,10 +6,10 @@ stages:
   - publish
 
 variables:
-  SEMANTIC_RELEASE_WORKSPACE: 'true'
   NODE_VERSION: 18-alpine
   NODE_PACKAGE_MANAGER: pnpm
   NODE_LINT_COMMAND: lint
+  SEMANTIC_RELEASE_WORKSPACE: 'true'
 
 include:
   - project: devops/pipes

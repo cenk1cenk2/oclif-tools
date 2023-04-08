@@ -63,6 +63,8 @@ export class Command<
 
   // eslint-disable-next-line @typescript-eslint/naming-convention
   public async _run<T>(): Promise<T | undefined> {
+    this.constructor.prototype.baseFlags = {}
+
     let result: T
 
     try {
