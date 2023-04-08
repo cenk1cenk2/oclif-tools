@@ -1,9 +1,9 @@
 import { Args, Flags } from '@oclif/core'
 
-import type { InferFlags } from '@cenk1cenk2/oclif-common'
+import type { InferArgs, InferFlags } from '@cenk1cenk2/oclif-common'
 import { Command } from '@cenk1cenk2/oclif-common'
 
-export default class Hello extends Command<any, InferFlags<typeof Hello>> {
+export default class Hello extends Command<any, InferFlags<typeof Hello>, InferArgs<typeof Hello>> {
   static description = 'Say hello'
 
   static examples = [ '$ oex hello friend --from oclif' ]
