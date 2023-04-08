@@ -1,11 +1,10 @@
-import { figures } from 'listr2'
+import { figures, color, splat } from 'listr2'
 import { EOL } from 'os'
 import winston, { format, transports } from 'winston'
 
 import { LogFieldStatus, LogLevels } from './logger.constants'
 import type { LoggerFormat, LoggerOptions, Winston } from './logger.interface'
 import { ConfigService } from '@lib'
-import { color } from '@utils/color'
 
 /**
  * A general logger for the the CLI applications.
@@ -89,37 +88,45 @@ export class Logger {
     return this.parseMessage(LogLevels.TRACE, data, args, { status: LogFieldStatus.STAGE })
   }
 
+  public splat (...args: Parameters<typeof splat>): ReturnType<typeof splat> {
+    const message = args.shift()
+
+    if (typeof message === 'undefined') {
+      return ''
+    }
+
+    if (args.length === 0) {
+      return message
+    }
+
+    return splat(message, args)
+  }
+
   private initiateLogger (): Winston {
     const logFormat = format.printf(({ level, message, context, status }: LoggerFormat) => {
-      // parse multi line messages
-      let multiLineMessage: string[]
-
-      multiLineMessage = message.split(EOL)
-
-      multiLineMessage = multiLineMessage.filter((msg) => msg.trim() !== '').filter(Boolean)
-
-      multiLineMessage = multiLineMessage.map((msg) => {
-        // format messages
-        return this.logColoring({
-          level,
-          message: msg,
-          context,
-          status
+      return message
+        .split(EOL)
+        .filter((msg) => !msg || msg.trim() !== '')
+        .map((msg) => {
+          // format messages
+          return this.logColoring({
+            level,
+            message: msg,
+            context,
+            status
+          })
         })
-      })
-
-      return multiLineMessage.join(EOL)
+        .join(EOL)
     })
 
     const logger = winston.createLogger({
       level: this.options.level,
       format: format.combine(format.splat(), format.json({ space: 2 }), format.prettyPrint(), logFormat),
-      levels: Object.values(LogLevels).reduce((o, level, i) => {
-        return {
-          ...o,
-          [level]: i
-        }
-      }, {}),
+      levels: Object.fromEntries(
+        Object.values(LogLevels).map((level, i) => {
+          return [ level, i ]
+        })
+      ),
       silent: this.options.level === LogLevels.SILENT,
       transports: [
         new transports.Console({
