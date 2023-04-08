@@ -1,6 +1,6 @@
 # Function: storeHook
 
-▸ **storeHook**<`T`\>(`cb`): `Hook`<``"init"``, `Hooks`\>
+▸ **storeHook**<`T`\>(`cb`): `Hook`<``"init"``\>
 
 #### Type parameters
 
@@ -16,7 +16,7 @@
 
 #### Returns
 
-`Hook`<``"init"``, `Hooks`\>
+`Hook`<``"init"``\>
 
 #### Defined in
 

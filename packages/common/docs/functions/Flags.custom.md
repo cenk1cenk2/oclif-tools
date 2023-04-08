@@ -42,7 +42,7 @@ export const myFlag = custom<Id, IdOpts>({
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/flags.d.ts:22
+node_modules/@oclif/core/lib/flags.d.ts:22
 
 ▸ **custom**<`T`, `P`\>(`defaults`): `FlagDefinition`<`T`, `P`\>
 
@@ -57,7 +57,7 @@ packages/common/node_modules/@oclif/core/lib/flags.d.ts:22
 
 | Name | Type |
 | :------ | :------ |
-| `defaults` | { `parse`: `FlagParser`<`T`, `string`, `P`\>  } & `Partial`<`OptionFlagDefaults`<`T`, `P`, ``false``\>\> |
+| `defaults` | { `parse`: `FlagParser`<`T`, `string`, `P`\>  } & `Partial`<`OptionFlagDefaults`<`T`, `P`\>\> |
 
 #### Returns
 
@@ -65,7 +65,7 @@ packages/common/node_modules/@oclif/core/lib/flags.d.ts:22
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/flags.d.ts:26
+node_modules/@oclif/core/lib/flags.d.ts:26
 
 ▸ **custom**<`T`, `P`\>(`defaults`): `FlagDefinition`<`T`, `P`\>
 
@@ -80,7 +80,7 @@ packages/common/node_modules/@oclif/core/lib/flags.d.ts:26
 
 | Name | Type |
 | :------ | :------ |
-| `defaults` | `Partial`<`OptionFlagDefaults`<`T`, `P`, ``false``\>\> |
+| `defaults` | `Partial`<`OptionFlagDefaults`<`T`, `P`\>\> |
 
 #### Returns
 
@@ -88,4 +88,4 @@ packages/common/node_modules/@oclif/core/lib/flags.d.ts:26
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/flags.d.ts:29
+node_modules/@oclif/core/lib/flags.d.ts:29

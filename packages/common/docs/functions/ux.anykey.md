@@ -20,4 +20,4 @@ Promise<string>
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:29
+node_modules/@oclif/core/lib/cli-ux/prompt.d.ts:29

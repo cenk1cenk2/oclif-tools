@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [4.0.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@4.0.2...@cenk1cenk2/oclif-common@4.0.3) (2023-04-08)
+
+
+### Bug Fixes
+
+* update update-notifier dependency injection ([c3a5fce](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c3a5fce7304c3d0ae41cc584e5b69528125360e4))
+
 ## @cenk1cenk2/oclif-common [4.0.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@4.0.1...@cenk1cenk2/oclif-common@4.0.2) (2023-03-16)
 
 ### Bug Fixes

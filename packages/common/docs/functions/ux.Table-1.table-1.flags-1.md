@@ -10,7 +10,7 @@
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:17
+node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:17
 
 ▸ **flags**<`Z`\>(`opts`): `ExcludeFlags`<`IFlags`, `Z`\>
 
@@ -18,7 +18,7 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:17
 
 | Name | Type |
 | :------ | :------ |
-| `Z` | extends ``"output"`` \| ``"extended"`` \| ``"sort"`` \| ``"columns"`` \| ``"filter"`` \| ``"csv"`` \| ``"no-truncate"`` \| ``"no-header"`` = ``"output"`` \| ``"extended"`` \| ``"sort"`` \| ``"columns"`` \| ``"filter"`` \| ``"csv"`` \| ``"no-truncate"`` \| ``"no-header"`` |
+| `Z` | extends ``"sort"`` \| ``"filter"`` \| ``"output"`` \| ``"extended"`` \| ``"columns"`` \| ``"csv"`` \| ``"no-truncate"`` \| ``"no-header"`` = ``"sort"`` \| ``"filter"`` \| ``"output"`` \| ``"extended"`` \| ``"columns"`` \| ``"csv"`` \| ``"no-truncate"`` \| ``"no-header"`` |
 
 #### Parameters
 
@@ -33,7 +33,7 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:17
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:18
+node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:18
 
 ▸ **flags**<`K`\>(`opts`): `IncludeFlags`<`IFlags`, `K`\>
 
@@ -41,7 +41,7 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:18
 
 | Name | Type |
 | :------ | :------ |
-| `K` | extends ``"output"`` \| ``"extended"`` \| ``"sort"`` \| ``"columns"`` \| ``"filter"`` \| ``"csv"`` \| ``"no-truncate"`` \| ``"no-header"`` = ``"output"`` \| ``"extended"`` \| ``"sort"`` \| ``"columns"`` \| ``"filter"`` \| ``"csv"`` \| ``"no-truncate"`` \| ``"no-header"`` |
+| `K` | extends ``"sort"`` \| ``"filter"`` \| ``"output"`` \| ``"extended"`` \| ``"columns"`` \| ``"csv"`` \| ``"no-truncate"`` \| ``"no-header"`` = ``"sort"`` \| ``"filter"`` \| ``"output"`` \| ``"extended"`` \| ``"columns"`` \| ``"csv"`` \| ``"no-truncate"`` \| ``"no-header"`` |
 
 #### Parameters
 
@@ -56,4 +56,4 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:18
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:21
+node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:21

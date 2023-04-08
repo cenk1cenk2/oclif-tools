@@ -8,34 +8,43 @@
 
   ↳ **`ExitError`**
 
-## Methods
+## Properties
 
-### captureStackTrace
+### cli-ux
 
-▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+• **cli-ux**: `Object`
 
-Create .stack property on a target object
-
-#### Parameters
+#### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `targetObject` | `object` |
-| `constructorOpt?` | `Function` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Error.captureStackTrace
+| `exit` | `number` |
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:4
+node_modules/@oclif/core/lib/cli-ux/exit.d.ts:2
 
-## Properties
+___
+
+### code
+
+• **code**: ``"EEXIT"``
+
+#### Defined in
+
+node_modules/@oclif/core/lib/cli-ux/exit.d.ts:5
+
+___
+
+### error
+
+• `Optional` **error**: `Error`
+
+#### Defined in
+
+node_modules/@oclif/core/lib/cli-ux/exit.d.ts:6
+
+___
 
 ### prepareStackTrace
 
@@ -96,7 +105,7 @@ Error.cause
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es2022.error.d.ts:26
+node_modules/typescript/lib/lib.es2022.error.d.ts:24
 
 ___
 
@@ -110,7 +119,7 @@ Error.name
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1053
+node_modules/typescript/lib/lib.es5.d.ts:1054
 
 ___
 
@@ -124,7 +133,7 @@ Error.message
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1054
+node_modules/typescript/lib/lib.es5.d.ts:1055
 
 ___
 
@@ -138,43 +147,7 @@ Error.stack
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1055
-
-___
-
-### cli-ux
-
-• **cli-ux**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `exit` | `number` |
-
-#### Defined in
-
-packages/common/node_modules/@oclif/core/lib/cli-ux/exit.d.ts:2
-
-___
-
-### code
-
-• **code**: ``"EEXIT"``
-
-#### Defined in
-
-packages/common/node_modules/@oclif/core/lib/cli-ux/exit.d.ts:5
-
-___
-
-### error
-
-• `Optional` **error**: `Error`
-
-#### Defined in
-
-packages/common/node_modules/@oclif/core/lib/cli-ux/exit.d.ts:6
+node_modules/typescript/lib/lib.es5.d.ts:1056
 
 ## Constructors
 
@@ -195,4 +168,31 @@ Error.constructor
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/exit.d.ts:7
+node_modules/@oclif/core/lib/cli-ux/exit.d.ts:7
+
+## Methods
+
+### captureStackTrace
+
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Create .stack property on a target object
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `targetObject` | `object` |
+| `constructorOpt?` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Error.captureStackTrace
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:4

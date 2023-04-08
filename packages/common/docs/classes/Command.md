@@ -29,7 +29,7 @@ BaseCommand.argv
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:12
+node_modules/@oclif/core/lib/command.d.ts:12
 
 ___
 
@@ -43,7 +43,7 @@ BaseCommand.config
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:13
+node_modules/@oclif/core/lib/command.d.ts:13
 
 ___
 
@@ -59,7 +59,7 @@ BaseCommand.id
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:16
+node_modules/@oclif/core/lib/command.d.ts:16
 
 ___
 
@@ -76,7 +76,7 @@ BaseCommand.summary
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:21
+node_modules/@oclif/core/lib/command.d.ts:21
 
 ___
 
@@ -94,7 +94,7 @@ BaseCommand.description
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:27
+node_modules/@oclif/core/lib/command.d.ts:27
 
 ___
 
@@ -110,7 +110,7 @@ BaseCommand.hidden
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:29
+node_modules/@oclif/core/lib/command.d.ts:29
 
 ___
 
@@ -126,7 +126,7 @@ BaseCommand.state
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:31
+node_modules/@oclif/core/lib/command.d.ts:31
 
 ___
 
@@ -140,7 +140,7 @@ BaseCommand.deprecationOptions
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:32
+node_modules/@oclif/core/lib/command.d.ts:32
 
 ___
 
@@ -156,7 +156,7 @@ BaseCommand.deprecateAliases
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:36
+node_modules/@oclif/core/lib/command.d.ts:36
 
 ___
 
@@ -172,7 +172,7 @@ BaseCommand.usage
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:40
+node_modules/@oclif/core/lib/command.d.ts:40
 
 ___
 
@@ -186,7 +186,7 @@ BaseCommand.help
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:41
+node_modules/@oclif/core/lib/command.d.ts:41
 
 ___
 
@@ -202,7 +202,7 @@ BaseCommand.aliases
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:43
+node_modules/@oclif/core/lib/command.d.ts:43
 
 ___
 
@@ -218,7 +218,7 @@ BaseCommand.strict
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:45
+node_modules/@oclif/core/lib/command.d.ts:45
 
 ___
 
@@ -234,7 +234,7 @@ BaseCommand.args
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:47
+node_modules/@oclif/core/lib/command.d.ts:47
 
 ___
 
@@ -248,7 +248,7 @@ BaseCommand.plugin
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:48
+node_modules/@oclif/core/lib/command.d.ts:48
 
 ___
 
@@ -262,7 +262,7 @@ BaseCommand.pluginName
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:49
+node_modules/@oclif/core/lib/command.d.ts:49
 
 ___
 
@@ -276,7 +276,7 @@ BaseCommand.pluginType
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:50
+node_modules/@oclif/core/lib/command.d.ts:50
 
 ___
 
@@ -290,7 +290,7 @@ BaseCommand.pluginAlias
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:51
+node_modules/@oclif/core/lib/command.d.ts:51
 
 ___
 
@@ -317,7 +317,7 @@ BaseCommand.examples
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:66
+node_modules/@oclif/core/lib/command.d.ts:66
 
 ___
 
@@ -331,7 +331,7 @@ BaseCommand.hasDynamicHelp
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:67
+node_modules/@oclif/core/lib/command.d.ts:67
 
 ___
 
@@ -345,7 +345,7 @@ BaseCommand.\_enableJsonFlag
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:68
+node_modules/@oclif/core/lib/command.d.ts:68
 
 ___
 
@@ -359,7 +359,7 @@ BaseCommand.\_baseFlags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:80
+node_modules/@oclif/core/lib/command.d.ts:80
 
 ___
 
@@ -375,7 +375,7 @@ BaseCommand.\_flags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:84
+node_modules/@oclif/core/lib/command.d.ts:84
 
 ___
 
@@ -389,7 +389,7 @@ BaseCommand.id
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:87
+node_modules/@oclif/core/lib/command.d.ts:87
 
 ___
 
@@ -417,7 +417,7 @@ BaseCommand.debug
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:88
+node_modules/@oclif/core/lib/command.d.ts:88
 
 ___
 
@@ -535,7 +535,7 @@ BaseCommand.enableJsonFlag
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:69
+node_modules/@oclif/core/lib/command.d.ts:69
 
 • `Static` `set` **enableJsonFlag**(`value`): `void`
 
@@ -555,7 +555,7 @@ BaseCommand.enableJsonFlag
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:70
+node_modules/@oclif/core/lib/command.d.ts:70
 
 ___
 
@@ -573,7 +573,7 @@ BaseCommand.flags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:85
+node_modules/@oclif/core/lib/command.d.ts:85
 
 • `Static` `set` **flags**(`flags`): `void`
 
@@ -593,7 +593,7 @@ BaseCommand.flags
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:86
+node_modules/@oclif/core/lib/command.d.ts:86
 
 ___
 
@@ -611,7 +611,7 @@ BaseCommand.ctor
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:90
+node_modules/@oclif/core/lib/command.d.ts:90
 
 ___
 
@@ -685,7 +685,7 @@ BaseCommand.run
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:79
+node_modules/@oclif/core/lib/command.d.ts:79
 
 ___
 
@@ -709,7 +709,7 @@ BaseCommand.warn
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:93
+node_modules/@oclif/core/lib/command.d.ts:93
 
 ___
 
@@ -734,7 +734,7 @@ BaseCommand.error
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:94
+node_modules/@oclif/core/lib/command.d.ts:94
 
 ▸ **error**(`input`, `options?`): `never`
 
@@ -755,7 +755,7 @@ BaseCommand.error
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:98
+node_modules/@oclif/core/lib/command.d.ts:98
 
 ___
 
@@ -780,7 +780,7 @@ BaseCommand.log
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:102
+node_modules/@oclif/core/lib/command.d.ts:102
 
 ___
 
@@ -805,7 +805,7 @@ BaseCommand.logToStderr
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:103
+node_modules/@oclif/core/lib/command.d.ts:103
 
 ___
 
@@ -823,7 +823,7 @@ BaseCommand.jsonEnabled
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:104
+node_modules/@oclif/core/lib/command.d.ts:104
 
 ___
 
@@ -847,7 +847,7 @@ BaseCommand.warnIfFlagDeprecated
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:110
+node_modules/@oclif/core/lib/command.d.ts:110
 
 ___
 
@@ -865,7 +865,7 @@ BaseCommand.warnIfCommandDeprecated
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:111
+node_modules/@oclif/core/lib/command.d.ts:111
 
 ___
 
@@ -898,7 +898,7 @@ BaseCommand.parse
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:112
+node_modules/@oclif/core/lib/command.d.ts:112
 
 ___
 
@@ -922,7 +922,7 @@ BaseCommand.toSuccessJson
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:115
+node_modules/@oclif/core/lib/command.d.ts:115
 
 ___
 
@@ -946,7 +946,7 @@ BaseCommand.toErrorJson
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:116
+node_modules/@oclif/core/lib/command.d.ts:116
 
 ___
 
@@ -970,7 +970,7 @@ BaseCommand.logJson
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:117
+node_modules/@oclif/core/lib/command.d.ts:117
 
 ___
 
@@ -1116,7 +1116,7 @@ Gets prompt from user.
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `PromptOptions`<``false``\> |
+| `options` | `PromptOptions` |
 
 #### Returns
 
@@ -1182,18 +1182,18 @@ ___
 
 ### pipeProcessToLogger
 
-▸ `Protected` **pipeProcessToLogger**(`instance`, `options?`): `ExecaChildProcess`<`string`\>
+▸ `Protected` **pipeProcessToLogger**(`instance`, `options?`): `ExecaChildProcess`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `instance` | `ExecaChildProcess`<`string`\> |
+| `instance` | `ExecaChildProcess` |
 | `options?` | [`PipeProcessToLoggerOptions`](../interfaces/PipeProcessToLoggerOptions.md) |
 
 #### Returns
 
-`ExecaChildProcess`<`string`\>
+`ExecaChildProcess`
 
 #### Defined in
 
@@ -1203,18 +1203,18 @@ ___
 
 ### pipeProcessThroughListr
 
-▸ `Protected` **pipeProcessThroughListr**(`task`, `instance`): `ExecaChildProcess`<`string`\>
+▸ `Protected` **pipeProcessThroughListr**(`task`, `instance`): `ExecaChildProcess`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `task` | `TaskWrapper`<`any`, `any`\> |
-| `instance` | `ExecaChildProcess`<`string`\> |
+| `instance` | `ExecaChildProcess` |
 
 #### Returns
 
-`ExecaChildProcess`<`string`\>
+`ExecaChildProcess`
 
 #### Defined in
 
@@ -1335,4 +1335,4 @@ BaseCommand.constructor
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/command.d.ts:89
+node_modules/@oclif/core/lib/command.d.ts:89

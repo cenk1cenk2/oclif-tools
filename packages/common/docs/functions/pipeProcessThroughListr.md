@@ -7,7 +7,7 @@
 | Name | Type |
 | :------ | :------ |
 | `task` | `TaskWrapper`<`any`, `any`\> |
-| `instance` | `ExecaChildProcess`<`string`\> |
+| `instance` | `ExecaChildProcess` |
 
 #### Returns
 

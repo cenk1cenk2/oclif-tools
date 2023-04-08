@@ -16,7 +16,7 @@
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:25
+node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:25
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:26
+node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:26
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:27
+node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:27
 
 ## Methods
 
@@ -56,4 +56,4 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:27
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:28
+node_modules/@oclif/core/lib/cli-ux/styled/table.d.ts:28

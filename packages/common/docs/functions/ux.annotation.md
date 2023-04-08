@@ -17,4 +17,4 @@
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:33
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:33

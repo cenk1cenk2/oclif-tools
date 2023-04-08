@@ -9,7 +9,7 @@ Given the instance it will pipe process output through the logger to append pref
 | Name | Type |
 | :------ | :------ |
 | `logger` | [`Logger`](../classes/Logger.md) |
-| `instance` | `ExecaChildProcess`<`string`\> |
+| `instance` | `ExecaChildProcess` |
 | `options?` | [`PipeProcessToLoggerOptions`](../interfaces/PipeProcessToLoggerOptions.md) |
 
 #### Returns

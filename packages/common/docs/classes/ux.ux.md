@@ -10,7 +10,7 @@
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:11
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:11
 
 ## Accessors
 
@@ -45,7 +45,7 @@ Promise<string>
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:12
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:12
 
 ___
 
@@ -77,7 +77,7 @@ Promise<string>
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:16
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:16
 
 ___
 
@@ -107,7 +107,7 @@ Promise<boolean>
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:17
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:17
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:18
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:18
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:19
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:19
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:22
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:22
 
 ___
 
@@ -175,7 +175,7 @@ typeof [`table`](../functions/ux.Table-1.table.md)
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:23
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:23
 
 ___
 
@@ -195,7 +195,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:24
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:24
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:25
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:25
 
 ___
 
@@ -247,7 +247,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:26
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:26
 
 ## Methods
 
@@ -268,7 +268,7 @@ packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:26
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:20
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:20
 
 ___
 
@@ -288,7 +288,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:21
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:21
 
 ___
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:27
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:27
 
 ___
 
@@ -323,7 +323,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:28
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:28
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:29
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:29
 
 ___
 
@@ -365,7 +365,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:30
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:30
 
 ___
 
@@ -386,7 +386,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:31
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:31
 
 ___
 
@@ -408,7 +408,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:32
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:32
 
 ___
 
@@ -429,7 +429,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:33
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:33
 
 ___
 
@@ -449,7 +449,7 @@ ___
 
 #### Defined in
 
-packages/common/node_modules/@oclif/core/lib/cli-ux/index.d.ts:34
+node_modules/@oclif/core/lib/cli-ux/index.d.ts:34
 
 ## Constructors
 
