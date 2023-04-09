@@ -35,7 +35,7 @@
     "tsconfig-replace-paths": "^0.0.14",
     "tsup": "^6.7.0",
     "turbo": "^1.8.8",
-    "typedoc": "^0.24.0",
+    "typedoc": "^0.24.1",
     "typedoc-plugin-markdown": "^3.14.0",
     "typescript": "^5.0.4",
     "@tsconfig/node16": "^1.0.3"
