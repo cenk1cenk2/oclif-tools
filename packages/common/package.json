@@ -64,7 +64,7 @@
     "yaml": "^2.2.2"
   },
   "devDependencies": {
-    "@oclif/core": "^2.8.2",
+    "@oclif/core": "^2.8.3",
     "@types/fs-extra": "^11.0.1",
     "@types/through": "^0.0.30",
     "@types/update-notifier": "^6.0.2",
