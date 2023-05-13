@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [5.0.5](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.4...@cenk1cenk2/oclif-common@5.0.5) (2023-05-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency yaml to ^2.2.2 ([f01be33](https://gitlab.kilic.dev/libraries/oclif-tools/commit/f01be33446b0b2901aa9b2abaea4b0c4431c42c2))
+
 ## @cenk1cenk2/oclif-common [5.0.4](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.3...@cenk1cenk2/oclif-common@5.0.4) (2023-04-08)
 
 ### Bug Fixes
