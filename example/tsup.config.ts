@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import execa from 'execa'
+import { execaCommand as command } from 'execa'
 import { defineConfig } from 'tsup'
 
 export default defineConfig((options) => ({
@@ -24,8 +24,8 @@ export default defineConfig((options) => ({
 
   onSuccess: async (): Promise<void> => {
     await Promise.all([
-      execa.command('pnpm run manifest', { stdout: process.stdout, stderr: process.stderr }),
-      execa.command('pnpm exec tsconfig-replace-paths', { stdout: process.stdout, stderr: process.stderr })
+      command('pnpm run manifest', { stdout: process.stdout, stderr: process.stderr }),
+      command('pnpm exec tsconfig-replace-paths', { stdout: process.stdout, stderr: process.stderr })
     ])
   }
 }))
