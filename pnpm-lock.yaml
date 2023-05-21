@@ -172,8 +172,8 @@ importers:
         specifier: ^0.0.30
         version: 0.0.30
       '@types/update-notifier':
-        specifier: ^6.0.3
-        version: 6.0.3
+        specifier: ^6.0.4
+        version: 6.0.4
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -1422,8 +1422,8 @@ packages:
     resolution: {integrity: sha512-txGIh+0eDFzKGC25zORnswy+br1Ha7hj5cMVwKIU7+s0U2AxxJru/jZSMU6OC9MJWP6+pc/hc6ZjyZShpsyY2g==}
     dev: false
 
-  /@types/update-notifier@6.0.3:
-    resolution: {integrity: sha512-it2NeqZ+jPMyfToBkO2fdbuJdqryCqcrk7xekfZlvaGamf+oVBpD0ziRJZ6h7JTtAQwy2byzvYQ66EmESorgsg==}
+  /@types/update-notifier@6.0.4:
+    resolution: {integrity: sha512-CiKJPSmt/3F4sVnkQTjnP/onKtTJxRkib6Gvw4XESM8FNsHlvRnBNqU5qL0IQmqjtKnz5e9E6Y7xChOpvxFzKg==}
     dependencies:
       '@types/configstore': 6.0.0
       boxen: 7.1.0
