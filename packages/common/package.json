@@ -61,7 +61,7 @@
     "through": "^2.3.8",
     "update-notifier": "^6.0.2",
     "winston": "^3.8.2",
-    "yaml": "^2.2.2"
+    "yaml": "^2.3.0"
   },
   "devDependencies": {
     "@oclif/core": "^2.8.5",
