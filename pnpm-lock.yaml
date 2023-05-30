@@ -1172,8 +1172,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /@sindresorhus/is@5.3.0:
-    resolution: {integrity: sha512-CX6t4SYQ37lzxicAqsBtxA3OseeoVrh9cSJ5PFYam0GksYlupRfy1A+Q4aYD3zvcfECLc0zO2u+ZnR2UYKvCrw==}
+  /@sindresorhus/is@5.4.0:
+    resolution: {integrity: sha512-Ggh6E9AnMpiNXlbXfFUcWE9qm408rL8jDi7+PMBBx7TMbwEmiqAiSmZ+zydYwxcJLqPGNDoLc9mXDuMDBZg0sA==}
     engines: {node: '>=14.16'}
     dev: false
 
@@ -1836,8 +1836,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /aws-sdk@2.1386.0:
-    resolution: {integrity: sha512-bmUvpNRR4x1YvTaAm7WK/2lSNVPrNuiYlleU47GA5Xskh8PKaWedGHvGinH2YwhC720hM0Qc4f4/snUPGJ0eYg==}
+  /aws-sdk@2.1387.0:
+    resolution: {integrity: sha512-gHBJb1XNVXPIfkglxg0I/fJvIDN02uYM7tAJ6Y0eNjDjGIIYRVkTK7hrW1iYBnMxJqDv4hY4IPueGpPspiU0zA==}
     engines: {node: '>= 10.0.0'}
     dependencies:
       buffer: 4.9.2
@@ -3573,7 +3573,7 @@ packages:
     resolution: {integrity: sha512-mThBblvlAF1d4O5oqyvN+ZxLAYwIJK7bpMxgYqPD9okW0C3qm5FFn7k811QrcuEBwaogR3ngOFoCfs6mRv7teQ==}
     engines: {node: '>=14.16'}
     dependencies:
-      '@sindresorhus/is': 5.3.0
+      '@sindresorhus/is': 5.4.0
       '@szmarczak/http-timer': 5.0.1
       cacheable-lookup: 7.0.0
       cacheable-request: 10.2.10
@@ -5303,7 +5303,7 @@ packages:
       '@oclif/plugin-help': 5.2.9(@swc/core@1.3.61)(@types/node@18.16.16)(typescript@5.0.4)
       '@oclif/plugin-not-found': 2.3.24(@swc/core@1.3.61)(@types/node@18.16.16)(typescript@5.0.4)
       '@oclif/plugin-warn-if-update-available': 2.0.37(@swc/core@1.3.61)(@types/node@18.16.16)(typescript@5.0.4)
-      aws-sdk: 2.1386.0
+      aws-sdk: 2.1387.0
       concurrently: 7.6.0
       debug: 4.3.4(supports-color@8.1.1)
       find-yarn-workspace-root: 2.0.0
