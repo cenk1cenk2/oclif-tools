@@ -992,7 +992,7 @@ packages:
       fs-extra: 9.1.0
       http-call: 5.3.0
       load-json-file: 5.3.0
-      npm: 9.7.1
+      npm: 9.7.2
       npm-run-path: 4.0.1
       semver: 7.5.2
       shelljs: 0.8.5
@@ -1846,8 +1846,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /aws-sdk@2.1401.0:
-    resolution: {integrity: sha512-qzuMxIvCmH1Df194sYn+L5yDrChIKzZG/fBLElPVSN1fB18qhPSYUfr9uVCMeTpDCmdTW1Ojk7cAkByzzAnKjA==}
+  /aws-sdk@2.1402.0:
+    resolution: {integrity: sha512-ndyx3H+crHPIXJF+SO1dqzzBmQwMdoB9uCND/Ip4Ozfv5jse7X58LWpWucM9KBctQ8o37c8KvXjfTr14lE3ykA==}
     engines: {node: '>= 10.0.0'}
     dependencies:
       buffer: 4.9.2
@@ -2037,7 +2037,7 @@ packages:
     dependencies:
       '@npmcli/fs': 3.1.0
       fs-minipass: 3.0.2
-      glob: 10.2.7
+      glob: 10.3.0
       lru-cache: 7.18.3
       minipass: 5.0.0
       minipass-collect: 1.0.2
@@ -3447,8 +3447,8 @@ packages:
       is-glob: 4.0.3
     dev: true
 
-  /glob@10.2.7:
-    resolution: {integrity: sha512-jTKehsravOJo8IJxUGfZILnkvVJM/MOfHRs8QcXolVef2zNI9Tqyy5+SeuOAZd3upViEZQLyFpQhYiHLrMUNmA==}
+  /glob@10.3.0:
+    resolution: {integrity: sha512-AQ1/SB9HH0yCx1jXAT4vmCbTOPe5RQ+kCurjbel5xSCGhebumUv+GJZfa1rEqor3XIViqwSEmlkZCQD43RWrBg==}
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
     dependencies:
@@ -5166,8 +5166,8 @@ packages:
       path-key: 4.0.0
     dev: true
 
-  /npm@9.7.1:
-    resolution: {integrity: sha512-kxMviaiLX4Lfnjy2dt7EWB87v5QdLiGpy04S2ORdKLmPqFhgy8g4cgJjQfnWob4mJIaNHjBO+hk45CvLlsZZ8g==}
+  /npm@9.7.2:
+    resolution: {integrity: sha512-LLoOudiSURxzRxfGj+vsD+hKKv2EfxyshDOznxruIkZMouvbaF5sFm4yAwHqxS8aVaOdRl03pRmGpcrFMqMt3g==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     hasBin: true
     dev: false
@@ -5230,6 +5230,7 @@ packages:
       - semver
       - sigstore
       - ssri
+      - supports-color
       - tar
       - text-table
       - tiny-relative-date
@@ -5321,7 +5322,7 @@ packages:
       '@oclif/plugin-help': 5.2.10(@swc/core@1.3.66)(@types/node@18.16.18)(typescript@5.1.3)
       '@oclif/plugin-not-found': 2.3.26(@swc/core@1.3.66)(@types/node@18.16.18)(typescript@5.1.3)
       '@oclif/plugin-warn-if-update-available': 2.0.39(@swc/core@1.3.66)(@types/node@18.16.18)(typescript@5.1.3)
-      aws-sdk: 2.1401.0
+      aws-sdk: 2.1402.0
       concurrently: 7.6.0
       debug: 4.3.4(supports-color@8.1.1)
       find-yarn-workspace-root: 2.0.0
@@ -5827,7 +5828,7 @@ packages:
     resolution: {integrity: sha512-AEtWXYfopBj2z5N5PbkAOeNHRPUg5q+Nen7QLxV8M2zJq1ym6/lCz3fYNTCXe19puu2d06jfHhrP7v/S2PtMMw==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
-      glob: 10.2.7
+      glob: 10.3.0
       json-parse-even-better-errors: 3.0.0
       normalize-package-data: 5.0.0
       npm-normalize-package-bin: 3.0.1
@@ -6050,7 +6051,7 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      glob: 10.2.7
+      glob: 10.3.0
     dev: true
 
   /rollup@3.25.1:
