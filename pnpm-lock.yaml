@@ -912,8 +912,8 @@ packages:
       - supports-color
     dev: true
 
-  /@oclif/color@1.0.6:
-    resolution: {integrity: sha512-U6hABUkwoUoEZ1K5mJ2E7AeJ7udjYP3ZYWq18LLoMyjV+Us9hh3UwAghOY75F9PAzF8q5kvhoGu70LnPASbZ8g==}
+  /@oclif/color@1.0.7:
+    resolution: {integrity: sha512-XUWsQRVP+HReS5+hkjIB21/qMLswv1t65S3pRhjDbDKbBeZVQXCHtVQiUMOjnCvni0d5NBZWIxu+fNUo9dK5Kg==}
     engines: {node: '>=12.0.0'}
     dependencies:
       ansi-styles: 4.3.0
@@ -976,7 +976,7 @@ packages:
     resolution: {integrity: sha512-a8WfN8km1A9Q0lXWo1LZgFEjVFYIbOOp/QG++zyHt2Hnsp2b5Zr0p8EQLBK7v6na6C0Mrr+GlMI8zE40hYWMbw==}
     engines: {node: '>=12.0.0'}
     dependencies:
-      '@oclif/color': 1.0.6
+      '@oclif/color': 1.0.7
       '@oclif/core': 2.8.11(@swc/core@1.3.67)(@types/node@18.16.18)(typescript@5.1.6)
       fast-levenshtein: 3.0.0
     transitivePeerDependencies:
@@ -990,7 +990,7 @@ packages:
     resolution: {integrity: sha512-bri3GHqUs2d9mMoqm0/CIef+u+nJrNDzno5xpnB0cg7x3mAhXM/miuzdNz7D8opupuJeiJMv+A/WSMG2nY2IEw==}
     engines: {node: '>=16'}
     dependencies:
-      '@oclif/color': 1.0.6
+      '@oclif/color': 1.0.7
       '@oclif/core': 2.8.11(@swc/core@1.3.67)(@types/node@18.16.18)(typescript@5.1.6)
       chalk: 4.1.2
       debug: 4.3.4(supports-color@8.1.1)
