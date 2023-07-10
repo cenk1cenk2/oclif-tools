@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [5.0.8](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.7...@cenk1cenk2/oclif-common@5.0.8) (2023-07-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to ^3.10.0 ([de3d120](https://gitlab.kilic.dev/libraries/oclif-tools/commit/de3d120af1d7e0ad82df2e29c81d3b5016ba1ea3))
+
 ## @cenk1cenk2/oclif-common [5.0.7](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.6...@cenk1cenk2/oclif-common@5.0.7) (2023-05-30)
 
 
