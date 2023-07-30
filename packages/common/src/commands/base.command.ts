@@ -84,7 +84,7 @@ export class Command<
     return result
   }
 
-  public exit (code?: number): void {
+  public exit (code?: number): never {
     this.logger.trace('Code -> %d', code, { status: LogFieldStatus.EXIT })
 
     process.exit(code ?? 0)
