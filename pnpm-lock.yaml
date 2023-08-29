@@ -69,8 +69,8 @@ importers:
         specifier: ^5.2.18
         version: 5.2.18(@swc/core@1.3.80)(@types/node@20.5.7)(typescript@5.2.2)
       '@oclif/plugin-plugins':
-        specifier: ^3.3.1
-        version: 3.3.1(@swc/core@1.3.80)(@types/node@20.5.7)(typescript@5.2.2)
+        specifier: ^3.3.2
+        version: 3.3.2(@swc/core@1.3.80)(@types/node@20.5.7)(typescript@5.2.2)
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -987,8 +987,8 @@ packages:
       - typescript
     dev: true
 
-  /@oclif/plugin-plugins@3.3.1(@swc/core@1.3.80)(@types/node@20.5.7)(typescript@5.2.2):
-    resolution: {integrity: sha512-pC/lcVYia0jYwgpBNXXkYMXzcAWzxs9I7uVepmnMrHMpVTEovwH7+pdRZutcCvD5sZb1WSZmGcTD8QuDvt77dA==}
+  /@oclif/plugin-plugins@3.3.2(@swc/core@1.3.80)(@types/node@20.5.7)(typescript@5.2.2):
+    resolution: {integrity: sha512-UhgAjibtnU6xIc6P2n6FwbWooDgcl4q8Bu/oXgBW4i7Wnx1l4B+nbIdxCX9n3HM/66geylYQ1/Q08eiy7V+Dtw==}
     engines: {node: '>=16'}
     dependencies:
       '@oclif/core': 2.12.0(@swc/core@1.3.80)(@types/node@20.5.7)(typescript@5.2.2)
