@@ -48,11 +48,11 @@ importers:
         specifier: ^1.10.13
         version: 1.10.13
       typedoc:
-        specifier: ^0.25.0
-        version: 0.25.0(typescript@5.2.2)
+        specifier: ^0.25.1
+        version: 0.25.1(typescript@5.2.2)
       typedoc-plugin-markdown:
         specifier: ^3.16.0
-        version: 3.16.0(typedoc@0.25.0)
+        version: 3.16.0(typedoc@0.25.1)
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
@@ -3940,6 +3940,7 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    requiresBuild: true
 
   /is-arrayish@0.3.2:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
@@ -6856,17 +6857,17 @@ packages:
       is-typedarray: 1.0.0
     dev: false
 
-  /typedoc-plugin-markdown@3.16.0(typedoc@0.25.0):
+  /typedoc-plugin-markdown@3.16.0(typedoc@0.25.1):
     resolution: {integrity: sha512-eeiC78fDNGFwemPIHiwRC+mEC7W5jwt3fceUev2gJ2nFnXpVHo8eRrpC9BLWZDee6ehnz/sPmNjizbXwpfaTBw==}
     peerDependencies:
       typedoc: '>=0.24.0'
     dependencies:
       handlebars: 4.7.8
-      typedoc: 0.25.0(typescript@5.2.2)
+      typedoc: 0.25.1(typescript@5.2.2)
     dev: true
 
-  /typedoc@0.25.0(typescript@5.2.2):
-    resolution: {integrity: sha512-FvCYWhO1n5jACE0C32qg6b3dSfQ8f2VzExnnRboowHtqUD6ARzM2r8YJeZFYXhcm2hI4C2oCRDgNPk/yaQUN9g==}
+  /typedoc@0.25.1(typescript@5.2.2):
+    resolution: {integrity: sha512-c2ye3YUtGIadxN2O6YwPEXgrZcvhlZ6HlhWZ8jQRNzwLPn2ylhdGqdR8HbyDRyALP8J6lmSANILCkkIdNPFxqA==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
