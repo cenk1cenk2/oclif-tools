@@ -118,8 +118,8 @@ importers:
         specifier: ^14.0.1
         version: 14.0.1(enquirer@2.4.1)
       oclif:
-        specifier: ^3.15.1
-        version: 3.15.1(@swc/core@1.3.84)(@types/node@20.6.0)(typescript@5.2.2)
+        specifier: ^3.16.0
+        version: 3.16.0(@swc/core@1.3.84)(@types/node@20.6.0)(typescript@5.2.2)
       prettier:
         specifier: ^3.0.3
         version: 3.0.3
@@ -1968,7 +1968,7 @@ packages:
     resolution: {integrity: sha512-xq+q3SRMOxGivLhBNaUdC64hDTQwejJ+H0T/NB1XMtTVEwNTrfFF3gAxiyW0Bu/xWEGhjVKgUcMhCrUy2+uCWg==}
     dependencies:
       base64-js: 1.5.1
-      ieee754: 1.1.13
+      ieee754: 1.2.1
       isarray: 1.0.0
     dev: true
 
@@ -3947,6 +3947,7 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    requiresBuild: true
 
   /is-arrayish@0.3.2:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
@@ -5300,8 +5301,8 @@ packages:
       es-abstract: 1.22.1
     dev: true
 
-  /oclif@3.15.1(@swc/core@1.3.84)(@types/node@20.6.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-3xpR4rOQ1aTJC3Mr+TaguZapJqZ0360gvM+UKKsYBz4B5dqRCfPp75E2qWRmzaUmCjo+LYanMdD/h7Ja/yNPVA==}
+  /oclif@3.16.0(@swc/core@1.3.84)(@types/node@20.6.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-qbPJ9SifBDPeMnuYIyJc0+kGyXmLubJs/lOD1wjrvAiKqTWQ1xy/EFlNMgBGETCf7RQf1iSJmvf+s22ZkLc7Ow==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
