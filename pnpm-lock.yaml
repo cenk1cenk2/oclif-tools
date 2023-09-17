@@ -13,7 +13,7 @@ importers:
         version: 1.6.7(@swc/core@1.3.85)
       '@cenk1cenk2/eslint-config':
         specifier: ^2.7.19
-        version: 2.7.19(eslint@8.49.0)(typescript@5.2.2)
+        version: 2.7.20(eslint@8.49.0)(typescript@5.2.2)
       '@swc/core':
         specifier: ^1.3.85
         version: 1.3.85
@@ -89,7 +89,7 @@ importers:
         version: 1.6.7(@swc/core@1.3.85)
       '@cenk1cenk2/eslint-config':
         specifier: ^2.7.19
-        version: 2.7.19(eslint@8.49.0)(typescript@5.2.2)
+        version: 2.7.20(eslint@8.49.0)(typescript@5.2.2)
       '@tsconfig/node16':
         specifier: ^16.1.1
         version: 16.1.1
@@ -253,8 +253,8 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /@cenk1cenk2/eslint-config@2.7.19(eslint@8.49.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-Hfu6ih+WeNYnrvtB/Ae5YGM9KsfIXlyBKsReJ9333MqUQzYe2S0zFk7Bnu+MAeXs4L2X/JIxGW8s7eFSlD3X0A==}
+  /@cenk1cenk2/eslint-config@2.7.20(eslint@8.49.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-VRyHeaDGRClQRu02k4/ACg1QrDBj2d2jcEIlax85/TCLmMqYwhWDkRx5kl/crs9eQHjjLTM/NxsLKtTr09br/Q==}
     peerDependencies:
       '@nuxtjs/eslint-config': '>= 7'
       '@nuxtjs/eslint-config-typescript': '>= 7'
@@ -3957,7 +3957,6 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
-    requiresBuild: true
 
   /is-arrayish@0.3.2:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
