@@ -118,8 +118,8 @@ importers:
         specifier: ^14.0.1
         version: 14.0.1(enquirer@2.4.1)
       oclif:
-        specifier: ^3.17.1
-        version: 3.17.1(@swc/core@1.3.90)(@types/node@20.7.0)(typescript@5.2.2)
+        specifier: ^3.17.2
+        version: 3.17.2(@swc/core@1.3.90)(@types/node@20.7.0)(typescript@5.2.2)
       prettier:
         specifier: ^3.0.3
         version: 3.0.3
@@ -1982,7 +1982,7 @@ packages:
     resolution: {integrity: sha512-xq+q3SRMOxGivLhBNaUdC64hDTQwejJ+H0T/NB1XMtTVEwNTrfFF3gAxiyW0Bu/xWEGhjVKgUcMhCrUy2+uCWg==}
     dependencies:
       base64-js: 1.5.1
-      ieee754: 1.1.13
+      ieee754: 1.2.1
       isarray: 1.0.0
     dev: true
 
@@ -5337,8 +5337,8 @@ packages:
       es-abstract: 1.22.2
     dev: true
 
-  /oclif@3.17.1(@swc/core@1.3.90)(@types/node@20.7.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-qwop0W9s5nJJ9tTdLsYXxxvGSNc9xKjXccEAGCXM+x8NmGtZ4P89FwqDY4PIG7IeV9VNpYhZKQArpZNwPGn0CQ==}
+  /oclif@3.17.2(@swc/core@1.3.90)(@types/node@20.7.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-+vFXxgmR7dGGz+g6YiqSZu2LXVkBMaS9/rhtsLGkYw45e53CW/3kBgPRnOvxcTDM3Td9JPeBD2JWxXnPKGQW3A==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
