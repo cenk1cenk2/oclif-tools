@@ -97,7 +97,7 @@ importers:
         specifier: ^11.0.2
         version: 11.0.2
       '@types/node':
-        specifier: ^20.8.3
+        specifier: ^20.8.6
         version: 20.8.6
       commitizen:
         specifier: ^4.3.0
