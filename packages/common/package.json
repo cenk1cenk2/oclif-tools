@@ -65,7 +65,7 @@
   },
   "devDependencies": {
     "@oclif/core": "^2.15.0",
-    "@types/fs-extra": "^11.0.2",
+    "@types/fs-extra": "^11.0.3",
     "@types/through": "^0.0.32",
     "@types/update-notifier": "^6.0.6",
     "class-transformer": "^0.5.1",
