@@ -11,5 +11,5 @@ export declare class ShouldRunAfterHook<Ctx> {
 }
 
 export declare class RegisterHook {
-  public register (cli: DynamicModule, options: CliModuleOptions): DynamicModule
+  public register (cli: DynamicModule, options: CliModuleOptions): DynamicModule | Promise<DynamicModule>
 }

@@ -114,7 +114,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
 
     const cli = CliModule.forRoot(options)
 
-    this.app = await CliModule.create(isHookedWithRegister(this) ? this.register(cli, options) : cli)
+    this.app = await CliModule.create(isHookedWithRegister(this) ? await this.register(cli, options) : cli)
 
     const cs = this.app.get(ConfigService)
 
