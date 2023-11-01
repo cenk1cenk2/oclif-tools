@@ -69,7 +69,7 @@ importers:
         specifier: ^6.0.5
         version: 6.0.5
       '@oclif/plugin-plugins':
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
       class-transformer:
         specifier: ^0.5.1
