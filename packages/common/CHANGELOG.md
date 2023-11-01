@@ -1,3 +1,25 @@
+# @cenk1cenk2/oclif-common [6.0.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.8...@cenk1cenk2/oclif-common@6.0.0) (2023-11-01)
+
+
+### Bug Fixes
+
+* **deps:** update all minor dependency updates ([9069b1c](https://gitlab.kilic.dev/libraries/oclif-tools/commit/9069b1c8384c6b0759788527fc7cfbcd152330c4))
+* **deps:** update dependency winston to ^3.11.0 ([e3c7486](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e3c748648b617c015c08929864dbbf58271a6302))
+* **deps:** update dependency yaml to ^2.3.3 ([4537b56](https://gitlab.kilic.dev/libraries/oclif-tools/commit/4537b565648011dfc811411da739cacc166bfcaf))
+* update dependencies ([e2c7cc5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e2c7cc5fd02b6cfc2c170ebd84170a2d2252f61f))
+
+
+### Performance Improvements
+
+* **deps:** update dependency oclif to v3 ([a277c8f](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a277c8fbcb7e0e4ff52f623f016b9392b975a9cd))
+
+
+### BREAKING CHANGES
+
+* **deps:** - removes config command
+- refactors how initiation/configuration is handled
+- uses nestjs for di instead of custom bacic solution
+
 ## @cenk1cenk2/oclif-common [5.0.8](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.7...@cenk1cenk2/oclif-common@5.0.8) (2023-07-10)
 
 
