@@ -55,6 +55,9 @@
     },
     "update-notifier": {
       "optional": true
+    },
+    "yaml": {
+      "optional": true
     }
   },
   "dependencies": {

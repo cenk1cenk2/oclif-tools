@@ -28,6 +28,10 @@ export class ParserService {
       throw new Error(`Parser for the extension is not configured: ${ext}`)
     }
 
+    return this.injectParser(Parser)
+  }
+
+  public async injectParser (Parser: ClassType<GenericParser>): Promise<GenericParser> {
     const parser = await this.moduleRef.create(Parser)
 
     return parser
