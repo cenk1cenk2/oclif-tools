@@ -6,18 +6,18 @@ import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class FileSystemService {
-  public readonly fs = fs
+  public readonly extra: typeof fs = fs
 
   constructor (private readonly logger: LoggerService) {
     this.logger.setup(this.constructor.name)
   }
 
   public exists (path: string): boolean {
-    return this.fs.existsSync(path)
+    return this.extra.existsSync(path)
   }
 
   public stats (path: string): fs.Stats {
-    return this.fs.statSync(path, { throwIfNoEntry: true })
+    return this.extra.statSync(path, { throwIfNoEntry: true })
   }
 
   public dirname (path: string): string {
@@ -30,7 +30,7 @@ export class FileSystemService {
 
   public async read (file: string): Promise<string> {
     try {
-      const raw = await this.fs.readFile(file, 'utf-8')
+      const raw = await this.extra.readFile(file, 'utf-8')
 
       return raw
     } catch (e: any) {
@@ -40,7 +40,7 @@ export class FileSystemService {
 
   public readSync (file: string): string {
     try {
-      const raw = this.fs.readFileSync(file, 'utf-8')
+      const raw = this.extra.readFileSync(file, 'utf-8')
 
       return raw
     } catch (e: any) {
@@ -50,7 +50,7 @@ export class FileSystemService {
 
   public async write (file: string, data: string | Buffer, options: fs.WriteFileOptions = {}): Promise<void> {
     try {
-      await this.fs.writeFile(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
+      await this.extra.writeFile(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
     } catch (e: any) {
       throw new Error(`Error while writing file to "${file}": ${e.message}`)
     }
@@ -58,7 +58,7 @@ export class FileSystemService {
 
   public writeSync (file: string, data: string | Buffer, options: fs.WriteFileOptions = {}): void {
     try {
-      this.fs.writeFileSync(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
+      this.extra.writeFileSync(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
     } catch (e: any) {
       throw new Error(`Error while writing file to "${file}": ${e.message}`)
     }
@@ -66,7 +66,7 @@ export class FileSystemService {
 
   public async append (file: string, data: string | Buffer, options?: fs.WriteFileOptions): Promise<void> {
     try {
-      await this.fs.appendFile(file, data, options)
+      await this.extra.appendFile(file, data, options)
     } catch (e: any) {
       throw new Error(`Error while appending to file  "${file}": ${e.message}`)
     }
@@ -74,7 +74,7 @@ export class FileSystemService {
 
   public appendSync (file: string, data: string | Buffer): void {
     try {
-      this.fs.appendFileSync(file, data)
+      this.extra.appendFileSync(file, data)
     } catch (e: any) {
       throw new Error(`Error while appending to file  "${file}": ${e.message}`)
     }
@@ -82,7 +82,7 @@ export class FileSystemService {
 
   public async remove (file: string, options?: fs.RmOptions): Promise<void> {
     try {
-      await this.fs.rm(file, options)
+      await this.extra.rm(file, options)
     } catch (e: any) {
       throw new Error(`Error while deleting the file "${file}": ${e.message}`)
     }
@@ -90,7 +90,7 @@ export class FileSystemService {
 
   public removeSync (file: string, options?: fs.RmOptions): void {
     try {
-      this.fs.rmSync(file, options)
+      this.extra.rmSync(file, options)
     } catch (e: any) {
       throw new Error(`Error while deleting the file "${file}": ${e.message}`)
     }
@@ -98,7 +98,7 @@ export class FileSystemService {
 
   public async emptyDir (directory: string): Promise<void> {
     try {
-      await this.fs.emptyDir(directory)
+      await this.extra.emptyDir(directory)
     } catch (e: any) {
       throw new Error(`Error while emptying the directory "${directory}": ${e.message}`)
     }
@@ -106,7 +106,7 @@ export class FileSystemService {
 
   public emptyDirSync (directory: string): void {
     try {
-      this.fs.emptyDirSync(directory)
+      this.extra.emptyDirSync(directory)
     } catch (e: any) {
       throw new Error(`Error while emptying the directory "${directory}": ${e.message}`)
     }
@@ -114,7 +114,7 @@ export class FileSystemService {
 
   public async removeDir (directory: string): Promise<void> {
     try {
-      await this.fs.rmdir(directory)
+      await this.extra.rmdir(directory)
     } catch (e: any) {
       throw new Error(`Error while removing the directory "${directory}": ${e.message}`)
     }
@@ -122,7 +122,7 @@ export class FileSystemService {
 
   public removeDirSync (directory: string): void {
     try {
-      this.fs.rmdirSync(directory)
+      this.extra.rmdirSync(directory)
     } catch (e: any) {
       throw new Error(`Error while removing the directory "${directory}": ${e.message}`)
     }
@@ -130,7 +130,7 @@ export class FileSystemService {
 
   public async mkdir (directory: string): Promise<void> {
     try {
-      await this.fs.mkdirp(directory)
+      await this.extra.mkdirp(directory)
     } catch (e: any) {
       throw new Error(`Error while creating the directory "${directory}": ${e.message}`)
     }
@@ -138,7 +138,7 @@ export class FileSystemService {
 
   public mkdirSync (directory: string): void {
     try {
-      this.fs.mkdirpSync(directory)
+      this.extra.mkdirpSync(directory)
     } catch (e: any) {
       throw new Error(`Error while creating the directory "${directory}": ${e.message}`)
     }
