@@ -1,44 +1,36 @@
-import { EnvironmentVariableParser } from './env-parser.service'
-import { JsonParser } from './json-parser.service'
+import { Injectable } from '@nestjs/common'
+import { ModuleRef } from '@nestjs/core'
+
+import { EnvironmentVariableParser, JsonParser, YamlParser } from './fts'
 import type { GenericParser } from './parser.interface'
-import { YamlParser } from './yaml-parser.service'
 import type { ClassType } from '@interfaces'
 import { FileSystemService } from '@lib/fs'
 import type { LockableData } from '@lib/locker'
-import { Logger } from '@utils/logger'
+import { LoggerService } from '@lib/logger'
 
+@Injectable()
 export class ParserService {
-  private static instance: ParserService
   public parsers: ClassType<GenericParser>[] = [ YamlParser, JsonParser, EnvironmentVariableParser ]
-  private logger: Logger
-  private fs: FileSystemService
 
-  constructor (parsers?: ClassType<GenericParser>[]) {
-    if (ParserService.instance) {
-      return ParserService.instance
-    } else {
-      if (parsers) {
-        this.parsers = parsers
-      }
-
-      this.logger = new Logger(this.constructor.name)
-      this.fs = new FileSystemService()
-
-      ParserService.instance = this
-
-      this.logger.trace('Created a new instance.')
-    }
+  constructor (
+    private moduleRef: ModuleRef,
+    private fs: FileSystemService,
+    private readonly logger: LoggerService
+  ) {
+    this.logger.setup(this.constructor.name)
   }
 
-  public getParser (file: string): GenericParser {
+  public async getParser (file: string): Promise<GenericParser> {
     const ext = (file.includes('.') ? this.fs.extname(file) : file).replace(/^\./, '')
-    const Parser = this.parsers.find((parser) => (parser as any).extensions.includes(ext))
+    const Parser = this.parsers.find((parser) => (parser as typeof GenericParser).extensions.includes(ext))
 
     if (!Parser) {
       throw new Error(`Parser for the extension is not configured: ${ext}`)
     }
 
-    return new Parser()
+    const parser = await this.moduleRef.create(Parser)
+
+    return parser
   }
 
   public setParsers (...parsers: ClassType<GenericParser>[]): void {
@@ -67,16 +59,16 @@ export class ParserService {
     return this.fs.write(file, await this.stringify(file, data))
   }
 
-  public parse<T = unknown>(file: string, data: string | Buffer): T {
-    const parser = this.getParser(file)
+  public async parse<T = unknown>(file: string, data: string | Buffer): Promise<T> {
+    const parser = await this.getParser(file)
 
     this.logger.trace('Parsing file: %s -> %s', file, parser.constructor.name)
 
     return parser.parse<T>(data)
   }
 
-  public stringify<T = any>(file: string, data: T): string | Promise<string> {
-    const parser = this.getParser(file)
+  public async stringify<T = any>(file: string, data: T): Promise<string> {
+    const parser = await this.getParser(file)
 
     this.logger.trace('Stringifying file: %s -> %s', file, parser.constructor.name)
 

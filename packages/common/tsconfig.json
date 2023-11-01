@@ -6,15 +6,11 @@
     "baseUrl": "src",
     "paths": {
       "@commands": ["commands"],
-      "@commands/*": ["commands/*"],
       "@constants": ["constants"],
-      "@constants/*": ["constants/*"],
       "@interfaces": ["interfaces"],
-      "@interfaces/*": ["interfaces/*"],
       "@lib": ["lib"],
       "@lib/*": ["lib/*"],
-      "@utils": ["utils"],
-      "@utils/*": ["utils/*"]
+      "@utils": ["utils"]
     }
   },
   "include": ["src"],

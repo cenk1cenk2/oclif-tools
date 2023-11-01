@@ -5,14 +5,14 @@ import { defineConfig } from 'tsup'
 export default defineConfig((options) => ({
   name: !options.watch ? 'production' : undefined,
 
-  entry: [ 'src/**/*.{js,ts}' ],
+  entry: ['src/**/*.{js,ts}'],
   tsconfig: options.watch ? 'tsconfig.json' : 'tsconfig.build.json',
 
   dts: options.watch ? true : false,
 
-  format: [ 'cjs' ],
+  format: ['esm'],
 
-  target: [ 'es2021' ],
+  target: ['es2021'],
 
   sourcemap: options.watch ? true : false,
 

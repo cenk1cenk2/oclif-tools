@@ -1,28 +1,24 @@
+import { Injectable } from '@nestjs/common'
 import op from 'object-path-immutable'
 
-import type { CommonLockerData, LockableData, LockData, UnlockData } from './locker.interface'
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+import type { CommonLockerData, LockableData, LockData, UnlockData, LockerServiceOptions } from './locker.interface'
 import { FileSystemService } from '@lib/fs'
-import { ParserService } from '@lib/parser'
-import type { GenericParser } from '@lib/parser/parser.interface'
+import { LoggerService } from '@lib/logger'
 import { merge } from '@utils'
-import { Logger } from '@utils/logger'
 
+@Injectable()
 export class LockerService<LockFile extends LockableData = LockableData> {
+  public readonly op = op
   private toLock: LockData[] = []
   private toUnlock: UnlockData[] = []
-  private logger: Logger
-  private fs: FileSystemService
 
-  constructor (private file: string, private parser?: GenericParser, private root?: string[], context?: string) {
-    this.fs = new FileSystemService()
-
-    this.logger = new Logger(context ?? this.constructor.name)
-
-    if (!this.parser) {
-      const parser = new ParserService()
-
-      this.parser = parser.getParser(file)
-    }
+  constructor (
+    private readonly logger: LoggerService,
+    private readonly fs: FileSystemService,
+    private readonly options: LockerServiceOptions
+  ) {
+    this.logger.setup(this.constructor.name)
   }
 
   public hasLock (): boolean {
@@ -81,7 +77,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
 
         // check if array else merge as object
         if (typeof d.data === 'object') {
-          parsed = merge(d.merge, op.get(lock, path, Array.isArray(d.data) ? [] : {}), d.data)
+          parsed = merge(d.merge, this.op.get(lock, path, Array.isArray(d.data) ? [] : {}), d.data)
         } else {
           this.logger.warn('"%s" path with type "%s" is not mergeable.', path, typeof d.data)
 
@@ -89,11 +85,11 @@ export class LockerService<LockFile extends LockableData = LockableData> {
         }
 
         // set lock data
-        lock = op.set(lock, path, parsed)
+        lock = this.op.set(lock, path, parsed)
         this.logger.verbose('Merge lock: %s -> %o', path, d.data)
       } else {
         // dont merge directly set the data
-        lock = op.set(lock, path, d.data)
+        lock = this.op.set(lock, path, d.data)
         this.logger.verbose('Override lock: %s -> %o', path, d.data)
       }
     })
@@ -130,7 +126,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
         for (let i = path.length - 1; i >= 0; i--) {
           const parentPath = path.slice(0, i)
 
-          const parent = op.get(lock, parentPath)
+          const parent = this.op.get(lock, parentPath)
 
           if (!parent || Array.isArray(parent) && parent.length === 0 || typeof parent === 'object' && Object.keys(parent).length === 0) {
             this.logger.verbose('Unlocked parent: %s -> %s', path, parentPath)
@@ -142,8 +138,8 @@ export class LockerService<LockFile extends LockableData = LockableData> {
         }
       })
     } else {
-      lock = op.del(lock, this.root)
-      this.logger.verbose('Unlocked module: %s', this.root)
+      lock = op.del(lock, this.options.root)
+      this.logger.verbose('Unlocked module: %s', this.options.root)
     }
 
     // write data
@@ -151,30 +147,30 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   }
 
   public async read (): Promise<LockFile> {
-    return this.parser.parse(await this.fs.read(this.file))
+    return this.options.parser.parse(await this.fs.read(this.options.file))
   }
 
   public async tryRead (): Promise<LockFile | undefined> {
     try {
-      return this.parser.parse(await this.fs.read(this.file))
+      return this.options.parser.parse(await this.fs.read(this.options.file))
     } catch {
-      this.logger.trace('Can not read lockfile: %s', this.file)
+      this.logger.trace('Can not read lockfile: %s', this.options.file)
     }
   }
 
   public async write (data: LockFile): Promise<void> {
     if (!data || Array.isArray(data) && data.length === 0 || typeof data === 'object' && Object.keys(data).length === 0) {
-      this.logger.trace('Trying to write empty lock file, deleting it instead: %s', this.file)
+      this.logger.trace('Trying to write empty lock file, deleting it instead: %s', this.options.file)
 
-      return this.fs.remove(this.file)
+      return this.fs.remove(this.options.file)
     }
 
-    return this.fs.write(this.file, this.parser.stringify(data))
+    return this.fs.write(this.options.file, await this.options.parser.stringify(data))
   }
 
   private buildPath<T extends Partial<CommonLockerData>>(d: T): string[] {
-    if (d?.root !== true && this.root?.length) {
-      return [ ...this.root, ...this.normalizePath(d.path) ]
+    if (d?.root !== true && this.options.root?.length) {
+      return [ ...this.options.root, ...this.normalizePath(d.path) ]
     }
 
     return this.normalizePath(d.path)

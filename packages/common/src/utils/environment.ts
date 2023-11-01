@@ -1,4 +1,4 @@
-import { LogLevels } from './logger'
+import { LogLevels } from '@lib/logger'
 
 export function isVerbose (logLevel: LogLevels): boolean {
   return logLevel === LogLevels.VERBOSE

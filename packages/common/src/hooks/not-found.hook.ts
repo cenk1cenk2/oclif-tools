@@ -1,14 +1,14 @@
-import { Help } from '@oclif/core'
 import type { Hook } from '@oclif/core'
+import { Help } from '@oclif/core'
 
-import { Logger } from '@utils/logger'
+import { CliModule, LoggerService } from '@lib'
 
 export const notFoundHook: Hook<'command_not_found'> = async (opts) => {
-  const logger = new Logger(opts.config.name)
+  const app = await CliModule.create(CliModule.forMinimum())
+  const logger = await app.resolve(LoggerService)
 
   // show info
-  logger.fatal('Command not found. Take a look at help. You can also use --[h]elp flag for subcommands.', { custom: opts.config.name })
-  // eslint-disable-next-line no-console
+  logger.error('Command not found. Take a look at help. You can also use --[h]elp flag for subcommands.')
   logger.direct('')
 
   // show help
@@ -16,5 +16,5 @@ export const notFoundHook: Hook<'command_not_found'> = async (opts) => {
 
   await help.showHelp([ '--all' ])
 
-  process.exit(127)
+  opts.context.exit(127)
 }

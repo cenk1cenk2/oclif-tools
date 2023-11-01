@@ -1,21 +1,14 @@
-import type { GenericParser } from './parser.interface'
-import { Logger } from '@utils/logger'
+import { Injectable } from '@nestjs/common'
 
+import type { GenericParser } from '../parser.interface'
+import { LoggerService } from '@lib/logger'
+
+@Injectable()
 export class JsonParser implements GenericParser {
   static extensions: string[] = [ 'json' ]
-  private static instance: JsonParser
-  private logger: Logger
 
-  constructor () {
-    if (JsonParser.instance) {
-      return JsonParser.instance
-    }
-
-    JsonParser.instance = this
-
-    this.logger = new Logger(this.constructor.name)
-
-    this.logger.trace('Created a new instance.')
+  constructor (private readonly logger: LoggerService) {
+    this.logger.setup(this.constructor.name)
   }
 
   public parse<T = unknown>(data: string | Buffer): T {

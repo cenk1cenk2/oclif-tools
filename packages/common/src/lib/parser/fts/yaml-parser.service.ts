@@ -1,23 +1,15 @@
+import { Injectable } from '@nestjs/common'
 import { parse, stringify } from 'yaml'
 
-import type { GenericParser } from './parser.interface'
-import { Logger } from '@utils/logger'
+import type { GenericParser } from '../parser.interface'
+import { LoggerService } from '@lib/logger'
 
+@Injectable()
 export class YamlParser implements GenericParser {
   static extensions: string[] = [ 'yaml', 'yml' ]
-  private static instance: YamlParser
-  private logger: Logger
 
-  constructor () {
-    if (YamlParser.instance) {
-      return YamlParser.instance
-    }
-
-    YamlParser.instance = this
-
-    this.logger = new Logger(this.constructor.name)
-
-    this.logger.trace('Created a new instance.')
+  constructor (private readonly logger: LoggerService) {
+    this.logger.setup(this.constructor.name)
   }
 
   public parse<T = unknown>(data: string | Buffer): T {
