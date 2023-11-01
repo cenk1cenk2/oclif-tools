@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [6.0.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.0.0...@cenk1cenk2/oclif-common@6.0.1) (2023-11-01)
+
+
+### Bug Fixes
+
+* export fs types ([a49b93c](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a49b93c3d1e4280d92867fcb16a610ad138679ed))
+
 # @cenk1cenk2/oclif-common [6.0.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@5.0.8...@cenk1cenk2/oclif-common@6.0.0) (2023-11-01)
 
 
