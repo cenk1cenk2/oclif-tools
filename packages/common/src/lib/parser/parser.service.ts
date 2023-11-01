@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { ModuleRef } from '@nestjs/core'
 
-import { EnvironmentVariableParser, JsonParser, YamlParser } from './fts'
 import type { GenericParser } from './parser.interface'
 import type { ClassType } from '@interfaces'
 import { FileSystemService } from '@lib/fs'
@@ -10,7 +9,7 @@ import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class ParserService {
-  public parsers: ClassType<GenericParser>[] = [ YamlParser, JsonParser, EnvironmentVariableParser ]
+  public parsers: ClassType<GenericParser>[] = []
 
   constructor (
     private moduleRef: ModuleRef,
@@ -20,7 +19,7 @@ export class ParserService {
     this.logger.setup(this.constructor.name)
   }
 
-  public async getParser (file: string): Promise<GenericParser> {
+  public byFt (file: string): GenericParser {
     const ext = (file.includes('.') ? this.fs.extname(file) : file).replace(/^\./, '')
     const Parser = this.parsers.find((parser) => (parser as typeof GenericParser).extensions.includes(ext))
 
@@ -28,7 +27,11 @@ export class ParserService {
       throw new Error(`Parser for the extension is not configured: ${ext}`)
     }
 
-    return this.inject(Parser)
+    return this.fetch(Parser)
+  }
+
+  public fetch<T extends GenericParser>(Parser: ClassType<T>): T {
+    return this.moduleRef.get(Parser)
   }
 
   public async inject<T extends GenericParser>(Parser: ClassType<T>): Promise<T> {
@@ -37,20 +40,13 @@ export class ParserService {
     return parser
   }
 
-  public setParsers (...parsers: ClassType<GenericParser>[]): void {
-    this.parsers = parsers
-
-    this.logger.trace(
-      'Set parsers: %s',
-      this.parsers.map((p) => p.name)
-    )
-  }
-
-  public addParsers (...parsers: ClassType<GenericParser>[]): void {
+  public async register (...parsers: ClassType<GenericParser>[]): Promise<void> {
     this.parsers.push(...parsers)
 
+    await Promise.all(parsers.map(async (parser) => this.inject(parser)))
+
     this.logger.trace(
-      'Added parser, current parsers: %s',
+      'Registered parsers: %o',
       this.parsers.map((p) => p.name)
     )
   }
@@ -64,7 +60,7 @@ export class ParserService {
   }
 
   public async parse<T = unknown>(file: string, data: string | Buffer): Promise<T> {
-    const parser = await this.getParser(file)
+    const parser = this.byFt(file)
 
     this.logger.trace('Parsing file: %s -> %s', file, parser.constructor.name)
 
@@ -72,7 +68,7 @@ export class ParserService {
   }
 
   public async stringify<T = any>(file: string, data: T): Promise<string> {
-    const parser = await this.getParser(file)
+    const parser = this.byFt(file)
 
     this.logger.trace('Stringifying file: %s -> %s', file, parser.constructor.name)
 
