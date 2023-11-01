@@ -9,7 +9,8 @@ import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class ParserService {
-  public parsers: ClassType<GenericParser>[] = []
+  private readonly parsers: ClassType<GenericParser>[] = []
+  private readonly instances: GenericParser[] = []
 
   constructor (
     private moduleRef: ModuleRef,
@@ -31,11 +32,21 @@ export class ParserService {
   }
 
   public fetch<T extends GenericParser>(Parser: ClassType<T>): T {
-    return this.moduleRef.get(Parser)
+    const parser = this.instances.find((instance) => instance instanceof Parser) as T
+
+    if (!parser) {
+      throw new Error(`Specified parser has not been initiated: ${Parser.name}`)
+    }
+
+    return parser
   }
 
   public async inject<T extends GenericParser>(Parser: ClassType<T>): Promise<T> {
+    // this is done through manual way to not make everything async with moduleRef.resolve
+
     const parser = await this.moduleRef.create(Parser)
+
+    this.instances.push(parser)
 
     return parser
   }
