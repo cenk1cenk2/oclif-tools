@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [6.2.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.2.0...@cenk1cenk2/oclif-common@6.2.1) (2023-11-01)
+
+
+### Bug Fixes
+
+* issues with parser injection ([a3d2fd5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a3d2fd57106c1beab5e0039cd90e9db511f64548))
+
 # @cenk1cenk2/oclif-common [6.2.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.1.0...@cenk1cenk2/oclif-common@6.2.0) (2023-11-01)
 
 
