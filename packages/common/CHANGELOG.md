@@ -1,3 +1,10 @@
+# @cenk1cenk2/oclif-common [6.1.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.0.4...@cenk1cenk2/oclif-common@6.1.0) (2023-11-01)
+
+
+### Features
+
+* make configurable ([73c936d](https://gitlab.kilic.dev/libraries/oclif-tools/commit/73c936d07f1469a111fd20473e4dc65e5a4c7d98))
+
 ## @cenk1cenk2/oclif-common [6.0.4](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.0.3...@cenk1cenk2/oclif-common@6.0.4) (2023-11-01)
 
 
