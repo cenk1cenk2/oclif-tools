@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [6.0.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.0.2...@cenk1cenk2/oclif-common@6.0.3) (2023-11-01)
+
+
+### Bug Fixes
+
+* update to accept async ([2097d71](https://gitlab.kilic.dev/libraries/oclif-tools/commit/2097d71acd95189e5357a6cff530c43acc3ce72e))
+
 ## @cenk1cenk2/oclif-common [6.0.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.0.1...@cenk1cenk2/oclif-common@6.0.2) (2023-11-01)
 
 
