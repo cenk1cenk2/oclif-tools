@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common'
 import op from 'object-path-immutable'
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import type { CommonLockerData, LockableData, LockData, UnlockData, LockerServiceOptions } from './locker.interface'
+import type { CommonLockerData, LockData, LockableData, LockerServiceOptions, UnlockData } from './locker.interface'
 import { FileSystemService } from '@lib/fs'
 import { LoggerService } from '@lib/logger'
+import { ParserService } from '@lib/parser'
 import { merge } from '@utils'
 
 @Injectable()
@@ -16,6 +17,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   constructor (
     private readonly logger: LoggerService,
     private readonly fs: FileSystemService,
+    private readonly parser: ParserService,
     private readonly options: LockerServiceOptions
   ) {
     this.logger.setup(this.constructor.name)
@@ -147,12 +149,12 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   }
 
   public async read (): Promise<LockFile> {
-    return this.options.parser.parse(await this.fs.read(this.options.file))
+    return this.parser.fetch(this.options.parser).parse(await this.fs.read(this.options.file))
   }
 
   public async tryRead (): Promise<LockFile | undefined> {
     try {
-      return this.options.parser.parse(await this.fs.read(this.options.file))
+      return this.parser.fetch(this.options.parser).parse(await this.fs.read(this.options.file))
     } catch {
       this.logger.trace('Can not read lockfile: %s', this.options.file)
     }
@@ -165,7 +167,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
       return this.fs.remove(this.options.file)
     }
 
-    return this.fs.write(this.options.file, await this.options.parser.stringify(data))
+    return this.fs.write(this.options.file, await this.parser.fetch(this.options.parser).stringify(data))
   }
 
   private buildPath<T extends Partial<CommonLockerData>>(d: T): string[] {

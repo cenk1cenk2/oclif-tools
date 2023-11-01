@@ -1,5 +1,6 @@
 import type { InjectionToken } from '@nestjs/common'
 
+import type { ClassType } from '@interfaces'
 import type { GenericParser } from '@lib/parser'
 import type { MergeStrategy } from '@utils'
 
@@ -22,7 +23,7 @@ export interface UnlockData extends CommonLockerData {
 
 export interface LockerServiceOptions {
   file: string
-  parser: GenericParser
+  parser: ClassType<GenericParser>
   root?: string[]
   context?: string
   token?: InjectionToken
