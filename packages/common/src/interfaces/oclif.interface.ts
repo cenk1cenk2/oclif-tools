@@ -1,9 +1,7 @@
-import type { Command as BaseCommand } from '@oclif/core'
-import type { InferredFlags } from '@oclif/core/lib/interfaces'
+import type { Command, Interfaces } from '@oclif/core'
 
-export type InferFlags<T extends typeof BaseCommand> = InferredFlags<T['baseFlags'] & T['flags']>
-
-export type InferArgs<T extends typeof BaseCommand> = Record<keyof T['args'], string>
+export type InferFlags<T extends typeof Command> = Interfaces.InferredFlags<(typeof Command)['baseFlags'] & T['flags']>
+export type InferArgs<T extends typeof Command> = Interfaces.InferredArgs<T['args']>
 
 export type { Flag, InferredFlags } from '@oclif/core/lib/interfaces'
 export type { ArgInput, FlagInput, Arg } from '@oclif/core/lib/interfaces/parser'

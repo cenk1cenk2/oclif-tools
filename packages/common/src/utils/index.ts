@@ -1,7 +1,7 @@
-export * from './logger'
+export * from './defaults'
 export * from './environment'
+export * from './guards'
 export * from './merge.constants'
 export * from './merge'
-export * from './defaults'
 
 export { ux } from '@oclif/core'

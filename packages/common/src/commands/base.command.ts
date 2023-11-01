@@ -1,106 +1,61 @@
-import { Command as BaseCommand } from '@oclif/core'
+import { Manager } from '@listr2/manager'
+import type { INestApplicationContext } from '@nestjs/common'
+import { Command as BaseCommand, Flags } from '@oclif/core'
 import type { ExecaChildProcess } from 'execa'
-import type { ListrContext, ListrTaskWrapper, PromptOptions } from 'listr2'
-import { createPrompt, Manager } from 'listr2'
+import type { ListrContext, ListrTaskWrapper } from 'listr2'
 import { createInterface } from 'readline'
+
+import { HelpGroups } from '@constants'
+import type { InferArgs, InferFlags } from '@interfaces'
+import type { CliModuleOptions, PipeProcessToLoggerOptions } from '@lib'
+import { ConfigService, LogFieldStatus, LogLevels, LoggerService, LogoService, pipeProcessThroughListr, pipeProcessToLogger } from '@lib'
+import { CliModule } from '@lib/cli.module'
+import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
+import { isHookedWithRegister, isHookedWithShouldRunAfter, isHookedWithShouldRunBefore, setCtxAssign, setCtxDefaults } from '@utils'
 
 import 'reflect-metadata'
 
-import { CLI_FLAGS } from '@constants'
-import type { FlagInput, InferArgs, InferFlags } from '@interfaces'
-import { ConfigService, FileSystemService, StoreService, ValidatorService } from '@lib'
-import { ParserService } from '@lib/parser/parser.service'
-import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
-import { setCtxAssign, setCtxDefaults, ux } from '@utils'
-import type { PipeProcessToLoggerOptions } from '@utils/logger'
-import { pipeProcessThroughListr, LogFieldStatus, Logger, pipeProcessToLogger } from '@utils/logger'
-
-export class Command<
-  Ctx extends ListrContext = ListrContext,
-  Flags extends Record<PropertyKey, any> = InferFlags<typeof Command>,
-  Args extends Record<PropertyKey, any> = InferArgs<typeof Command>,
-  Store extends Record<PropertyKey, any> = Record<PropertyKey, any>
-> extends BaseCommand {
-  static get baseFlags (): FlagInput {
-    // eslint-disable-next-line no-underscore-dangle
-    return this._baseFlags
+export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand, Ctx extends ListrContext = ListrContext> extends BaseCommand {
+  static baseFlags = {
+    ['log-level']: Flags.string({
+      default: LogLevels.INFO,
+      env: 'LOG_LEVEL',
+      description: 'Set the log level of the application.',
+      options: Object.values(LogLevels).map((level) => level.toLowerCase()),
+      helpGroup: HelpGroups.CLI,
+      parse: async (input) => (input as string)?.toUpperCase() as unknown as LogLevels
+    }),
+    ci: Flags.boolean({
+      default: false,
+      hidden: true,
+      env: 'CI',
+      description: 'Instruct whether this is running the CI/CD configuration.',
+      helpGroup: HelpGroups.CLI
+    }),
+    json: Flags.boolean({
+      default: false,
+      hidden: true,
+      env: 'JSON',
+      description: 'Put the CLI to respond in JSON.',
+      helpGroup: HelpGroups.CLI
+    })
   }
+  public logger: LoggerService
+  public tasks: Manager<Ctx>
+  public app: INestApplicationContext
 
-  static set baseFlags (flags: FlagInput) {
-    // eslint-disable-next-line no-underscore-dangle
-    this._baseFlags = Object.assign(CLI_FLAGS, this.baseFlags, flags)
-    this.flags = {} // force the flags setter to run
-  }
-
-  public context: string
-  public logger: Logger
-  public tasks: Manager<Ctx, 'default' | 'verbose' | 'silent' | 'simple'>
-  public validator: ValidatorService
-  public cs: ConfigService
-  public parser: ParserService
-  public fs: FileSystemService
-  public store: StoreService<Store>
-
-  public flags: Flags = {} as Flags
-  public args: Args = {} as Args
-
-  /**
-   * Construct the class if you dont want to extend init or constructor.
-   */
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public shouldRunBefore (): void | Promise<void> {}
-
-  /**
-   * Deconstruct the class if you dont want to extend finally or catch.
-   */
-  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-  public shouldRunAfter (_ctx?: Ctx): void | Promise<void> {}
-
-  // make run non-abstract for other classes
-  public run (): Promise<any> {
-    throw new Error('The command should have a run function to do something!')
-  }
-
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  public async _run<T>(): Promise<T | undefined> {
-    this.constructor.prototype.baseFlags = {}
-
-    let result: T
-
-    try {
-      // remove redirected env var to allow subsessions to run autoupdated client
-      delete process.env[this.config.scopedEnvVarKey('REDIRECTED')]
-      await this.init()
-      result = await this.run()
-      await this.finally()
-    } catch (error: any) {
-      await this.catch(error, 127)
-    }
-
-    if (result && this.jsonEnabled()) {
-      ux.styledJSON(this.toSuccessJson(result))
-    }
-
-    return result
-  }
+  public flags!: InferFlags<T>
+  public args!: InferArgs<T>
 
   public exit (code?: number): never {
     this.logger.trace('Code -> %d', code, { status: LogFieldStatus.EXIT })
 
-    process.exit(code ?? 0)
+    super.exit(code ?? 0)
   }
 
   /** Run all tasks from task manager. */
   public runTasks<C extends Ctx = Ctx>(): Promise<C> {
     return this.tasks.runAll<C>()
-  }
-
-  /** Gets prompt from user. */
-  public prompt<T = any>(options: PromptOptions): Promise<T> {
-    return createPrompt(options, {
-      error: true,
-      stdout: process.stdout
-    })
   }
 
   protected setCtxDefaults<T extends Ctx = Ctx>(...defaults: SetCtxDefaultsOptions<T>[]): void {
@@ -119,63 +74,71 @@ export class Command<
     return pipeProcessToLogger(this.logger, instance, options)
   }
 
-  protected pipeProcessThroughListr (task: ListrTaskWrapper<any, any>, instance: ExecaChildProcess): ExecaChildProcess {
+  protected pipeProcessThroughListr (instance: ExecaChildProcess, task: ListrTaskWrapper<any, any, any>): ExecaChildProcess {
     return pipeProcessThroughListr(task, instance)
   }
 
   /** Initial functions / constructor */
   // can not override constructor, init function is defined by oclif
   protected async init (): Promise<void> {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this.constructor.flags = Object.assign({}, CLI_FLAGS, this.constructor.flags)
     await super.init()
 
     // do the initialization first then go ahead and throw if required
     let err: Error
 
     try {
-      const { flags, args } = await this.parse()
+      const { args, flags } = await this.parse({
+        flags: this.ctor.flags,
+        baseFlags: (super.ctor as typeof Command).baseFlags,
+        enableJsonFlag: this.ctor.enableJsonFlag,
+        args: this.ctor.args,
+        strict: this.ctor.strict
+      })
 
-      this.flags = flags as unknown as Flags
-      this.args = args as unknown as Args
+      this.flags = flags as InferFlags<T>
+      this.args = args as InferArgs<T>
     } catch (e: any) {
       err = e
     }
 
-    this.cs = new ConfigService(this.config, this.ctor, {
-      logLevel: this.flags['log-level'],
-      ci: this.flags.ci,
-      json: this.flags.json
-    })
+    const options: CliModuleOptions = {
+      config: {
+        oclif: this.config,
+        command: this.ctor,
+        config: {
+          logLevel: this.flags['log-level'],
+          isJson: this.flags.json
+        }
+      }
+    }
 
-    this.context = this.cs.command.id ? this.cs.command.id : this.cs.command.name
+    const cli = CliModule.forRoot(options)
 
-    this.logger = new Logger(null, { level: this.cs.logLevel })
+    this.app = await CliModule.create(isHookedWithRegister(this) ? this.register(cli, options) : cli)
 
-    this.store = new StoreService<Store>()
+    const cs = this.app.get(ConfigService)
 
-    this.greet()
+    this.logger = await this.app.resolve(LoggerService)
+
+    this.app.useLogger(this.logger)
+
+    this.app.get(LogoService).generate()
 
     if (err) {
       throw err
     }
 
-    this.logger.stage('Initiating services.')
-
-    this.parser = new ParserService()
-    this.fs = new FileSystemService()
-    this.validator = new ValidatorService()
+    this.logger.stage('Created application context.')
 
     // initiate manager
     this.tasks = new Manager({
-      fallbackRendererCondition: this.cs.isDebug,
-      silentRendererCondition: this.cs.isSilent,
+      fallbackRendererCondition: cs.isDebug,
+      silentRendererCondition: cs.isSilent || cs.isJson,
       ctx: {} as Ctx
     })
 
     // graceful terminate
-    if (this.cs.oclif.windows) {
+    if (cs.oclif.windows) {
       createInterface({
         input: process.stdin,
         output: process.stdout
@@ -194,37 +157,42 @@ export class Command<
     process.on('SIGINT', terminate)
     process.on('SIGTERM', terminate)
 
-    this.logger.stage('Running shouldRunBefore.')
-    await this.shouldRunBefore()
-    this.logger.stage('Finished shouldRunBefore.')
+    if (isHookedWithShouldRunBefore(this)) {
+      this.logger.stage('Running hook should-run-before.')
+      await this.shouldRunBefore()
+      this.logger.stage('Finished hook should-run-before.')
+    }
   }
 
   /** Tasks to run before end of the command. */
   protected async finally<C extends Ctx = Ctx>(): Promise<{ ctx: C }> {
-    // run anything in the task queue at the end
-    this.logger.stage('Running tasks.')
-    const ctx = await this.runTasks<C>()
+    let ctx: C
 
-    this.logger.stage('Finished tasks.')
+    if (this.tasks?.tasks?.length > 0) {
+      // run anything in the task queue at the end
+      this.logger.stage('Running tasks.')
 
-    this.logger.stage('Running shouldRunAfter.')
-    await this.shouldRunAfter(ctx)
-    this.logger.stage('Finished shouldRunAfter.')
+      ctx = await this.runTasks<C>()
+
+      this.logger.stage('Finished tasks.')
+    }
+
+    if (isHookedWithShouldRunAfter(this)) {
+      this.logger.stage('Running hook should-run-after.')
+      await this.shouldRunAfter(ctx)
+      this.logger.stage('Finished hook should-run-after.')
+    }
 
     return { ctx }
   }
 
   /** Catch any error occurred during command. */
   // catch all those errors, not verbose
-  protected catch (e: Error, exit?: number): Promise<void> {
-    // log the error
+  protected async catch (e: Error, exit?: number): Promise<void> {
     if (!this.logger) {
-      // eslint-disable-next-line no-console
-      console.error('Logger has not been initiated yet!')
-      // eslint-disable-next-line no-console
-      console.error(e.message)
-      // eslint-disable-next-line no-console
-      console.debug(e.stack)
+      this.app = await CliModule.create(CliModule.forMinimum())
+
+      this.logger = await this.app.resolve(LoggerService)
     }
 
     this.logger.fatal(e.message)
@@ -237,17 +205,5 @@ export class Command<
     return
   }
 
-  private greet (): void {
-    if (this.cs.isSilent || this.cs.json) {
-      return
-    }
-
-    const logo = this.store.get('logo') ?? `${this.cs.oclif.name} v${this.cs.oclif.version}`
-
-    this.logger.direct(logo)
-
-    if (!this.store.has('logo')) {
-      this.logger.direct('-'.repeat(logo.length))
-    }
-  }
+  public abstract run (): Promise<any>
 }

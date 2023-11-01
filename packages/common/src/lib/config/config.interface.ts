@@ -1,9 +1,10 @@
-import type { LogLevels } from '@utils/logger'
+import type { Command, Config } from '@oclif/core'
+
+import type { LogLevels } from '@lib'
 
 export interface GlobalConfig {
   logLevel: LogLevels
-  ci: boolean
-  json: boolean
+  isJson: boolean
 }
 
 export interface ConfigIterator {
@@ -11,4 +12,10 @@ export interface ConfigIterator {
   env: string
   parser?: string
   extensions?: ConfigIterator[]
+}
+
+export interface ConfigModuleOptions {
+  oclif?: Config
+  command?: typeof Command
+  config: GlobalConfig
 }

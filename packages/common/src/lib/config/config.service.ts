@@ -1,52 +1,53 @@
+import { Inject, Injectable } from '@nestjs/common'
+import type { Command, Config } from '@oclif/core'
 import op from 'object-path-immutable'
 import { join } from 'path'
 
-import { ConfigEnvKeys } from './config.constants'
-import type { ConfigIterator, GlobalConfig } from './config.interface'
-import type { Command } from '@commands/base.command'
+import { ConfigEnvKeys, TOKEN_CONFIG_MODULE_OPTIONS } from './config.constants'
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+import type { ConfigIterator, ConfigModuleOptions, GlobalConfig } from './config.interface'
 import { FileConstants } from '@constants'
 import type { LockableData } from '@lib/locker'
+import { LoggerService } from '@lib/logger'
 import { ParserService } from '@lib/parser/parser.service'
-import { isDebug, isSilent, isVerbose, merge, MergeStrategy } from '@utils'
-import type { LogLevels } from '@utils/logger'
-import { Logger } from '@utils/logger'
+import { MergeStrategy, isDebug, isSilent, isVerbose, merge } from '@utils'
 
-export class ConfigService implements GlobalConfig {
-  private static instance: ConfigService
+@Injectable()
+export class ConfigService {
   public defaults: string
   public root: string
-  public parser: ParserService
-  public logLevel: LogLevels
-  public isVerbose: boolean
-  public isDebug: boolean
-  public isSilent: boolean
-  public ci: boolean
-  public json: boolean
-  private logger: Logger
+  public config: GlobalConfig
+  public oclif: Config
+  public command: typeof Command
 
-  constructor (public oclif: Command['config'], public command: Command['ctor'], config: GlobalConfig) {
-    if (ConfigService.instance) {
-      // // config might be updated?
-      // if (Object.entries(config).some(([ key, value ]) => value !== ConfigService.instance[key])) {
-      //   ConfigService.instance.recalculate(config)
-      // }
+  constructor (
+    private readonly parser: ParserService,
+    private readonly logger: LoggerService,
+    @Inject(TOKEN_CONFIG_MODULE_OPTIONS) options: ConfigModuleOptions
+  ) {
+    this.root = options.oclif.root
+    this.defaults = join(options.oclif.root, FileConstants.CONFIG_SERVICE_DEFAULTS_DIR)
+    this.oclif = options.oclif
+    this.config = options.config
+    this.command = options.command
 
-      return ConfigService.instance
-    }
+    this.logger.setup(this.constructor.name)
+  }
 
-    this.root = this.oclif.root
-    this.defaults = join(this.oclif.root, FileConstants.CONFIG_SERVICE_DEFAULTS_DIR)
+  get isVerbose (): boolean {
+    return isVerbose(this.config.logLevel)
+  }
 
-    this.logger = new Logger(this.constructor.name, { level: config.logLevel })
+  get isDebug (): boolean {
+    return isDebug(this.config.logLevel)
+  }
 
-    Object.assign(this, config)
-    this.recalculate()
+  get isSilent (): boolean {
+    return isSilent(this.config.logLevel)
+  }
 
-    this.parser = new ParserService()
-
-    ConfigService.instance = this
-
-    this.logger.trace('Created a new instance.')
+  get isJson (): boolean {
+    return this.config.isJson
   }
 
   public async read<T extends LockableData = LockableData>(path: string): Promise<T> {
@@ -208,11 +209,5 @@ export class ConfigService implements GlobalConfig {
 
   public async write<T extends LockableData = LockableData>(path: string, data: T): Promise<void> {
     return this.parser.write(path, data)
-  }
-
-  private recalculate (): void {
-    this.isVerbose = isVerbose(this.logLevel)
-    this.isDebug = isDebug(this.logLevel)
-    this.isSilent = isSilent(this.logLevel)
   }
 }

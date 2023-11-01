@@ -1,24 +1,17 @@
+import { Injectable } from '@nestjs/common'
 import { EOL } from 'os'
 
-import type { GenericParser } from './parser.interface'
-import { Logger } from '@utils/logger'
+import type { GenericParser } from '../parser.interface'
+import { LoggerService } from '@lib/logger'
 
+@Injectable()
 export class EnvironmentVariableParser implements GenericParser {
   static extensions: string[] = [ 'env' ]
-  private static instance: EnvironmentVariableParser
-  private logger: Logger
-  private LINE = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/gm
 
-  constructor () {
-    if (EnvironmentVariableParser.instance) {
-      return EnvironmentVariableParser.instance
-    }
+  private readonly LINE = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/gm
 
-    EnvironmentVariableParser.instance = this
-
-    this.logger = new Logger(this.constructor.name)
-
-    this.logger.trace('Created a new instance.')
+  constructor (private readonly logger: LoggerService) {
+    this.logger.setup(this.constructor.name)
   }
 
   public parse<T = unknown>(data: string | Buffer): T {

@@ -1,36 +1,38 @@
+import { Injectable } from '@nestjs/common'
+import { ModuleRef } from '@nestjs/core'
 import { plainToClass } from 'class-transformer'
 import type { ValidationError } from 'class-validator'
 import { validate, validateSync } from 'class-validator'
 
+import { TOKEN_VALIDATOR_SERVICE_OPTIONS } from './validator.constants'
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import type { ValidatorServiceOptions } from './validator.interface'
-import type { ClassType } from '@interfaces/class.interface'
-import { Logger } from '@utils/logger'
+import type { ClassType } from '@interfaces'
+import { LoggerService } from '@lib/logger'
 
+@Injectable()
 export class ValidatorService {
-  private static instance: ValidatorService
-  private logger: Logger
+  private options: ValidatorServiceOptions
 
-  constructor (public options?: ValidatorServiceOptions) {
-    if (ValidatorService.instance) {
-      return ValidatorService.instance
+  constructor (
+    private readonly logger: LoggerService,
+    moduleRef: ModuleRef
+  ) {
+    this.logger.setup(this.constructor.name)
+
+    try {
+      this.options = moduleRef.get(TOKEN_VALIDATOR_SERVICE_OPTIONS, { strict: false })
+    } catch {
+      this.options = {
+        validator: {
+          skipMissingProperties: true,
+          whitelist: false,
+          always: true,
+          enableDebugMessages: true
+        },
+        transformer: { enableImplicitConversion: true }
+      }
     }
-
-    this.options = {
-      validator: {
-        skipMissingProperties: true,
-        whitelist: false,
-        always: true,
-        enableDebugMessages: true
-      },
-      transformer: { enableImplicitConversion: true },
-      ...options ?? {}
-    }
-
-    this.logger = new Logger(this.constructor.name)
-
-    ValidatorService.instance = this
-
-    this.logger.trace('Created a new instance.')
   }
 
   public async validate<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorServiceOptions): Promise<T> {
