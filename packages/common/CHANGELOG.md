@@ -1,3 +1,10 @@
+# @cenk1cenk2/oclif-common [6.2.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.1.0...@cenk1cenk2/oclif-common@6.2.0) (2023-11-01)
+
+
+### Features
+
+* how the parser is injected to locker ([e8c5c3d](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e8c5c3dbfb04942a51d13ceab72d33c773a43672))
+
 # @cenk1cenk2/oclif-common [6.1.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.0.4...@cenk1cenk2/oclif-common@6.1.0) (2023-11-01)
 
 
