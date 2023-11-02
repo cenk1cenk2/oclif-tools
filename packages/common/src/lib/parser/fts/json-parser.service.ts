@@ -5,7 +5,7 @@ import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class JsonParser implements GenericParser {
-  static extensions: string[] = [ 'json' ]
+  public readonly extensions: string[] = [ 'json' ]
 
   constructor (private readonly logger: LoggerService) {
     this.logger.setup(this.constructor.name)

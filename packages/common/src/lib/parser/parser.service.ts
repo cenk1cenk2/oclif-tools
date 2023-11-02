@@ -9,7 +9,6 @@ import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class ParserService {
-  private readonly parsers: ClassType<GenericParser>[] = []
   private readonly instances: GenericParser[] = []
 
   constructor (
@@ -22,13 +21,13 @@ export class ParserService {
 
   public byFt (file: string): GenericParser {
     const ext = (file.includes('.') ? this.fs.extname(file) : file).replace(/^\./, '')
-    const Parser = this.parsers.find((parser) => (parser as typeof GenericParser).extensions.includes(ext))
+    const Parser = this.instances.find((parser) => parser.constructor.extensions.includes(ext))
 
     if (!Parser) {
       throw new Error(`Parser for the extension is not configured: ${ext}`)
     }
 
-    return this.fetch(Parser)
+    return Parser
   }
 
   public fetch<T extends GenericParser>(Parser: ClassType<T>): T {
@@ -52,13 +51,11 @@ export class ParserService {
   }
 
   public async register (...parsers: ClassType<GenericParser>[]): Promise<void> {
-    this.parsers.push(...parsers)
-
     await Promise.all(parsers.map(async (parser) => this.inject(parser)))
 
     this.logger.trace(
       'Registered parsers: %o',
-      this.parsers.map((p) => p.name)
+      parsers.map((p) => p.name)
     )
   }
 
@@ -67,10 +64,10 @@ export class ParserService {
   }
 
   public async write<T = LockableData>(file: string, data: T): Promise<void> {
-    return this.fs.write(file, await this.stringify(file, data))
+    return this.fs.write(file, this.stringify(file, data))
   }
 
-  public async parse<T = unknown>(file: string, data: string | Buffer): Promise<T> {
+  public parse<T = unknown>(file: string, data: string | Buffer): T {
     const parser = this.byFt(file)
 
     this.logger.trace('Parsing file: %s -> %s', file, parser.constructor.name)
@@ -78,10 +75,26 @@ export class ParserService {
     return parser.parse<T>(data)
   }
 
-  public async stringify<T = any>(file: string, data: T): Promise<string> {
+  public parseWith<T = unknown>(Parser: ClassType<GenericParser>, data: string | Buffer): T {
+    const parser = this.fetch(Parser)
+
+    this.logger.trace('Parsing data with: %s', parser.constructor.name)
+
+    return parser.parse<T>(data)
+  }
+
+  public stringify<T = any>(file: string, data: T): string {
     const parser = this.byFt(file)
 
     this.logger.trace('Stringifying file: %s -> %s', file, parser.constructor.name)
+
+    return parser.stringify<T>(data)
+  }
+
+  public stringifyWith<T = any>(Parser: ClassType<GenericParser>, data: T): string {
+    const parser = this.fetch(Parser)
+
+    this.logger.trace('Stringifying data: %s', parser.constructor.name)
 
     return parser.stringify<T>(data)
   }

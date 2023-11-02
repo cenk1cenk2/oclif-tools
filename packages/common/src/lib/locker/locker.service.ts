@@ -167,7 +167,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
       return this.fs.remove(this.options.file)
     }
 
-    return this.fs.write(this.options.file, await this.parser.fetch(this.options.parser).stringify(data))
+    return this.fs.write(this.options.file, this.parser.fetch(this.options.parser).stringify(data))
   }
 
   private buildPath<T extends Partial<CommonLockerData>>(d: T): string[] {
