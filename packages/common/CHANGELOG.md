@@ -1,3 +1,11 @@
+## @cenk1cenk2/oclif-common [6.2.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.2.1...@cenk1cenk2/oclif-common@6.2.2) (2023-11-02)
+
+
+### Bug Fixes
+
+* errors ([52b6f0e](https://gitlab.kilic.dev/libraries/oclif-tools/commit/52b6f0e5e5410ffc6748e65914bb36bc4cec6bae))
+* node-fnm problems for rudi ([03ce474](https://gitlab.kilic.dev/libraries/oclif-tools/commit/03ce4746d125078a0e94cc3a1c2c6bf0d49e5c19))
+
 ## @cenk1cenk2/oclif-common [6.2.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.2.0...@cenk1cenk2/oclif-common@6.2.1) (2023-11-01)
 
 
