@@ -63,7 +63,7 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^3.9.2
+        specifier: ^3.10.0
         version: 3.10.0(typescript@5.2.2)
       '@oclif/plugin-help':
         specifier: ^6.0.5
@@ -145,10 +145,10 @@ importers:
   packages/common:
     dependencies:
       '@nestjs/common':
-        specifier: ^10.2.7
+        specifier: ^10.2.8
         version: 10.2.8(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/core':
-        specifier: ^10.2.7
+        specifier: ^10.2.8
         version: 10.2.8(@nestjs/common@10.2.8)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       deepmerge:
         specifier: ^4.3.1
