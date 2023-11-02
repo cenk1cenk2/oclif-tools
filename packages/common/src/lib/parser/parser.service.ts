@@ -21,7 +21,7 @@ export class ParserService {
 
   public byFt (file: string): GenericParser {
     const ext = (file.includes('.') ? this.fs.extname(file) : file).replace(/^\./, '')
-    const Parser = this.instances.find((parser) => parser.constructor.extensions.includes(ext))
+    const Parser = this.instances.find((parser) => parser.extensions.includes(ext))
 
     if (!Parser) {
       throw new Error(`Parser for the extension is not configured: ${ext}`)

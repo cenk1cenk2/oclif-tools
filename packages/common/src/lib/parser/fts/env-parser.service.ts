@@ -6,7 +6,7 @@ import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class EnvironmentVariableParser implements GenericParser {
-  static extensions: string[] = [ 'env' ]
+  public readonly extensions: string[] = [ 'env' ]
 
   private readonly LINE = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/gm
 
