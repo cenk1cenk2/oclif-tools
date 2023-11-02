@@ -64,13 +64,13 @@ importers:
         version: link:../packages/common
       '@oclif/core':
         specifier: ^3.9.2
-        version: 3.9.2
+        version: 3.10.0(typescript@5.2.2)
       '@oclif/plugin-help':
         specifier: ^6.0.5
-        version: 6.0.5
+        version: 6.0.5(typescript@5.2.2)
       '@oclif/plugin-plugins':
         specifier: ^4.0.2
-        version: 4.0.2
+        version: 4.0.2(typescript@5.2.2)
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -146,10 +146,10 @@ importers:
     dependencies:
       '@nestjs/common':
         specifier: ^10.2.7
-        version: 10.2.7(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+        version: 10.2.8(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/core':
         specifier: ^10.2.7
-        version: 10.2.7(@nestjs/common@10.2.7)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+        version: 10.2.8(@nestjs/common@10.2.8)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -771,8 +771,8 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /@nestjs/common@10.2.7(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1):
-    resolution: {integrity: sha512-cUtCRXiUstDmh4bSBhVbq4cI439Gngp4LgLGLBmd5dqFQodfXKnSD441ldYfFiLz4rbUsnoMJz/8ZjuIEI+B7A==}
+  /@nestjs/common@10.2.8(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+    resolution: {integrity: sha512-rmpwcdvq2IWMmsUVP8rsdKub6uDWk7dwCYo0aif50JTwcvcxzaP3iKVFKoSgvp0RKYu8h15+/AEOfaInmPpl0Q==}
     peerDependencies:
       class-transformer: '*'
       class-validator: '*'
@@ -793,8 +793,8 @@ packages:
       uid: 2.0.2
     dev: false
 
-  /@nestjs/core@10.2.7(@nestjs/common@10.2.7)(reflect-metadata@0.1.13)(rxjs@7.8.1):
-    resolution: {integrity: sha512-5GSu53QUUcwX17sNmlJPa1I0wIeAZOKbedyVuQx0ZAwWVa9g0wJBbsNP+R4EJ+j5Dkdzt/8xkiZvnKt8RFRR8g==}
+  /@nestjs/core@10.2.8(@nestjs/common@10.2.8)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+    resolution: {integrity: sha512-9+MZ2s8ixfY9Bl/M9ofChiyYymcwdK9ZWNH4GDMF7Am7XRAQ1oqde6MYGG05rhQwiVXuTwaYLlXciJKfsrg5qg==}
     requiresBuild: true
     peerDependencies:
       '@nestjs/common': ^10.0.0
@@ -811,7 +811,7 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 10.2.7(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      '@nestjs/common': 10.2.8(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
       iterare: 1.2.1
@@ -1137,37 +1137,6 @@ packages:
       wrap-ansi: 7.0.0
     transitivePeerDependencies:
       - typescript
-    dev: true
-
-  /@oclif/core@3.9.2:
-    resolution: {integrity: sha512-fDygnFqh2KXn/IDquhypZSP7Q2V071WgRswq8cgli5uw6RzS4Uyj/7EkijboiAo7H+bRFxN0PdgGQHGyAoc+XQ==}
-    engines: {node: '>=18.0.0'}
-    dependencies:
-      ansi-escapes: 4.3.2
-      ansi-styles: 4.3.0
-      cardinal: 2.1.1
-      chalk: 4.1.2
-      clean-stack: 3.0.1
-      cli-progress: 3.12.0
-      debug: 4.3.4(supports-color@8.1.1)
-      ejs: 3.1.9
-      get-package-type: 0.1.0
-      globby: 11.1.0
-      hyperlinker: 1.0.0
-      indent-string: 4.0.0
-      is-wsl: 2.2.0
-      js-yaml: 3.14.1
-      natural-orderby: 2.0.3
-      object-treeify: 1.1.33
-      password-prompt: 1.1.3
-      slice-ansi: 4.0.0
-      string-width: 4.2.3
-      strip-ansi: 6.0.1
-      supports-color: 8.1.1
-      supports-hyperlinks: 2.3.0
-      widest-line: 3.1.0
-      wordwrap: 1.0.0
-      wrap-ansi: 7.0.0
 
   /@oclif/plugin-help@5.2.20(@swc/core@1.3.95)(@types/node@20.8.10)(typescript@5.2.2):
     resolution: {integrity: sha512-u+GXX/KAGL9S10LxAwNUaWdzbEBARJ92ogmM7g3gDVud2HioCmvWQCDohNRVZ9GYV9oKwZ/M8xwd6a1d95rEKQ==}
@@ -1181,11 +1150,13 @@ packages:
       - typescript
     dev: true
 
-  /@oclif/plugin-help@6.0.5:
+  /@oclif/plugin-help@6.0.5(typescript@5.2.2):
     resolution: {integrity: sha512-PnwmnpNGE3y7zZBKMH7Le+iFKuvKViO1lboJbz8BEhM+XXvTDkIJ1TYFlETMHzK+KSB2JyFCJmqn2AnAKSyTKA==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@oclif/core': 3.9.2
+      '@oclif/core': 3.10.0(typescript@5.2.2)
+    transitivePeerDependencies:
+      - typescript
     dev: false
 
   /@oclif/plugin-not-found@2.4.3(@swc/core@1.3.95)(@types/node@20.8.10)(typescript@5.2.2):
@@ -1202,11 +1173,11 @@ packages:
       - typescript
     dev: true
 
-  /@oclif/plugin-plugins@4.0.2:
+  /@oclif/plugin-plugins@4.0.2(typescript@5.2.2):
     resolution: {integrity: sha512-Pc+EqLYmD6PZwKufmv6yMgfsxwWwqnogLRsovgt3NhozVL/YiC0OQUfIZA1wc1LdF6ACikykc/wtqHca41igOQ==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@oclif/core': 3.9.2
+      '@oclif/core': 3.10.0(typescript@5.2.2)
       chalk: 5.3.0
       debug: 4.3.4(supports-color@8.1.1)
       npm: 9.8.1
@@ -1217,6 +1188,7 @@ packages:
       yarn: 1.22.19
     transitivePeerDependencies:
       - supports-color
+      - typescript
     dev: false
 
   /@oclif/plugin-warn-if-update-available@3.0.2(typescript@5.2.2):
@@ -2134,8 +2106,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /aws-sdk@2.1486.0:
-    resolution: {integrity: sha512-YVGhKGWP5mHWIla6/a7MXwHyKrjcy2xIo65Z6rCvG2uxVa3NxGz4Wo7yNRqA8QGCS6buYz9MmRJLv2KOtkb7JQ==}
+  /aws-sdk@2.1487.0:
+    resolution: {integrity: sha512-EqDn+beJU0pfANLdg8mh7OER5TH2W6DgZ78WWWgt9fOwczhJQYkQhqevSlCV700vtHtatRjYPG+Q47f5aurZVQ==}
     engines: {node: '>= 10.0.0'}
     dependencies:
       buffer: 4.9.2
@@ -5652,12 +5624,12 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
-      '@oclif/core': 3.9.2
+      '@oclif/core': 3.10.0(typescript@5.2.2)
       '@oclif/plugin-help': 5.2.20(@swc/core@1.3.95)(@types/node@20.8.10)(typescript@5.2.2)
       '@oclif/plugin-not-found': 2.4.3(@swc/core@1.3.95)(@types/node@20.8.10)(typescript@5.2.2)
       '@oclif/plugin-warn-if-update-available': 3.0.2(typescript@5.2.2)
       async-retry: 1.3.3
-      aws-sdk: 2.1486.0
+      aws-sdk: 2.1487.0
       change-case: 4.1.2
       debug: 4.3.4(supports-color@8.1.1)
       eslint-plugin-perfectionist: 2.2.0(eslint@8.52.0)(typescript@5.2.2)
@@ -7075,7 +7047,6 @@ packages:
         optional: true
     dependencies:
       typescript: 5.2.2
-    dev: true
 
   /tsconfig-paths@3.14.2:
     resolution: {integrity: sha512-o/9iXgCYc5L/JxCHPe3Hvh8Q/2xm5Z+p18PESBU6Ff33695QnCHBEjcytY2q19ua7Mbl/DavtBOLq+oG0RCL+g==}
@@ -7326,7 +7297,6 @@ packages:
     resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
   /uglify-js@3.17.4:
     resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
