@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [6.2.4](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.2.3...@cenk1cenk2/oclif-common@6.2.4) (2023-11-05)
+
+
+### Bug Fixes
+
+* update sometypings ([6b7278b](https://gitlab.kilic.dev/libraries/oclif-tools/commit/6b7278b0a7c55e08d1d5b8b26d8a81b7e9f01099))
+
 ## @cenk1cenk2/oclif-common [6.2.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.2.2...@cenk1cenk2/oclif-common@6.2.3) (2023-11-05)
 
 
