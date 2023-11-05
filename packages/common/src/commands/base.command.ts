@@ -188,7 +188,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
 
   /** Catch any error occurred during command. */
   // catch all those errors, not verbose
-  protected async catch (e: Error, exit?: number): Promise<void> {
+  protected async catch (e: Error, exit?: number): Promise<never> {
     if (!this.logger) {
       this.app = await CliModule.create(CliModule.forMinimum())
 
@@ -198,11 +198,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     this.logger.fatal(e.message)
     this.logger.debug(e.stack, { context: 'crash' })
 
-    if (exit > 0) {
-      this.exit(exit)
-    }
-
-    return
+    this.exit(exit ?? 1)
   }
 
   public abstract run (): Promise<any>
