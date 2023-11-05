@@ -69,6 +69,9 @@ export class ValidatorService {
 
   private logValidationError (err: ValidationError): void {
     this.logger.error('Field "%s" failed validation with value "%s": %o', err.property, err.value, err.constraints)
-    err.children.forEach((children) => this.logValidationError(children))
+
+    if (err.children) {
+      err.children.forEach((children) => this.logValidationError(children))
+    }
   }
 }
