@@ -23,7 +23,10 @@ export class LogoService {
           return
         }
 
-        this.write(this.cs.oclif.name, 'v' + this.cs.oclif.version)
+        const logo = this.cs.oclif.name + ' ' + 'v' + this.cs.oclif.version
+
+        this.write(logo)
+        this.write('-'.repeat(logo.length))
       }
     }
   }

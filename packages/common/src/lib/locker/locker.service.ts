@@ -31,7 +31,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return this.toUnlock.length > 0
   }
 
-  public addLock<T extends LockableData = LockableData>(...data: LockData<T>[]): void {
+  public addLock<T extends LockableData = LockFile>(...data: LockData<T>[]): void {
     this.toLock = [ ...this.toLock, ...data ]
   }
 
@@ -60,7 +60,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     await this.lockAll()
   }
 
-  public async lock<T extends LockableData = LockableData>(...data: LockData<T>[]): Promise<void> {
+  public async lock<T extends LockableData = LockFile>(...data: LockData<T>[]): Promise<void> {
     let lock: LockFile = await this.tryRead() ?? ({} as LockFile)
 
     data.forEach((d) => {
