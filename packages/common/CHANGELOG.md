@@ -1,3 +1,11 @@
+## @cenk1cenk2/oclif-common [6.2.6](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.2.5...@cenk1cenk2/oclif-common@6.2.6) (2023-11-05)
+
+
+### Bug Fixes
+
+* update ([29c8fbf](https://gitlab.kilic.dev/libraries/oclif-tools/commit/29c8fbf122e736ad9729e088a408a53a79b3da54))
+* **validator:** add children ([6ec31bd](https://gitlab.kilic.dev/libraries/oclif-tools/commit/6ec31bdebb6b91d5fedc675c91341ceb8f9004eb))
+
 ## @cenk1cenk2/oclif-common [6.2.5](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.2.4...@cenk1cenk2/oclif-common@6.2.5) (2023-11-05)
 
 
