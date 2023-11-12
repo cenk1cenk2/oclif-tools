@@ -67,7 +67,7 @@ importers:
         version: 3.10.8(typescript@5.2.2)
       '@oclif/plugin-help':
         specifier: ^6.0.5
-        version: 6.0.5(typescript@5.2.2)
+        version: 6.0.6(typescript@5.2.2)
       '@oclif/plugin-plugins':
         specifier: ^4.1.5
         version: 4.1.5(typescript@5.2.2)
@@ -357,8 +357,8 @@ packages:
     dev: true
     optional: true
 
-  /@commitlint/load@18.4.0(typescript@5.2.2):
-    resolution: {integrity: sha512-7unGl1HGRNMgWrUPmj8OFkJyuNUMb6xA1i53/OAFKd9l+U3C4WTfoJe3t/TUz8vKZLCaDcWWR/b2cw5HveBBFg==}
+  /@commitlint/load@18.4.1(typescript@5.2.2):
+    resolution: {integrity: sha512-o/plBiPJQgbSq/4ipDpsq4HCmURjBAEjr1EO/p2falr3VhwV0WGXTvb8NlihgI8xtSyO6lHvtycrE535GMLQbA==}
     engines: {node: '>=v18'}
     requiresBuild: true
     dependencies:
@@ -1150,8 +1150,8 @@ packages:
       - typescript
     dev: true
 
-  /@oclif/plugin-help@6.0.5(typescript@5.2.2):
-    resolution: {integrity: sha512-PnwmnpNGE3y7zZBKMH7Le+iFKuvKViO1lboJbz8BEhM+XXvTDkIJ1TYFlETMHzK+KSB2JyFCJmqn2AnAKSyTKA==}
+  /@oclif/plugin-help@6.0.6(typescript@5.2.2):
+    resolution: {integrity: sha512-MBk0147mpub3NXKTqchjXon4ufhz8keDv9u2IlVKg4MfZSDesljEckot+MCgtDl5k24jCMubrkJQId1g5Ay70w==}
     engines: {node: '>=18.0.0'}
     dependencies:
       '@oclif/core': 3.10.8(typescript@5.2.2)
@@ -2794,7 +2794,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      '@commitlint/load': 18.4.0(typescript@5.2.2)
+      '@commitlint/load': 18.4.1(typescript@5.2.2)
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -4253,7 +4253,6 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
-    requiresBuild: true
     dev: true
 
   /is-arrayish@0.3.2:
