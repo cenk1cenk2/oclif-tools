@@ -30,7 +30,7 @@ importers:
         specifier: ^2.29.0
         version: 2.29.0(@typescript-eslint/parser@6.10.0)(eslint@8.53.0)
       lint-staged:
-        specifier: ^15.0.2
+        specifier: ^15.1.0
         version: 15.1.0
       prettier:
         specifier: ^3.0.3
@@ -97,7 +97,7 @@ importers:
         specifier: ^11.0.4
         version: 11.0.4
       '@types/node':
-        specifier: ^20.8.10
+        specifier: ^20.9.0
         version: 20.9.0
       commitizen:
         specifier: ^4.3.0
@@ -115,7 +115,7 @@ importers:
         specifier: ^13.2.2
         version: 13.2.2
       lint-staged:
-        specifier: ^15.0.2
+        specifier: ^15.1.0
         version: 15.1.0
       oclif:
         specifier: ^4.0.3
@@ -4253,6 +4253,7 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    requiresBuild: true
     dev: true
 
   /is-arrayish@0.3.2:
