@@ -63,13 +63,13 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^3.10.8
+        specifier: ^3.11.0
         version: 3.11.0(typescript@5.2.2)
       '@oclif/plugin-help':
         specifier: ^6.0.6
         version: 6.0.6(typescript@5.2.2)
       '@oclif/plugin-plugins':
-        specifier: ^4.1.5
+        specifier: ^4.1.7
         version: 4.1.7(typescript@5.2.2)
       class-transformer:
         specifier: ^0.5.1
@@ -4253,6 +4253,7 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    requiresBuild: true
     dev: true
 
   /is-arrayish@0.3.2:
