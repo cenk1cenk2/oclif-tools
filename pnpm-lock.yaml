@@ -179,8 +179,8 @@ importers:
         specifier: ^0.0.33
         version: 0.0.33
       '@types/update-notifier':
-        specifier: ^6.0.7
-        version: 6.0.7
+        specifier: ^6.0.8
+        version: 6.0.8
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -1679,8 +1679,8 @@ packages:
     resolution: {integrity: sha512-6WaYesThRMCl19iryMYP7/x2OVgCtbIVflDGFpWnb9irXI3UjYE4AzmYuiUKY1AJstGijoY+MgUszMgRxIYTYw==}
     dev: false
 
-  /@types/update-notifier@6.0.7:
-    resolution: {integrity: sha512-nJuO9aZYKVzOEsjkmcLl86YqnJghl3MOukTObamkdKUvWz608gvNpG6U3E7rqnkxeVq4/KjbX+URe+FA5SFU7A==}
+  /@types/update-notifier@6.0.8:
+    resolution: {integrity: sha512-IlDFnfSVfYQD+cKIg63DEXn3RFmd7W1iYtKQsJodcHK9R1yr8aKbKaPKfBxzPpcHCq2DU8zUq4PIPmy19Thjfg==}
     dependencies:
       '@types/configstore': 6.0.2
       boxen: 7.1.1
@@ -4253,6 +4253,7 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    requiresBuild: true
     dev: true
 
   /is-arrayish@0.3.2:
