@@ -73,7 +73,7 @@
     "@oclif/core": "^3.11.0",
     "@types/fs-extra": "^11.0.4",
     "@types/through": "^0.0.33",
-    "@types/update-notifier": "^6.0.7",
+    "@types/update-notifier": "^6.0.8",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "enquirer": "^2.4.1",
