@@ -145,11 +145,11 @@ importers:
   packages/common:
     dependencies:
       '@nestjs/common':
-        specifier: ^10.2.8
-        version: 10.2.8(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+        specifier: ^10.2.9
+        version: 10.2.9(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/core':
-        specifier: ^10.2.8
-        version: 10.2.8(@nestjs/common@10.2.8)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+        specifier: ^10.2.9
+        version: 10.2.9(@nestjs/common@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -771,8 +771,8 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /@nestjs/common@10.2.8(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1):
-    resolution: {integrity: sha512-rmpwcdvq2IWMmsUVP8rsdKub6uDWk7dwCYo0aif50JTwcvcxzaP3iKVFKoSgvp0RKYu8h15+/AEOfaInmPpl0Q==}
+  /@nestjs/common@10.2.9(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+    resolution: {integrity: sha512-i7vb2zMLJUDIPqjfBhMkgIITK1AnKDkFYSsM+aaRHpNa9xv/CwsiQuINaXfzStMpnwjkq5FDE3aoF0wkTfD2cQ==}
     peerDependencies:
       class-transformer: '*'
       class-validator: '*'
@@ -793,8 +793,8 @@ packages:
       uid: 2.0.2
     dev: false
 
-  /@nestjs/core@10.2.8(@nestjs/common@10.2.8)(reflect-metadata@0.1.13)(rxjs@7.8.1):
-    resolution: {integrity: sha512-9+MZ2s8ixfY9Bl/M9ofChiyYymcwdK9ZWNH4GDMF7Am7XRAQ1oqde6MYGG05rhQwiVXuTwaYLlXciJKfsrg5qg==}
+  /@nestjs/core@10.2.9(@nestjs/common@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+    resolution: {integrity: sha512-Hl6HC9hR7JD3YmzwcveBKeydaq9cguEsMdEghzLuVH3VEH0M+bTFHjCIKhsxMez4/O7/K6n3EhNx1Et4Z+BqWg==}
     requiresBuild: true
     peerDependencies:
       '@nestjs/common': ^10.0.0
@@ -811,7 +811,7 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 10.2.8(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      '@nestjs/common': 10.2.9(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
       iterare: 1.2.1
@@ -4349,6 +4349,7 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    requiresBuild: true
     dev: true
 
   /is-arrayish@0.3.2:
