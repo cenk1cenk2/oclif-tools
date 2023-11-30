@@ -170,8 +170,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       '@oclif/core':
-        specifier: ^3.13.0
-        version: 3.13.0(typescript@5.3.2)
+        specifier: ^3.13.1
+        version: 3.13.1(typescript@5.3.2)
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -1139,8 +1139,8 @@ packages:
     transitivePeerDependencies:
       - typescript
 
-  /@oclif/core@3.13.0(typescript@5.3.2):
-    resolution: {integrity: sha512-G4zicsAH3k4uFHa5yNVBvbtDUK+6lee26w75yQX2ElUJc5JvECMdOEea8PIz0WnHSNE3aXuj5IXf936EUy38/Q==}
+  /@oclif/core@3.13.1(typescript@5.3.2):
+    resolution: {integrity: sha512-bpnF6BL+j7D0k0T+dZ4g7LwcZzctCoKjIYm8zcSNgrItS2pgIlvsRf8SdkGNu6djzRD7vzM657ZO9fWU6goz0g==}
     engines: {node: '>=18.0.0'}
     dependencies:
       ansi-escapes: 4.3.2
@@ -1231,7 +1231,7 @@ packages:
     resolution: {integrity: sha512-IyEvsyJqwscLgA9QVec48YfNNuES8cN+H2mPSb86hpxPUPINaJeAL/0mOsRi+JSiCWK1dleRdRn98S8+IehvgA==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@oclif/core': 3.13.0(typescript@5.3.2)
+      '@oclif/core': 3.13.1(typescript@5.3.2)
       chalk: 5.3.0
       debug: 4.3.4(supports-color@8.1.1)
       http-call: 5.3.0
