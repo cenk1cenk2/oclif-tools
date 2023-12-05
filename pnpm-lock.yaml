@@ -69,8 +69,8 @@ importers:
         specifier: ^6.0.7
         version: 6.0.7(typescript@5.3.2)
       '@oclif/plugin-plugins':
-        specifier: ^4.1.8
-        version: 4.1.8(typescript@5.3.2)
+        specifier: ^4.1.9
+        version: 4.1.9(typescript@5.3.2)
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -1174,14 +1174,14 @@ packages:
       - typescript
     dev: true
 
-  /@oclif/plugin-plugins@4.1.8(typescript@5.3.2):
-    resolution: {integrity: sha512-sowXVWJyUALqzB2tekGtB9gnKANfSL2Gy5ov9ZliqVj7jU643JH3n4g7j5sDEziR6rQ14/ZMiyDwbweeSWb9gQ==}
+  /@oclif/plugin-plugins@4.1.9(typescript@5.3.2):
+    resolution: {integrity: sha512-7FS6LGkZXe8XSlDE3DCdnzVexXSdfLmNtNqKjYdxS6oBKuKsOplvkQy9ptB0rlKkOTlar3tr/5W97dfDZYEpVA==}
     engines: {node: '>=18.0.0'}
     dependencies:
       '@oclif/core': 3.13.2(typescript@5.3.2)
       chalk: 5.3.0
       debug: 4.3.4(supports-color@8.1.1)
-      npm: 9.9.1
+      npm: 10.2.3
       npm-run-path: 4.0.1
       semver: 7.5.4
       shelljs: 0.8.5
@@ -5603,9 +5603,9 @@ packages:
       path-key: 4.0.0
     dev: true
 
-  /npm@9.9.1:
-    resolution: {integrity: sha512-D3YZ1ZTxPGDHLLiFU9q3sVrPfYnn6BaJ1hogm3vdWi8oOmHGtTlPUPXAM0iG22UT0JRkBnMDOh6oUhpbEYgg2A==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+  /npm@10.2.3:
+    resolution: {integrity: sha512-GbUui/rHTl0mW8HhJSn4A0Xg89yCR3I9otgJT1i0z1QBPOVlgbh6rlcUTpHT8Gut9O1SJjWRUU0nEcAymhG2tQ==}
+    engines: {node: ^18.17.0 || >=20.5.0}
     hasBin: true
     dev: false
     bundledDependencies:
@@ -5617,6 +5617,7 @@ packages:
       - '@npmcli/package-json'
       - '@npmcli/promise-spawn'
       - '@npmcli/run-script'
+      - '@sigstore/tuf'
       - abbrev
       - archy
       - cacache
@@ -5668,9 +5669,9 @@ packages:
       - qrcode-terminal
       - read
       - semver
-      - sigstore
       - spdx-expression-parse
       - ssri
+      - strip-ansi
       - supports-color
       - tar
       - text-table
