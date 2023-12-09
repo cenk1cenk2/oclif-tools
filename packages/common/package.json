@@ -19,7 +19,7 @@
     "access": "public"
   },
   "engines": {
-    "node": ">= 16"
+    "node": ">= 20.10.0"
   },
   "scripts": {
     "build": "tsup-node",
