@@ -167,8 +167,8 @@ importers:
         version: 3.11.0
     devDependencies:
       '@listr2/manager':
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^2.0.0
+        version: 2.0.0
       '@oclif/core':
         specifier: ^3.14.1
         version: 3.14.1(typescript@5.3.3)
@@ -752,9 +752,9 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@listr2/manager@1.0.2:
-    resolution: {integrity: sha512-JNHWA86M++N7eq8DICpIDu5vGZYMEUSvHaDWZB8ntR/uaQk4Cec/ub+4DWx0N8Hdj3O3JZYrEChGDwD/PzT5Vg==}
-    engines: {node: '>=16.0.0'}
+  /@listr2/manager@2.0.0:
+    resolution: {integrity: sha512-W2Ns0uLicB9b/HUgtZzl30vZ2/uiNJvGz2gqgsX8PHmVyLsAlBV4QpQVrEFcscYQA52p/RpNjC2qpoR4HePOew==}
+    engines: {node: '>=18.0.0'}
     dev: true
 
   /@listr2/prompt-adapter-enquirer@1.0.2(enquirer@2.4.1):
