@@ -110,11 +110,13 @@ export class LockerService<LockFile extends LockableData = LockableData> {
         // set lock data
         lock = this.op.set(lock, path, parsed)
         this.logger.verbose('Merge lock: %s -> %o', path, d.data)
-      } else {
-        // dont merge directly set the data
-        lock = this.op.set(lock, path, d.data)
-        this.logger.verbose('Override lock: %s -> %o', path, d.data)
+
+        return
       }
+
+      // dont merge directly set the data
+      lock = this.op.set(lock, path, d.data)
+      this.logger.verbose('Override lock: %s -> %o', path, d.data)
     })
 
     return lock
