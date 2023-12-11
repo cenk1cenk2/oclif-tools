@@ -165,8 +165,12 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
   }
 
   /** Tasks to run before end of the command. */
-  protected async finally<C extends Ctx = Ctx>(): Promise<{ ctx: C }> {
+  protected async finally<C extends Ctx = Ctx>(err: Error | undefined): Promise<{ ctx: C }> {
     let ctx: C
+
+    if (err) {
+      return { ctx }
+    }
 
     if (this.tasks?.tasks?.length > 0) {
       // run anything in the task queue at the end
