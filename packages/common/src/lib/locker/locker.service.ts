@@ -39,6 +39,14 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     this.toUnlock = [ ...this.toUnlock, ...data ]
   }
 
+  public async applyLockAll<T extends LockableData = LockFile>(lock: T): Promise<T> {
+    if (this.hasLock()) {
+      return this.applyLock(lock, ...this.toLock)
+    }
+
+    return lock
+  }
+
   public async lockAll (): Promise<void> {
     if (this.hasLock()) {
       await this.lock(...this.toLock)
@@ -47,8 +55,16 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     }
   }
 
+  public async applyUnlockAll<T extends LockableData = LockFile>(lock: T): Promise<T> {
+    if (this.hasUnlock()) {
+      return this.applyUnlock(lock, ...this.toUnlock)
+    }
+
+    return lock
+  }
+
   public async unlockAll (): Promise<void> {
-    if (this.toUnlock.length > 0) {
+    if (this.hasUnlock()) {
       await this.unlock(...this.toUnlock)
 
       this.toUnlock = []
@@ -60,9 +76,14 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     await this.lockAll()
   }
 
-  public async lock<T extends LockableData = LockFile>(...data: LockData<T>[]): Promise<void> {
-    let lock: LockFile = await this.tryRead() ?? ({} as LockFile)
+  public async applyAll<T extends LockableData = LockFile>(lock: T): Promise<T> {
+    lock = await this.applyUnlockAll(lock)
+    lock = await this.applyLockAll(lock)
 
+    return lock
+  }
+
+  public async applyLock<T extends LockableData = LockFile>(lock: T, ...data: LockData<T>[]): Promise<T> {
     data.forEach((d) => {
       // enabled flag for not if checking every time
       if (d?.enabled === false) {
@@ -96,18 +117,21 @@ export class LockerService<LockFile extends LockableData = LockableData> {
       }
     })
 
-    // write data
-    await this.write(lock)
+    return lock
   }
 
-  public async unlock (...data: UnlockData[]): Promise<void> {
-    // get lock file
-    let lock = await this.tryRead()
+  public async lock<T extends LockableData = LockFile>(...data: LockData<T>[]): Promise<T> {
+    const lock = this.applyLock(await this.tryRead<T>() ?? ({} as T), ...data)
 
     // write data
-    if (!lock) {
-      this.logger.verbose('Lock file not found. Nothing to unlock.')
+    await this.write(lock)
 
+    return lock
+  }
+
+  public async applyUnlock<T extends LockableData = LockFile>(lock: T, ...data: UnlockData[]): Promise<T | undefined> {
+    // write data
+    if (!lock) {
       return
     }
 
@@ -143,16 +167,28 @@ export class LockerService<LockFile extends LockableData = LockableData> {
       lock = op.del(lock, this.options.root)
       this.logger.verbose('Unlocked module: %s', this.options.root)
     }
-
-    // write data
-    await this.write(lock ?? ({} as LockFile))
   }
 
-  public async read (): Promise<LockFile> {
+  public async unlock<T extends LockableData = LockFile>(...data: UnlockData[]): Promise<T | undefined> {
+    const lock = await this.applyUnlock(await this.tryRead<T>(), ...data)
+
+    if (!lock) {
+      this.logger.verbose('Lock file not found. Nothing to unlock.')
+
+      return
+    }
+
+    // write data
+    await this.write(lock)
+
+    return lock
+  }
+
+  public async read<T extends LockableData = LockFile>(): Promise<T> {
     return this.parser.fetch(this.options.parser).parse(await this.fs.read(this.options.file))
   }
 
-  public async tryRead (): Promise<LockFile | undefined> {
+  public async tryRead<T extends LockableData = LockFile>(): Promise<T | undefined> {
     try {
       return this.parser.fetch(this.options.parser).parse(await this.fs.read(this.options.file))
     } catch {
@@ -160,7 +196,15 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     }
   }
 
-  public async write (data: LockFile): Promise<void> {
+  public async tryRemove (): Promise<void> {
+    try {
+      await this.fs.remove(this.options.file)
+    } catch {
+      this.logger.trace('Can not remove lockfile: %s', this.options.file)
+    }
+  }
+
+  public async write<T extends LockableData = LockFile>(data: T): Promise<void> {
     if (!data || Array.isArray(data) && data.length === 0 || typeof data === 'object' && Object.keys(data).length === 0) {
       this.logger.trace('Trying to write empty lock file, deleting it instead: %s', this.options.file)
 
