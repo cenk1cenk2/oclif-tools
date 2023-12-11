@@ -31,7 +31,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return this.toUnlock.length > 0
   }
 
-  public addLock<T extends LockableData = LockFile>(...data: LockData<T>[]): void {
+  public addLock (...data: LockData<LockFile>[]): void {
     this.toLock = [ ...this.toLock, ...data ]
   }
 
@@ -39,7 +39,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     this.toUnlock = [ ...this.toUnlock, ...data ]
   }
 
-  public async applyLockAll<T extends LockableData = LockFile>(lock: T): Promise<T> {
+  public async applyLockAll (lock: LockFile): Promise<LockFile> {
     if (this.hasLock()) {
       return this.applyLock(lock, ...this.toLock)
     }
@@ -55,7 +55,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     }
   }
 
-  public async applyUnlockAll<T extends LockableData = LockFile>(lock: T): Promise<T> {
+  public async applyUnlockAll (lock: LockFile): Promise<LockFile> {
     if (this.hasUnlock()) {
       return this.applyUnlock(lock, ...this.toUnlock)
     }
@@ -76,14 +76,14 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     await this.lockAll()
   }
 
-  public async applyAll<T extends LockableData = LockFile>(lock: T): Promise<T> {
+  public async applyAll (lock: LockFile): Promise<LockFile> {
     lock = await this.applyUnlockAll(lock)
     lock = await this.applyLockAll(lock)
 
     return lock
   }
 
-  public async applyLock<T extends LockableData = LockFile>(lock: T, ...data: LockData<T>[]): Promise<T> {
+  public async applyLock (lock: LockFile, ...data: LockData<LockFile>[]): Promise<LockFile> {
     data.forEach((d) => {
       // enabled flag for not if checking every time
       if (d?.enabled === false) {
@@ -120,8 +120,8 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return lock
   }
 
-  public async lock<T extends LockableData = LockFile>(...data: LockData<T>[]): Promise<T> {
-    const lock = this.applyLock(await this.tryRead<T>() ?? ({} as T), ...data)
+  public async lock (...data: LockData<LockFile>[]): Promise<LockFile> {
+    const lock = await this.applyLock(await this.tryRead() ?? ({} as LockFile), ...data)
 
     // write data
     await this.write(lock)
@@ -129,12 +129,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return lock
   }
 
-  public async applyUnlock<T extends LockableData = LockFile>(lock: T, ...data: UnlockData[]): Promise<T | undefined> {
-    // write data
-    if (!lock) {
-      return
-    }
-
+  public async applyUnlock (lock: LockFile, ...data: UnlockData[]): Promise<LockFile> {
     // option to delete all, or specific locks
     if (data.length > 0) {
       data.forEach((d) => {
@@ -163,20 +158,26 @@ export class LockerService<LockFile extends LockableData = LockableData> {
           }
         }
       })
-    } else {
-      lock = op.del(lock, this.options.root)
-      this.logger.verbose('Unlocked module: %s', this.options.root)
+
+      return lock
     }
+
+    lock = op.del(lock, this.options.root)
+    this.logger.verbose('Unlocked module: %s', this.options.root)
+
+    return lock
   }
 
-  public async unlock<T extends LockableData = LockFile>(...data: UnlockData[]): Promise<T | undefined> {
-    const lock = await this.applyUnlock(await this.tryRead<T>(), ...data)
+  public async unlock (...data: UnlockData[]): Promise<LockFile | undefined> {
+    const state = await this.tryRead()
 
-    if (!lock) {
+    if (!state) {
       this.logger.verbose('Lock file not found. Nothing to unlock.')
 
       return
     }
+
+    const lock = await this.applyUnlock(state, ...data)
 
     // write data
     await this.write(lock)
@@ -184,27 +185,34 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return lock
   }
 
-  public async read<T extends LockableData = LockFile>(): Promise<T> {
+  public async read (): Promise<LockFile> {
     return this.parser.fetch(this.options.parser).parse(await this.fs.read(this.options.file))
   }
 
-  public async tryRead<T extends LockableData = LockFile>(): Promise<T | undefined> {
-    try {
-      return this.parser.fetch(this.options.parser).parse(await this.fs.read(this.options.file))
-    } catch {
-      this.logger.trace('Can not read lockfile: %s', this.options.file)
+  public async tryRead (): Promise<LockFile | undefined> {
+    const lock = await this.fs.read(this.options.file).catch((err) => {
+      this.logger.trace('Can not read lockfile: %s -> %s', this.options.file, err.message)
+    })
+
+    if (!lock) {
+      return
     }
+
+    return this.parser.fetch(this.options.parser).parse<LockFile>(lock)
   }
 
   public async tryRemove (): Promise<void> {
-    try {
-      await this.fs.remove(this.options.file)
-    } catch {
-      this.logger.trace('Can not remove lockfile: %s', this.options.file)
-    }
+    return this.fs
+      .remove(this.options.file)
+      .then(() => {
+        this.logger.trace('Removed lockfile: %s', this.options.file)
+      })
+      .catch((err) => {
+        this.logger.trace('Can not remove lockfile: %s -> %s', this.options.file, err.message)
+      })
   }
 
-  public async write<T extends LockableData = LockFile>(data: T): Promise<void> {
+  public async write (data: LockFile): Promise<void> {
     if (!data || Array.isArray(data) && data.length === 0 || typeof data === 'object' && Object.keys(data).length === 0) {
       this.logger.trace('Trying to write empty lock file, deleting it instead: %s', this.options.file)
 
