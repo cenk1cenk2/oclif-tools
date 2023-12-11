@@ -12,8 +12,8 @@ importers:
         specifier: ^1.7.3
         version: 1.7.3(typescript@5.3.3)
       '@cenk1cenk2/eslint-config':
-        specifier: ^2.7.29
-        version: 2.7.29(eslint@8.55.0)(typescript@5.3.3)
+        specifier: ^2.7.30
+        version: 2.7.30(eslint@8.55.0)(typescript@5.3.3)
       '@swc/core':
         specifier: ^1.3.100
         version: 1.3.100
@@ -88,8 +88,8 @@ importers:
         specifier: ^1.7.3
         version: 1.7.3(typescript@5.3.3)
       '@cenk1cenk2/eslint-config':
-        specifier: ^2.7.29
-        version: 2.7.29(eslint@8.55.0)(typescript@5.3.3)
+        specifier: ^2.7.30
+        version: 2.7.30(eslint@8.55.0)(typescript@5.3.3)
       '@tsconfig/node16':
         specifier: ^16.1.1
         version: 16.1.1
@@ -255,8 +255,8 @@ packages:
       - typescript
     dev: true
 
-  /@cenk1cenk2/eslint-config@2.7.29(eslint@8.55.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-72da0QAi/bdssTe3QDvCBYxKnJiDB3hAbGnKIAOJAAGc8y4tezz9nZQN5100fgDQ/EX3lIsVSadQxP5JnJouFw==}
+  /@cenk1cenk2/eslint-config@2.7.30(eslint@8.55.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-FeFO8yQ6QdKfJnKDrt8YNxE3aq4bWNgZiPOI2AUMHdpKZLX4++nTsCwHBIeFV6pbcVzffakckGdqabpuCc3tKg==}
     peerDependencies:
       '@nuxtjs/eslint-config': '>= 7'
       '@nuxtjs/eslint-config-typescript': '>= 7'
