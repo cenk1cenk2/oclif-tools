@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [6.3.4](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.3...@cenk1cenk2/oclif-common@6.3.4) (2023-12-11)
+
+
+### Bug Fixes
+
+* bring back the generics for lcoking ([24b5ca5](https://gitlab.kilic.dev/libraries/oclif-tools/commit/24b5ca51d6fb1a8e23f622dad47a0839dcd51d89))
+
 ## @cenk1cenk2/oclif-common [6.3.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.2...@cenk1cenk2/oclif-common@6.3.3) (2023-12-11)
 
 
