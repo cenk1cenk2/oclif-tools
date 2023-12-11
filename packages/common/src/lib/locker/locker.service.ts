@@ -31,7 +31,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return this.toUnlock.length > 0
   }
 
-  public addLock (...data: LockData<LockFile>[]): void {
+  public addLock<T extends LockableData = LockFile>(...data: LockData<T>[]): void {
     this.toLock.push(...data)
   }
 
@@ -83,7 +83,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return lock
   }
 
-  public async applyLock (lock: LockFile, ...data: LockData<LockFile>[]): Promise<LockFile> {
+  public async applyLock<T extends LockableData = LockFile>(lock: LockFile, ...data: LockData<T>[]): Promise<LockFile> {
     data.forEach((d) => {
       // enabled flag for not if checking every time
       if (d?.enabled === false) {
@@ -122,7 +122,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return lock
   }
 
-  public async lock (...data: LockData<LockFile>[]): Promise<LockFile> {
+  public async lock<T extends LockableData = LockFile>(...data: LockData<T>[]): Promise<LockFile> {
     const lock = await this.applyLock(await this.tryRead() ?? ({} as LockFile), ...data)
 
     // write data
