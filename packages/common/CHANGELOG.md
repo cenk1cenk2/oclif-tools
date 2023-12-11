@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [6.3.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.1...@cenk1cenk2/oclif-common@6.3.2) (2023-12-11)
+
+
+### Bug Fixes
+
+* dont create copy of an array ([1682a56](https://gitlab.kilic.dev/libraries/oclif-tools/commit/1682a56757f6a2f2ab2a69a310d4671ee81d0b6a))
+
 ## @cenk1cenk2/oclif-common [6.3.1](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.0...@cenk1cenk2/oclif-common@6.3.1) (2023-12-11)
 
 
