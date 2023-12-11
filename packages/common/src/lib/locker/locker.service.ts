@@ -32,11 +32,11 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   }
 
   public addLock (...data: LockData<LockFile>[]): void {
-    this.toLock = [ ...this.toLock, ...data ]
+    this.toLock.push(...data)
   }
 
   public addUnlock (...data: UnlockData[]): void {
-    this.toUnlock = [ ...this.toUnlock, ...data ]
+    this.toUnlock.push(...data)
   }
 
   public async applyLockAll (lock: LockFile): Promise<LockFile> {
