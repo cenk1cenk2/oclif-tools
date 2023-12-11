@@ -1,3 +1,10 @@
+# @cenk1cenk2/oclif-common [6.3.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.2.8...@cenk1cenk2/oclif-common@6.3.0) (2023-12-11)
+
+
+### Features
+
+* add a way to read state of the locker ([76679fd](https://gitlab.kilic.dev/libraries/oclif-tools/commit/76679fdcdc41aae6c588263c41cf942c7402c55e))
+
 ## @cenk1cenk2/oclif-common [6.2.8](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.2.7...@cenk1cenk2/oclif-common@6.2.8) (2023-12-09)
 
 
