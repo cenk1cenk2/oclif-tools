@@ -106,15 +106,15 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
         oclif: this.config,
         command: this.ctor,
         config: {
-          logLevel: this.flags['log-level'],
-          isJson: this.flags.json
+          logLevel: this.flags?.['log-level'] ?? LogLevels.INFO,
+          isJson: this.flags?.json ?? false
         }
       }
     }
 
     const cli = CliModule.forRoot(options)
 
-    this.app = await CliModule.create(isHookedWithRegister(this) ? await this.register(cli, options) : cli)
+    this.app = await CliModule.create(!err && isHookedWithRegister(this) ? await this.register(cli, options) : cli)
 
     const cs = this.app.get(ConfigService)
 
