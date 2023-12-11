@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [6.3.5](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.4...@cenk1cenk2/oclif-common@6.3.5) (2023-12-11)
+
+
+### Bug Fixes
+
+* update missing argument handling ([697f926](https://gitlab.kilic.dev/libraries/oclif-tools/commit/697f9268a93d39c1c9d0c846fdae33f22b9337bd))
+
 ## @cenk1cenk2/oclif-common [6.3.4](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.3...@cenk1cenk2/oclif-common@6.3.4) (2023-12-11)
 
 
