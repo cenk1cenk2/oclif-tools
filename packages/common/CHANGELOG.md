@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [6.3.7](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.6...@cenk1cenk2/oclif-common@6.3.7) (2023-12-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency reflect-metadata to ^0.2.0 ([029717c](https://gitlab.kilic.dev/libraries/oclif-tools/commit/029717cf34eabe8a47fdb295ee74af711dc133d0))
+
 ## @cenk1cenk2/oclif-common [6.3.6](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.5...@cenk1cenk2/oclif-common@6.3.6) (2023-12-11)
 
 
