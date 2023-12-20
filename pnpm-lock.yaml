@@ -167,8 +167,8 @@ importers:
         version: 3.11.0
     devDependencies:
       '@listr2/manager':
-        specifier: ^2.0.0
-        version: 2.0.0
+        specifier: ^2.0.1
+        version: 2.0.1
       '@oclif/core':
         specifier: ^3.15.0
         version: 3.15.0(typescript@5.3.3)
@@ -197,8 +197,8 @@ importers:
         specifier: ^11.2.0
         version: 11.2.0
       listr2:
-        specifier: ^8.0.0
-        version: 8.0.0
+        specifier: ^8.0.1
+        version: 8.0.1
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -694,8 +694,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@listr2/manager@2.0.0:
-    resolution: {integrity: sha512-W2Ns0uLicB9b/HUgtZzl30vZ2/uiNJvGz2gqgsX8PHmVyLsAlBV4QpQVrEFcscYQA52p/RpNjC2qpoR4HePOew==}
+  /@listr2/manager@2.0.1:
+    resolution: {integrity: sha512-st9la3C+r58UL/j2+YhyHZOAzK7iad+/V5M2i89nL654jON5nTGeL882AFf+1P2tH6bEbT6S8LAavOLzNPqfnw==}
     engines: {node: '>=18.0.0'}
     dev: true
 
@@ -4297,6 +4297,7 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    requiresBuild: true
     dev: true
 
   /is-arrayish@0.3.2:
@@ -4748,6 +4749,18 @@ packages:
       log-update: 6.0.0
       rfdc: 1.3.0
       wrap-ansi: 9.0.0
+
+  /listr2@8.0.1:
+    resolution: {integrity: sha512-ovJXBXkKGfq+CwmKTjluEqFi3p4h8xvkxGQQAQan22YCgef4KZ1mKGjzfGh6PL6AW5Csw0QiQPNuQyH+6Xk3hA==}
+    engines: {node: '>=18.0.0'}
+    dependencies:
+      cli-truncate: 4.0.0
+      colorette: 2.0.20
+      eventemitter3: 5.0.1
+      log-update: 6.0.0
+      rfdc: 1.3.0
+      wrap-ansi: 9.0.0
+    dev: true
 
   /load-tsconfig@0.2.5:
     resolution: {integrity: sha512-IXO6OCs9yg8tMKzfPZ1YmheJbZCiEsnBdcB03l0OcfK9prKnJb96siuHCr5Fl37/yo9DnKU+TLpxzTUspw9shg==}
