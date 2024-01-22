@@ -69,8 +69,8 @@ importers:
         specifier: ^6.0.12
         version: 6.0.12
       '@oclif/plugin-plugins':
-        specifier: ^4.1.19
-        version: 4.1.19
+        specifier: ^4.1.20
+        version: 4.1.20
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -1693,8 +1693,8 @@ packages:
       fast-levenshtein: 3.0.0
     dev: true
 
-  /@oclif/plugin-plugins@4.1.19:
-    resolution: {integrity: sha512-DgoI2gwUSEPQSq1epm5shv08VPXKMv26qJBpYJgyj++L4tgkVwj1JUBUry7HDQHnFir4Tcd9AbfZQ/GlkSyYBQ==}
+  /@oclif/plugin-plugins@4.1.20:
+    resolution: {integrity: sha512-gMav6Jkk1KovyaiXfp2bbwwpRSxkCNVY2HEoNzIzqshNzOG4vrbLC0o4PhGRdq05B1P5daH8iKpUqakkYY59tQ==}
     engines: {node: '>=18.0.0'}
     dependencies:
       '@oclif/core': 3.18.1
