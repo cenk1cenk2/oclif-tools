@@ -69,8 +69,8 @@ importers:
         specifier: ^6.0.12
         version: 6.0.12
       '@oclif/plugin-plugins':
-        specifier: ^4.1.21
-        version: 4.1.21
+        specifier: ^4.1.22
+        version: 4.1.22
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -81,8 +81,8 @@ importers:
         specifier: ^2.4.1
         version: 2.4.1
       listr2:
-        specifier: ^8.0.1
-        version: 8.0.1
+        specifier: ^8.0.2
+        version: 8.0.2
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^1.7.4
@@ -885,7 +885,7 @@ packages:
       enquirer: 2.4.1
       external-editor: 3.1.0
       find-git-root: 1.0.4
-      listr2: 8.0.1
+      listr2: 8.0.2
     optionalDependencies:
       '@commitlint/load': 18.6.0(@types/node@20.11.8)(typescript@5.3.3)
     transitivePeerDependencies:
@@ -1693,14 +1693,14 @@ packages:
       fast-levenshtein: 3.0.0
     dev: true
 
-  /@oclif/plugin-plugins@4.1.21:
-    resolution: {integrity: sha512-RCzMhAHSqZ9hc9nehkA5ukGiUVen44zX3BhsjdbzVy63q7/RRXaOf6QZqQZBIEPkab4HWiXFbl4Y+M+hCYAIww==}
+  /@oclif/plugin-plugins@4.1.22:
+    resolution: {integrity: sha512-TKshx/QGSsLTZRA1Gplf/AV7VIF9L8mRVZsOC1r4voBkFBYZ9XJRy1PDcOMOu0WEbi7QvvXPtbDYXMw0I8WhlQ==}
     engines: {node: '>=18.0.0'}
     dependencies:
       '@oclif/core': 3.18.1
       chalk: 5.3.0
       debug: 4.3.4(supports-color@8.1.1)
-      npm: 10.2.3
+      npm: 10.4.0
       npm-run-path: 4.0.1
       semver: 7.5.4
       shelljs: 0.8.5
@@ -5725,17 +5725,6 @@ packages:
       wrap-ansi: 9.0.0
     dev: true
 
-  /listr2@8.0.1:
-    resolution: {integrity: sha512-ovJXBXkKGfq+CwmKTjluEqFi3p4h8xvkxGQQAQan22YCgef4KZ1mKGjzfGh6PL6AW5Csw0QiQPNuQyH+6Xk3hA==}
-    engines: {node: '>=18.0.0'}
-    dependencies:
-      cli-truncate: 4.0.0
-      colorette: 2.0.20
-      eventemitter3: 5.0.1
-      log-update: 6.0.0
-      rfdc: 1.3.1
-      wrap-ansi: 9.0.0
-
   /listr2@8.0.2:
     resolution: {integrity: sha512-v5jEMOeEJUpRjSXSB4U3w5A3YPmURYMUO/86f1PA4GGYcdbUQYpkbvKYT7Xaq1iu4Zjn51Rv1UeD1zsBXRijiQ==}
     engines: {node: '>=18.0.0'}
@@ -5746,7 +5735,6 @@ packages:
       log-update: 6.0.0
       rfdc: 1.3.1
       wrap-ansi: 9.0.0
-    dev: true
 
   /load-tsconfig@0.2.5:
     resolution: {integrity: sha512-IXO6OCs9yg8tMKzfPZ1YmheJbZCiEsnBdcB03l0OcfK9prKnJb96siuHCr5Fl37/yo9DnKU+TLpxzTUspw9shg==}
@@ -6504,8 +6492,8 @@ packages:
       path-key: 4.0.0
     dev: true
 
-  /npm@10.2.3:
-    resolution: {integrity: sha512-GbUui/rHTl0mW8HhJSn4A0Xg89yCR3I9otgJT1i0z1QBPOVlgbh6rlcUTpHT8Gut9O1SJjWRUU0nEcAymhG2tQ==}
+  /npm@10.4.0:
+    resolution: {integrity: sha512-RS7Mx0OVfXlOcQLRePuDIYdFCVBPCNapWHplDK+mh7GDdP/Tvor4ocuybRRPSvfcRb2vjRJt1fHCqw3cr8qACQ==}
     engines: {node: ^18.17.0 || >=20.5.0}
     hasBin: true
     dev: false
@@ -6572,7 +6560,6 @@ packages:
       - semver
       - spdx-expression-parse
       - ssri
-      - strip-ansi
       - supports-color
       - tar
       - text-table
