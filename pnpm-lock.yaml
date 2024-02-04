@@ -118,8 +118,8 @@ importers:
         specifier: ^15.2.1
         version: 15.2.1
       oclif:
-        specifier: ^4.4.2
-        version: 4.4.2(eslint@8.56.0)(typescript@5.3.3)
+        specifier: ^4.4.3
+        version: 4.4.3(eslint@8.56.0)(typescript@5.3.3)
       prettier:
         specifier: ^3.2.4
         version: 3.2.4
@@ -5335,6 +5335,7 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    requiresBuild: true
     dev: true
 
   /is-arrayish@0.3.2:
@@ -6708,8 +6709,8 @@ packages:
       es-abstract: 1.22.3
     dev: true
 
-  /oclif@4.4.2(eslint@8.56.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-8JRA+ICMwmD3PxbJVUXg4yzSk+W1aLeDuNl1+C8+1YKDjUFVEpSuGVvww4o6FgmwAx53zCjmwTcmmvi1YZaqxA==}
+  /oclif@4.4.3(eslint@8.56.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-Y/MWRJx4cHbvqUlurxQi1xC20F6F2PDe50puUP5sRy5oXC/OeIqfvMd5UqPSj+2Yc+/rQCIJ8fmx/V08jhatdQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
