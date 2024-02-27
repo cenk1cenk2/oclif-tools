@@ -170,8 +170,8 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2
       '@oclif/core':
-        specifier: ^3.19.7
-        version: 3.19.7
+        specifier: ^3.20.0
+        version: 3.20.0
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -1724,8 +1724,8 @@ packages:
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
-  /@oclif/core@3.19.7:
-    resolution: {integrity: sha512-8Vq2shLqRd7+3CpAEG8VZ8b8F6ldkzhNh8pEFPPeY4bTO0xOGJB3WiggZ/zQ30EvLhZQwU/eJpN8Vw7M2x6NcA==}
+  /@oclif/core@3.20.0:
+    resolution: {integrity: sha512-8BajhglY8frYGAS1whAukeouFZUN9MgQoLfNXtScPVEAjPlaD2BbSIAYQH2yF2qb/iVvbj/1DwYS3gqicYOq1A==}
     engines: {node: '>=18.0.0'}
     dependencies:
       '@types/cli-progress': 3.11.5
@@ -1767,7 +1767,7 @@ packages:
     resolution: {integrity: sha512-FSYzaXGTzV8AXOQZM+i9CMUlR11Pv87buOwp9kL7NNyWVotUxhk1pUezlXrN0aBSKJ2b96Qbc2jW35h6ybeH2g==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@oclif/core': 3.19.7
+      '@oclif/core': 3.20.0
       chalk: 5.3.0
       fast-levenshtein: 3.0.0
     dev: true
@@ -1793,7 +1793,7 @@ packages:
     resolution: {integrity: sha512-BPj+1dSgp9Xtd5BZjLF9s0PeYBl07GSF69aol6/ZUMJMWD78SUWgAAm2SMJJBXic7Lw8hIGBY/YSGXDGaMh4gw==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@oclif/core': 3.19.7
+      '@oclif/core': 3.20.0
       chalk: 5.3.0
       debug: 4.3.4(supports-color@8.1.1)
       http-call: 5.3.0
@@ -5408,6 +5408,7 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    requiresBuild: true
     dev: true
 
   /is-arrayish@0.3.2:
