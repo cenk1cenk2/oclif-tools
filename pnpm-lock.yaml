@@ -63,14 +63,14 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^3.20.0
-        version: 3.20.0
+        specifier: ^3.21.2
+        version: 3.21.2
       '@oclif/plugin-help':
         specifier: ^6.0.15
         version: 6.0.15
       '@oclif/plugin-plugins':
-        specifier: ^4.2.7
-        version: 4.2.7
+        specifier: ^4.3.0
+        version: 4.3.0
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -163,8 +163,8 @@ importers:
         specifier: '>= 5'
         version: 7.0.0
       winston:
-        specifier: ^3.11.0
-        version: 3.11.0
+        specifier: ^3.12.0
+        version: 3.12.0
     devDependencies:
       '@listr2/manager':
         specifier: ^2.0.2
@@ -1754,38 +1754,6 @@ packages:
       - encoding
     dev: false
 
-  /@oclif/core@3.20.0:
-    resolution: {integrity: sha512-8BajhglY8frYGAS1whAukeouFZUN9MgQoLfNXtScPVEAjPlaD2BbSIAYQH2yF2qb/iVvbj/1DwYS3gqicYOq1A==}
-    engines: {node: '>=18.0.0'}
-    dependencies:
-      '@types/cli-progress': 3.11.5
-      ansi-escapes: 4.3.2
-      ansi-styles: 4.3.0
-      cardinal: 2.1.1
-      chalk: 4.1.2
-      clean-stack: 3.0.1
-      cli-progress: 3.12.0
-      color: 4.2.3
-      debug: 4.3.4(supports-color@8.1.1)
-      ejs: 3.1.9
-      get-package-type: 0.1.0
-      globby: 11.1.0
-      hyperlinker: 1.0.0
-      indent-string: 4.0.0
-      is-wsl: 2.2.0
-      js-yaml: 3.14.1
-      natural-orderby: 2.0.3
-      object-treeify: 1.1.33
-      password-prompt: 1.1.3
-      slice-ansi: 4.0.0
-      string-width: 4.2.3
-      strip-ansi: 6.0.1
-      supports-color: 8.1.1
-      supports-hyperlinks: 2.3.0
-      widest-line: 3.1.0
-      wordwrap: 1.0.0
-      wrap-ansi: 7.0.0
-
   /@oclif/core@3.21.2:
     resolution: {integrity: sha512-P8KmyEq83addgRlKMLDypWb67H3wOQyVtTSnw3kwoau4vL9h59cEWVLB+S62epLJkY8xy058Kgk4sHmJKrpdSw==}
     engines: {node: '>=18.0.0'}
@@ -1817,13 +1785,12 @@ packages:
       widest-line: 3.1.0
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
-    dev: true
 
   /@oclif/plugin-help@6.0.15:
     resolution: {integrity: sha512-3+1PwE/Dvgr3VhxQ5FZfxeI+YUsKD+ZPIjxbf320ko3aSzREXyGIhtyFKVyxPLnHhZvoEXyTkviWjI2oB1FB5g==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@oclif/core': 3.20.0
+      '@oclif/core': 3.21.2
 
   /@oclif/plugin-not-found@3.0.13:
     resolution: {integrity: sha512-MhV4dJ27G81C1hJ6VJ5Mv+rYZm37pavv2dlp0/wlkxdbFywxpq5kVr+f8NVruAepuwQ3qMN6fX/qb5tSFwlOfg==}
@@ -1834,11 +1801,11 @@ packages:
       fast-levenshtein: 3.0.0
     dev: true
 
-  /@oclif/plugin-plugins@4.2.7:
-    resolution: {integrity: sha512-kyFa8uHXIE/XsphRt69kTlpdpaQSLxaaKhHeJWn3GnqwajS8EXbQ+Izq6z60y1+KjqFTLbVSQUUXLuNCqfhimw==}
+  /@oclif/plugin-plugins@4.3.0:
+    resolution: {integrity: sha512-n3Qgf9/bbQR0bGGslD7ODDaxv8om382tyaRtA8IdOjgiboTX8X1kG/xWEONObWrZ4vrXz6osaoWbCRgxlOYutQ==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@oclif/core': 3.20.0
+      '@oclif/core': 3.21.2
       chalk: 5.3.0
       debug: 4.3.4(supports-color@8.1.1)
       npm: 10.5.0
@@ -6892,7 +6859,7 @@ packages:
     dependencies:
       '@aws-sdk/client-cloudfront': 3.525.0
       '@aws-sdk/client-s3': 3.525.0
-      '@oclif/core': 3.20.0
+      '@oclif/core': 3.21.2
       '@oclif/plugin-help': 6.0.15
       '@oclif/plugin-not-found': 3.0.13
       '@oclif/plugin-warn-if-update-available': 3.0.12
@@ -8902,8 +8869,8 @@ packages:
       triple-beam: 1.4.1
     dev: false
 
-  /winston@3.11.0:
-    resolution: {integrity: sha512-L3yR6/MzZAOl0DsysUXHVjOwv8mKZ71TrA/41EIduGpOOV5LQVodqN+QdQ6BS6PJ/RdIshZhq84P/fStEZkk7g==}
+  /winston@3.12.0:
+    resolution: {integrity: sha512-OwbxKaOlESDi01mC9rkM0dQqQt2I8DAUMRLZ/HpbwvDXm85IryEHgoogy5fziQy38PntgZsLlhAYHz//UPHZ5w==}
     engines: {node: '>= 12.0.0'}
     dependencies:
       '@colors/colors': 1.6.0
