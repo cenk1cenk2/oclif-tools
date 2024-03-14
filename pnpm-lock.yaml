@@ -170,8 +170,8 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2
       '@oclif/core':
-        specifier: ^3.25.0
-        version: 3.25.0
+        specifier: ^3.25.1
+        version: 3.25.1
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -1785,6 +1785,40 @@ packages:
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
+  /@oclif/core@3.25.1:
+    resolution: {integrity: sha512-L0WTgrcXBa1mc7CYxG0W07sRa4Zs5XpFD2HHhck7Xfqq7jnNcKDSuZ/LdqesVCry6eUHMh3C00IhJr6Msk19Iw==}
+    engines: {node: '>=18.0.0'}
+    dependencies:
+      '@types/cli-progress': 3.11.5
+      ansi-escapes: 4.3.2
+      ansi-styles: 4.3.0
+      cardinal: 2.1.1
+      chalk: 4.1.2
+      clean-stack: 3.0.1
+      cli-progress: 3.12.0
+      color: 4.2.3
+      debug: 4.3.4(supports-color@8.1.1)
+      ejs: 3.1.9
+      get-package-type: 0.1.0
+      globby: 11.1.0
+      hyperlinker: 1.0.0
+      indent-string: 4.0.0
+      is-wsl: 2.2.0
+      js-yaml: 3.14.1
+      minimatch: 9.0.3
+      natural-orderby: 2.0.3
+      object-treeify: 1.1.33
+      password-prompt: 1.1.3
+      slice-ansi: 4.0.0
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+      supports-color: 8.1.1
+      supports-hyperlinks: 2.3.0
+      widest-line: 3.1.0
+      wordwrap: 1.0.0
+      wrap-ansi: 7.0.0
+    dev: true
+
   /@oclif/plugin-help@6.0.18:
     resolution: {integrity: sha512-Ly0gu/+eq7GfIMT76cirbHgElYGlu+PaZ5elrAKmDiegBh31AXqaPQAj8PH4+sG8RSv5srYtrkrygZaw8IF9CQ==}
     engines: {node: '>=18.0.0'}
@@ -1795,7 +1829,7 @@ packages:
     resolution: {integrity: sha512-HLz04cmS+5F6Tsx1zQEoYV6wamDC/0cM2NqklPIEg8pq/JHPhktmhpzsGaRyBrtx4Pv+uNCo3s+mrTz2v5v03w==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@oclif/core': 3.25.0
+      '@oclif/core': 3.25.1
       chalk: 5.3.0
       fast-levenshtein: 3.0.0
     dev: true
@@ -1821,7 +1855,7 @@ packages:
     resolution: {integrity: sha512-CCChGqmR8F0JHJ4ikXD1KgNC/dAsd3FJeQHsZm1BP5YlzLCtSEu6Oz/lpdH1OdnCbVBHJkrquCiL/81S9DTzGw==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@oclif/core': 3.25.0
+      '@oclif/core': 3.25.1
       chalk: 5.3.0
       debug: 4.3.4(supports-color@8.1.1)
       http-call: 5.3.0
