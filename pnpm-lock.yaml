@@ -66,11 +66,11 @@ importers:
         specifier: ^3.26.0
         version: 3.26.0
       '@oclif/plugin-help':
-        specifier: ^6.0.18
-        version: 6.0.18
+        specifier: ^6.0.19
+        version: 6.0.19
       '@oclif/plugin-plugins':
-        specifier: ^4.3.8
-        version: 4.3.8
+        specifier: ^4.3.9
+        version: 4.3.9
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -163,8 +163,8 @@ importers:
         specifier: '>= 5'
         version: 7.0.0
       winston:
-        specifier: ^3.12.0
-        version: 3.12.0
+        specifier: ^3.13.0
+        version: 3.13.0
     devDependencies:
       '@listr2/manager':
         specifier: ^2.0.2
@@ -1621,8 +1621,8 @@ packages:
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
-  /@oclif/plugin-help@6.0.18:
-    resolution: {integrity: sha512-Ly0gu/+eq7GfIMT76cirbHgElYGlu+PaZ5elrAKmDiegBh31AXqaPQAj8PH4+sG8RSv5srYtrkrygZaw8IF9CQ==}
+  /@oclif/plugin-help@6.0.19:
+    resolution: {integrity: sha512-ib9wjiWi8afTIQrdDPDgUkKaC4R+78wnKWpzybMH0yG1dd3krVHu0zHYEJUtC3Ples/cRv7f4EHBkO3lQpnZcA==}
     engines: {node: '>=18.0.0'}
     dependencies:
       '@oclif/core': 3.26.0
@@ -1637,14 +1637,14 @@ packages:
       fast-levenshtein: 3.0.0
     dev: true
 
-  /@oclif/plugin-plugins@4.3.8:
-    resolution: {integrity: sha512-QU0a4VFmA+Wb/kIUsBKw14KMbH4bHdz5ejwvqql89DumtsUzPOekSHgEzODC2ESZnDWx+h5pD9NPg4lAMPMbxQ==}
+  /@oclif/plugin-plugins@4.3.9:
+    resolution: {integrity: sha512-UEZDj5B+goDKivraSyIY0CrDYhH1QYbmyqYs0AjSVaytrBcf5wSxLjg20rOT/R+Ou0glYXbtvY7sN4YFd/7SSw==}
     engines: {node: '>=18.0.0'}
     dependencies:
       '@oclif/core': 3.26.0
       chalk: 5.3.0
       debug: 4.3.4(supports-color@8.1.1)
-      npm: 10.2.4
+      npm: 10.5.0
       npm-run-path: 4.0.1
       semver: 7.6.0
       shelljs: 0.8.5
@@ -5306,8 +5306,8 @@ packages:
       path-key: 4.0.0
     dev: true
 
-  /npm@10.2.4:
-    resolution: {integrity: sha512-umEuYneVEYO9KoEEI8n2sSGmNQeqco/3BSeacRlqIkCzw4E7XGtYSWMeJobxzr6hZ2n9cM+u5TsMTcC5bAgoWA==}
+  /npm@10.5.0:
+    resolution: {integrity: sha512-Ejxwvfh9YnWVU2yA5FzoYLTW52vxHCz+MHrOFg9Cc8IFgF/6f5AGPAvb5WTay5DIUP1NIfN3VBZ0cLlGO0Ys+A==}
     engines: {node: ^18.17.0 || >=20.5.0}
     hasBin: true
     dev: false
@@ -5374,7 +5374,6 @@ packages:
       - semver
       - spdx-expression-parse
       - ssri
-      - strip-ansi
       - supports-color
       - tar
       - text-table
@@ -5464,7 +5463,7 @@ packages:
       '@inquirer/input': 2.1.0
       '@inquirer/select': 2.2.0
       '@oclif/core': 3.26.0
-      '@oclif/plugin-help': 6.0.18
+      '@oclif/plugin-help': 6.0.19
       '@oclif/plugin-not-found': 3.1.1
       '@oclif/plugin-warn-if-update-available': 3.0.14
       async-retry: 1.3.3
@@ -6904,8 +6903,8 @@ packages:
       triple-beam: 1.4.1
     dev: false
 
-  /winston@3.12.0:
-    resolution: {integrity: sha512-OwbxKaOlESDi01mC9rkM0dQqQt2I8DAUMRLZ/HpbwvDXm85IryEHgoogy5fziQy38PntgZsLlhAYHz//UPHZ5w==}
+  /winston@3.13.0:
+    resolution: {integrity: sha512-rwidmA1w3SE4j0E5MuIufFhyJPBDG7Nu71RkZor1p2+qHvJSZ9GYDA81AyleQcZbh/+V6HjeBdfnTZJm9rSeQQ==}
     engines: {node: '>= 12.0.0'}
     dependencies:
       '@colors/colors': 1.6.0
