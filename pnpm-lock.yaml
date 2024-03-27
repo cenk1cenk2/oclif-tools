@@ -167,8 +167,8 @@ importers:
         version: 3.13.0
     devDependencies:
       '@listr2/manager':
-        specifier: ^2.0.3
-        version: 2.0.3
+        specifier: ^2.0.4
+        version: 2.0.4
       '@oclif/core':
         specifier: ^3.26.0
         version: 3.26.0
@@ -197,8 +197,8 @@ importers:
         specifier: ^11.2.0
         version: 11.2.0
       listr2:
-        specifier: ^8.1.0
-        version: 8.1.0
+        specifier: ^8.1.1
+        version: 8.1.1
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -1486,8 +1486,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@listr2/manager@2.0.3:
-    resolution: {integrity: sha512-7nJwPnAgRcmet38+KCjitRbuunl4iWxwAO8dpoXN7Q7R+bYrHH7XrUfaW9gOy7mAmMqksUsqqIMvHwju8+aIOA==}
+  /@listr2/manager@2.0.4:
+    resolution: {integrity: sha512-74nfAWVVQMlu6JMuEP/i5ziQ4fUsdaIZqOMA8XF/41lw4EVTKOooEUK/GfPQXhFLZp4V7kCbRbrtk/TZMjfrhw==}
     engines: {node: '>=18.0.0'}
     dev: true
 
@@ -5021,8 +5021,8 @@ packages:
       rfdc: 1.3.1
       wrap-ansi: 9.0.0
 
-  /listr2@8.1.0:
-    resolution: {integrity: sha512-Z9E6NncK+IsNeBsfEUUeMRyhSraJJZUZOTguKk0QaVfGMcQAn9Kf/yUea0RDXvSMxedbWKVAsj/V2UT5TbLHLw==}
+  /listr2@8.1.1:
+    resolution: {integrity: sha512-w//D3d/sogqVYtz3EXRJAAiblnSoklftUbIlvWMN7AwJlqVEqjrJ9X2LM4NWOtfPWPxxPop2jS+vU1+kpA01bg==}
     engines: {node: '>=18.0.0'}
     dependencies:
       cli-truncate: 4.0.0
