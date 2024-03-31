@@ -118,8 +118,8 @@ importers:
         specifier: ^15.2.2
         version: 15.2.2
       oclif:
-        specifier: ^4.7.1
-        version: 4.7.1
+        specifier: ^4.7.2
+        version: 4.7.2
       prettier:
         specifier: ^3.2.5
         version: 3.2.5
@@ -4613,6 +4613,7 @@ packages:
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    requiresBuild: true
     dev: true
 
   /is-arrayish@0.3.2:
@@ -5471,8 +5472,8 @@ packages:
       es-object-atoms: 1.0.0
     dev: true
 
-  /oclif@4.7.1:
-    resolution: {integrity: sha512-6GGtbKISjlyxH6QK9jVw0nYf0uaHg26L+B+ke7gJEqjVQ6O23D6Eu/O7xxvt+Tj7/6Hnt0AVNL/vy7tBJ4W37w==}
+  /oclif@4.7.2:
+    resolution: {integrity: sha512-OVBVw3icaC5dJtDcojn61HAtilqqVu9Uae+Cd/EVNVeAOMe2G51MpMg5RDj8B3KKvuq8EudzJkK78OWdhoTZVQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
