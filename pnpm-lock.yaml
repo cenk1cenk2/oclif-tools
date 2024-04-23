@@ -69,8 +69,8 @@ importers:
         specifier: ^6.0.21
         version: 6.0.21
       '@oclif/plugin-plugins':
-        specifier: ^5.0.13
-        version: 5.0.13
+        specifier: ^5.0.14
+        version: 5.0.14
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -743,8 +743,8 @@ packages:
     resolution: {integrity: sha512-87ckgDz+to7WySD7vrbELfWtK6uiaA8qf1Sp1AvU7m87tMSYOAkE7Jr+hX3MLpwM5Lt5nksG6t/gzP0PwSIKnA==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.0.13':
-    resolution: {integrity: sha512-BNjT/O/50yw816qUIVZD0zmLklGhXqCnmxD2msGCrWJcsmylXkORe3BRF0ZJXAhf+fpO+kIJN/Tl42RUm/NX2Q==}
+  '@oclif/plugin-plugins@5.0.14':
+    resolution: {integrity: sha512-5LM3w2PPfB6qMtgrAq+n8hG295i4vbnuPfQN4wPGLJq1tIiDpBEAX1XHnGhUdAeU0V8CU2AnjiucXFMTKvIdow==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.0.15':
@@ -2722,8 +2722,8 @@ packages:
     resolution: {integrity: sha512-ppwTtiJZq0O/ai0z7yfudtBpWIoxM8yE6nHi1X47eFR2EWORqfbu6CnPlNsjeN683eT0qG6H/Pyf9fCcvjnnnQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  npm@10.5.2:
-    resolution: {integrity: sha512-cHVG7QEJwJdZyOrK0dKX5uf3R5Fd0E8AcmSES1jLtO52UT1enUKZ96Onw/xwq4CbrTZEnDuu2Vf9kCQh/Sd12w==}
+  npm@10.5.0:
+    resolution: {integrity: sha512-Ejxwvfh9YnWVU2yA5FzoYLTW52vxHCz+MHrOFg9Cc8IFgF/6f5AGPAvb5WTay5DIUP1NIfN3VBZ0cLlGO0Ys+A==}
     engines: {node: ^18.17.0 || >=20.5.0}
     hasBin: true
     bundledDependencies:
@@ -2734,7 +2734,6 @@ packages:
       - '@npmcli/map-workspaces'
       - '@npmcli/package-json'
       - '@npmcli/promise-spawn'
-      - '@npmcli/redact'
       - '@npmcli/run-script'
       - '@sigstore/tuf'
       - abbrev
@@ -4624,12 +4623,12 @@ snapshots:
       chalk: 5.3.0
       fast-levenshtein: 3.0.0
 
-  '@oclif/plugin-plugins@5.0.13':
+  '@oclif/plugin-plugins@5.0.14':
     dependencies:
       '@oclif/core': 3.26.4
       chalk: 5.3.0
       debug: 4.3.4(supports-color@8.1.1)
-      npm: 10.5.2
+      npm: 10.5.0
       npm-package-arg: 11.0.2
       npm-run-path: 5.3.0
       semver: 7.6.0
@@ -6892,7 +6891,7 @@ snapshots:
     dependencies:
       path-key: 4.0.0
 
-  npm@10.5.2: {}
+  npm@10.5.0: {}
 
   object-assign@4.1.1: {}
 
