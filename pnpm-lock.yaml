@@ -69,8 +69,8 @@ importers:
         specifier: ^6.0.21
         version: 6.0.21
       '@oclif/plugin-plugins':
-        specifier: ^5.0.17
-        version: 5.0.17
+        specifier: ^5.0.18
+        version: 5.0.18
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -741,8 +741,8 @@ packages:
     resolution: {integrity: sha512-fGR1gJE7X6BX3QHAtVX4Tg3T04mrnhtCIGzksQYYcelSftTS0nASnQ3uDacdGwbUPqaEq7HfUyh/G7WRIRxcrw==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.0.17':
-    resolution: {integrity: sha512-v6Ui/nPeD3jChIXSWeEa5zO8TexnqtMwnzET8lkY1wrTFun/qrizdbNcCfPv8pEfYURyMMtQ5eaVohRnn812Wg==}
+  '@oclif/plugin-plugins@5.0.18':
+    resolution: {integrity: sha512-XWxrs6Jc0ovuoK7MeIViWwXYX939l55tzpr7+1dac7y33hqBrH50K5kn2M7NXjfYYJrY17IqRLhlmRLGE6vuYQ==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.0.16':
@@ -2715,8 +2715,8 @@ packages:
     resolution: {integrity: sha512-ppwTtiJZq0O/ai0z7yfudtBpWIoxM8yE6nHi1X47eFR2EWORqfbu6CnPlNsjeN683eT0qG6H/Pyf9fCcvjnnnQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  npm@10.5.0:
-    resolution: {integrity: sha512-Ejxwvfh9YnWVU2yA5FzoYLTW52vxHCz+MHrOFg9Cc8IFgF/6f5AGPAvb5WTay5DIUP1NIfN3VBZ0cLlGO0Ys+A==}
+  npm@10.7.0:
+    resolution: {integrity: sha512-FXylyYSXNjgXx3l82BT8RSQvCoGIQ3h8YdRFGKNvo3Pv/bKscK4pdWkx/onwTpHDqGw+oeLf4Rxln9WVyxAxlQ==}
     engines: {node: ^18.17.0 || >=20.5.0}
     hasBin: true
     bundledDependencies:
@@ -2727,6 +2727,7 @@ packages:
       - '@npmcli/map-workspaces'
       - '@npmcli/package-json'
       - '@npmcli/promise-spawn'
+      - '@npmcli/redact'
       - '@npmcli/run-script'
       - '@sigstore/tuf'
       - abbrev
@@ -2735,8 +2736,6 @@ packages:
       - chalk
       - ci-info
       - cli-columns
-      - cli-table3
-      - columnify
       - fastest-levenshtein
       - fs-minipass
       - glob
@@ -2772,7 +2771,6 @@ packages:
       - npm-profile
       - npm-registry-fetch
       - npm-user-validate
-      - npmlog
       - p-map
       - pacote
       - parse-conflict-json
@@ -4617,12 +4615,12 @@ snapshots:
       chalk: 5.3.0
       fast-levenshtein: 3.0.0
 
-  '@oclif/plugin-plugins@5.0.17':
+  '@oclif/plugin-plugins@5.0.18':
     dependencies:
       '@oclif/core': 3.26.5
       chalk: 5.3.0
       debug: 4.3.4(supports-color@8.1.1)
-      npm: 10.5.0
+      npm: 10.7.0
       npm-package-arg: 11.0.2
       npm-run-path: 5.3.0
       object-treeify: 4.0.1
@@ -6883,7 +6881,7 @@ snapshots:
     dependencies:
       path-key: 4.0.0
 
-  npm@10.5.0: {}
+  npm@10.7.0: {}
 
   object-assign@4.1.1: {}
 
