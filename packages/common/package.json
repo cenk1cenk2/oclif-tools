@@ -43,7 +43,7 @@
     "class-transformer": ">= 0.5.0",
     "class-validator": ">= 0.14.0",
     "enquirer": ">= 2",
-    "execa": ">= 5 < 9",
+    "execa": ">= 5 < 10",
     "fs-extra": ">= 10",
     "listr2": ">= 7",
     "update-notifier": ">= 5",
