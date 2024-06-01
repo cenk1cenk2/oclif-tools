@@ -1,7 +1,7 @@
 import { Manager } from '@listr2/manager'
 import type { INestApplicationContext } from '@nestjs/common'
 import { Command as BaseCommand, Flags } from '@oclif/core'
-import type { ExecaChildProcess } from 'execa'
+import type { ChildProcess } from 'child_process'
 import type { ListrContext, ListrTaskWrapper } from 'listr2'
 import { createInterface } from 'readline'
 
@@ -70,11 +70,11 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     this.logger.trace('Updated context with assign: %o', this.tasks.options.ctx, { status: 'ctx' })
   }
 
-  protected pipeProcessToLogger (instance: ExecaChildProcess, options?: PipeProcessToLoggerOptions): ExecaChildProcess {
+  protected pipeProcessToLogger (instance: ChildProcess, options?: PipeProcessToLoggerOptions): ChildProcess {
     return pipeProcessToLogger(this.logger, instance, options)
   }
 
-  protected pipeProcessThroughListr (instance: ExecaChildProcess, task: ListrTaskWrapper<any, any, any>): ExecaChildProcess {
+  protected pipeProcessThroughListr (instance: ChildProcess, task: ListrTaskWrapper<any, any, any>): ChildProcess {
     return pipeProcessThroughListr(task, instance)
   }
 

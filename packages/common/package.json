@@ -4,6 +4,19 @@
   "description": "Oclif common package for oclif2 projects.",
   "repository": "https://gitlab.kilic.dev/libraries/oclif-tools",
   "type": "module",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
   "author": {
     "name": "Cenk Kilic",
     "email": "cenk@kilic.dev",
@@ -43,16 +56,12 @@
     "class-transformer": ">= 0.5.0",
     "class-validator": ">= 0.14.0",
     "enquirer": ">= 2",
-    "execa": ">= 5 < 10",
     "fs-extra": ">= 10",
     "listr2": ">= 7",
     "update-notifier": ">= 5",
     "yaml": ">= 2"
   },
   "peerDependenciesMeta": {
-    "execa": {
-      "optional": true
-    },
     "update-notifier": {
       "optional": true
     },
@@ -77,7 +86,6 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "enquirer": "^2.4.1",
-    "execa": "^8.0.1",
     "fs-extra": "^11.2.0",
     "listr2": "^8.2.1",
     "source-map-support": "^0.5.21",

@@ -1,4 +1,4 @@
-import type { ExecaChildProcess } from 'execa'
+import type { ChildProcess } from 'child_process'
 import { Writable } from 'stream'
 
 import type { PipeProcessToLoggerOptions } from './pipe-process-to-logger.interface'
@@ -8,7 +8,7 @@ import type { LoggerService } from '../logger.service'
 /**
  * Given the instance it will pipe process output through the logger to append prefixes such as the application name.
  */
-export function pipeProcessToLogger (logger: LoggerService, instance: ExecaChildProcess, options?: PipeProcessToLoggerOptions): ExecaChildProcess {
+export function pipeProcessToLogger (logger: LoggerService, instance: ChildProcess, options?: PipeProcessToLoggerOptions): ChildProcess {
   // default options
   options = {
     start: LogLevels.INFO,
