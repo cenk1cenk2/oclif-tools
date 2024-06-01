@@ -4,19 +4,6 @@
   "description": "Oclif common package for oclif2 projects.",
   "repository": "https://gitlab.kilic.dev/libraries/oclif-tools",
   "type": "module",
-  "exports": {
-    ".": {
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      },
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
-    },
-    "./package.json": "./package.json"
-  },
   "author": {
     "name": "Cenk Kilic",
     "email": "cenk@kilic.dev",
@@ -25,6 +12,15 @@
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist/"
   ],

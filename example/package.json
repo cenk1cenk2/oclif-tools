@@ -4,14 +4,14 @@
   "version": "1.0.0",
   "license": "MIT",
   "description": "oclif example Hello World CLI",
+  "type": "module",
+  "homepage": "https://github.com/cenk1cenk2/hello-world",
+  "repository": "cenk1cenk2/hello-world",
+  "author": "Cenk Kılıç @cenk1cenk2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      },
       "import": {
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
@@ -19,10 +19,6 @@
     },
     "./package.json": "./package.json"
   },
-  "type": "module",
-  "homepage": "https://github.com/cenk1cenk2/hello-world",
-  "repository": "cenk1cenk2/hello-world",
-  "author": "Cenk Kılıç @cenk1cenk2",
   "keywords": [
     "oclif"
   ],
