@@ -1,6 +1,4 @@
-import { Args, Flags } from '@oclif/core'
-
-import { Command } from '@cenk1cenk2/oclif-common'
+import { Command, Args, Flags } from '@cenk1cenk2/oclif-common'
 
 export default class Hello extends Command<typeof Hello> {
   static description = 'Say hello'
