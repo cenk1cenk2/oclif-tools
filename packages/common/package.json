@@ -75,7 +75,7 @@
   },
   "devDependencies": {
     "@listr2/manager": "^2.0.8",
-    "@oclif/core": "^3.26.9",
+    "@oclif/core": "^3.27.0",
     "@types/fs-extra": "^11.0.4",
     "@types/through": "^0.0.33",
     "@types/update-notifier": "^6.0.8",
