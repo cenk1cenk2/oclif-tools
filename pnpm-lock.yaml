@@ -200,8 +200,8 @@ importers:
         specifier: ^0.5.21
         version: 0.5.21
       yaml:
-        specifier: ^2.4.3
-        version: 2.4.3
+        specifier: ^2.4.4
+        version: 2.4.4
 
 packages:
 
@@ -3698,6 +3698,11 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
+  yaml@2.4.4:
+    resolution: {integrity: sha512-wle6DEiBMLgJAdEPZ+E8BPFauoWbwPujfuGJJFErxYiU4txXItppe8YqeFPAaWnW5CxduQ995X6b5e1NqrmxtA==}
+    engines: {node: '>= 14'}
+    hasBin: true
+
   yarn@1.22.22:
     resolution: {integrity: sha512-prL3kGtyG7o9Z9Sv8IPfBNrWTDmXB4Qbes8A9rEzt6wkJV8mUvoirjU0Mp3GGAU06Y0XQyA3/2/RQFVuK7MTfg==}
     engines: {node: '>=4.0.0'}
@@ -7169,7 +7174,7 @@ snapshots:
   postcss-load-config@4.0.2(ts-node@10.9.2(@swc/core@1.5.25)(typescript@5.4.5)):
     dependencies:
       lilconfig: 3.1.1
-      yaml: 2.4.3
+      yaml: 2.4.4
     optionalDependencies:
       ts-node: 10.9.2(@swc/core@1.5.25)(@types/node@20.14.2)(typescript@5.4.5)
 
@@ -7942,6 +7947,8 @@ snapshots:
   xdg-basedir@5.1.0: {}
 
   yaml@2.4.3: {}
+
+  yaml@2.4.4: {}
 
   yarn@1.22.22: {}
 
