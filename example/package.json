@@ -92,7 +92,7 @@
     "fs-extra": "^11.2.0",
     "globby": "^14.0.1",
     "lint-staged": "^15.2.5",
-    "oclif": "^4.13.3",
+    "oclif": "^4.13.4",
     "prettier": "^3.3.1",
     "rimraf": "^5.0.7",
     "simple-git-hooks": "^2.11.1",
