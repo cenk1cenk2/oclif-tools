@@ -81,8 +81,8 @@ importers:
         specifier: ^2.4.1
         version: 2.4.1
       listr2:
-        specifier: ^8.2.1
-        version: 8.2.1
+        specifier: ^8.2.2
+        version: 8.2.2
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^1.7.7
@@ -2550,10 +2550,6 @@ packages:
     engines: {node: '>=18.12.0'}
     hasBin: true
 
-  listr2@8.2.1:
-    resolution: {integrity: sha512-irTfvpib/rNiD637xeevjO2l3Z5loZmuaRi0L0YE5LfijwVY96oyVn0DFD3o/teAok7nfobMG1THvvcHh/BP6g==}
-    engines: {node: '>=18.0.0'}
-
   listr2@8.2.2:
     resolution: {integrity: sha512-sy0dq+JPS+RAFiFk2K8Nbub7khNmeeoFALNUJ4Wzk34wZKAzaOhEXqGWs4RA5aui0RaM6Hgn7VEKhCj0mlKNLA==}
     engines: {node: '>=18.0.0'}
@@ -4297,7 +4293,7 @@ snapshots:
       enquirer: 2.4.1
       external-editor: 3.1.0
       find-git-root: 1.0.4
-      listr2: 8.2.1
+      listr2: 8.2.2
     optionalDependencies:
       '@commitlint/load': 19.2.0(@types/node@20.14.6)(typescript@5.4.5)
     transitivePeerDependencies:
@@ -4312,7 +4308,7 @@ snapshots:
       enquirer: 2.4.1
       external-editor: 3.1.0
       find-git-root: 1.0.4
-      listr2: 8.2.1
+      listr2: 8.2.2
     optionalDependencies:
       '@commitlint/load': 19.2.0(@types/node@20.14.6)(typescript@5.4.5)
     transitivePeerDependencies:
@@ -6811,22 +6807,13 @@ snapshots:
       debug: 4.3.5(supports-color@8.1.1)
       execa: 8.0.1
       lilconfig: 3.1.2
-      listr2: 8.2.1
+      listr2: 8.2.2
       micromatch: 4.0.7
       pidtree: 0.6.0
       string-argv: 0.3.2
       yaml: 2.4.5
     transitivePeerDependencies:
       - supports-color
-
-  listr2@8.2.1:
-    dependencies:
-      cli-truncate: 4.0.0
-      colorette: 2.0.20
-      eventemitter3: 5.0.1
-      log-update: 6.0.0
-      rfdc: 1.4.1
-      wrap-ansi: 9.0.0
 
   listr2@8.2.2:
     dependencies:
