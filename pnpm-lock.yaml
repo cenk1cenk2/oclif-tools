@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@cenk1cenk2/cz-cc':
-        specifier: ^1.7.7
-        version: 1.7.7(typescript@5.5.2)
+        specifier: ^1.7.8
+        version: 1.7.8(typescript@5.5.2)
       '@cenk1cenk2/eslint-config':
         specifier: ^2.7.51
         version: 2.7.51(eslint@8.57.0)(typescript@5.5.2)
@@ -85,8 +85,8 @@ importers:
         version: 8.2.2
     devDependencies:
       '@cenk1cenk2/cz-cc':
-        specifier: ^1.7.7
-        version: 1.7.7(@types/node@20.14.7)(typescript@5.5.2)
+        specifier: ^1.7.8
+        version: 1.7.8(@types/node@20.14.7)(typescript@5.5.2)
       '@cenk1cenk2/eslint-config':
         specifier: ^2.7.51
         version: 2.7.51(eslint@8.57.0)(typescript@5.5.2)
@@ -106,8 +106,8 @@ importers:
         specifier: ^8.57.0
         version: 8.57.0
       execa:
-        specifier: ^9.2.0
-        version: 9.2.0
+        specifier: ^9.3.0
+        version: 9.3.0
       fs-extra:
         specifier: ^11.2.0
         version: 11.2.0
@@ -386,8 +386,8 @@ packages:
     resolution: {integrity: sha512-EStJpq4OuY8xYfhGVXngigBJRWxftKX9ksiGDnmlY3o7B/V7KIAc9X4oiK87uPJSc/vs5L869bem5fhZa8caZw==}
     engines: {node: '>=6.9.0'}
 
-  '@cenk1cenk2/cz-cc@1.7.7':
-    resolution: {integrity: sha512-FOu62seiO4+90lFRBgues2Bx18p+uH31JE2n4pZyqXk9caoHPBy0x1cyvKdd5GCwZ4XmPbH4pWbiZTbbguRCIQ==}
+  '@cenk1cenk2/cz-cc@1.7.8':
+    resolution: {integrity: sha512-VVMnkVL2k/kG00tPTJaVAyw82BME4Zb4TTYxZMvoKiLpJhG2ayxe1jSh3OQeyUza5zMa7nwucyrHNxX1br5bVw==}
     engines: {node: '>= 16'}
 
   '@cenk1cenk2/eslint-config@2.7.51':
@@ -1868,8 +1868,8 @@ packages:
     resolution: {integrity: sha512-VyhnebXciFV2DESc+p6B+y0LjSm0krU4OgJN44qFAhBY0TJ+1V61tYD2+wHusZ6F9n5K+vl8k0sTy7PEfV4qpg==}
     engines: {node: '>=16.17'}
 
-  execa@9.2.0:
-    resolution: {integrity: sha512-vpOyYg7UAVKLAWWtRS2gAdgkT7oJbCn0me3gmUmxZih4kd3MF/oo8kNTBTIbkO3yuuF5uB4ZCZfn8BOolITYhg==}
+  execa@9.3.0:
+    resolution: {integrity: sha512-l6JFbqnHEadBoVAVpN5dl2yCyfX28WoBAGaoQcNmLLSedOxTxcn2Qa83s8I/PA5i56vWru2OHOtrwF7Om2vqlg==}
     engines: {node: ^18.19.0 || >=20.5.0}
 
   expand-tilde@2.0.2:
@@ -4227,7 +4227,7 @@ snapshots:
       picocolors: 1.0.1
     optional: true
 
-  '@cenk1cenk2/cz-cc@1.7.7(@types/node@20.14.7)(typescript@5.5.2)':
+  '@cenk1cenk2/cz-cc@1.7.8(@types/node@20.14.7)(typescript@5.5.2)':
     dependencies:
       '@listr2/prompt-adapter-enquirer': 2.0.9(enquirer@2.4.1)
       commitizen: 4.3.0(@types/node@20.14.7)(typescript@5.5.2)
@@ -4235,14 +4235,14 @@ snapshots:
       enquirer: 2.4.1
       external-editor: 3.1.0
       find-git-root: 1.0.4
-      listr2: 8.2.2
+      listr2: 8.2.3
     optionalDependencies:
       '@commitlint/load': 19.2.0(@types/node@20.14.7)(typescript@5.5.2)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
 
-  '@cenk1cenk2/cz-cc@1.7.7(typescript@5.5.2)':
+  '@cenk1cenk2/cz-cc@1.7.8(typescript@5.5.2)':
     dependencies:
       '@listr2/prompt-adapter-enquirer': 2.0.9(enquirer@2.4.1)
       commitizen: 4.3.0(typescript@5.5.2)
@@ -4250,7 +4250,7 @@ snapshots:
       enquirer: 2.4.1
       external-editor: 3.1.0
       find-git-root: 1.0.4
-      listr2: 8.2.2
+      listr2: 8.2.3
     optionalDependencies:
       '@commitlint/load': 19.2.0(@types/node@20.14.7)(typescript@5.5.2)
     transitivePeerDependencies:
@@ -6022,7 +6022,7 @@ snapshots:
       signal-exit: 4.1.0
       strip-final-newline: 3.0.0
 
-  execa@9.2.0:
+  execa@9.3.0:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       cross-spawn: 7.0.3
