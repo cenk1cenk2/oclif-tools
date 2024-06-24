@@ -48,11 +48,11 @@ importers:
         specifier: ^1.13.4
         version: 1.13.4
       typedoc:
-        specifier: ^0.26.1
-        version: 0.26.1(typescript@5.5.2)
+        specifier: ^0.26.2
+        version: 0.26.2(typescript@5.5.2)
       typedoc-plugin-markdown:
         specifier: ^4.1.0
-        version: 4.1.0(typedoc@0.26.1(typescript@5.5.2))
+        version: 4.1.0(typedoc@0.26.2(typescript@5.5.2))
       typescript:
         specifier: ^5.5.2
         version: 5.5.2
@@ -3487,8 +3487,8 @@ packages:
     peerDependencies:
       typedoc: 0.26.x
 
-  typedoc@0.26.1:
-    resolution: {integrity: sha512-APsVXqh93jTlpkLuw6+/IORx7n5LN8hzJV8nvMIrYYaIva0VCq0CoDN7Z3hsRThEYVExI/qoFHnAAxrhG+Wd7Q==}
+  typedoc@0.26.2:
+    resolution: {integrity: sha512-q/t+M+PZqhN9gPWLBZ3CCvP+KT8O1tyYkSzEYbcQ6mo89avdIrMlBEl3vfo5BgSzwC6Lbmq0W64E8RkY+eVsLA==}
     engines: {node: '>= 18'}
     hasBin: true
     peerDependencies:
@@ -7625,11 +7625,11 @@ snapshots:
     dependencies:
       is-typedarray: 1.0.0
 
-  typedoc-plugin-markdown@4.1.0(typedoc@0.26.1(typescript@5.5.2)):
+  typedoc-plugin-markdown@4.1.0(typedoc@0.26.2(typescript@5.5.2)):
     dependencies:
-      typedoc: 0.26.1(typescript@5.5.2)
+      typedoc: 0.26.2(typescript@5.5.2)
 
-  typedoc@0.26.1(typescript@5.5.2):
+  typedoc@0.26.2(typescript@5.5.2):
     dependencies:
       lunr: 2.3.9
       markdown-it: 14.1.0
