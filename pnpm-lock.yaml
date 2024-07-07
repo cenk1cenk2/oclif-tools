@@ -734,16 +734,16 @@ packages:
     resolution: {integrity: sha512-/NgP6j5THCWDxQj3Mba+IIidf8fBtOT5Wh6ygb2WdWLSxcsRXSQUiJKKOXu8e/N5+KQeuG2Yko2hFxd2cZUzMQ==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-not-found@3.2.9':
-    resolution: {integrity: sha512-HkNqEJgUgBPOyq85W9ff48bQIRDnqc9WqmgL/72lnbN7xw43ZlPHXkcyav5eHtjHt7mXsEf0Eu0vhyzUau+NsA==}
+  '@oclif/plugin-not-found@3.2.10':
+    resolution: {integrity: sha512-Bevp3hcv1IhNgljugIhxL5ARcwxsQmiR9yGOozURuZBX3IjsHBPhI2I92wKA2KM5zRgh4zOm6gvoP8gcHlhLJA==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-plugins@5.3.4':
     resolution: {integrity: sha512-gbLe+rfqP3dlphqOisFvbZ+adjobvIEhc78ferl3wFL4EazkIrcqrHYle77EjsaEiATqtCIeh3Ef41QCGoK9pA==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-warn-if-update-available@3.1.7':
-    resolution: {integrity: sha512-kQYwlSWNLqoT91H2NBKmj5HPyNcAiatJn4lAIGWbVgk08t+lMD7zOSAoRSN7gc2chelpAfmk4e5Mz4ANL8c7IQ==}
+  '@oclif/plugin-warn-if-update-available@3.1.8':
+    resolution: {integrity: sha512-8MVaQGnvUq/mBYOVLVC1ZniwGHckRULS75s2PVT/9A4MRPzLmtNpaV8Ncra+X4cvxMJQB7KhbJN3v1itWyHnHg==}
     engines: {node: '>=18.0.0'}
 
   '@pkgjs/parseargs@0.11.0':
@@ -845,8 +845,8 @@ packages:
   '@sec-ant/readable-stream@0.4.1':
     resolution: {integrity: sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg==}
 
-  '@shikijs/core@1.10.1':
-    resolution: {integrity: sha512-qdiJS5a/QGCff7VUFIqd0hDdWly9rDp8lhVmXVrS11aazX8LOTRLHAXkkEeONNsS43EcCd7gax9LLoOz4vlFQA==}
+  '@shikijs/core@1.10.3':
+    resolution: {integrity: sha512-D45PMaBaeDHxww+EkcDQtDAtzv00Gcsp72ukBtaLSmqRvh0WgGMq3Al0rl1QQBZfuneO75NXMIzEZGFitThWbg==}
 
   '@sindresorhus/is@5.6.0':
     resolution: {integrity: sha512-TV7t8GKYaJWsn00tFDqBw8+Uqmr8A0fRU1tvTQhyZzGv0sJCGRQL3JGMI3ucuKo3XIZdUP+Lx7/gh2t3lewy7g==}
@@ -1172,6 +1172,9 @@ packages:
   '@types/glob@7.2.0':
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
 
+  '@types/hast@3.0.4':
+    resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
+
   '@types/http-cache-semantics@4.0.4':
     resolution: {integrity: sha512-1m0bIFVc7eJWyve9S0RnuRgcQqF/Xd5QsUZAZeQFr1Q3/p9JWoQQEqmVy+DPTNpGXwhgIetAoYF8JSc33q29QA==}
 
@@ -1195,6 +1198,9 @@ packages:
 
   '@types/triple-beam@1.3.5':
     resolution: {integrity: sha512-6WaYesThRMCl19iryMYP7/x2OVgCtbIVflDGFpWnb9irXI3UjYE4AzmYuiUKY1AJstGijoY+MgUszMgRxIYTYw==}
+
+  '@types/unist@3.0.2':
+    resolution: {integrity: sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==}
 
   '@types/update-notifier@6.0.8':
     resolution: {integrity: sha512-IlDFnfSVfYQD+cKIg63DEXn3RFmd7W1iYtKQsJodcHK9R1yr8aKbKaPKfBxzPpcHCq2DU8zUq4PIPmy19Thjfg==}
@@ -3140,8 +3146,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shiki@1.10.1:
-    resolution: {integrity: sha512-uafV7WCgN4YYrccH6yxpnps6k38sSTlFRrwc4jycWmhWxJIm9dPrk+XkY1hZ2t0I7jmacMNb15Lf2fspa/Y3lg==}
+  shiki@1.10.3:
+    resolution: {integrity: sha512-eneCLncGuvPdTutJuLyUGS8QNPAVFO5Trvld2wgEq1e002mwctAhJKeMGWtWVXOIEzmlcLRqcgPSorR6AVzOmQ==}
 
   side-channel@1.0.6:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
@@ -4583,7 +4589,7 @@ snapshots:
     dependencies:
       '@oclif/core': 4.0.8
 
-  '@oclif/plugin-not-found@3.2.9':
+  '@oclif/plugin-not-found@3.2.10':
     dependencies:
       '@inquirer/confirm': 3.1.14
       '@oclif/core': 4.0.8
@@ -4606,7 +4612,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@oclif/plugin-warn-if-update-available@3.1.7':
+  '@oclif/plugin-warn-if-update-available@3.1.8':
     dependencies:
       '@oclif/core': 4.0.8
       ansis: 3.2.0
@@ -4681,7 +4687,9 @@ snapshots:
 
   '@sec-ant/readable-stream@0.4.1': {}
 
-  '@shikijs/core@1.10.1': {}
+  '@shikijs/core@1.10.3':
+    dependencies:
+      '@types/hast': 3.0.4
 
   '@sindresorhus/is@5.6.0': {}
 
@@ -5102,6 +5110,10 @@ snapshots:
       '@types/minimatch': 5.1.2
       '@types/node': 20.14.10
 
+  '@types/hast@3.0.4':
+    dependencies:
+      '@types/unist': 3.0.2
+
   '@types/http-cache-semantics@4.0.4': {}
 
   '@types/json5@0.0.29': {}
@@ -5125,6 +5137,8 @@ snapshots:
       '@types/node': 20.14.10
 
   '@types/triple-beam@1.3.5': {}
+
+  '@types/unist@3.0.2': {}
 
   '@types/update-notifier@6.0.8':
     dependencies:
@@ -6923,8 +6937,8 @@ snapshots:
       '@inquirer/select': 2.3.10
       '@oclif/core': 4.0.8
       '@oclif/plugin-help': 6.2.5
-      '@oclif/plugin-not-found': 3.2.9
-      '@oclif/plugin-warn-if-update-available': 3.1.7
+      '@oclif/plugin-not-found': 3.2.10
+      '@oclif/plugin-warn-if-update-available': 3.1.8
       async-retry: 1.3.3
       chalk: 4.1.2
       change-case: 4.1.2
@@ -7270,9 +7284,10 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shiki@1.10.1:
+  shiki@1.10.3:
     dependencies:
-      '@shikijs/core': 1.10.1
+      '@shikijs/core': 1.10.3
+      '@types/hast': 3.0.4
 
   side-channel@1.0.6:
     dependencies:
@@ -7635,7 +7650,7 @@ snapshots:
       lunr: 2.3.9
       markdown-it: 14.1.0
       minimatch: 9.0.5
-      shiki: 1.10.1
+      shiki: 1.10.3
       typescript: 5.5.3
       yaml: 2.4.5
 
