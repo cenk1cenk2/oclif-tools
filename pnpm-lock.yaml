@@ -63,8 +63,8 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.0.9
-        version: 4.0.9
+        specifier: ^4.0.11
+        version: 4.0.11
       '@oclif/plugin-help':
         specifier: ^6.2.5
         version: 6.2.5
@@ -163,8 +163,8 @@ importers:
         specifier: '>= 5'
         version: 7.0.0
       winston:
-        specifier: ^3.13.0
-        version: 3.13.0
+        specifier: ^3.13.1
+        version: 3.13.1
     devDependencies:
       '@listr2/manager':
         specifier: ^2.0.10
@@ -728,10 +728,6 @@ packages:
 
   '@oclif/core@4.0.11':
     resolution: {integrity: sha512-cZLLdSm9tGSbuoRjjgXf128zvPZH+afjQMQcrvDfoN347KvPg75ne8YJ8qHix+T3Vl03iXfgIH6guQN0kLgmjg==}
-    engines: {node: '>=18.0.0'}
-
-  '@oclif/core@4.0.9':
-    resolution: {integrity: sha512-2mjLB/HzH+b3+tNnlRjx/+mgoBgjZxWQG2qmde/Q7+ghNyRP8tuHhwiCKw2fH2rJSUl5eksbQ8j9WNHWOg6rPg==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-help@6.2.5':
@@ -3617,8 +3613,8 @@ packages:
     resolution: {integrity: sha512-ajBj65K5I7denzer2IYW6+2bNIVqLGDHqDw3Ow8Ohh+vdW+rv4MZ6eiDvHoKhfJFZ2auyN8byXieDDJ96ViONg==}
     engines: {node: '>= 12.0.0'}
 
-  winston@3.13.0:
-    resolution: {integrity: sha512-rwidmA1w3SE4j0E5MuIufFhyJPBDG7Nu71RkZor1p2+qHvJSZ9GYDA81AyleQcZbh/+V6HjeBdfnTZJm9rSeQQ==}
+  winston@3.13.1:
+    resolution: {integrity: sha512-SvZit7VFNvXRzbqGHsv5KSmgbEYR5EiQfDAL9gxYkRqa934Hnk++zze0wANKtMHcy/gI4W/3xmSDwlhf865WGw==}
     engines: {node: '>= 12.0.0'}
 
   word-wrap@1.2.5:
@@ -4587,29 +4583,9 @@ snapshots:
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
-  '@oclif/core@4.0.9':
-    dependencies:
-      ansi-escapes: 4.3.2
-      ansis: 3.2.0
-      clean-stack: 3.0.1
-      cli-spinners: 2.9.2
-      debug: 4.3.5(supports-color@8.1.1)
-      ejs: 3.1.10
-      get-package-type: 0.1.0
-      globby: 11.1.0
-      indent-string: 4.0.0
-      is-wsl: 2.2.0
-      lilconfig: 3.1.2
-      minimatch: 9.0.5
-      string-width: 4.2.3
-      supports-color: 8.1.1
-      widest-line: 3.1.0
-      wordwrap: 1.0.0
-      wrap-ansi: 7.0.0
-
   '@oclif/plugin-help@6.2.5':
     dependencies:
-      '@oclif/core': 4.0.9
+      '@oclif/core': 4.0.11
 
   '@oclif/plugin-not-found@3.2.10':
     dependencies:
@@ -4620,7 +4596,7 @@ snapshots:
 
   '@oclif/plugin-plugins@5.3.4':
     dependencies:
-      '@oclif/core': 4.0.9
+      '@oclif/core': 4.0.11
       ansis: 3.2.0
       debug: 4.3.5(supports-color@8.1.1)
       npm: 10.8.1
@@ -6957,7 +6933,7 @@ snapshots:
       '@inquirer/confirm': 3.1.14
       '@inquirer/input': 2.2.1
       '@inquirer/select': 2.3.10
-      '@oclif/core': 4.0.9
+      '@oclif/core': 4.0.11
       '@oclif/plugin-help': 6.2.5
       '@oclif/plugin-not-found': 3.2.10
       '@oclif/plugin-warn-if-update-available': 3.1.8
@@ -7806,7 +7782,7 @@ snapshots:
       readable-stream: 3.6.2
       triple-beam: 1.4.1
 
-  winston@3.13.0:
+  winston@3.13.1:
     dependencies:
       '@colors/colors': 1.6.0
       '@dabh/diagnostics': 2.0.3
