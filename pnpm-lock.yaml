@@ -12,7 +12,7 @@ importers:
         specifier: ^1.7.9
         version: 1.7.9(typescript@5.5.3)
       '@cenk1cenk2/eslint-config':
-        specifier: ^2.7.54
+        specifier: ^2.7.55
         version: 2.7.55(eslint@8.57.0)(typescript@5.5.3)
       '@swc/core':
         specifier: ^1.6.13
@@ -88,7 +88,7 @@ importers:
         specifier: ^1.7.9
         version: 1.7.9(@types/node@20.14.10)(typescript@5.5.3)
       '@cenk1cenk2/eslint-config':
-        specifier: ^2.7.54
+        specifier: ^2.7.55
         version: 2.7.55(eslint@8.57.0)(typescript@5.5.3)
       '@tsconfig/node16':
         specifier: ^16.1.3
