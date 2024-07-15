@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [6.3.17](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.16...@cenk1cenk2/oclif-common@6.3.17) (2024-07-15)
+
+
+### Bug Fixes
+
+* **deps:** update all minor dependency updates ([5f1e20c](https://gitlab.kilic.dev/libraries/oclif-tools/commit/5f1e20c729d7a10366b14f2af49b2372c2525bbe))
+
 ## @cenk1cenk2/oclif-common [6.3.16](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.15...@cenk1cenk2/oclif-common@6.3.16) (2024-07-01)
 
 
