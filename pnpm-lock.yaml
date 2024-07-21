@@ -170,8 +170,8 @@ importers:
         specifier: ^2.0.10
         version: 2.0.10
       '@oclif/core':
-        specifier: ^4.0.12
-        version: 4.0.12
+        specifier: ^4.0.13
+        version: 4.0.13
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -734,6 +734,10 @@ packages:
 
   '@oclif/core@4.0.12':
     resolution: {integrity: sha512-o2dfPtmi2uBGHgpvHr+GNfoRKysKgQGiffONoMN3R+qBVNeIkJIZhVk31HreDkAI9LAzS92BWNgp/l7lXDxdvg==}
+    engines: {node: '>=18.0.0'}
+
+  '@oclif/core@4.0.13':
+    resolution: {integrity: sha512-xZAOTK6f0Dk+DidDI7SvmbMpmBXYmzRA1YrAw5g+/cMTSmmOojq/DGNCgdUf2i+S/DEMIOs0uEUIUidYBnIfkQ==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-help@6.2.6':
@@ -4614,6 +4618,26 @@ snapshots:
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
+  '@oclif/core@4.0.13':
+    dependencies:
+      ansi-escapes: 4.3.2
+      ansis: 3.3.1
+      clean-stack: 3.0.1
+      cli-spinners: 2.9.2
+      debug: 4.3.5(supports-color@8.1.1)
+      ejs: 3.1.10
+      get-package-type: 0.1.0
+      globby: 11.1.0
+      indent-string: 4.0.0
+      is-wsl: 2.2.0
+      lilconfig: 3.1.2
+      minimatch: 9.0.5
+      string-width: 4.2.3
+      supports-color: 8.1.1
+      widest-line: 3.1.0
+      wordwrap: 1.0.0
+      wrap-ansi: 7.0.0
+
   '@oclif/plugin-help@6.2.6':
     dependencies:
       '@oclif/core': 4.0.12
@@ -4621,7 +4645,7 @@ snapshots:
   '@oclif/plugin-not-found@3.2.12':
     dependencies:
       '@inquirer/confirm': 3.1.16
-      '@oclif/core': 4.0.12
+      '@oclif/core': 4.0.13
       ansis: 3.3.1
       fast-levenshtein: 3.0.0
 
@@ -4643,7 +4667,7 @@ snapshots:
 
   '@oclif/plugin-warn-if-update-available@3.1.9':
     dependencies:
-      '@oclif/core': 4.0.12
+      '@oclif/core': 4.0.13
       ansis: 3.3.1
       debug: 4.3.5(supports-color@8.1.1)
       http-call: 5.3.0
