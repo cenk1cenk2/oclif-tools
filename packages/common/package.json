@@ -85,6 +85,6 @@
     "fs-extra": "^11.2.0",
     "listr2": "^8.2.3",
     "source-map-support": "^0.5.21",
-    "yaml": "^2.4.5"
+    "yaml": "^2.5.0"
   }
 }
