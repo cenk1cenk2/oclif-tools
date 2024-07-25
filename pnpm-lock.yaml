@@ -160,7 +160,7 @@ importers:
         specifier: ^0.2.1
         version: 0.2.2
       update-notifier:
-        specifier: '>= 5'
+        specifier: '>= 7.1.0'
         version: 7.1.0
       winston:
         specifier: ^3.13.1

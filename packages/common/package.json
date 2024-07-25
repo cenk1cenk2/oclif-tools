@@ -54,7 +54,7 @@
     "enquirer": ">= 2",
     "fs-extra": ">= 10",
     "listr2": ">= 7",
-    "update-notifier": ">= 5",
+    "update-notifier": ">= 7.1.0",
     "yaml": ">= 2"
   },
   "peerDependenciesMeta": {
