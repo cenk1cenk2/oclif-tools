@@ -49,7 +49,7 @@
   "peerDependencies": {
     "@listr2/manager": ">= 1",
     "@oclif/core": ">= 1",
-    "class-transformer": ">= 0.5.0",
+    "class-transformer": ">= 0.5.1",
     "class-validator": ">= 0.14.0",
     "enquirer": ">= 2",
     "fs-extra": ">= 10",
