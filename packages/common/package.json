@@ -48,7 +48,7 @@
   },
   "peerDependencies": {
     "@listr2/manager": ">= 1",
-    "@oclif/core": ">= 1",
+    "@oclif/core": ">= 1.26.2",
     "class-transformer": ">= 0.5.0",
     "class-validator": ">= 0.14.0",
     "enquirer": ">= 2",
