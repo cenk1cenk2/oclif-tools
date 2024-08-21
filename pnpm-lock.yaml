@@ -170,8 +170,8 @@ importers:
         specifier: ^2.0.11
         version: 2.0.11
       '@oclif/core':
-        specifier: ^4.0.17
-        version: 4.0.17
+        specifier: ^4.0.18
+        version: 4.0.18
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -730,6 +730,10 @@ packages:
 
   '@oclif/core@4.0.17':
     resolution: {integrity: sha512-zfdSRip9DVMOklMojWCLZEB4iOzy7LDTABCDzCXqmpZGS+o1e1xts4jGhnte3mi0WV0YthNfYqF16tqk6CWITA==}
+    engines: {node: '>=18.0.0'}
+
+  '@oclif/core@4.0.18':
+    resolution: {integrity: sha512-3EP4zJ+1ndc92UxdNmGX4HhFK5Xh94fWvUeOW1Tu/Ed+/jAljIsbmZyjVhDoE0vV5cftT+3QaVB/LFxaXxty/w==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-help@6.2.8':
@@ -4630,20 +4634,40 @@ snapshots:
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
+  '@oclif/core@4.0.18':
+    dependencies:
+      ansi-escapes: 4.3.2
+      ansis: 3.3.2
+      clean-stack: 3.0.1
+      cli-spinners: 2.9.2
+      debug: 4.3.6(supports-color@8.1.1)
+      ejs: 3.1.10
+      get-package-type: 0.1.0
+      globby: 11.1.0
+      indent-string: 4.0.0
+      is-wsl: 2.2.0
+      lilconfig: 3.1.2
+      minimatch: 9.0.5
+      string-width: 4.2.3
+      supports-color: 8.1.1
+      widest-line: 3.1.0
+      wordwrap: 1.0.0
+      wrap-ansi: 7.0.0
+
   '@oclif/plugin-help@6.2.8':
     dependencies:
-      '@oclif/core': 4.0.17
+      '@oclif/core': 4.0.18
 
   '@oclif/plugin-not-found@3.2.16':
     dependencies:
       '@inquirer/confirm': 3.1.22
-      '@oclif/core': 4.0.17
+      '@oclif/core': 4.0.18
       ansis: 3.3.2
       fast-levenshtein: 3.0.0
 
   '@oclif/plugin-plugins@5.4.4':
     dependencies:
-      '@oclif/core': 4.0.17
+      '@oclif/core': 4.0.18
       ansis: 3.3.2
       debug: 4.3.6(supports-color@8.1.1)
       npm: 10.8.2
@@ -4659,7 +4683,7 @@ snapshots:
 
   '@oclif/plugin-warn-if-update-available@3.1.11':
     dependencies:
-      '@oclif/core': 4.0.17
+      '@oclif/core': 4.0.18
       ansis: 3.3.2
       debug: 4.3.6(supports-color@8.1.1)
       http-call: 5.3.0
@@ -7011,7 +7035,7 @@ snapshots:
       '@inquirer/confirm': 3.1.22
       '@inquirer/input': 2.2.9
       '@inquirer/select': 2.4.7
-      '@oclif/core': 4.0.17
+      '@oclif/core': 4.0.18
       '@oclif/plugin-help': 6.2.8
       '@oclif/plugin-not-found': 3.2.16
       '@oclif/plugin-warn-if-update-available': 3.1.11
