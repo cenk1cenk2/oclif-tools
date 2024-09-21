@@ -63,14 +63,14 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.0.19
+        specifier: ^4.0.22
         version: 4.0.22
       '@oclif/plugin-help':
-        specifier: ^6.2.10
+        specifier: ^6.2.11
         version: 6.2.11
       '@oclif/plugin-plugins':
-        specifier: ^5.4.6
-        version: 5.4.8
+        specifier: ^5.4.9
+        version: 5.4.9
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -145,10 +145,10 @@ importers:
   packages/common:
     dependencies:
       '@nestjs/common':
-        specifier: ^10.4.1
+        specifier: ^10.4.3
         version: 10.4.3(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@nestjs/core':
-        specifier: ^10.4.1
+        specifier: ^10.4.3
         version: 10.4.3(@nestjs/common@10.4.3(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1)
       deepmerge:
         specifier: ^4.3.1
@@ -744,8 +744,8 @@ packages:
     resolution: {integrity: sha512-1v5MkECOH+mkubpk5RgyVK1qEHn3hr2wX1qsx5hawTyssd10WEFIkH258M9CjyiG42M6ZCQhOS3Wo2wteLo/vg==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.4.8':
-    resolution: {integrity: sha512-jDkWedI7HVhkig8UycXpvSq92s08Op0MJqYnumHZv3g3puz3AAMPouESlMOKY8Z0mEnJHSlnOjLyVXQL2BDKWg==}
+  '@oclif/plugin-plugins@5.4.9':
+    resolution: {integrity: sha512-V64IZ5ldyZWJRwYsRHzGvuayWM1KYTsNNI3O58U6+VwEs2Ir16Q0Nwu0Ejnn6mM7na9Qz4RCU9tWhbngRoZt+g==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.1.16':
@@ -4769,7 +4769,7 @@ snapshots:
       ansis: 3.3.2
       fast-levenshtein: 3.0.0
 
-  '@oclif/plugin-plugins@5.4.8':
+  '@oclif/plugin-plugins@5.4.9':
     dependencies:
       '@oclif/core': 4.0.22
       ansis: 3.3.2
