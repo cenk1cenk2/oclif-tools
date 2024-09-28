@@ -70,7 +70,7 @@ importers:
         version: 6.2.12
       '@oclif/plugin-plugins':
         specifier: ^5.4.9
-        version: 5.4.9
+        version: 5.4.10
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -740,12 +740,12 @@ packages:
     resolution: {integrity: sha512-yLWIIQScGpr5YJzREXeRHRa0TYvTAZC+joHw/wCLw2diVOBkAlDGO67bYvfMN279YU00UJ46Yy22GEO2trtPug==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-not-found@3.2.21':
-    resolution: {integrity: sha512-1v5MkECOH+mkubpk5RgyVK1qEHn3hr2wX1qsx5hawTyssd10WEFIkH258M9CjyiG42M6ZCQhOS3Wo2wteLo/vg==}
+  '@oclif/plugin-not-found@3.2.22':
+    resolution: {integrity: sha512-snd/gmYjTYIa8vr5rPLNus0ymKhhITRTFWLlYCJvAZTs2kX+vUMMdpKId9pEPSzoVGmyddNVshWSCJ2FSgR0mg==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.4.9':
-    resolution: {integrity: sha512-V64IZ5ldyZWJRwYsRHzGvuayWM1KYTsNNI3O58U6+VwEs2Ir16Q0Nwu0Ejnn6mM7na9Qz4RCU9tWhbngRoZt+g==}
+  '@oclif/plugin-plugins@5.4.10':
+    resolution: {integrity: sha512-Um3y52t1I1Wv2yIZ1TkAiASiFEWnROoZ4tn/+mgAT55em99LpRE2d+ujXVoP/HllsVbVun3QaHhv1t0YRz0udA==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.1.17':
@@ -4786,14 +4786,14 @@ snapshots:
     dependencies:
       '@oclif/core': 4.0.23
 
-  '@oclif/plugin-not-found@3.2.21':
+  '@oclif/plugin-not-found@3.2.22':
     dependencies:
       '@inquirer/confirm': 3.2.0
       '@oclif/core': 4.0.23
       ansis: 3.3.2
       fast-levenshtein: 3.0.0
 
-  '@oclif/plugin-plugins@5.4.9':
+  '@oclif/plugin-plugins@5.4.10':
     dependencies:
       '@oclif/core': 4.0.23
       ansis: 3.3.2
@@ -7275,7 +7275,7 @@ snapshots:
       '@inquirer/select': 2.5.0
       '@oclif/core': 4.0.23
       '@oclif/plugin-help': 6.2.12
-      '@oclif/plugin-not-found': 3.2.21
+      '@oclif/plugin-not-found': 3.2.22
       '@oclif/plugin-warn-if-update-available': 3.1.17
       async-retry: 1.3.3
       chalk: 4.1.2
