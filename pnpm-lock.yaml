@@ -167,8 +167,8 @@ importers:
         version: 3.14.2
     devDependencies:
       '@listr2/manager':
-        specifier: ^2.0.11
-        version: 2.0.11
+        specifier: ^2.0.13
+        version: 2.0.13
       '@oclif/core':
         specifier: ^4.0.27
         version: 4.0.27
@@ -194,8 +194,8 @@ importers:
         specifier: ^11.2.0
         version: 11.2.0
       listr2:
-        specifier: ^8.2.4
-        version: 8.2.4
+        specifier: ^8.2.5
+        version: 8.2.5
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -671,8 +671,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@listr2/manager@2.0.11':
-    resolution: {integrity: sha512-cbG9svXrudfnkCrq7zVwlT14dm40lBSvFNmTZc+3s8Dc2n6K7khOaNyBiaqGoeoRxqi7NuhiPStCbBMHwS8ydA==}
+  '@listr2/manager@2.0.13':
+    resolution: {integrity: sha512-Xyk9nJ2pKdbEiECRcopy0QujsdQbn/WRnqnQvSyq9+8BqWZWvOxC//cgZMENsfuPJDWheAO8JuKNc00oCJb1vQ==}
     engines: {node: '>=18.0.0'}
 
   '@listr2/prompt-adapter-enquirer@2.0.11':
@@ -2630,6 +2630,10 @@ packages:
 
   listr2@8.2.4:
     resolution: {integrity: sha512-opevsywziHd3zHCVQGAj8zu+Z3yHNkkoYhWIGnq54RrCVwLz0MozotJEDnKsIBLvkfLGN6BLOyAeRrYI0pKA4g==}
+    engines: {node: '>=18.0.0'}
+
+  listr2@8.2.5:
+    resolution: {integrity: sha512-iyAZCeyD+c1gPyE9qpFu8af0Y+MRtmKOncdGoA2S5EY8iFq99dmmvkNnHiWo+pj0s7yH7l3KPIgee77tKpXPWQ==}
     engines: {node: '>=18.0.0'}
 
   load-tsconfig@0.2.5:
@@ -4727,7 +4731,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@listr2/manager@2.0.11': {}
+  '@listr2/manager@2.0.13': {}
 
   '@listr2/prompt-adapter-enquirer@2.0.11(enquirer@2.4.1)':
     dependencies:
@@ -7089,6 +7093,15 @@ snapshots:
       - supports-color
 
   listr2@8.2.4:
+    dependencies:
+      cli-truncate: 4.0.0
+      colorette: 2.0.20
+      eventemitter3: 5.0.1
+      log-update: 6.1.0
+      rfdc: 1.4.1
+      wrap-ansi: 9.0.0
+
+  listr2@8.2.5:
     dependencies:
       cli-truncate: 4.0.0
       colorette: 2.0.20
