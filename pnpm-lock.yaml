@@ -63,13 +63,13 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.0.27
+        specifier: ^4.0.28
         version: 4.0.28
       '@oclif/plugin-help':
         specifier: ^6.2.14
         version: 6.2.14
       '@oclif/plugin-plugins':
-        specifier: ^5.4.14
+        specifier: ^5.4.15
         version: 5.4.15
       class-transformer:
         specifier: ^0.5.1
