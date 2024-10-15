@@ -63,10 +63,10 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.0.28
-        version: 4.0.28
+        specifier: ^4.0.29
+        version: 4.0.29
       '@oclif/plugin-help':
-        specifier: ^6.2.14
+        specifier: ^6.2.15
         version: 6.2.15
       '@oclif/plugin-plugins':
         specifier: ^5.4.15
@@ -731,10 +731,6 @@ packages:
     resolution: {integrity: sha512-um0xL3fO7Mf4fDxcqx9KryrB7zgRM5JSlvGN5AGkP6JLM5XEKyjeAiPbNxdXVXQ16isuAhYpvP88NgL2BGd6aA==}
     engines: {node: '>=8.0.0', npm: '>=5.0.0'}
     hasBin: true
-
-  '@oclif/core@4.0.28':
-    resolution: {integrity: sha512-lKM1W2glLJmVxZrnb+k3NaudzG9V2yoKJZcW+lmfMf/yPlx6bT/N+DELUsSwdm1VfJAXaQmpLV4+AfEX5qq3mA==}
-    engines: {node: '>=18.0.0'}
 
   '@oclif/core@4.0.29':
     resolution: {integrity: sha512-WEbrRn+X9FG8Wk8U/JUAd4bTzCwOtKPqpCP4ijfqEK8g2ZXV1bGG3FSCTmZkZLNDt/WUYYJpC0Tjjqxn1T4Bzg==}
@@ -4787,27 +4783,6 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@oclif/core@4.0.28':
-    dependencies:
-      ansi-escapes: 4.3.2
-      ansis: 3.3.2
-      clean-stack: 3.0.1
-      cli-spinners: 2.9.2
-      debug: 4.3.7(supports-color@8.1.1)
-      ejs: 3.1.10
-      get-package-type: 0.1.0
-      globby: 11.1.0
-      indent-string: 4.0.0
-      is-wsl: 3.1.0
-      lilconfig: 3.1.2
-      minimatch: 9.0.5
-      semver: 7.6.3
-      string-width: 4.2.3
-      supports-color: 8.1.1
-      widest-line: 3.1.0
-      wordwrap: 1.0.0
-      wrap-ansi: 7.0.0
-
   '@oclif/core@4.0.29':
     dependencies:
       ansi-escapes: 4.3.2
@@ -4831,7 +4806,7 @@ snapshots:
 
   '@oclif/plugin-help@6.2.15':
     dependencies:
-      '@oclif/core': 4.0.28
+      '@oclif/core': 4.0.29
 
   '@oclif/plugin-not-found@3.2.22':
     dependencies:
@@ -4842,7 +4817,7 @@ snapshots:
 
   '@oclif/plugin-plugins@5.4.15':
     dependencies:
-      '@oclif/core': 4.0.28
+      '@oclif/core': 4.0.29
       ansis: 3.3.2
       debug: 4.3.7(supports-color@8.1.1)
       npm: 10.9.0
@@ -7325,7 +7300,7 @@ snapshots:
       '@inquirer/confirm': 3.2.0
       '@inquirer/input': 2.3.0
       '@inquirer/select': 2.5.0
-      '@oclif/core': 4.0.28
+      '@oclif/core': 4.0.29
       '@oclif/plugin-help': 6.2.15
       '@oclif/plugin-not-found': 3.2.22
       '@oclif/plugin-warn-if-update-available': 3.1.19
