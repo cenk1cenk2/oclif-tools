@@ -170,8 +170,8 @@ importers:
         specifier: ^2.0.13
         version: 2.0.13
       '@oclif/core':
-        specifier: ^4.0.30
-        version: 4.0.30
+        specifier: ^4.0.31
+        version: 4.0.31
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -806,6 +806,10 @@ packages:
 
   '@oclif/core@4.0.30':
     resolution: {integrity: sha512-Ak3OUdOcoovIRWZOT6oC5JhZgyJD90uWX/7HjSofn+C4LEmHxxfiyu04a73dwnezfzqDu9jEXfd2mQOOC54KZw==}
+    engines: {node: '>=18.0.0'}
+
+  '@oclif/core@4.0.31':
+    resolution: {integrity: sha512-7oyIZv/C1TP+fPc2tSzVPYqG1zU+nel1QvJxjAWyVhud0J8B5SpKZnryedxs3nlSVPJ6K1MT31C9esupCBYgZw==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-help@6.2.16':
@@ -2437,6 +2441,11 @@ packages:
     resolution: {integrity: sha512-9YQaSxsAiSwcvS33MBk3wTCVnWK+HhF8VZR2jRxehM16QcVOdHqPn4VPHmRK4lSr38n9JriurInLcP90xsYNfQ==}
     engines: {node: '>= 0.4'}
 
+  is-docker@2.2.1:
+    resolution: {integrity: sha512-F+i2BKsFrH66iaUFc0woD8sLy8getkwTwtOBjvs56Cx4CgJDeKQeqfz8wAYiSb8JOprWhHH5p77PbmYCvvUuXQ==}
+    engines: {node: '>=8'}
+    hasBin: true
+
   is-docker@3.0.0:
     resolution: {integrity: sha512-eljcgEDlEns/7AXFosB5K/2nCM4P7FQPkGc/DWLy5rmFEWvZayGrik1d9/QIY5nJ4f9YsVvBkA6kJpHn9rISdQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -2565,6 +2574,10 @@ packages:
   is-windows@1.0.2:
     resolution: {integrity: sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==}
     engines: {node: '>=0.10.0'}
+
+  is-wsl@2.2.0:
+    resolution: {integrity: sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww==}
+    engines: {node: '>=8'}
 
   is-wsl@3.1.0:
     resolution: {integrity: sha512-UcVfVfaK4Sc4m7X3dUSoHoozQGBEFeDC+zVo06t98xe8CzHSZZBekNXH+tu0NalHolcJ/QAGqS46Hef7QXBIMw==}
@@ -4964,6 +4977,27 @@ snapshots:
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
+  '@oclif/core@4.0.31':
+    dependencies:
+      ansi-escapes: 4.3.2
+      ansis: 3.3.2
+      clean-stack: 3.0.1
+      cli-spinners: 2.9.2
+      debug: 4.3.7(supports-color@8.1.1)
+      ejs: 3.1.10
+      get-package-type: 0.1.0
+      globby: 11.1.0
+      indent-string: 4.0.0
+      is-wsl: 2.2.0
+      lilconfig: 3.1.2
+      minimatch: 9.0.5
+      semver: 7.6.3
+      string-width: 4.2.3
+      supports-color: 8.1.1
+      widest-line: 3.1.0
+      wordwrap: 1.0.0
+      wrap-ansi: 7.0.0
+
   '@oclif/plugin-help@6.2.16':
     dependencies:
       '@oclif/core': 4.0.30
@@ -4971,7 +5005,7 @@ snapshots:
   '@oclif/plugin-not-found@3.2.24(@types/node@20.17.2)':
     dependencies:
       '@inquirer/prompts': 7.0.1(@types/node@20.17.2)
-      '@oclif/core': 4.0.30
+      '@oclif/core': 4.0.31
       ansis: 3.3.2
       fast-levenshtein: 3.0.0
     transitivePeerDependencies:
@@ -4995,7 +5029,7 @@ snapshots:
 
   '@oclif/plugin-warn-if-update-available@3.1.20':
     dependencies:
-      '@oclif/core': 4.0.30
+      '@oclif/core': 4.0.31
       ansis: 3.3.2
       debug: 4.3.7(supports-color@8.1.1)
       http-call: 5.3.0
@@ -6986,6 +7020,8 @@ snapshots:
     dependencies:
       has-tostringtag: 1.0.2
 
+  is-docker@2.2.1: {}
+
   is-docker@3.0.0: {}
 
   is-extglob@2.1.1: {}
@@ -7073,6 +7109,10 @@ snapshots:
       call-bind: 1.0.7
 
   is-windows@1.0.2: {}
+
+  is-wsl@2.2.0:
+    dependencies:
+      is-docker: 2.2.1
 
   is-wsl@3.1.0:
     dependencies:
