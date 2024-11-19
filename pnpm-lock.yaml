@@ -43,7 +43,7 @@ importers:
         version: 0.0.14
       tsup:
         specifier: ^8.3.5
-        version: 8.3.5(@swc/core@1.9.2)(jiti@1.21.6)(typescript@5.6.3)(yaml@2.6.0)
+        version: 8.3.5(@swc/core@1.9.2)(jiti@1.21.6)(typescript@5.6.3)(yaml@2.6.1)
       turbo:
         specifier: ^1.13.4
         version: 1.13.4
@@ -137,7 +137,7 @@ importers:
         version: 4.2.0
       tsup:
         specifier: ^8.3.5
-        version: 8.3.5(@swc/core@1.9.2)(jiti@1.21.6)(typescript@5.6.3)(yaml@2.6.0)
+        version: 8.3.5(@swc/core@1.9.2)(jiti@1.21.6)(typescript@5.6.3)(yaml@2.6.1)
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -200,8 +200,8 @@ importers:
         specifier: ^0.5.21
         version: 0.5.21
       yaml:
-        specifier: ^2.6.0
-        version: 2.6.0
+        specifier: ^2.6.1
+        version: 2.6.1
 
 packages:
 
@@ -3917,8 +3917,8 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
-  yaml@2.6.0:
-    resolution: {integrity: sha512-a6ae//JvKDEra2kdi1qzCyrJW/WZCgFi8ydDV+eXExl95t+5R+ijnqHJbz9tmMh8FUjx3iv2fCQ4dclAQlO2UQ==}
+  yaml@2.6.1:
+    resolution: {integrity: sha512-7r0XPzioN/Q9kXBro/XPnA6kznR73DHq+GXh5ON7ZozRO6aMjbmiBuKste2wslTFkC5d1dw0GooOCepZXJ2SAg==}
     engines: {node: '>= 14'}
     hasBin: true
 
@@ -7634,12 +7634,12 @@ snapshots:
 
   possible-typed-array-names@1.0.0: {}
 
-  postcss-load-config@6.0.1(jiti@1.21.6)(yaml@2.6.0):
+  postcss-load-config@6.0.1(jiti@1.21.6)(yaml@2.6.1):
     dependencies:
       lilconfig: 3.1.2
     optionalDependencies:
       jiti: 1.21.6
-      yaml: 2.6.0
+      yaml: 2.6.1
 
   prelude-ls@1.2.1: {}
 
@@ -8120,7 +8120,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tsup@8.3.5(@swc/core@1.9.2)(jiti@1.21.6)(typescript@5.6.3)(yaml@2.6.0):
+  tsup@8.3.5(@swc/core@1.9.2)(jiti@1.21.6)(typescript@5.6.3)(yaml@2.6.1):
     dependencies:
       bundle-require: 5.0.0(esbuild@0.24.0)
       cac: 6.7.14
@@ -8130,7 +8130,7 @@ snapshots:
       esbuild: 0.24.0
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(jiti@1.21.6)(yaml@2.6.0)
+      postcss-load-config: 6.0.1(jiti@1.21.6)(yaml@2.6.1)
       resolve-from: 5.0.0
       rollup: 4.27.3
       source-map: 0.8.0-beta.0
@@ -8233,7 +8233,7 @@ snapshots:
       minimatch: 9.0.5
       shiki: 1.23.1
       typescript: 5.6.3
-      yaml: 2.6.0
+      yaml: 2.6.1
 
   typescript@5.6.3: {}
 
@@ -8448,7 +8448,7 @@ snapshots:
 
   yaml@2.5.1: {}
 
-  yaml@2.6.0: {}
+  yaml@2.6.1: {}
 
   yarn@1.22.22: {}
 
