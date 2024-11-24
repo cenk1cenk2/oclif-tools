@@ -5,7 +5,6 @@ import winston, { format, transports } from 'winston'
 
 import { LogLevels } from './logger.constants'
 import type { LoggerFormat, Winston } from './logger.interface'
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import type { ConfigModuleOptions } from '@lib'
 import { TOKEN_CONFIG_MODULE_OPTIONS } from '@lib/config/config.constants'
 
@@ -13,10 +12,10 @@ import { TOKEN_CONFIG_MODULE_OPTIONS } from '@lib/config/config.constants'
 export class WinstonService {
   public readonly instance: Winston = this.initiateLogger()
 
-  constructor (@Inject(TOKEN_CONFIG_MODULE_OPTIONS) private readonly options: ConfigModuleOptions) {}
+  constructor(@Inject(TOKEN_CONFIG_MODULE_OPTIONS) private readonly options: ConfigModuleOptions) {}
 
-  private initiateLogger (): Winston {
-    const logFormat = format.printf(({ level, message, context, status }: LoggerFormat) => {
+  private initiateLogger(): Winston {
+    const logFormat = format.printf((({ level, message, context, status }: LoggerFormat) => {
       return message
         .split(EOL)
         .filter((msg) => !msg || msg.trim() !== '')
@@ -30,20 +29,20 @@ export class WinstonService {
           })
         })
         .join(EOL)
-    })
+    }) as any)
 
     const logger = winston.createLogger({
       level: this.options.config.logLevel,
       format: format.combine(format.splat(), format.json({ space: 2 }), format.prettyPrint(), logFormat),
       levels: Object.fromEntries(
         Object.values(LogLevels).map((level, i) => {
-          return [ level, i ]
+          return [level, i]
         })
       ),
       silent: this.options.config.logLevel === LogLevels.SILENT || this.options.config.isJson,
       transports: [
         new transports.Console({
-          stderrLevels: [ LogLevels.FATAL, LogLevels.ERROR ]
+          stderrLevels: [LogLevels.FATAL, LogLevels.ERROR]
         })
       ]
     })
@@ -53,7 +52,7 @@ export class WinstonService {
     return logger as Winston
   }
 
-  private logColoring ({ level, message, context, status }: LoggerFormat): string {
+  private logColoring({ level, message, context, status }: LoggerFormat): string {
     let icon: string
 
     // do the coloring
@@ -66,52 +65,52 @@ export class WinstonService {
     }
 
     switch (level) {
-    case LogLevels.DIRECT:
-      return message
+      case LogLevels.DIRECT:
+        return message
 
-    case LogLevels.FATAL:
-      coloring = color.red
-      msgColoring = color.red
+      case LogLevels.FATAL:
+        coloring = color.red
+        msgColoring = color.red
 
-      break
+        break
 
-    case LogLevels.ERROR:
-      coloring = color.red
+      case LogLevels.ERROR:
+        coloring = color.red
 
-      icon = figures.cross
+        icon = figures.cross
 
-      break
+        break
 
-    case LogLevels.WARN:
-      coloring = color.yellow
+      case LogLevels.WARN:
+        coloring = color.yellow
 
-      icon = figures.warning
+        icon = figures.warning
 
-      break
+        break
 
-    case LogLevels.INFO:
-      coloring = color.green
+      case LogLevels.INFO:
+        coloring = color.green
 
-      icon = figures.pointerSmall
+        icon = figures.pointerSmall
 
-      break
+        break
 
-    case LogLevels.VERBOSE:
-      coloring = color.dim
+      case LogLevels.VERBOSE:
+        coloring = color.dim
 
-      break
+        break
 
-    case LogLevels.DEBUG:
-      coloring = color.cyan
-      msgColoring = color.dim
+      case LogLevels.DEBUG:
+        coloring = color.cyan
+        msgColoring = color.dim
 
-      break
+        break
 
-    case LogLevels.TRACE:
-      coloring = color.magenta
-      msgColoring = color.dim
+      case LogLevels.TRACE:
+        coloring = color.magenta
+        msgColoring = color.dim
 
-      break
+        break
     }
 
     if (!icon) {

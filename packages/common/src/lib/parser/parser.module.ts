@@ -5,8 +5,8 @@ import { FilesystemModule } from '@lib/fs'
 
 @Global()
 @Module({
-  imports: [ FilesystemModule ],
-  providers: [ ParserService ],
-  exports: [ ParserService ]
+  imports: [FilesystemModule],
+  providers: [ParserService],
+  exports: [ParserService]
 })
 export class ParserModule {}

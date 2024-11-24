@@ -6,7 +6,7 @@ export interface SetCtxAssignOptions<K = Record<PropertyKey, any>> {
   keys: (keyof K)[]
 }
 
-export function setCtxDefaults<T extends ListrContext = ListrContext> (ctx: T, ...defaults: SetCtxDefaultsOptions<T>[]): void {
+export function setCtxDefaults<T extends ListrContext = ListrContext>(ctx: T, ...defaults: SetCtxDefaultsOptions<T>[]): void {
   // defaults
   defaults?.forEach((i) => {
     if (typeof i === 'object' && !Array.isArray(i)) {
@@ -15,7 +15,7 @@ export function setCtxDefaults<T extends ListrContext = ListrContext> (ctx: T, .
   })
 }
 
-export function setCtxAssign<T extends ListrContext = ListrContext, K = Record<PropertyKey, any>> (ctx: T, ...assigns: SetCtxAssignOptions<K>[]): void {
+export function setCtxAssign<T extends ListrContext = ListrContext, K = Record<PropertyKey, any>>(ctx: T, ...assigns: SetCtxAssignOptions<K>[]): void {
   assigns.forEach((assign) => {
     assign?.keys.forEach((i) => {
       if (assign.from[i]) {

@@ -33,8 +33,8 @@
   "scripts": {
     "build": "tsup-node",
     "dev:start": "tsup-node --watch",
-    "format": "prettier --write src/ --log-level warn && eslint --ext .ts,.js,.tsx,.jsx --fix src/",
-    "lint": "eslint --ext .ts,.js,.tsx,.jsx src/",
+    "format": "prettier --write src/ --log-level warn && eslint --fix src/",
+    "lint": "eslint src/",
     "docs:api": "typedoc --options .typedoc.json --hideInPageTOC --hideBreadcrumbs"
   },
   "lint-staged": {

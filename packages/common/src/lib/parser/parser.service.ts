@@ -11,7 +11,7 @@ import { LoggerService } from '@lib/logger'
 export class ParserService {
   private readonly instances: GenericParser[] = []
 
-  constructor (
+  constructor(
     private moduleRef: ModuleRef,
     private fs: FileSystemService,
     private readonly logger: LoggerService
@@ -19,7 +19,7 @@ export class ParserService {
     this.logger.setup(this.constructor.name)
   }
 
-  public byFt (file: string): GenericParser {
+  public byFt(file: string): GenericParser {
     const ext = (file.includes('.') ? this.fs.extname(file) : file).replace(/^\./, '')
     const Parser = this.instances.find((parser) => parser.extensions.includes(ext))
 
@@ -50,8 +50,8 @@ export class ParserService {
     return parser
   }
 
-  public async register (...parsers: ClassType<GenericParser>[]): Promise<void> {
-    await Promise.all(parsers.map(async (parser) => this.inject(parser)))
+  public async register(...parsers: ClassType<GenericParser>[]): Promise<void> {
+    await Promise.all(parsers.map(async(parser) => this.inject(parser)))
 
     this.logger.trace(
       'Registered parsers: %o',

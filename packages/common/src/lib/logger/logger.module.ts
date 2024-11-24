@@ -5,7 +5,7 @@ import { WinstonService } from './winston.service'
 
 @Global()
 @Module({
-  providers: [ WinstonService, LoggerService ],
-  exports: [ LoggerService ]
+  providers: [WinstonService, LoggerService],
+  exports: [LoggerService]
 })
 export class LoggerModule {}

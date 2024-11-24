@@ -12,64 +12,64 @@ import { WinstonService } from './winston.service'
 export class LoggerService {
   public context: string
 
-  constructor (private readonly winston: WinstonService) {}
+  constructor(private readonly winston: WinstonService) {}
 
-  public setup (context: string): LoggerService {
+  public setup(context: string): LoggerService {
     this.context = context
 
     return this
   }
 
-  public log (level: LogLevels, data: string | Buffer, ...args: any): void {
+  public log(level: LogLevels, data: string | Buffer, ...args: any): void {
     return this.parseMessage(level, data, args)
   }
 
-  public direct (data: string | Buffer, ...args: any): void {
+  public direct(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.DIRECT, data, args)
   }
 
-  public fatal (data: string | Buffer, ...args: any): void {
+  public fatal(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.FATAL, data, args)
   }
 
-  public error (data: string | Buffer, ...args: any): void {
+  public error(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.ERROR, data, args)
   }
 
-  public warn (data: string | Buffer, ...args: any): void {
+  public warn(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.WARN, data, args)
   }
 
-  public info (data: string | Buffer, ...args: any): void {
+  public info(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.INFO, data, args)
   }
 
-  public verbose (data: string | Buffer, ...args: any): void {
+  public verbose(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.VERBOSE, data, args)
   }
 
-  public debug (data: string | Buffer, ...args: any): void {
+  public debug(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.DEBUG, data, args)
   }
 
-  public trace (data: string | Buffer, ...args: any): void {
+  public trace(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.TRACE, data, args)
   }
 
   // status levels
-  public run (data: string | Buffer, ...args: any): void {
+  public run(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.INFO, data, args, { status: LogFieldStatus.RUN })
   }
 
-  public end (data: string | Buffer, ...args: any): void {
+  public end(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.INFO, data, args, { status: LogFieldStatus.END })
   }
 
-  public stage (data: string | Buffer, ...args: any): void {
+  public stage(data: string | Buffer, ...args: any): void {
     return this.parseMessage(LogLevels.TRACE, data, args, { status: LogFieldStatus.STAGE })
   }
 
-  public splat (...args: Parameters<typeof splat>): ReturnType<typeof splat> {
+  public splat(...args: Parameters<typeof splat>): ReturnType<typeof splat> {
     const message = args.shift()
 
     if (typeof message === 'undefined') {
@@ -83,7 +83,7 @@ export class LoggerService {
     return splat(message, args)
   }
 
-  private parseMessage (level: LogLevels, data: string | Buffer, args?: any[], format?: Partial<LoggerFormat>): void {
-    this.winston.instance.log(level, data.toString(), ...args ?? [], { context: this.context, ...format ?? {} })
+  private parseMessage(level: LogLevels, data: string | Buffer, args?: any[], format?: Partial<LoggerFormat>): void {
+    this.winston.instance.log(level, data.toString(), ...(args ?? []), { context: this.context, ...(format ?? {}) })
   }
 }

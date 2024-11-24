@@ -6,9 +6,9 @@ import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class YamlParser implements GenericParser {
-  public readonly extensions: string[] = [ 'yaml', 'yml' ]
+  public readonly extensions: string[] = ['yaml', 'yml']
 
-  constructor (private readonly logger: LoggerService) {
+  constructor(private readonly logger: LoggerService) {
     this.logger.setup(this.constructor.name)
   }
 

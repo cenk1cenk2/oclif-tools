@@ -4,7 +4,6 @@ import op from 'object-path-immutable'
 import { join } from 'path'
 
 import { ConfigEnvKeys, TOKEN_CONFIG_MODULE_OPTIONS } from './config.constants'
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import type { ConfigIterator, ConfigModuleOptions, GlobalConfig } from './config.interface'
 import { FileConstants } from '@constants'
 import type { LockableData } from '@lib/locker'
@@ -20,7 +19,7 @@ export class ConfigService {
   public oclif: Config
   public command: typeof Command
 
-  constructor (
+  constructor(
     private readonly parser: ParserService,
     private readonly logger: LoggerService,
     @Inject(TOKEN_CONFIG_MODULE_OPTIONS) options: ConfigModuleOptions
@@ -34,19 +33,19 @@ export class ConfigService {
     this.logger.setup(this.constructor.name)
   }
 
-  get isVerbose (): boolean {
+  get isVerbose(): boolean {
     return isVerbose(this.config.logLevel)
   }
 
-  get isDebug (): boolean {
+  get isDebug(): boolean {
     return isDebug(this.config.logLevel)
   }
 
-  get isSilent (): boolean {
+  get isSilent(): boolean {
     return isSilent(this.config.logLevel)
   }
 
-  get isJson (): boolean {
+  get isJson(): boolean {
     return this.config.isJson
   }
 
@@ -63,7 +62,7 @@ export class ConfigService {
 
     const configs = (
       await Promise.all(
-        paths.map(async (path) => {
+        paths.map(async(path) => {
           try {
             const config = typeof path === 'string' ? await this.parser.read<Partial<T>>(path) : path
 
@@ -93,10 +92,10 @@ export class ConfigService {
 
     this.logger.trace('Environment variable extensions read: %o', definition)
 
-    const iter = async (obj: Record<PropertyKey, any>, parent?: string[]): Promise<ConfigIterator[]> => {
+    const iter = async(obj: Record<PropertyKey, any>, parent?: string[]): Promise<ConfigIterator[]> => {
       const data = await Promise.all(
-        Object.entries(obj).map(async ([ key, value ]) => {
-          const location = [ ...parent ?? [], key ]
+        Object.entries(obj).map(async([key, value]) => {
+          const location = [...(parent ?? []), key]
 
           if (typeof value === 'string') {
             return [ { key: location, env: value } ]
@@ -104,7 +103,7 @@ export class ConfigService {
             let extensions: ConfigIterator['extensions']
 
             if (ConfigEnvKeys.ELEMENT in value) {
-              extensions = await iter(value[ConfigEnvKeys.ELEMENT], [ ...location, ConfigEnvKeys.ELEMENT ])
+              extensions = await iter(value[ConfigEnvKeys.ELEMENT], [...location, ConfigEnvKeys.ELEMENT])
 
               this.logger.trace('Expanding location to elements: %s -> %s', location, extensions.map((extension) => extension.key.join('.')).join(', '))
             }
@@ -113,9 +112,9 @@ export class ConfigService {
               const variable = [
                 {
                   key: location,
-                  // eslint-disable-next-line no-underscore-dangle
+
                   env: value[ConfigEnvKeys.NAME] as string,
-                  // eslint-disable-next-line no-underscore-dangle
+
                   parser: value[ConfigEnvKeys.PARSER] as string,
                   extensions
                 }

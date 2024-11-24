@@ -23,7 +23,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
       description: 'Set the log level of the application.',
       options: Object.values(LogLevels).map((level) => level.toLowerCase()),
       helpGroup: HelpGroups.CLI,
-      parse: async (input) => (input as string)?.toUpperCase() as unknown as LogLevels
+      parse: async(input) => (input as string)?.toUpperCase() as unknown as LogLevels
     }),
     ci: Flags.boolean({
       default: false,
@@ -47,7 +47,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
   public flags!: InferFlags<T>
   public args!: InferArgs<T>
 
-  public exit (code?: number): never {
+  public exit(code?: number): never {
     this.logger.trace('Code -> %d', code, { status: LogFieldStatus.EXIT })
 
     super.exit(code ?? 0)
@@ -70,17 +70,17 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     this.logger.trace('Updated context with assign: %o', this.tasks.options.ctx, { status: 'ctx' })
   }
 
-  protected pipeProcessToLogger (instance: ChildProcess, options?: PipeProcessToLoggerOptions): ChildProcess {
+  protected pipeProcessToLogger(instance: ChildProcess, options?: PipeProcessToLoggerOptions): ChildProcess {
     return pipeProcessToLogger(this.logger, instance, options)
   }
 
-  protected pipeProcessThroughListr (instance: ChildProcess, task: ListrTaskWrapper<any, any, any>): ChildProcess {
+  protected pipeProcessThroughListr(instance: ChildProcess, task: ListrTaskWrapper<any, any, any>): ChildProcess {
     return pipeProcessThroughListr(task, instance)
   }
 
   /** Initial functions / constructor */
   // can not override constructor, init function is defined by oclif
-  protected async init (): Promise<void> {
+  protected async init(): Promise<void> {
     await super.init()
 
     // do the initialization first then go ahead and throw if required
@@ -192,7 +192,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
 
   /** Catch any error occurred during command. */
   // catch all those errors, not verbose
-  protected async catch (err: Error): Promise<never> {
+  protected async catch(err: Error): Promise<never> {
     process.exitCode = process.exitCode ?? (err as any).exitCode ?? 1
 
     if (!this.logger) {
@@ -207,5 +207,5 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     throw err
   }
 
-  public abstract run (): Promise<any>
+  public abstract run(): Promise<any>
 }

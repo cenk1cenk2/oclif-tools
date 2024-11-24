@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import op from 'object-path-immutable'
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import type { CommonLockerData, LockData, LockableData, LockerServiceOptions, UnlockData } from './locker.interface'
 import { FileSystemService } from '@lib/fs'
 import { LoggerService } from '@lib/logger'
@@ -14,7 +13,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   private toLock: LockData[] = []
   private toUnlock: UnlockData[] = []
 
-  constructor (
+  constructor(
     private readonly logger: LoggerService,
     private readonly fs: FileSystemService,
     private readonly parser: ParserService,
@@ -23,11 +22,11 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     this.logger.setup(this.constructor.name)
   }
 
-  public hasLock (): boolean {
+  public hasLock(): boolean {
     return this.toLock.length > 0
   }
 
-  public hasUnlock (): boolean {
+  public hasUnlock(): boolean {
     return this.toUnlock.length > 0
   }
 
@@ -35,11 +34,11 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     this.toLock.push(...data)
   }
 
-  public addUnlock (...data: UnlockData[]): void {
+  public addUnlock(...data: UnlockData[]): void {
     this.toUnlock.push(...data)
   }
 
-  public async applyLockAll (lock: LockFile): Promise<LockFile> {
+  public async applyLockAll(lock: LockFile): Promise<LockFile> {
     if (this.hasLock()) {
       return this.applyLock(lock, ...this.toLock)
     }
@@ -47,7 +46,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return lock
   }
 
-  public async lockAll (): Promise<void> {
+  public async lockAll(): Promise<void> {
     if (this.hasLock()) {
       await this.lock(...this.toLock)
 
@@ -55,7 +54,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     }
   }
 
-  public async applyUnlockAll (lock: LockFile): Promise<LockFile> {
+  public async applyUnlockAll(lock: LockFile): Promise<LockFile> {
     if (this.hasUnlock()) {
       return this.applyUnlock(lock, ...this.toUnlock)
     }
@@ -63,7 +62,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return lock
   }
 
-  public async unlockAll (): Promise<void> {
+  public async unlockAll(): Promise<void> {
     if (this.hasUnlock()) {
       await this.unlock(...this.toUnlock)
 
@@ -71,12 +70,12 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     }
   }
 
-  public async all (): Promise<void> {
+  public async all(): Promise<void> {
     await this.unlockAll()
     await this.lockAll()
   }
 
-  public async applyAll (lock: LockFile): Promise<LockFile> {
+  public async applyAll(lock: LockFile): Promise<LockFile> {
     lock = await this.applyUnlockAll(lock)
     lock = await this.applyLockAll(lock)
 
@@ -88,7 +87,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
       // enabled flag for not if checking every time
       if (d?.enabled === false) {
         return
-      } else if (!d?.data || Array.isArray(d?.data) && d.data.length === 0 || typeof d?.data === 'object' && Object.keys(d.data).length === 0) {
+      } else if (!d?.data || (Array.isArray(d?.data) && d.data.length === 0) || (typeof d?.data === 'object' && Object.keys(d.data).length === 0)) {
         return
       }
 
@@ -123,7 +122,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
   }
 
   public async lock<T extends LockableData = LockFile>(...data: LockData<T>[]): Promise<LockFile> {
-    const lock = await this.applyLock(await this.tryRead() ?? ({} as LockFile), ...data)
+    const lock = await this.applyLock((await this.tryRead()) ?? ({} as LockFile), ...data)
 
     // write data
     await this.write(lock)
@@ -131,7 +130,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return lock
   }
 
-  public async applyUnlock (lock: LockFile, ...data: UnlockData[]): Promise<LockFile> {
+  public async applyUnlock(lock: LockFile, ...data: UnlockData[]): Promise<LockFile> {
     // option to delete all, or specific locks
     if (data.length > 0) {
       data.forEach((d) => {
@@ -151,7 +150,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
 
           const parent = this.op.get(lock, parentPath)
 
-          if (!parent || Array.isArray(parent) && parent.length === 0 || typeof parent === 'object' && Object.keys(parent).length === 0) {
+          if (!parent || (Array.isArray(parent) && parent.length === 0) || (typeof parent === 'object' && Object.keys(parent).length === 0)) {
             this.logger.verbose('Unlocked parent: %s -> %s', path, parentPath)
 
             lock = op.del(lock, parentPath)
@@ -170,7 +169,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return lock
   }
 
-  public async unlock (...data: UnlockData[]): Promise<LockFile | undefined> {
+  public async unlock(...data: UnlockData[]): Promise<LockFile | undefined> {
     const state = await this.tryRead()
 
     if (!state) {
@@ -187,11 +186,11 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return lock
   }
 
-  public async read (): Promise<LockFile> {
+  public async read(): Promise<LockFile> {
     return this.parser.fetch(this.options.parser).parse(await this.fs.read(this.options.file))
   }
 
-  public async tryRead (): Promise<LockFile | undefined> {
+  public async tryRead(): Promise<LockFile | undefined> {
     const lock = await this.fs.read(this.options.file).catch((err) => {
       this.logger.trace('Can not read lockfile: %s -> %s', this.options.file, err.message)
     })
@@ -203,7 +202,7 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     return this.parser.fetch(this.options.parser).parse<LockFile>(lock)
   }
 
-  public async tryRemove (): Promise<void> {
+  public async tryRemove(): Promise<void> {
     return this.fs
       .remove(this.options.file)
       .then(() => {
@@ -214,8 +213,8 @@ export class LockerService<LockFile extends LockableData = LockableData> {
       })
   }
 
-  public async write (data: LockFile): Promise<void> {
-    if (!data || Array.isArray(data) && data.length === 0 || typeof data === 'object' && Object.keys(data).length === 0) {
+  public async write(data: LockFile): Promise<void> {
+    if (!data || (Array.isArray(data) && data.length === 0) || (typeof data === 'object' && Object.keys(data).length === 0)) {
       this.logger.trace('Trying to write empty lock file, deleting it instead: %s', this.options.file)
 
       return this.fs.remove(this.options.file)
@@ -226,13 +225,13 @@ export class LockerService<LockFile extends LockableData = LockableData> {
 
   private buildPath<T extends Partial<CommonLockerData>>(d: T): string[] {
     if (d?.root !== true && this.options.root?.length) {
-      return [ ...this.options.root, ...this.normalizePath(d.path) ]
+      return [...this.options.root, ...this.normalizePath(d.path)]
     }
 
     return this.normalizePath(d.path)
   }
 
-  private normalizePath (path: string | (string | number)[]): string[] {
+  private normalizePath(path: string | (string | number)[]): string[] {
     if (Array.isArray(path)) {
       return path.map((p) => p.toString())
     } else if (typeof path === 'string') {

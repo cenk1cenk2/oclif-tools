@@ -5,7 +5,6 @@ import type { ValidationError } from 'class-validator'
 import { validate, validateSync } from 'class-validator'
 
 import { TOKEN_VALIDATOR_SERVICE_OPTIONS } from './validator.constants'
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import type { ValidatorServiceOptions } from './validator.interface'
 import type { ClassType } from '@interfaces'
 import { LoggerService } from '@lib/logger'
@@ -14,7 +13,7 @@ import { LoggerService } from '@lib/logger'
 export class ValidatorService {
   private options: ValidatorServiceOptions
 
-  constructor (
+  constructor(
     private readonly logger: LoggerService,
     moduleRef: ModuleRef
   ) {
@@ -36,9 +35,9 @@ export class ValidatorService {
   }
 
   public async validate<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorServiceOptions): Promise<T> {
-    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...options?.transformer ?? {} })
+    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...(options?.transformer ?? {}) })
 
-    const errors = await validate(classObject, { ...this.options.validator, ...options?.validator ?? {} })
+    const errors = await validate(classObject, { ...this.options.validator, ...(options?.validator ?? {}) })
 
     if (errors.length) {
       errors.forEach((error) => {
@@ -52,9 +51,9 @@ export class ValidatorService {
   }
 
   public validateSync<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorServiceOptions): T {
-    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...options?.transformer ?? {} })
+    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...(options?.transformer ?? {}) })
 
-    const errors = validateSync(classObject, { ...this.options.validator, ...options?.validator ?? {} })
+    const errors = validateSync(classObject, { ...this.options.validator, ...(options?.validator ?? {}) })
 
     if (errors.length) {
       errors.forEach((error) => {
@@ -67,7 +66,7 @@ export class ValidatorService {
     return classObject
   }
 
-  private logValidationError (err: ValidationError): void {
+  private logValidationError(err: ValidationError): void {
     this.logger.error('Field "%s" failed validation with value "%s": %o', err.property, err.value, err.constraints)
 
     if (err.children) {

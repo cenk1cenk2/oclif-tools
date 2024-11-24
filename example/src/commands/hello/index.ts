@@ -3,7 +3,7 @@ import { Command, Args, Flags } from '@cenk1cenk2/oclif-common'
 export default class Hello extends Command<typeof Hello> {
   static description = 'Say hello'
 
-  static examples = [ '$ oex hello friend --from oclif' ]
+  static examples = ['$ oex hello friend --from oclif']
 
   static flags = {
     from: Flags.string({
@@ -20,7 +20,7 @@ export default class Hello extends Command<typeof Hello> {
     })
   }
 
-  public async run (): Promise<void> {
+  public async run(): Promise<void> {
     this.logger.info(`hello ${this.args.person} from ${this.flags.from}! (./src/commands/hello/index.ts)`)
 
     this.tasks.add([

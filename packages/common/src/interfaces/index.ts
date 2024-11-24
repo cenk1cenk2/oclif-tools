@@ -1,4 +1,4 @@
-export * from './class.interface'
+export type * from './class.interface'
 export * from './hooks.interface'
 export * from './oclif.interface'
-export * from './type-helper.interface'
+export type * from './type-helper.interface'

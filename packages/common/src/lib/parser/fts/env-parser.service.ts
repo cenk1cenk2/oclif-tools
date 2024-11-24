@@ -6,11 +6,11 @@ import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class EnvironmentVariableParser implements GenericParser {
-  public readonly extensions: string[] = [ 'env' ]
+  public readonly extensions: string[] = ['env']
 
   private readonly LINE = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/gm
 
-  constructor (private readonly logger: LoggerService) {
+  constructor(private readonly logger: LoggerService) {
     this.logger.setup(this.constructor.name)
   }
 
@@ -40,7 +40,7 @@ export class EnvironmentVariableParser implements GenericParser {
   public stringify<T = any>(data: T): string {
     return (
       Object.entries(data)
-        .map(([ k, v ]) => `${k}=${v}`)
+        .map(([k, v]) => `${k}=${v}`)
         .join(EOL) + EOL
     )
   }

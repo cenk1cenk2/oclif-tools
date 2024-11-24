@@ -4,7 +4,7 @@ import { FileSystemService } from './filesystem.service'
 
 @Global()
 @Module({
-  providers: [ FileSystemService ],
-  exports: [ FileSystemService ]
+  providers: [FileSystemService],
+  exports: [FileSystemService]
 })
 export class FilesystemModule {}

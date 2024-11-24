@@ -9,7 +9,7 @@ import { ParserService } from '@lib/parser'
 
 @Module({})
 export class LockerModule {
-  public static forFeature (options: LockerServiceOptions): DynamicModule {
+  public static forFeature(options: LockerServiceOptions): DynamicModule {
     const token = options.token ?? LockerService
 
     return {
@@ -18,7 +18,7 @@ export class LockerModule {
         {
           provide: token,
           useFactory: (logger: LoggerService, fs: FileSystemService, parser: ParserService) => new LockerService(logger, fs, parser, options),
-          inject: [ LoggerService, FileSystemService, ParserService ]
+          inject: [LoggerService, FileSystemService, ParserService]
         }
       ]
     }

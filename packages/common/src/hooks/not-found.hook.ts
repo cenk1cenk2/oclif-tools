@@ -3,7 +3,7 @@ import { Help } from '@oclif/core'
 
 import { CliModule, LoggerService } from '@lib'
 
-export const notFoundHook: Hook<'command_not_found'> = async (opts) => {
+export const notFoundHook: Hook<'command_not_found'> = async(opts) => {
   const app = await CliModule.create(CliModule.forMinimum())
   const logger = await app.resolve(LoggerService)
 
@@ -14,7 +14,7 @@ export const notFoundHook: Hook<'command_not_found'> = async (opts) => {
   // show help
   const help = new Help(opts.config)
 
-  await help.showHelp([ '--all' ])
+  await help.showHelp(['--all'])
 
   opts.context.exit(127)
 }

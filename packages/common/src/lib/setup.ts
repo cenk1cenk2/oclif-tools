@@ -1,4 +1,4 @@
-export async function setup (): Promise<void> {
+export async function setup(): Promise<void> {
   // debug port
   const inspect = process.argv.indexOf('--inspect')
 
