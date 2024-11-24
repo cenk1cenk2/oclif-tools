@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [6.3.23](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.22...@cenk1cenk2/oclif-common@6.3.23) (2024-11-24)
+
+
+### Bug Fixes
+
+* update packages and drop turbo ([c782465](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c7824652e6390d9f0adc4085f3e0724b7f513328))
+
 ## @cenk1cenk2/oclif-common [6.3.22](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.21...@cenk1cenk2/oclif-common@6.3.22) (2024-11-07)
 
 
