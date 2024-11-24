@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^1.7.12
-        version: 1.7.12(@types/node@22.9.3)(typescript@5.7.2)
+        version: 1.7.12(typescript@5.7.2)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.1.10
         version: 3.1.10(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2)
@@ -22,7 +22,7 @@ importers:
         version: 16.1.3
       commitizen:
         specifier: ^4.3.1
-        version: 4.3.1(@types/node@22.9.3)(typescript@5.7.2)
+        version: 4.3.1(typescript@5.7.2)
       eslint:
         specifier: ^9.15.0
         version: 9.15.0(jiti@1.21.6)
@@ -60,13 +60,13 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.0.31
+        specifier: ^4.0.33
         version: 4.0.33
       '@oclif/plugin-help':
-        specifier: ^6.2.16
+        specifier: ^6.2.18
         version: 6.2.18
       '@oclif/plugin-plugins':
-        specifier: ^5.4.15
+        specifier: ^5.4.17
         version: 5.4.17
       class-transformer:
         specifier: ^0.5.1
@@ -142,10 +142,10 @@ importers:
   packages/common:
     dependencies:
       '@nestjs/common':
-        specifier: ^10.4.7
+        specifier: ^10.4.8
         version: 10.4.8(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@nestjs/core':
-        specifier: ^10.4.7
+        specifier: ^10.4.8
         version: 10.4.8(@nestjs/common@10.4.8(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1)
       deepmerge:
         specifier: ^4.3.1
@@ -160,7 +160,7 @@ importers:
         specifier: '>= 5'
         version: 7.3.1
       winston:
-        specifier: ^3.16.0
+        specifier: ^3.17.0
         version: 3.17.0
     devDependencies:
       '@listr2/manager':
@@ -4529,6 +4529,21 @@ snapshots:
       - '@types/node'
       - typescript
 
+  '@cenk1cenk2/cz-cc@1.7.12(typescript@5.7.2)':
+    dependencies:
+      '@listr2/prompt-adapter-enquirer': 2.0.12(enquirer@2.4.1)
+      commitizen: 4.3.1(typescript@5.7.2)
+      conventional-commit-types: 3.0.0
+      enquirer: 2.4.1
+      external-editor: 3.1.0
+      find-git-root: 1.0.4
+      listr2: 8.2.5
+    optionalDependencies:
+      '@commitlint/load': 19.5.0(@types/node@22.9.3)(typescript@5.7.2)
+    transitivePeerDependencies:
+      - '@types/node'
+      - typescript
+
   '@cenk1cenk2/eslint-config@3.1.10(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2)':
     dependencies:
       '@eslint/js': 9.15.0
@@ -6038,6 +6053,26 @@ snapshots:
       - '@types/node'
       - typescript
 
+  commitizen@4.3.1(typescript@5.7.2):
+    dependencies:
+      cachedir: 2.3.0
+      cz-conventional-changelog: 3.3.0(typescript@5.7.2)
+      dedent: 0.7.0
+      detect-indent: 6.1.0
+      find-node-modules: 2.1.3
+      find-root: 1.1.0
+      fs-extra: 9.1.0
+      glob: 7.2.3
+      inquirer: 8.2.5
+      is-utf8: 0.2.1
+      lodash: 4.17.21
+      minimist: 1.2.7
+      strip-bom: 4.0.0
+      strip-json-comments: 3.1.1
+    transitivePeerDependencies:
+      - '@types/node'
+      - typescript
+
   concat-map@0.0.1: {}
 
   config-chain@1.1.13:
@@ -6096,6 +6131,20 @@ snapshots:
     dependencies:
       chalk: 2.4.2
       commitizen: 4.3.1(@types/node@22.9.3)(typescript@5.7.2)
+      conventional-commit-types: 3.0.0
+      lodash.map: 4.6.0
+      longest: 2.0.1
+      word-wrap: 1.2.5
+    optionalDependencies:
+      '@commitlint/load': 19.5.0(@types/node@22.9.3)(typescript@5.7.2)
+    transitivePeerDependencies:
+      - '@types/node'
+      - typescript
+
+  cz-conventional-changelog@3.3.0(typescript@5.7.2):
+    dependencies:
+      chalk: 2.4.2
+      commitizen: 4.3.1(typescript@5.7.2)
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
