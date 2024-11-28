@@ -30,7 +30,7 @@
     "simple-git-hooks": "^2.11.1",
     "tsconfig-replace-paths": "^0.0.14",
     "tsup": "^8.3.5",
-    "typedoc": "^0.27.0",
+    "typedoc": "^0.27.1",
     "typedoc-plugin-markdown": "^4.3.0",
     "typescript": "^5.7.2"
   },
