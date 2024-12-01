@@ -49,7 +49,7 @@ importers:
         version: 0.27.2(typescript@5.7.2)
       typedoc-plugin-markdown:
         specifier: ^4.3.0
-        version: 4.3.0(typedoc@0.27.2(typescript@5.7.2))
+        version: 4.3.1(typedoc@0.27.2(typescript@5.7.2))
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -843,8 +843,8 @@ packages:
     resolution: {integrity: sha512-JiYBFLe7861i56YwHDnTW4TtfjnLj6brG9nfP5ZE4f9MzKwcQPhCaDzGuxdzoU2CnaUFGXBX+nBGA86csyTWbg==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-warn-if-update-available@3.1.23':
-    resolution: {integrity: sha512-0R15OCkpWktUsEdfVNvOIY078rE92Dkor2mB/F2/xW0/VEe3NQEVtiXMatpwYsjc4KKIiWtAVm2P0oQhEbodkg==}
+  '@oclif/plugin-warn-if-update-available@3.1.24':
+    resolution: {integrity: sha512-VXlVCJO+Pmv5r4FM7ZA3fp8NkYpaySW1CO3DubQOehpPzjNhRuAFz9xngl9CI5Huh/4exUuwm2JmcJ6+EauKSg==}
     engines: {node: '>=18.0.0'}
 
   '@pkgjs/parseargs@0.11.0':
@@ -2286,8 +2286,8 @@ packages:
   has-property-descriptors@1.0.2:
     resolution: {integrity: sha512-55JNKuIW+vq4Ke1BjOTjM2YctQIvCT7GFzHwmfZPGo5wnrgkid0YQtnAleFSqumZm4az3n2BS+erby5ipJdgrg==}
 
-  has-proto@1.0.3:
-    resolution: {integrity: sha512-SJ1amZAJUiZS+PhsVLf5tGydlaVB8EdFpaSO4gmiUKUOxk8qzn5AIy4ZeJUmh22znIdk/uMAUT2pl3FxzVUH+Q==}
+  has-proto@1.1.0:
+    resolution: {integrity: sha512-QLdzI9IIO1Jg7f9GT1gXpPpXArAn6cS31R1eEZqz08Gc+uQ8/XiqHWt17Fiw+2p6oTTIq5GXEpQkAlA88YRl/Q==}
     engines: {node: '>= 0.4'}
 
   has-symbols@1.0.3:
@@ -3616,8 +3616,8 @@ packages:
     resolution: {integrity: sha512-3KS2b+kL7fsuk/eJZ7EQdnEmQoaho/r6KUef7hxvltNA5DR8NAUM+8wJMbJyZ4G9/7i3v5zPBIMN5aybAh2/Jg==}
     engines: {node: '>= 0.4'}
 
-  typedoc-plugin-markdown@4.3.0:
-    resolution: {integrity: sha512-yAR7+JGSwHWNzQhS8AFlGX6GmbWnK7/Q2Y8hHy5pkL/WB9ooJqhsI6B1abldhM3lOQCWqCdkzu9yFMPuvl2HUw==}
+  typedoc-plugin-markdown@4.3.1:
+    resolution: {integrity: sha512-cV0cjvNfr5keytkWUm5AXNFcW3/dd51BYFvbAVqo9AJbHZjt5SGkf2EZ0whSKCilqpwL7biPC/r1WNeW2NbV/w==}
     engines: {node: '>= 18'}
     peerDependencies:
       typedoc: 0.27.x
@@ -4914,7 +4914,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@oclif/plugin-warn-if-update-available@3.1.23':
+  '@oclif/plugin-warn-if-update-available@3.1.24':
     dependencies:
       '@oclif/core': 4.0.33
       ansis: 3.3.2
@@ -6156,7 +6156,7 @@ snapshots:
       globalthis: 1.0.4
       gopd: 1.1.0
       has-property-descriptors: 1.0.2
-      has-proto: 1.0.3
+      has-proto: 1.1.0
       has-symbols: 1.0.3
       hasown: 2.0.2
       internal-slot: 1.0.7
@@ -6543,7 +6543,7 @@ snapshots:
     dependencies:
       es-errors: 1.3.0
       function-bind: 1.1.2
-      has-proto: 1.0.3
+      has-proto: 1.1.0
       has-symbols: 1.0.3
       hasown: 2.0.2
 
@@ -6693,7 +6693,9 @@ snapshots:
     dependencies:
       es-define-property: 1.0.0
 
-  has-proto@1.0.3: {}
+  has-proto@1.1.0:
+    dependencies:
+      call-bind: 1.0.7
 
   has-symbols@1.0.3: {}
 
@@ -7273,7 +7275,7 @@ snapshots:
       '@oclif/core': 4.0.33
       '@oclif/plugin-help': 6.2.18
       '@oclif/plugin-not-found': 3.2.29(@types/node@22.10.1)
-      '@oclif/plugin-warn-if-update-available': 3.1.23
+      '@oclif/plugin-warn-if-update-available': 3.1.24
       async-retry: 1.3.3
       chalk: 4.1.2
       change-case: 4.1.2
@@ -7938,7 +7940,7 @@ snapshots:
       call-bind: 1.0.7
       for-each: 0.3.3
       gopd: 1.1.0
-      has-proto: 1.0.3
+      has-proto: 1.1.0
       is-typed-array: 1.1.13
 
   typed-array-byte-offset@1.0.3:
@@ -7947,7 +7949,7 @@ snapshots:
       call-bind: 1.0.7
       for-each: 0.3.3
       gopd: 1.1.0
-      has-proto: 1.0.3
+      has-proto: 1.1.0
       is-typed-array: 1.1.13
       reflect.getprototypeof: 1.0.7
 
@@ -7960,7 +7962,7 @@ snapshots:
       possible-typed-array-names: 1.0.0
       reflect.getprototypeof: 1.0.7
 
-  typedoc-plugin-markdown@4.3.0(typedoc@0.27.2(typescript@5.7.2)):
+  typedoc-plugin-markdown@4.3.1(typedoc@0.27.2(typescript@5.7.2)):
     dependencies:
       typedoc: 0.27.2(typescript@5.7.2)
 
