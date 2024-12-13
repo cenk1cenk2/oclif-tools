@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@cenk1cenk2/cz-cc':
-        specifier: ^1.7.12
-        version: 1.7.12(typescript@5.7.2)
+        specifier: ^1.8.0
+        version: 1.8.0(typescript@5.7.2)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.1.14
         version: 3.1.14(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2)
@@ -82,8 +82,8 @@ importers:
         version: 8.2.5
     devDependencies:
       '@cenk1cenk2/cz-cc':
-        specifier: ^1.7.12
-        version: 1.7.12(@types/node@22.10.2)(typescript@5.7.2)
+        specifier: ^1.8.0
+        version: 1.8.0(@types/node@22.10.2)(typescript@5.7.2)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.1.14
         version: 3.1.14(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2)
@@ -377,8 +377,8 @@ packages:
     resolution: {integrity: sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==}
     engines: {node: '>=6.9.0'}
 
-  '@cenk1cenk2/cz-cc@1.7.12':
-    resolution: {integrity: sha512-X+xrAstaoz/zmnsVaRrQCp3zuoE0BukHUPdsl0PbI1a/FnN+494zw8X2pD7V2TAJyfnytzZdGN5HnrSqjIrL2A==}
+  '@cenk1cenk2/cz-cc@1.8.0':
+    resolution: {integrity: sha512-BNCK1mWSoKCsiHIqx251KE+rrCOr36y+d6pEOCayNB690g9Tk7L/eJhfAdZg1dI0KNSfBA/dzS7bcVgo+EEP+A==}
     engines: {node: '>= 16'}
 
   '@cenk1cenk2/eslint-config@3.1.14':
@@ -4424,7 +4424,7 @@ snapshots:
   '@babel/helper-validator-identifier@7.25.9':
     optional: true
 
-  '@cenk1cenk2/cz-cc@1.7.12(@types/node@22.10.2)(typescript@5.7.2)':
+  '@cenk1cenk2/cz-cc@1.8.0(@types/node@22.10.2)(typescript@5.7.2)':
     dependencies:
       '@listr2/prompt-adapter-enquirer': 2.0.12(enquirer@2.4.1)
       commitizen: 4.3.1(@types/node@22.10.2)(typescript@5.7.2)
@@ -4433,13 +4433,11 @@ snapshots:
       external-editor: 3.1.0
       find-git-root: 1.0.4
       listr2: 8.2.5
-    optionalDependencies:
-      '@commitlint/load': 19.5.0(@types/node@22.10.2)(typescript@5.7.2)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
 
-  '@cenk1cenk2/cz-cc@1.7.12(typescript@5.7.2)':
+  '@cenk1cenk2/cz-cc@1.8.0(typescript@5.7.2)':
     dependencies:
       '@listr2/prompt-adapter-enquirer': 2.0.12(enquirer@2.4.1)
       commitizen: 4.3.1(typescript@5.7.2)
@@ -4448,8 +4446,6 @@ snapshots:
       external-editor: 3.1.0
       find-git-root: 1.0.4
       listr2: 8.2.5
-    optionalDependencies:
-      '@commitlint/load': 19.5.0(@types/node@22.10.2)(typescript@5.7.2)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
