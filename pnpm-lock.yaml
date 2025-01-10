@@ -167,8 +167,8 @@ importers:
         specifier: ^2.0.13
         version: 2.0.13
       '@oclif/core':
-        specifier: ^4.2.1
-        version: 4.2.1
+        specifier: ^4.2.2
+        version: 4.2.2
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -837,8 +837,8 @@ packages:
     resolution: {integrity: sha512-ETM2N/GL7W37Kv1Afv1j1Gh77CynS2ubEPP+p+MnjUXEjghNe7+bKAWhPkHnBuFAVFAqdv0qMpUAjxKLbsmbJw==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/core@4.2.1':
-    resolution: {integrity: sha512-oznLlFCXuOpRSfsBUv2YxNXwD0hZc4l37Vmue+1v6T1IgXD10DXNlGNxm20C24t7MgrXdvrbmnajTdzer3Xrbw==}
+  '@oclif/core@4.2.2':
+    resolution: {integrity: sha512-5jGzLDu96jG67G2sF21A3u67FJwSRnOnjaJwobiI7sgSg5uuVAHn4j1DahhfC4K7UEcXqXBBH064JyZ9yS4xHg==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-help@6.2.20':
@@ -4935,7 +4935,7 @@ snapshots:
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
-  '@oclif/core@4.2.1':
+  '@oclif/core@4.2.2':
     dependencies:
       ansi-escapes: 4.3.2
       ansis: 3.6.0
@@ -4958,12 +4958,12 @@ snapshots:
 
   '@oclif/plugin-help@6.2.20':
     dependencies:
-      '@oclif/core': 4.2.1
+      '@oclif/core': 4.2.2
 
   '@oclif/plugin-not-found@3.2.33(@types/node@22.10.5)':
     dependencies:
       '@inquirer/prompts': 7.2.1(@types/node@22.10.5)
-      '@oclif/core': 4.2.1
+      '@oclif/core': 4.2.2
       ansis: 3.6.0
       fast-levenshtein: 3.0.0
     transitivePeerDependencies:
@@ -4971,7 +4971,7 @@ snapshots:
 
   '@oclif/plugin-plugins@5.4.24':
     dependencies:
-      '@oclif/core': 4.2.1
+      '@oclif/core': 4.2.2
       ansis: 3.6.0
       debug: 4.4.0(supports-color@8.1.1)
       npm: 10.9.2
@@ -4987,7 +4987,7 @@ snapshots:
 
   '@oclif/plugin-warn-if-update-available@3.1.29':
     dependencies:
-      '@oclif/core': 4.2.1
+      '@oclif/core': 4.2.2
       ansis: 3.6.0
       debug: 4.4.0(supports-color@8.1.1)
       http-call: 5.3.0
@@ -7389,7 +7389,7 @@ snapshots:
       '@inquirer/confirm': 3.2.0
       '@inquirer/input': 2.3.0
       '@inquirer/select': 2.5.0
-      '@oclif/core': 4.2.1
+      '@oclif/core': 4.2.2
       '@oclif/plugin-help': 6.2.20
       '@oclif/plugin-not-found': 3.2.33(@types/node@22.10.5)
       '@oclif/plugin-warn-if-update-available': 3.1.29
