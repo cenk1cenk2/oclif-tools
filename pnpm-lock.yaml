@@ -67,7 +67,7 @@ importers:
         version: 6.2.25
       '@oclif/plugin-plugins':
         specifier: ^5.4.30
-        version: 5.4.32
+        version: 5.4.33
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -874,12 +874,12 @@ packages:
     resolution: {integrity: sha512-1WPSzSvlYaIFlGGKbefldpx49uTAtsOFuHTbjeBuzSR/MLmooQGHzluvwm2W5/vyoi4AGG+PdiDJFH/b+h+BGA==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-not-found@3.2.40':
-    resolution: {integrity: sha512-XTjazxZ7l1B/O9BeNuoB5rIUITwwcFhm/qGVJWmfjra40dDub7YDspZ8Zpp/PvMGmTAZp0dkeVwzGCk8sbEv9w==}
+  '@oclif/plugin-not-found@3.2.42':
+    resolution: {integrity: sha512-hoPkt32xtXnsIFOHDK6ISCbh3v0FskDHvzmUpIKQYsojJhU9Xz/ygCyBVoFrOaJow9y/84ZARQWau2CswaprHQ==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.4.32':
-    resolution: {integrity: sha512-zfaZVocNQy8CgEU0Rd+qofIZw+LAbNzBl1jxxf9voFNIwBTkQvMdoOXjof9iRUTVOPvUqF1CkeD8Rt26bFeKEw==}
+  '@oclif/plugin-plugins@5.4.33':
+    resolution: {integrity: sha512-rGeYqlJ3KghB95b0SAPDTSaV8qtbxIOnH71Qgb+QqdPqKL1iD402DrjmTDT6XpaFVeK04g3XhiB7K3JKjgFABA==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.1.33':
@@ -1495,8 +1495,8 @@ packages:
     resolution: {integrity: sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==}
     engines: {node: '>=12'}
 
-  ansis@3.14.0:
-    resolution: {integrity: sha512-R1LnSpYZWMDEFoAyCrfgToVz4ES25luDpjlZsUlD5GXdPWb91U+TZGkxWAOvt+7zWRY/ctOxhtTx5HUtL3qmbA==}
+  ansis@3.15.0:
+    resolution: {integrity: sha512-zIcWDJ+Kwqxfdnogx66Gxzr0kVmCcRAdat9nlY2IHsshqTN4fBH6tMeRMPA/2w0rpBayIJvjQAaa2/4RDrNqwg==}
     engines: {node: '>=14'}
 
   any-promise@1.3.0:
@@ -2724,8 +2724,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  libphonenumber-js@1.11.19:
-    resolution: {integrity: sha512-bW/Yp/9dod6fmyR+XqSUL1N5JE7QRxQ3KrBIbYS1FTv32e5i3SEtQVX+71CYNv8maWNSOgnlCoNp9X78f/cKiA==}
+  libphonenumber-js@1.11.20:
+    resolution: {integrity: sha512-/ipwAMvtSZRdiQBHqW1qxqeYiBMzncOQLVA+62MWYr7N4m7Q2jqpJ0WgT7zlOEOpyLRSqrMXidbJpC0J77AaKA==}
 
   lilconfig@3.1.3:
     resolution: {integrity: sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==}
@@ -4920,7 +4920,7 @@ snapshots:
   '@oclif/core@4.2.6':
     dependencies:
       ansi-escapes: 4.3.2
-      ansis: 3.14.0
+      ansis: 3.15.0
       clean-stack: 3.0.1
       cli-spinners: 2.9.2
       debug: 4.4.0(supports-color@8.1.1)
@@ -4942,19 +4942,19 @@ snapshots:
     dependencies:
       '@oclif/core': 4.2.6
 
-  '@oclif/plugin-not-found@3.2.40(@types/node@22.13.4)':
+  '@oclif/plugin-not-found@3.2.42(@types/node@22.13.4)':
     dependencies:
       '@inquirer/prompts': 7.3.2(@types/node@22.13.4)
       '@oclif/core': 4.2.6
-      ansis: 3.14.0
+      ansis: 3.15.0
       fast-levenshtein: 3.0.0
     transitivePeerDependencies:
       - '@types/node'
 
-  '@oclif/plugin-plugins@5.4.32':
+  '@oclif/plugin-plugins@5.4.33':
     dependencies:
       '@oclif/core': 4.2.6
-      ansis: 3.14.0
+      ansis: 3.15.0
       debug: 4.4.0(supports-color@8.1.1)
       npm: 10.9.2
       npm-package-arg: 11.0.3
@@ -4970,7 +4970,7 @@ snapshots:
   '@oclif/plugin-warn-if-update-available@3.1.33':
     dependencies:
       '@oclif/core': 4.2.6
-      ansis: 3.14.0
+      ansis: 3.15.0
       debug: 4.4.0(supports-color@8.1.1)
       http-call: 5.3.0
       lodash: 4.17.21
@@ -5671,7 +5671,7 @@ snapshots:
 
   ansi-styles@6.2.1: {}
 
-  ansis@3.14.0: {}
+  ansis@3.15.0: {}
 
   any-promise@1.3.0: {}
 
@@ -5895,7 +5895,7 @@ snapshots:
   class-validator@0.14.1:
     dependencies:
       '@types/validator': 13.12.2
-      libphonenumber-js: 1.11.19
+      libphonenumber-js: 1.11.20
       validator: 13.12.0
 
   clean-stack@3.0.1:
@@ -7123,7 +7123,7 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  libphonenumber-js@1.11.19: {}
+  libphonenumber-js@1.11.20: {}
 
   lilconfig@3.1.3: {}
 
@@ -7378,7 +7378,7 @@ snapshots:
       '@inquirer/select': 2.5.0
       '@oclif/core': 4.2.6
       '@oclif/plugin-help': 6.2.25
-      '@oclif/plugin-not-found': 3.2.40(@types/node@22.13.4)
+      '@oclif/plugin-not-found': 3.2.42(@types/node@22.13.4)
       '@oclif/plugin-warn-if-update-available': 3.1.33
       async-retry: 1.3.3
       chalk: 4.1.2
