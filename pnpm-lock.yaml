@@ -12,10 +12,10 @@ importers:
         specifier: ^1.8.0
         version: 1.8.0(typescript@5.8.2)
       '@cenk1cenk2/eslint-config':
-        specifier: ^3.1.27
-        version: 3.1.28(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)
+        specifier: ^3.1.29
+        version: 3.1.29(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)
       '@swc/core':
-        specifier: ^1.11.5
+        specifier: ^1.11.7
         version: 1.11.7
       '@tsconfig/node16':
         specifier: ^16.1.3
@@ -33,7 +33,7 @@ importers:
         specifier: ^15.4.3
         version: 15.4.3
       prettier:
-        specifier: ^3.5.2
+        specifier: ^3.5.3
         version: 3.5.3
       simple-git-hooks:
         specifier: ^2.11.1
@@ -51,7 +51,7 @@ importers:
         specifier: ^4.4.2
         version: 4.4.2(typedoc@0.27.9(typescript@5.8.2))
       typescript:
-        specifier: ^5.7.3
+        specifier: ^5.8.2
         version: 5.8.2
 
   example:
@@ -85,8 +85,8 @@ importers:
         specifier: ^1.8.0
         version: 1.8.0(@types/node@22.13.9)(typescript@5.8.2)
       '@cenk1cenk2/eslint-config':
-        specifier: ^3.1.27
-        version: 3.1.28(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)
+        specifier: ^3.1.29
+        version: 3.1.29(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)
       '@tsconfig/node16':
         specifier: ^16.1.3
         version: 16.1.3
@@ -118,7 +118,7 @@ importers:
         specifier: ^4.17.34
         version: 4.17.34(@types/node@22.13.9)
       prettier:
-        specifier: ^3.5.2
+        specifier: ^3.5.3
         version: 3.5.3
       rimraf:
         specifier: ^6.0.1
@@ -136,7 +136,7 @@ importers:
         specifier: ^8.4.0
         version: 8.4.0(@swc/core@1.11.7)(jiti@2.4.2)(typescript@5.8.2)(yaml@2.7.0)
       typescript:
-        specifier: ^5.7.3
+        specifier: ^5.8.2
         version: 5.8.2
 
   packages/common:
@@ -369,8 +369,8 @@ packages:
     resolution: {integrity: sha512-BNCK1mWSoKCsiHIqx251KE+rrCOr36y+d6pEOCayNB690g9Tk7L/eJhfAdZg1dI0KNSfBA/dzS7bcVgo+EEP+A==}
     engines: {node: '>= 16'}
 
-  '@cenk1cenk2/eslint-config@3.1.28':
-    resolution: {integrity: sha512-gzxTNH6JVdPAqG3VnPqpI08fP0dw5kNqCzfWEIh5yn1fAj1iZNhevRGp+99gG9PtIwyvfS3nIfRYaSr2aYuH/w==}
+  '@cenk1cenk2/eslint-config@3.1.29':
+    resolution: {integrity: sha512-atZ259ynK/9ZDuFCf9II/8PdcPP20tJm2cp3TJuYatJcSrbbSQ1uG/0kpY3TZiyfuu4qcZb9YZXRRH0ulRorMg==}
     peerDependencies:
       '@vue/eslint-config-typescript': '>= 14.1.1'
       eslint: '>= 9'
@@ -4461,7 +4461,7 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@cenk1cenk2/eslint-config@3.1.28(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)':
+  '@cenk1cenk2/eslint-config@3.1.29(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)':
     dependencies:
       '@eslint/js': 9.21.0
       '@stylistic/eslint-plugin': 2.13.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)
