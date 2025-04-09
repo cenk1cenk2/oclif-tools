@@ -164,7 +164,7 @@ importers:
         version: 3.17.0
     devDependencies:
       '@listr2/manager':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: 2.0.15
       '@oclif/core':
         specifier: ^4.2.10
@@ -191,7 +191,7 @@ importers:
         specifier: ^11.3.0
         version: 11.3.0
       listr2:
-        specifier: ^8.3.0
+        specifier: ^8.3.1
         version: 8.3.1
       source-map-support:
         specifier: ^0.5.21
