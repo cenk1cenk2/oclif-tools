@@ -60,13 +60,13 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.2.6
+        specifier: ^4.2.10
         version: 4.2.10
       '@oclif/plugin-help':
-        specifier: ^6.2.24
+        specifier: ^6.2.27
         version: 6.2.27
       '@oclif/plugin-plugins':
-        specifier: ^5.4.30
+        specifier: ^5.4.36
         version: 5.4.36
       class-transformer:
         specifier: ^0.5.1
@@ -78,7 +78,7 @@ importers:
         specifier: ^2.4.1
         version: 2.4.1
       listr2:
-        specifier: ^8.2.5
+        specifier: ^8.3.2
         version: 8.3.2
     devDependencies:
       '@cenk1cenk2/cz-cc':
