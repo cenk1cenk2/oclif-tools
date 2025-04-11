@@ -72,13 +72,13 @@
   },
   "dependencies": {
     "@cenk1cenk2/oclif-common": "workspace:*",
-    "@oclif/core": "^4.2.6",
-    "@oclif/plugin-help": "^6.2.24",
-    "@oclif/plugin-plugins": "^5.4.30",
+    "@oclif/core": "^4.2.10",
+    "@oclif/plugin-help": "^6.2.27",
+    "@oclif/plugin-plugins": "^5.4.36",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "enquirer": "^2.4.1",
-    "listr2": "^8.2.5"
+    "listr2": "^8.3.2"
   },
   "devDependencies": {
     "@cenk1cenk2/cz-cc": "^1.8.0",
