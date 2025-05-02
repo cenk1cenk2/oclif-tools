@@ -80,7 +80,7 @@
     "@types/through": "^0.0.33",
     "@types/update-notifier": "^6.0.8",
     "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.1",
+    "class-validator": "^0.14.2",
     "enquirer": "^2.4.1",
     "fs-extra": "^11.3.0",
     "listr2": "^8.3.2",
