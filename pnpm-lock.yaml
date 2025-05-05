@@ -45,10 +45,10 @@ importers:
         specifier: ^8.4.0
         version: 8.4.0(@swc/core@1.11.24)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.1)
       typedoc:
-        specifier: ^0.28.0
+        specifier: ^0.28.4
         version: 0.28.4(typescript@5.8.3)
       typedoc-plugin-markdown:
-        specifier: ^4.5.1
+        specifier: ^4.6.3
         version: 4.6.3(typedoc@0.28.4(typescript@5.8.3))
       typescript:
         specifier: ^5.8.3
