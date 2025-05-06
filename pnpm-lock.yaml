@@ -79,7 +79,7 @@ importers:
         version: 2.4.1
       listr2:
         specifier: ^8.3.2
-        version: 8.3.2
+        version: 8.3.3
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^1.8.1
@@ -164,8 +164,8 @@ importers:
         version: 3.17.0
     devDependencies:
       '@listr2/manager':
-        specifier: ^2.0.16
-        version: 2.0.16
+        specifier: ^2.0.17
+        version: 2.0.17
       '@oclif/core':
         specifier: ^4.3.0
         version: 4.3.0
@@ -191,8 +191,8 @@ importers:
         specifier: ^11.3.0
         version: 11.3.0
       listr2:
-        specifier: ^8.3.2
-        version: 8.3.2
+        specifier: ^8.3.3
+        version: 8.3.3
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -805,8 +805,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@listr2/manager@2.0.16':
-    resolution: {integrity: sha512-mQ1uV3u6xRBPfBQqLS+CauJpqgGCsi6sV1zxaYD2X1F9DR4qAOrDnkjFCUccy9XNcb5gcIl9Cv1OW8invDUpSg==}
+  '@listr2/manager@2.0.17':
+    resolution: {integrity: sha512-T4v38ym7FItHLkOVa+LHyvRZ8091nVABYPb1PMP5MNSJRXnSWS6QGCHH1Uditw/1ExKdMuspNo0ylITQB0Uq6Q==}
     engines: {node: '>=18.0.0'}
 
   '@listr2/prompt-adapter-enquirer@2.0.15':
@@ -2862,8 +2862,8 @@ packages:
     engines: {node: '>=18.12.0'}
     hasBin: true
 
-  listr2@8.3.2:
-    resolution: {integrity: sha512-vsBzcU4oE+v0lj4FhVLzr9dBTv4/fHIa57l+GCwovP8MoFNZJTOhGU8PXd4v2VJCbECAaijBiHntiekFMLvo0g==}
+  listr2@8.3.3:
+    resolution: {integrity: sha512-LWzX2KsqcB1wqQ4AHgYb4RsDXauQiqhjLk+6hjbaeHG4zpjjVAB6wC/gz6X0l+Du1cN3pUB5ZlrvTbhGSNnUQQ==}
     engines: {node: '>=18.0.0'}
 
   load-tsconfig@0.2.5:
@@ -4678,7 +4678,7 @@ snapshots:
       enquirer: 2.4.1
       external-editor: 3.1.0
       find-git-root: 1.0.4
-      listr2: 8.3.2
+      listr2: 8.3.3
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -4691,7 +4691,7 @@ snapshots:
       enquirer: 2.4.1
       external-editor: 3.1.0
       find-git-root: 1.0.4
-      listr2: 8.3.2
+      listr2: 8.3.3
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -5095,7 +5095,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@listr2/manager@2.0.16': {}
+  '@listr2/manager@2.0.17': {}
 
   '@listr2/prompt-adapter-enquirer@2.0.15(enquirer@2.4.1)':
     dependencies:
@@ -7542,7 +7542,7 @@ snapshots:
       debug: 4.4.0(supports-color@8.1.1)
       execa: 8.0.1
       lilconfig: 3.1.3
-      listr2: 8.3.2
+      listr2: 8.3.3
       micromatch: 4.0.8
       pidtree: 0.6.0
       string-argv: 0.3.2
@@ -7550,7 +7550,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  listr2@8.3.2:
+  listr2@8.3.3:
     dependencies:
       cli-truncate: 4.0.0
       colorette: 2.0.20
