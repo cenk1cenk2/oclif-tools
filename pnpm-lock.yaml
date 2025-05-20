@@ -1405,8 +1405,8 @@ packages:
   '@types/update-notifier@6.0.8':
     resolution: {integrity: sha512-IlDFnfSVfYQD+cKIg63DEXn3RFmd7W1iYtKQsJodcHK9R1yr8aKbKaPKfBxzPpcHCq2DU8zUq4PIPmy19Thjfg==}
 
-  '@types/validator@13.15.0':
-    resolution: {integrity: sha512-nh7nrWhLr6CBq9ldtw0wx+z9wKnnv/uTVLA9g/3/TcOYxbpOSZE+MhKPmWqU+K0NvThjhv12uD8MuqijB0WzEA==}
+  '@types/validator@13.15.1':
+    resolution: {integrity: sha512-9gG6ogYcoI2mCMLdcO0NYI0AYrbxIjv0MDmy/5Ywo6CpWWrqYayc+mmgxRsCgtcGJm9BSbXkMsmxGah1iGHAAQ==}
 
   '@types/wrap-ansi@3.0.0':
     resolution: {integrity: sha512-ltIpx+kM7g/MLRZfkbL7EsCEjfzCcScLpkg37eXEtx5kmrAKBkTJwd1GIAjDSL8wTpM6Hzn5YO4pSb91BEwu1g==}
@@ -5624,7 +5624,7 @@ snapshots:
       '@types/configstore': 6.0.2
       boxen: 7.1.1
 
-  '@types/validator@13.15.0': {}
+  '@types/validator@13.15.1': {}
 
   '@types/wrap-ansi@3.0.0': {}
 
@@ -5982,7 +5982,7 @@ snapshots:
 
   class-validator@0.14.2:
     dependencies:
-      '@types/validator': 13.15.0
+      '@types/validator': 13.15.1
       libphonenumber-js: 1.12.8
       validator: 13.15.0
 
