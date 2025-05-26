@@ -46,10 +46,10 @@ importers:
         version: 8.5.0(@swc/core@1.11.29)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.8.0)
       typedoc:
         specifier: ^0.28.4
-        version: 0.28.4(typescript@5.8.3)
+        version: 0.28.5(typescript@5.8.3)
       typedoc-plugin-markdown:
         specifier: ^4.6.3
-        version: 4.6.3(typedoc@0.28.4(typescript@5.8.3))
+        version: 4.6.3(typedoc@0.28.5(typescript@5.8.3))
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -143,10 +143,10 @@ importers:
     dependencies:
       '@nestjs/common':
         specifier: ^10.4.17
-        version: 10.4.17(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+        version: 10.4.18(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core':
         specifier: ^10.4.17
-        version: 10.4.17(@nestjs/common@10.4.17(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
+        version: 10.4.18(@nestjs/common@10.4.18(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -819,8 +819,8 @@ packages:
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
     engines: {node: '>=8'}
 
-  '@nestjs/common@10.4.17':
-    resolution: {integrity: sha512-NKzPA4Tb35XjlxizsT8KZb3CCX8tNKj5EnsXsTl/gZX//uAWccBsqB8BjU69x/u4/kQ0106/Kt6PP+yrHAez0w==}
+  '@nestjs/common@10.4.18':
+    resolution: {integrity: sha512-9SrTth6YJJ9CjVnekw9WP8kaiwh+tSgR0KIrPYV/aWgF9D0175uDJUglzbiCfUbkPyHN8jcKXUXd3EVPDY6BNA==}
     peerDependencies:
       class-transformer: '*'
       class-validator: '*'
@@ -832,8 +832,8 @@ packages:
       class-validator:
         optional: true
 
-  '@nestjs/core@10.4.17':
-    resolution: {integrity: sha512-Tk4J5aS082NUYrsJEDLvGdU+kRnHAMdOvsA4j62fP5THO6fN6vqv6jWHfydhCiPGUCJWLT6m+mNIhETMhMAs+Q==}
+  '@nestjs/core@10.4.18':
+    resolution: {integrity: sha512-+cs96rnpHIfkn9o0DLZFKuE1RZ3FFQkpkzz+DY2U8C3Wn3VX5fQaO4YuabweLIhUKTLr9DMxPycA5qk5rAPFBw==}
     peerDependencies:
       '@nestjs/common': ^10.0.0
       '@nestjs/microservices': ^10.0.0
@@ -3774,8 +3774,8 @@ packages:
     peerDependencies:
       typedoc: 0.28.x
 
-  typedoc@0.28.4:
-    resolution: {integrity: sha512-xKvKpIywE1rnqqLgjkoq0F3wOqYaKO9nV6YkkSat6IxOWacUCc/7Es0hR3OPmkIqkPoEn7U3x+sYdG72rstZQA==}
+  typedoc@0.28.5:
+    resolution: {integrity: sha512-5PzUddaA9FbaarUzIsEc4wNXCiO4Ot3bJNeMF2qKpYlTmM9TTaSHQ7162w756ERCkXER/+o2purRG6YOAv6EMA==}
     engines: {node: '>= 18', pnpm: '>= 10'}
     hasBin: true
     peerDependencies:
@@ -4935,7 +4935,7 @@ snapshots:
 
   '@lukeed/csprng@1.1.0': {}
 
-  '@nestjs/common@10.4.17(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)':
+  '@nestjs/common@10.4.18(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)':
     dependencies:
       file-type: 20.4.1
       iterare: 1.2.1
@@ -4949,9 +4949,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nestjs/core@10.4.17(@nestjs/common@10.4.17(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)':
+  '@nestjs/core@10.4.18(@nestjs/common@10.4.18(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)':
     dependencies:
-      '@nestjs/common': 10.4.17(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/common': 10.4.18(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
       iterare: 1.2.1
@@ -8255,11 +8255,11 @@ snapshots:
       possible-typed-array-names: 1.1.0
       reflect.getprototypeof: 1.0.10
 
-  typedoc-plugin-markdown@4.6.3(typedoc@0.28.4(typescript@5.8.3)):
+  typedoc-plugin-markdown@4.6.3(typedoc@0.28.5(typescript@5.8.3)):
     dependencies:
-      typedoc: 0.28.4(typescript@5.8.3)
+      typedoc: 0.28.5(typescript@5.8.3)
 
-  typedoc@0.28.4(typescript@5.8.3):
+  typedoc@0.28.5(typescript@5.8.3):
     dependencies:
       '@gerrit0/mini-shiki': 3.4.2
       lunr: 2.3.9
