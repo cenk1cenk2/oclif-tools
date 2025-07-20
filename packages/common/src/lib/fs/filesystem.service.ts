@@ -33,7 +33,7 @@ export class FileSystemService {
       const raw = await this.extra.readFile(file, 'utf-8')
 
       return raw
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while reading file from "${file}": ${e.message}`)
     }
   }
@@ -43,7 +43,7 @@ export class FileSystemService {
       const raw = this.extra.readFileSync(file, 'utf-8')
 
       return raw
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while reading file from "${file}": ${e.message}`)
     }
   }
@@ -51,7 +51,7 @@ export class FileSystemService {
   public async write(file: string, data: string | Buffer, options: fs.WriteFileOptions = {}): Promise<void> {
     try {
       await this.extra.writeFile(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while writing file to "${file}": ${e.message}`)
     }
   }
@@ -59,7 +59,7 @@ export class FileSystemService {
   public writeSync(file: string, data: string | Buffer, options: fs.WriteFileOptions = {}): void {
     try {
       this.extra.writeFileSync(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while writing file to "${file}": ${e.message}`)
     }
   }
@@ -67,7 +67,7 @@ export class FileSystemService {
   public async append(file: string, data: string | Buffer, options?: fs.WriteFileOptions): Promise<void> {
     try {
       await this.extra.appendFile(file, data, options)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while appending to file  "${file}": ${e.message}`)
     }
   }
@@ -75,7 +75,7 @@ export class FileSystemService {
   public appendSync(file: string, data: string | Buffer): void {
     try {
       this.extra.appendFileSync(file, data)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while appending to file  "${file}": ${e.message}`)
     }
   }
@@ -83,7 +83,7 @@ export class FileSystemService {
   public async remove(file: string, options?: fs.RmOptions): Promise<void> {
     try {
       await this.extra.rm(file, options)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while deleting the file "${file}": ${e.message}`)
     }
   }
@@ -91,7 +91,7 @@ export class FileSystemService {
   public removeSync(file: string, options?: fs.RmOptions): void {
     try {
       this.extra.rmSync(file, options)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while deleting the file "${file}": ${e.message}`)
     }
   }
@@ -99,7 +99,7 @@ export class FileSystemService {
   public async emptyDir(directory: string): Promise<void> {
     try {
       await this.extra.emptyDir(directory)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while emptying the directory "${directory}": ${e.message}`)
     }
   }
@@ -107,7 +107,7 @@ export class FileSystemService {
   public emptyDirSync(directory: string): void {
     try {
       this.extra.emptyDirSync(directory)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while emptying the directory "${directory}": ${e.message}`)
     }
   }
@@ -115,7 +115,7 @@ export class FileSystemService {
   public async removeDir(directory: string): Promise<void> {
     try {
       await this.extra.rmdir(directory)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while removing the directory "${directory}": ${e.message}`)
     }
   }
@@ -123,7 +123,7 @@ export class FileSystemService {
   public removeDirSync(directory: string): void {
     try {
       this.extra.rmdirSync(directory)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while removing the directory "${directory}": ${e.message}`)
     }
   }
@@ -131,7 +131,7 @@ export class FileSystemService {
   public async mkdir(directory: string): Promise<void> {
     try {
       await this.extra.mkdirp(directory)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while creating the directory "${directory}": ${e.message}`)
     }
   }
@@ -139,7 +139,7 @@ export class FileSystemService {
   public mkdirSync(directory: string): void {
     try {
       this.extra.mkdirpSync(directory)
-    } catch (e: any) {
+    } catch(e: any) {
       throw new Error(`Error while creating the directory "${directory}": ${e.message}`)
     }
   }

@@ -50,8 +50,8 @@
   "scripts": {
     "dev": "./bin/dev.js",
     "start": "./bin/run.js",
-    "build": "tsup-node",
-    "dev:start": "tsup-node --watch",
+    "build": "tsdown",
+    "dev:start": "tsdown --watch",
     "clean": "rimraf oclif.manifset.json",
     "format": "prettier --write src/ --log-level warn && eslint --fix src/",
     "lint": "eslint src/",
@@ -78,30 +78,30 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "enquirer": "^2.4.1",
-    "listr2": "^8.3.3"
+    "listr2": "^9.0.1"
   },
   "devDependencies": {
-    "@cenk1cenk2/cz-cc": "^1.8.1",
+    "@cenk1cenk2/cz-cc": "^2.0.2",
     "@cenk1cenk2/eslint-config": "^3.1.51",
     "@tsconfig/node16": "^16.1.4",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.16.5",
+    "@types/node": "^24.0.15",
     "commitizen": "^4.3.1",
     "eslint": "^9.31.0",
     "execa": "^9.6.0",
     "fs-extra": "^11.3.0",
     "globby": "^14.1.0",
-    "lint-staged": "^15.5.2",
+    "lint-staged": "^16.1.2",
     "oclif": "^4.21.2",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "simple-git-hooks": "^2.13.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "tsup": "^8.5.0",
+    "tsdown": "^0.12.9",
     "typescript": "^5.8.3"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=22.0.0"
   }
 }

@@ -15,7 +15,7 @@ export class YamlParser implements GenericParser {
   public parse<T = unknown>(data: string | Buffer): T {
     try {
       return parse(data.toString())
-    } catch (e: any) {
+    } catch(e: any) {
       this.logger.trace('Error during parsing YAML file: %s', e.message)
 
       throw e

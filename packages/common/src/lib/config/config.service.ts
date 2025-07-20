@@ -69,7 +69,7 @@ export class ConfigService {
             this.logger.trace('Extending config from: %s', path)
 
             return config
-          } catch (e: any) {
+          } catch(e: any) {
             this.logger.trace('Failed to extend config from: %s', e.message)
           }
         })
@@ -98,7 +98,7 @@ export class ConfigService {
           const location = [...(parent ?? []), key]
 
           if (typeof value === 'string') {
-            return [ { key: location, env: value } ]
+            return [{ key: location, env: value }]
           } else if (typeof value === 'object') {
             let extensions: ConfigIterator['extensions']
 
@@ -141,7 +141,7 @@ export class ConfigService {
       if (variable.parser) {
         try {
           data = this.parser.parse(variable.parser, data)
-        } catch (e: any) {
+        } catch(e: any) {
           this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
 
           throw e

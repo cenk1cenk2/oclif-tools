@@ -10,6 +10,6 @@ export default [
     }
   },
   {
-    ignores: ['/tsup.config.ts', '/bin/**']
+    ignores: ['/tsdown.config.ts', '/bin/**']
   }
 ]

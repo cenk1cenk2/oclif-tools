@@ -14,7 +14,7 @@ export class JsonParser implements GenericParser {
   public parse<T = unknown>(data: string | Buffer): T {
     try {
       return JSON.parse(data.toString())
-    } catch (e: any) {
+    } catch(e: any) {
       this.logger.trace('Error during parsing JSON file: %s', e.message)
 
       throw e

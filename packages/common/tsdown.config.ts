@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsdown'
 
 export default defineConfig((options) => ({
   name: !options.watch ? 'production' : undefined,
@@ -15,7 +15,6 @@ export default defineConfig((options) => ({
 
   sourcemap: options.watch ? true : false,
 
-  bundle: true,
   splitting: true,
   clean: true,
   minify: false,

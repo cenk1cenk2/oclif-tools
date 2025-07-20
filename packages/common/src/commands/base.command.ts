@@ -97,7 +97,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
 
       this.flags = flags as InferFlags<T>
       this.args = args as InferArgs<T>
-    } catch (e: any) {
+    } catch(e: any) {
       err = e
     }
 

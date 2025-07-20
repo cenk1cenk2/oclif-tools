@@ -30,7 +30,7 @@ export class EnvironmentVariableParser implements GenericParser {
             [key]: value
           }
         }, {}) as T
-    } catch (e: any) {
+    } catch(e: any) {
       this.logger.trace('Error during parsing environment file: %s', e.message)
 
       throw e

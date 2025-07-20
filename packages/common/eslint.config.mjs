@@ -6,6 +6,6 @@ export default [
   ...base,
   ...utils.configImportGroup({ tsconfigDir: import.meta.dirname, tsconfig: 'tsconfig.json' }),
   {
-    ignores: ['/tsup.config.ts']
+    ignores: ['/tsdown.config.ts']
   }
 ]
