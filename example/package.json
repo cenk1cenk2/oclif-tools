@@ -99,7 +99,7 @@
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "tsdown": "^0.12.9",
+    "tsdown": "^0.13.0",
     "typescript": "^5.8.3"
   },
   "engines": {
