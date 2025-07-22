@@ -1,3 +1,10 @@
+# @cenk1cenk2/oclif-common [6.4.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.30...@cenk1cenk2/oclif-common@6.4.0) (2025-07-22)
+
+
+### Features
+
+* fix issues with decorator data ([c4180bf](https://gitlab.kilic.dev/libraries/oclif-tools/commit/c4180bfe7ab81b9120b6e607854c1729c2c49dd9))
+
 ## @cenk1cenk2/oclif-common [6.3.30](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.3.29...@cenk1cenk2/oclif-common@6.3.30) (2025-07-20)
 
 
