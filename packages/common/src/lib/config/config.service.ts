@@ -64,14 +64,14 @@ export class ConfigService implements OnModuleInit {
 
     const configs = (
       await Promise.all(
-        paths.map(async (path) => {
+        paths.map(async(path) => {
           try {
             const config = typeof path === 'string' ? await this.parser.read<Partial<T>>(path) : path
 
             this.logger.trace('Extending config from: %s', path)
 
             return config
-          } catch (e: any) {
+          } catch(e: any) {
             this.logger.trace('Failed to extend config from: %s', e.message)
           }
         })
@@ -94,9 +94,9 @@ export class ConfigService implements OnModuleInit {
 
     this.logger.trace('Environment variable extensions read: %o', definition)
 
-    const iter = async (obj: Record<PropertyKey, any>, parent?: string[]): Promise<ConfigIterator[]> => {
+    const iter = async(obj: Record<PropertyKey, any>, parent?: string[]): Promise<ConfigIterator[]> => {
       const data = await Promise.all(
-        Object.entries(obj).map(async ([key, value]) => {
+        Object.entries(obj).map(async([key, value]) => {
           const location = [...(parent ?? []), key]
 
           if (typeof value === 'string') {
@@ -143,7 +143,7 @@ export class ConfigService implements OnModuleInit {
       if (variable.parser) {
         try {
           data = this.parser.parse(variable.parser, data)
-        } catch (e: any) {
+        } catch(e: any) {
           this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
 
           throw e
