@@ -12,15 +12,27 @@ export default defineConfig((options) => ({
 
   format: ['esm'],
 
-  target: ['es2021'],
-
   sourcemap: options.watch ? true : false,
 
   unbundle: true,
   splitting: false,
-  clean: true,
   minify: false,
   keepNames: true,
+
+  inputOptions: {
+    transform: {
+      assumptions: {
+        setPublicClassFields: true
+      },
+      typescript: {
+        removeClassFieldsWithoutInitializer: true
+      },
+      decorator: {
+        legacy: true,
+        emitDecoratorMetadata: true
+      }
+    }
+  },
 
   onSuccess: async (): Promise<void> => {
     await Promise.all([command('pnpm run manifest', { stdout: process.stdout, stderr: process.stderr })])

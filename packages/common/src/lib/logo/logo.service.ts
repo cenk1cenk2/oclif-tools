@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, OnModuleInit } from '@nestjs/common'
 import { ModuleRef } from '@nestjs/core'
 import { EOL } from 'os'
 
@@ -7,15 +7,17 @@ import type { LogoGeneratorFn } from './logo.interface'
 import { ConfigService } from '@lib/config'
 
 @Injectable()
-export class LogoService {
+export class LogoService implements OnModuleInit {
   private generator: LogoGeneratorFn
 
   constructor(
     public readonly cs: ConfigService,
-    moduleRef: ModuleRef
-  ) {
+    private readonly moduleRef: ModuleRef
+  ) {}
+
+  public async onModuleInit(): Promise<void> {
     try {
-      this.generator = moduleRef.get(TOKEN_LOGO_GENERATOR, { strict: false })
+      this.generator = this.moduleRef.get(TOKEN_LOGO_GENERATOR, { strict: false })
     } catch {
       this.generator = function(this: LogoService): void {
         if (this.shouldBeSilent()) {

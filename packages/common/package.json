@@ -28,7 +28,7 @@
     "access": "public"
   },
   "engines": {
-    "node": ">= 16"
+    "node": ">= 18"
   },
   "scripts": {
     "build": "tsdown",
@@ -46,28 +46,10 @@
       "prettier --log-level warn --write"
     ]
   },
-  "peerDependencies": {
-    "@listr2/manager": ">= 1",
-    "@oclif/core": ">= 1",
-    "class-transformer": ">= 0.5.0",
-    "class-validator": ">= 0.14.0",
-    "enquirer": ">= 2",
-    "fs-extra": ">= 10",
-    "listr2": ">= 7",
-    "update-notifier": ">= 5",
-    "yaml": ">= 2"
-  },
-  "peerDependenciesMeta": {
-    "update-notifier": {
-      "optional": true
-    },
-    "yaml": {
-      "optional": true
-    }
-  },
   "dependencies": {
     "@nestjs/common": "^11.1.5",
     "@nestjs/core": "^11.1.5",
+    "@oxc-project/runtime": "^0.77.3",
     "deepmerge": "^4.3.1",
     "object-path-immutable": "^4.1.2",
     "reflect-metadata": "^0.2.1",
@@ -81,10 +63,32 @@
     "@types/update-notifier": "^6.0.8",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
-    "enquirer": "^2.4.1",
     "fs-extra": "^11.3.0",
     "listr2": "^9.0.1",
     "source-map-support": "^0.5.21",
     "yaml": "^2.8.0"
+  },
+  "peerDependencies": {
+    "@listr2/manager": ">= 1",
+    "@oclif/core": ">= 1",
+    "class-transformer": ">= 0.5.0",
+    "class-validator": ">= 0.14.0",
+    "enquirer": ">= 2",
+    "fs-extra": ">= 10",
+    "listr2": ">= 7",
+    "update-notifier": ">= 5",
+    "yaml": ">= 2",
+    "source-map-support": ">= 0.5.0"
+  },
+  "peerDependenciesMeta": {
+    "update-notifier": {
+      "optional": true
+    },
+    "yaml": {
+      "optional": true
+    },
+    "source-map-support": {
+      "optional": true
+    }
   }
 }

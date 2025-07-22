@@ -11,12 +11,24 @@ export default defineConfig((options) => ({
 
   format: ['esm'],
 
-  target: ['es2021'],
-
   sourcemap: options.watch ? true : false,
 
-  splitting: true,
-  clean: true,
+  unbundle: true,
+  splitting: false,
   minify: false,
-  keepNames: true
+  keepNames: true,
+  inputOptions: {
+    transform: {
+      assumptions: {
+        setPublicClassFields: true
+      },
+      typescript: {
+        removeClassFieldsWithoutInitializer: true
+      },
+      decorator: {
+        legacy: true,
+        emitDecoratorMetadata: true
+      }
+    }
+  }
 }))

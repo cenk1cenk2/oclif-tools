@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, OnModuleInit } from '@nestjs/common'
 import op from 'object-path-immutable'
 
 import type { CommonLockerData, LockData, LockableData, LockerServiceOptions, UnlockData } from './locker.interface'
@@ -8,7 +8,7 @@ import { ParserService } from '@lib/parser'
 import { merge } from '@utils'
 
 @Injectable()
-export class LockerService<LockFile extends LockableData = LockableData> {
+export class LockerService<LockFile extends LockableData = LockableData> implements OnModuleInit {
   public readonly op = op
   private toLock: LockData[] = []
   private toUnlock: UnlockData[] = []
@@ -18,7 +18,9 @@ export class LockerService<LockFile extends LockableData = LockableData> {
     private readonly fs: FileSystemService,
     private readonly parser: ParserService,
     private readonly options: LockerServiceOptions
-  ) {
+  ) {}
+
+  public async onModuleInit(): Promise<void> {
     this.logger.setup(this.constructor.name)
   }
 

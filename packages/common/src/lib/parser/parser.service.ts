@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, OnModuleInit } from '@nestjs/common'
 import { ModuleRef } from '@nestjs/core'
 
 import type { GenericParser } from './parser.interface'
@@ -8,14 +8,16 @@ import type { LockableData } from '@lib/locker'
 import { LoggerService } from '@lib/logger'
 
 @Injectable()
-export class ParserService {
+export class ParserService implements OnModuleInit {
   private readonly instances: GenericParser[] = []
 
   constructor(
     private moduleRef: ModuleRef,
     private fs: FileSystemService,
     private readonly logger: LoggerService
-  ) {
+  ) {}
+
+  public async onModuleInit(): Promise<void> {
     this.logger.setup(this.constructor.name)
   }
 

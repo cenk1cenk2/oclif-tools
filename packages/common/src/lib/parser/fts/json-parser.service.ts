@@ -1,13 +1,15 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, OnModuleInit } from '@nestjs/common'
 
 import type { GenericParser } from '../parser.interface'
 import { LoggerService } from '@lib/logger'
 
 @Injectable()
-export class JsonParser implements GenericParser {
+export class JsonParser implements GenericParser, OnModuleInit {
   public readonly extensions: string[] = ['json']
 
-  constructor(private readonly logger: LoggerService) {
+  constructor(private readonly logger: LoggerService) {}
+
+  public async onModuleInit(): Promise<void> {
     this.logger.setup(this.constructor.name)
   }
 

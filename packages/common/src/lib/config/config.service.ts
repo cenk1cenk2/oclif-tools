@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common'
+import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
 import type { Command, Config } from '@oclif/core'
 import op from 'object-path-immutable'
 import { join } from 'path'
@@ -12,7 +12,7 @@ import { ParserService } from '@lib/parser/parser.service'
 import { MergeStrategy, isDebug, isSilent, isVerbose, merge } from '@utils'
 
 @Injectable()
-export class ConfigService {
+export class ConfigService implements OnModuleInit {
   public defaults: string
   public root: string
   public config: GlobalConfig
@@ -22,13 +22,15 @@ export class ConfigService {
   constructor(
     private readonly parser: ParserService,
     private readonly logger: LoggerService,
-    @Inject(TOKEN_CONFIG_MODULE_OPTIONS) options: ConfigModuleOptions
-  ) {
-    this.root = options.oclif.root
-    this.defaults = join(options.oclif.root, FileConstants.CONFIG_SERVICE_DEFAULTS_DIR)
-    this.oclif = options.oclif
-    this.config = options.config
-    this.command = options.command
+    @Inject(TOKEN_CONFIG_MODULE_OPTIONS) private options: ConfigModuleOptions
+  ) {}
+
+  public async onModuleInit(): Promise<void> {
+    this.root = this.options.oclif?.root
+    this.defaults = join(this.options.oclif?.root, FileConstants.CONFIG_SERVICE_DEFAULTS_DIR)
+    this.oclif = this.options.oclif
+    this.config = this.options.config
+    this.command = this.options.command
 
     this.logger.setup(this.constructor.name)
   }
@@ -62,14 +64,14 @@ export class ConfigService {
 
     const configs = (
       await Promise.all(
-        paths.map(async(path) => {
+        paths.map(async (path) => {
           try {
             const config = typeof path === 'string' ? await this.parser.read<Partial<T>>(path) : path
 
             this.logger.trace('Extending config from: %s', path)
 
             return config
-          } catch(e: any) {
+          } catch (e: any) {
             this.logger.trace('Failed to extend config from: %s', e.message)
           }
         })
@@ -92,9 +94,9 @@ export class ConfigService {
 
     this.logger.trace('Environment variable extensions read: %o', definition)
 
-    const iter = async(obj: Record<PropertyKey, any>, parent?: string[]): Promise<ConfigIterator[]> => {
+    const iter = async (obj: Record<PropertyKey, any>, parent?: string[]): Promise<ConfigIterator[]> => {
       const data = await Promise.all(
-        Object.entries(obj).map(async([key, value]) => {
+        Object.entries(obj).map(async ([key, value]) => {
           const location = [...(parent ?? []), key]
 
           if (typeof value === 'string') {
@@ -141,7 +143,7 @@ export class ConfigService {
       if (variable.parser) {
         try {
           data = this.parser.parse(variable.parser, data)
-        } catch(e: any) {
+        } catch (e: any) {
           this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
 
           throw e

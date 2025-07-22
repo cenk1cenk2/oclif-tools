@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common'
+import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
 import { color, figures } from 'listr2'
 import { EOL } from 'os'
 import winston, { format, transports } from 'winston'
@@ -9,10 +9,14 @@ import type { ConfigModuleOptions } from '@lib'
 import { TOKEN_CONFIG_MODULE_OPTIONS } from '@lib/config/config.constants'
 
 @Injectable()
-export class WinstonService {
-  public readonly instance: Winston = this.initiateLogger()
+export class WinstonService implements OnModuleInit {
+  public instance: Winston
 
   constructor(@Inject(TOKEN_CONFIG_MODULE_OPTIONS) private readonly options: ConfigModuleOptions) {}
+
+  public onModuleInit(): void {
+    this.instance = this.initiateLogger()
+  }
 
   private initiateLogger(): Winston {
     const logFormat = format.printf((({ level, message, context, status }: LoggerFormat) => {

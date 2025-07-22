@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, OnModuleInit } from '@nestjs/common'
 import { ModuleRef } from '@nestjs/core'
 import { plainToClass } from 'class-transformer'
 import type { ValidationError } from 'class-validator'
@@ -10,17 +10,19 @@ import type { ClassType } from '@interfaces'
 import { LoggerService } from '@lib/logger'
 
 @Injectable()
-export class ValidatorService {
+export class ValidatorService implements OnModuleInit {
   private options: ValidatorServiceOptions
 
   constructor(
     private readonly logger: LoggerService,
-    moduleRef: ModuleRef
-  ) {
+    private readonly moduleRef: ModuleRef
+  ) {}
+
+  public async onModuleInit(): Promise<void> {
     this.logger.setup(this.constructor.name)
 
     try {
-      this.options = moduleRef.get(TOKEN_VALIDATOR_SERVICE_OPTIONS, { strict: false })
+      this.options = this.moduleRef.get(TOKEN_VALIDATOR_SERVICE_OPTIONS, { strict: false })
     } catch {
       this.options = {
         validator: {

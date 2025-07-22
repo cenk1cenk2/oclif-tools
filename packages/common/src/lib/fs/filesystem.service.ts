@@ -1,14 +1,16 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, OnModuleInit } from '@nestjs/common'
 import fs from 'fs-extra'
 import { extname, dirname } from 'path'
 
 import { LoggerService } from '@lib/logger'
 
 @Injectable()
-export class FileSystemService {
+export class FileSystemService implements OnModuleInit {
   public readonly extra: typeof fs = fs
 
-  constructor(private readonly logger: LoggerService) {
+  constructor(private readonly logger: LoggerService) {}
+
+  public async onModuleInit(): Promise<void> {
     this.logger.setup(this.constructor.name)
   }
 

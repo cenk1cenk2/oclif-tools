@@ -23,7 +23,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
       description: 'Set the log level of the application.',
       options: Object.values(LogLevels).map((level) => level.toLowerCase()),
       helpGroup: HelpGroups.CLI,
-      parse: async(input) => (input as string)?.toUpperCase() as unknown as LogLevels
+      parse: async (input) => (input as string)?.toUpperCase() as unknown as LogLevels
     }),
     ci: Flags.boolean({
       default: false,
@@ -97,7 +97,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
 
       this.flags = flags as InferFlags<T>
       this.args = args as InferArgs<T>
-    } catch(e: any) {
+    } catch (e: any) {
       err = e
     }
 
@@ -115,6 +115,8 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     const cli = CliModule.forRoot(options)
 
     this.app = await CliModule.create(!err && isHookedWithRegister(this) ? await this.register(cli, options) : cli)
+
+    await this.app.init()
 
     const cs = this.app.get(ConfigService)
 
@@ -186,6 +188,8 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
       await this.shouldRunAfter(ctx)
       this.logger.stage('Finished hook should-run-after.')
     }
+
+    await this.app.close()
 
     return { ctx }
   }

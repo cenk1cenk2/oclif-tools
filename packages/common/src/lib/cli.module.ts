@@ -42,6 +42,12 @@ export class CliModule {
   }
 
   public static create(cls: DynamicModule): Promise<INestApplicationContext> {
-    return NestFactory.createApplicationContext(cls, { logger: ['error'] })
+    if (process.env.LOG_LEVEL === 'trace') {
+      process.env.NEST_DEBUG = 'true'
+    }
+
+    return NestFactory.createApplicationContext(cls, {
+      logger: [process.env.LOG_LEVEL === 'trace' ? 'debug' : 'error']
+    })
   }
 }
