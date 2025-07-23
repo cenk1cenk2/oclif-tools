@@ -72,7 +72,7 @@
   },
   "dependencies": {
     "@cenk1cenk2/oclif-common": "workspace:*",
-    "@oclif/core": "^4.5.1",
+    "@oclif/core": "^4.5.2",
     "@oclif/plugin-help": "^6.2.31",
     "@oclif/plugin-plugins": "^5.4.45",
     "@oxc-project/runtime": "^0.77.3",
