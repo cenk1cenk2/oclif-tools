@@ -26,7 +26,7 @@
     "lint-staged": "^16.1.4",
     "prettier": "^3.6.2",
     "simple-git-hooks": "^2.13.1",
-    "tsdown": "^0.13.2",
+    "tsdown": "^0.13.3",
     "typedoc": "^0.28.9",
     "typedoc-plugin-markdown": "^4.8.0",
     "typescript": "^5.9.2"
