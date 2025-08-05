@@ -66,7 +66,7 @@
     "fs-extra": "^11.3.0",
     "listr2": "^9.0.1",
     "source-map-support": "^0.5.21",
-    "yaml": "^2.8.0"
+    "yaml": "^2.8.1"
   },
   "peerDependencies": {
     "@listr2/manager": ">= 1",
