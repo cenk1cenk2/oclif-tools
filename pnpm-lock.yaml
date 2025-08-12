@@ -12,8 +12,8 @@ importers:
         specifier: ^2.1.2
         version: 2.1.2(@types/node@24.2.1)(typescript@5.9.2)
       '@cenk1cenk2/eslint-config':
-        specifier: ^3.1.62
-        version: 3.1.62(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)
+        specifier: ^3.1.63
+        version: 3.1.63(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)
       '@tsconfig/node22':
         specifier: ^22.0.2
         version: 22.0.2
@@ -76,8 +76,8 @@ importers:
         specifier: ^2.1.2
         version: 2.1.2(@types/node@24.2.1)(typescript@5.9.2)
       '@cenk1cenk2/eslint-config':
-        specifier: ^3.1.62
-        version: 3.1.62(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)
+        specifier: ^3.1.63
+        version: 3.1.63(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)
       '@tsconfig/node22':
         specifier: ^22.0.2
         version: 22.0.2
@@ -380,8 +380,8 @@ packages:
     resolution: {integrity: sha512-B+1PIB/9N96jP/rJc69VjIsJk4XTreYHFoIBEkhX0M4tuoNiisNE8c1ldvlIS/wJdFAY8wgcF18cMTkDFR1MYQ==}
     engines: {node: '>= 16'}
 
-  '@cenk1cenk2/eslint-config@3.1.62':
-    resolution: {integrity: sha512-YUXuXPNO4epGwWYI1wXEjPkZpcFD3ENQIyxaIxx+ga4f7Uru3JcFy3cOpIqIbt4PzhTtL8sHg8MG4QXTeTdS7A==}
+  '@cenk1cenk2/eslint-config@3.1.63':
+    resolution: {integrity: sha512-J7yUFiYpt7pLu+WcKu7elXCBafkyZqDOzO7bbcmelifz1kkpkihZkCTY2/KBie4KwVNeruzKf6HdzGcc3RKe3Q==}
     peerDependencies:
       '@vue/eslint-config-typescript': '>= 14.1.1'
       eslint: '>= 9'
@@ -4239,7 +4239,7 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@cenk1cenk2/eslint-config@3.1.62(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)':
+  '@cenk1cenk2/eslint-config@3.1.63(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)':
     dependencies:
       '@eslint/js': 9.33.0
       '@stylistic/eslint-plugin': 5.2.3(eslint@9.33.0(jiti@2.5.1))
