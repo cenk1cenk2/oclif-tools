@@ -1,3 +1,7 @@
 packages:
   - packages/*
   - example
+
+ignoredBuiltDependencies:
+  - '@nestjs/core'
+  - simple-git-hooks
