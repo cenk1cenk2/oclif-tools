@@ -70,7 +70,7 @@ importers:
         version: 0.14.2
       listr2:
         specifier: ^9.0.3
-        version: 9.0.3
+        version: 9.0.4
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^2.1.5
@@ -162,7 +162,7 @@ importers:
     devDependencies:
       '@listr2/manager':
         specifier: ^3.0.3
-        version: 3.0.3(listr2@9.0.3)
+        version: 3.0.4(listr2@9.0.4)
       '@oclif/core':
         specifier: ^4.5.3
         version: 4.5.3
@@ -186,7 +186,7 @@ importers:
         version: 11.3.1
       listr2:
         specifier: ^9.0.3
-        version: 9.0.3
+        version: 9.0.4
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -690,11 +690,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@listr2/manager@3.0.3':
-    resolution: {integrity: sha512-IxxGQYOKIUTvorHLx7uhpcxjufhy3834rWSosR2zv/oU4+4okstwODFZqiiGW9Wyh2whMBtgi1HvL50M9mhtwg==}
+  '@listr2/manager@3.0.4':
+    resolution: {integrity: sha512-wBT20aKaxWFXbUdlSD2BNvPkUOZe9EuNgATnuU6l2ipWaTMR8Z3YOiwRKO0GLP5VN9+MZasZwtANc/h38QfGNw==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
-      listr2: 9.0.3
+      listr2: 9.0.4
 
   '@listr2/prompt-adapter-inquirer@3.0.3':
     resolution: {integrity: sha512-h7Qzj7Z5RzXtuibNI2KEqzyX7w/D42CD8Llo4udC2WSbV38hpFvj4P/x0gzCEtPxDqYALVvclHAfjoKgifx/Ig==}
@@ -1539,6 +1539,10 @@ packages:
   cli-truncate@4.0.0:
     resolution: {integrity: sha512-nPdaFdQ0h/GEigbPClz11D0v/ZJEwxmeVZGeMo3Z5StPtUTkA9o1lD6QwoirYiSDzbcwn2XcjwmCp68W1IS4TA==}
     engines: {node: '>=18'}
+
+  cli-truncate@5.0.0:
+    resolution: {integrity: sha512-ds7u02fPOOBpcUl2VSjLF3lfnAik9u7Zt0BTaaAQlT5RtABALl4cvpJHthXx+rM50J4gSfXKPH5Tix/tfdefUQ==}
+    engines: {node: '>=20'}
 
   cli-width@3.0.0:
     resolution: {integrity: sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw==}
@@ -2577,6 +2581,10 @@ packages:
     resolution: {integrity: sha512-0aeh5HHHgmq1KRdMMDHfhMWQmIT/m7nRDTlxlFqni2Sp0had9baqsjJRvDGdlvgd6NmPE0nPloOipiQJGFtTHQ==}
     engines: {node: '>=20.0.0'}
 
+  listr2@9.0.4:
+    resolution: {integrity: sha512-1wd/kpAdKRLwv7/3OKC8zZ5U8e/fajCfWMxacUvB79S5nLrYGPtUI/8chMQhn3LQjsRVErTb9i1ECAwW0ZIHnQ==}
+    engines: {node: '>=20.0.0'}
+
   load-esm@1.0.2:
     resolution: {integrity: sha512-nVAvWk/jeyrWyXEAs84mpQCYccxRqgKY4OznLuJhJCa0XsPSfdOIr2zvBZEj3IHEHbX97jjscKRRV539bW0Gpw==}
     engines: {node: '>=13.2.0'}
@@ -3309,6 +3317,10 @@ packages:
   string-width@7.2.0:
     resolution: {integrity: sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==}
     engines: {node: '>=18'}
+
+  string-width@8.1.0:
+    resolution: {integrity: sha512-Kxl3KJGb/gxkaUMOjRsQ8IrXiGW75O4E3RPjFIINOVH8AMl2SQ/yWdTzWwF3FevIX9LcMAjJW+GRwAlAbTSXdg==}
+    engines: {node: '>=20'}
 
   string.prototype.trim@1.2.10:
     resolution: {integrity: sha512-Rs66F0P/1kedk5lyYyH9uBzuiI/kNRmwJAR9quK6VOtIpZ2G+hMZd+HQbbv25MgCA6gEffoMZYxlTod4WcdrKA==}
@@ -4617,9 +4629,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@listr2/manager@3.0.3(listr2@9.0.3)':
+  '@listr2/manager@3.0.4(listr2@9.0.4)':
     dependencies:
-      listr2: 9.0.3
+      listr2: 9.0.4
 
   '@listr2/prompt-adapter-inquirer@3.0.3(@inquirer/prompts@7.8.4(@types/node@24.4.0))(@types/node@24.4.0)(listr2@9.0.3)':
     dependencies:
@@ -5670,6 +5682,11 @@ snapshots:
     dependencies:
       slice-ansi: 5.0.0
       string-width: 7.2.0
+
+  cli-truncate@5.0.0:
+    dependencies:
+      slice-ansi: 7.1.2
+      string-width: 8.1.0
 
   cli-width@3.0.0: {}
 
@@ -6815,6 +6832,15 @@ snapshots:
       rfdc: 1.4.1
       wrap-ansi: 9.0.2
 
+  listr2@9.0.4:
+    dependencies:
+      cli-truncate: 5.0.0
+      colorette: 2.0.20
+      eventemitter3: 5.0.1
+      log-update: 6.1.0
+      rfdc: 1.4.1
+      wrap-ansi: 9.0.2
+
   load-esm@1.0.2: {}
 
   load-tsconfig@0.2.5: {}
@@ -7524,6 +7550,11 @@ snapshots:
   string-width@7.2.0:
     dependencies:
       emoji-regex: 10.5.0
+      get-east-asian-width: 1.4.0
+      strip-ansi: 7.1.2
+
+  string-width@8.1.0:
+    dependencies:
       get-east-asian-width: 1.4.0
       strip-ansi: 7.1.2
 
