@@ -58,7 +58,7 @@ importers:
         version: 6.2.33
       '@oclif/plugin-plugins':
         specifier: ^5.4.46
-        version: 5.4.47
+        version: 5.4.48
       '@oxc-project/runtime':
         specifier: ^0.92.0
         version: 0.92.0
@@ -774,8 +774,8 @@ packages:
     resolution: {integrity: sha512-Uv0AiXESEwrIbfN1IA68lcw4/7/L+Z3nFHMHG03jjDXHTVOfpTZDaKyPx/6rf2AL/CIhQQxQF3foDvs6psS3tA==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.4.47':
-    resolution: {integrity: sha512-eUWNbyYwKPbH+Ca98eI2OBZ6IioWM1aJ6SGp9TrVGRu2qNeDtG/qnqemv3v5qcHzPK211CPSvHJBFYef3J9rBg==}
+  '@oclif/plugin-plugins@5.4.48':
+    resolution: {integrity: sha512-He579UlYewPKiqPq4ufq+AhO8NLXChyN7+mQtEs2ExwigIJuKeAEBTNukTwI1B4c5ctMj3a7cAoiY3tUgZTSHg==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.1.48':
@@ -2544,8 +2544,8 @@ packages:
   kuler@2.0.0:
     resolution: {integrity: sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==}
 
-  ky@1.10.0:
-    resolution: {integrity: sha512-YRPCzHEWZffbfvmRrfwa+5nwBHwZuYiTrfDX0wuhGBPV0pA/zCqcOq93MDssON/baIkpYbvehIX5aLpMxrRhaA==}
+  ky@1.11.0:
+    resolution: {integrity: sha512-NEyo0ICpS0cqSuyoJFMCnHOZJILqXsKhIZlHJGDYaH8OB5IFrGzuBpEwyoMZG6gUKMPrazH30Ax5XKaujvD8ag==}
     engines: {node: '>=18'}
 
   latest-version@9.0.0:
@@ -4713,7 +4713,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@oclif/plugin-plugins@5.4.47':
+  '@oclif/plugin-plugins@5.4.48':
     dependencies:
       '@oclif/core': 4.5.4
       ansis: 3.17.0
@@ -6765,7 +6765,7 @@ snapshots:
 
   kuler@2.0.0: {}
 
-  ky@1.10.0: {}
+  ky@1.11.0: {}
 
   latest-version@9.0.0:
     dependencies:
@@ -7098,7 +7098,7 @@ snapshots:
 
   package-json@10.0.1:
     dependencies:
-      ky: 1.10.0
+      ky: 1.11.0
       registry-auth-token: 5.1.0
       registry-url: 6.0.1
       semver: 7.7.2
