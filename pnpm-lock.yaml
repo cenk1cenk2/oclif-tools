@@ -58,7 +58,7 @@ importers:
         version: 6.2.33
       '@oclif/plugin-plugins':
         specifier: ^5.4.46
-        version: 5.4.48
+        version: 5.4.49
       '@oxc-project/runtime':
         specifier: ^0.93.0
         version: 0.93.0
@@ -774,8 +774,8 @@ packages:
     resolution: {integrity: sha512-Uv0AiXESEwrIbfN1IA68lcw4/7/L+Z3nFHMHG03jjDXHTVOfpTZDaKyPx/6rf2AL/CIhQQxQF3foDvs6psS3tA==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.4.48':
-    resolution: {integrity: sha512-He579UlYewPKiqPq4ufq+AhO8NLXChyN7+mQtEs2ExwigIJuKeAEBTNukTwI1B4c5ctMj3a7cAoiY3tUgZTSHg==}
+  '@oclif/plugin-plugins@5.4.49':
+    resolution: {integrity: sha512-OeDLxEjbfEj5AN/wEKXzSY4VC+svBVdjrlHjxm4/e1ZnK3ZuSe1MeABmJc4mXmWwG/zagtNtSAKmTOWhe+WmmA==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.1.48':
@@ -4719,7 +4719,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@oclif/plugin-plugins@5.4.48':
+  '@oclif/plugin-plugins@5.4.49':
     dependencies:
       '@oclif/core': 4.5.4
       ansis: 3.17.0
