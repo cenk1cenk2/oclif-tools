@@ -60,8 +60,8 @@ importers:
         specifier: ^5.4.46
         version: 5.4.50
       '@oxc-project/runtime':
-        specifier: ^0.94.0
-        version: 0.94.0
+        specifier: ^0.95.0
+        version: 0.95.0
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -139,8 +139,8 @@ importers:
         specifier: ^11.1.6
         version: 11.1.6(@nestjs/common@11.1.6(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@oxc-project/runtime':
-        specifier: ^0.94.0
-        version: 0.94.0
+        specifier: ^0.95.0
+        version: 0.95.0
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -782,8 +782,8 @@ packages:
     resolution: {integrity: sha512-QIA+Jgb6AiJTeRmblm4YmcVH8cqTjTDcTt3GhRnpi+CeEPhWPdnuN3xrqbmWXvG9e0EnT2OegRNZRg3CSwt2vA==}
     engines: {node: '>=18.0.0'}
 
-  '@oxc-project/runtime@0.94.0':
-    resolution: {integrity: sha512-0rOe/dDKivOXEZ9uSZR2sk/KuWO48NL+NFKJd306NEsKG+6H7dbER9v/Iy3qFFVKS5qjwVXDdb6RLs3SkvBluQ==}
+  '@oxc-project/runtime@0.95.0':
+    resolution: {integrity: sha512-qJS5pNepwMGnafO9ayKGz7rfPQgUBuunHpnP1//9Qa0zK3oT3t1EhT+I+pV9MUA+ZKez//OFqxCxf1vijCKb2Q==}
     engines: {node: ^20.19.0 || >=22.12.0}
 
   '@oxc-project/types@0.94.0':
@@ -4746,7 +4746,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@oxc-project/runtime@0.94.0': {}
+  '@oxc-project/runtime@0.95.0': {}
 
   '@oxc-project/types@0.94.0': {}
 
