@@ -25,7 +25,7 @@ importers:
         version: 9.38.0(jiti@2.6.1)
       lint-staged:
         specifier: ^16.1.6
-        version: 16.2.4
+        version: 16.2.5
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
@@ -104,7 +104,7 @@ importers:
         version: 15.0.0
       lint-staged:
         specifier: ^16.1.6
-        version: 16.2.4
+        version: 16.2.5
       oclif:
         specifier: ^4.22.18
         version: 4.22.32(@types/node@24.9.0)
@@ -2576,8 +2576,8 @@ packages:
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
 
-  lint-staged@16.2.4:
-    resolution: {integrity: sha512-Pkyr/wd90oAyXk98i/2KwfkIhoYQUMtss769FIT9hFM5ogYZwrk+GRE46yKXSg2ZGhcJ1p38Gf5gmI5Ohjg2yg==}
+  lint-staged@16.2.5:
+    resolution: {integrity: sha512-o36wH3OX0jRWqDw5dOa8a8x6GXTKaLM+LvhRaucZxez0IxA+KNDUCiyjBfNgsMNmchwSX6urLSL7wShcUqAang==}
     engines: {node: '>=20.17'}
     hasBin: true
 
@@ -6799,10 +6799,10 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  lint-staged@16.2.4:
+  lint-staged@16.2.5:
     dependencies:
       commander: 14.0.1
-      listr2: 9.0.4
+      listr2: 9.0.5
       micromatch: 4.0.8
       nano-spawn: 2.0.0
       pidtree: 0.6.0
