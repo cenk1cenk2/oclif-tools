@@ -52,7 +52,7 @@ importers:
         version: link:../packages/common
       '@oclif/core':
         specifier: ^4.5.3
-        version: 4.7.0
+        version: 4.7.1
       '@oclif/plugin-help':
         specifier: ^6.2.32
         version: 6.2.33
@@ -165,7 +165,7 @@ importers:
         version: 3.0.5(listr2@9.0.5)
       '@oclif/core':
         specifier: ^4.5.3
-        version: 4.7.0
+        version: 4.7.1
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -762,8 +762,8 @@ packages:
     engines: {node: ^14.18.0 || >=16.10.0, npm: '>=5.10.0'}
     hasBin: true
 
-  '@oclif/core@4.7.0':
-    resolution: {integrity: sha512-PTdByCzWpZlSzSCYnk9vcuKQXDBkjZf1CHHxHSMX3f+Y0DythTPxB8b3B8eQABiTLG3q57cTsZPviiVgWCfi0A==}
+  '@oclif/core@4.7.1':
+    resolution: {integrity: sha512-D7+Om2NK6DuaAv01FyObYlOZyqM6VEKf+AnJ8ZcYNaj0Pe2hh0Yt4+P2om1t97yLRSQlLRWGtNpFxSX8AnFOkg==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-help@6.2.33':
@@ -4682,7 +4682,7 @@ snapshots:
     dependencies:
       consola: 3.4.2
 
-  '@oclif/core@4.7.0':
+  '@oclif/core@4.7.1':
     dependencies:
       ansi-escapes: 4.3.2
       ansis: 3.17.0
@@ -4705,12 +4705,12 @@ snapshots:
 
   '@oclif/plugin-help@6.2.33':
     dependencies:
-      '@oclif/core': 4.7.0
+      '@oclif/core': 4.7.1
 
   '@oclif/plugin-not-found@3.2.70(@types/node@24.9.1)':
     dependencies:
       '@inquirer/prompts': 7.9.0(@types/node@24.9.1)
-      '@oclif/core': 4.7.0
+      '@oclif/core': 4.7.1
       ansis: 3.17.0
       fast-levenshtein: 3.0.0
     transitivePeerDependencies:
@@ -4718,7 +4718,7 @@ snapshots:
 
   '@oclif/plugin-plugins@5.4.50':
     dependencies:
-      '@oclif/core': 4.7.0
+      '@oclif/core': 4.7.1
       ansis: 3.17.0
       debug: 4.4.3(supports-color@8.1.1)
       npm: 10.9.4
@@ -4734,7 +4734,7 @@ snapshots:
 
   '@oclif/plugin-warn-if-update-available@3.1.50':
     dependencies:
-      '@oclif/core': 4.7.0
+      '@oclif/core': 4.7.1
       ansis: 3.17.0
       debug: 4.4.3(supports-color@8.1.1)
       http-call: 5.3.0
@@ -7021,7 +7021,7 @@ snapshots:
       '@inquirer/confirm': 3.2.0
       '@inquirer/input': 2.3.0
       '@inquirer/select': 2.5.0
-      '@oclif/core': 4.7.0
+      '@oclif/core': 4.7.1
       '@oclif/plugin-help': 6.2.33
       '@oclif/plugin-not-found': 3.2.70(@types/node@24.9.1)
       '@oclif/plugin-warn-if-update-available': 3.1.50
