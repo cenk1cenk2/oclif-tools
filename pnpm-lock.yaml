@@ -2629,8 +2629,8 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
-  lru-cache@11.2.2:
-    resolution: {integrity: sha512-F9ODfyqML2coTIsQpSkRHnLSZMtkU8Q+mSfcaIyKwy58u+8k5nvAYeiNhsyMARvzNcXJ9QfWVrcPsC9e9rAxtg==}
+  lru-cache@11.2.3:
+    resolution: {integrity: sha512-eWW5D5OnsHVARgBXa+qftkrkZWB50nr9JJfSG+CaNW4Hj5ECB2BzGSAWqNzuQ9SY6pbxWZI5vuG5Fe333O/yHg==}
     engines: {node: 20 || >=22}
 
   lunr@2.3.9:
@@ -6864,7 +6864,7 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
-  lru-cache@11.2.2: {}
+  lru-cache@11.2.3: {}
 
   lunr@2.3.9: {}
 
@@ -7156,7 +7156,7 @@ snapshots:
 
   path-scurry@2.0.1:
     dependencies:
-      lru-cache: 11.2.2
+      lru-cache: 11.2.3
       minipass: 7.1.2
 
   path-to-regexp@8.3.0: {}
