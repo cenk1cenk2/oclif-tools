@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^2.1.5
-        version: 2.1.5(@types/node@25.0.0)(typescript@5.9.3)
+        version: 2.1.5(@types/node@24.10.3)(typescript@5.9.3)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.1.69
         version: 3.1.69(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
@@ -19,7 +19,7 @@ importers:
         version: 22.0.5
       commitizen:
         specifier: ^4.3.1
-        version: 4.3.1(@types/node@25.0.0)(typescript@5.9.3)
+        version: 4.3.1(@types/node@24.10.3)(typescript@5.9.3)
       eslint:
         specifier: ^9.35.0
         version: 9.39.1(jiti@2.6.1)
@@ -1291,9 +1291,6 @@ packages:
 
   '@types/node@24.10.3':
     resolution: {integrity: sha512-gqkrWUsS8hcm0r44yn7/xZeV1ERva/nLgrLxFRUGb7aoNMIJfZJ3AC261zDQuOAKC7MiXai1WCpYc48jAHoShQ==}
-
-  '@types/node@25.0.0':
-    resolution: {integrity: sha512-rl78HwuZlaDIUSeUKkmogkhebA+8K1Hy7tddZuJ3D0xV8pZSfsYGTsliGUol1JPzu9EKnTxPC4L1fiWouStRew==}
 
   '@types/through@0.0.33':
     resolution: {integrity: sha512-HsJ+z3QuETzP3cswwtzt2vEIiHBk/dCcHGhbmG5X3ecnwFD/lPrMpliGXxSCg03L9AhrdwA4Oz/qfspkDW+xGQ==}
@@ -4365,20 +4362,8 @@ snapshots:
   '@cenk1cenk2/cz-cc@2.1.5(@types/node@24.10.3)(typescript@5.9.3)':
     dependencies:
       '@inquirer/prompts': 7.10.1(@types/node@24.10.3)
-      '@listr2/prompt-adapter-inquirer': 3.0.5(@inquirer/prompts@7.10.1(@types/node@25.0.0))(@types/node@24.10.3)(listr2@9.0.5)
+      '@listr2/prompt-adapter-inquirer': 3.0.5(@inquirer/prompts@7.10.1(@types/node@24.10.3))(@types/node@24.10.3)(listr2@9.0.5)
       commitizen: 4.3.1(@types/node@24.10.3)(typescript@5.9.3)
-      conventional-commit-types: 3.0.0
-      find-git-root: 1.0.4
-      listr2: 9.0.5
-    transitivePeerDependencies:
-      - '@types/node'
-      - typescript
-
-  '@cenk1cenk2/cz-cc@2.1.5(@types/node@25.0.0)(typescript@5.9.3)':
-    dependencies:
-      '@inquirer/prompts': 7.10.1(@types/node@25.0.0)
-      '@listr2/prompt-adapter-inquirer': 3.0.5(@inquirer/prompts@7.10.1(@types/node@25.0.0))(@types/node@25.0.0)(listr2@9.0.5)
-      commitizen: 4.3.1(@types/node@25.0.0)(typescript@5.9.3)
       conventional-commit-types: 3.0.0
       find-git-root: 1.0.4
       listr2: 9.0.5
@@ -4423,23 +4408,6 @@ snapshots:
       chalk: 5.6.2
       cosmiconfig: 9.0.0(typescript@5.9.3)
       cosmiconfig-typescript-loader: 6.2.0(@types/node@24.10.3)(cosmiconfig@9.0.0(typescript@5.9.3))(typescript@5.9.3)
-      lodash.isplainobject: 4.0.6
-      lodash.merge: 4.6.2
-      lodash.uniq: 4.5.0
-    transitivePeerDependencies:
-      - '@types/node'
-      - typescript
-    optional: true
-
-  '@commitlint/load@20.2.0(@types/node@25.0.0)(typescript@5.9.3)':
-    dependencies:
-      '@commitlint/config-validator': 20.2.0
-      '@commitlint/execute-rule': 20.0.0
-      '@commitlint/resolve-extends': 20.2.0
-      '@commitlint/types': 20.2.0
-      chalk: 5.6.2
-      cosmiconfig: 9.0.0(typescript@5.9.3)
-      cosmiconfig-typescript-loader: 6.2.0(@types/node@25.0.0)(cosmiconfig@9.0.0(typescript@5.9.3))(typescript@5.9.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -4567,16 +4535,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.3
 
-  '@inquirer/checkbox@4.3.2(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/ansi': 1.0.2
-      '@inquirer/core': 10.3.2(@types/node@25.0.0)
-      '@inquirer/figures': 1.0.15
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 25.0.0
-
   '@inquirer/confirm@3.2.0':
     dependencies:
       '@inquirer/core': 9.2.1
@@ -4588,13 +4546,6 @@ snapshots:
       '@inquirer/type': 3.0.10(@types/node@24.10.3)
     optionalDependencies:
       '@types/node': 24.10.3
-
-  '@inquirer/confirm@5.1.21(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/core': 10.3.2(@types/node@25.0.0)
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-    optionalDependencies:
-      '@types/node': 25.0.0
 
   '@inquirer/core@10.3.2(@types/node@24.10.3)':
     dependencies:
@@ -4608,19 +4559,6 @@ snapshots:
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
       '@types/node': 24.10.3
-
-  '@inquirer/core@10.3.2(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/ansi': 1.0.2
-      '@inquirer/figures': 1.0.15
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-      cli-width: 4.1.0
-      mute-stream: 2.0.0
-      signal-exit: 4.1.0
-      wrap-ansi: 6.2.0
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 25.0.0
 
   '@inquirer/core@9.2.1':
     dependencies:
@@ -4645,14 +4583,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.3
 
-  '@inquirer/editor@4.2.23(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/core': 10.3.2(@types/node@25.0.0)
-      '@inquirer/external-editor': 1.0.3(@types/node@25.0.0)
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-    optionalDependencies:
-      '@types/node': 25.0.0
-
   '@inquirer/expand@4.0.23(@types/node@24.10.3)':
     dependencies:
       '@inquirer/core': 10.3.2(@types/node@24.10.3)
@@ -4661,27 +4591,12 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.3
 
-  '@inquirer/expand@4.0.23(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/core': 10.3.2(@types/node@25.0.0)
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 25.0.0
-
   '@inquirer/external-editor@1.0.3(@types/node@24.10.3)':
     dependencies:
       chardet: 2.1.1
       iconv-lite: 0.7.0
     optionalDependencies:
       '@types/node': 24.10.3
-
-  '@inquirer/external-editor@1.0.3(@types/node@25.0.0)':
-    dependencies:
-      chardet: 2.1.1
-      iconv-lite: 0.7.0
-    optionalDependencies:
-      '@types/node': 25.0.0
 
   '@inquirer/figures@1.0.15': {}
 
@@ -4697,26 +4612,12 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.3
 
-  '@inquirer/input@4.3.1(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/core': 10.3.2(@types/node@25.0.0)
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-    optionalDependencies:
-      '@types/node': 25.0.0
-
   '@inquirer/number@3.0.23(@types/node@24.10.3)':
     dependencies:
       '@inquirer/core': 10.3.2(@types/node@24.10.3)
       '@inquirer/type': 3.0.10(@types/node@24.10.3)
     optionalDependencies:
       '@types/node': 24.10.3
-
-  '@inquirer/number@3.0.23(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/core': 10.3.2(@types/node@25.0.0)
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-    optionalDependencies:
-      '@types/node': 25.0.0
 
   '@inquirer/password@4.0.23(@types/node@24.10.3)':
     dependencies:
@@ -4725,14 +4626,6 @@ snapshots:
       '@inquirer/type': 3.0.10(@types/node@24.10.3)
     optionalDependencies:
       '@types/node': 24.10.3
-
-  '@inquirer/password@4.0.23(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/ansi': 1.0.2
-      '@inquirer/core': 10.3.2(@types/node@25.0.0)
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-    optionalDependencies:
-      '@types/node': 25.0.0
 
   '@inquirer/prompts@7.10.1(@types/node@24.10.3)':
     dependencies:
@@ -4749,21 +4642,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.3
 
-  '@inquirer/prompts@7.10.1(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/checkbox': 4.3.2(@types/node@25.0.0)
-      '@inquirer/confirm': 5.1.21(@types/node@25.0.0)
-      '@inquirer/editor': 4.2.23(@types/node@25.0.0)
-      '@inquirer/expand': 4.0.23(@types/node@25.0.0)
-      '@inquirer/input': 4.3.1(@types/node@25.0.0)
-      '@inquirer/number': 3.0.23(@types/node@25.0.0)
-      '@inquirer/password': 4.0.23(@types/node@25.0.0)
-      '@inquirer/rawlist': 4.1.11(@types/node@25.0.0)
-      '@inquirer/search': 3.2.2(@types/node@25.0.0)
-      '@inquirer/select': 4.4.2(@types/node@25.0.0)
-    optionalDependencies:
-      '@types/node': 25.0.0
-
   '@inquirer/rawlist@4.1.11(@types/node@24.10.3)':
     dependencies:
       '@inquirer/core': 10.3.2(@types/node@24.10.3)
@@ -4771,14 +4649,6 @@ snapshots:
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
       '@types/node': 24.10.3
-
-  '@inquirer/rawlist@4.1.11(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/core': 10.3.2(@types/node@25.0.0)
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 25.0.0
 
   '@inquirer/search@3.2.2(@types/node@24.10.3)':
     dependencies:
@@ -4788,15 +4658,6 @@ snapshots:
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
       '@types/node': 24.10.3
-
-  '@inquirer/search@3.2.2(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/core': 10.3.2(@types/node@25.0.0)
-      '@inquirer/figures': 1.0.15
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 25.0.0
 
   '@inquirer/select@2.5.0':
     dependencies:
@@ -4816,16 +4677,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.3
 
-  '@inquirer/select@4.4.2(@types/node@25.0.0)':
-    dependencies:
-      '@inquirer/ansi': 1.0.2
-      '@inquirer/core': 10.3.2(@types/node@25.0.0)
-      '@inquirer/figures': 1.0.15
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 25.0.0
-
   '@inquirer/type@1.5.5':
     dependencies:
       mute-stream: 1.0.0
@@ -4837,10 +4688,6 @@ snapshots:
   '@inquirer/type@3.0.10(@types/node@24.10.3)':
     optionalDependencies:
       '@types/node': 24.10.3
-
-  '@inquirer/type@3.0.10(@types/node@25.0.0)':
-    optionalDependencies:
-      '@types/node': 25.0.0
 
   '@isaacs/balanced-match@4.0.1': {}
 
@@ -4871,18 +4718,10 @@ snapshots:
     dependencies:
       listr2: 9.0.5
 
-  '@listr2/prompt-adapter-inquirer@3.0.5(@inquirer/prompts@7.10.1(@types/node@25.0.0))(@types/node@24.10.3)(listr2@9.0.5)':
+  '@listr2/prompt-adapter-inquirer@3.0.5(@inquirer/prompts@7.10.1(@types/node@24.10.3))(@types/node@24.10.3)(listr2@9.0.5)':
     dependencies:
-      '@inquirer/prompts': 7.10.1(@types/node@25.0.0)
+      '@inquirer/prompts': 7.10.1(@types/node@24.10.3)
       '@inquirer/type': 3.0.10(@types/node@24.10.3)
-      listr2: 9.0.5
-    transitivePeerDependencies:
-      - '@types/node'
-
-  '@listr2/prompt-adapter-inquirer@3.0.5(@inquirer/prompts@7.10.1(@types/node@25.0.0))(@types/node@25.0.0)(listr2@9.0.5)':
-    dependencies:
-      '@inquirer/prompts': 7.10.1(@types/node@25.0.0)
-      '@inquirer/type': 3.0.10(@types/node@25.0.0)
       listr2: 9.0.5
     transitivePeerDependencies:
       - '@types/node'
@@ -5525,7 +5364,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.2':
     dependencies:
-      '@types/node': 25.0.0
+      '@types/node': 24.10.3
     optional: true
 
   '@types/estree@1.0.8': {}
@@ -5561,13 +5400,9 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
-  '@types/node@25.0.0':
-    dependencies:
-      undici-types: 7.16.0
-
   '@types/through@0.0.33':
     dependencies:
-      '@types/node': 25.0.0
+      '@types/node': 24.10.3
 
   '@types/triple-beam@1.3.5': {}
 
@@ -6036,26 +5871,6 @@ snapshots:
       - '@types/node'
       - typescript
 
-  commitizen@4.3.1(@types/node@25.0.0)(typescript@5.9.3):
-    dependencies:
-      cachedir: 2.3.0
-      cz-conventional-changelog: 3.3.0(@types/node@25.0.0)(typescript@5.9.3)
-      dedent: 0.7.0
-      detect-indent: 6.1.0
-      find-node-modules: 2.1.3
-      find-root: 1.1.0
-      fs-extra: 9.1.0
-      glob: 7.2.3
-      inquirer: 8.2.5
-      is-utf8: 0.2.1
-      lodash: 4.17.21
-      minimist: 1.2.7
-      strip-bom: 4.0.0
-      strip-json-comments: 3.1.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - typescript
-
   concat-map@0.0.1: {}
 
   config-chain@1.1.13:
@@ -6090,14 +5905,6 @@ snapshots:
       typescript: 5.9.3
     optional: true
 
-  cosmiconfig-typescript-loader@6.2.0(@types/node@25.0.0)(cosmiconfig@9.0.0(typescript@5.9.3))(typescript@5.9.3):
-    dependencies:
-      '@types/node': 25.0.0
-      cosmiconfig: 9.0.0(typescript@5.9.3)
-      jiti: 2.6.1
-      typescript: 5.9.3
-    optional: true
-
   cosmiconfig@9.0.0(typescript@5.9.3):
     dependencies:
       env-paths: 2.2.1
@@ -6126,20 +5933,6 @@ snapshots:
       word-wrap: 1.2.5
     optionalDependencies:
       '@commitlint/load': 20.2.0(@types/node@24.10.3)(typescript@5.9.3)
-    transitivePeerDependencies:
-      - '@types/node'
-      - typescript
-
-  cz-conventional-changelog@3.3.0(@types/node@25.0.0)(typescript@5.9.3):
-    dependencies:
-      chalk: 2.4.2
-      commitizen: 4.3.1(@types/node@25.0.0)(typescript@5.9.3)
-      conventional-commit-types: 3.0.0
-      lodash.map: 4.6.0
-      longest: 2.0.1
-      word-wrap: 1.2.5
-    optionalDependencies:
-      '@commitlint/load': 20.2.0(@types/node@25.0.0)(typescript@5.9.3)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
