@@ -75,7 +75,7 @@
     "@oclif/core": "^4.5.3",
     "@oclif/plugin-help": "^6.2.32",
     "@oclif/plugin-plugins": "^5.4.46",
-    "@oxc-project/runtime": "^0.101.0",
+    "@oxc-project/runtime": "^0.102.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "listr2": "^9.0.3"
