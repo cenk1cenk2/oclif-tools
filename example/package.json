@@ -13,8 +13,8 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     },
     "./package.json": "./package.json"
@@ -34,7 +34,10 @@
   "oclif": {
     "bin": "oclif2",
     "dirname": "oclif2",
-    "commands": "./dist/commands",
+    "commands": {
+      "strategy": "pattern",
+      "target": "./dist/commands"
+    },
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-plugins"
@@ -90,7 +93,7 @@
     "eslint": "^9.35.0",
     "execa": "^9.6.0",
     "fs-extra": "^11.3.1",
-    "globby": "^15.0.0",
+    "globby": "^16.1.0",
     "lint-staged": "^16.1.6",
     "oclif": "^4.22.18",
     "prettier": "^3.6.2",

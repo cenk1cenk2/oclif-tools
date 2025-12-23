@@ -26,10 +26,6 @@ export default defineConfig((options) => ({
       },
       typescript: {
         removeClassFieldsWithoutInitializer: true
-      },
-      decorator: {
-        legacy: true,
-        emitDecoratorMetadata: true
       }
     }
   },
