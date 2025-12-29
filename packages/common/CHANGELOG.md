@@ -1,3 +1,29 @@
+# @cenk1cenk2/oclif-common [7.0.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.4.21...@cenk1cenk2/oclif-common@7.0.0) (2025-12-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @oxc-project/runtime to ^0.100.0 ([7f427ac](https://gitlab.kilic.dev/libraries/oclif-tools/commit/7f427aca359b288efb62330d5eb72a9a7cc1d52a))
+* **deps:** update dependency @oxc-project/runtime to ^0.101.0 ([e27e4f4](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e27e4f45ac39267709f51c729c337ab2c6c7c898))
+* **deps:** update dependency @oxc-project/runtime to ^0.102.0 ([5e6bc27](https://gitlab.kilic.dev/libraries/oclif-tools/commit/5e6bc2709f8a2b6a3993d1040a98aa4ad20e4d53))
+* **deps:** update dependency @oxc-project/runtime to ^0.103.0 ([800116e](https://gitlab.kilic.dev/libraries/oclif-tools/commit/800116e889da01c015aab38e0a3961e3556474d4))
+* **deps:** update dependency @oxc-project/runtime to ^0.104.0 ([97f2909](https://gitlab.kilic.dev/libraries/oclif-tools/commit/97f2909a29cabed1c23eefb2b08ad5d22dfb7104))
+* **deps:** update dependency @oxc-project/runtime to ^0.106.0 ([9e558b3](https://gitlab.kilic.dev/libraries/oclif-tools/commit/9e558b37c6be755dc230164ea0718c7c9a58dc7d))
+* **deps:** update dependency @oxc-project/runtime to ^0.97.0 ([a2f1422](https://gitlab.kilic.dev/libraries/oclif-tools/commit/a2f1422d2e3ef6a3a534111f93b756ebef390f85))
+* **deps:** update dependency @oxc-project/runtime to ^0.98.0 ([3239278](https://gitlab.kilic.dev/libraries/oclif-tools/commit/323927856d16261e4d86ca059f0e449fb67a0aa0))
+* **deps:** update dependency @oxc-project/runtime to ^0.99.0 ([e69d180](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e69d18085b1e11d3e58b4e5960793571ae3ad25f))
+* **deps:** update node all minor dependency updates ([15405f2](https://gitlab.kilic.dev/libraries/oclif-tools/commit/15405f2ebb22a75db6491155068996b8c8fe903e))
+
+
+### Performance Improvements
+
+* update min node version ([e3b1886](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e3b1886d0d06c666aa07e1b898256636e4ca6df6))
+
+
+### BREAKING CHANGES
+
+* supports node 22 as minimum
+
 ## @cenk1cenk2/oclif-common [6.4.21](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@6.4.20...@cenk1cenk2/oclif-common@6.4.21) (2025-10-30)
 
 
