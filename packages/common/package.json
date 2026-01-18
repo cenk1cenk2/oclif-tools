@@ -54,7 +54,7 @@
     "winston": "^3.17.0"
   },
   "devDependencies": {
-    "@listr2/manager": "^3.0.3",
+    "@listr2/manager": "^4.0.0",
     "@oclif/core": "^4.5.3",
     "@types/fs-extra": "^11.0.4",
     "@types/through": "^0.0.33",

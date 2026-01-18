@@ -161,8 +161,8 @@ importers:
         version: 3.19.0
     devDependencies:
       '@listr2/manager':
-        specifier: ^3.0.3
-        version: 3.0.5(listr2@10.0.0)
+        specifier: ^4.0.0
+        version: 4.0.0(listr2@10.0.0)
       '@oclif/core':
         specifier: ^4.5.3
         version: 4.8.0
@@ -832,11 +832,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@listr2/manager@3.0.5':
-    resolution: {integrity: sha512-EpKUw5v3YYwzrZd4+Jy4Ojzmic7A1pDyQQdG3+vFn8af5t/N0AT4DQnBPUSH0uFQp1SLwAOPbuQxM9U18VfBlA==}
-    engines: {node: '>=20.0.0'}
+  '@listr2/manager@4.0.0':
+    resolution: {integrity: sha512-lrDWtrkIx98IcQrKdo9sra/72iZKyJYnLG9qQMWqPjOuKJGQ6OX16+D4bY9vDWVAgda21GquS77fZE+35Lslyg==}
+    engines: {node: '>=22.0.0'}
     peerDependencies:
-      listr2: 9.0.5
+      listr2: 10.0.0
 
   '@listr2/prompt-adapter-inquirer@3.0.5':
     resolution: {integrity: sha512-WELs+hj6xcilkloBXYf9XXK8tYEnKsgLj01Xl5ONUJpKjmT5hGVUzNUS5tooUxs7pGMrw+jFD/41WpqW4V3LDA==}
@@ -5131,7 +5131,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@listr2/manager@3.0.5(listr2@10.0.0)':
+  '@listr2/manager@4.0.0(listr2@10.0.0)':
     dependencies:
       listr2: 10.0.0
 
