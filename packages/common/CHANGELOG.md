@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [7.0.3](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.2...@cenk1cenk2/oclif-common@7.0.3) (2026-01-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency listr2 to v10 ([ed4effb](https://gitlab.kilic.dev/libraries/oclif-tools/commit/ed4effb6b69e42b04bfa4c77a0cf1702f01d82d1))
+
 ## @cenk1cenk2/oclif-common [7.0.2](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.1...@cenk1cenk2/oclif-common@7.0.2) (2026-01-12)
 
 
