@@ -70,7 +70,7 @@ importers:
         version: 0.14.3
       listr2:
         specifier: ^10.0.0
-        version: 10.0.0
+        version: 10.1.0
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^2.1.5
@@ -162,7 +162,7 @@ importers:
     devDependencies:
       '@listr2/manager':
         specifier: ^4.0.0
-        version: 4.0.0(listr2@10.0.0)
+        version: 4.1.0(listr2@10.1.0)
       '@oclif/core':
         specifier: ^4.5.3
         version: 4.8.0
@@ -186,7 +186,7 @@ importers:
         version: 11.3.3
       listr2:
         specifier: ^10.0.0
-        version: 10.0.0
+        version: 10.1.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -856,11 +856,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@listr2/manager@4.0.0':
-    resolution: {integrity: sha512-lrDWtrkIx98IcQrKdo9sra/72iZKyJYnLG9qQMWqPjOuKJGQ6OX16+D4bY9vDWVAgda21GquS77fZE+35Lslyg==}
+  '@listr2/manager@4.1.0':
+    resolution: {integrity: sha512-4YCTq8mXnyV/xYHm2EZdnUUYzrMyzPbJ02qidF+5KC9oocLJlZfgCi75P7m9gdvh8qgN4tkPZWtzqazZ6DNJsQ==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
-      listr2: 10.0.0
+      listr2: 10.1.0
 
   '@listr2/prompt-adapter-inquirer@4.0.0':
     resolution: {integrity: sha512-lq+napUJR02NdIj16zKCwjvd8GwTCI1z3cnhViTzBhhTDO1e/IfMYwJR1wci9mXc90oG+MP8/y+/Ek3j/ApisA==}
@@ -2729,6 +2729,10 @@ packages:
 
   listr2@10.0.0:
     resolution: {integrity: sha512-/hexbwaVUnXaKtJQWjcoMnLQhseLD9uv+5g0Lprtj677jWOX9rJChBVqoN51bwu94QLz6C2q7almMYJ0f97bLQ==}
+    engines: {node: '>=22.0.0'}
+
+  listr2@10.1.0:
+    resolution: {integrity: sha512-/6t2KgDYIcCjhELwvrRxi1gaJ4xCGLTjNvh6mSjYenBkrZxggek8EwCbwBU33GMUCpyyrOzz2TzylrO5mTiI1w==}
     engines: {node: '>=22.0.0'}
 
   listr2@9.0.5:
@@ -5116,9 +5120,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@listr2/manager@4.0.0(listr2@10.0.0)':
+  '@listr2/manager@4.1.0(listr2@10.1.0)':
     dependencies:
-      listr2: 10.0.0
+      listr2: 10.1.0
 
   '@listr2/prompt-adapter-inquirer@4.0.0(@inquirer/prompts@8.2.0(@types/node@25.0.10))(@types/node@24.10.9)(listr2@10.0.0)':
     dependencies:
@@ -7339,6 +7343,15 @@ snapshots:
       yaml: 2.8.2
 
   listr2@10.0.0:
+    dependencies:
+      cli-truncate: 5.1.1
+      colorette: 2.0.20
+      eventemitter3: 5.0.4
+      log-update: 7.0.2
+      rfdc: 1.4.1
+      wrap-ansi: 9.0.2
+
+  listr2@10.1.0:
     dependencies:
       cli-truncate: 5.1.1
       colorette: 2.0.20
