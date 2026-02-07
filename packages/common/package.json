@@ -45,13 +45,13 @@
     ]
   },
   "dependencies": {
-    "@nestjs/common": "^11.1.6",
-    "@nestjs/core": "^11.1.6",
+    "@nestjs/common": "^11.1.13",
+    "@nestjs/core": "^11.1.13",
     "@oxc-project/runtime": "^0.112.0",
     "deepmerge": "^4.3.1",
     "object-path-immutable": "^4.1.2",
     "reflect-metadata": "^0.2.1",
-    "winston": "^3.17.0"
+    "winston": "^3.19.0"
   },
   "devDependencies": {
     "@listr2/manager": "^4.1.0",
