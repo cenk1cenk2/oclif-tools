@@ -51,13 +51,13 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.5.3
+        specifier: ^4.8.0
         version: 4.8.0
       '@oclif/plugin-help':
-        specifier: ^6.2.32
+        specifier: ^6.2.37
         version: 6.2.37
       '@oclif/plugin-plugins':
-        specifier: ^5.4.46
+        specifier: ^5.4.56
         version: 5.4.56
       '@oxc-project/runtime':
         specifier: ^0.112.0
@@ -66,10 +66,10 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1
       class-validator:
-        specifier: ^0.14.2
+        specifier: ^0.14.3
         version: 0.14.3
       listr2:
-        specifier: ^10.0.0
+        specifier: ^10.1.0
         version: 10.1.0
     devDependencies:
       '@cenk1cenk2/cz-cc':
@@ -133,10 +133,10 @@ importers:
   packages/common:
     dependencies:
       '@nestjs/common':
-        specifier: ^11.1.6
+        specifier: ^11.1.13
         version: 11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core':
-        specifier: ^11.1.6
+        specifier: ^11.1.13
         version: 11.1.13(@nestjs/common@11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@oxc-project/runtime':
         specifier: ^0.112.0
@@ -157,7 +157,7 @@ importers:
         specifier: '>= 5'
         version: 7.3.1
       winston:
-        specifier: ^3.17.0
+        specifier: ^3.19.0
         version: 3.19.0
     devDependencies:
       '@listr2/manager':
