@@ -13,7 +13,7 @@ importers:
         version: 2.2.4(@types/node@24.10.13)(typescript@5.9.3)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.1.74
-        version: 3.1.74(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+        version: 3.1.75(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@tsconfig/node24':
         specifier: ^24.0.4
         version: 24.0.4
@@ -77,7 +77,7 @@ importers:
         version: 2.2.4(@types/node@24.10.13)(typescript@5.9.3)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.1.74
-        version: 3.1.74(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+        version: 3.1.75(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@tsconfig/node24':
         specifier: ^24.0.4
         version: 24.0.4
@@ -403,8 +403,8 @@ packages:
     resolution: {integrity: sha512-3dDuoXUSTXSV7d+ciQ+e8+2bgyrp6MJUHxvojZxXz5zWSbG6n39lCaPucnLsv3XP9p9MThGJz2C2sfMhPmZPgw==}
     engines: {node: '>= 22'}
 
-  '@cenk1cenk2/eslint-config@3.1.74':
-    resolution: {integrity: sha512-isEF+UBtVQPgsPdA4s+mECvEUa9KlRATdtZ+MZjGnYeo6996E/9cc/y9HcpKoXmg8VCQU26ZfghvV7I4/iVZog==}
+  '@cenk1cenk2/eslint-config@3.1.75':
+    resolution: {integrity: sha512-gSHvpbqLUUakQ51pXNRHAAaEhMiR6MWKeuZmg5pI6fwB3/YIU+XMOAS+FKryljFt038kjDfNPOy9KIL7FD6kdg==}
     peerDependencies:
       '@vue/eslint-config-typescript': '>= 14.1.1'
       eslint: '>= 9'
@@ -4477,7 +4477,7 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@cenk1cenk2/eslint-config@3.1.74(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
+  '@cenk1cenk2/eslint-config@3.1.75(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
       '@eslint/js': 10.0.1(eslint@9.39.2(jiti@2.6.1))
       '@stylistic/eslint-plugin': 5.9.0(eslint@9.39.2(jiti@2.6.1))
