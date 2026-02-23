@@ -19,10 +19,10 @@
   },
   "devDependencies": {
     "@cenk1cenk2/cz-cc": "^2.2.5",
-    "@cenk1cenk2/eslint-config": "^3.1.75",
+    "@cenk1cenk2/eslint-config": "^3.2.0",
     "@tsconfig/node24": "^24.0.4",
     "commitizen": "^4.3.1",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.1",
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
     "simple-git-hooks": "^2.13.1",

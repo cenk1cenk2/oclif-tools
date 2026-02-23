@@ -36,7 +36,7 @@ export class FileSystemService implements OnModuleInit {
 
       return raw
     } catch(e: any) {
-      throw new Error(`Error while reading file from "${file}": ${e.message}`)
+      throw new Error(`Error while reading file from "${file}": ${e.message}`, { cause: e })
     }
   }
 
@@ -46,7 +46,7 @@ export class FileSystemService implements OnModuleInit {
 
       return raw
     } catch(e: any) {
-      throw new Error(`Error while reading file from "${file}": ${e.message}`)
+      throw new Error(`Error while reading file from "${file}": ${e.message}`, { cause: e })
     }
   }
 
@@ -54,7 +54,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       await this.extra.writeFile(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
     } catch(e: any) {
-      throw new Error(`Error while writing file to "${file}": ${e.message}`)
+      throw new Error(`Error while writing file to "${file}": ${e.message}`, { cause: e })
     }
   }
 
@@ -62,7 +62,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       this.extra.writeFileSync(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
     } catch(e: any) {
-      throw new Error(`Error while writing file to "${file}": ${e.message}`)
+      throw new Error(`Error while writing file to "${file}": ${e.message}`, { cause: e })
     }
   }
 
@@ -70,7 +70,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       await this.extra.appendFile(file, data, options)
     } catch(e: any) {
-      throw new Error(`Error while appending to file  "${file}": ${e.message}`)
+      throw new Error(`Error while appending to file  "${file}": ${e.message}`, { cause: e })
     }
   }
 
@@ -78,7 +78,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       this.extra.appendFileSync(file, data)
     } catch(e: any) {
-      throw new Error(`Error while appending to file  "${file}": ${e.message}`)
+      throw new Error(`Error while appending to file  "${file}": ${e.message}`, { cause: e })
     }
   }
 
@@ -86,7 +86,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       await this.extra.rm(file, options)
     } catch(e: any) {
-      throw new Error(`Error while deleting the file "${file}": ${e.message}`)
+      throw new Error(`Error while deleting the file "${file}": ${e.message}`, { cause: e })
     }
   }
 
@@ -94,7 +94,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       this.extra.rmSync(file, options)
     } catch(e: any) {
-      throw new Error(`Error while deleting the file "${file}": ${e.message}`)
+      throw new Error(`Error while deleting the file "${file}": ${e.message}`, { cause: e })
     }
   }
 
@@ -102,7 +102,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       await this.extra.emptyDir(directory)
     } catch(e: any) {
-      throw new Error(`Error while emptying the directory "${directory}": ${e.message}`)
+      throw new Error(`Error while emptying the directory "${directory}": ${e.message}`, { cause: e })
     }
   }
 
@@ -110,7 +110,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       this.extra.emptyDirSync(directory)
     } catch(e: any) {
-      throw new Error(`Error while emptying the directory "${directory}": ${e.message}`)
+      throw new Error(`Error while emptying the directory "${directory}": ${e.message}`, { cause: e })
     }
   }
 
@@ -118,7 +118,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       await this.extra.rmdir(directory)
     } catch(e: any) {
-      throw new Error(`Error while removing the directory "${directory}": ${e.message}`)
+      throw new Error(`Error while removing the directory "${directory}": ${e.message}`, { cause: e })
     }
   }
 
@@ -126,7 +126,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       this.extra.rmdirSync(directory)
     } catch(e: any) {
-      throw new Error(`Error while removing the directory "${directory}": ${e.message}`)
+      throw new Error(`Error while removing the directory "${directory}": ${e.message}`, { cause: e })
     }
   }
 
@@ -134,7 +134,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       await this.extra.mkdirp(directory)
     } catch(e: any) {
-      throw new Error(`Error while creating the directory "${directory}": ${e.message}`)
+      throw new Error(`Error while creating the directory "${directory}": ${e.message}`, { cause: e })
     }
   }
 
@@ -142,7 +142,7 @@ export class FileSystemService implements OnModuleInit {
     try {
       this.extra.mkdirpSync(directory)
     } catch(e: any) {
-      throw new Error(`Error while creating the directory "${directory}": ${e.message}`)
+      throw new Error(`Error while creating the directory "${directory}": ${e.message}`, { cause: e })
     }
   }
 }
