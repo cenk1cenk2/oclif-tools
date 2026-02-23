@@ -81,7 +81,7 @@
     "@oxc-project/runtime": "^0.115.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.3",
-    "listr2": "^10.1.0"
+    "listr2": "^10.1.1"
   },
   "devDependencies": {
     "@cenk1cenk2/cz-cc": "^2.2.5",
