@@ -66,7 +66,7 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1
       class-validator:
-        specifier: ^0.14.3
+        specifier: ^0.14.4
         version: 0.14.4
       listr2:
         specifier: ^10.1.1
