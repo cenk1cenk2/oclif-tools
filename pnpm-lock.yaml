@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^2.2.6
-        version: 2.2.6(@types/node@24.11.0)(typescript@5.9.3)
+        version: 2.2.7(@types/node@24.11.0)(typescript@5.9.3)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.2.1
         version: 3.2.1(eslint@10.0.2(jiti@2.6.1))(typescript@5.9.3)
@@ -74,7 +74,7 @@ importers:
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^2.2.6
-        version: 2.2.6(@types/node@24.11.0)(typescript@5.9.3)
+        version: 2.2.7(@types/node@24.11.0)(typescript@5.9.3)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.2.1
         version: 3.2.1(eslint@10.0.2(jiti@2.6.1))(typescript@5.9.3)
@@ -391,8 +391,8 @@ packages:
   '@borewit/text-codec@0.2.1':
     resolution: {integrity: sha512-k7vvKPbf7J2fZ5klGRD9AeKfUvojuZIQ3BT5u7Jfv+puwXkUBUT5PVyMDfJZpy30CBDXGMgw7fguK/lpOMBvgw==}
 
-  '@cenk1cenk2/cz-cc@2.2.6':
-    resolution: {integrity: sha512-tRB90i3vc9o+r2XQxTq/Y+xdTKAAA8Wxu1CK8Zo2i2RVBK/lB0HSB3XpFsKTVIyiD/Y3D18137zUlUMt/PCGfw==}
+  '@cenk1cenk2/cz-cc@2.2.7':
+    resolution: {integrity: sha512-O4sLGYRerYCQc8Lqm77KFOBJEp0vOwnPmWt2O9dD66T/I5opMX6tzzp+OUjBucVO3UhSlVrbz7WCVhDYjK4yYw==}
     engines: {node: '>= 22'}
 
   '@cenk1cenk2/eslint-config@3.2.1':
@@ -831,12 +831,12 @@ packages:
     peerDependencies:
       listr2: 10.1.2
 
-  '@listr2/prompt-adapter-inquirer@4.1.1':
-    resolution: {integrity: sha512-hlUMCYxuBrtjsBqzsy9ohzs3SiosQhXQlHltAZepMdLMBsWSPubjzBbBgTWK/glNO2ZJdZp8flhx2uRYf/RFUg==}
+  '@listr2/prompt-adapter-inquirer@4.1.2':
+    resolution: {integrity: sha512-Gnq4scw3evxbEVTQ5cz7l1zpjDdF35/NOOvTqPRvbGnPNegu9YbRwhFH144o30a0G5q+7iLgz6s1xOg+B5bvhg==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       '@inquirer/prompts': '>= 3 < 9'
-      listr2: 10.1.1
+      listr2: 10.1.2
 
   '@lukeed/csprng@1.1.0':
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
@@ -1126,6 +1126,10 @@ packages:
 
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
+
+  '@simple-libs/stream-utils@1.2.0':
+    resolution: {integrity: sha512-KxXvfapcixpz6rVEB6HPjOUZT22yN6v0vI0urQSk1L8MlEWPDFCZkhw2xmkyoTGYeFw7tWTZd7e3lVzRZRN/EA==}
+    engines: {node: '>=18'}
 
   '@sindresorhus/is@5.6.0':
     resolution: {integrity: sha512-TV7t8GKYaJWsn00tFDqBw8+Uqmr8A0fRU1tvTQhyZzGv0sJCGRQL3JGMI3ucuKo3XIZdUP+Lx7/gh2t3lewy7g==}
@@ -1763,10 +1767,6 @@ packages:
     resolution: {integrity: sha512-ywqV+5MmyL4E7ybXgKys4DugZbX0FC6LnwrhjuykIjnK9k8OQacQ7axGKnjDXWNhns0xot3bZI5h55H8yo9cJg==}
     engines: {node: '>=6'}
 
-  cli-truncate@5.1.1:
-    resolution: {integrity: sha512-SroPvNHxUnk+vIW/dOSfNqdy1sPEFkrTk6TUtqLCnBlo3N7TNYYkzzN7uSD6+jVjrdO4+p8nH7JzH6cIvUem6A==}
-    engines: {node: '>=20'}
-
   cli-truncate@5.2.0:
     resolution: {integrity: sha512-xRwvIOMGrfOAnM1JYtqQImuaNtDEv9v6oIYAs4LIHwTiKee8uwvIi363igssOC0O5U04i4AlENs79LQLu9tEMw==}
     engines: {node: '>=20'}
@@ -1848,8 +1848,8 @@ packages:
   conventional-commit-types@3.0.0:
     resolution: {integrity: sha512-SmmCYnOniSsAa9GqWOeLqc179lfr5TRu5b4QFDkbsrJ5TZjPJx85wtOr3zn+1dbeNiXDKGPbZ72IKbPhLXh/Lg==}
 
-  conventional-commits-parser@6.2.1:
-    resolution: {integrity: sha512-20pyHgnO40rvfI0NGF/xiEoFMkXDtkF8FwHvk5BokoFoCuTQRI8vrNCNFWUOfuolKJMm1tPCHc8GgYEtr1XRNA==}
+  conventional-commits-parser@6.3.0:
+    resolution: {integrity: sha512-RfOq/Cqy9xV9bOA8N+ZH6DlrDR+5S3Mi0B5kACEjESpE+AviIpAptx9a9cFpWCCvgRtWT+0BbUw+e1BZfts9jg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2814,10 +2814,6 @@ packages:
     engines: {node: '>=20.17'}
     hasBin: true
 
-  listr2@10.1.1:
-    resolution: {integrity: sha512-4oogpJzRRGtq41B0GKZIldzYCnQTgX2DPM/XvcfNu7g2E7sxaast009150RKFZBnrHAnfMOUaedIqdIOLCCRxQ==}
-    engines: {node: '>=22.0.0'}
-
   listr2@10.1.2:
     resolution: {integrity: sha512-ENXj5KYVtdZigbaWY0+lUCzRZNvKDEbxree+93oaCeSz8GICxgJyOMi6U9mHuiFd3hJ9y0RIDQh8RYttBKOnaQ==}
     engines: {node: '>=22.0.0'}
@@ -2857,10 +2853,6 @@ packages:
   log-update@6.1.0:
     resolution: {integrity: sha512-9ie8ItPR6tjY5uYJh8K/Zrv/RMZ5VOlOWvtZdEHYSTFKZfIBPQa9tOAEeAWhd+AnIneLJ22w5fjOYtoutpWq5w==}
     engines: {node: '>=18'}
-
-  log-update@7.2.0:
-    resolution: {integrity: sha512-iLs7dGSyjZiUgvrUvuD3FndAxVJk+TywBkkkwUSm9HdYoskJalWg5qVsEiXeufPvRVPbCUmNQewg798rx+sPXg==}
-    engines: {node: '>=20'}
 
   logform@2.7.0:
     resolution: {integrity: sha512-TFYA4jnP7PVbmlBIfhlSe+WKxs9dklXMTEGcBCIvLhE/Tn3H6Gk1norupVW7m5Cnd4bLcr08AytbyV/xj7f/kQ==}
@@ -4497,14 +4489,14 @@ snapshots:
 
   '@borewit/text-codec@0.2.1': {}
 
-  '@cenk1cenk2/cz-cc@2.2.6(@types/node@24.11.0)(typescript@5.9.3)':
+  '@cenk1cenk2/cz-cc@2.2.7(@types/node@24.11.0)(typescript@5.9.3)':
     dependencies:
       '@inquirer/prompts': 8.3.0(@types/node@24.11.0)
-      '@listr2/prompt-adapter-inquirer': 4.1.1(@inquirer/prompts@8.3.0(@types/node@24.11.0))(@types/node@24.11.0)(listr2@10.1.1)
+      '@listr2/prompt-adapter-inquirer': 4.1.2(@inquirer/prompts@8.3.0(@types/node@24.11.0))(@types/node@24.11.0)(listr2@10.1.2)
       commitizen: 4.3.1(@types/node@24.11.0)(typescript@5.9.3)
       conventional-commit-types: 3.0.0
       find-git-root: 1.1.0
-      listr2: 10.1.1
+      listr2: 10.1.2
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -4565,7 +4557,7 @@ snapshots:
 
   '@commitlint/types@20.4.0':
     dependencies:
-      conventional-commits-parser: 6.2.1
+      conventional-commits-parser: 6.3.0
       picocolors: 1.1.1
     optional: true
 
@@ -4956,11 +4948,11 @@ snapshots:
     dependencies:
       listr2: 10.1.2
 
-  '@listr2/prompt-adapter-inquirer@4.1.1(@inquirer/prompts@8.3.0(@types/node@24.11.0))(@types/node@24.11.0)(listr2@10.1.1)':
+  '@listr2/prompt-adapter-inquirer@4.1.2(@inquirer/prompts@8.3.0(@types/node@24.11.0))(@types/node@24.11.0)(listr2@10.1.2)':
     dependencies:
       '@inquirer/prompts': 8.3.0(@types/node@24.11.0)
       '@inquirer/type': 4.0.3(@types/node@24.11.0)
-      listr2: 10.1.1
+      listr2: 10.1.2
     transitivePeerDependencies:
       - '@types/node'
 
@@ -5208,6 +5200,9 @@ snapshots:
       '@types/hast': 3.0.4
 
   '@shikijs/vscode-textmate@10.0.2': {}
+
+  '@simple-libs/stream-utils@1.2.0':
+    optional: true
 
   '@sindresorhus/is@5.6.0': {}
 
@@ -6046,11 +6041,6 @@ snapshots:
 
   cli-spinners@2.9.2: {}
 
-  cli-truncate@5.1.1:
-    dependencies:
-      slice-ansi: 7.1.2
-      string-width: 8.2.0
-
   cli-truncate@5.2.0:
     dependencies:
       slice-ansi: 8.0.0
@@ -6139,8 +6129,9 @@ snapshots:
 
   conventional-commit-types@3.0.0: {}
 
-  conventional-commits-parser@6.2.1:
+  conventional-commits-parser@6.3.0:
     dependencies:
+      '@simple-libs/stream-utils': 1.2.0
       meow: 13.2.0
     optional: true
 
@@ -7193,15 +7184,6 @@ snapshots:
       tinyexec: 1.0.2
       yaml: 2.8.2
 
-  listr2@10.1.1:
-    dependencies:
-      cli-truncate: 5.1.1
-      colorette: 2.0.20
-      eventemitter3: 5.0.4
-      log-update: 7.2.0
-      rfdc: 1.4.1
-      wrap-ansi: 10.0.0
-
   listr2@10.1.2:
     dependencies:
       cli-truncate: 5.2.0
@@ -7249,14 +7231,6 @@ snapshots:
       slice-ansi: 7.1.2
       strip-ansi: 7.2.0
       wrap-ansi: 9.0.2
-
-  log-update@7.2.0:
-    dependencies:
-      ansi-escapes: 7.3.0
-      cli-cursor: 5.0.0
-      slice-ansi: 8.0.0
-      strip-ansi: 7.2.0
-      wrap-ansi: 10.0.0
 
   logform@2.7.0:
     dependencies:
