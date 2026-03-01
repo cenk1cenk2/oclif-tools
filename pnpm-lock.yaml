@@ -161,8 +161,8 @@ importers:
         version: 3.19.0
     devDependencies:
       '@listr2/manager':
-        specifier: ^4.1.1
-        version: 4.1.1(listr2@10.1.1)
+        specifier: ^4.1.2
+        version: 4.1.2(listr2@10.1.2)
       '@oclif/core':
         specifier: ^4.8.2
         version: 4.8.2
@@ -185,8 +185,8 @@ importers:
         specifier: ^11.3.3
         version: 11.3.3
       listr2:
-        specifier: ^10.1.1
-        version: 10.1.1
+        specifier: ^10.1.2
+        version: 10.1.2
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -825,11 +825,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@listr2/manager@4.1.1':
-    resolution: {integrity: sha512-BaTsYjC2vKCuEZvzsiuVA+u2bX0iYfNKnP8EhDLUzUNs0+g7vWlvHIhc+1fFdWLApyeCGG357hJufxAQP6Co7g==}
+  '@listr2/manager@4.1.2':
+    resolution: {integrity: sha512-i5Tr/t0ivaAy5xCJKcjieiKOky4a0VkjOE3erBZX9kxwlnUMGModD79sE8EjDExTpJXC1N4KRvg1gdFr9GX9tQ==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
-      listr2: 10.1.1
+      listr2: 10.1.2
 
   '@listr2/prompt-adapter-inquirer@4.1.1':
     resolution: {integrity: sha512-hlUMCYxuBrtjsBqzsy9ohzs3SiosQhXQlHltAZepMdLMBsWSPubjzBbBgTWK/glNO2ZJdZp8flhx2uRYf/RFUg==}
@@ -1765,6 +1765,10 @@ packages:
 
   cli-truncate@5.1.1:
     resolution: {integrity: sha512-SroPvNHxUnk+vIW/dOSfNqdy1sPEFkrTk6TUtqLCnBlo3N7TNYYkzzN7uSD6+jVjrdO4+p8nH7JzH6cIvUem6A==}
+    engines: {node: '>=20'}
+
+  cli-truncate@5.2.0:
+    resolution: {integrity: sha512-xRwvIOMGrfOAnM1JYtqQImuaNtDEv9v6oIYAs4LIHwTiKee8uwvIi363igssOC0O5U04i4AlENs79LQLu9tEMw==}
     engines: {node: '>=20'}
 
   cli-width@3.0.0:
@@ -2812,6 +2816,10 @@ packages:
 
   listr2@10.1.1:
     resolution: {integrity: sha512-4oogpJzRRGtq41B0GKZIldzYCnQTgX2DPM/XvcfNu7g2E7sxaast009150RKFZBnrHAnfMOUaedIqdIOLCCRxQ==}
+    engines: {node: '>=22.0.0'}
+
+  listr2@10.1.2:
+    resolution: {integrity: sha512-ENXj5KYVtdZigbaWY0+lUCzRZNvKDEbxree+93oaCeSz8GICxgJyOMi6U9mHuiFd3hJ9y0RIDQh8RYttBKOnaQ==}
     engines: {node: '>=22.0.0'}
 
   listr2@9.0.5:
@@ -4944,9 +4952,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@listr2/manager@4.1.1(listr2@10.1.1)':
+  '@listr2/manager@4.1.2(listr2@10.1.2)':
     dependencies:
-      listr2: 10.1.1
+      listr2: 10.1.2
 
   '@listr2/prompt-adapter-inquirer@4.1.1(@inquirer/prompts@8.3.0(@types/node@24.11.0))(@types/node@24.11.0)(listr2@10.1.1)':
     dependencies:
@@ -6041,6 +6049,11 @@ snapshots:
   cli-truncate@5.1.1:
     dependencies:
       slice-ansi: 7.1.2
+      string-width: 8.2.0
+
+  cli-truncate@5.2.0:
+    dependencies:
+      slice-ansi: 8.0.0
       string-width: 8.2.0
 
   cli-width@3.0.0: {}
@@ -7186,6 +7199,15 @@ snapshots:
       colorette: 2.0.20
       eventemitter3: 5.0.4
       log-update: 7.2.0
+      rfdc: 1.4.1
+      wrap-ansi: 10.0.0
+
+  listr2@10.1.2:
+    dependencies:
+      cli-truncate: 5.2.0
+      colorette: 2.0.20
+      eventemitter3: 5.0.4
+      log-update: 6.1.0
       rfdc: 1.4.1
       wrap-ansi: 10.0.0
 
