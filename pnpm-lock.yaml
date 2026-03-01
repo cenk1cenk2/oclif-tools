@@ -69,8 +69,8 @@ importers:
         specifier: ^0.15.1
         version: 0.15.1
       listr2:
-        specifier: ^10.1.1
-        version: 10.1.1
+        specifier: ^10.1.2
+        version: 10.1.2
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^2.2.6
@@ -7213,7 +7213,7 @@ snapshots:
 
   listr2@9.0.5:
     dependencies:
-      cli-truncate: 5.1.1
+      cli-truncate: 5.2.0
       colorette: 2.0.20
       eventemitter3: 5.0.4
       log-update: 6.1.0
