@@ -51,7 +51,7 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.8.2
+        specifier: ^4.8.3
         version: 4.8.3
       '@oclif/plugin-help':
         specifier: ^6.2.37
@@ -60,8 +60,8 @@ importers:
         specifier: ^5.4.56
         version: 5.4.56
       '@oxc-project/runtime':
-        specifier: ^0.115.0
-        version: 0.115.0
+        specifier: ^0.116.0
+        version: 0.116.0
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -69,8 +69,8 @@ importers:
         specifier: ^0.15.1
         version: 0.15.1
       listr2:
-        specifier: ^10.1.2
-        version: 10.1.2
+        specifier: ^10.2.0
+        version: 10.2.0
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^2.2.7
@@ -139,8 +139,8 @@ importers:
         specifier: ^11.1.14
         version: 11.1.14(@nestjs/common@11.1.14(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@oxc-project/runtime':
-        specifier: ^0.115.0
-        version: 0.115.0
+        specifier: ^0.116.0
+        version: 0.116.0
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -913,8 +913,8 @@ packages:
     resolution: {integrity: sha512-VIEBoaoMOCjl3y+w/kdfZMODi0mVMnDuM0vkBf3nqeidhRXVXq87hBqYDdRwN1XoD+eDfE8tBbOP7qtSOONztQ==}
     engines: {node: '>=18.0.0'}
 
-  '@oxc-project/runtime@0.115.0':
-    resolution: {integrity: sha512-Rg8Wlt5dCbXhQnsXPrkOjL1DTSvXLgb2R/KYfnf1/K+R0k6UMLEmbQXPM+kwrWqSmWA2t0B1EtHy2/3zikQpvQ==}
+  '@oxc-project/runtime@0.116.0':
+    resolution: {integrity: sha512-LFaAr+svwlXc539pl85rsp645MyJSJpheFPHgh30KDSqiD7L1GuxoVagzjDQQwi1iD6tLIl8UjzaHJubOnWFdg==}
     engines: {node: ^20.19.0 || >=22.12.0}
 
   '@oxc-project/types@0.112.0':
@@ -5073,7 +5073,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@oxc-project/runtime@0.115.0': {}
+  '@oxc-project/runtime@0.116.0': {}
 
   '@oxc-project/types@0.112.0': {}
 
