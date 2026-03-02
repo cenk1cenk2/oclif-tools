@@ -69,8 +69,8 @@ importers:
         specifier: ^0.15.1
         version: 0.15.1
       listr2:
-        specifier: ^10.2.0
-        version: 10.2.0
+        specifier: ^10.2.1
+        version: 10.2.1
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^2.2.8
@@ -2813,10 +2813,6 @@ packages:
     resolution: {integrity: sha512-bqvvquXzFBAlSbluugR4KXAe4XnO/QZcKVszpkBtqLWa2KEiVy8n6Xp38OeUbv/gOJOX4Vo9u5pFt/ADvbm42Q==}
     engines: {node: '>=20.17'}
     hasBin: true
-
-  listr2@10.2.0:
-    resolution: {integrity: sha512-aSL6JaesI+oKdvkxIZxT5lMw9NS8llMQZvz4l+VBYEhzQbe4/q+AXzehKuMEyoZDsgnBXv2aOTlohBs+M38Jpw==}
-    engines: {node: '>=22.13.0'}
 
   listr2@10.2.1:
     resolution: {integrity: sha512-7I5knELsJKTUjXG+A6BkKAiGkW1i25fNa/xlUl9hFtk15WbE9jndA89xu5FzQKrY5llajE1hfZZFMILXkDHk/Q==}
@@ -7187,14 +7183,6 @@ snapshots:
       string-argv: 0.3.2
       tinyexec: 1.0.2
       yaml: 2.8.2
-
-  listr2@10.2.0:
-    dependencies:
-      cli-truncate: 5.2.0
-      eventemitter3: 5.0.4
-      log-update: 6.1.0
-      rfdc: 1.4.1
-      wrap-ansi: 10.0.0
 
   listr2@10.2.1:
     dependencies:
