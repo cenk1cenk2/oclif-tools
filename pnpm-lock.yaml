@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@cenk1cenk2/cz-cc':
-        specifier: ^2.2.7
-        version: 2.2.7(@types/node@24.11.0)(typescript@5.9.3)
+        specifier: ^2.2.8
+        version: 2.2.8(@types/node@24.11.0)(typescript@5.9.3)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.2.1
         version: 3.2.1(eslint@10.0.2(jiti@2.6.1))(typescript@5.9.3)
@@ -73,8 +73,8 @@ importers:
         version: 10.2.0
     devDependencies:
       '@cenk1cenk2/cz-cc':
-        specifier: ^2.2.7
-        version: 2.2.7(@types/node@24.11.0)(typescript@5.9.3)
+        specifier: ^2.2.8
+        version: 2.2.8(@types/node@24.11.0)(typescript@5.9.3)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.2.1
         version: 3.2.1(eslint@10.0.2(jiti@2.6.1))(typescript@5.9.3)
@@ -161,8 +161,8 @@ importers:
         version: 3.19.0
     devDependencies:
       '@listr2/manager':
-        specifier: ^4.2.0
-        version: 4.2.0(listr2@10.2.0)
+        specifier: ^4.2.1
+        version: 4.2.1(listr2@10.2.1)
       '@oclif/core':
         specifier: ^4.8.3
         version: 4.8.3
@@ -185,8 +185,8 @@ importers:
         specifier: ^11.3.3
         version: 11.3.3
       listr2:
-        specifier: ^10.2.0
-        version: 10.2.0
+        specifier: ^10.2.1
+        version: 10.2.1
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -391,8 +391,8 @@ packages:
   '@borewit/text-codec@0.2.1':
     resolution: {integrity: sha512-k7vvKPbf7J2fZ5klGRD9AeKfUvojuZIQ3BT5u7Jfv+puwXkUBUT5PVyMDfJZpy30CBDXGMgw7fguK/lpOMBvgw==}
 
-  '@cenk1cenk2/cz-cc@2.2.7':
-    resolution: {integrity: sha512-O4sLGYRerYCQc8Lqm77KFOBJEp0vOwnPmWt2O9dD66T/I5opMX6tzzp+OUjBucVO3UhSlVrbz7WCVhDYjK4yYw==}
+  '@cenk1cenk2/cz-cc@2.2.8':
+    resolution: {integrity: sha512-ywECEZ7Vwy8i515adOTqoYsf3Xpfi9dygsKv5o+RQbd7T6kRUCDOUv5gxztBqauyy/s3givKKFAKJm190ZHeUQ==}
     engines: {node: '>= 22'}
 
   '@cenk1cenk2/eslint-config@3.2.1':
@@ -825,18 +825,18 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@listr2/manager@4.2.0':
-    resolution: {integrity: sha512-J786j/FWuZF/gycDao1hyLVgwiAzZ6mbdCfF2/5XUs9u0RcDCbu3NtyqBGcBwTA7BLmB2QOdT2Zq8ACYE0CKew==}
+  '@listr2/manager@4.2.1':
+    resolution: {integrity: sha512-spvfs3v7q4gGm9rbklrpWNncNrNz2JimAHNbYVJQdMDQYJvIrbMX98mN5GzeHovjny9Pq5WoVnPtxaxfZeCx0A==}
     engines: {node: '>=22.13.0'}
     peerDependencies:
-      listr2: 10.2.0
+      listr2: 10.2.1
 
-  '@listr2/prompt-adapter-inquirer@4.1.2':
-    resolution: {integrity: sha512-Gnq4scw3evxbEVTQ5cz7l1zpjDdF35/NOOvTqPRvbGnPNegu9YbRwhFH144o30a0G5q+7iLgz6s1xOg+B5bvhg==}
-    engines: {node: '>=22.0.0'}
+  '@listr2/prompt-adapter-inquirer@4.2.1':
+    resolution: {integrity: sha512-z3jVhDIz6/X5rPFAk8r00mOHTxpZljgOKNnrq6FLIoZUbXcPrcW3wfM7aUOxy4NXrUewTchcVZxgxHLZY3vN7Q==}
+    engines: {node: '>=22.13.0'}
     peerDependencies:
       '@inquirer/prompts': '>= 3 < 9'
-      listr2: 10.1.2
+      listr2: 10.2.1
 
   '@lukeed/csprng@1.1.0':
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
@@ -2814,12 +2814,12 @@ packages:
     engines: {node: '>=20.17'}
     hasBin: true
 
-  listr2@10.1.2:
-    resolution: {integrity: sha512-ENXj5KYVtdZigbaWY0+lUCzRZNvKDEbxree+93oaCeSz8GICxgJyOMi6U9mHuiFd3hJ9y0RIDQh8RYttBKOnaQ==}
-    engines: {node: '>=22.0.0'}
-
   listr2@10.2.0:
     resolution: {integrity: sha512-aSL6JaesI+oKdvkxIZxT5lMw9NS8llMQZvz4l+VBYEhzQbe4/q+AXzehKuMEyoZDsgnBXv2aOTlohBs+M38Jpw==}
+    engines: {node: '>=22.13.0'}
+
+  listr2@10.2.1:
+    resolution: {integrity: sha512-7I5knELsJKTUjXG+A6BkKAiGkW1i25fNa/xlUl9hFtk15WbE9jndA89xu5FzQKrY5llajE1hfZZFMILXkDHk/Q==}
     engines: {node: '>=22.13.0'}
 
   listr2@9.0.5:
@@ -4493,14 +4493,14 @@ snapshots:
 
   '@borewit/text-codec@0.2.1': {}
 
-  '@cenk1cenk2/cz-cc@2.2.7(@types/node@24.11.0)(typescript@5.9.3)':
+  '@cenk1cenk2/cz-cc@2.2.8(@types/node@24.11.0)(typescript@5.9.3)':
     dependencies:
       '@inquirer/prompts': 8.3.0(@types/node@24.11.0)
-      '@listr2/prompt-adapter-inquirer': 4.1.2(@inquirer/prompts@8.3.0(@types/node@24.11.0))(@types/node@24.11.0)(listr2@10.1.2)
+      '@listr2/prompt-adapter-inquirer': 4.2.1(@inquirer/prompts@8.3.0(@types/node@24.11.0))(@types/node@24.11.0)(listr2@10.2.1)
       commitizen: 4.3.1(@types/node@24.11.0)(typescript@5.9.3)
       conventional-commit-types: 3.0.0
       find-git-root: 1.1.0
-      listr2: 10.1.2
+      listr2: 10.2.1
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -4948,15 +4948,15 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@listr2/manager@4.2.0(listr2@10.2.0)':
+  '@listr2/manager@4.2.1(listr2@10.2.1)':
     dependencies:
-      listr2: 10.2.0
+      listr2: 10.2.1
 
-  '@listr2/prompt-adapter-inquirer@4.1.2(@inquirer/prompts@8.3.0(@types/node@24.11.0))(@types/node@24.11.0)(listr2@10.1.2)':
+  '@listr2/prompt-adapter-inquirer@4.2.1(@inquirer/prompts@8.3.0(@types/node@24.11.0))(@types/node@24.11.0)(listr2@10.2.1)':
     dependencies:
       '@inquirer/prompts': 8.3.0(@types/node@24.11.0)
       '@inquirer/type': 4.0.3(@types/node@24.11.0)
-      listr2: 10.1.2
+      listr2: 10.2.1
     transitivePeerDependencies:
       - '@types/node'
 
@@ -7188,16 +7188,15 @@ snapshots:
       tinyexec: 1.0.2
       yaml: 2.8.2
 
-  listr2@10.1.2:
+  listr2@10.2.0:
     dependencies:
       cli-truncate: 5.2.0
-      colorette: 2.0.20
       eventemitter3: 5.0.4
       log-update: 6.1.0
       rfdc: 1.4.1
       wrap-ansi: 10.0.0
 
-  listr2@10.2.0:
+  listr2@10.2.1:
     dependencies:
       cli-truncate: 5.2.0
       eventemitter3: 5.0.4
