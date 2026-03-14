@@ -24,8 +24,8 @@ importers:
         specifier: ^10.0.3
         version: 10.0.3(jiti@2.6.1)
       lint-staged:
-        specifier: ^16.3.3
-        version: 16.3.3
+        specifier: ^16.3.4
+        version: 16.3.4
       prettier:
         specifier: ^3.8.1
         version: 3.8.1
@@ -103,8 +103,8 @@ importers:
         specifier: ^16.1.1
         version: 16.1.1
       lint-staged:
-        specifier: ^16.3.3
-        version: 16.3.3
+        specifier: ^16.3.4
+        version: 16.3.4
       oclif:
         specifier: ^4.22.87
         version: 4.22.87(@types/node@24.12.0)
@@ -2743,8 +2743,8 @@ packages:
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
 
-  lint-staged@16.3.3:
-    resolution: {integrity: sha512-RLq2koZ5fGWrx7tcqx2tSTMQj4lRkfNJaebO/li/uunhCJbtZqwTuwPHpgIimAHHi/2nZIiGrkCHDCOeR1onxA==}
+  lint-staged@16.3.4:
+    resolution: {integrity: sha512-U5bxYjQA+yeKm4+8bVlkixlDlXdqlrJJU1Rx/h2h1B/FSlt7zW2rkPcnpRHFkSyjkNX8gLXfgfYaDwWkDXbvsQ==}
     engines: {node: '>=20.17'}
     hasBin: true
 
@@ -7101,7 +7101,7 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  lint-staged@16.3.3:
+  lint-staged@16.3.4:
     dependencies:
       commander: 14.0.3
       listr2: 9.0.5
