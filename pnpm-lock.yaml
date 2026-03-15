@@ -106,8 +106,8 @@ importers:
         specifier: ^16.4.0
         version: 16.4.0
       oclif:
-        specifier: ^4.22.90
-        version: 4.22.90(@types/node@24.12.0)
+        specifier: ^4.22.91
+        version: 4.22.91(@types/node@24.12.0)
       prettier:
         specifier: ^3.8.1
         version: 3.8.1
@@ -223,8 +223,8 @@ packages:
     resolution: {integrity: sha512-KRac+gkuj3u49IyWkrudHRlP/q/faTto+1xRS7Aj6cDGewMIzgdQArrdZEJoVntbaVZHLM5s/NVmWORzBWNcSw==}
     engines: {node: '>=20.0.0'}
 
-  '@aws-sdk/client-s3@3.1004.0':
-    resolution: {integrity: sha512-m0zNfpsona9jQdX1cHtHArOiuvSGZPsgp/KRZS2YjJhKah96G2UN3UNGZQ6aVjXIQjCY6UanCJo0uW9Xf2U41w==}
+  '@aws-sdk/client-s3@3.1009.0':
+    resolution: {integrity: sha512-luy8CxallkoiGWTqU86ca/BbvkWJjs0oala7uIIRN1JtQxMb5i4Yl/PBZVcQFhbK9kQi0PK0GfD8gIpLkI91fw==}
     engines: {node: '>=20.0.0'}
 
   '@aws-sdk/core@3.973.20':
@@ -3036,8 +3036,8 @@ packages:
   obug@2.1.1:
     resolution: {integrity: sha512-uTqF9MuPraAQ+IsnPf366RG4cP9RtUi7MLO1N3KEc+wb0a6yKpeL0lmk2IB1jY5KHPAlTc6T/JRdC/YqxHNwkQ==}
 
-  oclif@4.22.90:
-    resolution: {integrity: sha512-voPpzAqrnCd9TSR3aXQhFN3IVwI0ITyIXDA+4fzJLhqEW47LNWcr5YzjUPZxNlKGFclMxH4VkSgt/fTJWB/+uA==}
+  oclif@4.22.91:
+    resolution: {integrity: sha512-eBkzZq6YNZoXGUUFt1tn1Zo+kGdGQiwSvDsHvEd6duR0i3tdd2Oa3rgOYCGiMiq4bIL4Uoo1iAomqS77/ww1rQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -3992,7 +3992,7 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-s3@3.1004.0':
+  '@aws-sdk/client-s3@3.1009.0':
     dependencies:
       '@aws-crypto/sha1-browser': 5.2.0
       '@aws-crypto/sha256-browser': 5.2.0
@@ -7299,10 +7299,10 @@ snapshots:
 
   obug@2.1.1: {}
 
-  oclif@4.22.90(@types/node@24.12.0):
+  oclif@4.22.91(@types/node@24.12.0):
     dependencies:
       '@aws-sdk/client-cloudfront': 3.1009.0
-      '@aws-sdk/client-s3': 3.1004.0
+      '@aws-sdk/client-s3': 3.1009.0
       '@inquirer/confirm': 3.2.0
       '@inquirer/input': 2.3.0
       '@inquirer/select': 2.5.0
