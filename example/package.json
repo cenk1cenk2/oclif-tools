@@ -75,8 +75,8 @@
   },
   "dependencies": {
     "@cenk1cenk2/oclif-common": "workspace:*",
-    "@oclif/core": "^4.10.1",
-    "@oclif/plugin-help": "^6.2.38",
+    "@oclif/core": "^4.10.2",
+    "@oclif/plugin-help": "^6.2.39",
     "@oclif/plugin-plugins": "^5.4.59",
     "@oxc-project/runtime": "^0.121.0",
     "class-transformer": "^0.5.1",
