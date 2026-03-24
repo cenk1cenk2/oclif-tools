@@ -36,7 +36,7 @@ importers:
         specifier: ^0.21.4
         version: 0.21.4(typescript@5.9.3)
       typedoc:
-        specifier: ^0.28.17
+        specifier: ^0.28.18
         version: 0.28.18(typescript@5.9.3)
       typedoc-plugin-markdown:
         specifier: ^4.11.0
