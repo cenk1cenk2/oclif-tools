@@ -45,8 +45,8 @@
     ]
   },
   "dependencies": {
-    "@nestjs/common": "^11.1.17",
-    "@nestjs/core": "^11.1.17",
+    "@nestjs/common": "^11.1.18",
+    "@nestjs/core": "^11.1.18",
     "@oxc-project/runtime": "^0.123.0",
     "deepmerge": "^4.3.1",
     "object-path-immutable": "^4.1.2",
