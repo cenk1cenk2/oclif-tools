@@ -55,7 +55,7 @@ importers:
         version: 4.10.5
       '@oclif/plugin-help':
         specifier: ^6.2.42
-        version: 6.2.42
+        version: 6.2.43
       '@oclif/plugin-plugins':
         specifier: ^5.4.59
         version: 5.4.59
@@ -904,20 +904,20 @@ packages:
     resolution: {integrity: sha512-k/ntRgDcUprTT+aaNoF+whk3cY3f9fRD2lkF6ul7JeCUg2MaMXVXZXfbRhJCfsiX51X8/5Pqo0LGdO9SLYXNHg==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-help@6.2.42':
-    resolution: {integrity: sha512-ureMjpO1qnxBaOuMITOE579nxLhD50esi3f0K5pat4Y0sBG5dT+ELaane8iaBwiJHmF5hxma8jSpvi1QTpCVxw==}
+  '@oclif/plugin-help@6.2.43':
+    resolution: {integrity: sha512-aef92VxQECLFDjI4CpgCL+jDuAsc3jzq5gBTLwNzj60mmrh8eDd7B0ABIgWXphb6gdARSRil+/FPtcdiSSupRA==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-not-found@3.2.78':
-    resolution: {integrity: sha512-wFg7rUYUxYsBMl0fEBHOJ+GAO0/3Nwpn4scmkqV3IQdch7+N1ke8qFOzLZal0kpa0wt+Tr/aJvaT8iYccPGZDQ==}
+  '@oclif/plugin-not-found@3.2.80':
+    resolution: {integrity: sha512-yTLjWvR1r/Rd/cO2LxHdMCDoL5sQhBYRUcOMCmxZtWVWhx4rAZ8KVUPDVsb+SvjJDV5ADTDBgt1H52fFx7YWqg==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-plugins@5.4.59':
     resolution: {integrity: sha512-W/F3vNwhC3BHmn1o4g92H8kY4rYw9RsgVRm+GDulZg0XqSoseJYCMQell6ajTj8xljrrG0dZSTuEfc4ETwC2VA==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-warn-if-update-available@3.1.58':
-    resolution: {integrity: sha512-iZWcwqTW9ylpuU/kaUJY6gRQE+VzK3p1oFSa6/fDu7snx4knQlH8TBtaUR6ugTz2yzdDULF7MtuAyr3LXZg9/w==}
+  '@oclif/plugin-warn-if-update-available@3.1.60':
+    resolution: {integrity: sha512-cRKBZm14IuA6G8W84dfd3iXj3BTAoxQ5o3pUE8DKEQ4n/tVha20t5nkVeD+ISC68e0Fuw5koTMvRwXb1lJSnzg==}
     engines: {node: '>=18.0.0'}
 
   '@oxc-project/runtime@0.123.0':
@@ -4991,11 +4991,11 @@ snapshots:
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
-  '@oclif/plugin-help@6.2.42':
+  '@oclif/plugin-help@6.2.43':
     dependencies:
       '@oclif/core': 4.10.5
 
-  '@oclif/plugin-not-found@3.2.78(@types/node@24.12.2)':
+  '@oclif/plugin-not-found@3.2.80(@types/node@24.12.2)':
     dependencies:
       '@inquirer/prompts': 7.10.1(@types/node@24.12.2)
       '@oclif/core': 4.10.5
@@ -5020,7 +5020,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@oclif/plugin-warn-if-update-available@3.1.58':
+  '@oclif/plugin-warn-if-update-available@3.1.60':
     dependencies:
       '@oclif/core': 4.10.5
       ansis: 3.17.0
@@ -7342,9 +7342,9 @@ snapshots:
       '@inquirer/input': 2.3.0
       '@inquirer/select': 2.5.0
       '@oclif/core': 4.9.0
-      '@oclif/plugin-help': 6.2.42
-      '@oclif/plugin-not-found': 3.2.78(@types/node@24.12.2)
-      '@oclif/plugin-warn-if-update-available': 3.1.58
+      '@oclif/plugin-help': 6.2.43
+      '@oclif/plugin-not-found': 3.2.80(@types/node@24.12.2)
+      '@oclif/plugin-warn-if-update-available': 3.1.60
       ansis: 3.17.0
       async-retry: 1.3.3
       change-case: 4.1.2
