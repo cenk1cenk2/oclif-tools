@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@cenk1cenk2/cz-cc':
-        specifier: ^2.2.11
-        version: 2.2.11(@types/node@24.12.2)(typescript@5.9.3)
+        specifier: ^2.2.12
+        version: 2.2.12(@types/node@24.12.2)(typescript@5.9.3)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.2.2
         version: 3.2.2(eslint@10.2.0(jiti@2.6.1))(typescript@5.9.3)
@@ -73,8 +73,8 @@ importers:
         version: 10.2.1
     devDependencies:
       '@cenk1cenk2/cz-cc':
-        specifier: ^2.2.11
-        version: 2.2.11(@types/node@24.12.2)(typescript@5.9.3)
+        specifier: ^2.2.12
+        version: 2.2.12(@types/node@24.12.2)(typescript@5.9.3)
       '@cenk1cenk2/eslint-config':
         specifier: ^3.2.2
         version: 3.2.2(eslint@10.2.0(jiti@2.6.1))(typescript@5.9.3)
@@ -391,8 +391,8 @@ packages:
   '@borewit/text-codec@0.2.2':
     resolution: {integrity: sha512-DDaRehssg1aNrH4+2hnj1B7vnUGEjU6OIlyRdkMd0aUdIUvKXrJfXsy8LVtXAy7DRvYVluWbMspsRhz2lcW0mQ==}
 
-  '@cenk1cenk2/cz-cc@2.2.11':
-    resolution: {integrity: sha512-sec2w+1wa0zxSrfvkVzBogDfFzPzQo6eyaYnOi3vB74TBfo35CwL2C4fkCITjIuc8S/1XO3GKWWttcSDpkreWw==}
+  '@cenk1cenk2/cz-cc@2.2.12':
+    resolution: {integrity: sha512-ae7oCcKID3H6UQImWOTDr2Dpb5EsrNSe0QG6zrYpEU7bXG48R2XDp/iQKAW+TK07aVgczsl1lo0jPVGiyWBAww==}
     engines: {node: '>= 22'}
 
   '@cenk1cenk2/eslint-config@3.2.2':
@@ -4430,7 +4430,7 @@ snapshots:
 
   '@borewit/text-codec@0.2.2': {}
 
-  '@cenk1cenk2/cz-cc@2.2.11(@types/node@24.12.2)(typescript@5.9.3)':
+  '@cenk1cenk2/cz-cc@2.2.12(@types/node@24.12.2)(typescript@5.9.3)':
     dependencies:
       '@inquirer/prompts': 8.4.0(@types/node@24.12.2)
       '@listr2/prompt-adapter-inquirer': 4.2.3(@inquirer/prompts@8.4.0(@types/node@24.12.2))(@types/node@24.12.2)(listr2@10.2.1)
