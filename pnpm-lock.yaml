@@ -831,8 +831,8 @@ packages:
     peerDependencies:
       listr2: 10.2.1
 
-  '@listr2/prompt-adapter-inquirer@4.2.2':
-    resolution: {integrity: sha512-QCVBPLxPEG3ZLSfGz8DfzgiqkLiK31sb4JTIxp+sfdOrpze5rjZscHSAuSI0e/engIS9tWgzifLhSCwlocFsZQ==}
+  '@listr2/prompt-adapter-inquirer@4.2.3':
+    resolution: {integrity: sha512-Co9U3AJ3LW0J8XBHjVoNKA79dMAyFt8EZH3OaKTMcDTj8r+6kG3vSUPq/eGLHT7P0iK3uLaFfhdFYd3033P24g==}
     engines: {node: '>=22.13.0'}
     peerDependencies:
       '@inquirer/prompts': '>= 3 < 9'
@@ -4433,7 +4433,7 @@ snapshots:
   '@cenk1cenk2/cz-cc@2.2.11(@types/node@24.12.2)(typescript@5.9.3)':
     dependencies:
       '@inquirer/prompts': 8.4.0(@types/node@24.12.2)
-      '@listr2/prompt-adapter-inquirer': 4.2.2(@inquirer/prompts@8.4.0(@types/node@24.12.2))(@types/node@24.12.2)(listr2@10.2.1)
+      '@listr2/prompt-adapter-inquirer': 4.2.3(@inquirer/prompts@8.4.0(@types/node@24.12.2))(@types/node@24.12.2)(listr2@10.2.1)
       commitizen: 4.3.1(@types/node@24.12.2)(typescript@5.9.3)
       conventional-commit-types: 3.0.0
       find-git-root: 1.1.0
@@ -4889,7 +4889,7 @@ snapshots:
     dependencies:
       listr2: 10.2.1
 
-  '@listr2/prompt-adapter-inquirer@4.2.2(@inquirer/prompts@8.4.0(@types/node@24.12.2))(@types/node@24.12.2)(listr2@10.2.1)':
+  '@listr2/prompt-adapter-inquirer@4.2.3(@inquirer/prompts@8.4.0(@types/node@24.12.2))(@types/node@24.12.2)(listr2@10.2.1)':
     dependencies:
       '@inquirer/prompts': 8.4.0(@types/node@24.12.2)
       '@inquirer/type': 4.0.5(@types/node@24.12.2)
