@@ -58,7 +58,7 @@ importers:
         version: 6.2.44
       '@oclif/plugin-plugins':
         specifier: ^5.4.60
-        version: 5.4.60
+        version: 5.4.61
       '@oxc-project/runtime':
         specifier: ^0.125.0
         version: 0.125.0
@@ -912,8 +912,8 @@ packages:
     resolution: {integrity: sha512-yTLjWvR1r/Rd/cO2LxHdMCDoL5sQhBYRUcOMCmxZtWVWhx4rAZ8KVUPDVsb+SvjJDV5ADTDBgt1H52fFx7YWqg==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.4.60':
-    resolution: {integrity: sha512-aTunE6bxVNDGnxwK2RkTo8m5ghFEcD2M35gM/uTC35LgQ1k4PLFYZ3yWfjhrK0LmryrL921+Cr+jwH4nzmlAWg==}
+  '@oclif/plugin-plugins@5.4.61':
+    resolution: {integrity: sha512-FsXYLdXJWucrAzDQ3Q2G/mFGeTaUIsL4o76ayG6qNaF8iq1n2O3YnniCl90RLphJmty2ScGTv2YIniOHt4HHjw==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.1.60':
@@ -2385,8 +2385,8 @@ packages:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
 
-  hookable@6.1.0:
-    resolution: {integrity: sha512-ZoKZSJgu8voGK2geJS+6YtYjvIzu9AOM/KZXsBxr83uhLL++e9pEv/dlgwgy3dvHg06kTz6JOh1hk3C8Ceiymw==}
+  hookable@6.1.1:
+    resolution: {integrity: sha512-U9LYDy1CwhMCnprUfeAZWZGByVbhd54hwepegYTK7Pi5NvqEj63ifz5z+xukznehT7i6NIZRu89Ay1AZmRsLEQ==}
 
   hosted-git-info@7.0.2:
     resolution: {integrity: sha512-puUZAUKT5m8Zzvs72XWy3HtvVbTWljRE66cP60bxJzAqf2DgICo7lYTY2IHUmLnNpjYvw5bvmoHvPc0QO2a62w==}
@@ -5004,7 +5004,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@oclif/plugin-plugins@5.4.60':
+  '@oclif/plugin-plugins@5.4.61':
     dependencies:
       '@oclif/core': 4.10.5
       ansis: 3.17.0
@@ -6773,7 +6773,7 @@ snapshots:
     dependencies:
       parse-passwd: 1.0.0
 
-  hookable@6.1.0: {}
+  hookable@6.1.1: {}
 
   hosted-git-info@7.0.2:
     dependencies:
@@ -7988,7 +7988,7 @@ snapshots:
       cac: 7.0.0
       defu: 6.1.7
       empathic: 2.0.0
-      hookable: 6.1.0
+      hookable: 6.1.1
       import-without-cache: 0.2.5
       obug: 2.1.1
       picomatch: 4.0.4
