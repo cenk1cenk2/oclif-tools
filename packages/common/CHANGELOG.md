@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [7.0.21](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.20...@cenk1cenk2/oclif-common@7.0.21) (2026-04-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @oxc-project/runtime to ^0.128.0 ([e7506ba](https://gitlab.kilic.dev/libraries/oclif-tools/commit/e7506ba6e33c2af9ccd44fdf912a8d821b83d5b0))
+
 ## @cenk1cenk2/oclif-common [7.0.20](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.19...@cenk1cenk2/oclif-common@7.0.20) (2026-04-20)
 
 
