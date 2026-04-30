@@ -51,8 +51,8 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.10.6
-        version: 4.10.6
+        specifier: ^4.11.0
+        version: 4.11.0
       '@oclif/plugin-help':
         specifier: ^6.2.45
         version: 6.2.45
@@ -902,10 +902,6 @@ packages:
     resolution: {integrity: sha512-GXD3wy50qYbxCJ652bDrDzgMr3NFEkIS374+IgFQKkCvk9yiYcLvX2XDYr7UyQxf4wK0e+yqDYRubZ0DtOxnmQ==}
     engines: {node: ^14.18.0 || >=16.10.0, npm: '>=5.10.0'}
     hasBin: true
-
-  '@oclif/core@4.10.6':
-    resolution: {integrity: sha512-ySCOYnPKZE3KACT1V9It99hWG9b8E5MpagbRdWxPNRO3beMqmbr4SLUQoFtZ9XRtW++kks1ZVwZOdpnR8rpb9A==}
-    engines: {node: '>=18.0.0'}
 
   '@oclif/core@4.11.0':
     resolution: {integrity: sha512-nTkRMgxFlIKQIIYGvhO2JMsLSQ1aHPHblHfFgxgoBrGK8Ao/8wxc4eNOIv/+t8dMXliZd7mREVr6la4aXXXg5A==}
@@ -4975,27 +4971,6 @@ snapshots:
     dependencies:
       consola: 3.4.2
 
-  '@oclif/core@4.10.6':
-    dependencies:
-      ansi-escapes: 4.3.2
-      ansis: 3.17.0
-      clean-stack: 3.0.1
-      cli-spinners: 2.9.2
-      debug: 4.4.3(supports-color@8.1.1)
-      ejs: 3.1.10
-      get-package-type: 0.1.0
-      indent-string: 4.0.0
-      is-wsl: 2.2.0
-      lilconfig: 3.1.3
-      minimatch: 10.2.5
-      semver: 7.7.4
-      string-width: 4.2.3
-      supports-color: 8.1.1
-      tinyglobby: 0.2.16
-      widest-line: 3.1.0
-      wordwrap: 1.0.0
-      wrap-ansi: 7.0.0
-
   '@oclif/core@4.11.0':
     dependencies:
       ansi-escapes: 4.3.2
@@ -5040,7 +5015,7 @@ snapshots:
 
   '@oclif/plugin-help@6.2.45':
     dependencies:
-      '@oclif/core': 4.10.6
+      '@oclif/core': 4.11.0
 
   '@oclif/plugin-not-found@3.2.81(@types/node@24.12.2)':
     dependencies:
@@ -5053,7 +5028,7 @@ snapshots:
 
   '@oclif/plugin-plugins@5.4.62':
     dependencies:
-      '@oclif/core': 4.10.6
+      '@oclif/core': 4.11.0
       ansis: 3.17.0
       debug: 4.4.3(supports-color@8.1.1)
       npm: 11.13.0
