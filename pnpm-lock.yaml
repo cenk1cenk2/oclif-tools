@@ -191,8 +191,8 @@ importers:
         specifier: ^0.5.21
         version: 0.5.21
       yaml:
-        specifier: ^2.8.3
-        version: 2.8.3
+        specifier: ^2.8.4
+        version: 2.8.4
 
 packages:
 
@@ -1267,6 +1267,7 @@ packages:
   '@smithy/util-retry@4.3.6':
     resolution: {integrity: sha512-p6/FO1n2KxMeQyna067i0uJ6TSbb165ZhnRtCpWh4Foxqbfc6oW+XITaL8QkFJj3KFnDe2URt4gOhgU06EP9ew==}
     engines: {node: '>=18.0.0'}
+    deprecated: '@smithy/util-retry v4.3.6 contains a bug in Adaptive Retry, see https://github.com/smithy-lang/smithy-typescript/issues/1993. Upgrade to 4.3.7+'
 
   '@smithy/util-stream@4.5.25':
     resolution: {integrity: sha512-/PFpG4k8Ze8Ei+mMKj3oiPICYekthuzePZMgZbCqMiXIHHf4n2aZ4Ps0aSRShycFTGuj/J6XldmC0x0DwednIA==}
@@ -3892,6 +3893,11 @@ packages:
 
   yaml@2.8.3:
     resolution: {integrity: sha512-AvbaCLOO2Otw/lW5bmh9d/WEdcDFdQp2Z2ZUH3pX9U2ihyUY0nvLv7J6TrWowklRGPYbB/IuIMfYgxaCPg5Bpg==}
+    engines: {node: '>= 14.6'}
+    hasBin: true
+
+  yaml@2.8.4:
+    resolution: {integrity: sha512-ml/JPOj9fOQK8RNnWojA67GbZ0ApXAUlN2UQclwv2eVgTgn7O9gg9o7paZWKMp4g0H3nTLtS9LVzhkpOFIKzog==}
     engines: {node: '>= 14.6'}
     hasBin: true
 
@@ -8319,6 +8325,8 @@ snapshots:
   xdg-basedir@5.1.0: {}
 
   yaml@2.8.3: {}
+
+  yaml@2.8.4: {}
 
   yarn@1.22.22: {}
 
