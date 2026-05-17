@@ -876,16 +876,16 @@ packages:
     resolution: {integrity: sha512-fEsO0YU7ThtzHE1RGuoHxFu/OGlqxm7PCfFp+U1PS8sde4E0cDqjVDuv78+VKrr45LpC5lWOApj7pm3FNfHrVA==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-not-found@3.2.85':
-    resolution: {integrity: sha512-Si18rRKWknlvQ5anmFbQz9oKBae5/l/Npreuf05xdoNWfOV1J97Z7cpzqBlHbldmxCIiDRgmDKuCBBi4XN6ACA==}
+  '@oclif/plugin-not-found@3.2.86':
+    resolution: {integrity: sha512-BJhJSahwsYayZpo18f0fPTg8tKb9dIvydaz03NCK3eMfmcsT1MmXhXqh1KEV8J7mz0sQ6f0qFEb6BXy490/iUg==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-plugins@5.4.68':
     resolution: {integrity: sha512-+YZ5Afv9OiTsOIS3ODGJH2T8+CymruYQxRPXOCDQBZC0sjLb02S5yQ4OGKSCLBFpbbeBjo05C3IOBdxKzwF+wA==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-warn-if-update-available@3.1.64':
-    resolution: {integrity: sha512-+BauVC7jeMRs6NPvFFO1KHdSIVL10ruz6W3laKdN0i7PjSo14clmQe+DUJVTADI5Z3eYFYnsISwdDbOU/2pnYQ==}
+  '@oclif/plugin-warn-if-update-available@3.1.65':
+    resolution: {integrity: sha512-HcSJc8SeCVUBHwc063xDL0LcpdjcamAISlisSX14VDDYQayMantvtVNOo9PmciwYpXRXfAykeH1z066YkA9JvQ==}
     engines: {node: '>=18.0.0'}
 
   '@oxc-project/runtime@0.131.0':
@@ -4567,7 +4567,7 @@ snapshots:
     dependencies:
       '@oclif/core': 4.11.3
 
-  '@oclif/plugin-not-found@3.2.85(@types/node@24.12.4)':
+  '@oclif/plugin-not-found@3.2.86(@types/node@24.12.4)':
     dependencies:
       '@inquirer/prompts': 7.10.1(@types/node@24.12.4)
       '@oclif/core': 4.11.3
@@ -4592,7 +4592,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@oclif/plugin-warn-if-update-available@3.1.64':
+  '@oclif/plugin-warn-if-update-available@3.1.65':
     dependencies:
       '@oclif/core': 4.11.3
       ansis: 3.17.0
@@ -6637,8 +6637,8 @@ snapshots:
       '@inquirer/select': 2.5.0
       '@oclif/core': 4.11.3
       '@oclif/plugin-help': 6.2.49
-      '@oclif/plugin-not-found': 3.2.85(@types/node@24.12.4)
-      '@oclif/plugin-warn-if-update-available': 3.1.64
+      '@oclif/plugin-not-found': 3.2.86(@types/node@24.12.4)
+      '@oclif/plugin-warn-if-update-available': 3.1.65
       ansis: 3.17.0
       async-retry: 1.3.3
       change-case: 4.1.2
