@@ -57,6 +57,7 @@
     "@listr2/manager": "^4.2.1",
     "@oclif/core": "^4.11.3",
     "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.12.4",
     "@types/through": "^0.0.33",
     "@types/update-notifier": "^6.0.8",
     "class-transformer": "^0.5.1",
