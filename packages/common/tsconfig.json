@@ -3,15 +3,15 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "src",
-    "baseUrl": "src",
     "paths": {
-      "@commands": ["commands"],
-      "@constants": ["constants"],
-      "@interfaces": ["interfaces"],
-      "@lib": ["lib"],
-      "@lib/*": ["lib/*"],
-      "@utils": ["utils"]
-    }
+      "@commands": ["./src/commands/index.ts"],
+      "@constants": ["./src/constants/index.ts"],
+      "@interfaces": ["./src/interfaces/index.ts"],
+      "@lib": ["./src/lib/index.ts"],
+      "@lib/*": ["./src/lib/*"],
+      "@utils": ["./src/utils/index.ts"]
+    },
+    "types": ["node"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
