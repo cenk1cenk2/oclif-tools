@@ -14,8 +14,38 @@ variables:
   SEMANTIC_RELEASE_WORKSPACE: 'true'
 
 include:
-  - project: devops/pipes
-    file: /templates/node.gitlab-ci.yml
+  - project: devops/pipelines
+    ref: node@1.2.0
+    file:
+      - /node/install.gitlab-ci.yml
+      - /node/build.gitlab-ci.yml
+      - /node/lint.gitlab-ci.yml
+    inputs:
+      rules:
+        - when: always
 
-  - project: devops/pipes
-    file: /templates/semantic-release.gitlab-ci.yml
+  - project: devops/pipelines
+    ref: semantic-release@1.6.1
+    file:
+      - /semantic-release/publish.gitlab-ci.yml
+    inputs:
+      rules:
+        - if: '$CI_COMMIT_REF_NAME =~ /^(master|main|alpha|beta|rc|next)$/'
+          interruptible: true
+        - when: never
+
+install:
+  stage: install
+  extends: .node-install
+
+lint:
+  stage: build
+  extends: .node-lint
+
+build:
+  stage: build
+  extends: .node-build
+
+semantic-release:
+  stage: publish
+  extends: .semantic-release
