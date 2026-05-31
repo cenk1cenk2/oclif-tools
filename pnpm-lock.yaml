@@ -25,7 +25,7 @@ importers:
         version: 10.4.1(jiti@2.6.1)
       lint-staged:
         specifier: ^17.0.5
-        version: 17.0.5
+        version: 17.0.6
       prettier:
         specifier: ^3.8.3
         version: 3.8.3
@@ -55,10 +55,10 @@ importers:
         version: 4.11.4
       '@oclif/plugin-help':
         specifier: ^6.2.49
-        version: 6.2.49
+        version: 6.2.50
       '@oclif/plugin-plugins':
         specifier: ^5.4.69
-        version: 5.4.69
+        version: 5.4.71
       '@oxc-project/runtime':
         specifier: ^0.132.0
         version: 0.132.0
@@ -104,7 +104,7 @@ importers:
         version: 16.2.0
       lint-staged:
         specifier: ^17.0.5
-        version: 17.0.5
+        version: 17.0.6
       oclif:
         specifier: ^4.23.8
         version: 4.23.8(@types/node@24.12.4)
@@ -870,16 +870,16 @@ packages:
     resolution: {integrity: sha512-URwiQ5ALx/sJ2iH4vzXEd+H4K6NAI7LRs6Jag3hrgKEpGmaE6alfRC8qjO4GIgb6A3ACaJumqP9twi/M9ywdHQ==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-help@6.2.49':
-    resolution: {integrity: sha512-fEsO0YU7ThtzHE1RGuoHxFu/OGlqxm7PCfFp+U1PS8sde4E0cDqjVDuv78+VKrr45LpC5lWOApj7pm3FNfHrVA==}
+  '@oclif/plugin-help@6.2.50':
+    resolution: {integrity: sha512-rNCG4hUm+kPXFbhJfAVk/fZ3OdWJYwBDASlyX8CqOLP0MssjIGl7iEgfZz7TMuZFa+KucupKU5NRSc0KWfPTQA==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-not-found@3.2.86':
     resolution: {integrity: sha512-BJhJSahwsYayZpo18f0fPTg8tKb9dIvydaz03NCK3eMfmcsT1MmXhXqh1KEV8J7mz0sQ6f0qFEb6BXy490/iUg==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.4.69':
-    resolution: {integrity: sha512-cPpdnLDl0iNWEMcAsSgxdz4v/clERvu3xnWgmwBHImYjts/uq75XGYbkQG603e9wYZoinp3clB7U1/GLNxy5MA==}
+  '@oclif/plugin-plugins@5.4.71':
+    resolution: {integrity: sha512-rEeMZunSwkL5QRIFYF2JLTSCb1iw/wDXE0EADSar/JDyWAI+hUR9xFlJ1kH4Ngc7ccu+SM7iNDVAmvqabo7i6w==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.1.65':
@@ -2378,8 +2378,8 @@ packages:
   linkify-it@5.0.1:
     resolution: {integrity: sha512-wVoTjP4Q6R0NW5hiZkVJaFZPWgtXfoGF+6LucL3/FtiNjmcHhYjEr5f1Kqjirc1nBW07J/ZuRFumqr2oqccEWg==}
 
-  lint-staged@17.0.5:
-    resolution: {integrity: sha512-d12yC+/e8RhBjZtaxZn71FyrgU/P5e+uAPifhCLwdosQZP/zamSdKRWDC30ocVIbzDKiFG1McHc/LUgB92GIPw==}
+  lint-staged@17.0.6:
+    resolution: {integrity: sha512-xTowloQX5tfs9TC6SUHnKuBSx/TUx+9w39zRTbVrB70DxUJZh3OZWnOa0LbejxVX9adYuioGJoP4dpQ04QHehg==}
     engines: {node: '>=22.22.1'}
     hasBin: true
 
@@ -3073,12 +3073,16 @@ packages:
   tiny-jsonc@1.0.2:
     resolution: {integrity: sha512-f5QDAfLq6zIVSyCZQZhhyl0QS6MvAyTxgz4X4x3+EoCktNWEYJ6PeoEA97fyb98njpBNNi88ybpD7m+BDFXaCw==}
 
+  tinyexec@1.2.2:
+    resolution: {integrity: sha512-M/Q0B2cp4K7kynaT/vnED1j8TlLY+Pp7C6Wl2bl/7u/F0mUVwdyOpwomQb8JpYLitHUssAJRmLZdMCGsrx7i+g==}
+    engines: {node: '>=18'}
+
   tinyexec@1.2.3:
     resolution: {integrity: sha512-g62dB+w1/OEFnPvmX0yd/HnetYITOL+1nJW7kitOycOeAvmbWC/nu0fwmmQ/kupNojqExzyC/T++pST/jRJ2mQ==}
     engines: {node: '>=18'}
 
-  tinyglobby@0.2.16:
-    resolution: {integrity: sha512-pn99VhoACYR8nFHhxqix+uvsbXineAasWm5ojXoN8xEwK5Kd3/TrhNn1wByuD52UxWRLy8pu+kRMniEi6Eq9Zg==}
+  tinyglobby@0.2.17:
+    resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
 
   tmp@0.0.33:
@@ -4231,12 +4235,12 @@ snapshots:
       semver: 7.8.1
       string-width: 4.2.3
       supports-color: 8.1.1
-      tinyglobby: 0.2.16
+      tinyglobby: 0.2.17
       widest-line: 3.1.0
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
-  '@oclif/plugin-help@6.2.49':
+  '@oclif/plugin-help@6.2.50':
     dependencies:
       '@oclif/core': 4.11.4
 
@@ -4249,7 +4253,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@oclif/plugin-plugins@5.4.69':
+  '@oclif/plugin-plugins@5.4.71':
     dependencies:
       '@oclif/core': 4.11.4
       ansis: 3.17.0
@@ -4592,7 +4596,7 @@ snapshots:
       debug: 4.4.3(supports-color@8.1.1)
       minimatch: 10.2.5
       semver: 7.8.1
-      tinyglobby: 0.2.16
+      tinyglobby: 0.2.17
       ts-api-utils: 2.5.0(typescript@6.0.3)
       typescript: 6.0.3
     transitivePeerDependencies:
@@ -5738,12 +5742,12 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  lint-staged@17.0.5:
+  lint-staged@17.0.6:
     dependencies:
       listr2: 10.2.1
       picomatch: 4.0.4
       string-argv: 0.3.2
-      tinyexec: 1.2.3
+      tinyexec: 1.2.2
     optionalDependencies:
       yaml: 2.9.0
 
@@ -5920,7 +5924,7 @@ snapshots:
       '@inquirer/input': 2.3.0
       '@inquirer/select': 2.5.0
       '@oclif/core': 4.11.4
-      '@oclif/plugin-help': 6.2.49
+      '@oclif/plugin-help': 6.2.50
       '@oclif/plugin-not-found': 3.2.86(@types/node@24.12.4)
       '@oclif/plugin-warn-if-update-available': 3.1.65
       ansis: 3.17.0
@@ -6255,7 +6259,7 @@ snapshots:
       is-plain-obj: 4.1.0
       semver: 7.8.1
       sort-object-keys: 1.1.3
-      tinyglobby: 0.2.16
+      tinyglobby: 0.2.17
 
   source-map-support@0.5.21:
     dependencies:
@@ -6359,9 +6363,11 @@ snapshots:
 
   tiny-jsonc@1.0.2: {}
 
+  tinyexec@1.2.2: {}
+
   tinyexec@1.2.3: {}
 
-  tinyglobby@0.2.16:
+  tinyglobby@0.2.17:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.4)
       picomatch: 4.0.4
@@ -6426,7 +6432,7 @@ snapshots:
       rolldown-plugin-dts: 0.25.2(rolldown@1.0.3)(typescript@6.0.3)
       semver: 7.8.1
       tinyexec: 1.2.3
-      tinyglobby: 0.2.16
+      tinyglobby: 0.2.17
       tree-kill: 1.2.2
       unconfig-core: 7.5.0
     optionalDependencies:
