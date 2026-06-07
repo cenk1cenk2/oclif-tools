@@ -58,7 +58,7 @@ importers:
         version: 6.2.50
       '@oclif/plugin-plugins':
         specifier: ^5.4.71
-        version: 5.4.72
+        version: 5.4.73
       '@oxc-project/runtime':
         specifier: ^0.133.0
         version: 0.133.0
@@ -862,8 +862,8 @@ packages:
     resolution: {integrity: sha512-lKyZ4INrx5vB14HNWIkM6Vla/4rWVhOA2U7uCAj6gEBg36/KVmwYXxpZ9ckzZS0+jtLE84TVqS8NCYEhQiQojw==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.4.72':
-    resolution: {integrity: sha512-eZ9BWmKzO8BomPLbAcfYHUSm8gxgxYvyF/yeDIycDfxvY/hHA0ibqdQ6UBNi7lzuVOoWi4VmkY3wnvdXX3Fo1g==}
+  '@oclif/plugin-plugins@5.4.73':
+    resolution: {integrity: sha512-Lppok4cxe8pYxHqS7MWlaIGDLR8TH9fQ4n87MmwA1lo8k6HABe8mJeDNA8ZzeCY7UcGmMifJfy3mEHvZryDv5w==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.1.65':
@@ -2349,8 +2349,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  libphonenumber-js@1.13.5:
-    resolution: {integrity: sha512-7/kRezHmQlMfO6pmvt34orO/g3j1C47k8FCBXFgj/mklTLwQdBca1LkhDK6RM8UyM6JqHFAIikMdkKkyfQy39A==}
+  libphonenumber-js@1.13.6:
+    resolution: {integrity: sha512-NdB6O6QvlGMCoG003m0YIKG2+Xw7DjmCZhmc1RH+K6HncADUbRf8TZeLegxBBN1VFyPHcNpPTKpIhYLXzJVy1Q==}
 
   lilconfig@3.1.3:
     resolution: {integrity: sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==}
@@ -4202,7 +4202,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@oclif/plugin-plugins@5.4.72':
+  '@oclif/plugin-plugins@5.4.73':
     dependencies:
       '@oclif/core': 4.11.4
       ansis: 3.17.0
@@ -4850,7 +4850,7 @@ snapshots:
   class-validator@0.15.1:
     dependencies:
       '@types/validator': 13.15.10
-      libphonenumber-js: 1.13.5
+      libphonenumber-js: 1.13.6
       validator: 13.15.35
 
   clean-stack@3.0.1:
@@ -5680,7 +5680,7 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  libphonenumber-js@1.13.5: {}
+  libphonenumber-js@1.13.6: {}
 
   lilconfig@3.1.3: {}
 
