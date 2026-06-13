@@ -57,7 +57,7 @@ importers:
         specifier: ^6.2.50
         version: 6.2.50
       '@oclif/plugin-plugins':
-        specifier: ^5.4.72
+        specifier: ^5.4.73
         version: 5.4.73
       '@oxc-project/runtime':
         specifier: ^0.134.0
