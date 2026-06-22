@@ -51,17 +51,17 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.11.4
+        specifier: ^4.11.6
         version: 4.11.9
       '@oclif/plugin-help':
         specifier: ^6.2.50
         version: 6.2.52
       '@oclif/plugin-plugins':
-        specifier: ^5.4.73
+        specifier: ^5.4.74
         version: 5.4.78
       '@oxc-project/runtime':
-        specifier: ^0.135.0
-        version: 0.135.0
+        specifier: ^0.136.0
+        version: 0.136.0
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -133,14 +133,14 @@ importers:
   packages/common:
     dependencies:
       '@nestjs/common':
-        specifier: ^11.1.26
+        specifier: ^11.1.27
         version: 11.1.27(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core':
-        specifier: ^11.1.26
+        specifier: ^11.1.27
         version: 11.1.27(@nestjs/common@11.1.27(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@oxc-project/runtime':
-        specifier: ^0.135.0
-        version: 0.135.0
+        specifier: ^0.136.0
+        version: 0.136.0
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -874,8 +874,8 @@ packages:
     resolution: {integrity: sha512-TDo9Ea9y6eErQzz4TN+P3woU7072LADylQzkVYyZPM1KRB/hAbcR8No/Hu72SYlyLSbtnQPFG9nKHDbe6I6xoA==}
     engines: {node: '>=18.0.0'}
 
-  '@oxc-project/runtime@0.135.0':
-    resolution: {integrity: sha512-8yGQ16YWfPbu7AZnShbHdx+cJ/3Xn/k3OrwZVykI+V4RKe9pJqJr5r70Z1wVB+vjye6QaOFCL3N5iyrBKL4gNQ==}
+  '@oxc-project/runtime@0.136.0':
+    resolution: {integrity: sha512-u0EutjK5y6NHJkl5jNJCs8zbup1z6A/UEWgajrYzqcEU3UX05HjqybhMQOLhSM0eKGISyM6WfSMMuklYSmH2wA==}
     engines: {node: ^20.19.0 || >=22.12.0}
 
   '@oxc-project/types@0.137.0':
@@ -4203,7 +4203,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@oxc-project/runtime@0.135.0': {}
+  '@oxc-project/runtime@0.136.0': {}
 
   '@oxc-project/types@0.137.0': {}
 
