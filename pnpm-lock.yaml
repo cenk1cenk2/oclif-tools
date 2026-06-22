@@ -21,7 +21,7 @@ importers:
         specifier: ^4.3.2
         version: 4.3.2(@types/node@24.13.2)(typescript@6.0.3)
       eslint:
-        specifier: ^10.4.1
+        specifier: ^10.5.0
         version: 10.5.0(jiti@2.6.1)
       lint-staged:
         specifier: ^17.0.7
@@ -91,7 +91,7 @@ importers:
         specifier: ^4.3.2
         version: 4.3.2(@types/node@24.13.2)(typescript@6.0.3)
       eslint:
-        specifier: ^10.4.1
+        specifier: ^10.5.0
         version: 10.5.0(jiti@2.6.1)
       execa:
         specifier: ^9.6.1
