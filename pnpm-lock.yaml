@@ -164,7 +164,7 @@ importers:
         specifier: ^4.2.1
         version: 4.2.1(listr2@10.2.1)
       '@oclif/core':
-        specifier: ^4.11.6
+        specifier: ^4.11.7
         version: 4.11.10
       '@types/fs-extra':
         specifier: ^11.0.4
