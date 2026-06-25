@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [7.0.28](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.27...@cenk1cenk2/oclif-common@7.0.28) (2026-06-25)
+
+
+### Bug Fixes
+
+* **deps:** update node all minor dependency updates ([1848fa6](https://gitlab.kilic.dev/libraries/oclif-tools/commit/1848fa681b8d47a85676daaf83e47ca370676210))
+
 ## @cenk1cenk2/oclif-common [7.0.27](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.26...@cenk1cenk2/oclif-common@7.0.27) (2026-06-23)
 
 
