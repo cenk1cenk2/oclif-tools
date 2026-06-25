@@ -60,8 +60,8 @@ importers:
         specifier: ^5.4.74
         version: 5.4.78
       '@oxc-project/runtime':
-        specifier: ^0.136.0
-        version: 0.136.0
+        specifier: ^0.137.0
+        version: 0.137.0
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -69,8 +69,8 @@ importers:
         specifier: ^0.15.1
         version: 0.15.1
       listr2:
-        specifier: ^10.2.1
-        version: 10.2.1
+        specifier: ^10.2.2
+        version: 10.2.2
     devDependencies:
       '@cenk1cenk2/cz-cc':
         specifier: ^2.2.19
@@ -139,8 +139,8 @@ importers:
         specifier: ^11.1.27
         version: 11.1.27(@nestjs/common@11.1.27(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@oxc-project/runtime':
-        specifier: ^0.136.0
-        version: 0.136.0
+        specifier: ^0.137.0
+        version: 0.137.0
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -161,8 +161,8 @@ importers:
         version: 3.19.0
     devDependencies:
       '@listr2/manager':
-        specifier: ^4.2.1
-        version: 4.2.1(listr2@10.2.1)
+        specifier: ^4.2.2
+        version: 4.2.2(listr2@10.2.2)
       '@oclif/core':
         specifier: ^4.11.7
         version: 4.11.10
@@ -188,8 +188,8 @@ importers:
         specifier: ^11.3.5
         version: 11.3.5
       listr2:
-        specifier: ^10.2.1
-        version: 10.2.1
+        specifier: ^10.2.2
+        version: 10.2.2
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -785,11 +785,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@listr2/manager@4.2.1':
-    resolution: {integrity: sha512-spvfs3v7q4gGm9rbklrpWNncNrNz2JimAHNbYVJQdMDQYJvIrbMX98mN5GzeHovjny9Pq5WoVnPtxaxfZeCx0A==}
+  '@listr2/manager@4.2.2':
+    resolution: {integrity: sha512-2qXhBJOk3dMnoFJx7bAWo0MySaMRJ4Ckt77UtUcIIEQiibIytch/eIy5sV6z4HBpdOf4KhAT2et3S2U7PFPAOA==}
     engines: {node: '>=22.13.0'}
     peerDependencies:
-      listr2: 10.2.1
+      listr2: 10.2.2
 
   '@listr2/prompt-adapter-inquirer@4.2.4':
     resolution: {integrity: sha512-/KRI2DMD7JGSYaREF0Ygl7AefJ/2ase4Gc5cBiKqT5l4tFjsSJfhFGcc5nSkgl0Sp9LkCQNzl/cqbVJYP2L3dw==}
@@ -871,8 +871,8 @@ packages:
     resolution: {integrity: sha512-TDo9Ea9y6eErQzz4TN+P3woU7072LADylQzkVYyZPM1KRB/hAbcR8No/Hu72SYlyLSbtnQPFG9nKHDbe6I6xoA==}
     engines: {node: '>=18.0.0'}
 
-  '@oxc-project/runtime@0.136.0':
-    resolution: {integrity: sha512-u0EutjK5y6NHJkl5jNJCs8zbup1z6A/UEWgajrYzqcEU3UX05HjqybhMQOLhSM0eKGISyM6WfSMMuklYSmH2wA==}
+  '@oxc-project/runtime@0.137.0':
+    resolution: {integrity: sha512-eg4nbD+t3awY/gxhcc5M5IX556O6q17mGJKvl/brL86uDZn41ZwrVO6MEAMJVNf3Q1mhhoIOzNxbNE70UUFK3Q==}
     engines: {node: ^20.19.0 || >=22.12.0}
 
   '@oxc-project/types@0.137.0':
@@ -2330,6 +2330,10 @@ packages:
 
   listr2@10.2.1:
     resolution: {integrity: sha512-7I5knELsJKTUjXG+A6BkKAiGkW1i25fNa/xlUl9hFtk15WbE9jndA89xu5FzQKrY5llajE1hfZZFMILXkDHk/Q==}
+    engines: {node: '>=22.13.0'}
+
+  listr2@10.2.2:
+    resolution: {integrity: sha512-JtNtbZj8q5BnDMR7trpwvwk3RIrANtIVzEUm8w7amp6xelLgyuq+4WZoTH913XaQAoH/cNdYhaNzBPA2U3xbDw==}
     engines: {node: '>=22.13.0'}
 
   load-esm@1.0.3:
@@ -4046,9 +4050,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@listr2/manager@4.2.1(listr2@10.2.1)':
+  '@listr2/manager@4.2.2(listr2@10.2.2)':
     dependencies:
-      listr2: 10.2.1
+      listr2: 10.2.2
 
   '@listr2/prompt-adapter-inquirer@4.2.4(@inquirer/prompts@8.5.2(@types/node@24.13.2))(@types/node@24.13.2)(listr2@10.2.1)':
     dependencies:
@@ -4173,7 +4177,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@oxc-project/runtime@0.136.0': {}
+  '@oxc-project/runtime@0.137.0': {}
 
   '@oxc-project/types@0.137.0': {}
 
@@ -5610,6 +5614,14 @@ snapshots:
       yaml: 2.9.0
 
   listr2@10.2.1:
+    dependencies:
+      cli-truncate: 5.2.0
+      eventemitter3: 5.0.4
+      log-update: 6.1.0
+      rfdc: 1.4.1
+      wrap-ansi: 10.0.0
+
+  listr2@10.2.2:
     dependencies:
       cli-truncate: 5.2.0
       eventemitter3: 5.0.4
