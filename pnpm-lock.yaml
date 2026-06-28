@@ -51,13 +51,13 @@ importers:
         specifier: workspace:*
         version: link:../packages/common
       '@oclif/core':
-        specifier: ^4.11.7
+        specifier: ^4.11.9
         version: 4.11.11
       '@oclif/plugin-help':
         specifier: ^6.2.52
         version: 6.2.52
       '@oclif/plugin-plugins':
-        specifier: ^5.4.76
+        specifier: ^5.4.78
         version: 5.4.79
       '@oxc-project/runtime':
         specifier: ^0.137.0
