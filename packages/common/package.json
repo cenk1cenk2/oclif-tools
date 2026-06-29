@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@listr2/manager": "^4.2.2",
-    "@oclif/core": "^4.11.9",
+    "@oclif/core": "^4.11.10",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.13.2",
     "@types/through": "^0.0.33",
