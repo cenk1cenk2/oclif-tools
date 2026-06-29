@@ -106,7 +106,7 @@ importers:
         specifier: ^17.0.8
         version: 17.0.8
       oclif:
-        specifier: ^4.23.17
+        specifier: ^4.23.18
         version: 4.23.21(@types/node@24.13.2)
       prettier:
         specifier: ^3.8.4
@@ -164,7 +164,7 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2(listr2@10.2.2)
       '@oclif/core':
-        specifier: ^4.11.9
+        specifier: ^4.11.10
         version: 4.11.11
       '@types/fs-extra':
         specifier: ^11.0.4
