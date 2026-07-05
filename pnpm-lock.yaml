@@ -58,7 +58,7 @@ importers:
         version: 6.2.53
       '@oclif/plugin-plugins':
         specifier: ^5.4.79
-        version: 5.4.82
+        version: 5.4.84
       '@oxc-project/runtime':
         specifier: ^0.137.0
         version: 0.137.0
@@ -832,8 +832,8 @@ packages:
     resolution: {integrity: sha512-5YTKSpuV77910/iGnGsj0fr9kOazCy/h1brki1CocbfawdvaVPedcwCH25wMcdRfo8mFD656bG9/kdki/+Wb9A==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-plugins@5.4.82':
-    resolution: {integrity: sha512-KRF2M+UbgvH88O5R61KwuLfPWtEUsmjQC6px+UbNElUMd8kUbiZhR7fwgLD2FCJv6h1JjQF9eoP6Bzp7ZlKN6Q==}
+  '@oclif/plugin-plugins@5.4.84':
+    resolution: {integrity: sha512-MPWLirqUsclzOFzQ0LzF+5ZxZX7KaMKeMdmaPEGGNWHEKMXJxETDSj8EYQ0k38bJc7mqPxeg8fKGoSRj05n+Ag==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-warn-if-update-available@3.1.68':
@@ -1570,8 +1570,8 @@ packages:
   conventional-commit-types@3.0.0:
     resolution: {integrity: sha512-SmmCYnOniSsAa9GqWOeLqc179lfr5TRu5b4QFDkbsrJ5TZjPJx85wtOr3zn+1dbeNiXDKGPbZ72IKbPhLXh/Lg==}
 
-  conventional-commits-parser@7.0.0:
-    resolution: {integrity: sha512-dZe/p+FgGQLNJFqaCgNdl8j6a7gI8xuaN30Wy5g7nvyK3jqOpNUEUZ3pGJ5D68h89uRh038FtkeOk/bnGmYkmg==}
+  conventional-commits-parser@7.0.1:
+    resolution: {integrity: sha512-6VtskFpPsNkGVk/TY2RnV/MEdKfvCPBtQZN9x8jh9+k5RWBQ+tiaWn5UFCzTr0Dd88iKx7xghxbjBRp5uIzp3g==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -3529,7 +3529,7 @@ snapshots:
 
   '@commitlint/types@21.2.0':
     dependencies:
-      conventional-commits-parser: 7.0.0
+      conventional-commits-parser: 7.0.1
       picocolors: 1.1.1
     optional: true
 
@@ -4037,7 +4037,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@oclif/plugin-plugins@5.4.82':
+  '@oclif/plugin-plugins@5.4.84':
     dependencies:
       '@oclif/core': 4.11.14
       ansis: 3.17.0
@@ -4769,7 +4769,7 @@ snapshots:
 
   conventional-commit-types@3.0.0: {}
 
-  conventional-commits-parser@7.0.0:
+  conventional-commits-parser@7.0.1:
     dependencies:
       '@simple-libs/stream-utils': 2.0.0
       meow: 14.1.0
