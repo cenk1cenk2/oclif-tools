@@ -54,10 +54,10 @@ importers:
         specifier: ^4.11.11
         version: 4.11.14
       '@oclif/plugin-help':
-        specifier: ^6.2.52
+        specifier: ^6.2.53
         version: 6.2.53
       '@oclif/plugin-plugins':
-        specifier: ^5.4.79
+        specifier: ^5.4.80
         version: 5.4.84
       '@oxc-project/runtime':
         specifier: ^0.137.0
