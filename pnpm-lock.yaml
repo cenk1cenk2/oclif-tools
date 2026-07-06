@@ -97,7 +97,7 @@ importers:
         specifier: ^9.6.1
         version: 9.6.1
       fs-extra:
-        specifier: ^11.3.5
+        specifier: ^11.3.6
         version: 11.3.6
       globby:
         specifier: ^16.2.0
@@ -185,7 +185,7 @@ importers:
         specifier: ^0.15.1
         version: 0.15.1
       fs-extra:
-        specifier: ^11.3.5
+        specifier: ^11.3.6
         version: 11.3.6
       listr2:
         specifier: ^10.2.2
