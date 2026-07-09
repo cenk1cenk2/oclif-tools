@@ -84,7 +84,7 @@
     "listr2": "^10.2.2"
   },
   "devDependencies": {
-    "@cenk1cenk2/cz-cc": "^2.2.21",
+    "@cenk1cenk2/cz-cc": "^2.2.22",
     "@cenk1cenk2/eslint-config": "^3.2.6",
     "@tsconfig/node24": "^24.0.4",
     "@types/fs-extra": "^11.0.4",
