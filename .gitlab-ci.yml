@@ -29,21 +29,12 @@ include:
 install:
   stage: install
   extends: .node-install
-  rules:
-    - when: on_success
-
 lint:
   stage: build
   extends: .node-lint
-  rules:
-    - when: on_success
-
 build:
   stage: build
   extends: .node-build
-  rules:
-    - when: on_success
-
 semantic-release:
   stage: publish
   extends: .semantic-release
