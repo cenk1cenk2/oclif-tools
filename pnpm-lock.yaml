@@ -106,7 +106,7 @@ importers:
         specifier: ^17.0.8
         version: 17.0.8
       oclif:
-        specifier: ^4.23.26
+        specifier: ^4.23.27
         version: 4.23.27(@types/node@24.13.3)
       prettier:
         specifier: ^3.9.4
