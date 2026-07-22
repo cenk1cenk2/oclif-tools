@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [7.0.32](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.31...@cenk1cenk2/oclif-common@7.0.32) (2026-07-22)
+
+
+### Bug Fixes
+
+* **deps:** bump listr2 to v11.0.0 ([9c823e3](https://gitlab.kilic.dev/libraries/oclif-tools/commit/9c823e37dfe2f50ab2920557105f15afb4cd5ca3))
+
 ## @cenk1cenk2/oclif-common [7.0.31](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.30...@cenk1cenk2/oclif-common@7.0.31) (2026-07-16)
 
 
