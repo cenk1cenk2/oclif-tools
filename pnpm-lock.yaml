@@ -100,7 +100,7 @@ importers:
         specifier: ^11.3.6
         version: 11.3.6
       globby:
-        specifier: ^16.2.1
+        specifier: ^16.2.2
         version: 16.2.2
       lint-staged:
         specifier: ^17.0.8
