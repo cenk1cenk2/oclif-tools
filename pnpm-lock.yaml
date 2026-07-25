@@ -24,7 +24,7 @@ importers:
         specifier: ^10.7.0
         version: 10.7.0(jiti@2.6.1)
       lint-staged:
-        specifier: ^17.0.8
+        specifier: ^17.1.0
         version: 17.2.0
       prettier:
         specifier: ^3.9.5
@@ -103,7 +103,7 @@ importers:
         specifier: ^16.2.2
         version: 16.2.2
       lint-staged:
-        specifier: ^17.0.8
+        specifier: ^17.1.0
         version: 17.2.0
       oclif:
         specifier: ^4.23.27
