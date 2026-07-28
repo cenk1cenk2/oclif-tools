@@ -27,7 +27,7 @@ importers:
         specifier: ^17.1.0
         version: 17.2.0
       prettier:
-        specifier: ^3.9.5
+        specifier: ^3.9.6
         version: 3.9.6
       simple-git-hooks:
         specifier: ^2.13.1
@@ -109,7 +109,7 @@ importers:
         specifier: ^4.23.28
         version: 4.23.29(@types/node@24.13.3)
       prettier:
-        specifier: ^3.9.5
+        specifier: ^3.9.6
         version: 3.9.6
       rimraf:
         specifier: ^6.1.3
