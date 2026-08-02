@@ -54,7 +54,7 @@ importers:
         specifier: ^4.13.0
         version: 4.13.2
       '@oclif/plugin-help':
-        specifier: ^6.2.53
+        specifier: ^6.2.55
         version: 6.2.55
       '@oclif/plugin-plugins':
         specifier: ^5.4.86
