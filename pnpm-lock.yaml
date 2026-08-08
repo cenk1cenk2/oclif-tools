@@ -54,8 +54,8 @@ importers:
         specifier: ^4.13.2
         version: 4.13.2
       '@oclif/plugin-help':
-        specifier: ^6.2.55
-        version: 6.2.55
+        specifier: ^6.2.56
+        version: 6.2.56
       '@oclif/plugin-plugins':
         specifier: ^5.4.86
         version: 5.4.86
@@ -214,6 +214,9 @@ packages:
   '@aws-sdk/core@3.977.1':
     resolution: {integrity: sha512-KVtQRtc00ES/y+Sc3vYXeP6pCIcNlBJCZOwvqSy8ZpVGmbM5+IG+AfhuTKQ2oXmIVqZJewaGMMpzPkywC6xg0w==}
     engines: {node: '>=20.0.0'}
+    deprecated: |-
+      Deprecated due to Document number parsing bug in JSON, see
+        https://github.com/aws/aws-sdk-js-v3/issues/8246. Newer version available.
 
   '@aws-sdk/credential-provider-env@3.972.62':
     resolution: {integrity: sha512-BkDrk2cNjed31IKin/Oksb2ziF+gfuyRskFVuT4EU9Mep7M8Y/d8DJG4+anHme4Vuse7CwaEscwEfGyR6mzBhQ==}
@@ -797,8 +800,8 @@ packages:
     resolution: {integrity: sha512-YWQs0JvESCliWopKtCZqPLgEB1e3oqR+KYecMReseYWbo7E73Rz2tFwQDFQtAp48VLMiAsiTPKKQaZAo+ghzLw==}
     engines: {node: '>=18.0.0'}
 
-  '@oclif/plugin-help@6.2.55':
-    resolution: {integrity: sha512-IamFqLPoD8KTZbGSAu24EFe2kNibMrL/WA8+4EvnbdkYqZGUcizVqeXUIxzns3SES99wgqOtsK3DtLB3V3kIJQ==}
+  '@oclif/plugin-help@6.2.56':
+    resolution: {integrity: sha512-0LkCjFGRGY7AaZb5p8gDcSPNkFrn+vNLKvGe1f7j/Z6U9Uy1cV6R2eWVsjuZTGQ3RvBvjquFPwLy1jTgR5l87w==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-not-found@3.2.90':
@@ -4077,7 +4080,7 @@ snapshots:
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
 
-  '@oclif/plugin-help@6.2.55':
+  '@oclif/plugin-help@6.2.56':
     dependencies:
       '@oclif/core': 4.13.2
 
@@ -5756,7 +5759,7 @@ snapshots:
       '@inquirer/input': 2.3.0
       '@inquirer/select': 2.5.0
       '@oclif/core': 4.13.2
-      '@oclif/plugin-help': 6.2.55
+      '@oclif/plugin-help': 6.2.56
       '@oclif/plugin-not-found': 3.2.90(@types/node@24.13.3)
       '@oclif/plugin-warn-if-update-available': 3.1.70
       ansis: 3.17.0
