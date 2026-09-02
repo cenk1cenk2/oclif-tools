@@ -69,7 +69,7 @@ importers:
         specifier: ^0.15.1
         version: 0.15.1
       listr2:
-        specifier: ^11.0.1
+        specifier: ^11.1.0
         version: 11.1.0
     devDependencies:
       '@cenk1cenk2/cz-cc':
