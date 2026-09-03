@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [7.0.43](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.42...@cenk1cenk2/oclif-common@7.0.43) (2026-09-03)
+
+
+### Bug Fixes
+
+* **deps:** update nest monorepo to v12 ([fc961c6](https://gitlab.kilic.dev/libraries/oclif-tools/commit/fc961c67672b466c03566d14ac700f6d3cf8e147))
+
 ## @cenk1cenk2/oclif-common [7.0.42](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.41...@cenk1cenk2/oclif-common@7.0.42) (2026-09-01)
 
 
