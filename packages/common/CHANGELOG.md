@@ -1,3 +1,10 @@
+## @cenk1cenk2/oclif-common [7.0.45](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.44...@cenk1cenk2/oclif-common@7.0.45) (2026-09-04)
+
+
+### Bug Fixes
+
+* **docs:** add package readme for oclif-common ([fdc9922](https://gitlab.kilic.dev/libraries/oclif-tools/commit/fdc99229011d26c0265d46c8b6b624736507ee75))
+
 ## @cenk1cenk2/oclif-common [7.0.44](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.43...@cenk1cenk2/oclif-common@7.0.44) (2026-09-04)
 
 
