@@ -1,3 +1,10 @@
+# @cenk1cenk2/oclif-common [7.1.0](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.45...@cenk1cenk2/oclif-common@7.1.0) (2026-09-05)
+
+
+### Features
+
+* **common:** move @nestjs/* to peerDependencies (K-1280) ([96e1916](https://gitlab.kilic.dev/libraries/oclif-tools/commit/96e19165ed6495b8e87f80574bb68f79698315b0))
+
 ## @cenk1cenk2/oclif-common [7.0.45](https://gitlab.kilic.dev/libraries/oclif-tools/compare/@cenk1cenk2/oclif-common@7.0.44...@cenk1cenk2/oclif-common@7.0.45) (2026-09-04)
 
 
