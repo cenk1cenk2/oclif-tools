@@ -1,4 +1,3 @@
-version: '3.7'
 services:
   oclif:
     image: cenk1cenk2/node-fnm:latest
