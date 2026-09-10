@@ -2643,8 +2643,8 @@ packages:
     resolution: {integrity: sha512-Y6tg5rHfsefSkfKujv2SwHulInROy/rCL5F4w0QOWxut8AnxYxf0YmNhTh95Zfyxpsudo66uqkux0ACFnyMSgQ==}
     engines: {node: '>= 16'}
 
-  obug@2.1.4:
-    resolution: {integrity: sha512-4a+OsYv9UktOJKE+l1A4OufDgdRF9PifWj+tJnHURo/P+WOxpG4GzUFL9qCalmWauao6ogiG+QvnCovwPoyAWA==}
+  obug@2.2.0:
+    resolution: {integrity: sha512-DTPFAXAAdIRLFcFfIszRGvMSOvCK1Ghp7AnQfeVK8jc+olCr7Bk1SjHgRmMDeWNFE0rdo3rmx+I0RSjhPUDSWQ==}
     engines: {node: '>=12.20.0'}
 
   oclif@5.0.1:
@@ -5820,7 +5820,7 @@ snapshots:
 
   object-treeify@4.0.1: {}
 
-  obug@2.1.4: {}
+  obug@2.2.0: {}
 
   oclif@5.0.1(@types/node@24.13.3):
     dependencies:
@@ -6065,7 +6065,7 @@ snapshots:
     dependencies:
       dts-resolver: 3.0.0
       get-tsconfig: 5.0.0-beta.6
-      obug: 2.1.4
+      obug: 2.2.0
       rolldown: 1.2.7
       yuku-ast: 0.9.5
       yuku-codegen: 0.9.5
@@ -6300,7 +6300,7 @@ snapshots:
       empathic: 2.0.1
       hookable: 6.1.1
       import-without-cache: 0.4.0
-      obug: 2.1.4
+      obug: 2.2.0
       picomatch: 4.0.7
       rolldown: 1.2.7
       rolldown-plugin-dts: 0.28.5(rolldown@1.2.7)(typescript@6.0.3)
