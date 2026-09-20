@@ -57,8 +57,8 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0
       '@oclif/plugin-plugins':
-        specifier: ^6.0.0
-        version: 6.0.1
+        specifier: ^7.0.0
+        version: 7.0.0
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -810,8 +810,8 @@ packages:
     resolution: {integrity: sha512-67I+eJKTmDkY8hJiuaA7Ir+Ba0tUZxrXsq3WnnGOywn3Gi6++9Q+zaWmbOImy1U25XTSIAm8kJhaTl57Xg57XQ==}
     engines: {node: '>=22.0.0'}
 
-  '@oclif/plugin-plugins@6.0.1':
-    resolution: {integrity: sha512-4AHvNMsqTN4C+JVsIbNYhzEk+PA6lzIyj0o1W6WA6+lXEmSSio2D9HVhDIRQ9bTnYZ8qEkNHCfkS+MwFcjeLFw==}
+  '@oclif/plugin-plugins@7.0.0':
+    resolution: {integrity: sha512-bt1klVkaPMeLvLRYxVwqL9FhnCvqV2x5bRPDyvofVAR07joNGImWge6w3h1q4RfJzHNbyXdSfidz57zu9hjbRA==}
     engines: {node: '>=22.0.0'}
 
   '@oclif/plugin-warn-if-update-available@4.0.0':
@@ -4137,7 +4137,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@oclif/plugin-plugins@6.0.1':
+  '@oclif/plugin-plugins@7.0.0':
     dependencies:
       '@oclif/core': 5.0.0
       ansis: 3.17.0
