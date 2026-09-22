@@ -1,19 +1,26 @@
 amends "package://github.com/jdx/hk/releases/download/v2.0.1/hk@2.0.1#/Config.pkl"
 import "package://github.com/jdx/hk/releases/download/v2.0.1/hk@2.0.1#/Builtins.pkl"
 
-// Monorepo: the old setup had no root lint-staged config and carried identical
-// per-package blocks in `packages/common` and `example`. They are declared here
-// once, at the root, so every workspace is covered by the same rules.
+// Monorepo: every workspace keeps its own `hk.pkl`, mirroring the per-package
+// `lint-staged` blocks that used to live in `packages/common` and `example`.
+// hk merges them in scoped to their directory, so their globs only ever match
+// their own files and their steps are reported as `<dir>:<step>`.
+subprojects = List("packages/*", "example")
+
 hooks {
   ["pre-commit"] {
     fix = true
+    // lint-staged parity: unstaged hunks of partially staged files are hidden
+    // while the fix steps run and restored afterwards.
+    stash = "git"
     steps {
+      // Root-level `*.json`/`*.md` had no `lint-staged` block of their own
+      // before; formatting them too is a deliberate addition and stays. The
+      // globs match by basename at any depth, so the subproject directories
+      // are excluded to leave their files to their own steps.
       ["prettier"] = (Builtins.prettier) {
-        glob = List("*.ts", "*.js", "*.tsx", "*.jsx", "*.json", "*.md")
-      }
-      ["eslint"] = (Builtins.eslint) {
-        glob = List("*.ts", "*.js", "*.tsx", "*.jsx")
-        depends = List("prettier")
+        glob = List("*.json", "*.md")
+        exclude = List("packages/**", "example/**")
       }
     }
   }

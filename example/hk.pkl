@@ -1,0 +1,24 @@
+amends "package://github.com/jdx/hk/releases/download/v2.0.1/hk@2.0.1#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.0.1/hk@2.0.1#/Builtins.pkl"
+
+// Merged into the root config as a subproject. Globs are re-rooted to this
+// directory and the steps are reported as `example:<step>`. Hook-level settings
+// live in the root `hk.pkl`; hk ignores them here.
+hooks {
+  ["pre-commit"] {
+    steps {
+      // `check_first` is off because hk 2.0.1 reads prettier's
+      // `--list-different` output as repo-relative while the step itself runs
+      // in this directory. Running the fix straight away is what `lint-staged`
+      // did anyway.
+      ["prettier"] = (Builtins.prettier) {
+        glob = List("**/*.ts", "**/*.js", "**/*.tsx", "**/*.jsx", "**/*.json", "**/*.md")
+        check_first = false
+      }
+      ["eslint"] = (Builtins.eslint) {
+        glob = List("**/*.ts", "**/*.js", "**/*.tsx", "**/*.jsx")
+        depends = List("prettier")
+      }
+    }
+  }
+}
