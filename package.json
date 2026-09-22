@@ -1,7 +1,7 @@
 {
   "name": "root",
   "private": true,
-  "repository": "https://gitlab.kilic.dev/libraries/oclif-common",
+  "repository": "https://gitlab.kilic.dev/libraries/oclif-tools",
   "type": "module",
   "scripts": {
     "clean": "rimraf node_modules pnpm-lock.yaml",
