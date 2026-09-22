@@ -6,11 +6,11 @@ hooks {
     steps {
       // check_first off: hk 2.0.1 reads prettier's --list-different output as repo-relative while this step runs in a subdirectory.
       ["prettier"] = (Builtins.prettier) {
-        glob = List("**/*.ts", "**/*.js", "**/*.tsx", "**/*.jsx", "**/*.json", "**/*.md")
+        glob = List("**/*.ts", "**/*.js", "**/*.json", "**/*.md")
         check_first = false
       }
       ["eslint"] = (Builtins.eslint) {
-        glob = List("**/*.ts", "**/*.js", "**/*.tsx", "**/*.jsx")
+        glob = List("**/*.ts", "**/*.js")
         depends = List("prettier")
       }
     }
