@@ -35,15 +35,6 @@
     "lint": "eslint src/",
     "docs:api": "typedoc --options .typedoc.json --hideInPageTOC --hideBreadcrumbs"
   },
-  "lint-staged": {
-    "*.{ts,js,tsx,jsx}": [
-      "prettier --log-level warn --write",
-      "eslint --fix"
-    ],
-    "*.{json,md}": [
-      "prettier --log-level warn --write"
-    ]
-  },
   "dependencies": {
     "deepmerge": "^4.3.1",
     "object-path-immutable": "^4.1.2",
