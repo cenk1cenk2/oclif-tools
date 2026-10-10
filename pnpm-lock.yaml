@@ -46,13 +46,13 @@ importers:
         version: link:../packages/common
       '@oclif/core':
         specifier: ^5.1.2
-        version: 5.1.2
+        version: 5.1.3
       '@oclif/plugin-help':
         specifier: ^7.0.2
         version: 7.0.2
       '@oclif/plugin-plugins':
         specifier: ^7.0.3
-        version: 7.0.3
+        version: 7.0.4
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -95,7 +95,7 @@ importers:
         version: 16.2.4
       oclif:
         specifier: ^6.0.2
-        version: 6.0.2(@types/node@24.19.1)
+        version: 6.0.3(@types/node@24.19.1)
       prettier:
         specifier: ^3.9.8
         version: 3.9.9
@@ -147,7 +147,7 @@ importers:
         version: 4.2.6(listr2@11.1.1)
       '@oclif/core':
         specifier: ^5.1.2
-        version: 5.1.2
+        version: 5.1.3
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -786,8 +786,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@oclif/core@5.1.2':
-    resolution: {integrity: sha512-vgbWWFKjjsf7oAbJONFPnDkVNeqmy70DTBUjsprW/HRiTrXe8sMlFc0ih8GjpU+dn+m6V2ksaZjBV9HgnsmWVg==}
+  '@oclif/core@5.1.3':
+    resolution: {integrity: sha512-sEEH98k4vVsw48sWPWFkYwdgBiS26j7bsCtx6LVj3SwCg201C6Lxm3MTYfbNfD8mfOhzB2a4IibWF9auge8zVg==}
     engines: {node: '>=22.0.0'}
 
   '@oclif/plugin-help@7.0.2':
@@ -798,8 +798,8 @@ packages:
     resolution: {integrity: sha512-SeX1h6Ee/LQit8gWCZDleHB3g0JBd5a/sG3qT2IupJBw0soJ/kBhBNRd85AkMymOKXCN9AbtAeIhIVnNtmDoOQ==}
     engines: {node: '>=22.0.0'}
 
-  '@oclif/plugin-plugins@7.0.3':
-    resolution: {integrity: sha512-ufjwLdKbw5AC8BjguvRGRBFoSc8RGXV1TVjxMDr8smJuN8QM4yhZIvKCoSVQC24BX71pF75LrvQEWpwQJbwpQA==}
+  '@oclif/plugin-plugins@7.0.4':
+    resolution: {integrity: sha512-zGU8XpCQNhYHD0frO4bN0+jPTPN1pwLu+WksuW4w6tE9vh+xdXGZODneqTsgtF3evHzLRe/cncc3Si94dD3gOg==}
     engines: {node: '>=22.0.0'}
 
   '@oclif/plugin-warn-if-update-available@4.0.1':
@@ -2658,8 +2658,8 @@ packages:
     resolution: {integrity: sha512-5vvB5+W7ePv+p3uqxi+RcW1XAzLW0/hxt3/4X4Lc4qHudzOhmBiBwOY6DRob4WnanAEGvNcLjF+KNOufrUoEQw==}
     engines: {node: '>=12.20.0'}
 
-  oclif@6.0.2:
-    resolution: {integrity: sha512-y0UuI6AEb8yjms2TPBHBInCDXoFwOiZ2EitGxv5pascylvowQbZSRd3ViOs2ZBXAJD9X5DlnHP8gppc0umkb/Q==}
+  oclif@6.0.3:
+    resolution: {integrity: sha512-I8/+fqxCEp4KCaCb0Ld3oFkhNG63qE1+yx9EE9Ln6QFMKK1LqigMcNur1dHwABKBFv+4zcABOKE9gSJoYBAbfA==}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -4109,7 +4109,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.3
 
-  '@oclif/core@5.1.2':
+  '@oclif/core@5.1.3':
     dependencies:
       ansi-escapes: 4.3.2
       ansis: 3.17.0
@@ -4132,20 +4132,20 @@ snapshots:
 
   '@oclif/plugin-help@7.0.2':
     dependencies:
-      '@oclif/core': 5.1.2
+      '@oclif/core': 5.1.3
 
   '@oclif/plugin-not-found@4.0.2(@types/node@24.19.1)':
     dependencies:
       '@inquirer/prompts': 7.10.1(@types/node@24.19.1)
-      '@oclif/core': 5.1.2
+      '@oclif/core': 5.1.3
       ansis: 3.17.0
       fast-levenshtein: 3.0.0
     transitivePeerDependencies:
       - '@types/node'
 
-  '@oclif/plugin-plugins@7.0.3':
+  '@oclif/plugin-plugins@7.0.4':
     dependencies:
-      '@oclif/core': 5.1.2
+      '@oclif/core': 5.1.3
       ansis: 3.17.0
       debug: 4.4.3(supports-color@8.1.1)
       npm: 11.21.0
@@ -4161,7 +4161,7 @@ snapshots:
 
   '@oclif/plugin-warn-if-update-available@4.0.1':
     dependencies:
-      '@oclif/core': 5.1.2
+      '@oclif/core': 5.1.3
       ansis: 3.17.0
       debug: 4.4.3(supports-color@8.1.1)
       http-call: 5.3.0
@@ -5822,14 +5822,14 @@ snapshots:
 
   obug@3.0.0: {}
 
-  oclif@6.0.2(@types/node@24.19.1):
+  oclif@6.0.3(@types/node@24.19.1):
     dependencies:
       '@aws-sdk/client-cloudfront': 3.1148.0
       '@aws-sdk/client-s3': 3.1148.0
       '@inquirer/confirm': 3.2.0
       '@inquirer/input': 2.3.0
       '@inquirer/select': 2.5.0
-      '@oclif/core': 5.1.2
+      '@oclif/core': 5.1.3
       '@oclif/plugin-help': 7.0.2
       '@oclif/plugin-not-found': 4.0.2(@types/node@24.19.1)
       '@oclif/plugin-warn-if-update-available': 4.0.1
