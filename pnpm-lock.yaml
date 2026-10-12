@@ -9,11 +9,11 @@ importers:
   .:
     devDependencies:
       '@cenk1cenk2/cz-cc':
-        specifier: ^3.0.2
-        version: 3.0.2(@types/node@24.19.2)(typescript@6.0.3)
+        specifier: ^3.0.3
+        version: 3.0.3(@types/node@24.19.2)(typescript@6.0.3)
       '@cenk1cenk2/eslint-config':
-        specifier: ^3.3.7
-        version: 3.3.7(@typescript-eslint/utils@8.71.1(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3)
+        specifier: ^3.3.8
+        version: 3.3.8(@typescript-eslint/utils@8.71.1(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3)
       '@tsconfig/node24':
         specifier: ^24.0.5
         version: 24.0.5
@@ -64,11 +64,11 @@ importers:
         version: 11.1.1
     devDependencies:
       '@cenk1cenk2/cz-cc':
-        specifier: ^3.0.2
-        version: 3.0.2(@types/node@24.19.2)(typescript@6.0.3)
+        specifier: ^3.0.3
+        version: 3.0.3(@types/node@24.19.2)(typescript@6.0.3)
       '@cenk1cenk2/eslint-config':
-        specifier: ^3.3.7
-        version: 3.3.7(@typescript-eslint/utils@8.71.1(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3)
+        specifier: ^3.3.8
+        version: 3.3.8(@typescript-eslint/utils@8.71.1(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3)
       '@tsconfig/node24':
         specifier: ^24.0.5
         version: 24.0.5
@@ -144,7 +144,7 @@ importers:
     devDependencies:
       '@listr2/manager':
         specifier: ^4.3.0
-        version: 4.3.0(listr2@11.1.1)
+        version: 4.3.0(listr2@11.2.0)
       '@oclif/core':
         specifier: ^5.1.2
         version: 5.1.7
@@ -170,8 +170,8 @@ importers:
         specifier: ^11.4.1
         version: 11.4.1
       listr2:
-        specifier: ^11.1.1
-        version: 11.1.1
+        specifier: ^11.2.0
+        version: 11.2.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -274,12 +274,12 @@ packages:
   '@cacheable/utils@2.5.0':
     resolution: {integrity: sha512-buipgOVDkkPXNR5+xBpDw7Zk2n1EvU7qBJCNUcL7rhQ//kfpOXPAvQ511Os0vpLYJ1pZnvudNytkQt2hst3wqA==}
 
-  '@cenk1cenk2/cz-cc@3.0.2':
-    resolution: {integrity: sha512-2YiwP/YSil/cZZG6emDwGkoNeOTjh3Fnv580KIETUf6D9ZYw8gwBE2jdpPNUoXd08oSWDIsajdlBDRQQ8jViHw==}
+  '@cenk1cenk2/cz-cc@3.0.3':
+    resolution: {integrity: sha512-nkanz8Qw6Q0GRHzsgZGbFVxvRPQvUnMc2XIpR1BMiSiLGe8ogfS0+JJPFSrw1mBGJg7Pcgzf3kcBqlEUoHgXJA==}
     engines: {node: '>= 24'}
 
-  '@cenk1cenk2/eslint-config@3.3.7':
-    resolution: {integrity: sha512-HQ/VrfueimlkMUfOb+OGRyJsLKtP+0qPI2+tzwu3IlqBshCILNMOTsHtwWUuu3HOI8avz8s3Syhd34EfBPv8ow==}
+  '@cenk1cenk2/eslint-config@3.3.8':
+    resolution: {integrity: sha512-yRD5+bU6Exbv/kxok6brnoKGdI0w6SPhoHbmqCF1SyyIODgV0Ae/7xQxpKvk8a2FTiomYr8j7eNC8b2rhLQ1IA==}
     peerDependencies:
       '@vue/eslint-config-typescript': '>= 14.1.1'
       eslint: '>= 9'
@@ -2322,6 +2322,10 @@ packages:
     resolution: {integrity: sha512-zArGFXg2/nhA1vYBz789VpwzMQQXkGZiRxeguxFCsDrg4S+LOR22v4oQlSdTN7dR14XgOW+pW33UfvKf+i8nrQ==}
     engines: {node: '>=22.13.0'}
 
+  listr2@11.2.0:
+    resolution: {integrity: sha512-+H/hEo9EA7tyLY0ZihpDg76jHWolc0nCjbjnXFguSm4Epk+WYtL1w1tYs1kjEo229NmhgLmUrncyn81K1vBoRw==}
+    engines: {node: '>=22.13.0'}
+
   load-esm@1.0.3:
     resolution: {integrity: sha512-v5xlu8eHD1+6r8EHTg6hfmO97LN8ugKtiXcy5e6oN72iD2r6u0RPfLl6fxM+7Wnh2ZRq15o0russMst44WauPA==}
     engines: {node: '>=13.2.0'}
@@ -3503,19 +3507,19 @@ snapshots:
       hashery: 1.5.1
       keyv: 5.6.0
 
-  '@cenk1cenk2/cz-cc@3.0.2(@types/node@24.19.2)(typescript@6.0.3)':
+  '@cenk1cenk2/cz-cc@3.0.3(@types/node@24.19.2)(typescript@6.0.3)':
     dependencies:
       '@inquirer/prompts': 8.7.3(@types/node@24.19.2)
-      '@listr2/prompt-adapter-inquirer': 4.2.7(@inquirer/prompts@8.7.3(@types/node@24.19.2))(@types/node@24.19.2)(listr2@11.1.1)
+      '@listr2/prompt-adapter-inquirer': 4.2.7(@inquirer/prompts@8.7.3(@types/node@24.19.2))(@types/node@24.19.2)(listr2@11.2.0)
       commitizen: 4.3.2(@types/node@24.19.2)(typescript@6.0.3)
       conventional-commit-types: 3.0.0
       find-git-root: 1.1.0
-      listr2: 11.1.1
+      listr2: 11.2.0
     transitivePeerDependencies:
       - '@types/node'
       - typescript
 
-  '@cenk1cenk2/eslint-config@3.3.7(@typescript-eslint/utils@8.71.1(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3)':
+  '@cenk1cenk2/eslint-config@3.3.8(@typescript-eslint/utils@8.71.1(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.12.0(jiti@2.6.1))(typescript@6.0.3)':
     dependencies:
       '@eslint/js': 10.0.1(eslint@10.12.0(jiti@2.6.1))
       '@stylistic/eslint-plugin': 5.10.0(eslint@10.12.0(jiti@2.6.1))
@@ -3962,15 +3966,15 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@listr2/manager@4.3.0(listr2@11.1.1)':
+  '@listr2/manager@4.3.0(listr2@11.2.0)':
     dependencies:
-      listr2: 11.1.1
+      listr2: 11.2.0
 
-  '@listr2/prompt-adapter-inquirer@4.2.7(@inquirer/prompts@8.7.3(@types/node@24.19.2))(@types/node@24.19.2)(listr2@11.1.1)':
+  '@listr2/prompt-adapter-inquirer@4.2.7(@inquirer/prompts@8.7.3(@types/node@24.19.2))(@types/node@24.19.2)(listr2@11.2.0)':
     dependencies:
       '@inquirer/prompts': 8.7.3(@types/node@24.19.2)
       '@inquirer/type': 4.2.0(@types/node@24.19.2)
-      listr2: 11.1.1
+      listr2: 11.2.0
     transitivePeerDependencies:
       - '@types/node'
 
@@ -5541,6 +5545,12 @@ snapshots:
       uc.micro: 2.1.0
 
   listr2@11.1.1:
+    dependencies:
+      cli-truncate: 6.1.1
+      log-update: 8.0.0
+      wrap-ansi: 10.0.2
+
+  listr2@11.2.0:
     dependencies:
       cli-truncate: 6.1.1
       log-update: 8.0.0
