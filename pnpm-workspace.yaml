@@ -2,6 +2,8 @@ packages:
   - packages/*
   - example
 
+linkWorkspacePackages: true
+
 minimumReleaseAge: 1440
 
 minimumReleaseAgeExclude:
