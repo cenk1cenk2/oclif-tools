@@ -143,8 +143,8 @@ importers:
         version: 3.19.0
     devDependencies:
       '@listr2/manager':
-        specifier: ^4.3.0
-        version: 4.3.0(listr2@11.2.0)
+        specifier: ^4.3.1
+        version: 4.3.1(listr2@11.2.0)
       '@oclif/core':
         specifier: ^5.1.2
         version: 5.1.7
@@ -719,11 +719,11 @@ packages:
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
-  '@listr2/manager@4.3.0':
-    resolution: {integrity: sha512-NfhfcKW1/YxrkhmMjNL9zau+Y9AobYui2evALk2OH1MQ3HQkzKBfcfmYnaMXzYoGQEjz7QwOtfXPeQ0D8KV0aQ==}
+  '@listr2/manager@4.3.1':
+    resolution: {integrity: sha512-DViFKT2fKXy4lTqSxwQvdfukLsZ5JfPnEuaKlXrti6wOu5d4NSfgSSFr13QBu+638wO4FIk01vypOC9hjONDNQ==}
     engines: {node: '>=22.13.0'}
     peerDependencies:
-      listr2: 11.2.0
+      listr2: ^11.0.0
 
   '@listr2/prompt-adapter-inquirer@4.3.1':
     resolution: {integrity: sha512-NnKK9IrkBPr3v9DxXz/MTxQ989bJEfH1Q6Qr+MA9XU0QRXEgAQJO4XjFs8OzPQI5WYScz0kXi9WNDkANr2bRVw==}
@@ -3962,7 +3962,7 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@listr2/manager@4.3.0(listr2@11.2.0)':
+  '@listr2/manager@4.3.1(listr2@11.2.0)':
     dependencies:
       listr2: 11.2.0
 
