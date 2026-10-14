@@ -30,7 +30,8 @@ describe('CommandHandler', () => {
         ci: false,
         json: false
       },
-      args: { person: 'world' }
+      args: { person: 'world' },
+      signal: new AbortController().signal
     })
 
     expect(info).toHaveBeenCalledWith('%s %s', 'hello', 'world')

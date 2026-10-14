@@ -14,6 +14,17 @@ export default [
     }
   },
   {
+    files: ['test/fixtures/**/*.mjs'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        setTimeout: 'readonly'
+      }
+    }
+  },
+  {
     ignores: ['tsdown.config.ts', 'vitest.config.ts']
   }
 ]

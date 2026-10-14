@@ -45,7 +45,9 @@ A single-command CLI keeps its command in `src/commands/index.ts` and names its 
 - The module imports the optional modules the command needs and provides the handler.
 - The handler implements `CommandHandler<typeof MyCommand>`, gets its dependencies through its constructor and the parsed flags and args in `run({ flags, args })`.
 
-The base command parses the flags and args, boots the module into an application context, resolves the handler from it and runs it, and closes the context once the command ends, whether it failed or not. `SIGINT` and `SIGTERM` close it through NestJS shutdown hooks as well.
+The base command parses the flags and args, boots the module into an application context, resolves the handler from it and runs it, and closes the context once the command ends, whether it failed or not.
+
+The first `SIGINT` or `SIGTERM` does not tear the context down under a running handler: it aborts the `signal` of the handler input and logs a warning, the handler finishes or stops early by watching that signal, for example by passing it to child processes, then the context closes and the command exits with the code of the signal, `130` for `SIGINT` and `143` for `SIGTERM`. A second signal exits at once. `TaskManager` leaves signals to the command, so a running listr task is not cut off either.
 
 ```ts
 // src/commands/print.ts

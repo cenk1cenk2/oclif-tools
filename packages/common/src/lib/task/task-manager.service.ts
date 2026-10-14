@@ -13,6 +13,8 @@ export class TaskManager<Ctx extends ListrContext = ListrContext> extends Manage
       fallbackRendererCondition: cs.isDebug,
       silentRendererCondition: cs.isSilent || cs.isJson,
       ctx: {} as Ctx,
+      // the command handles signals, listr would exit the process in the middle of it
+      registerSignalListeners: false,
       ...options
     })
   }

@@ -1,6 +1,7 @@
 import type { DynamicModule, INestApplicationContext, Type } from '@nestjs/common'
 import { UnknownElementException } from '@nestjs/core/internal'
-import { Command as BaseCommand, Flags } from '@oclif/core'
+import { Command as BaseCommand, Errors, Flags } from '@oclif/core'
+import { constants } from 'os'
 import { createInterface } from 'readline'
 
 import type { CommandHandler, CommandInput } from './base.command.interface'
@@ -11,6 +12,8 @@ import { CliModule } from '@lib/cli.module'
 import { NestLogger } from '@lib/logger/nest-logger.service'
 
 import 'reflect-metadata'
+
+const SIGNALS: NodeJS.Signals[] = ['SIGINT', 'SIGTERM']
 
 export abstract class Command extends BaseCommand {
   static module: Type | DynamicModule
@@ -42,7 +45,9 @@ export abstract class Command extends BaseCommand {
   }
 
   private app: INestApplicationContext
-  private input: CommandInput
+  private input: Omit<CommandInput, 'signal'>
+  private interrupted: NodeJS.Signals
+  private readonly abort = new AbortController()
 
   /** oclif runs this once the application context is up, it hands the parsed input to the handler of the command. */
   public async run(): Promise<void> {
@@ -64,7 +69,13 @@ export abstract class Command extends BaseCommand {
       throw e
     }
 
-    await instance.run(this.input)
+    try {
+      await instance.run({ ...this.input, signal: this.abort.signal })
+    } finally {
+      if (this.interrupted) {
+        this.exit(128 + constants.signals[this.interrupted])
+      }
+    }
   }
 
   // can not override constructor, init function is defined by oclif
@@ -98,7 +109,10 @@ export abstract class Command extends BaseCommand {
     await this.app.init()
 
     this.app.useLogger(this.app.get(NestLogger))
-    this.app.enableShutdownHooks(['SIGINT', 'SIGTERM'])
+
+    for (const signal of SIGNALS) {
+      process.on(signal, this.interrupt)
+    }
 
     if (err) {
       throw err
@@ -121,10 +135,18 @@ export abstract class Command extends BaseCommand {
 
   protected async finally(): Promise<void> {
     await this.app?.close()
+
+    for (const signal of SIGNALS) {
+      process.off(signal, this.interrupt)
+    }
   }
 
   /** Catch any error occurred during command. */
   protected async catch(err: Error): Promise<never> {
+    if (err instanceof Errors.ExitError) {
+      throw err
+    }
+
     process.exitCode = process.exitCode ?? (err as any).exitCode ?? 1
 
     this.app ??= await CliModule.createFallback(this.options())
@@ -149,5 +171,17 @@ export abstract class Command extends BaseCommand {
       flags: this.input?.flags,
       args: this.input?.args
     }
+  }
+
+  /** The first signal lets the handler finish or stop through its abort signal before the application closes, a second one exits at once. */
+  private readonly interrupt = (signal: NodeJS.Signals): void => {
+    if (this.interrupted) {
+      process.exit(128 + constants.signals[signal])
+    }
+
+    this.interrupted = signal
+    this.abort.abort(signal)
+
+    void this.app.resolve(LoggerService).then((logger) => logger.warn('Received %s, stopping the command, send it again to exit at once.', signal))
   }
 }
