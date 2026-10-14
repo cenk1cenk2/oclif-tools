@@ -1,13 +1,13 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
-import fs from 'fs-extra'
-import { extname, dirname } from 'path'
+import type { RmOptions, Stats, WriteFileOptions } from 'fs'
+import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, rmdirSync, statSync, writeFileSync } from 'fs'
+import { appendFile, mkdir, readFile, readdir, rm, rmdir, writeFile } from 'fs/promises'
+import { extname, dirname, join } from 'path'
 
 import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class FileSystemService implements OnModuleInit {
-  public readonly extra: typeof fs = fs
-
   constructor(private readonly logger: LoggerService) {}
 
   public async onModuleInit(): Promise<void> {
@@ -15,11 +15,11 @@ export class FileSystemService implements OnModuleInit {
   }
 
   public exists(path: string): boolean {
-    return this.extra.existsSync(path)
+    return existsSync(path)
   }
 
-  public stats(path: string): fs.Stats {
-    return this.extra.statSync(path, { throwIfNoEntry: true })
+  public stats(path: string): Stats {
+    return statSync(path, { throwIfNoEntry: true })
   }
 
   public dirname(path: string): string {
@@ -32,7 +32,7 @@ export class FileSystemService implements OnModuleInit {
 
   public async read(file: string): Promise<string> {
     try {
-      const raw = await this.extra.readFile(file, 'utf-8')
+      const raw = await readFile(file, 'utf-8')
 
       return raw
     } catch(e: any) {
@@ -42,7 +42,7 @@ export class FileSystemService implements OnModuleInit {
 
   public readSync(file: string): string {
     try {
-      const raw = this.extra.readFileSync(file, 'utf-8')
+      const raw = readFileSync(file, 'utf-8')
 
       return raw
     } catch(e: any) {
@@ -50,25 +50,25 @@ export class FileSystemService implements OnModuleInit {
     }
   }
 
-  public async write(file: string, data: string | Buffer, options: fs.WriteFileOptions = {}): Promise<void> {
+  public async write(file: string, data: string | Buffer, options: WriteFileOptions = {}): Promise<void> {
     try {
-      await this.extra.writeFile(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
+      await writeFile(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
     } catch(e: any) {
       throw new Error(`Error while writing file to "${file}": ${e.message}`, { cause: e })
     }
   }
 
-  public writeSync(file: string, data: string | Buffer, options: fs.WriteFileOptions = {}): void {
+  public writeSync(file: string, data: string | Buffer, options: WriteFileOptions = {}): void {
     try {
-      this.extra.writeFileSync(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
+      writeFileSync(file, data, typeof options === 'object' ? { encoding: 'utf-8', ...options } : options)
     } catch(e: any) {
       throw new Error(`Error while writing file to "${file}": ${e.message}`, { cause: e })
     }
   }
 
-  public async append(file: string, data: string | Buffer, options?: fs.WriteFileOptions): Promise<void> {
+  public async append(file: string, data: string | Buffer, options?: WriteFileOptions): Promise<void> {
     try {
-      await this.extra.appendFile(file, data, options)
+      await appendFile(file, data, options)
     } catch(e: any) {
       throw new Error(`Error while appending to file  "${file}": ${e.message}`, { cause: e })
     }
@@ -76,23 +76,23 @@ export class FileSystemService implements OnModuleInit {
 
   public appendSync(file: string, data: string | Buffer): void {
     try {
-      this.extra.appendFileSync(file, data)
+      appendFileSync(file, data)
     } catch(e: any) {
       throw new Error(`Error while appending to file  "${file}": ${e.message}`, { cause: e })
     }
   }
 
-  public async remove(file: string, options?: fs.RmOptions): Promise<void> {
+  public async remove(file: string, options?: RmOptions): Promise<void> {
     try {
-      await this.extra.rm(file, options)
+      await rm(file, options)
     } catch(e: any) {
       throw new Error(`Error while deleting the file "${file}": ${e.message}`, { cause: e })
     }
   }
 
-  public removeSync(file: string, options?: fs.RmOptions): void {
+  public removeSync(file: string, options?: RmOptions): void {
     try {
-      this.extra.rmSync(file, options)
+      rmSync(file, options)
     } catch(e: any) {
       throw new Error(`Error while deleting the file "${file}": ${e.message}`, { cause: e })
     }
@@ -100,7 +100,9 @@ export class FileSystemService implements OnModuleInit {
 
   public async emptyDir(directory: string): Promise<void> {
     try {
-      await this.extra.emptyDir(directory)
+      await mkdir(directory, { recursive: true })
+
+      await Promise.all((await readdir(directory)).map((entry) => rm(join(directory, entry), { recursive: true, force: true })))
     } catch(e: any) {
       throw new Error(`Error while emptying the directory "${directory}": ${e.message}`, { cause: e })
     }
@@ -108,7 +110,9 @@ export class FileSystemService implements OnModuleInit {
 
   public emptyDirSync(directory: string): void {
     try {
-      this.extra.emptyDirSync(directory)
+      mkdirSync(directory, { recursive: true })
+
+      readdirSync(directory).forEach((entry) => rmSync(join(directory, entry), { recursive: true, force: true }))
     } catch(e: any) {
       throw new Error(`Error while emptying the directory "${directory}": ${e.message}`, { cause: e })
     }
@@ -116,7 +120,7 @@ export class FileSystemService implements OnModuleInit {
 
   public async removeDir(directory: string): Promise<void> {
     try {
-      await this.extra.rmdir(directory)
+      await rmdir(directory)
     } catch(e: any) {
       throw new Error(`Error while removing the directory "${directory}": ${e.message}`, { cause: e })
     }
@@ -124,7 +128,7 @@ export class FileSystemService implements OnModuleInit {
 
   public removeDirSync(directory: string): void {
     try {
-      this.extra.rmdirSync(directory)
+      rmdirSync(directory)
     } catch(e: any) {
       throw new Error(`Error while removing the directory "${directory}": ${e.message}`, { cause: e })
     }
@@ -132,7 +136,7 @@ export class FileSystemService implements OnModuleInit {
 
   public async mkdir(directory: string): Promise<void> {
     try {
-      await this.extra.mkdirp(directory)
+      await mkdir(directory, { recursive: true })
     } catch(e: any) {
       throw new Error(`Error while creating the directory "${directory}": ${e.message}`, { cause: e })
     }
@@ -140,7 +144,7 @@ export class FileSystemService implements OnModuleInit {
 
   public mkdirSync(directory: string): void {
     try {
-      this.extra.mkdirpSync(directory)
+      mkdirSync(directory, { recursive: true })
     } catch(e: any) {
       throw new Error(`Error while creating the directory "${directory}": ${e.message}`, { cause: e })
     }
