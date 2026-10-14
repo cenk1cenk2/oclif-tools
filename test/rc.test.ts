@@ -7,7 +7,7 @@ import { join } from 'path'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { RcModuleOptions } from '../src'
-import { CommandModule, ConfigModule, LogLevels, LoggerModule, RcModule, RcService, TOKEN_RC, ValidationError } from '../src'
+import { CommandModule, ConfigModule, LogLevels, LoggerModule, MergeStrategy, RcModule, RcService, TOKEN_RC, ValidationError } from '../src'
 
 describe('RcModule', () => {
   const name = 'oclif-common-rc-test'
@@ -88,6 +88,22 @@ describe('RcModule', () => {
       expect(config).toEqual(defaults)
       expect(config).not.toBe(defaults)
       expect(rc.filepath).toBeUndefined()
+    })
+  })
+
+  describe('overrides', () => {
+    it('passes the cosmiconfig options over the defaults', async() => {
+      await writeFile(join(root, `.${name}rc.json`), JSON.stringify({ output: 'upward' }))
+
+      expect((await load()).config).toEqual({ output: 'upward' })
+      expect((await load({ cosmiconfig: { searchStrategy: 'none' } })).config).toEqual({})
+    })
+
+    it('merges with the given strategy', async() => {
+      await writeFile(join(root, `.${name}rc.json`), JSON.stringify({ list: ['rc'] }))
+
+      expect((await load({ defaults: { list: ['default'] } })).config).toEqual({ list: ['rc'] })
+      expect((await load({ defaults: { list: ['default'] }, merge: MergeStrategy.EXTEND })).config).toEqual({ list: ['default', 'rc'] })
     })
   })
 

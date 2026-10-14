@@ -19,13 +19,15 @@ export class RcService<T = Record<string, unknown>> {
     const yaml = (_: string, content: string): unknown => parse(content)
     const explorer = cosmiconfig(options.name, {
       searchStrategy: 'global',
+      ...options.cosmiconfig,
       loaders: {
         // cosmiconfig names its loaders by the extension of the file
         // eslint-disable-next-line @typescript-eslint/naming-convention
         '.yaml': yaml,
         // eslint-disable-next-line @typescript-eslint/naming-convention
         '.yml': yaml,
-        noExt: yaml
+        noExt: yaml,
+        ...options.cosmiconfig?.loaders
       }
     })
     const defaults = typeof options.defaults === 'string' ? (await explorer.load(resolve(oclif.root, options.defaults)))?.config : options.defaults
@@ -33,7 +35,7 @@ export class RcService<T = Record<string, unknown>> {
 
     logger.setup(RcService.name).trace('Loaded the configuration of %s from: %s', options.name, result?.filepath ?? 'nowhere')
 
-    const config = merge<Record<string, unknown>>(MergeStrategy.OVERWRITE, defaults ?? {}, result?.config ?? {})
+    const config = merge<Record<string, unknown>>(options.merge ?? MergeStrategy.OVERWRITE, defaults ?? {}, result?.config ?? {})
 
     return new RcService(result?.filepath, options.schema ? ((await validator.validate(options.schema, config)) as Record<string, unknown>) : config)
   }

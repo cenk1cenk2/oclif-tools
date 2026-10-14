@@ -1,7 +1,8 @@
+import { Test } from '@nestjs/testing'
 import { describe, expect, it, vi } from 'vitest'
 
 import type { GenericParser, LoggerService } from '../src'
-import { EnvironmentVariableParser, JsonParser, YamlParser } from '../src'
+import { ConfigModule, EnvironmentVariableParser, JsonParser, LogLevels, LoggerModule, ParserModule, ParserService, YamlParser } from '../src'
 
 describe('parsers', () => {
   const logger = { setup: vi.fn(), trace: vi.fn() } as unknown as LoggerService
@@ -39,6 +40,27 @@ describe('parsers', () => {
         B: 'first\nsecond',
         C: '3'
       })
+    })
+  })
+
+  describe('options', () => {
+    it('passes the json and yaml options to the libraries', () => {
+      const data = { list: ['a'], skipped: 'value' }
+      const json = new JsonParser(logger, { json: { space: 4, replacer: (key: string, value: unknown): unknown => (key === 'skipped' ? undefined : value) } })
+      const yaml = new YamlParser(logger, { yaml: { stringify: { indent: 4, indentSeq: true } } })
+
+      expect(json.stringify(data)).toBe('{\n    "list": [\n        "a"\n    ]\n}')
+      expect(yaml.stringify({ list: data.list })).toBe('list:\n    - a\n')
+    })
+
+    it('takes them from the parser module', async() => {
+      const module = await Test.createTestingModule({
+        imports: [ConfigModule.forRoot({ config: { logLevel: LogLevels.INFO, isJson: false } }), LoggerModule, ParserModule.forRoot({ json: { space: 0 } })]
+      }).compile()
+
+      await module.init()
+
+      expect(module.get(ParserService).stringify('data.json', { a: 1 })).toBe('{"a":1}')
     })
   })
 })
