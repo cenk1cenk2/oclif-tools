@@ -1,4 +1,4 @@
-import type { CommandHandler, CommandInput } from '@cenk1cenk2/oclif-common'
+import type { CommandContext, CommandHandler } from '@cenk1cenk2/oclif-common'
 import { TaskManager } from '@cenk1cenk2/oclif-common'
 import { Injectable } from '@nestjs/common'
 
@@ -8,7 +8,7 @@ import type Signal from '../../commands/signal.js'
 export class SignalHandler implements CommandHandler<typeof Signal> {
   constructor(private readonly tasks: TaskManager) {}
 
-  public async run({ signal }: CommandInput<typeof Signal>): Promise<void> {
+  public async run({ signal }: CommandContext<typeof Signal>): Promise<void> {
     this.tasks.add([
       {
         title: 'Wait for the signal',

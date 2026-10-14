@@ -4,14 +4,14 @@ import { ConfigurableModuleBuilder, Module } from '@nestjs/common'
 import { TOKEN_RC, TOKEN_RC_MODULE_OPTIONS } from './rc.constants'
 import type { RcModuleOptions } from './rc.interface'
 import { RcService } from './rc.service'
-import { TOKEN_OCLIF_CONFIG } from '@lib/command/command.constants'
+import { CommandContext } from '@lib/command/command.context'
 import { LoggerService } from '@lib/logger'
 
 @Module({
   providers: [
     {
       provide: RcService,
-      inject: [TOKEN_RC_MODULE_OPTIONS, TOKEN_OCLIF_CONFIG, LoggerService],
+      inject: [TOKEN_RC_MODULE_OPTIONS, CommandContext, LoggerService],
       useFactory: RcService.load
     },
     {

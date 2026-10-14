@@ -4,10 +4,20 @@ import 'reflect-metadata'
 import type { Config, Hook } from '@oclif/core'
 import { Help } from '@oclif/core'
 
-import { CliFactory, LogLevels, LoggerService } from '@lib'
+import { CliFactory, CommandContext, LogLevels, LoggerService } from '@lib'
 
 const hook: Hook<'command_not_found'> = async(opts) => {
-  const app = await CliFactory.createFallback({ oclif: opts.config as Config, config: { logLevel: LogLevels.INFO, isJson: false } })
+  const app = await CliFactory.createFallback({
+    config: { logLevel: LogLevels.INFO, isJson: false },
+    context: new CommandContext({
+      flags: {},
+      args: {},
+      signal: new AbortController().signal,
+      oclif: opts.config as Config,
+      id: opts.id,
+      command: undefined
+    })
+  })
   const logger = await app.resolve(LoggerService)
 
   logger.error('Command not found. Take a look at help. You can also use --[h]elp flag for subcommands.')

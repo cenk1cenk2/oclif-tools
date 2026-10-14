@@ -8,7 +8,7 @@ import { join } from 'path'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { RcModuleOptions } from '../src'
-import { CommandModule, ConfigModule, LogLevels, LoggerModule, RcModule, RcService, TOKEN_RC, ValidationError } from '../src'
+import { CommandContext, CommandModule, ConfigModule, LogLevels, LoggerModule, RcModule, RcService, TOKEN_RC, ValidationError } from '../src'
 
 describe('RcModule', () => {
   const name = 'oclif-common-rc-test'
@@ -19,7 +19,16 @@ describe('RcModule', () => {
     const module = await Test.createTestingModule({
       imports: [
         ConfigModule.forRoot({ config: { logLevel: LogLevels.INFO, isJson: false } }),
-        CommandModule.forRoot({ oclif: { root } as Config }),
+        CommandModule.forRoot({
+          context: new CommandContext({
+            flags: {},
+            args: {},
+            signal: undefined,
+            oclif: { root } as Config,
+            id: 'rc',
+            command: undefined
+          })
+        }),
         LoggerModule,
         RcModule.forRoot({
           name,

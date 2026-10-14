@@ -2,22 +2,25 @@ import type { StandardJSONSchemaV1, StandardSchemaV1 } from '@standard-schema/sp
 
 import type { Command } from './base.command'
 import { TOKEN_USE_HANDLER } from './base.command.constants'
-import type { CommandInput, CommandSchemaInput, UseHandlerOptions, UseHandlerRegistration } from './base.command.interface'
+import type { UseHandlerOptions, UseHandlerRegistration } from './base.command.interface'
+import type { InferArgs, InferFlags } from '@interfaces'
+import type { CommandContext } from '@lib/command/command.context'
 
 type Same<A, B, Mismatch> = [A] extends [B] ? ([B] extends [A] ? unknown : Mismatch) : Mismatch
 
 /**
- * Requires the handler to take exactly the input of the command, or the output of its schema together with a schema that reads only the
+ * Requires the handler to take exactly the context of the command, or of its schema together with a schema that reads only the
  * flags and args the command declares, naming the mismatch in the type error.
  */
 type HandlerFor<C extends typeof Command, H extends { run: (input: any) => Promise<void> }, S extends StandardSchemaV1 | undefined> =
   // keyed on the property of a schema, since without strict null checks undefined passes for a schema too
   '~standard' extends keyof S
-    ? Same<CommandSchemaInput<S & StandardSchemaV1>, Parameters<H['run']>[0], HandlerMismatch> & Declared<StandardSchemaV1.InferInput<S & StandardSchemaV1>, CommandInput<C>>
-    : Same<CommandInput<C>, Parameters<H['run']>[0], HandlerMismatch>
+    ? Same<CommandContext<S & StandardSchemaV1>, Parameters<H['run']>[0], HandlerMismatch> &
+        Declared<StandardSchemaV1.InferInput<S & StandardSchemaV1>, { flags: InferFlags<C>; args: InferArgs<C> }>
+    : Same<CommandContext<C>, Parameters<H['run']>[0], HandlerMismatch>
 
 /** The schema may narrow the values, but every flag and arg it reads has to be declared by the command, unless it does not type its input. */
-type Declared<I, P extends CommandInput<any>> = unknown extends I
+type Declared<I, P extends { flags: unknown; args: unknown }> = unknown extends I
   ? unknown
   : [Exclude<keyof I['flags' & keyof I], keyof P['flags']> | Exclude<keyof I['args' & keyof I], keyof P['args']>] extends [never]
     ? unknown

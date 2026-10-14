@@ -5,14 +5,19 @@ import { constants } from 'os'
 import { createInterface } from 'readline'
 
 import { TOKEN_USE_HANDLER } from './base.command.constants'
-import type { CommandHandler, CommandInput, UseHandlerRegistration } from './base.command.interface'
+import type { CommandHandler, UseHandlerRegistration } from './base.command.interface'
 import { HelpGroups } from '@constants'
 import type { CliRuntimeOptions } from '@lib'
-import { ConfigService, LogLevels, LoggerService } from '@lib'
+import { CommandContext, ConfigService, LogLevels, LoggerService } from '@lib'
 import { CliFactory } from '@lib/cli.factory'
 import { NestLogger } from '@lib/logger/nest-logger.service'
 import { validate } from '@lib/validator/validate'
 import { ValidationError } from '@lib/validator/validator.error'
+
+interface CommandParsed {
+  flags: Record<string, any>
+  args: Record<string, any>
+}
 
 export abstract class Command extends BaseCommand {
   static baseFlags = {
@@ -45,8 +50,9 @@ export abstract class Command extends BaseCommand {
 
   private app: INestApplicationContext
   /** the flags and args as oclif parsed them, which the runtime config reads before any schema of the command */
-  private raw: Omit<CommandInput, 'signal'>
-  private input: Omit<CommandInput, 'signal'>
+  private raw: CommandParsed
+  private input: CommandParsed
+  private context: CommandContext<any>
   private interrupted: NodeJS.Signals
   private readonly abort = new AbortController()
 
@@ -67,7 +73,7 @@ export abstract class Command extends BaseCommand {
     }
 
     try {
-      await instance.run({ ...this.input, signal: this.abort.signal })
+      await instance.run(this.context)
     } finally {
       if (this.interrupted) {
         this.exit(128 + constants.signals[this.interrupted])
@@ -103,7 +109,7 @@ export abstract class Command extends BaseCommand {
 
     if (!err && this.registration().schema) {
       try {
-        this.input = (await validate(this.registration().schema, this.raw)) as Omit<CommandInput, 'signal'>
+        this.input = (await validate(this.registration().schema, this.raw)) as CommandParsed
       } catch(e: any) {
         // a rejected input fails like a flag oclif can not parse
         err = e instanceof ValidationError ? new Errors.CLIError(e.describe()) : e
@@ -179,15 +185,22 @@ export abstract class Command extends BaseCommand {
   }
 
   private options(): CliRuntimeOptions {
-    return {
+    // a command that fails before its input is known boots the fallback with an empty one
+    this.context ??= new CommandContext({
+      flags: this.input?.flags ?? {},
+      args: this.input?.args ?? {},
+      signal: this.abort.signal,
       oclif: this.config,
-      command: this.ctor,
+      id: this.id,
+      command: this.ctor as typeof Command
+    })
+
+    return {
       config: {
         logLevel: this.raw?.flags['log-level'] ?? LogLevels.INFO,
         isJson: this.raw?.flags.json ?? false
       },
-      flags: this.input?.flags,
-      args: this.input?.args
+      context: this.context
     }
   }
 

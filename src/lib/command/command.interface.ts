@@ -1,8 +1,5 @@
-import type { Command, Config } from '@oclif/core'
+import type { CommandContext } from './command.context'
 
 export interface CommandModuleOptions {
-  oclif: Config
-  command?: typeof Command
-  flags?: Record<string, any>
-  args?: Record<string, any>
+  context: CommandContext<any>
 }

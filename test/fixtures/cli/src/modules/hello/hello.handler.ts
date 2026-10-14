@@ -1,4 +1,4 @@
-import type { CommandSchemaInput } from '@cenk1cenk2/oclif-common'
+import type { CommandContext } from '@cenk1cenk2/oclif-common'
 import { LoggerService, TaskManager } from '@cenk1cenk2/oclif-common'
 import { Injectable } from '@nestjs/common'
 
@@ -11,7 +11,7 @@ export class HelloHandler {
     private readonly tasks: TaskManager
   ) {}
 
-  public async run({ flags, args }: CommandSchemaInput<typeof helloSchema>): Promise<void> {
+  public async run({ flags, args }: CommandContext<typeof helloSchema>): Promise<void> {
     this.tasks.add([
       {
         title: 'Greet',

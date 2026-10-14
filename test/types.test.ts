@@ -2,10 +2,10 @@ import { Injectable, Module } from '@nestjs/common'
 import { describe, expectTypeOf, it } from 'vitest'
 import { z } from 'zod'
 
-import type { CommandHandler, CommandInput, CommandSchemaInput, LogLevels } from '../src'
+import type { CommandContext, CommandHandler, LogLevels } from '../src'
 import { Args, Command, Flags, UseHandler } from '../src'
 
-describe('CommandInput', () => {
+describe('CommandContext', () => {
   class Typed extends Command {
     static flags = {
       name: Flags.string({ default: 'world' }),
@@ -21,7 +21,7 @@ describe('CommandInput', () => {
     }
   }
 
-  type Input = CommandInput<typeof Typed>
+  type Input = CommandContext<typeof Typed>
 
   it('types the flags of the command and the base flags', () => {
     expectTypeOf(Typed).toExtend<typeof Command>()
@@ -61,7 +61,7 @@ describe('UseHandler', () => {
 
   @Injectable()
   class GreetHandler implements CommandHandler<typeof Greet> {
-    public async run({ flags }: CommandInput<typeof Greet>): Promise<void> {
+    public async run({ flags }: CommandContext<typeof Greet>): Promise<void> {
       expectTypeOf(flags.from).toEqualTypeOf<string>()
     }
   }
@@ -75,7 +75,7 @@ describe('UseHandler', () => {
 
     @Injectable()
     class SchemaHandler {
-      public async run({ flags, signal }: CommandSchemaInput<typeof schema>): Promise<void> {
+      public async run({ flags, signal }: CommandContext<typeof schema>): Promise<void> {
         expectTypeOf(flags.from).toEqualTypeOf<number>()
         expectTypeOf(signal).toEqualTypeOf<AbortSignal>()
       }
@@ -89,13 +89,13 @@ describe('UseHandler', () => {
       })
       class Accepted extends Greet {}
 
-      // @ts-expect-error the handler takes the input of the command instead of the output of the schema
+      // @ts-expect-error the handler takes the context of the command instead of the one of the schema
       @UseHandler({
         module: EmptyModule,
         handler: GreetHandler,
         schema
       })
-      class CommandInputHandler extends Greet {}
+      class CommandContextHandler extends Greet {}
 
       // @ts-expect-error the schema takes a flag the command does not declare
       @UseHandler({
@@ -106,7 +106,7 @@ describe('UseHandler', () => {
       class Undeclared extends Leave {}
 
       expectTypeOf(Accepted).toExtend<typeof Command>()
-      expectTypeOf(CommandInputHandler).toExtend<typeof Command>()
+      expectTypeOf(CommandContextHandler).toExtend<typeof Command>()
       expectTypeOf(Undeclared).toExtend<typeof Command>()
     })
   })

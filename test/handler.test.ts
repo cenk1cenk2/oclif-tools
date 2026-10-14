@@ -1,39 +1,44 @@
-import { Inject, Injectable } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import { describe, expect, it, vi } from 'vitest'
 
-import type { CommandHandler, CommandInput } from '../src'
-import { LogLevels, LoggerService, TOKEN_COMMAND_FLAGS } from '../src'
+import type { CommandHandler } from '../src'
+import { CommandContext, LogLevels, LoggerService } from '../src'
 
 describe('CommandHandler', () => {
   @Injectable()
   class GreetHandler implements CommandHandler {
     constructor(
       private readonly logger: LoggerService,
-      @Inject(TOKEN_COMMAND_FLAGS) private readonly flags: { greeting: string }
+      private readonly command: CommandContext
     ) {}
 
-    public async run({ args }: CommandInput): Promise<void> {
-      this.logger.info('%s %s', this.flags.greeting, args.person)
+    public async run({ args }: CommandContext): Promise<void> {
+      this.logger.info('%s %s from %s', this.command.flags.greeting, args.person, this.command.id)
     }
   }
 
   it('runs without oclif in a nest testing module', async() => {
     const info = vi.fn()
-    const module = await Test.createTestingModule({
-      providers: [GreetHandler, { provide: LoggerService, useValue: { info } }, { provide: TOKEN_COMMAND_FLAGS, useValue: { greeting: 'hello' } }]
-    }).compile()
-
-    await module.get(GreetHandler).run({
+    const context = new CommandContext({
       flags: {
+        greeting: 'hello',
         ['log-level']: LogLevels.INFO,
         ci: false,
         json: false
       },
       args: { person: 'world' },
-      signal: new AbortController().signal
+      signal: new AbortController().signal,
+      oclif: undefined,
+      id: 'greet',
+      command: undefined
     })
+    const module = await Test.createTestingModule({
+      providers: [GreetHandler, { provide: LoggerService, useValue: { info } }, { provide: CommandContext, useValue: context }]
+    }).compile()
 
-    expect(info).toHaveBeenCalledWith('%s %s', 'hello', 'world')
+    await module.get(GreetHandler).run(context)
+
+    expect(info).toHaveBeenCalledWith('%s %s from %s', 'hello', 'world', 'greet')
   })
 })

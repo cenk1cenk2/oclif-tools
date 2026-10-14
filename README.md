@@ -46,11 +46,13 @@ A single-command CLI keeps its command in `src/commands/index.ts` and names its 
 
 - The command extends `Command` and declares the oclif side as statics, which oclif reads: its description, `static flags` and `static args`. `@UseHandler({ module, handler })` registers its root module and its handler. The decorator only accepts a handler that takes the flags and args of the command it decorates, so a handler written for another command is a type error.
 - The module imports the optional modules the command needs and provides the handler.
-- The handler implements `CommandHandler<typeof MyCommand>`, gets its dependencies through its constructor and the parsed flags and args in `run({ flags, args })`.
+- The handler implements `CommandHandler<typeof MyCommand>`, gets its dependencies through its constructor and the `CommandContext` of the command in `run(context)`.
+
+`CommandContext` is the one way to the running command: its validated `flags` and `args`, the abort `signal`, the oclif `Config` as `oclif`, the command `id` and the `command` class. The handler receives it in `run`, and any provider, factory or handler can inject the same instance, `constructor(private readonly context: CommandContext<typeof Print>)` or `inject: [CommandContext]` in a `forRootAsync`. Its type argument, the command or its schema, only casts the input: nest injects the one instance whatever the type says, and only `run` is checked against the command by `@UseHandler`.
 
 The base command parses the flags and args, boots the module into an application context, resolves the handler from it and runs it, and closes the context once the command ends, whether it failed or not.
 
-The first `SIGINT` or `SIGTERM` does not tear the context down under a running handler: it aborts the `signal` of the handler input and logs a warning, the handler finishes or stops early by watching that signal, for example by passing it to child processes, then the context closes and the command exits with the code of the signal, `130` for `SIGINT` and `143` for `SIGTERM`. A second signal exits at once. `TaskManager` leaves signals to the command, so a running listr task is not cut off either.
+The first `SIGINT` or `SIGTERM` does not tear the context down under a running handler: it aborts the `signal` of the command context and logs a warning, the handler finishes or stops early by watching that signal, for example by passing it to child processes, then the context closes and the command exits with the code of the signal, `130` for `SIGINT` and `143` for `SIGTERM`. A second signal exits at once. `TaskManager` leaves signals to the command, so a running listr task is not cut off either.
 
 ```ts
 // src/commands/print.ts
@@ -83,7 +85,7 @@ export class SharedModule {}
 
 ```ts
 // src/modules/print/print.module.ts
-import { JsonParser, ParserModule, TOKEN_COMMAND_FLAGS, YamlParser } from '@cenk1cenk2/oclif-common'
+import { CommandContext, JsonParser, ParserModule, YamlParser } from '@cenk1cenk2/oclif-common'
 import { Module } from '@nestjs/common'
 
 import { PrintHandler } from './print.handler.js'
@@ -93,7 +95,7 @@ import { SharedModule } from '../shared/shared.module.js'
   imports: [
     SharedModule,
     ParserModule.forRoot({ parsers: [JsonParser, YamlParser] }),
-    PrinterModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: (flags) => ({ browser: flags.browser }) })
+    PrinterModule.forRootAsync({ inject: [CommandContext], useFactory: (context: CommandContext<typeof Print>) => ({ browser: context.flags.browser }) })
   ],
   providers: [PrintHandler]
 })
@@ -102,7 +104,7 @@ export class PrintModule {}
 
 ```ts
 // src/modules/print/print.handler.ts
-import type { CommandHandler, CommandInput } from '@cenk1cenk2/oclif-common'
+import type { CommandContext, CommandHandler } from '@cenk1cenk2/oclif-common'
 import { LoggerService, TaskManager } from '@cenk1cenk2/oclif-common'
 import { Injectable } from '@nestjs/common'
 
@@ -116,7 +118,7 @@ export class PrintHandler implements CommandHandler<typeof Print> {
     private readonly printer: PrinterService
   ) {}
 
-  public async run({ flags }: CommandInput<typeof Print>): Promise<void> {
+  public async run({ flags }: CommandContext<typeof Print>): Promise<void> {
     this.logger.info('Printing with %s.', flags.browser)
 
     this.tasks.add([{ title: 'Print', task: () => this.printer.print() }])
@@ -132,7 +134,7 @@ A handler needs no oclif to be tested: compile it in a `Test.createTestingModule
 
 ### Validation
 
-oclif parses the flags and args. A schema in `@UseHandler({ module, handler, schema })`, any [Standard Schema](https://standardschema.dev) such as zod, valibot or arktype, then validates the parsed `{ flags, args }` as a whole before the command boots, so it can check rules across flags and coerce or transform values. Its output replaces the input: `TOKEN_COMMAND_FLAGS`, `TOKEN_COMMAND_ARGS` and the handler see only checked values, while the log level and JSON flags are read from what oclif parsed. A rejected input fails like a flag oclif can not parse, once and with exit code 2. The handler takes `CommandSchemaInput<typeof schema>`, and the decorator rejects a handler that does not take the output of the schema, or a schema that reads a flag or arg the command does not declare.
+oclif parses the flags and args. A schema in `@UseHandler({ module, handler, schema })`, any [Standard Schema](https://standardschema.dev) such as zod, valibot or arktype, then validates the parsed `{ flags, args }` as a whole before the command boots, so it can check rules across flags and coerce or transform values. Its output replaces the input: the `CommandContext`, and with it the module factories, the providers and the handler, sees only checked values, while the log level and JSON flags are read from what oclif parsed. A rejected input fails like a flag oclif can not parse, once and with exit code 2. The handler takes `CommandContext<typeof schema>`, and the decorator rejects a handler that does not take the context of the schema, or a schema that reads a flag or arg the command does not declare.
 
 ```ts
 // src/modules/deploy/deploy.schema.ts
@@ -160,7 +162,7 @@ export default class Deploy extends Command {
 // src/modules/deploy/deploy.handler.ts
 @Injectable()
 export class DeployHandler {
-  public async run({ flags }: CommandSchemaInput<typeof deploySchema>): Promise<void> {}
+  public async run({ flags }: CommandContext<typeof deploySchema>): Promise<void> {}
 }
 ```
 
@@ -184,7 +186,7 @@ The oclif options of a flag describe how to read argv, while the schema holds th
 Every command boots with the runtime modules only:
 
 - `ConfigModule` with `ConfigService`, the runtime config of the command: its log level and whether it answers in JSON.
-- `CommandModule` with the running command: parsed flags through `TOKEN_COMMAND_FLAGS`, arguments through `TOKEN_COMMAND_ARGS`, the oclif `Config` through `TOKEN_OCLIF_CONFIG` and the command class through `TOKEN_COMMAND`, for module factories and services alike.
+- `CommandModule` with the `CommandContext` of the running command, for module factories and services alike.
 - `LoggerModule` with `LoggerService`. It writes `FATAL` and `ERROR` to stderr and every other level to stdout; import `LoggerModule.forRoot({ stderr })` or `LoggerModule.forRootAsync(...)` anywhere in the module of the command, such as a shared module, to list the levels written to stderr instead. It only provides the options to the logger of the runtime, so configure it in one module and share that module. A command whose module fails to boot, or whose flags fail to parse, writes every level to stderr.
 
 Everything else is imported by the module of the command, each module with its own options. These modules are visible only to the module that imports them: a shared module re-exports them with `exports`, or `isGlobal: true` in the options of `forRoot` registers one globally. Each of them has a `forRootAsync` as well.
@@ -205,7 +207,7 @@ Everything else is imported by the module of the command, each module with its o
 export class BuildHandler implements CommandHandler<typeof Build> {
   constructor(@Inject(TOKEN_RC) private readonly rc: Partial<BuildOptions>) {}
 
-  public async run({ flags }: CommandInput<typeof Build>): Promise<void> {
+  public async run({ flags }: CommandContext<typeof Build>): Promise<void> {
     const options = { ...DEFAULTS, ...this.rc, ...Object.fromEntries(Object.entries(flags).filter(([, value]) => value !== undefined)) }
   }
 }
@@ -231,13 +233,13 @@ Everything this major changes for a CLI built on the previous one.
 
 ### Commands
 
-- Move each command to `src/commands/<command>.ts`, and its module and handler to `src/modules/<command>/`. Move the body of `run()` into the `run({ flags, args, signal })` of an `@Injectable()` handler implementing `CommandHandler<typeof MyCommand>`, provide it in the module and register both on the command with `@UseHandler({ module, handler })`; a command without it fails to start. A command no longer implements `run()`, has no default module, and `Command` takes no type parameters.
+- Move each command to `src/commands/<command>.ts`, and its module and handler to `src/modules/<command>/`. Move the body of `run()` into the `run(context)` of an `@Injectable()` handler implementing `CommandHandler<typeof MyCommand>`, provide it in the module and register both on the command with `@UseHandler({ module, handler })`; a command without it fails to start. A command no longer implements `run()`, has no default module, and `Command` takes no type parameters.
 - `register`, `shouldRunBefore`, `shouldRunAfter`, their hook types and the `isHookedWith*` guards are removed; move setup and teardown into provider lifecycle hooks.
 - Replace `@Inject()` properties with constructor parameters of the handler. `@Optional()` stays available on constructor parameters.
-- Replace `this.logger` with an injected `LoggerService`, `this.tasks` with an injected `TaskManager` from `TaskModule`, and `this.flags` / `this.args` with the input of `run`, or `TOKEN_COMMAND_FLAGS` / `TOKEN_COMMAND_ARGS` in module factories and services. Tasks no longer run on their own after the command: call `await tasks.runAll()` in the handler.
+- Replace `this.logger` with an injected `LoggerService`, `this.tasks` with an injected `TaskManager` from `TaskModule`, and `this.flags` / `this.args` with the `CommandContext` that `run` receives, or that module factories and services inject. Tasks no longer run on their own after the command: call `await tasks.runAll()` in the handler.
 - Replace `this.pipeProcessToLogger(...)` / `this.pipeProcessThroughListr(...)` with `pipeProcessToLogger(logger, ...)` / `pipeProcessThroughListr(task, ...)`. `this.setCtxDefaults` / `this.setCtxAssign` are removed without a replacement helper; set the context of the `TaskManager` directly.
 - The flags are typed from the base flags of the command: a flag the command does not declare is a type error, `json` and `ci` are `boolean` and `log-level` is `LogLevels`.
-- `SIGINT` and `SIGTERM` no longer close the application under a running handler: the first one aborts the `signal` of the handler input, the application closes once the handler returns, and the command exits with `130` or `143`.
+- `SIGINT` and `SIGTERM` no longer close the application under a running handler: the first one aborts the `signal` of the command context, the application closes once the handler returns, and the command exits with `130` or `143`.
 - A failed command prints its error once, through its logger; oclif no longer prints it a second time.
 
 ### Modules
@@ -245,8 +247,8 @@ Everything this major changes for a CLI built on the previous one.
 - `CliModule` is renamed to `CliFactory`, with `CliFactory.create(module, options)` and `CliFactory.createFallback(options)`; `CliModule.forRoot`, `forMinimum` and `forFallback` are gone, and `CliModuleOptions` no longer exists.
 - Only `ConfigModule`, `CommandModule` and `LoggerModule` are provided by default. Import the rest where the command uses it: `TaskModule.forRoot()`, `ParserModule.forRoot({ parsers })`, `FilesystemModule.forRoot()`, `LogoModule.forRoot({ generator })` and `ValidatorModule.forRoot()`. None of them is global unless registered with `isGlobal: true`, so a shared module exports the ones other modules use, and `ParserModule` no longer makes `FileSystemService` available.
 - Parsers default to `[JsonParser]`; `ParserService.register` and `inject` are removed. `TOKEN_LOGO_GENERATOR` is replaced by `LogoModule.forRoot({ generator })`, and a command without `LogoModule` prints no logo.
-- `TOKEN_COMMAND_FLAGS` and `TOKEN_COMMAND_ARGS` come from `CommandModule`, which also provides the oclif config as `TOKEN_OCLIF_CONFIG` and the command class as `TOKEN_COMMAND`. `ConfigModuleOptions` holds only `config`.
-- `ConfigService` keeps only the runtime config. Replace its `oclif`, `command`, `root` and `defaults` with `@Inject(TOKEN_OCLIF_CONFIG)`, `@Inject(TOKEN_COMMAND)` and the `root` of the oclif config; `FileConstants` is removed. Replace its `read` / `write` with `ParserService.read` / `write` from `ParserModule`, and its `extend` / `merge` over bundled defaults with `RcModule.forRoot({ name, defaults })`. Its `env` and the environment variable definitions with `__name`, `__format` and `__element` are removed, together with `ConfigEnvKeys`, `ConfigIterator` and `clonePath`.
+- `CommandModule` provides the `CommandContext` of the command, which holds its `flags`, `args`, `signal`, oclif config as `oclif`, `id` and `command` class; there are no `TOKEN_COMMAND_FLAGS`, `TOKEN_COMMAND_ARGS`, `TOKEN_OCLIF_CONFIG` or `TOKEN_COMMAND`. Replace `inject: [TOKEN_COMMAND_FLAGS]` with `inject: [CommandContext]` and read `context.flags`, and a handler's `run({ flags, args, signal })` with `run(context)`; `CommandInput` and `CommandSchemaInput` are replaced by `CommandContext<typeof MyCommand>` and `CommandContext<typeof schema>`. `ConfigModuleOptions` holds only `config`.
+- `ConfigService` keeps only the runtime config. Replace its `oclif`, `command`, `root` and `defaults` with the `oclif`, `command` and `oclif.root` of the `CommandContext`; `FileConstants` is removed. The free functions `isVerbose`, `isDebug`, `isSilent` and `isNestLogging` are no longer exported: use the getters of `ConfigService` and `ConfigService.isNestLogging()`. Replace its `read` / `write` with `ParserService.read` / `write` from `ParserModule`, and its `extend` / `merge` over bundled defaults with `RcModule.forRoot({ name, defaults })`. Its `env` and the environment variable definitions with `__name`, `__format` and `__element` are removed, together with `ConfigEnvKeys`, `ConfigIterator` and `clonePath`.
 
 ### Logger
 

@@ -1,10 +1,10 @@
-import type { Config } from '@oclif/core'
 import { cosmiconfig } from 'cosmiconfig'
 import { cloneDeep, mergeWith } from 'es-toolkit'
 import { resolve } from 'path'
 import { parse } from 'yaml'
 
 import type { RcModuleOptions } from './rc.interface'
+import type { CommandContext } from '@lib/command/command.context'
 import type { LoggerService } from '@lib/logger'
 import { validate } from '@lib/validator/validate'
 
@@ -20,7 +20,7 @@ export class RcService<T = Record<string, unknown>> {
     return mergeWith(cloneDeep(defaults), rc, (_, value) => (Array.isArray(value) ? value : undefined))
   }
 
-  public static async load(options: RcModuleOptions, oclif: Config, logger: LoggerService): Promise<RcService> {
+  public static async load(options: RcModuleOptions, context: CommandContext, logger: LoggerService): Promise<RcService> {
     const yaml = (_: string, content: string): unknown => parse(content)
     const explorer = cosmiconfig(options.name, {
       searchStrategy: 'global',
@@ -35,7 +35,7 @@ export class RcService<T = Record<string, unknown>> {
         ...options.cosmiconfig?.loaders
       }
     })
-    const defaults = typeof options.defaults === 'string' ? (await explorer.load(resolve(oclif.root, options.defaults)))?.config : options.defaults
+    const defaults = typeof options.defaults === 'string' ? (await explorer.load(resolve(context.oclif.root, options.defaults)))?.config : options.defaults
     const result = await explorer.search(options.cwd)
 
     logger.setup(RcService.name).trace('Loaded the configuration of %s from: %s', options.name, result?.filepath ?? 'nowhere')

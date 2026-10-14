@@ -3,7 +3,7 @@ import type { StandardSchemaV1 } from '@standard-schema/spec'
 import { describe, expect, it } from 'vitest'
 import { z } from 'zod'
 
-import type { CommandSchemaInput } from '../src'
+import type { CommandContext } from '../src'
 import { Command, Flags, UseHandler } from '../src'
 
 describe('UseHandler', () => {
@@ -17,7 +17,7 @@ describe('UseHandler', () => {
 
     @Injectable()
     class Handler {
-      public async run(input: CommandSchemaInput<typeof schema>): Promise<void> {
+      public async run(input: CommandContext<typeof schema>): Promise<void> {
         expect(input).toBeDefined()
       }
     }
@@ -56,7 +56,7 @@ describe('UseHandler', () => {
 
     @Injectable()
     class Handler {
-      public async run(input: CommandSchemaInput<typeof schema>): Promise<void> {
+      public async run(input: CommandContext<typeof schema>): Promise<void> {
         expect(input).toBeDefined()
       }
     }

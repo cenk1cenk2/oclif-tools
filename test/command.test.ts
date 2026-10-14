@@ -6,10 +6,11 @@ import { join } from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { z } from 'zod'
 
-import type { CliModuleImport, CommandHandler, CommandInput, CommandSchemaInput, UseHandlerOptions } from '../src'
+import type { CliModuleImport, CommandHandler, UseHandlerOptions } from '../src'
 import {
   Args,
   CliFactory,
+  CommandContext,
   Command,
   ConfigService,
   FileSystemService,
@@ -23,9 +24,6 @@ import {
   ParserService,
   TaskManager,
   TaskModule,
-  TOKEN_COMMAND,
-  TOKEN_COMMAND_FLAGS,
-  TOKEN_OCLIF_CONFIG,
   UseHandler,
   ValidatorService,
   YamlParser
@@ -79,8 +77,8 @@ describe('Command', () => {
         LoggerModule.forRoot({ stderr: options.stderr }),
         LogoModule.forRoot(),
         GreetModule.forRootAsync({
-          inject: [TOKEN_COMMAND_FLAGS],
-          useFactory: (flags: { name: string }) => ({ name: flags.name })
+          inject: [CommandContext],
+          useFactory: (context: CommandContext) => ({ name: context.flags.name })
         }),
         ...(options.imports ?? [])
       ],
@@ -161,11 +159,11 @@ describe('Command', () => {
   })
 
   it('hands the parsed flags and args to the handler', async() => {
-    let input: CommandInput
+    let input: CommandContext
 
     @Injectable()
     class InputHandler implements CommandHandler {
-      public async run(received: CommandInput): Promise<void> {
+      public async run(received: CommandContext): Promise<void> {
         input = received
       }
     }
@@ -197,13 +195,18 @@ describe('Command', () => {
 
     it('hands the output of the schema to the module factories and the handler', async() => {
       let input: unknown
+      let injected: unknown
 
       @Injectable()
       class SchemaHandler {
-        constructor(private readonly greet: GreetService) {}
+        constructor(
+          private readonly greet: GreetService,
+          private readonly context: CommandContext<typeof schema>
+        ) {}
 
-        public async run(received: CommandSchemaInput<typeof schema>): Promise<void> {
+        public async run(received: CommandContext<typeof schema>): Promise<void> {
           input = { flags: received.flags, args: received.args }
+          injected = { flags: this.context.flags, args: this.context.args }
 
           process.stdout.write(this.greet.hello() + '\n')
         }
@@ -221,6 +224,7 @@ describe('Command', () => {
         },
         args: {}
       })
+      expect(injected).toEqual(input)
     })
 
     it('fails a rejected input like a flag error before the command boots', async() => {
@@ -241,27 +245,42 @@ describe('Command', () => {
     expect(stdout).toContain('hello flags')
   })
 
-  it('provides the running command through the command module and the runtime config through the config service', async() => {
-    let context: unknown[]
+  it('provides one command context to providers, factories and the run of the handler', async() => {
+    let seen: unknown[]
+
+    @Injectable()
+    class ContextService {
+      constructor(public readonly context: CommandContext) {}
+    }
 
     @Injectable()
     class ContextHandler implements CommandHandler {
       constructor(
-        @Inject(TOKEN_COMMAND) private readonly command: unknown,
-        @Inject(TOKEN_OCLIF_CONFIG) private readonly oclif: unknown,
-        private readonly cs: ConfigService
+        private readonly service: ContextService,
+        private readonly cs: ConfigService,
+        private readonly greet: GreetService
       ) {}
 
-      public async run(): Promise<void> {
-        context = [this.command, this.oclif, this.cs.config]
+      public async run(context: CommandContext): Promise<void> {
+        seen = [context, this.service.context, this.greet.hello(), this.cs.config]
       }
     }
 
-    const Context = greet(app({ providers: [ContextHandler] }), ContextHandler)
-    const { error } = await run(Context)
+    const Context = greet(app({ providers: [ContextService, ContextHandler] }), ContextHandler)
+    const { error } = await run(Context, ['--name', 'context'])
+    const [received, injected, hello, config] = seen as [CommandContext, CommandContext, string, unknown]
 
     expect(error).toBeUndefined()
-    expect(context).toEqual([Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' }), { logLevel: LogLevels.INFO, isJson: false }])
+    expect(injected).toBe(received)
+    expect(hello).toBe('hello context')
+    expect(received).toMatchObject({
+      id: 'greet',
+      command: Context,
+      flags: { name: 'context' },
+      oclif: expect.objectContaining({ name: '@cenk1cenk2/oclif-common' })
+    })
+    expect(received.signal).toBeInstanceOf(AbortSignal)
+    expect(config).toEqual({ logLevel: LogLevels.INFO, isJson: false })
   })
 
   it('provides the task manager with its own options over the runtime config', async() => {
@@ -433,7 +452,7 @@ describe('Command', () => {
 
     it('takes them from a factory', async() => {
       const loud = command(
-        LoggerModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: (flags: { loud: boolean }) => ({ stderr: flags.loud ? [LogLevels.INFO] : [] }) })
+        LoggerModule.forRootAsync({ inject: [CommandContext], useFactory: (context: CommandContext) => ({ stderr: context.flags.loud ? [LogLevels.INFO] : [] }) })
       )
 
       expect(await run(loud, ['--loud'])).toMatchObject({ stdout: '', stderr: '› logged\n' })
