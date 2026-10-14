@@ -10,20 +10,55 @@ Shared building blocks for oclif-based CLIs: base commands, hooks, interfaces an
 pnpm add @cenk1cenk2/oclif-common
 ```
 
-The package is ESM-only. Node.js >= 20.19 or >= 22.12 is required.
+The package is ESM-only. Node.js >= 24 is required.
 
 ## Usage
 
 Extend the exported base classes and wire the hooks in your CLI's `oclif.manifest.json` / `package.json` oclif configuration. The `commands/`, `hooks/` and `lib/` exports cover the shared command factory, init hooks and the DI container setup used across the CLIs built on this package.
 
+### Modules and services
+
+Every command boots a NestJS application context from its `static module`, which defaults to `CliModule.forRoot()`. Declare your own root module to configure the shared modules and add your own, and read parsed flags or arguments in module factories through `TOKEN_COMMAND_FLAGS` and `TOKEN_COMMAND_ARGS`. Services reach the command through `@Inject()` properties, `@Optional()` ones stay empty when nothing provides them.
+
+```ts
+import { Module } from '@nestjs/common'
+
+import { CliModule, Command, Flags, Inject, JsonParser, TOKEN_COMMAND_FLAGS, YamlParser } from '@cenk1cenk2/oclif-common'
+
+@Module({
+  imports: [
+    CliModule.forRoot({ logger: { stderr: true }, parser: { parsers: [JsonParser, YamlParser] } }),
+    PrinterModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: (flags) => ({ browser: flags.browser }) })
+  ]
+})
+class PrintModule {}
+
+export default class Print extends Command<typeof Print> {
+  static module = PrintModule
+
+  static flags = {
+    browser: Flags.string()
+  }
+
+  @Inject() private readonly printer: PrinterService
+
+  public async run(): Promise<void> {
+    await this.printer.print()
+  }
+}
+```
+
+Property injection reads the design type that TypeScript emits, so build with `experimentalDecorators` and `emitDecoratorMetadata`, and import injected services as values: an `import type`, or an interface as the property type, leaves nothing to resolve at runtime. Inject interfaces through a token with `@Inject(token)`.
+
 ## Development
 
-This package lives in the `oclif-tools` pnpm workspace. Build and lint run from the repository root:
+This package lives in the `oclif-tools` pnpm workspace. Build, lint and test run from the repository root:
 
 ```sh
 pnpm install
 pnpm lint
 pnpm build
+pnpm test
 ```
 
 Releases are cut by `multi-semantic-release` from `main` and published through npm staged publishing - the `npm stage publish` step parks the version for maintainer approval with 2FA before it reaches the registry.
