@@ -25,6 +25,7 @@ export default [
     }
   },
   {
-    ignores: ['tsdown.config.ts', 'vitest.config.ts']
+    // the fixture cli is a project of its own, which the test setup compiles against the built package
+    ignores: ['tsdown.config.ts', 'vitest.config.ts', 'test/fixtures/cli/**']
   }
 ]

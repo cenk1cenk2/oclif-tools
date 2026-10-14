@@ -11,8 +11,7 @@
     "test": "pnpm run -r test"
   },
   "workspaces": [
-    "packages/*",
-    "example"
+    "packages/*"
   ],
   "devDependencies": {
     "@cenk1cenk2/cz-cc": "^3.0.6",

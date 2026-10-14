@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "noUnusedLocals": true,
-    "declaration": true,
-    "sourceMap": false
-  },
-  "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
-}

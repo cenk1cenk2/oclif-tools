@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common'
 
-import { HelloHandler } from './hello.handler.js'
 import { SharedModule } from '../shared/shared.module.js'
+import { GoodbyeHandler } from './goodbye.handler.js'
 
 @Module({
   imports: [SharedModule],
-  providers: [HelloHandler]
+  providers: [GoodbyeHandler]
 })
-export class HelloModule {}
+export class GoodbyeModule {}

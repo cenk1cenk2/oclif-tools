@@ -1,8 +1,8 @@
+import type { CommandHandler, CommandInput } from '@cenk1cenk2/oclif-common'
+import { LoggerService, TaskManager } from '@cenk1cenk2/oclif-common'
 import { Injectable } from '@nestjs/common'
 
 import type Hello from '../../commands/hello.js'
-import type { CommandHandler, CommandInput } from '@cenk1cenk2/oclif-common'
-import { LoggerService, TaskManager } from '@cenk1cenk2/oclif-common'
 
 @Injectable()
 export class HelloHandler implements CommandHandler<typeof Hello> {
@@ -12,13 +12,11 @@ export class HelloHandler implements CommandHandler<typeof Hello> {
   ) {}
 
   public async run({ flags, args }: CommandInput<typeof Hello>): Promise<void> {
-    this.logger.info(`hello ${args.person} from ${flags.from}! (./src/modules/hello/hello.handler.ts)`)
-
     this.tasks.add([
       {
-        title: 'Test task',
-        task: (_, task): void => {
-          task.output = 'doing something'
+        title: 'Greet',
+        task: (): void => {
+          this.logger.info(`hello ${args.person} from ${flags.from}`)
         }
       }
     ])

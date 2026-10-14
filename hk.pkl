@@ -1,7 +1,7 @@
 amends "package://github.com/jdx/hk/releases/download/v2.6.0/hk@2.6.0#/Config.pkl"
 import "package://github.com/jdx/hk/releases/download/v2.6.0/hk@2.6.0#/Builtins.pkl"
 
-subprojects = List("packages/*", "example")
+subprojects = List("packages/*")
 
 hooks {
   ["pre-commit"] {
@@ -10,7 +10,7 @@ hooks {
     steps {
       ["prettier"] = (Builtins.prettier) {
         glob = List("*.json", "*.md")
-        exclude = List("packages/**", "example/**")
+        exclude = List("packages/**")
       }
     }
   }
