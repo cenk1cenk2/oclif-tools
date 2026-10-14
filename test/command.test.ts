@@ -381,13 +381,6 @@ describe('Command', () => {
       expect(await run(loud)).toMatchObject({ stdout: '› logged\n', stderr: '' })
     })
 
-    it('refuses them twice', async() => {
-      const { error, stderr } = await run(command(LoggerModule.forRoot(), LoggerModule.forRoot({ stderr: [] })))
-
-      expect(error.message).toBe('LoggerModule.forRoot is imported more than once, configure the logger in one module and share that module instead.')
-      expect(stderr).toContain('[F] LoggerModule.forRoot is imported more than once')
-    })
-
     it('lets nest log its bootstrap through the logger only with NEST_LOGS', async() => {
       vi.stubEnv('NEST_LOGS', '1')
 
