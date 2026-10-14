@@ -9,3 +9,10 @@ export declare class GenericParser {
 export interface ParserModuleOptions {
   parsers?: ClassType<GenericParser>[]
 }
+
+export interface ConfigIterator {
+  key: (string | number)[]
+  env: string
+  parser?: string
+  extensions?: ConfigIterator[]
+}

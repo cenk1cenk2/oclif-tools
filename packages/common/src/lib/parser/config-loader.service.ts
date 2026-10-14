@@ -1,9 +1,9 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
 import { set } from 'es-toolkit/compat'
 
+import { ConfigEnvKeys } from './parser.constants'
+import type { ConfigIterator } from './parser.interface'
 import { ParserService } from './parser.service'
-import { ConfigEnvKeys } from '@lib/config/config.constants'
-import type { ConfigIterator } from '@lib/config/config.interface'
 import { LoggerService } from '@lib/logger'
 import { MergeStrategy, clonePath, merge } from '@utils'
 
@@ -16,14 +16,6 @@ export class ConfigLoaderService implements OnModuleInit {
 
   public async onModuleInit(): Promise<void> {
     this.logger.setup(this.constructor.name)
-  }
-
-  public async read<T = any>(path: string): Promise<T> {
-    const config = await this.parser.read<T>(path)
-
-    this.logger.trace('Read config from: %s', path)
-
-    return config
   }
 
   public async extend<T = any>(paths: (string | Partial<T>)[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): Promise<T> {
@@ -57,125 +49,93 @@ export class ConfigLoaderService implements OnModuleInit {
   }
 
   public async env<T = any>(definition: string | Record<PropertyKey, any>, config: T): Promise<T> {
-    const env = typeof definition === 'string' ? await this.parser.read<T>(definition) : definition
+    const env = typeof definition === 'string' ? await this.parser.read<Record<PropertyKey, any>>(definition) : definition
 
     this.logger.trace('Environment variable extensions read: %o', definition)
 
-    const iter = async(obj: Record<PropertyKey, any>, parent?: string[]): Promise<ConfigIterator[]> => {
-      const data = await Promise.all(
-        Object.entries(obj).map(async([key, value]) => {
-          const location = [...(parent ?? []), key]
+    for (const variable of this.variables(env)) {
+      if (process.env[variable.env]) {
+        config = this.inject(config, variable, process.env[variable.env])
+      }
 
-          if (typeof value === 'string') {
-            return [{ key: location, env: value }]
-          } else if (typeof value === 'object') {
-            let extensions: ConfigIterator['extensions']
+      if (!variable.extensions?.length) {
+        continue
+      }
 
-            if (ConfigEnvKeys.ELEMENT in value) {
-              extensions = await iter(value[ConfigEnvKeys.ELEMENT], [...location, ConfigEnvKeys.ELEMENT])
+      // the elements are numbered without gaps, so there can not be more of them than environment variables
+      for (let i = 0; i < Object.keys(process.env).length; i++) {
+        const elements = variable.extensions
+          .map((extension) => {
+            const element = structuredClone(extension)
 
-              this.logger.trace('Expanding location to elements: %s -> %s', location, extensions.map((extension) => extension.key.join('.')).join(', '))
-            }
+            element.env = element.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
+            element.key[element.key.indexOf(ConfigEnvKeys.ELEMENT)] = i.toString()
 
-            if (ConfigEnvKeys.NAME in value && ConfigEnvKeys.PARSER in value) {
-              const variable = [
-                {
-                  key: location,
+            return element
+          })
+          .filter((element) => process.env[element.env])
 
-                  env: value[ConfigEnvKeys.NAME] as string,
+        if (elements.length === 0) {
+          this.logger.trace('No more extensions for environment variables: %s -> %d', variable.key.join('.'), i)
 
-                  parser: value[ConfigEnvKeys.PARSER] as string,
-                  extensions
-                }
-              ]
+          break
+        }
 
-              // this.logger.trace('Added to search for environment variables: %o', variable)
-
-              return variable
-            } else {
-              return iter(value, location)
-            }
-          }
-        })
-      )
-
-      return data.flatMap((d) => d).filter(Boolean)
-    }
-
-    const parsed = await iter(env)
-
-    // this.logger.trace('Environment variable injection: %o', parsed)
-
-    const cb = (config: T, variable: ConfigIterator, data: any): T => {
-      if (variable.parser) {
-        try {
-          data = this.parser.parse(variable.parser, data)
-        } catch(e: any) {
-          this.logger.trace('Can not parse environment environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
-
-          throw e
+        for (const element of elements) {
+          config = this.inject(config, element, process.env[element.env])
         }
       }
-
-      this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
-
-      return set<T>(clonePath(config, variable.key), variable.key, data)
     }
-
-    parsed.forEach((variable) => {
-      let data: string
-
-      data = process.env[variable.env]
-
-      if (data) {
-        config = cb(config, variable, data)
-      }
-
-      if (variable.extensions && variable.extensions.length > 0) {
-        const timeout = 60000
-        const startedAt = Date.now()
-
-        for (let i = 0; i < Infinity; i++) {
-          if (Date.now() - startedAt > timeout) {
-            throw new Error(`Timed-out in ${timeout}ms while looking for element environment variables.`)
-          }
-
-          const extensions = variable.extensions
-            .map((extension) => {
-              const clone = JSON.parse(JSON.stringify(extension)) as ConfigIterator
-
-              clone.env = clone.env.replace(ConfigEnvKeys.ELEMENT_REPLACER, i.toString())
-              clone.key[clone.key.findIndex((value) => value === ConfigEnvKeys.ELEMENT)] = i.toString()
-
-              data = process.env[clone.env]
-
-              // this.logger.trace('Extension: %o -> %s', clone, data)
-
-              if (!data) {
-                this.logger.trace('No extension for environment variable: %s -> %s', clone.key.join('.'), clone.env)
-
-                return
-              }
-
-              config = cb(config, clone, data)
-
-              return true
-            })
-            .filter(Boolean)
-
-          if (extensions.length === 0) {
-            this.logger.trace('No more extensions for environment variables: %s -> %d', variable.key.join('.'), i)
-
-            break
-          }
-        }
-      }
-    })
 
     return config
   }
 
-  public async write<T = any>(path: string, data: T): Promise<void> {
-    return this.parser.write(path, data)
+  private variables(definition: Record<PropertyKey, any>, parent: (string | number)[] = []): ConfigIterator[] {
+    return Object.entries(definition).flatMap(([key, value]): ConfigIterator[] => {
+      const location = [...parent, key]
+
+      if (typeof value === 'string') {
+        return [{ key: location, env: value }]
+      } else if (value === null || typeof value !== 'object') {
+        return []
+      }
+
+      let extensions: ConfigIterator['extensions']
+
+      if (ConfigEnvKeys.ELEMENT in value) {
+        extensions = this.variables(value[ConfigEnvKeys.ELEMENT], [...location, ConfigEnvKeys.ELEMENT])
+
+        this.logger.trace('Expanding location to elements: %s -> %s', location, extensions.map((extension) => extension.key.join('.')).join(', '))
+      }
+
+      if (ConfigEnvKeys.NAME in value && ConfigEnvKeys.PARSER in value) {
+        return [
+          {
+            key: location,
+            env: value[ConfigEnvKeys.NAME],
+            parser: value[ConfigEnvKeys.PARSER],
+            extensions
+          }
+        ]
+      }
+
+      return this.variables(value, location)
+    })
+  }
+
+  private inject<T>(config: T, variable: ConfigIterator, data: any): T {
+    if (variable.parser) {
+      try {
+        data = this.parser.parse(variable.parser, data)
+      } catch(e: any) {
+        this.logger.trace('Can not parse environment variable for config: %s -> %s with %s', variable.key.join('.'), variable.env, variable.parser)
+
+        throw e
+      }
+    }
+
+    this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
+
+    return set<T>(clonePath(config, variable.key), variable.key, data)
   }
 }

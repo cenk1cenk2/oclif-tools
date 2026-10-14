@@ -5,13 +5,6 @@ export interface GlobalConfig {
   isJson: boolean
 }
 
-export interface ConfigIterator {
-  key: (string | number)[]
-  env: string
-  parser?: string
-  extensions?: ConfigIterator[]
-}
-
 export interface ConfigModuleOptions {
   config: GlobalConfig
 }
