@@ -160,6 +160,20 @@ export class DeployHandler {
 }
 ```
 
+The oclif options of a flag describe how to read argv and how to present it in `--help`, while the schema holds the rules for its value. A rule moved into the schema no longer shows in `--help` or shell completion:
+
+| oclif option | Schema can replace it? | Lost when moved |
+| --- | --- | --- |
+| `required` | yes | help stops marking it required |
+| `options` (enum) | yes (`z.enum`) | help choices, shell completion |
+| `dependsOn`, `exclusive`, `exactlyOne`, `relationships` | yes (`refine`) | help relationships |
+| `min` / `max` | yes | nothing much |
+| `default` | yes (`.default()`) | help default |
+| integer and number parsing | coerce in the schema, though oclif still needs a flag that takes a value | the help type label |
+| `char`, `env`, `multiple`, `allowNo`, `helpGroup`, `hidden`, `description` | no, they read argv and shape the help | — |
+
+A CLI can keep its rules in the schema alone, or declare the ones oclif knows on the flags as well so they double as help, at the cost of stating them twice; the choice is the author's.
+
 `validate(schema, input)` and `validateSync(schema, input)` validate anything else without an application, returning the output of the schema and throwing a `ValidationError` with the `issues`. In services, `ValidatorModule.forRoot()` provides `ValidatorService` with the same two methods, which log every issue by its path before they throw.
 
 ### Modules and services
