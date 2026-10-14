@@ -1,16 +1,16 @@
 import { Manager } from '@listr2/manager'
-import type { DynamicModule, INestApplicationContext, InjectionToken, Type } from '@nestjs/common'
-import { PROPERTY_DEPS_METADATA } from '@nestjs/common/constants.js'
+import type { DynamicModule, INestApplicationContext, Type } from '@nestjs/common'
 import { Command as BaseCommand, Flags } from '@oclif/core'
 import type { ChildProcess } from 'child_process'
 import type { ListrContext, ListrTaskWrapper } from 'listr2'
 import { createInterface } from 'readline'
 
 import { HelpGroups } from '@constants'
-import type { InferArgs, InferFlags } from '@interfaces'
+import type { InferArgs, InferFlags, InjectedProperty } from '@interfaces'
 import type { ConfigModuleOptions, PipeProcessToLoggerOptions } from '@lib'
 import { ConfigService, LogFieldStatus, LogLevels, LoggerService, LogoService, pipeProcessThroughListr, pipeProcessToLogger } from '@lib'
 import { CliModule } from '@lib/cli.module'
+import { OPTIONAL_PROPERTY_DEPS_METADATA, PROPERTY_DEPS_METADATA } from '@lib/nest.constants'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
 import { setCtxAssign, setCtxDefaults } from '@utils'
 
@@ -124,10 +124,24 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
 
     this.logger.stage('Created application context.')
 
-    for (const { key, type } of (Reflect.getMetadata(PROPERTY_DEPS_METADATA, this.constructor) ?? []) as { key: string; type: InjectionToken }[]) {
+    const optional: string[] = Reflect.getMetadata(OPTIONAL_PROPERTY_DEPS_METADATA, this.constructor) ?? []
+
+    for (const { key, type } of (Reflect.getMetadata(PROPERTY_DEPS_METADATA, this.constructor) ?? []) as InjectedProperty[]) {
+      // what an import type, an interface or a build without emitDecoratorMetadata leaves behind as the design type
+      if (type === Object || type === undefined) {
+        throw new Error(
+          `Can not inject property "${key}" of ${this.constructor.name}, its type is not known at runtime: ` +
+            'import the class as a value instead of with "import type", inject an interface through a token with @Inject(token), and build with emitDecoratorMetadata.'
+        )
+      }
+
       try {
         this[key] = await this.app.resolve(type)
       } catch(e: any) {
+        if (optional.includes(key)) {
+          continue
+        }
+
         throw new Error(`Can not inject property "${key}" of ${this.constructor.name}, no provider for: ${typeof type === 'function' ? type.name : String(type)}`, { cause: e })
       }
     }

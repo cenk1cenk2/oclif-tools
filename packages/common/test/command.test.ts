@@ -1,5 +1,5 @@
 import type { DynamicModule, OnModuleDestroy, Type } from '@nestjs/common'
-import { ConfigurableModuleBuilder, Inject, Injectable, Module } from '@nestjs/common'
+import { ConfigurableModuleBuilder, Inject, Injectable, Module, Optional } from '@nestjs/common'
 import { join } from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
@@ -147,6 +147,37 @@ describe('Command', () => {
 
     expect(error.message).toBe('Can not inject property "unprovided" of Missing, no provider for: UNPROVIDED')
     expect(stderr).toContain('[F] Can not inject property "unprovided"')
+  })
+
+  it('leaves an optional property without a provider empty', async() => {
+    let injected: unknown = 'untouched'
+
+    class Optionally extends greet(app(false)) {
+      @Optional() @Inject('UNPROVIDED') private readonly unprovided: unknown
+
+      public async run(): Promise<void> {
+        injected = this.unprovided
+      }
+    }
+
+    const { error } = await run(Optionally)
+
+    expect(error).toBeUndefined()
+    expect(injected).toBeUndefined()
+  })
+
+  it('names the cause when the type of an injected property is lost at runtime', async() => {
+    interface Shape {
+      name: string
+    }
+
+    class Erased extends greet(app(true)) {
+      @Inject() private readonly shape: Shape
+    }
+
+    const { error } = await run(Erased)
+
+    expect(error.message).toMatch(/^Can not inject property "shape" of Erased, its type is not known at runtime: import the class as a value instead of with "import type"/)
   })
 
   it('logs a module boot failure with the logger options of the command module', async() => {
