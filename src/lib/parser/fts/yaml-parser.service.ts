@@ -1,8 +1,8 @@
 import { Inject, Injectable, Optional } from '@nestjs/common'
 import { parse, stringify } from 'yaml'
 
+import { TOKEN_PARSER_MODULE_OPTIONS } from '../parser.constants'
 import type { GenericParser, ParserModuleOptions } from '../parser.interface'
-import { TOKEN_PARSER_MODULE_OPTIONS } from '../parser.module-definition'
 import { LoggerService } from '@lib/logger'
 
 @Injectable()

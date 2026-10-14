@@ -1,9 +1,8 @@
 import type { DynamicModule } from '@nestjs/common'
-import { Module } from '@nestjs/common'
+import { ConfigurableModuleBuilder, Module } from '@nestjs/common'
 
-import { TOKEN_RC } from './rc.constants'
+import { TOKEN_RC, TOKEN_RC_MODULE_OPTIONS } from './rc.constants'
 import type { RcModuleOptions } from './rc.interface'
-import { ConfigurableRcModule, TOKEN_RC_MODULE_OPTIONS } from './rc.module-definition'
 import { RcService } from './rc.service'
 import { TOKEN_OCLIF_CONFIG } from '@lib/command/command.constants'
 import { LoggerService } from '@lib/logger'
@@ -25,7 +24,11 @@ import { ValidatorModule, ValidatorService } from '@lib/validator'
   ],
   exports: [RcService, TOKEN_RC]
 })
-export class RcModule extends ConfigurableRcModule {
+export class RcModule
+  extends new ConfigurableModuleBuilder<RcModuleOptions>({ optionsInjectionToken: TOKEN_RC_MODULE_OPTIONS as symbol })
+    .setClassMethodName('forRoot')
+    .setExtras({ isGlobal: false }, (definition, extras) => ({ ...definition, global: extras.isGlobal }))
+    .build().ConfigurableModuleClass {
   public static forRoot(options: RcModuleOptions & { isGlobal?: boolean }): DynamicModule {
     return super.forRoot(options)
   }

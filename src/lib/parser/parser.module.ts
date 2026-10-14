@@ -1,11 +1,10 @@
 import type { DynamicModule } from '@nestjs/common'
-import { Module } from '@nestjs/common'
+import { ConfigurableModuleBuilder, Module } from '@nestjs/common'
 import { ModuleRef } from '@nestjs/core'
 
 import { JsonParser } from './fts'
-import { TOKEN_PARSERS } from './parser.constants'
+import { TOKEN_PARSER_MODULE_OPTIONS, TOKEN_PARSERS } from './parser.constants'
 import type { GenericParser, ParserModuleOptions } from './parser.interface'
-import { ConfigurableParserModule, TOKEN_PARSER_MODULE_OPTIONS } from './parser.module-definition'
 import { ParserService } from './parser.service'
 import { FilesystemModule } from '@lib/fs'
 
@@ -21,7 +20,11 @@ import { FilesystemModule } from '@lib/fs'
   ],
   exports: [ParserService]
 })
-export class ParserModule extends ConfigurableParserModule {
+export class ParserModule
+  extends new ConfigurableModuleBuilder<ParserModuleOptions>({ optionsInjectionToken: TOKEN_PARSER_MODULE_OPTIONS as symbol })
+    .setClassMethodName('forRoot')
+    .setExtras({ isGlobal: false }, (definition, extras) => ({ ...definition, global: extras.isGlobal }))
+    .build().ConfigurableModuleClass {
   public static forRoot(options: ParserModuleOptions & { isGlobal?: boolean } = {}): DynamicModule {
     return super.forRoot(options)
   }

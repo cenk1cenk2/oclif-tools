@@ -3,9 +3,8 @@ import { color, figures, splat } from 'listr2'
 import { EOL } from 'os'
 import { format } from 'util'
 
-import { LogFieldStatus, LogLevels } from './logger.constants'
+import { LogFieldStatus, LogLevels, TOKEN_LOGGER_MODULE_OPTIONS } from './logger.constants'
 import type { LoggerFormat, LoggerModuleOptions } from './logger.interface'
-import { TOKEN_LOGGER_MODULE_OPTIONS } from './logger.module-definition'
 import type { ConfigModuleOptions } from '@lib'
 import { TOKEN_CONFIG_MODULE_OPTIONS } from '@lib/config/config.constants'
 

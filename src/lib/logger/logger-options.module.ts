@@ -1,7 +1,17 @@
-import { Module } from '@nestjs/common'
+import { ConfigurableModuleBuilder, Module } from '@nestjs/common'
 
-import { ConfigurableLoggerOptionsModule } from './logger.module-definition'
+import { TOKEN_LOGGER_MODULE_OPTIONS } from './logger.constants'
+import type { LoggerModuleOptions } from './logger.interface'
 
 /** Holds only the logger options, the logger itself always comes from the runtime. */
 @Module({})
-export class LoggerOptionsModule extends ConfigurableLoggerOptionsModule {}
+export class LoggerOptionsModule
+  extends new ConfigurableModuleBuilder<LoggerModuleOptions>({ optionsInjectionToken: TOKEN_LOGGER_MODULE_OPTIONS as symbol })
+    .setClassMethodName('forRoot')
+    // the logger of the runtime reads the options, so they are global wherever the command module imports them
+    .setExtras({}, (definition) => ({
+      ...definition,
+      global: true,
+      exports: [...(definition.exports ?? []), TOKEN_LOGGER_MODULE_OPTIONS]
+    }))
+    .build().ConfigurableModuleClass {}

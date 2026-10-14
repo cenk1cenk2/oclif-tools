@@ -2,8 +2,8 @@ import { Manager } from '@listr2/manager'
 import { Inject, Injectable } from '@nestjs/common'
 import type { ListrContext } from 'listr2'
 
+import { TOKEN_TASK_MODULE_OPTIONS } from './task.constants'
 import type { TaskModuleOptions } from './task.interface'
-import { TOKEN_TASK_MODULE_OPTIONS } from './task.module-definition'
 import { ConfigService } from '@lib/config'
 
 @Injectable()
