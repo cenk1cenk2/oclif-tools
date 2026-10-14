@@ -17,13 +17,15 @@ import {
   LoggerService,
   LogoModule,
   LogoService,
+  ParserModule,
   ParserService,
   TaskManager,
   TaskModule,
   TOKEN_COMMAND,
   TOKEN_COMMAND_FLAGS,
   TOKEN_OCLIF_CONFIG,
-  ValidatorService
+  ValidatorService,
+  YamlParser
 } from '../src'
 
 describe('Command', () => {
@@ -254,6 +256,35 @@ describe('Command', () => {
     expect((await run(command(TaskModule.forRoot(), true))).error).toBeUndefined()
     expect((await run(command(TaskModule.forRoot({ isGlobal: true }), false))).error).toBeUndefined()
     expect(options).not.toHaveProperty('isGlobal')
+  })
+
+  it('configures the parsers through a factory without handing out the filesystem', async() => {
+    let parsed: unknown
+    let fs: unknown
+
+    @Injectable()
+    class ParseHandler implements CommandHandler {
+      constructor(
+        private readonly parser: ParserService,
+        private readonly ref: ModuleRef
+      ) {}
+
+      public async run(): Promise<void> {
+        parsed = this.parser.parse('rc.yaml', 'name: parsed')
+
+        try {
+          fs = this.ref.get(FileSystemService)
+        } catch {
+          fs = undefined
+        }
+      }
+    }
+
+    const { error } = await run(greet(app({ providers: [ParseHandler], imports: [ParserModule.forRootAsync({ useFactory: () => ({ parsers: [YamlParser] }) })] }), ParseHandler))
+
+    expect(error).toBeUndefined()
+    expect(parsed).toEqual({ name: 'parsed' })
+    expect(fs).toBeUndefined()
   })
 
   it('fails clearly when the module does not provide the handler', async() => {

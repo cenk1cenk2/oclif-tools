@@ -138,15 +138,15 @@ Every command boots with the runtime modules only:
 - `CommandModule` with the running command: parsed flags through `TOKEN_COMMAND_FLAGS`, arguments through `TOKEN_COMMAND_ARGS`, the oclif `Config` through `TOKEN_OCLIF_CONFIG` and the command class through `TOKEN_COMMAND`, for module factories and services alike.
 - `LoggerModule` with `LoggerService`. It writes `FATAL` and `ERROR` to stderr and every other level to stdout; import `LoggerModule.forRoot({ stderr })` or `LoggerModule.forRootAsync(...)` anywhere in the module of the command, such as a shared module, to list the levels written to stderr instead. It only provides the options to the logger of the runtime, so import it once: a command whose graph imports it twice fails to start. A command whose module fails to boot, or whose flags fail to parse, writes every level to stderr.
 
-Everything else is imported by the module of the command, each module with its own options:
+Everything else is imported by the module of the command, each module with its own options. These modules are visible only to the module that imports them: a shared module re-exports them with `exports`, or `isGlobal: true` in the options of `forRoot` registers one globally. Each of them has a `forRootAsync` as well.
 
 | Module | Provides |
 | --- | --- |
-| `TaskModule.forRoot(options?)` | `TaskManager`, the listr2 task manager, which renders plainly at debug level and stays silent for silent or JSON output; `options` override the defaults. It is visible to the module that imports it, so a shared module exports it, or `isGlobal: true` makes it global. |
-| `ParserModule.forRoot({ parsers })` | `ParserService` and `ConfigLoaderService` with the given parsers, `[JsonParser]` by default, and the `FilesystemModule` they read through. |
-| `FilesystemModule` | `FileSystemService`. |
+| `TaskModule.forRoot(options?)` | `TaskManager`, the listr2 task manager, which renders plainly at debug level and stays silent for silent or JSON output; `options` override the defaults. |
+| `ParserModule.forRoot({ parsers })` | `ParserService` and `ConfigLoaderService` with the given parsers, `[JsonParser]` by default. |
+| `FilesystemModule.forRoot()` | `FileSystemService`. |
 | `LogoModule.forRoot({ generator })` | `LogoService`, which prints the logo when the command starts, at `INFO`, so it follows the stderr levels of the logger. |
-| `ValidatorModule` | `ValidatorService`, which validates with any Standard Schema. |
+| `ValidatorModule.forRoot()` | `ValidatorService`, which validates with any Standard Schema. |
 
 `pipeProcessToLogger(logger, process)` and `pipeProcessThroughListr(task, process)` pipe a child process from any service.
 
@@ -155,7 +155,7 @@ Everything else is imported by the module of the command, each module with its o
 From commands that ran themselves:
 
 - Move the command to `src/commands`, its module and handler to `src/modules/<command>`. Move the body of `run()` into the `run({ flags, args })` of an `@Injectable()` handler, provide it in the module and set `static module` and `static handler`. A command no longer implements `run()`, and every command declares its module.
-- Replace `CliModule.forRoot({ logger, parser, logo })` with the modules it configured: `LoggerModule.forRoot({ stderr })`, `ParserModule.forRoot({ parsers })`, `LogoModule.forRoot({ generator })`, plus `FilesystemModule`, `TaskModule.forRoot()` and `ValidatorModule` where the command uses them. None of them is provided by default any more.
+- Replace `CliModule.forRoot({ logger, parser, logo })` with the modules it configured: `LoggerModule.forRoot({ stderr })`, `ParserModule.forRoot({ parsers })`, `LogoModule.forRoot({ generator })`, plus `FilesystemModule.forRoot()`, `TaskModule.forRoot()` and `ValidatorModule.forRoot()` where the command uses them. None of them is provided by default any more, and none of them is global unless registered with `isGlobal: true`.
 - Replace `ConfigService.read`, `write`, `extend`, `merge` and `env` with `ConfigLoaderService` from `ParserModule`.
 - Replace `ConfigService.oclif`, `command`, `root` and `defaults` with `@Inject(TOKEN_OCLIF_CONFIG)`, `@Inject(TOKEN_COMMAND)` and the `root` of the oclif config; `FileConstants` is removed.
 - Replace `@Inject()` properties with constructor parameters of the handler. `@Optional()` stays available on constructor parameters.

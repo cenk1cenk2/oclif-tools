@@ -1,18 +1,16 @@
-import { Injectable, OnModuleInit } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import { EOL } from 'os'
 
 import type { GenericParser } from '../parser.interface'
 import { LoggerService } from '@lib/logger'
 
 @Injectable()
-export class EnvironmentVariableParser implements GenericParser, OnModuleInit {
+export class EnvironmentVariableParser implements GenericParser {
   public readonly extensions: string[] = ['env']
 
   private readonly LINE = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/gm
 
-  constructor(private readonly logger: LoggerService) {}
-
-  public async onModuleInit(): Promise<void> {
+  constructor(private readonly logger: LoggerService) {
     this.logger.setup(this.constructor.name)
   }
 

@@ -1,16 +1,14 @@
-import { Injectable, OnModuleInit } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import { parse, stringify } from 'yaml'
 
 import type { GenericParser } from '../parser.interface'
 import { LoggerService } from '@lib/logger'
 
 @Injectable()
-export class YamlParser implements GenericParser, OnModuleInit {
+export class YamlParser implements GenericParser {
   public readonly extensions: string[] = ['yaml', 'yml']
 
-  constructor(private readonly logger: LoggerService) {}
-
-  public async onModuleInit(): Promise<void> {
+  constructor(private readonly logger: LoggerService) {
     this.logger.setup(this.constructor.name)
   }
 
