@@ -9,12 +9,12 @@ export default class Hello extends Command {
   static description = 'Say hello'
 
   static flags = {
-    from: Flags.string({ char: 'f', description: 'Whom is saying hello', default: 'fixture' }),
-    times: Flags.integer({ description: 'How many times to say hello', default: 1 }),
-    excited: Flags.boolean({ description: 'Say it excitedly', default: false })
+    from: Flags.string({ char: 'f' }),
+    times: Flags.integer(),
+    excited: Flags.boolean({ description: 'Say it excitedly' })
   }
 
   static args = {
-    person: Args.string({ description: 'Person to say hello to', default: 'world' })
+    person: Args.string()
   }
 }

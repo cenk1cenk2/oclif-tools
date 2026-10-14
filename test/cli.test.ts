@@ -3,13 +3,17 @@ import { join } from 'path'
 import { describe, expect, it } from 'vitest'
 
 describe('fixture cli', () => {
-  function cli(...argv: string[]): { status: number; stdout: string; stderr: string } {
-    // vitest sets NODE_ENV to test, in which oclif would load the commands from the typescript sources of the fixture
+  // vitest sets NODE_ENV to test, in which oclif would load the commands from the typescript sources of the fixture
+  function withoutNodeEnv(): NodeJS.ProcessEnv {
     const env = { ...process.env }
 
     delete env.NODE_ENV
 
-    const { status, stdout, stderr } = spawnSync(process.execPath, [join(import.meta.dirname, 'fixtures/cli/bin/run.ts'), ...argv], { encoding: 'utf-8', env })
+    return env
+  }
+
+  function cli(...argv: string[]): { status: number; stdout: string; stderr: string } {
+    const { status, stdout, stderr } = spawnSync(process.execPath, [join(import.meta.dirname, 'fixtures/cli/bin/run.ts'), ...argv], { encoding: 'utf-8', env: withoutNodeEnv() })
 
     return {
       status,
@@ -33,7 +37,7 @@ describe('fixture cli', () => {
 
   it('runs each command through its handler with the shared modules', () => {
     const hello = cli('hello', 'you', '--from', 'test')
-    const goodbye = cli('goodbye')
+    const goodbye = cli('goodbye', '--tone', 'polite')
 
     expect(hello.status).toBe(0)
     expect(hello.stdout).toContain('fixture v1.0.0')
@@ -52,6 +56,47 @@ describe('fixture cli', () => {
     expect(invalid.status).toBe(2)
     expect(invalid.stderr.split('\n').filter((line) => line.includes('--excited needs --times above 1'))).toEqual(['[F] flags: --excited needs --times above 1'])
     expect(invalid.stderr).not.toContain('Error:')
+  })
+
+  it('describes the flags and args from the schema in the help and the manifest', () => {
+    const hello = cli('hello', '--help')
+    const goodbye = cli('goodbye', '--help')
+    const manifest = spawnSync(
+      process.execPath,
+      [
+        '--input-type=module',
+        '-e',
+        [
+          'const { Config } = await import(\'@oclif/core\')',
+          'const config = await Config.load(process.argv[1])',
+          'console.log(JSON.stringify(config.findCommand(\'goodbye\').flags.tone))'
+        ].join('\n'),
+        join(import.meta.dirname, 'fixtures/cli')
+      ],
+      {
+        encoding: 'utf-8',
+        cwd: join(import.meta.dirname, 'fixtures/cli'),
+        env: withoutNodeEnv()
+      }
+    )
+
+    expect(hello.stdout).toMatch(/--from=<value>\s+\[default: fixture] Whom is saying hello/)
+    expect(hello.stdout).toMatch(/--times=<value>\s+\[default: 1] How many times to say hello/)
+    expect(hello.stdout).toMatch(/\[PERSON]\s+\[default: world] Person to say hello to/)
+    expect(goodbye.stdout).toMatch(/--tone=<option>\s+\(required\) How to say goodbye/)
+    expect(goodbye.stdout).toContain('<options: polite|casual>')
+    expect(JSON.parse(manifest.stdout)).toMatchObject({
+      required: true,
+      options: ['polite', 'casual'],
+      description: 'How to say goodbye'
+    })
+  })
+
+  it('rejects a missing required value through the schema only', () => {
+    const { status, stderr } = cli('goodbye')
+
+    expect(status).toBe(2)
+    expect(stderr.trimEnd().split('\n')).toEqual(['[F] flags.tone: Invalid option: expected one of "polite"|"casual"'])
   })
 
   it('reports a mistyped command through the not-found hook of the plugin', () => {

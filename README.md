@@ -132,23 +132,27 @@ A handler needs no oclif to be tested: compile it in a `Test.createTestingModule
 
 ### Validation
 
-oclif parses the flags and args. A schema in `@UseHandler({ module, handler, schema })`, any [Standard Schema](https://standardschema.dev) such as zod, valibot or arktype, then validates the parsed `{ flags, args }` as a whole before the command boots, so it can check rules across flags and coerce or transform values. Its output replaces the input: `TOKEN_COMMAND_FLAGS`, `TOKEN_COMMAND_ARGS` and the handler see only checked values, while the log level and JSON flags are read from what oclif parsed. A rejected input fails like a flag oclif can not parse, once and with exit code 2. The handler takes `CommandSchemaInput<typeof schema>`, and the decorator rejects a handler that does not take the output of the schema, or a schema that does not take the flags and args of the command. A command without args parses them into an open record, so give its schema an open `args`, such as `z.looseObject({})`, or none.
+oclif parses the flags and args. A schema in `@UseHandler({ module, handler, schema })`, any [Standard Schema](https://standardschema.dev) such as zod, valibot or arktype, then validates the parsed `{ flags, args }` as a whole before the command boots, so it can check rules across flags and coerce or transform values. Its output replaces the input: `TOKEN_COMMAND_FLAGS`, `TOKEN_COMMAND_ARGS` and the handler see only checked values, while the log level and JSON flags are read from what oclif parsed. A rejected input fails like a flag oclif can not parse, once and with exit code 2. The handler takes `CommandSchemaInput<typeof schema>`, and the decorator rejects a handler that does not take the output of the schema, or a schema that reads a flag or arg the command does not declare.
 
 ```ts
 // src/modules/deploy/deploy.schema.ts
 export const deploySchema = z.object({
   flags: z
-    .object({ target: z.enum(['staging', 'production']), force: z.boolean(), tag: z.string().optional() })
+    .object({
+      target: z.enum(['staging', 'production']).describe('Where to deploy.'),
+      force: z.boolean().default(false),
+      tag: z.string().optional()
+    })
     .refine((flags) => flags.target !== 'production' || flags.force || flags.tag, { message: 'production needs --force or --tag' }),
-  args: z.looseObject({})
+  args: z.object({})
 })
 
 // src/commands/deploy.ts
 @UseHandler({ module: DeployModule, handler: DeployHandler, schema: deploySchema })
 export default class Deploy extends Command {
   static flags = {
-    target: Flags.string({ options: ['staging', 'production'], required: true }),
-    force: Flags.boolean({ default: false }),
+    target: Flags.string({ char: 't' }),
+    force: Flags.boolean(),
     tag: Flags.string()
   }
 }
@@ -160,19 +164,18 @@ export class DeployHandler {
 }
 ```
 
-The oclif options of a flag describe how to read argv and how to present it in `--help`, while the schema holds the rules for its value. A rule moved into the schema no longer shows in `--help` or shell completion:
+The oclif options of a flag describe how to read argv, while the schema holds the rules for its value. When the schema also converts to JSON Schema through [Standard JSON Schema](https://standardschema.dev), as zod 4 does, `@UseHandler` reads its input JSON Schema and describes the flags and args from it for `--help`, the manifest and shell completion: `required`, `options` from a string `enum`, `default` and `description`, wherever a flag or arg does not declare its own. The command still parses with the flags and args as declared, so oclif shows these rules without enforcing them, a rejected value fails once with the message of the schema, and a default applies once, from the schema. A schema that only validates leaves the flags and args as they are.
 
-| oclif option | Schema can replace it? | Lost when moved |
+| oclif option | In the schema | In `--help` and completion |
 | --- | --- | --- |
-| `required` | yes | help stops marking it required |
-| `options` (enum) | yes (`z.enum`) | help choices, shell completion |
-| `dependsOn`, `exclusive`, `exactlyOne`, `relationships` | yes (`refine`) | help relationships |
-| `min` / `max` | yes | nothing much |
-| `default` | yes (`.default()`) | help default |
-| integer and number parsing | coerce in the schema, though oclif still needs a flag that takes a value | the help type label |
-| `char`, `env`, `multiple`, `allowNo`, `helpGroup`, `hidden`, `description` | no, they read argv and shape the help | — |
-
-A CLI can keep its rules in the schema alone, or declare the ones oclif knows on the flags as well so they double as help, at the cost of stating them twice; the choice is the author's.
+| `required` | yes | derived from the `required` of the JSON Schema |
+| `options` (enum) | yes (`z.enum`) | derived from a string `enum` |
+| `default` | yes (`.default()`) | derived from `default` |
+| `description` | yes (`.describe()`) | derived when the flag has none |
+| `dependsOn`, `exclusive`, `exactlyOne`, `relationships` | yes (`refine`) | not shown |
+| `min` / `max` | yes | not shown |
+| integer and number parsing | coerce in the schema, though oclif still needs a flag that takes a value | the help type label comes from the flag |
+| `char`, `env`, `multiple`, `allowNo`, `helpGroup`, `hidden` | no, they read argv and shape the help | declared on the flag |
 
 `validate(schema, input)` and `validateSync(schema, input)` validate anything else without an application, returning the output of the schema and throwing a `ValidationError` with the `issues`. In services, `ValidatorModule.forRoot()` provides `ValidatorService` with the same two methods, which log every issue by its path before they throw.
 

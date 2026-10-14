@@ -5,7 +5,7 @@ import { constants } from 'os'
 import { createInterface } from 'readline'
 
 import { TOKEN_USE_HANDLER } from './base.command.constants'
-import type { CommandHandler, CommandInput, UseHandlerOptions } from './base.command.interface'
+import type { CommandHandler, CommandInput, UseHandlerRegistration } from './base.command.interface'
 import { HelpGroups } from '@constants'
 import type { CliRuntimeOptions } from '@lib'
 import { LogLevels, LoggerService } from '@lib'
@@ -85,10 +85,10 @@ export abstract class Command extends BaseCommand {
 
     try {
       const { args, flags } = await this.parse({
-        flags: this.ctor.flags,
+        flags: this.registration()?.flags ?? this.ctor.flags,
         baseFlags: (super.ctor as typeof Command).baseFlags,
         enableJsonFlag: this.ctor.enableJsonFlag,
-        args: this.ctor.args,
+        args: this.registration()?.args ?? this.ctor.args,
         strict: this.ctor.strict
       })
 
@@ -175,7 +175,7 @@ export abstract class Command extends BaseCommand {
     throw Object.assign(err, { skipOclifErrorHandling: true })
   }
 
-  private registration(): UseHandlerOptions | undefined {
+  private registration(): UseHandlerRegistration | undefined {
     return Reflect.getMetadata(TOKEN_USE_HANDLER, this.ctor)
   }
 
