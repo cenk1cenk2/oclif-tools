@@ -43,9 +43,6 @@
       "@oclif/plugin-plugins"
     ],
     "hooks": {
-      "init": [
-        "./dist/hooks/update-notifier.hook"
-      ],
       "command_not_found": "./dist/hooks/not-found.hook"
     },
     "topicSeparator": " "
