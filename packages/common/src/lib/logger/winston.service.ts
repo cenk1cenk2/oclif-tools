@@ -3,8 +3,8 @@ import { color, figures } from 'listr2'
 import { EOL } from 'os'
 import winston, { format, transports } from 'winston'
 
-import { LogLevels } from './logger.constants'
-import type { LoggerFormat, Winston } from './logger.interface'
+import { LogLevels, TOKEN_LOGGER_MODULE_OPTIONS } from './logger.constants'
+import type { LoggerFormat, LoggerModuleOptions, Winston } from './logger.interface'
 import type { ConfigModuleOptions } from '@lib'
 import { TOKEN_CONFIG_MODULE_OPTIONS } from '@lib/config/config.constants'
 
@@ -12,7 +12,10 @@ import { TOKEN_CONFIG_MODULE_OPTIONS } from '@lib/config/config.constants'
 export class WinstonService implements OnModuleInit {
   public instance: Winston
 
-  constructor(@Inject(TOKEN_CONFIG_MODULE_OPTIONS) private readonly options: ConfigModuleOptions) {}
+  constructor(
+    @Inject(TOKEN_CONFIG_MODULE_OPTIONS) private readonly options: ConfigModuleOptions,
+    @Inject(TOKEN_LOGGER_MODULE_OPTIONS) private readonly loggerOptions: LoggerModuleOptions
+  ) {}
 
   public onModuleInit(): void {
     this.instance = this.initiateLogger()
@@ -46,7 +49,7 @@ export class WinstonService implements OnModuleInit {
       silent: this.options.config.logLevel === LogLevels.SILENT || this.options.config.isJson,
       transports: [
         new transports.Console({
-          stderrLevels: [LogLevels.FATAL, LogLevels.ERROR]
+          stderrLevels: this.loggerOptions.stderr ? Object.values(LogLevels) : [LogLevels.FATAL, LogLevels.ERROR]
         })
       ]
     })
