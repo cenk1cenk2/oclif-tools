@@ -60,15 +60,15 @@ describe('LoggerService', () => {
     expect(output).toEqual({ stdout: ['› info'], stderr: ['[F] fatal', '✖ error'] })
   })
 
-  it('writes every level to stderr with the stderr option', () => {
+  it('writes exactly the levels given in the stderr option to stderr', () => {
     const output = capture()
-    const l = logger(LogLevels.INFO, { stderr: true })
+    const l = logger(LogLevels.INFO, { stderr: [LogLevels.INFO, LogLevels.DIRECT] })
 
     l.error('error')
     l.info('info')
     l.direct('direct')
 
-    expect(output).toEqual({ stdout: [], stderr: ['✖ error', '› info', 'direct'] })
+    expect(output).toEqual({ stdout: ['✖ error'], stderr: ['› info', 'direct'] })
   })
 
   it('interpolates placeholders and keeps the remaining arguments as metadata', () => {

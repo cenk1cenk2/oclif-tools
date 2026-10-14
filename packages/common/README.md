@@ -23,11 +23,11 @@ Every command boots a NestJS application context from its `static module`, which
 ```ts
 import { Module } from '@nestjs/common'
 
-import { CliModule, Command, Flags, Inject, JsonParser, TOKEN_COMMAND_FLAGS, YamlParser } from '@cenk1cenk2/oclif-common'
+import { CliModule, Command, Flags, Inject, JsonParser, LogLevels, TOKEN_COMMAND_FLAGS, YamlParser } from '@cenk1cenk2/oclif-common'
 
 @Module({
   imports: [
-    CliModule.forRoot({ logger: { stderr: true }, parser: { parsers: [JsonParser, YamlParser] } }),
+    CliModule.forRoot({ logger: { stderr: Object.values(LogLevels) }, parser: { parsers: [JsonParser, YamlParser] } }),
     PrinterModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: (flags) => ({ browser: flags.browser }) })
   ]
 })
@@ -49,6 +49,8 @@ export default class Print extends Command<typeof Print> {
 ```
 
 Property injection reads the design type that TypeScript emits, so build with `experimentalDecorators` and `emitDecoratorMetadata`, and import injected services as values: an `import type`, or an interface as the property type, leaves nothing to resolve at runtime. Inject interfaces through a token with `@Inject(token)`.
+
+The logger writes `FATAL` and `ERROR` to stderr and every other level to stdout. `CliModule.forRoot({ logger: { stderr } })` takes the list of levels to write to stderr instead, and the logo, printed at `INFO`, goes to stderr when that list holds `INFO`. A command that fails before its logger options are known writes every level to stderr.
 
 ## Development
 

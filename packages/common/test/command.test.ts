@@ -12,6 +12,7 @@ import {
   Flags,
   JsonParser,
   LockerModule,
+  LogLevels,
   LoggerModule,
   LogoModule,
   ParserModule,
@@ -51,7 +52,7 @@ describe('Command', () => {
   })
   class BrokenModule {}
 
-  function app(stderr: boolean, ...imports: (Type | DynamicModule)[]): Type {
+  function app(stderr?: LogLevels[], ...imports: (Type | DynamicModule)[]): Type {
     @Module({
       imports: [
         CliModule.forRoot({ logger: { stderr } }),
@@ -121,7 +122,7 @@ describe('Command', () => {
   })
 
   it('writes logs and the logo to stdout by default', async() => {
-    const { stdout, stderr, error } = await run(greet(app(false)))
+    const { stdout, stderr, error } = await run(greet(app()))
 
     expect(error).toBeUndefined()
     expect(stdout).toContain('@cenk1cenk2/oclif-common v')
@@ -130,7 +131,7 @@ describe('Command', () => {
   })
 
   it('writes logs and the logo to stderr when the logger is told to', async() => {
-    const { stdout, stderr, error } = await run(greet(app(true)))
+    const { stdout, stderr, error } = await run(greet(app(Object.values(LogLevels))))
 
     expect(error).toBeUndefined()
     expect(stdout).toBe('')
@@ -139,7 +140,7 @@ describe('Command', () => {
   })
 
   it('feeds parsed flags into module factories', async() => {
-    const { stdout } = await run(greet(app(false)), ['--name', 'flags'])
+    const { stdout } = await run(greet(app()), ['--name', 'flags'])
 
     expect(stdout).toContain('hello flags')
   })
@@ -147,7 +148,7 @@ describe('Command', () => {
   it('provides the running command through the command module', async() => {
     let context: unknown[]
 
-    class Context extends greet(app(false)) {
+    class Context extends greet(app()) {
       public async run(): Promise<void> {
         const cs = this.app.get(ConfigService)
 
@@ -162,13 +163,13 @@ describe('Command', () => {
   })
 
   it('reads through a locker configured from the runtime config', async() => {
-    const { stdout } = await run(greet(app(false)))
+    const { stdout } = await run(greet(app()))
 
     expect(stdout).toContain('locker: @cenk1cenk2/oclif-common')
   })
 
   it('fails to start when an injected property has no provider', async() => {
-    class Missing extends greet(app(true)) {
+    class Missing extends greet(app(Object.values(LogLevels))) {
       @Inject('UNPROVIDED') private readonly unprovided: unknown
     }
 
@@ -181,7 +182,7 @@ describe('Command', () => {
   it('leaves an optional property without a provider empty', async() => {
     let injected: unknown = 'untouched'
 
-    class Optionally extends greet(app(false)) {
+    class Optionally extends greet(app()) {
       @Optional() @Inject('UNPROVIDED') private readonly unprovided: unknown
 
       public async run(): Promise<void> {
@@ -200,7 +201,7 @@ describe('Command', () => {
       name: string
     }
 
-    class Erased extends greet(app(true)) {
+    class Erased extends greet(app(Object.values(LogLevels))) {
       @Inject() private readonly shape: Shape
     }
 
@@ -210,7 +211,7 @@ describe('Command', () => {
   })
 
   it('logs a module boot failure with the logger options of the command module', async() => {
-    const { stdout, stderr, error } = await run(greet(app(true, BrokenModule)), ['--log-level', 'debug'])
+    const { stdout, stderr, error } = await run(greet(app(Object.values(LogLevels), BrokenModule)), ['--log-level', 'debug'])
 
     const [fatal, debug, ...stack] = stderr.trimEnd().split('\n')
 
@@ -224,7 +225,7 @@ describe('Command', () => {
   it('keeps a boot failure on stderr when the logger options come from a factory', async() => {
     @Module({
       imports: [
-        LoggerModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: () => ({ stderr: true }) }),
+        LoggerModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: () => ({ stderr: Object.values(LogLevels) }) }),
         FilesystemModule,
         ParserModule.forRoot(),
         LogoModule.forRoot({}),
@@ -253,7 +254,7 @@ describe('Command', () => {
     @Module({ providers: [Resource] })
     class ResourceModule {}
 
-    class Failing extends greet(app(true, ResourceModule)) {
+    class Failing extends greet(app(Object.values(LogLevels), ResourceModule)) {
       public async run(): Promise<void> {
         throw new Error('run failed')
       }
@@ -266,7 +267,7 @@ describe('Command', () => {
   })
 
   it('reports an unknown flag through the fallback logger', async() => {
-    const { stdout, stderr, error } = await run(greet(app(true)), ['--nope'])
+    const { stdout, stderr, error } = await run(greet(app(Object.values(LogLevels))), ['--nope'])
 
     expect(error.message).toContain('Nonexistent flag: --nope')
     expect(stdout).toBe('')

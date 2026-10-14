@@ -4,15 +4,14 @@ import { EOL } from 'os'
 import { TOKEN_LOGO_MODULE_OPTIONS } from './logo.constants'
 import type { LogoModuleOptions } from './logo.interface'
 import { ConfigService } from '@lib/config'
-import type { LoggerModuleOptions } from '@lib/logger'
-import { TOKEN_LOGGER_MODULE_OPTIONS } from '@lib/logger/logger.constants'
+import { LogLevels, LoggerService } from '@lib/logger'
 
 @Injectable()
 export class LogoService {
   constructor(
     public readonly cs: ConfigService,
     @Inject(TOKEN_LOGO_MODULE_OPTIONS) private readonly options: LogoModuleOptions,
-    @Inject(TOKEN_LOGGER_MODULE_OPTIONS) private readonly loggerOptions: LoggerModuleOptions
+    private readonly logger: LoggerService
   ) {}
 
   public generate(): void {
@@ -24,9 +23,7 @@ export class LogoService {
   }
 
   public write(...data: string[]): void {
-    const stream = this.loggerOptions.stderr ? process.stderr : process.stdout
-
-    stream.write(data.join(' ') + EOL)
+    this.logger.stream(LogLevels.INFO).write(data.join(' ') + EOL)
   }
 
   private fallback(this: LogoService): void {

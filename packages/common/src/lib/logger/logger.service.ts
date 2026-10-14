@@ -74,6 +74,10 @@ export class LoggerService {
     return this.parseMessage(LogLevels.TRACE, data, args, { status: LogFieldStatus.STAGE })
   }
 
+  public stream(level: LogLevels): NodeJS.WriteStream {
+    return (this.loggerOptions.stderr ?? [LogLevels.FATAL, LogLevels.ERROR]).includes(level) ? process.stderr : process.stdout
+  }
+
   public splat(...args: Parameters<typeof splat>): ReturnType<typeof splat> {
     const message = args.shift()
 
@@ -99,9 +103,7 @@ export class LoggerService {
       return
     }
 
-    const stream = this.loggerOptions.stderr || meta.level === LogLevels.FATAL || meta.level === LogLevels.ERROR ? process.stderr : process.stdout
-
-    stream.write(
+    this.stream(meta.level).write(
       format(message, ...args.slice(0, tokens))
         .split(EOL)
         .filter((line) => !line || line.trim() !== '')

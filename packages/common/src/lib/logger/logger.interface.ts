@@ -1,8 +1,8 @@
 import type { LogLevels } from './logger.constants'
 
 export interface LoggerModuleOptions {
-  /** writes every log level and the logo to stderr, keeping stdout for the output of the command */
-  stderr?: boolean
+  /** levels written to stderr, every other level goes to stdout and the logo follows info, defaults to fatal and error */
+  stderr?: LogLevels[]
 }
 
 export interface LoggerFormat {

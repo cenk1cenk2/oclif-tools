@@ -33,7 +33,7 @@ export class CliModule {
     }
 
     // options from forRootAsync only exist once their factory runs, so unknown options keep the crash on stderr, away from the command output
-    return CliModule.forRoot({ logger: logger ?? { stderr: true } })
+    return CliModule.forRoot({ logger: logger ?? { stderr: Object.values(LogLevels) } })
   }
 
   public static create(module: Type | DynamicModule, { config, ...command }: CliRuntimeOptions, preview = false): Promise<INestApplicationContext> {
