@@ -147,6 +147,20 @@ Everything else is imported by the module of the command, each module with its o
 | `FilesystemModule.forRoot()` | `FileSystemService`. |
 | `LogoModule.forRoot({ generator })` | `LogoService`, which prints the logo when the command starts, at `INFO`, so it follows the stderr levels of the logger. |
 | `ValidatorModule.forRoot()` | `ValidatorService`, which validates with any Standard Schema. |
+| `RcModule.forRoot({ name, schema? })` | The configuration of the CLI from the first rc file upward from the working directory, as `TOKEN_RC`, and `RcService` with the `filepath` it came from. |
+
+`RcModule` looks for `.namerc` (YAML or JSON), `.namerc.{json,yaml,yml,js,ts,cjs,mjs}`, the same under `.config/`, `name.config.{js,ts,cjs,mjs}` and the `name` key of a `package.json`, from the working directory up to the home directory and then in the global config directory of the user. It provides `{}` when there is none, and validates the configuration with `schema`, a Standard Schema, when given. It does not touch the flags, so the handler decides the precedence, for example flags over the rc file over the defaults:
+
+```ts
+@Injectable()
+export class BuildHandler implements CommandHandler<typeof Build> {
+  constructor(@Inject(TOKEN_RC) private readonly rc: Partial<BuildOptions>) {}
+
+  public async run({ flags }: CommandInput<typeof Build>): Promise<void> {
+    const options = { ...DEFAULTS, ...this.rc, ...Object.fromEntries(Object.entries(flags).filter(([, value]) => value !== undefined)) }
+  }
+}
+```
 
 `pipeProcessToLogger(logger, process)` and `pipeProcessThroughListr(task, process)` pipe a child process from any service.
 
