@@ -36,6 +36,7 @@
     "docs:api": "typedoc --options .typedoc.json --hideInPageTOC --hideBreadcrumbs"
   },
   "dependencies": {
+    "@standard-schema/spec": "^1.1.0",
     "reflect-metadata": "^0.2.1"
   },
   "devDependencies": {
@@ -44,8 +45,6 @@
     "@types/node": "^24.19.1",
     "@types/through": "^0.0.33",
     "@types/update-notifier": "^6.0.8",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.15.1",
     "listr2": "^11.2.0",
     "source-map-support": "^0.5.21",
     "yaml": "^2.9.1"
@@ -55,8 +54,6 @@
     "@nestjs/common": ">= 12",
     "@nestjs/core": ">= 12",
     "@oclif/core": ">= 1",
-    "class-transformer": ">= 0.5.0",
-    "class-validator": ">= 0.14.0",
     "enquirer": ">= 2",
     "listr2": ">= 7",
     "source-map-support": ">= 0.5.0",

@@ -1,74 +1,45 @@
-import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
-import { plainToClass } from 'class-transformer'
-import type { ValidationError } from 'class-validator'
-import { validate, validateSync } from 'class-validator'
+import { Injectable, OnModuleInit } from '@nestjs/common'
+import type { StandardSchemaV1 } from '@standard-schema/spec'
 
-import { TOKEN_VALIDATOR_MODULE_OPTIONS } from './validator.constants'
-import type { ValidatorModuleOptions } from './validator.interface'
-import type { ClassType } from '@interfaces'
+import { ValidationError } from './validator.error'
 import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class ValidatorService implements OnModuleInit {
-  private readonly options: ValidatorModuleOptions
-
-  constructor(
-    private readonly logger: LoggerService,
-    @Inject(TOKEN_VALIDATOR_MODULE_OPTIONS) options: ValidatorModuleOptions
-  ) {
-    this.options = {
-      validator: {
-        skipMissingProperties: true,
-        whitelist: false,
-        always: true,
-        enableDebugMessages: true,
-        ...options.validator
-      },
-      transformer: { enableImplicitConversion: true, ...options.transformer }
-    }
-  }
+  constructor(private readonly logger: LoggerService) {}
 
   public async onModuleInit(): Promise<void> {
     this.logger.setup(this.constructor.name)
   }
 
-  public async validate<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorModuleOptions): Promise<T> {
-    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...(options?.transformer ?? {}) })
-
-    const errors = await validate(classObject, { ...this.options.validator, ...(options?.validator ?? {}) })
-
-    if (errors.length) {
-      errors.forEach((error) => {
-        this.logValidationError(error)
-      })
-
-      throw new Error('Validation failed.')
-    }
-
-    return classObject
+  public async validate<T extends StandardSchemaV1>(schema: T, input: unknown): Promise<StandardSchemaV1.InferOutput<T>> {
+    return this.unwrap(await schema['~standard'].validate(input))
   }
 
-  public validateSync<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorModuleOptions): T {
-    const classObject = plainToClass(classType, object, { ...this.options.transformer, ...(options?.transformer ?? {}) })
+  public validateSync<T extends StandardSchemaV1>(schema: T, input: unknown): StandardSchemaV1.InferOutput<T> {
+    const result = schema['~standard'].validate(input)
 
-    const errors = validateSync(classObject, { ...this.options.validator, ...(options?.validator ?? {}) })
-
-    if (errors.length) {
-      errors.forEach((error) => {
-        this.logValidationError(error)
-      })
-
-      throw new Error('Validation failed.')
+    if (result instanceof Promise) {
+      throw new TypeError(`Schema from "${schema['~standard'].vendor}" validates asynchronously, use validate instead.`)
     }
 
-    return classObject
+    return this.unwrap(result)
   }
 
-  private logValidationError(err: ValidationError): void {
-    this.logger.error('Field "%s" failed validation with value "%s": %o', err.property, err.value, err.constraints)
+  private unwrap<T>(result: StandardSchemaV1.Result<T>): T {
+    if (result.issues) {
+      result.issues.forEach((issue) => {
+        this.logger.error(
+          'Field "%s" failed validation: %s',
+          issue.path?.map((segment) => (typeof segment === 'object' ? segment.key : segment).toString()).join('.') ?? '',
+          issue.message
+        )
+      })
 
-    if (err.children) {
-      err.children.forEach((children) => this.logValidationError(children))
+      throw new ValidationError(result.issues)
     }
+
+    // without strict null checks a falsy issues field does not narrow the result union
+    return (result as StandardSchemaV1.SuccessResult<T>).value
   }
 }
