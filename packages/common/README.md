@@ -18,10 +18,13 @@ Extend the exported base command and run it through an injectable handler. The `
 
 ### Plugin
 
-The package is also an oclif plugin that registers a `command_not_found` hook, which reports the unknown command and prints the help. Enable it by listing the package in the plugins of your CLI's `package.json`:
+The package is also an oclif plugin that registers a `command_not_found` hook, which reports the unknown command and prints the help. Enable it by listing the package in the plugins of your CLI's `package.json`; oclif loads a plugin only when it is a dependency of the CLI as well:
 
 ```json
 {
+  "dependencies": {
+    "@cenk1cenk2/oclif-common": "^8.0.0"
+  },
   "oclif": {
     "plugins": ["@cenk1cenk2/oclif-common"]
   }
@@ -166,17 +169,52 @@ export class BuildHandler implements CommandHandler<typeof Build> {
 
 ## Migration
 
-From commands that ran themselves:
+Everything this major changes for a CLI built on the previous one.
 
-- Move the command to `src/commands`, its module and handler to `src/modules/<command>`. Move the body of `run()` into the `run({ flags, args })` of an `@Injectable()` handler, provide it in the module and set `static module` and `static handler`. A command no longer implements `run()`, and every command declares its module.
-- Replace `CliModule.forRoot({ logger, parser, logo })` with the modules it configured: `LoggerModule.forRoot({ stderr })`, `ParserModule.forRoot({ parsers })`, `LogoModule.forRoot({ generator })`, plus `FilesystemModule.forRoot()`, `TaskModule.forRoot()` and `ValidatorModule.forRoot()` where the command uses them. None of them is provided by default any more, and none of them is global unless registered with `isGlobal: true`.
-- `CliModule` is renamed to `CliFactory`, with `CliFactory.create(module, options)` and `CliFactory.createFallback(options)`; `forMinimum`, `forFallback` and `forRoot` are gone.
-- Replace `ConfigService.extend`, `merge` and `env` with `ConfigLoaderService` from `ParserModule`, and `ConfigService.read` / `write` with `ParserService.read` / `write`.
-- Replace `ConfigService.oclif`, `command`, `root` and `defaults` with `@Inject(TOKEN_OCLIF_CONFIG)`, `@Inject(TOKEN_COMMAND)` and the `root` of the oclif config; `FileConstants` is removed.
+### Runtime and dependencies
+
+- Node.js 24 or newer is required.
+- The peer dependencies start at `@oclif/core` 5, `listr2` 11, `@listr2/manager` 4, `@nestjs/common` and `@nestjs/core` 12, and `yaml` 2, which is no longer optional.
+- The `enquirer`, `source-map-support`, `class-validator`, `class-transformer`, `fs-extra` and `update-notifier` peers are gone; `--source-map` turns on the built-in source maps of Node.js.
+- `winston` is gone: `WinstonService` and the `Winston` type are removed, resolve `LoggerService` from the application instead of constructing it or reaching into `WinstonService.instance`.
+- `Inject` and `DynamicModule` are no longer re-exported, import them from `@nestjs/common`; `ClassType` is replaced by the `Type` of Nest.
+
+### Commands
+
+- Move each command to `src/commands/<command>.ts`, and its module and handler to `src/modules/<command>/`. Move the body of `run()` into the `run({ flags, args, signal })` of an `@Injectable()` handler implementing `CommandHandler<typeof MyCommand>`, provide it in the module and set `static module` and `static handler`. A command no longer implements `run()`, has no default module, and `Command` takes no type parameters.
+- `register`, `shouldRunBefore`, `shouldRunAfter`, their hook types and the `isHookedWith*` guards are removed; move setup and teardown into provider lifecycle hooks.
 - Replace `@Inject()` properties with constructor parameters of the handler. `@Optional()` stays available on constructor parameters.
-- Replace `this.logger` with an injected `LoggerService`, `this.tasks` with an injected `TaskManager`, and `this.flags` / `this.args` with the input of `run`, or `TOKEN_COMMAND_FLAGS` / `TOKEN_COMMAND_ARGS` in services. Tasks no longer run on their own after the command: call `await this.tasks.runAll()` in the handler.
+- Replace `this.logger` with an injected `LoggerService`, `this.tasks` with an injected `TaskManager` from `TaskModule`, and `this.flags` / `this.args` with the input of `run`, or `TOKEN_COMMAND_FLAGS` / `TOKEN_COMMAND_ARGS` in module factories and services. Tasks no longer run on their own after the command: call `await tasks.runAll()` in the handler.
 - Replace `this.setCtxDefaults(...)` / `this.setCtxAssign(...)` with `setCtxDefaults(tasks.options.ctx, ...)` / `setCtxAssign(tasks.options.ctx, ...)`, and `this.pipeProcessToLogger(...)` / `this.pipeProcessThroughListr(...)` with `pipeProcessToLogger(logger, ...)` / `pipeProcessThroughListr(task, ...)`.
-- `Command` takes no type parameters any more, type the handler with `CommandHandler<typeof MyCommand>` instead.
+- The flags are typed from the base flags of the command: a flag the command does not declare is a type error, `json` and `ci` are `boolean` and `log-level` is `LogLevels`.
+- `SIGINT` and `SIGTERM` no longer close the application under a running handler: the first one aborts the `signal` of the handler input, the application closes once the handler returns, and the command exits with `130` or `143`.
+- A failed command prints its error once, through its logger; oclif no longer prints it a second time.
+
+### Modules
+
+- `CliModule` is renamed to `CliFactory`, with `CliFactory.create(module, options)` and `CliFactory.createFallback(options)`; `CliModule.forRoot`, `forMinimum` and `forFallback` are gone, and `CliModuleOptions` no longer exists.
+- Only `ConfigModule`, `CommandModule` and `LoggerModule` are provided by default. Import the rest where the command uses it: `TaskModule.forRoot()`, `ParserModule.forRoot({ parsers })`, `FilesystemModule.forRoot()`, `LogoModule.forRoot({ generator })` and `ValidatorModule.forRoot()`. None of them is global unless registered with `isGlobal: true`, so a shared module exports the ones other modules use, and `ParserModule` no longer makes `FileSystemService` available.
+- Parsers default to `[JsonParser]`; `ParserService.register` and `inject` are removed. `TOKEN_LOGO_GENERATOR` is replaced by `LogoModule.forRoot({ generator })`, and a command without `LogoModule` prints no logo.
+- `TOKEN_COMMAND_FLAGS` and `TOKEN_COMMAND_ARGS` come from `CommandModule`, which also provides the oclif config as `TOKEN_OCLIF_CONFIG` and the command class as `TOKEN_COMMAND`. `ConfigModuleOptions` holds only `config`.
+- `ConfigService` keeps only the runtime config. Replace its `oclif`, `command`, `root` and `defaults` with `@Inject(TOKEN_OCLIF_CONFIG)`, `@Inject(TOKEN_COMMAND)` and the `root` of the oclif config; `FileConstants` is removed. Replace its `extend`, `merge` and `env` with `ConfigLoaderService` from `ParserModule`, and its `read` / `write` with `ParserService.read` / `write`.
+
+### Logger
+
+- `LoggerModule.forRoot({ stderr })` takes the list of levels written to stderr instead of a boolean, by default `[LogLevels.FATAL, LogLevels.ERROR]`; replace `{ stderr: true }` with `{ stderr: Object.values(LogLevels) }`. The logo follows `INFO`.
+- `LoggerModule.forRoot` and `forRootAsync` only provide the options of the logger of the runtime: import them once in the graph of the command module, sharing the module that imports them. A command that fails before its module boots writes every level to stderr.
+- Nest logs at the levels the log level of the command allows, on stderr; `--log-level trace` no longer sets `NEST_DEBUG`.
+
+### Hooks
+
+- The not-found hook is registered by the package as an oclif plugin, and `notFoundHook` is no longer exported. Remove the `command_not_found` entry and its file from your CLI, and add `@cenk1cenk2/oclif-common` to `oclif.plugins`; oclif only loads plugins the CLI also lists in its `dependencies`.
+- The update-notifier hook and `updateNotifierHook` are removed. Use [`@oclif/plugin-warn-if-update-available`](https://github.com/oclif/plugin-warn-if-update-available) in `oclif.plugins` instead.
+
+### Utilities and services
+
+- The locker is removed: `LockerModule`, `LockerService` (including `op`) and their types `LockerServiceOptions`, `LockerModuleAsyncOptions`, `LockData`, `UnlockData`, `CommonLockerData` and `LockableData` are gone. Read and write the file with `ParserService.read` / `write`, merge with `merge(strategy, ...sources)`, set paths with the `set` of `es-toolkit/compat` on `clonePath(target, path)`, and check or remove files with `FileSystemService`.
+- `ValidatorService` validates with any [Standard Schema](https://standardschema.dev) instead of class-validator classes: `validate(schema, input)` and `validateSync(schema, input)` take a `StandardSchemaV1`, return its output and throw `ValidationError` with its `issues`; `validateSync` throws a `TypeError` for schemas that validate asynchronously. `ValidatorModule` takes no options, and `TOKEN_VALIDATOR_SERVICE_OPTIONS` and `ValidatorServiceOptions` are removed.
+- `FileSystemService.extra` and the exported `fs` type are removed: use `node:fs` or `fs/promises` for anything outside the service, whose `stats`, `write` and `remove` take the `Stats`, `WriteFileOptions` and `RmOptions` of Node.js. File operations no longer go through graceful-fs.
+- `uniqueArrayFilter` is removed, use the `uniq` of es-toolkit. `merge(strategy, ...sources)` keeps its signature but no longer lets an `undefined` source value overwrite a defined one, and its result no longer shares objects with the sources.
 
 ## Development
 
