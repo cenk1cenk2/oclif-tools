@@ -1,5 +1,5 @@
 import type { DynamicModule, OnModuleDestroy, Provider, Type } from '@nestjs/common'
-import { ConfigurableModuleBuilder, Inject, Injectable, Module } from '@nestjs/common'
+import { ConfigurableModuleBuilder, Inject, Injectable, Module, Scope } from '@nestjs/common'
 import { ModuleRef } from '@nestjs/core'
 import { join } from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
@@ -359,6 +359,26 @@ describe('Command', () => {
 
     expect(error.message).toBe('Command greet declares no module, set "static module" to the module that provides its handler.')
     expect(stderr).toContain('[F] Command greet declares no module')
+  })
+
+  it('passes on an error of the handler construction unchanged', async() => {
+    @Injectable({ scope: Scope.TRANSIENT })
+    class Exploding {
+      constructor() {
+        throw new Error('dependency exploded')
+      }
+    }
+
+    @Injectable({ scope: Scope.TRANSIENT })
+    class ExplodingHandler implements CommandHandler {
+      constructor(private readonly exploding: Exploding) {}
+
+      public async run(): Promise<void> {}
+    }
+
+    const { error } = await run(greet(app({ providers: [Exploding, ExplodingHandler] }), ExplodingHandler))
+
+    expect(error.message).toBe('dependency exploded')
   })
 
   it('fails clearly when the command declares no handler', async() => {

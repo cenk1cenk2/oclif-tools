@@ -1,4 +1,5 @@
 import type { DynamicModule, INestApplicationContext, Type } from '@nestjs/common'
+import { UnknownElementException } from '@nestjs/core/internal'
 import { Command as BaseCommand, Flags } from '@oclif/core'
 import { createInterface } from 'readline'
 
@@ -56,7 +57,11 @@ export abstract class Command extends BaseCommand {
     try {
       instance = await this.app.resolve(handler)
     } catch(e: any) {
-      throw new Error(`Can not run command ${this.id}, its module does not provide the handler: ${handler.name}`, { cause: e })
+      if (e instanceof UnknownElementException) {
+        throw new Error(`Can not run command ${this.id}, its module does not provide the handler: ${handler.name}`, { cause: e })
+      }
+
+      throw e
     }
 
     await instance.run(this.input)
