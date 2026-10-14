@@ -1,5 +1,3 @@
-import type { Logger as WinstonLogger, LeveledLogMethod } from 'winston'
-
 import type { LogLevels } from './logger.constants'
 
 export interface LoggerModuleOptions {
@@ -13,5 +11,3 @@ export interface LoggerFormat {
   context: string
   status: string
 }
-
-export type Winston = WinstonLogger & Record<keyof typeof LogLevels, LeveledLogMethod>

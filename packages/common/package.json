@@ -36,8 +36,7 @@
     "docs:api": "typedoc --options .typedoc.json --hideInPageTOC --hideBreadcrumbs"
   },
   "dependencies": {
-    "reflect-metadata": "^0.2.1",
-    "winston": "^3.19.0"
+    "reflect-metadata": "^0.2.1"
   },
   "devDependencies": {
     "@listr2/manager": "^4.3.1",
