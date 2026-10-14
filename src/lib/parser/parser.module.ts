@@ -3,14 +3,11 @@ import { Module } from '@nestjs/common'
 import { ModuleRef } from '@nestjs/core'
 
 import { JsonParser } from './fts'
-import { TOKEN_PARSER_MODULE_OPTIONS, TOKEN_PARSERS } from './parser.constants'
+import { TOKEN_PARSERS } from './parser.constants'
 import type { GenericParser, ParserModuleOptions } from './parser.interface'
+import { ConfigurableParserModule, TOKEN_PARSER_MODULE_OPTIONS } from './parser.module-definition'
 import { ParserService } from './parser.service'
 import { FilesystemModule } from '@lib/fs'
-import { buildScopedModule } from '@lib/scoped-module'
-import type { ScopedModuleExtras } from '@lib/scoped-module.interface'
-
-const { ConfigurableModuleClass } = buildScopedModule<ParserModuleOptions>(TOKEN_PARSER_MODULE_OPTIONS)
 
 @Module({
   imports: [FilesystemModule.forRoot()],
@@ -24,8 +21,8 @@ const { ConfigurableModuleClass } = buildScopedModule<ParserModuleOptions>(TOKEN
   ],
   exports: [ParserService]
 })
-export class ParserModule extends ConfigurableModuleClass {
-  public static forRoot(options: ParserModuleOptions & Partial<ScopedModuleExtras> = {}): DynamicModule {
+export class ParserModule extends ConfigurableParserModule {
+  public static forRoot(options: ParserModuleOptions & { isGlobal?: boolean } = {}): DynamicModule {
     return super.forRoot(options)
   }
 }

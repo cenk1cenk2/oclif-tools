@@ -1,6 +1,4 @@
-import type { InjectionToken, LogLevel } from '@nestjs/common'
-
-export const TOKEN_LOGGER_MODULE_OPTIONS: InjectionToken = Symbol('TOKEN_LOGGER_MODULE_OPTIONS')
+import type { LogLevel } from '@nestjs/common'
 
 export enum LogLevels {
   SILENT = 'SILENT',

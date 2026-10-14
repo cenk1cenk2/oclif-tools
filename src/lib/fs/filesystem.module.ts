@@ -1,18 +1,18 @@
 import type { DynamicModule } from '@nestjs/common'
-import { Module } from '@nestjs/common'
+import { ConfigurableModuleBuilder, Module } from '@nestjs/common'
 
 import { FileSystemService } from './filesystem.service'
-import { buildScopedModule } from '@lib/scoped-module'
-import type { ScopedModuleExtras } from '@lib/scoped-module.interface'
-
-const { ConfigurableModuleClass } = buildScopedModule<Record<never, never>>()
 
 @Module({
   providers: [FileSystemService],
   exports: [FileSystemService]
 })
-export class FilesystemModule extends ConfigurableModuleClass {
-  public static forRoot(options: Partial<ScopedModuleExtras> = {}): DynamicModule {
+export class FilesystemModule
+  extends new ConfigurableModuleBuilder<Record<never, never>>()
+    .setClassMethodName('forRoot')
+    .setExtras({ isGlobal: false }, (definition, extras) => ({ ...definition, global: extras.isGlobal }))
+    .build().ConfigurableModuleClass {
+  public static forRoot(options: { isGlobal?: boolean } = {}): DynamicModule {
     return super.forRoot(options)
   }
 }

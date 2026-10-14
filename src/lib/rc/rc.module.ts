@@ -1,16 +1,13 @@
 import type { DynamicModule } from '@nestjs/common'
 import { Module } from '@nestjs/common'
 
-import { TOKEN_RC, TOKEN_RC_MODULE_OPTIONS } from './rc.constants'
+import { TOKEN_RC } from './rc.constants'
 import type { RcModuleOptions } from './rc.interface'
+import { ConfigurableRcModule, TOKEN_RC_MODULE_OPTIONS } from './rc.module-definition'
 import { RcService } from './rc.service'
 import { TOKEN_OCLIF_CONFIG } from '@lib/command/command.constants'
 import { LoggerService } from '@lib/logger'
-import { buildScopedModule } from '@lib/scoped-module'
-import type { ScopedModuleExtras } from '@lib/scoped-module.interface'
 import { ValidatorModule, ValidatorService } from '@lib/validator'
-
-const { ConfigurableModuleClass } = buildScopedModule<RcModuleOptions>(TOKEN_RC_MODULE_OPTIONS)
 
 @Module({
   imports: [ValidatorModule.forRoot()],
@@ -28,8 +25,8 @@ const { ConfigurableModuleClass } = buildScopedModule<RcModuleOptions>(TOKEN_RC_
   ],
   exports: [RcService, TOKEN_RC]
 })
-export class RcModule extends ConfigurableModuleClass {
-  public static forRoot(options: RcModuleOptions & Partial<ScopedModuleExtras>): DynamicModule {
+export class RcModule extends ConfigurableRcModule {
+  public static forRoot(options: RcModuleOptions & { isGlobal?: boolean }): DynamicModule {
     return super.forRoot(options)
   }
 }

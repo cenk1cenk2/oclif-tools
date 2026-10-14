@@ -1,18 +1,18 @@
 import type { DynamicModule } from '@nestjs/common'
-import { Module } from '@nestjs/common'
+import { ConfigurableModuleBuilder, Module } from '@nestjs/common'
 
 import { ValidatorService } from './validator.service'
-import { buildScopedModule } from '@lib/scoped-module'
-import type { ScopedModuleExtras } from '@lib/scoped-module.interface'
-
-const { ConfigurableModuleClass } = buildScopedModule<Record<never, never>>()
 
 @Module({
   providers: [ValidatorService],
   exports: [ValidatorService]
 })
-export class ValidatorModule extends ConfigurableModuleClass {
-  public static forRoot(options: Partial<ScopedModuleExtras> = {}): DynamicModule {
+export class ValidatorModule
+  extends new ConfigurableModuleBuilder<Record<never, never>>()
+    .setClassMethodName('forRoot')
+    .setExtras({ isGlobal: false }, (definition, extras) => ({ ...definition, global: extras.isGlobal }))
+    .build().ConfigurableModuleClass {
+  public static forRoot(options: { isGlobal?: boolean } = {}): DynamicModule {
     return super.forRoot(options)
   }
 }

@@ -1,4 +1,5 @@
 export * from './rc.constants'
 export type * from './rc.interface'
 export * from './rc.module'
+export { TOKEN_RC_MODULE_OPTIONS } from './rc.module-definition'
 export * from './rc.service'
