@@ -177,6 +177,7 @@ Everything this major changes for a CLI built on the previous one.
 - The `enquirer`, `source-map-support`, `class-validator`, `class-transformer`, `fs-extra` and `update-notifier` peers are gone; `--source-map` turns on the built-in source maps of Node.js.
 - `winston` is gone: `WinstonService` and the `Winston` type are removed, resolve `LoggerService` from the application instead of constructing it or reaching into `WinstonService.instance`.
 - `Inject` and `DynamicModule` are no longer re-exported, import them from `@nestjs/common`; `ClassType` is replaced by the `Type` of Nest.
+- `DeepPartial` is removed, use the `PartialDeep` of [`type-fest`](https://github.com/sindresorhus/type-fest).
 
 ### Commands
 
