@@ -9,7 +9,7 @@ describe('fixture cli', () => {
 
     delete env.NODE_ENV
 
-    const { status, stdout, stderr } = spawnSync(process.execPath, [join(import.meta.dirname, 'fixtures/cli/bin/run.js'), ...argv], { encoding: 'utf-8', env })
+    const { status, stdout, stderr } = spawnSync(process.execPath, [join(import.meta.dirname, 'fixtures/cli/bin/run.ts'), ...argv], { encoding: 'utf-8', env })
 
     return {
       status,

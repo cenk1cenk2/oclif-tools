@@ -4,7 +4,12 @@ import { describe, expect, it } from 'vitest'
 
 describe('signals', () => {
   it('lets the handler finish on SIGINT, then closes the application and exits with the code of the signal', async() => {
-    const child = spawn(process.execPath, [join(import.meta.dirname, 'fixtures/signal/cli.mjs')], { stdio: ['ignore', 'pipe', 'pipe'] })
+    // vitest sets NODE_ENV to test, in which oclif would load the commands from the typescript sources of the fixture
+    const env = { ...process.env }
+
+    delete env.NODE_ENV
+
+    const child = spawn(process.execPath, [join(import.meta.dirname, 'fixtures/cli/bin/run.ts'), 'signal'], { stdio: ['ignore', 'pipe', 'pipe'], env })
     let stdout = ''
 
     child.stdout.on('data', (chunk: Buffer) => {

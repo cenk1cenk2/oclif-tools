@@ -1,6 +1,6 @@
 import { configs, utils } from '@cenk1cenk2/eslint-config'
+import type { Linter } from 'eslint'
 
-/** @type {import("eslint").Linter.Config[]} */
 export default [
   ...configs['typescript-dynamic'],
   ...utils.configImportGroup({ tsconfigDir: import.meta.dirname, tsconfig: 'tsconfig.json' }),
@@ -18,18 +18,7 @@ export default [
     }
   },
   {
-    files: ['test/fixtures/**/*.mjs'],
-    languageOptions: {
-      globals: {
-        process: 'readonly',
-        setInterval: 'readonly',
-        clearInterval: 'readonly',
-        setTimeout: 'readonly'
-      }
-    }
-  },
-  {
     // the fixture cli is a project of its own, which the test setup compiles against the built package
-    ignores: ['tsdown.config.ts', 'vitest.config.ts', 'test/fixtures/cli/**']
+    ignores: ['tsdown.config.ts', 'vitest.config.ts', 'eslint.config.ts', '.prettierrc.ts', 'test/fixtures/cli/**']
   }
-]
+] satisfies Linter.Config[]
