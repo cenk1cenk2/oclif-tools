@@ -6,4 +6,9 @@ export class ValidationError extends Error {
 
     this.name = 'ValidationError'
   }
+
+  /** The dotted path of an issue, empty for an issue of the value itself. */
+  public path(issue: StandardSchemaV1.Issue): string {
+    return issue.path?.map((segment) => (typeof segment === 'object' ? segment.key : segment).toString()).join('.') ?? ''
+  }
 }

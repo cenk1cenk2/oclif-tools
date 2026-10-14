@@ -6,7 +6,7 @@ import { parse } from 'yaml'
 
 import type { RcModuleOptions } from './rc.interface'
 import type { LoggerService } from '@lib/logger'
-import type { ValidatorService } from '@lib/validator'
+import { validate } from '@lib/validator/validate'
 
 export class RcService<T = Record<string, unknown>> {
   constructor(
@@ -20,7 +20,7 @@ export class RcService<T = Record<string, unknown>> {
     return mergeWith(cloneDeep(defaults), rc, (_, value) => (Array.isArray(value) ? value : undefined))
   }
 
-  public static async load(options: RcModuleOptions, oclif: Config, validator: ValidatorService, logger: LoggerService): Promise<RcService> {
+  public static async load(options: RcModuleOptions, oclif: Config, logger: LoggerService): Promise<RcService> {
     const yaml = (_: string, content: string): unknown => parse(content)
     const explorer = cosmiconfig(options.name, {
       searchStrategy: 'global',
@@ -42,6 +42,6 @@ export class RcService<T = Record<string, unknown>> {
 
     const config = (options.merge ?? RcService.merge)(defaults ?? {}, result?.config ?? {})
 
-    return new RcService(result?.filepath, options.schema ? ((await validator.validate(options.schema, config)) as Record<string, unknown>) : config)
+    return new RcService(result?.filepath, options.schema ? ((await validate(options.schema, config)) as Record<string, unknown>) : config)
   }
 }

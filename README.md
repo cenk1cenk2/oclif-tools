@@ -130,6 +130,29 @@ Constructor injection reads the parameter types that TypeScript emits, so build 
 
 A handler needs no oclif to be tested: compile it in a `Test.createTestingModule` of `@nestjs/testing` with its dependencies, and call `run` with the flags and args.
 
+### Validation
+
+`validate(schema, input)` and `validateSync(schema, input)` validate with any [Standard Schema](https://standardschema.dev), such as zod, valibot or arktype, return its output and throw a `ValidationError` with the `issues`. They need no application, so flags and args use them before the command boots: `schemaFlag(schema)` and `schemaArg(schema)` are oclif flag and arg definitions, called with their options like `Flags.custom`, whose value is the output of the schema. A rejected value fails like any flag or arg oclif can not parse, once and with exit code 2, and the handler sees the output type of the schema.
+
+```ts
+import { Command, UseHandler, schemaArg, schemaFlag } from '@cenk1cenk2/oclif-common'
+import { z } from 'zod'
+
+@UseHandler({ module: DeployModule, handler: DeployHandler })
+export default class Deploy extends Command {
+  static flags = {
+    port: schemaFlag(z.coerce.number().int().min(1))({ description: 'The port to listen on.', default: 8080 }),
+    tags: schemaFlag(z.string().toUpperCase())({ multiple: true })
+  }
+
+  static args = {
+    target: schemaArg(z.enum(['staging', 'production']))({ required: true })
+  }
+}
+```
+
+In services, `ValidatorModule.forRoot()` provides `ValidatorService` with the same two methods, which log every issue by its path before they throw.
+
 ### Modules and services
 
 Every command boots with the runtime modules only:
@@ -146,7 +169,7 @@ Everything else is imported by the module of the command, each module with its o
 | `ParserModule.forRoot({ parsers, json?, yaml? })` | `ParserService`, which reads, writes, parses and stringifies files by their extension with the given parsers, `[JsonParser]` by default. `json` takes the `reviver`, `replacer` and `space` (2 by default) of `JSON.parse` and `JSON.stringify`, and `yaml` the `parse` and `stringify` options of the `yaml` package. |
 | `FilesystemModule.forRoot()` | `FileSystemService`. |
 | `LogoModule.forRoot({ generator })` | `LogoService`, which prints the logo when the command starts, at `INFO`, so it follows the stderr levels of the logger. |
-| `ValidatorModule.forRoot()` | `ValidatorService`, which validates with any Standard Schema. |
+| `ValidatorModule.forRoot()` | `ValidatorService`, an injectable wrapper over `validate` and `validateSync` that logs every issue before it throws. |
 | `RcModule.forRoot({ name, defaults?, schema?, merge?, cosmiconfig? })` | The configuration of the CLI, the rc file of the user merged over the bundled defaults, as `TOKEN_RC`, and `RcService` with the `filepath` of the rc file. |
 
 `RcModule` looks for `.namerc` (YAML or JSON), `.namerc.{json,yaml,yml,js,ts,cjs,mjs}`, the same under `.config/`, `name.config.{js,ts,cjs,mjs}` and the `name` key of a `package.json`, from the working directory up to the home directory and then in the global config directory of the user. `defaults` is the base configuration the CLI ships: a file relative to the root of the CLI, read with the same loaders, or an object. The rc file is merged over it deeply: objects merge key by key, while arrays and every other value of the rc file replace those of the defaults; `merge: (defaults, rc) => config` replaces that merge, for example with the `mergeWith` of `es-toolkit`. `cosmiconfig` takes the options of cosmiconfig over ours, such as `searchStrategy`, `stopDir`, `searchPlaces` or `loaders`, the loaders merged with the YAML ones. Without an rc file the configuration is the defaults alone, or `{}`. The merged configuration is validated with `schema`, a Standard Schema, when given. It does not touch the flags, so the handler decides the precedence, for example flags over the rc file over the defaults:

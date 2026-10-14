@@ -16,7 +16,7 @@ export class HelloHandler implements CommandHandler<typeof Hello> {
       {
         title: 'Greet',
         task: (): void => {
-          this.logger.info(`hello ${args.person} from ${flags.from}`)
+          this.logger.info(`hello ${args.person} from ${flags.from} x${flags.times}`)
         }
       }
     ])
