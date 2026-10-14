@@ -134,7 +134,8 @@ export abstract class Command extends BaseCommand {
     logger.fatal(err.message)
     logger.debug(err.stack, { context: 'crash' })
 
-    throw err
+    // logged above already, so the error handler of oclif only exits with its code
+    throw Object.assign(err, { skipOclifErrorHandling: true })
   }
 
   private options(): CliRuntimeOptions {

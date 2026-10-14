@@ -450,6 +450,7 @@ describe('Command', () => {
     const { stdout, stderr, error } = await run(greet(app({ stderr: Object.values(LogLevels) })), ['--nope'])
 
     expect(error.message).toContain('Nonexistent flag: --nope')
+    expect(error).toMatchObject({ skipOclifErrorHandling: true, oclif: { exit: 2 } })
     expect(stdout).toBe('')
     expect(stderr).toContain('[F] Nonexistent flag: --nope')
   })
