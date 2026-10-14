@@ -73,7 +73,8 @@ import { LogLevels, LoggerModule, LogoModule, TaskModule } from '@cenk1cenk2/ocl
 import { Module } from '@nestjs/common'
 
 @Module({
-  imports: [LoggerModule.forRoot({ stderr: Object.values(LogLevels) }), LogoModule.forRoot(), TaskModule.forRoot()]
+  imports: [LoggerModule.forRoot({ stderr: Object.values(LogLevels) }), LogoModule.forRoot(), TaskModule.forRoot()],
+  exports: [TaskModule]
 })
 export class SharedModule {}
 ```
@@ -139,7 +140,7 @@ Everything else is imported by the module of the command, each module with its o
 
 | Module | Provides |
 | --- | --- |
-| `TaskModule.forRoot(options?)` | `TaskManager`, the listr2 task manager, which renders plainly at debug level and stays silent for silent or JSON output; `options` override the defaults. |
+| `TaskModule.forRoot(options?)` | `TaskManager`, the listr2 task manager, which renders plainly at debug level and stays silent for silent or JSON output; `options` override the defaults. It is visible to the module that imports it, so a shared module exports it, or `isGlobal: true` makes it global. |
 | `ParserModule.forRoot({ parsers })` | `ParserService` and `ConfigLoaderService` with the given parsers, `[JsonParser]` by default, and the `FilesystemModule` they read through. |
 | `FilesystemModule` | `FileSystemService`. |
 | `LogoModule.forRoot({ generator })` | `LogoService`, which prints the logo when the command starts, at `INFO`, so it follows the stderr levels of the logger. |

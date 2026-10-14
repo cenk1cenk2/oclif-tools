@@ -228,6 +228,34 @@ describe('Command', () => {
     expect(task).toHaveBeenCalledOnce()
   })
 
+  it('keeps the task manager to the modules that import it unless it is global', async() => {
+    let options: unknown
+
+    @Injectable()
+    class TaskHandler implements CommandHandler {
+      constructor(private readonly tasks: TaskManager) {}
+
+      public async run(): Promise<void> {
+        options = this.tasks.options
+      }
+    }
+
+    function command(task: DynamicModule, exported: boolean): ReturnType<typeof greet> {
+      @Module({ imports: [task], exports: exported ? [TaskModule] : [] })
+      class SharedModule {}
+
+      @Module({ imports: [SharedModule], providers: [TaskHandler] })
+      class CommandModule {}
+
+      return greet(CommandModule, TaskHandler)
+    }
+
+    expect((await run(command(TaskModule.forRoot(), false))).error.message).toMatch(/can't resolve dependencies of the TaskHandler/)
+    expect((await run(command(TaskModule.forRoot(), true))).error).toBeUndefined()
+    expect((await run(command(TaskModule.forRoot({ isGlobal: true }), false))).error).toBeUndefined()
+    expect(options).not.toHaveProperty('isGlobal')
+  })
+
   it('fails clearly when the module does not provide the handler', async() => {
     const { error, stderr } = await run(greet(app({ providers: [] })))
 
