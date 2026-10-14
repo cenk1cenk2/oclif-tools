@@ -165,6 +165,8 @@ export class BuildHandler implements CommandHandler<typeof Build> {
 }
 ```
 
+Nest reports its bootstrap, the resolution of its dependencies and the errors its exception handler catches only when the `NEST_LOGS` environment variable is `1` or `true`. They go through the command logger then, in its format and filtered by `--log-level` like every other line: on stderr while the application boots, then with the stderr levels of the command. `NEST_DEBUG`, which Nest reads for the debug output of its injector, stays separate.
+
 `pipeProcessToLogger(logger, process)` and `pipeProcessThroughListr(task, process)` pipe a child process from any service.
 
 ## Migration
@@ -202,7 +204,7 @@ Everything this major changes for a CLI built on the previous one.
 
 - `LoggerModule.forRoot({ stderr })` takes the list of levels written to stderr instead of a boolean, by default `[LogLevels.FATAL, LogLevels.ERROR]`; replace `{ stderr: true }` with `{ stderr: Object.values(LogLevels) }`. The logo follows `INFO`.
 - `LoggerModule.forRoot` and `forRootAsync` only provide the options of the logger of the runtime: import them once in the graph of the command module, sharing the module that imports them. A command that fails before its module boots writes every level to stderr.
-- Nest logs at the levels the log level of the command allows, on stderr; `--log-level trace` no longer sets `NEST_DEBUG`.
+- The own logs of Nest, such as its bootstrap and its exception handler, are off whatever the log level; set `NEST_LOGS=1` to see them. `--log-level trace` no longer turns them on or sets `NEST_DEBUG`.
 
 ### Hooks
 

@@ -386,10 +386,18 @@ describe('Command', () => {
       expect(stderr).toContain('[F] LoggerModule.forRoot is imported more than once')
     })
 
-    it('lets nest log its bootstrap at trace level', async() => {
-      const { stdout, stderr } = await run(command(), ['--log-level', 'trace'])
+    it('lets nest log its bootstrap through the logger only with NEST_LOGS', async() => {
+      vi.stubEnv('NEST_LOGS', '1')
 
-      expect(stdout + stderr).toContain('dependencies initialized')
+      const on = await run(command(), ['--log-level', 'verbose'])
+
+      vi.unstubAllEnvs()
+
+      const off = await run(command(), ['--log-level', 'trace'])
+
+      expect(on.stderr).toContain('[V] [InstanceLoader] CommandModule dependencies initialized')
+      expect(on.stdout + on.stderr).not.toContain('[Nest]')
+      expect(off.stdout + off.stderr).not.toContain('dependencies initialized')
     })
   })
 
@@ -429,11 +437,7 @@ describe('Command', () => {
   it('logs a module boot failure to stderr whatever the logger options', async() => {
     const { stdout, stderr, error } = await run(greet(app({ stderr: [], imports: [BrokenModule] })), ['--log-level', 'debug'])
 
-    // nest reports the bootstrap that failed on stderr as well
-    const [fatal, debug, ...stack] = stderr
-      .trimEnd()
-      .split('\n')
-      .filter((line) => !line.includes('[Nest]'))
+    const [fatal, debug, ...stack] = stderr.trimEnd().split('\n')
 
     expect(error.message).toBe('factory exploded')
     expect(stdout).toBe('')

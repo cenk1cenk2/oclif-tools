@@ -10,6 +10,7 @@ import type { CliModuleImport, CliRuntimeOptions } from '@lib'
 import { LogLevels, LoggerService } from '@lib'
 import { CliFactory } from '@lib/cli.factory'
 import { NestLogger } from '@lib/logger/nest-logger.service'
+import { isNestLogging } from '@utils'
 
 const SIGNALS: NodeJS.Signals[] = ['SIGINT', 'SIGTERM']
 
@@ -107,7 +108,9 @@ export abstract class Command extends BaseCommand {
       ? await CliFactory.createFallback(this.options()).catch(() => Promise.reject(err))
       : await CliFactory.create((this.ctor as typeof Command).module, this.options())
 
-    this.app.useLogger(this.app.get(NestLogger))
+    if (isNestLogging()) {
+      this.app.useLogger(this.app.get(NestLogger))
+    }
 
     for (const signal of SIGNALS) {
       process.on(signal, this.interrupt)

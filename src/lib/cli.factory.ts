@@ -1,24 +1,21 @@
-import type { INestApplicationContext, LogLevel } from '@nestjs/common'
+import type { INestApplicationContext } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 
 import type { CliModuleImport, CliRuntimeOptions } from './cli.interface'
 import { CommandModule } from './command'
 import { ConfigModule } from './config'
-import { LogLevels, LoggerModule, NEST_LOG_LEVELS } from './logger'
-import { NestBootstrapLogger } from './logger/nest-bootstrap-logger'
+import { LogLevels, LoggerModule, LoggerService } from './logger'
+import { NestLogger } from './logger/nest-logger.service'
+import { isNestLogging } from '@utils'
 
 export class CliFactory {
   /** Boots a command module with the runtime modules: the config, the running command and the logger. */
   public static create(module: CliModuleImport, { config, ...command }: CliRuntimeOptions): Promise<INestApplicationContext> {
-    const levels = Object.values(LogLevels)
-
     return NestFactory.createApplicationContext(
       { ...ConfigModule.forRoot({ config }), imports: [CommandModule.forRoot(command), LoggerModule, module] },
       {
-        // a logger instance replaces the process-wide one of nest, where a level list would only reconfigure it, even when it is the logger of a closed application
-        logger: new NestBootstrapLogger({
-          logLevels: config.isJson ? [] : (Object.keys(NEST_LOG_LEVELS) as LogLevel[]).filter((level) => levels.indexOf(NEST_LOG_LEVELS[level]) <= levels.indexOf(config.logLevel))
-        }),
+        // before the logger of the command exists, nest logs through one with the parsed level that keeps everything on stderr
+        logger: isNestLogging() ? new NestLogger(new LoggerService({ config }, { stderr: Object.values(LogLevels) })) : false,
         abortOnError: false
       }
     )
