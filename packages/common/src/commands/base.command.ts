@@ -114,6 +114,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     this.logger = await this.app.resolve(LoggerService)
 
     this.app.useLogger(this.logger)
+    this.app.enableShutdownHooks(['SIGINT', 'SIGTERM'])
 
     this.app.get(LogoService).generate()
 
@@ -131,14 +132,13 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
       }
     }
 
-    // initiate manager
     this.tasks = new Manager({
       fallbackRendererCondition: cs.isDebug,
       silentRendererCondition: cs.isSilent || cs.isJson,
       ctx: {} as Ctx
     })
 
-    // graceful terminate
+    // a windows terminal delivers ctrl+c to stdin instead of raising the signal on the process
     if (cs.oclif.windows) {
       createInterface({
         input: process.stdin,
@@ -147,28 +147,13 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
         process.kill(process.pid, 'SIGINT')
       })
     }
-
-    const terminate = (): never => {
-      // show that we have understood that
-      this.logger.fatal('Caught terminate signal.', { status: LogFieldStatus.TERMINATE })
-
-      process.exit(1)
-    }
-
-    process.on('SIGINT', terminate)
-    process.on('SIGTERM', terminate)
   }
 
   /** Tasks to run before end of the command. */
   protected async finally<C extends Ctx = Ctx>(err: Error | undefined): Promise<{ ctx: C }> {
     let ctx: C
 
-    if (err) {
-      return { ctx }
-    }
-
-    if (this.tasks?.tasks?.length > 0) {
-      // run anything in the task queue at the end
+    if (!err && this.tasks?.tasks?.length > 0) {
       this.logger.stage('Running tasks.')
 
       ctx = await this.runTasks<C>()
@@ -176,7 +161,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
       this.logger.stage('Finished tasks.')
     }
 
-    await this.app.close()
+    await this.app?.close()
 
     return { ctx }
   }

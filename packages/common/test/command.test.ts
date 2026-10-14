@@ -1,4 +1,4 @@
-import type { DynamicModule, Type } from '@nestjs/common'
+import type { DynamicModule, OnModuleDestroy, Type } from '@nestjs/common'
 import { ConfigurableModuleBuilder, Inject, Injectable, Module } from '@nestjs/common'
 import { join } from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
@@ -87,7 +87,7 @@ describe('Command', () => {
         return true
       })
     )
-    const signals = ['SIGINT', 'SIGTERM'].map((signal) => [signal, process.listeners(signal as NodeJS.Signals)] as const)
+    const listeners = process.listenerCount('SIGTERM')
 
     try {
       await command.run(argv, { root: join(import.meta.dirname, '..') })
@@ -95,14 +95,9 @@ describe('Command', () => {
       output.error = e
     } finally {
       spies.forEach((spy) => spy.mockRestore())
-      // the command exits the process on these signals, which would also fire when the test worker shuts down
-      signals.forEach(([signal, listeners]) =>
-        process
-          .listeners(signal as NodeJS.Signals)
-          .filter((listener) => !listeners.includes(listener))
-          .forEach((listener) => process.off(signal, listener))
-      )
     }
+
+    expect(process.listenerCount('SIGTERM')).toBe(listeners)
 
     return output
   }
@@ -159,6 +154,31 @@ describe('Command', () => {
     expect(stdout).toBe('')
     expect(stderr).toContain('[F] factory exploded')
     expect(stderr).toContain('[D] Error: factory exploded')
+  })
+
+  it('closes the application when the command fails', async() => {
+    const destroyed = vi.fn()
+
+    @Injectable()
+    class Resource implements OnModuleDestroy {
+      public onModuleDestroy(): void {
+        destroyed()
+      }
+    }
+
+    @Module({ providers: [Resource] })
+    class ResourceModule {}
+
+    class Failing extends greet(app(true, ResourceModule)) {
+      public async run(): Promise<void> {
+        throw new Error('run failed')
+      }
+    }
+
+    const { error } = await run(Failing)
+
+    expect(error.message).toBe('run failed')
+    expect(destroyed).toHaveBeenCalledOnce()
   })
 
   it('reports an unknown flag through the fallback logger', async() => {
