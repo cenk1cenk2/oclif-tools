@@ -37,7 +37,8 @@
     "build": "tsdown",
     "dev:start": "tsdown --watch",
     "format": "prettier --write src/ test/ --log-level warn && eslint --fix src/ test/",
-    "lint": "eslint src/ test/",
+    "lint": "pnpm run typecheck && eslint src/ test/",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p test",
     "test": "vitest run",
     "docs:api": "typedoc --options .typedoc.json --hideInPageTOC --hideBreadcrumbs"
   },
