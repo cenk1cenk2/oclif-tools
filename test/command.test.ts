@@ -24,6 +24,7 @@ import {
   TOKEN_COMMAND,
   TOKEN_COMMAND_FLAGS,
   TOKEN_OCLIF_CONFIG,
+  UseHandler,
   ValidatorService,
   YamlParser
 } from '../src'
@@ -89,11 +90,8 @@ describe('Command', () => {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  function greet(module: CliModuleImport, handler: Type<CommandHandler<any>> = GreetHandler) {
+  function greet(module?: CliModuleImport, handler: Type<CommandHandler<any>> = GreetHandler) {
     class Greet extends Command {
-      static module = module
-      static handler = handler
-
       static flags = {
         name: Flags.string({ default: 'world' }),
         loud: Flags.boolean({ default: false }),
@@ -103,6 +101,10 @@ describe('Command', () => {
       static args = {
         person: Args.string()
       }
+    }
+
+    if (module) {
+      UseHandler({ module, handler })(Greet)
     }
 
     return Greet
@@ -401,11 +403,11 @@ describe('Command', () => {
     })
   })
 
-  it('fails clearly when the command declares no module', async() => {
-    const { error, stderr } = await run(greet(undefined))
+  it('fails clearly when the command has no handler', async() => {
+    const { error, stderr } = await run(greet())
 
-    expect(error.message).toBe('Command greet declares no module, set "static module" to the module that provides its handler.')
-    expect(stderr).toContain('[F] Command greet declares no module')
+    expect(error.message).toBe('Command greet has no handler, decorate it with @UseHandler({ module, handler }).')
+    expect(stderr).toContain('[F] Command greet has no handler')
   })
 
   it('passes on an error of the handler construction unchanged', async() => {
@@ -426,12 +428,6 @@ describe('Command', () => {
     const { error } = await run(greet(app({ providers: [Exploding, ExplodingHandler] }), ExplodingHandler))
 
     expect(error.message).toBe('dependency exploded')
-  })
-
-  it('fails clearly when the command declares no handler', async() => {
-    const { error } = await run(greet(app(), null))
-
-    expect(error.message).toBe('Command greet declares no handler, set "static handler" to the class that runs it.')
   })
 
   it('logs a module boot failure to stderr whatever the logger options', async() => {

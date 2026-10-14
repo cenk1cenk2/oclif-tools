@@ -1,7 +1,8 @@
+import { Injectable, Module } from '@nestjs/common'
 import { describe, expectTypeOf, it } from 'vitest'
 
-import type { CommandInput, LogLevels } from '../src'
-import { Args, Command, Flags } from '../src'
+import type { CommandHandler, CommandInput, LogLevels } from '../src'
+import { Args, Command, Flags, UseHandler } from '../src'
 
 describe('CommandInput', () => {
   class Typed extends Command {
@@ -38,5 +39,41 @@ describe('CommandInput', () => {
     expectTypeOf<Input['args']['person']>().toEqualTypeOf<string>()
     expectTypeOf<Input['args']['maybe']>().toEqualTypeOf<string | undefined>()
     expectTypeOf<Input['args']>().not.toHaveProperty('typo')
+  })
+})
+
+describe('UseHandler', () => {
+  @Module({})
+  class EmptyModule {}
+
+  class Greet extends Command {
+    static flags = {
+      from: Flags.string({ default: 'test' })
+    }
+  }
+
+  class Leave extends Command {
+    static flags = {
+      silently: Flags.boolean({ default: false })
+    }
+  }
+
+  @Injectable()
+  class GreetHandler implements CommandHandler<typeof Greet> {
+    public async run({ flags }: CommandInput<typeof Greet>): Promise<void> {
+      expectTypeOf(flags.from).toEqualTypeOf<string>()
+    }
+  }
+
+  it('accepts the handler of the command and rejects a handler of another command', () => {
+    @UseHandler({ module: EmptyModule, handler: GreetHandler })
+    class Accepted extends Greet {}
+
+    // @ts-expect-error the handler of Greet does not take the input of Leave
+    @UseHandler({ module: EmptyModule, handler: GreetHandler })
+    class Rejected extends Leave {}
+
+    expectTypeOf(Accepted).toExtend<typeof Command>()
+    expectTypeOf(Rejected).toExtend<typeof Command>()
   })
 })

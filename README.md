@@ -36,7 +36,7 @@ The package is also an oclif plugin that registers a `command_not_found` hook, w
 A command is an oclif command, a NestJS module and an injectable handler:
 
 ```
-src/commands/build.ts                 # the oclif command: description, flags, args, static module, static handler
+src/commands/build.ts                 # the oclif command: description, flags and args, with @UseHandler
 src/modules/build/build.module.ts     # the root module of the command, which provides the handler
 src/modules/build/build.handler.ts    # the @Injectable() handler that runs the command
 src/modules/shared/shared.module.ts   # optional, the modules every command imports
@@ -44,7 +44,7 @@ src/modules/shared/shared.module.ts   # optional, the modules every command impo
 
 A single-command CLI keeps its command in `src/commands/index.ts` and names its module directory after the CLI. Modules and handlers stay out of `src/commands`: oclif discovers commands by globbing every file in that directory and turns each file name into a command id, so a module or a handler there would show up as a broken command.
 
-- The command extends `Command` and declares the oclif side: its description, `static flags`, `static args`, its root module as `static module` and its handler as `static handler`.
+- The command extends `Command` and declares the oclif side as statics, which oclif reads: its description, `static flags` and `static args`. `@UseHandler({ module, handler })` registers its root module and its handler. The decorator only accepts a handler that takes the flags and args of the command it decorates, so a handler written for another command is a type error.
 - The module imports the optional modules the command needs and provides the handler.
 - The handler implements `CommandHandler<typeof MyCommand>`, gets its dependencies through its constructor and the parsed flags and args in `run({ flags, args })`.
 
@@ -54,17 +54,14 @@ The first `SIGINT` or `SIGTERM` does not tear the context down under a running h
 
 ```ts
 // src/commands/print.ts
-import { Command, Flags } from '@cenk1cenk2/oclif-common'
+import { Command, Flags, UseHandler } from '@cenk1cenk2/oclif-common'
 
 import { PrintHandler } from '../modules/print/print.handler.js'
 import { PrintModule } from '../modules/print/print.module.js'
 
+@UseHandler({ module: PrintModule, handler: PrintHandler })
 export default class Print extends Command {
   static description = 'Print a document.'
-
-  static module = PrintModule
-
-  static handler = PrintHandler
 
   static flags = {
     browser: Flags.string()
@@ -183,7 +180,7 @@ Everything this major changes for a CLI built on the previous one.
 
 ### Commands
 
-- Move each command to `src/commands/<command>.ts`, and its module and handler to `src/modules/<command>/`. Move the body of `run()` into the `run({ flags, args, signal })` of an `@Injectable()` handler implementing `CommandHandler<typeof MyCommand>`, provide it in the module and set `static module` and `static handler`. A command no longer implements `run()`, has no default module, and `Command` takes no type parameters.
+- Move each command to `src/commands/<command>.ts`, and its module and handler to `src/modules/<command>/`. Move the body of `run()` into the `run({ flags, args, signal })` of an `@Injectable()` handler implementing `CommandHandler<typeof MyCommand>`, provide it in the module and register both on the command with `@UseHandler({ module, handler })`; a command without it fails to start. A command no longer implements `run()`, has no default module, and `Command` takes no type parameters.
 - `register`, `shouldRunBefore`, `shouldRunAfter`, their hook types and the `isHookedWith*` guards are removed; move setup and teardown into provider lifecycle hooks.
 - Replace `@Inject()` properties with constructor parameters of the handler. `@Optional()` stays available on constructor parameters.
 - Replace `this.logger` with an injected `LoggerService`, `this.tasks` with an injected `TaskManager` from `TaskModule`, and `this.flags` / `this.args` with the input of `run`, or `TOKEN_COMMAND_FLAGS` / `TOKEN_COMMAND_ARGS` in module factories and services. Tasks no longer run on their own after the command: call `await tasks.runAll()` in the handler.

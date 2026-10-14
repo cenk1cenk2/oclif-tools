@@ -1,12 +1,13 @@
-import type { INestApplicationContext, Type } from '@nestjs/common'
+import type { INestApplicationContext } from '@nestjs/common'
 import { UnknownElementException } from '@nestjs/core/internal'
 import { Command as BaseCommand, Errors, Flags } from '@oclif/core'
 import { constants } from 'os'
 import { createInterface } from 'readline'
 
-import type { CommandHandler, CommandInput } from './base.command.interface'
+import { TOKEN_USE_HANDLER } from './base.command.constants'
+import type { CommandHandler, CommandInput, UseHandlerOptions } from './base.command.interface'
 import { HelpGroups } from '@constants'
-import type { CliModuleImport, CliRuntimeOptions } from '@lib'
+import type { CliRuntimeOptions } from '@lib'
 import { LogLevels, LoggerService } from '@lib'
 import { CliFactory } from '@lib/cli.factory'
 import { NestLogger } from '@lib/logger/nest-logger.service'
@@ -15,9 +16,6 @@ import { isNestLogging } from '@utils'
 const SIGNALS: NodeJS.Signals[] = ['SIGINT', 'SIGTERM']
 
 export abstract class Command extends BaseCommand {
-  static module: CliModuleImport
-  static handler: Type<CommandHandler<any>>
-
   static baseFlags = {
     ['log-level']: Flags.custom<LogLevels>({
       default: LogLevels.INFO,
@@ -50,11 +48,7 @@ export abstract class Command extends BaseCommand {
 
   /** oclif runs this once the application context is up, it hands the parsed input to the handler of the command. */
   public async run(): Promise<void> {
-    const { handler } = this.ctor as typeof Command
-
-    if (!handler) {
-      throw new Error(`Command ${this.id} declares no handler, set "static handler" to the class that runs it.`)
-    }
+    const { handler } = this.registration()
 
     let instance: CommandHandler
 
@@ -98,15 +92,13 @@ export abstract class Command extends BaseCommand {
       err = e
     }
 
-    if (!err && !(this.ctor as typeof Command).module) {
-      err = new Error(`Command ${this.id} declares no module, set "static module" to the module that provides its handler.`)
+    if (!err && !this.registration()) {
+      err = new Error(`Command ${this.id} has no handler, decorate it with @UseHandler({ module, handler }).`)
     }
 
     // factories of the command module read the parsed flags, so a failed parse boots without them
     // a fallback that can not boot either leaves the original error to catch
-    this.app = err
-      ? await CliFactory.createFallback(this.options()).catch(() => Promise.reject(err))
-      : await CliFactory.create((this.ctor as typeof Command).module, this.options())
+    this.app = err ? await CliFactory.createFallback(this.options()).catch(() => Promise.reject(err)) : await CliFactory.create(this.registration().module, this.options())
 
     if (isNestLogging()) {
       this.app.useLogger(this.app.get(NestLogger))
@@ -166,6 +158,10 @@ export abstract class Command extends BaseCommand {
 
     // logged above already, so the error handler of oclif only exits with its code
     throw Object.assign(err, { skipOclifErrorHandling: true })
+  }
+
+  private registration(): UseHandlerOptions | undefined {
+    return Reflect.getMetadata(TOKEN_USE_HANDLER, this.ctor)
   }
 
   private options(): CliRuntimeOptions {
