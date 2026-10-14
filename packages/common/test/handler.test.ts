@@ -3,7 +3,7 @@ import { Test } from '@nestjs/testing'
 import { describe, expect, it, vi } from 'vitest'
 
 import type { CommandHandler, CommandInput } from '../src'
-import { LoggerService, TOKEN_COMMAND_FLAGS } from '../src'
+import { LogLevels, LoggerService, TOKEN_COMMAND_FLAGS } from '../src'
 
 describe('CommandHandler', () => {
   @Injectable()
@@ -24,7 +24,14 @@ describe('CommandHandler', () => {
       providers: [GreetHandler, { provide: LoggerService, useValue: { info } }, { provide: TOKEN_COMMAND_FLAGS, useValue: { greeting: 'hello' } }]
     }).compile()
 
-    await module.get(GreetHandler).run({ flags: { json: false }, args: { person: 'world' } })
+    await module.get(GreetHandler).run({
+      flags: {
+        ['log-level']: LogLevels.INFO,
+        ci: false,
+        json: false
+      },
+      args: { person: 'world' }
+    })
 
     expect(info).toHaveBeenCalledWith('%s %s', 'hello', 'world')
   })

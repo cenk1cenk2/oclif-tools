@@ -16,14 +16,14 @@ export abstract class Command extends BaseCommand {
   static handler: Type<CommandHandler<any>>
 
   static baseFlags = {
-    ['log-level']: Flags.string({
+    ['log-level']: Flags.custom<LogLevels>({
       default: LogLevels.INFO,
       env: 'LOG_LEVEL',
       description: 'Set the log level of the application.',
       options: Object.values(LogLevels).map((level) => level.toLowerCase()),
       helpGroup: HelpGroups.CLI,
-      parse: async(input) => (input as string)?.toUpperCase() as unknown as LogLevels
-    }),
+      parse: async(input) => input.toUpperCase() as LogLevels
+    })(),
     ci: Flags.boolean({
       default: false,
       hidden: true,

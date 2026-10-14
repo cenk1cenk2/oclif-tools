@@ -1,5 +1,4 @@
-import type { Command } from '@oclif/core'
-
+import type { Command } from './base.command'
 import type { InferArgs, InferFlags } from '@interfaces'
 
 export interface CommandInput<T extends typeof Command = typeof Command> {
