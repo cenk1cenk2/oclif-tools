@@ -3,15 +3,12 @@ import { ConfigurableModuleBuilder, Inject, Injectable, Module, Optional } from 
 import { join } from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type { LockerService } from '../src'
 import {
   CliModule,
   Command,
   ConfigService,
   FilesystemModule,
   Flags,
-  JsonParser,
-  LockerModule,
   LogLevels,
   LoggerModule,
   LogoModule,
@@ -23,7 +20,6 @@ import {
 
 describe('Command', () => {
   const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } = new ConfigurableModuleBuilder<{ name: string }>().setClassMethodName('forRoot').build()
-  const LOCKER = Symbol('LOCKER')
 
   @Injectable()
   class GreetService {
@@ -60,11 +56,6 @@ describe('Command', () => {
           inject: [TOKEN_COMMAND_FLAGS],
           useFactory: (flags: { name: string }) => ({ name: flags.name })
         }),
-        LockerModule.forFeatureAsync({
-          token: LOCKER,
-          inject: [ConfigService],
-          useFactory: (cs: ConfigService) => ({ file: join(cs.root, 'package.json'), parser: JsonParser })
-        }),
         ...imports
       ]
     })
@@ -86,7 +77,6 @@ describe('Command', () => {
 
       public async run(): Promise<void> {
         this.logger.info(this.greet.hello())
-        this.logger.info('locker: %s', (await this.app.get<LockerService>(LOCKER).read()).name)
       }
     }
 
@@ -160,12 +150,6 @@ describe('Command', () => {
 
     expect(error).toBeUndefined()
     expect(context).toEqual([Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' }), Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' })])
-  })
-
-  it('reads through a locker configured from the runtime config', async() => {
-    const { stdout } = await run(greet(app()))
-
-    expect(stdout).toContain('locker: @cenk1cenk2/oclif-common')
   })
 
   it('fails to start when an injected property has no provider', async() => {

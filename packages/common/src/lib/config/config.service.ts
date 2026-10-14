@@ -7,7 +7,6 @@ import { ConfigEnvKeys, TOKEN_CONFIG_MODULE_OPTIONS } from './config.constants'
 import type { ConfigIterator, ConfigModuleOptions, GlobalConfig } from './config.interface'
 import { FileConstants } from '@constants'
 import { TOKEN_COMMAND, TOKEN_OCLIF_CONFIG } from '@lib/command/command.constants'
-import type { LockableData } from '@lib/locker'
 import { LoggerService } from '@lib/logger'
 import { ParserService } from '@lib/parser/parser.service'
 import { MergeStrategy, clonePath, isDebug, isSilent, isVerbose, merge } from '@utils'
@@ -54,7 +53,7 @@ export class ConfigService implements OnModuleInit {
     return this.config.isJson
   }
 
-  public async read<T extends LockableData = LockableData>(path: string): Promise<T> {
+  public async read<T = any>(path: string): Promise<T> {
     const config = await this.parser.read<T>(path)
 
     this.logger.trace('Read config from: %s', path)
@@ -62,7 +61,7 @@ export class ConfigService implements OnModuleInit {
     return config
   }
 
-  public async extend<T extends LockableData = LockableData>(paths: (string | Partial<T>)[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): Promise<T> {
+  public async extend<T = any>(paths: (string | Partial<T>)[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): Promise<T> {
     this.logger.trace('Will generate config from: %o with %s', paths, strategy)
 
     const configs = (
@@ -84,7 +83,7 @@ export class ConfigService implements OnModuleInit {
     return this.merge<T>(configs, strategy)
   }
 
-  public merge<T extends LockableData = LockableData>(configs: Partial<T>[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): T {
+  public merge<T = any>(configs: Partial<T>[], strategy: MergeStrategy = MergeStrategy.OVERWRITE): T {
     if (configs.length === 0) {
       throw new Error('Nothing to merge, configuration files are empty.')
     }
@@ -92,7 +91,7 @@ export class ConfigService implements OnModuleInit {
     return merge<T>(strategy, ...configs)
   }
 
-  public async env<T extends LockableData = LockableData>(definition: string | Record<PropertyKey, any>, config: T): Promise<T> {
+  public async env<T = any>(definition: string | Record<PropertyKey, any>, config: T): Promise<T> {
     const env = typeof definition === 'string' ? await this.parser.read<T>(definition) : definition
 
     this.logger.trace('Environment variable extensions read: %o', definition)
@@ -211,7 +210,7 @@ export class ConfigService implements OnModuleInit {
     return config
   }
 
-  public async write<T extends LockableData = LockableData>(path: string, data: T): Promise<void> {
+  public async write<T = any>(path: string, data: T): Promise<void> {
     return this.parser.write(path, data)
   }
 }

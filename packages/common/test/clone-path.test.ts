@@ -32,11 +32,11 @@ describe('clonePath', () => {
       }
     })
 
-    const unlocked = clonePath(target, ['a', 'b'])
+    const removed = clonePath(target, ['a', 'b'])
 
-    unset(unlocked, ['a', 'b'])
+    unset(removed, ['a', 'b'])
 
-    expect(unlocked).toEqual({ a: { c: 2 } })
+    expect(removed).toEqual({ a: { c: 2 } })
     expect(target).toEqual({ a: { b: 1, c: 2 } })
   })
 

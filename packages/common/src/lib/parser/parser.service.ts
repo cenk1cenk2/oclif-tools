@@ -4,7 +4,6 @@ import { TOKEN_PARSERS } from './parser.constants'
 import type { GenericParser } from './parser.interface'
 import type { ClassType } from '@interfaces'
 import { FileSystemService } from '@lib/fs'
-import type { LockableData } from '@lib/locker'
 import { LoggerService } from '@lib/logger'
 
 @Injectable()
@@ -44,7 +43,7 @@ export class ParserService implements OnModuleInit {
     return this.parse(file, await this.fs.read(file))
   }
 
-  public async write<T = LockableData>(file: string, data: T): Promise<void> {
+  public async write<T = any>(file: string, data: T): Promise<void> {
     return this.fs.write(file, this.stringify(file, data))
   }
 

@@ -1,7 +1,6 @@
 export * from './command'
 export * from './config'
 export * from './fs'
-export * from './locker'
 export * from './logger'
 export * from './logo'
 export * from './parser'
