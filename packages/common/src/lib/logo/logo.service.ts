@@ -1,9 +1,11 @@
 import type { OnApplicationBootstrap } from '@nestjs/common'
 import { Inject, Injectable } from '@nestjs/common'
+import type { Config } from '@oclif/core'
 import { EOL } from 'os'
 
 import { TOKEN_LOGO_MODULE_OPTIONS } from './logo.constants'
 import type { LogoModuleOptions } from './logo.interface'
+import { TOKEN_OCLIF_CONFIG } from '@lib/command/command.constants'
 import { ConfigService } from '@lib/config'
 import { LogLevels, LoggerService } from '@lib/logger'
 
@@ -11,6 +13,7 @@ import { LogLevels, LoggerService } from '@lib/logger'
 export class LogoService implements OnApplicationBootstrap {
   constructor(
     public readonly cs: ConfigService,
+    @Inject(TOKEN_OCLIF_CONFIG) public readonly oclif: Config,
     @Inject(TOKEN_LOGO_MODULE_OPTIONS) private readonly options: LogoModuleOptions,
     private readonly logger: LoggerService
   ) {}
@@ -36,7 +39,7 @@ export class LogoService implements OnApplicationBootstrap {
       return
     }
 
-    const logo = this.cs.oclif.name + ' ' + 'v' + this.cs.oclif.version
+    const logo = this.oclif.name + ' ' + 'v' + this.oclif.version
 
     this.write(logo)
     this.write('-'.repeat(logo.length))

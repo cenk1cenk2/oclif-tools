@@ -178,7 +178,7 @@ describe('Command', () => {
     expect(stdout).toContain('hello flags')
   })
 
-  it('provides the running command through the command module', async() => {
+  it('provides the running command through the command module and the runtime config through the config service', async() => {
     let context: unknown[]
 
     @Injectable()
@@ -190,7 +190,7 @@ describe('Command', () => {
       ) {}
 
       public async run(): Promise<void> {
-        context = [this.command, this.oclif, this.cs.command, this.cs.oclif]
+        context = [this.command, this.oclif, this.cs.config]
       }
     }
 
@@ -198,7 +198,7 @@ describe('Command', () => {
     const { error } = await run(Context)
 
     expect(error).toBeUndefined()
-    expect(context).toEqual([Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' }), Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' })])
+    expect(context).toEqual([Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' }), { logLevel: LogLevels.INFO, isJson: false }])
   })
 
   it('provides the task manager with its own options over the runtime config', async() => {
