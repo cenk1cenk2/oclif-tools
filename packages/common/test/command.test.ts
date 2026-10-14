@@ -1,9 +1,11 @@
-import type { DynamicModule, OnModuleDestroy, Type } from '@nestjs/common'
-import { ConfigurableModuleBuilder, Inject, Injectable, Module, Optional } from '@nestjs/common'
+import type { DynamicModule, OnModuleDestroy, Provider, Type } from '@nestjs/common'
+import { ConfigurableModuleBuilder, Inject, Injectable, Module } from '@nestjs/common'
 import { join } from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
+import type { CommandHandler, CommandInput } from '../src'
 import {
+  Args,
   CliModule,
   Command,
   ConfigService,
@@ -11,8 +13,10 @@ import {
   Flags,
   LogLevels,
   LoggerModule,
+  LoggerService,
   LogoModule,
   ParserModule,
+  TaskManager,
   TOKEN_COMMAND,
   TOKEN_COMMAND_FLAGS,
   TOKEN_OCLIF_CONFIG
@@ -48,16 +52,29 @@ describe('Command', () => {
   })
   class BrokenModule {}
 
-  function app(stderr?: LogLevels[], ...imports: (Type | DynamicModule)[]): Type {
+  @Injectable()
+  class GreetHandler implements CommandHandler {
+    constructor(
+      private readonly greet: GreetService,
+      private readonly logger: LoggerService
+    ) {}
+
+    public async run(): Promise<void> {
+      this.logger.info(this.greet.hello())
+    }
+  }
+
+  function app(options: { stderr?: LogLevels[]; providers?: Provider[]; imports?: (Type | DynamicModule)[] } = {}): Type {
     @Module({
       imports: [
-        CliModule.forRoot({ logger: { stderr } }),
+        CliModule.forRoot({ logger: { stderr: options.stderr } }),
         GreetModule.forRootAsync({
           inject: [TOKEN_COMMAND_FLAGS],
           useFactory: (flags: { name: string }) => ({ name: flags.name })
         }),
-        ...imports
-      ]
+        ...(options.imports ?? [])
+      ],
+      providers: options.providers ?? [GreetHandler]
     })
     class AppModule {}
 
@@ -65,18 +82,19 @@ describe('Command', () => {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  function greet(module: Type) {
-    class Greet extends Command<typeof Greet> {
+  function greet(module: Type | DynamicModule, handler: Type<CommandHandler<any>> = GreetHandler) {
+    class Greet extends Command {
       static module = module
+      static handler = handler
 
       static flags = {
-        name: Flags.string({ default: 'world' })
+        name: Flags.string({ default: 'world' }),
+        loud: Flags.boolean({ default: false }),
+        times: Flags.integer({ default: 1 })
       }
 
-      @Inject() private readonly greet: GreetService
-
-      public async run(): Promise<void> {
-        this.logger.info(this.greet.hello())
+      static args = {
+        person: Args.string()
       }
     }
 
@@ -92,7 +110,6 @@ describe('Command', () => {
         return true
       })
     )
-    const listeners = process.listenerCount('SIGTERM')
 
     try {
       await command.run(argv, { root: join(import.meta.dirname, '..') })
@@ -102,8 +119,6 @@ describe('Command', () => {
       spies.forEach((spy) => spy.mockRestore())
     }
 
-    expect(process.listenerCount('SIGTERM')).toBe(listeners)
-
     return output
   }
 
@@ -111,7 +126,7 @@ describe('Command', () => {
     process.exitCode = undefined
   })
 
-  it('writes logs and the logo to stdout by default', async() => {
+  it('runs the handler with its constructor dependencies and logs to stdout by default', async() => {
     const { stdout, stderr, error } = await run(greet(app()))
 
     expect(error).toBeUndefined()
@@ -121,12 +136,35 @@ describe('Command', () => {
   })
 
   it('writes logs and the logo to stderr when the logger is told to', async() => {
-    const { stdout, stderr, error } = await run(greet(app(Object.values(LogLevels))))
+    const { stdout, stderr, error } = await run(greet(app({ stderr: Object.values(LogLevels) })))
 
     expect(error).toBeUndefined()
     expect(stdout).toBe('')
     expect(stderr).toContain('@cenk1cenk2/oclif-common v')
     expect(stderr).toContain('hello world')
+  })
+
+  it('hands the parsed flags and args to the handler', async() => {
+    let input: CommandInput
+
+    @Injectable()
+    class InputHandler implements CommandHandler {
+      public async run(received: CommandInput): Promise<void> {
+        input = received
+      }
+    }
+
+    const { error } = await run(greet(app({ providers: [InputHandler] }), InputHandler), ['friend', '--name', 'flags', '--loud', '--times', '3'])
+
+    expect(error).toBeUndefined()
+    expect(input.args).toEqual({ person: 'friend' })
+    expect(input.flags).toMatchObject({
+      name: 'flags',
+      loud: true,
+      times: 3,
+      json: false
+    })
+    expect(input.flags['log-level']).toBe(LogLevels.INFO)
   })
 
   it('feeds parsed flags into module factories', async() => {
@@ -138,64 +176,65 @@ describe('Command', () => {
   it('provides the running command through the command module', async() => {
     let context: unknown[]
 
-    class Context extends greet(app()) {
-      public async run(): Promise<void> {
-        const cs = this.app.get(ConfigService)
+    @Injectable()
+    class ContextHandler implements CommandHandler {
+      constructor(
+        @Inject(TOKEN_COMMAND) private readonly command: unknown,
+        @Inject(TOKEN_OCLIF_CONFIG) private readonly oclif: unknown,
+        private readonly cs: ConfigService
+      ) {}
 
-        context = [this.app.get(TOKEN_COMMAND), this.app.get(TOKEN_OCLIF_CONFIG), cs.command, cs.oclif]
+      public async run(): Promise<void> {
+        context = [this.command, this.oclif, this.cs.command, this.cs.oclif]
       }
     }
 
+    const Context = greet(app({ providers: [ContextHandler] }), ContextHandler)
     const { error } = await run(Context)
 
     expect(error).toBeUndefined()
     expect(context).toEqual([Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' }), Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' })])
   })
 
-  it('fails to start when an injected property has no provider', async() => {
-    class Missing extends greet(app(Object.values(LogLevels))) {
-      @Inject('UNPROVIDED') private readonly unprovided: unknown
-    }
+  it('provides a task manager that follows the runtime config', async() => {
+    const task = vi.fn()
+    let fallback: unknown
 
-    const { error, stderr } = await run(Missing)
-
-    expect(error.message).toBe('Can not inject property "unprovided" of Missing, no provider for: UNPROVIDED')
-    expect(stderr).toContain('[F] Can not inject property "unprovided"')
-  })
-
-  it('leaves an optional property without a provider empty', async() => {
-    let injected: unknown = 'untouched'
-
-    class Optionally extends greet(app()) {
-      @Optional() @Inject('UNPROVIDED') private readonly unprovided: unknown
+    @Injectable()
+    class TaskHandler implements CommandHandler {
+      constructor(private readonly tasks: TaskManager) {}
 
       public async run(): Promise<void> {
-        injected = this.unprovided
+        fallback = this.tasks.options.fallbackRendererCondition
+
+        this.tasks.add([{ task }])
+
+        await this.tasks.runAll()
       }
     }
 
-    const { error } = await run(Optionally)
+    const { error } = await run(greet(app({ providers: [TaskHandler] }), TaskHandler), ['--log-level', 'debug'])
 
     expect(error).toBeUndefined()
-    expect(injected).toBeUndefined()
+    expect(fallback).toBe(true)
+    expect(task).toHaveBeenCalledOnce()
   })
 
-  it('names the cause when the type of an injected property is lost at runtime', async() => {
-    interface Shape {
-      name: string
-    }
+  it('fails clearly when the module does not provide the handler', async() => {
+    const { error, stderr } = await run(greet(app({ providers: [] })))
 
-    class Erased extends greet(app(Object.values(LogLevels))) {
-      @Inject() private readonly shape: Shape
-    }
+    expect(error.message).toBe('Can not run command greet, its module does not provide the handler: GreetHandler')
+    expect(stderr).toContain('[F] Can not run command greet')
+  })
 
-    const { error } = await run(Erased)
+  it('fails clearly when the command declares no handler', async() => {
+    const { error } = await run(greet(app(), null))
 
-    expect(error.message).toMatch(/^Can not inject property "shape" of Erased, its type is not known at runtime: import the class as a value instead of with "import type"/)
+    expect(error.message).toBe('Command greet declares no handler, set "static handler" to the class that runs it.')
   })
 
   it('logs a module boot failure with the logger options of the command module', async() => {
-    const { stdout, stderr, error } = await run(greet(app(Object.values(LogLevels), BrokenModule)), ['--log-level', 'debug'])
+    const { stdout, stderr, error } = await run(greet(app({ stderr: Object.values(LogLevels), imports: [BrokenModule] })), ['--log-level', 'debug'])
 
     const [fatal, debug, ...stack] = stderr.trimEnd().split('\n')
 
@@ -225,7 +264,7 @@ describe('Command', () => {
     expect(stderr).toContain('[D] Error: factory exploded')
   })
 
-  it('closes the application when the command fails', async() => {
+  it('closes the application when the handler fails', async() => {
     const destroyed = vi.fn()
 
     @Injectable()
@@ -235,23 +274,45 @@ describe('Command', () => {
       }
     }
 
-    @Module({ providers: [Resource] })
-    class ResourceModule {}
-
-    class Failing extends greet(app(Object.values(LogLevels), ResourceModule)) {
+    @Injectable()
+    class FailingHandler implements CommandHandler {
       public async run(): Promise<void> {
         throw new Error('run failed')
       }
     }
 
-    const { error } = await run(Failing)
+    const { error } = await run(greet(app({ providers: [Resource, FailingHandler] }), FailingHandler))
 
     expect(error.message).toBe('run failed')
     expect(destroyed).toHaveBeenCalledOnce()
   })
 
+  it('removes its signal listeners once the command ends', async() => {
+    const signals = ['SIGINT', 'SIGTERM'] as const
+    const before = signals.map((signal) => process.listenerCount(signal))
+    let during: number[]
+
+    @Injectable()
+    class SignalHandler implements CommandHandler {
+      public async run(): Promise<void> {
+        during = signals.map((signal) => process.listenerCount(signal))
+
+        throw new Error('run failed')
+      }
+    }
+
+    await run(greet(app({ providers: [SignalHandler] }), SignalHandler))
+
+    expect(during).toEqual(before.map((count) => count + 1))
+    expect(signals.map((signal) => process.listenerCount(signal))).toEqual(before)
+
+    await run(greet(app()))
+
+    expect(signals.map((signal) => process.listenerCount(signal))).toEqual(before)
+  })
+
   it('reports an unknown flag through the fallback logger', async() => {
-    const { stdout, stderr, error } = await run(greet(app(Object.values(LogLevels))), ['--nope'])
+    const { stdout, stderr, error } = await run(greet(app({ stderr: Object.values(LogLevels) })), ['--nope'])
 
     expect(error.message).toContain('Nonexistent flag: --nope')
     expect(stdout).toBe('')

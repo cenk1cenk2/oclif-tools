@@ -9,12 +9,13 @@ import type { LoggerModuleOptions } from './logger'
 import { LogLevels, LoggerModule, TOKEN_LOGGER_MODULE_OPTIONS } from './logger'
 import { LogoModule } from './logo'
 import { ParserModule } from './parser'
+import { TaskModule } from './task'
 
 export class CliModule {
   public static forRoot(options: CliModuleOptions = {}): DynamicModule {
     return {
       module: CliModule,
-      imports: [LoggerModule.forRoot(options.logger ?? {}), FilesystemModule, ParserModule.forRoot(options.parser), LogoModule.forRoot(options.logo ?? {})]
+      imports: [LoggerModule.forRoot(options.logger ?? {}), FilesystemModule, ParserModule.forRoot(options.parser), LogoModule.forRoot(options.logo ?? {}), TaskModule]
     }
   }
 

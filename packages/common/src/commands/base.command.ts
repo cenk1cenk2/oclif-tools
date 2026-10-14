@@ -1,24 +1,19 @@
-import { Manager } from '@listr2/manager'
 import type { DynamicModule, INestApplicationContext, Type } from '@nestjs/common'
 import { Command as BaseCommand, Flags } from '@oclif/core'
-import type { ChildProcess } from 'child_process'
-import type { ListrContext, ListrTaskWrapper } from 'listr2'
 import { createInterface } from 'readline'
 
+import type { CommandHandler, CommandInput } from './base.command.interface'
 import { HelpGroups } from '@constants'
-import type { InferArgs, InferFlags, InjectedProperty } from '@interfaces'
-import type { CliRuntimeOptions, PipeProcessToLoggerOptions } from '@lib'
-import { ConfigService, LogFieldStatus, LogLevels, LoggerService, LogoService, pipeProcessThroughListr, pipeProcessToLogger } from '@lib'
+import type { CliRuntimeOptions } from '@lib'
+import { LogLevels, LoggerService, LogoService } from '@lib'
 import { CliModule } from '@lib/cli.module'
 import { NestLogger } from '@lib/logger/nest-logger.service'
-import { OPTIONAL_PROPERTY_DEPS_METADATA, PROPERTY_DEPS_METADATA } from '@lib/nest.constants'
-import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
-import { setCtxAssign, setCtxDefaults } from '@utils'
 
 import 'reflect-metadata'
 
-export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand, Ctx extends ListrContext = ListrContext> extends BaseCommand {
+export abstract class Command extends BaseCommand {
   static module: Type | DynamicModule = CliModule.forRoot()
+  static handler: Type<CommandHandler<any>>
 
   static baseFlags = {
     ['log-level']: Flags.string({
@@ -44,42 +39,27 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
       helpGroup: HelpGroups.CLI
     })
   }
-  public logger: LoggerService
-  public tasks: Manager<Ctx>
-  public app: INestApplicationContext
 
-  public flags!: InferFlags<T>
-  public args!: InferArgs<T>
+  private app: INestApplicationContext
+  private input: CommandInput
 
-  public exit(code?: number): never {
-    this.logger.trace('Code -> %d', code, { status: LogFieldStatus.EXIT })
+  /** oclif runs this once the application context is up, it hands the parsed input to the handler of the command. */
+  public async run(): Promise<void> {
+    const { handler } = this.ctor as typeof Command
 
-    super.exit(code ?? 0)
-  }
+    if (!handler) {
+      throw new Error(`Command ${this.id} declares no handler, set "static handler" to the class that runs it.`)
+    }
 
-  /** Run all tasks from task manager. */
-  public runTasks<C extends Ctx = Ctx>(): Promise<C> {
-    return this.tasks.runAll<C>()
-  }
+    let instance: CommandHandler
 
-  protected setCtxDefaults<T extends Ctx = Ctx>(...defaults: SetCtxDefaultsOptions<T>[]): void {
-    setCtxDefaults(this.tasks.options.ctx, ...defaults)
+    try {
+      instance = await this.app.resolve(handler)
+    } catch(e: any) {
+      throw new Error(`Can not run command ${this.id}, its module does not provide the handler: ${handler.name}`, { cause: e })
+    }
 
-    this.logger.trace('Updated context with defaults: %o', this.tasks.options.ctx, { status: 'ctx' })
-  }
-
-  protected setCtxAssign<K = Record<PropertyKey, any>>(...assigns: SetCtxAssignOptions<K>[]): void {
-    setCtxAssign(this.tasks.options.ctx, ...assigns)
-
-    this.logger.trace('Updated context with assign: %o', this.tasks.options.ctx, { status: 'ctx' })
-  }
-
-  protected pipeProcessToLogger(instance: ChildProcess, options?: PipeProcessToLoggerOptions): ChildProcess {
-    return pipeProcessToLogger(this.logger, instance, options)
-  }
-
-  protected pipeProcessThroughListr(instance: ChildProcess, task: ListrTaskWrapper<any, any, any>): ChildProcess {
-    return pipeProcessThroughListr(task, instance)
+    await instance.run(this.input)
   }
 
   // can not override constructor, init function is defined by oclif
@@ -98,8 +78,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
         strict: this.ctor.strict
       })
 
-      this.flags = flags as InferFlags<T>
-      this.args = args as InferArgs<T>
+      this.input = { flags, args }
     } catch(e: any) {
       err = e
     }
@@ -108,10 +87,6 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     this.app = await CliModule.create(err ? await this.fallback() : (this.ctor as typeof Command).module, this.options())
 
     await this.app.init()
-
-    const cs = this.app.get(ConfigService)
-
-    this.logger = await this.app.resolve(LoggerService)
 
     this.app.useLogger(this.app.get(NestLogger))
     this.app.enableShutdownHooks(['SIGINT', 'SIGTERM'])
@@ -122,38 +97,12 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
       throw err
     }
 
-    this.logger.stage('Created application context.')
+    const logger = await this.app.resolve(LoggerService)
 
-    const optional: string[] = Reflect.getMetadata(OPTIONAL_PROPERTY_DEPS_METADATA, this.constructor) ?? []
-
-    for (const { key, type } of (Reflect.getMetadata(PROPERTY_DEPS_METADATA, this.constructor) ?? []) as InjectedProperty[]) {
-      // what an import type, an interface or a build without emitDecoratorMetadata leaves behind as the design type
-      if (type === Object || type === undefined) {
-        throw new Error(
-          `Can not inject property "${key}" of ${this.constructor.name}, its type is not known at runtime: ` +
-            'import the class as a value instead of with "import type", inject an interface through a token with @Inject(token), and build with emitDecoratorMetadata.'
-        )
-      }
-
-      try {
-        this[key] = await this.app.resolve(type)
-      } catch(e: any) {
-        if (optional.includes(key)) {
-          continue
-        }
-
-        throw new Error(`Can not inject property "${key}" of ${this.constructor.name}, no provider for: ${typeof type === 'function' ? type.name : String(type)}`, { cause: e })
-      }
-    }
-
-    this.tasks = new Manager({
-      fallbackRendererCondition: cs.isDebug,
-      silentRendererCondition: cs.isSilent || cs.isJson,
-      ctx: {} as Ctx
-    })
+    logger.stage('Created application context.')
 
     // a windows terminal delivers ctrl+c to stdin instead of raising the signal on the process
-    if (cs.oclif.windows) {
+    if (this.config.windows) {
       createInterface({
         input: process.stdin,
         output: process.stdout
@@ -163,35 +112,20 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     }
   }
 
-  /** Tasks to run before end of the command. */
-  protected async finally<C extends Ctx = Ctx>(err: Error | undefined): Promise<{ ctx: C }> {
-    let ctx: C
-
-    if (!err && this.tasks?.tasks?.length > 0) {
-      this.logger.stage('Running tasks.')
-
-      ctx = await this.runTasks<C>()
-
-      this.logger.stage('Finished tasks.')
-    }
-
+  protected async finally(): Promise<void> {
     await this.app?.close()
-
-    return { ctx }
   }
 
   /** Catch any error occurred during command. */
   protected async catch(err: Error): Promise<never> {
     process.exitCode = process.exitCode ?? (err as any).exitCode ?? 1
 
-    if (!this.logger) {
-      this.app = await CliModule.create(await this.fallback(), this.options())
+    this.app ??= await CliModule.create(await this.fallback(), this.options())
 
-      this.logger = await this.app.resolve(LoggerService)
-    }
+    const logger = await this.app.resolve(LoggerService)
 
-    this.logger.fatal(err.message)
-    this.logger.debug(err.stack, { context: 'crash' })
+    logger.fatal(err.message)
+    logger.debug(err.stack, { context: 'crash' })
 
     throw err
   }
@@ -201,17 +135,15 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
       oclif: this.config,
       command: this.ctor,
       config: {
-        logLevel: this.flags?.['log-level'] ?? LogLevels.INFO,
-        isJson: this.flags?.json ?? false
+        logLevel: this.input?.flags['log-level'] ?? LogLevels.INFO,
+        isJson: this.input?.flags.json ?? false
       },
-      flags: this.flags,
-      args: this.args
+      flags: this.input?.flags,
+      args: this.input?.args
     }
   }
 
   private fallback(): Promise<DynamicModule> {
     return CliModule.forFallback((this.ctor as typeof Command).module, this.options())
   }
-
-  public abstract run(): Promise<any>
 }

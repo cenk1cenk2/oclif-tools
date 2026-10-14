@@ -6,6 +6,7 @@ export default defineConfig((options) => ({
   name: !options.watch ? 'production' : undefined,
 
   entry: ['src/**/*.{js,ts}'],
+  root: 'src',
   tsconfig: options.watch ? 'tsconfig.json' : 'tsconfig.build.json',
 
   dts: options.watch ? true : false,
