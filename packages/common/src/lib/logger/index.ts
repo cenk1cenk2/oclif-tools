@@ -1,6 +1,0 @@
-export * from './pipe'
-export * from './logger.constants'
-export type * from './logger.interface'
-export * from './logger.module'
-export * from './logger.service'
-export * from './winston.service'

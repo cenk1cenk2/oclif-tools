@@ -1,29 +1,86 @@
 {
-  "name": "root",
-  "private": true,
+  "name": "@cenk1cenk2/oclif-common",
+  "version": "1.0.0",
+  "description": "Oclif common package for oclif2 projects.",
   "repository": "https://gitlab.kilic.dev/libraries/oclif-tools",
   "type": "module",
-  "scripts": {
-    "clean": "rimraf node_modules pnpm-lock.yaml",
-    "build": "pnpm run -r build",
-    "format": "pnpm run --parallel -r format",
-    "lint": "pnpm run --parallel -r lint"
+  "author": {
+    "name": "Cenk Kilic",
+    "email": "cenk@kilic.dev",
+    "url": "https://srcs.kilic.dev"
   },
-  "workspaces": [
-    "packages/*",
-    "example"
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "oclif": {
+    "hooks": {
+      "command_not_found": "./dist/hooks/not-found.hook.mjs"
+    }
+  },
+  "files": [
+    "dist/"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">= 24"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev:start": "tsdown --watch",
+    "format": "prettier --write src/ test/ --log-level warn && eslint --fix src/ test/",
+    "lint": "pnpm run typecheck && eslint src/ test/",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p test",
+    "test": "vitest run",
+    "docs:api": "typedoc --options .typedoc.json --hideInPageTOC --hideBreadcrumbs",
+    "clean": "rimraf node_modules pnpm-lock.yaml"
+  },
+  "dependencies": {
+    "@standard-schema/spec": "^1.1.0",
+    "cosmiconfig": "^10.0.1",
+    "dotenv": "^18.0.7",
+    "es-toolkit": "^1.52.0",
+    "reflect-metadata": "^0.2.1"
+  },
   "devDependencies": {
     "@cenk1cenk2/cz-cc": "^3.0.6",
     "@cenk1cenk2/eslint-config": "^3.3.9",
+    "@listr2/manager": "^4.3.1",
+    "@nestjs/common": "^12.1.3",
+    "@nestjs/core": "^12.1.3",
+    "@nestjs/testing": "^12.1.3",
+    "@oclif/core": "^5.1.2",
     "@tsconfig/node24": "^24.0.5",
+    "@types/node": "^24.19.1",
     "commitizen": "^4.3.2",
     "eslint": "^10.12.0",
+    "jiti": "^2.6.1",
+    "listr2": "^11.2.0",
     "prettier": "^3.9.9",
     "tsdown": "^0.23.0",
     "typedoc": "^0.28.20",
     "typedoc-plugin-markdown": "^4.13.1",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "peerDependencies": {
+    "@listr2/manager": ">= 4",
+    "@nestjs/common": ">= 12",
+    "@nestjs/core": ">= 12",
+    "@oclif/core": ">= 5",
+    "listr2": ">= 11",
+    "yaml": ">= 2"
   },
   "config": {
     "commitizen": {

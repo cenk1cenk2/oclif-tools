@@ -9,9 +9,8 @@ stages:
   - publish
 
 variables:
-  NODE_VERSION: 22-alpine
+  NODE_VERSION: 26-alpine
   NODE_PACKAGE_MANAGER: pnpm
-  SEMANTIC_RELEASE_WORKSPACE: 'true'
 
 include:
   - project: devops/pipelines
@@ -20,6 +19,7 @@ include:
       - /node/install.gitlab-ci.yml
       - /node/build.gitlab-ci.yml
       - /node/lint.gitlab-ci.yml
+      - /node/test.gitlab-ci.yml
 
   - project: devops/pipelines
     ref: semantic-release@2.5.2
@@ -32,6 +32,9 @@ install:
 lint:
   stage: build
   extends: .node-lint
+test:
+  stage: build
+  extends: .node-test
 build:
   stage: build
   extends: .node-build

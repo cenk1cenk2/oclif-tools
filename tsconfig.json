@@ -12,8 +12,19 @@
     "sourceMap": true,
     "removeComments": false,
     "noUnusedLocals": false,
-    "incremental": false
+    "incremental": false,
+    "outDir": "./dist",
+    "rootDir": "src",
+    "paths": {
+      "@commands": ["./src/commands/index.ts"],
+      "@constants": ["./src/constants/index.ts"],
+      "@interfaces": ["./src/interfaces/index.ts"],
+      "@lib": ["./src/lib/index.ts"],
+      "@lib/*": ["./src/lib/*"],
+      "@utils": ["./src/utils/index.ts"]
+    },
+    "types": ["node"]
   },
-  "exclude": ["node_modules"],
-  "include": ["src/**/*"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
