@@ -1,4 +1,4 @@
-import { Inject, Injectable, Scope } from '@nestjs/common'
+import { Inject, Injectable, Optional, Scope } from '@nestjs/common'
 import { color, figures, splat } from 'listr2'
 import { EOL } from 'os'
 import { format } from 'util'
@@ -17,7 +17,7 @@ export class LoggerService {
 
   constructor(
     @Inject(TOKEN_CONFIG_MODULE_OPTIONS) private readonly options: ConfigModuleOptions,
-    @Inject(TOKEN_LOGGER_MODULE_OPTIONS) private readonly loggerOptions: LoggerModuleOptions
+    @Optional() @Inject(TOKEN_LOGGER_MODULE_OPTIONS) private readonly loggerOptions?: LoggerModuleOptions
   ) {}
 
   public setup(context: string): LoggerService {
@@ -75,7 +75,7 @@ export class LoggerService {
   }
 
   public stream(level: LogLevels): NodeJS.WriteStream {
-    return (this.loggerOptions.stderr ?? [LogLevels.FATAL, LogLevels.ERROR]).includes(level) ? process.stderr : process.stdout
+    return (this.loggerOptions?.stderr ?? [LogLevels.FATAL, LogLevels.ERROR]).includes(level) ? process.stderr : process.stdout
   }
 
   public splat(...args: Parameters<typeof splat>): ReturnType<typeof splat> {

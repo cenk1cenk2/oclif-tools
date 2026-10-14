@@ -134,7 +134,7 @@ Every command boots with the runtime modules only:
 
 - `ConfigModule` with `ConfigService`, the runtime config of the command.
 - `CommandModule` with the running command: parsed flags through `TOKEN_COMMAND_FLAGS`, arguments through `TOKEN_COMMAND_ARGS`, the oclif `Config` through `TOKEN_OCLIF_CONFIG` and the command class through `TOKEN_COMMAND`, for module factories and services alike.
-- `LoggerModule` with `LoggerService`. It writes `FATAL` and `ERROR` to stderr and every other level to stdout; import `LoggerModule.forRoot({ stderr })` anywhere in the module of the command, such as a shared module, to list the levels written to stderr instead. A command that fails before its logger options are known writes every level to stderr.
+- `LoggerModule` with `LoggerService`. It writes `FATAL` and `ERROR` to stderr and every other level to stdout; import `LoggerModule.forRoot({ stderr })` or `LoggerModule.forRootAsync(...)` anywhere in the module of the command, such as a shared module, to list the levels written to stderr instead. It only provides the options to the logger of the runtime, so import it once: a command whose graph imports it twice fails to start. A command whose module fails to boot, or whose flags fail to parse, writes every level to stderr.
 
 Everything else is imported by the module of the command, each module with its own options:
 

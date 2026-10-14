@@ -1,10 +1,10 @@
 import type { Config, Hook } from '@oclif/core'
 import { Help } from '@oclif/core'
 
-import { CliModule, LogLevels, LoggerModule, LoggerService } from '@lib'
+import { CliModule, LogLevels, LoggerService } from '@lib'
 
 const hook: Hook<'command_not_found'> = async(opts) => {
-  const app = await CliModule.create(LoggerModule.forRoot(), { oclif: opts.config as Config, config: { logLevel: LogLevels.INFO, isJson: false } })
+  const app = await CliModule.createFallback({ oclif: opts.config as Config, config: { logLevel: LogLevels.INFO, isJson: false } })
   const logger = await app.resolve(LoggerService)
 
   logger.error('Command not found. Take a look at help. You can also use --[h]elp flag for subcommands.')

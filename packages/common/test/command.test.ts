@@ -301,36 +301,57 @@ describe('Command', () => {
     expect(missing).toEqual(['TaskManager', 'ParserService', 'ConfigLoaderService', 'FileSystemService', 'LogoService', 'ValidatorService'])
   })
 
-  it('takes the logger options from a shared module, also when the module fails to boot', async() => {
+  describe('logger options', () => {
     @Injectable()
-    class SharedHandler implements CommandHandler {
+    class LogHandler implements CommandHandler {
       constructor(private readonly logger: LoggerService) {}
 
       public async run(): Promise<void> {
-        this.logger.info('shared')
+        this.logger.info('logged')
       }
     }
 
-    function command(stderr: LogLevels[], ...imports: Type[]): ReturnType<typeof greet> {
-      @Module({ imports: [LoggerModule.forRoot({ stderr })] })
-      class SharedModule {}
-
-      @Module({ imports: [SharedModule, ...imports], providers: [SharedHandler] })
+    function command(...imports: (Type | DynamicModule)[]): ReturnType<typeof greet> {
+      @Module({ imports, providers: [LogHandler] })
       class CommandModule {}
 
-      return greet(CommandModule, SharedHandler)
+      return greet(CommandModule, LogHandler)
     }
 
-    const ran = await run(command([LogLevels.INFO]))
+    it('takes them from a shared module, also when more modules share it', async() => {
+      @Module({ imports: [LoggerModule.forRoot({ stderr: [LogLevels.INFO] })] })
+      class SharedModule {}
 
-    expect(ran.error).toBeUndefined()
-    expect(ran).toMatchObject({ stdout: '', stderr: '› shared\n' })
+      @Module({ imports: [SharedModule] })
+      class OtherModule {}
 
-    const crashed = await run(command([], BrokenModule))
+      const { stdout, stderr, error } = await run(command(SharedModule, OtherModule))
 
-    expect(crashed.error.message).toBe('factory exploded')
-    expect(crashed.stdout).toBe('[F] factory exploded\n')
-    expect(crashed.stderr).toBe('')
+      expect(error).toBeUndefined()
+      expect({ stdout, stderr }).toEqual({ stdout: '', stderr: '› logged\n' })
+    })
+
+    it('takes them from a factory', async() => {
+      const loud = command(
+        LoggerModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: (flags: { loud: boolean }) => ({ stderr: flags.loud ? [LogLevels.INFO] : [] }) })
+      )
+
+      expect(await run(loud, ['--loud'])).toMatchObject({ stdout: '', stderr: '› logged\n' })
+      expect(await run(loud)).toMatchObject({ stdout: '› logged\n', stderr: '' })
+    })
+
+    it('refuses them twice', async() => {
+      const { error, stderr } = await run(command(LoggerModule.forRoot(), LoggerModule.forRoot({ stderr: [] })))
+
+      expect(error.message).toBe('LoggerModule.forRoot is imported more than once, configure the logger in one module and share that module instead.')
+      expect(stderr).toContain('[F] LoggerModule.forRoot is imported more than once')
+    })
+
+    it('lets nest log its bootstrap at trace level', async() => {
+      const { stdout, stderr } = await run(command(), ['--log-level', 'trace'])
+
+      expect(stdout + stderr).toContain('dependencies initialized')
+    })
   })
 
   it('fails clearly when the command declares no module', async() => {
@@ -346,8 +367,8 @@ describe('Command', () => {
     expect(error.message).toBe('Command greet declares no handler, set "static handler" to the class that runs it.')
   })
 
-  it('logs a module boot failure with the logger options of the command module', async() => {
-    const { stdout, stderr, error } = await run(greet(app({ stderr: Object.values(LogLevels), imports: [BrokenModule] })), ['--log-level', 'debug'])
+  it('logs a module boot failure to stderr whatever the logger options', async() => {
+    const { stdout, stderr, error } = await run(greet(app({ stderr: [], imports: [BrokenModule] })), ['--log-level', 'debug'])
 
     const [fatal, debug, ...stack] = stderr.trimEnd().split('\n')
 
@@ -356,19 +377,6 @@ describe('Command', () => {
     expect([fatal, debug]).toEqual(['[F] factory exploded', '[D] [crash] Error: factory exploded'])
     expect(stack.length).toBeGreaterThan(0)
     expect(stack.every((line) => line.startsWith('[D] [crash]     at '))).toBe(true)
-  })
-
-  it('keeps a boot failure on stderr when the logger options come from a factory', async() => {
-    @Module({
-      imports: [LoggerModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: () => ({ stderr: Object.values(LogLevels) }) }), BrokenModule]
-    })
-    class AsyncModule {}
-
-    const { stdout, stderr } = await run(greet(AsyncModule), ['--log-level', 'debug'])
-
-    expect(stdout).toBe('')
-    expect(stderr).toContain('[F] factory exploded')
-    expect(stderr).toContain('[D] [crash] Error: factory exploded')
   })
 
   it('closes the application when the handler fails', async() => {

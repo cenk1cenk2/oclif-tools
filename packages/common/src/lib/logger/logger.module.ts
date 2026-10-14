@@ -1,22 +1,31 @@
-import type { DynamicModule } from '@nestjs/common'
-import { ConfigurableModuleBuilder, Global, Module } from '@nestjs/common'
+import type { ConfigurableModuleAsyncOptions, DynamicModule, OnModuleInit } from '@nestjs/common'
+import { Global, Module } from '@nestjs/common'
+import { ModulesContainer } from '@nestjs/core'
 
-import { TOKEN_LOGGER_MODULE_OPTIONS } from './logger.constants'
+import { LoggerOptionsModule } from './logger-options.module'
 import type { LoggerModuleOptions } from './logger.interface'
 import { LoggerService } from './logger.service'
 import { NestLogger } from './nest-logger.service'
 
-const { ConfigurableModuleClass } = new ConfigurableModuleBuilder<LoggerModuleOptions>({ optionsInjectionToken: TOKEN_LOGGER_MODULE_OPTIONS as symbol })
-  .setClassMethodName('forRoot')
-  .build()
-
 @Global()
 @Module({
   providers: [LoggerService, NestLogger],
-  exports: [LoggerService, TOKEN_LOGGER_MODULE_OPTIONS]
+  exports: [LoggerService]
 })
-export class LoggerModule extends ConfigurableModuleClass {
+export class LoggerModule implements OnModuleInit {
+  constructor(private readonly modules: ModulesContainer) {}
+
   public static forRoot(options: LoggerModuleOptions = {}): DynamicModule {
-    return super.forRoot(options)
+    return LoggerOptionsModule.forRoot(options)
+  }
+
+  public static forRootAsync(options: ConfigurableModuleAsyncOptions<LoggerModuleOptions>): DynamicModule {
+    return LoggerOptionsModule.forRootAsync(options)
+  }
+
+  public onModuleInit(): void {
+    if ([...this.modules.values()].filter((ref) => ref.metatype === LoggerOptionsModule).length > 1) {
+      throw new Error('LoggerModule.forRoot is imported more than once, configure the logger in one module and share that module instead.')
+    }
   }
 }

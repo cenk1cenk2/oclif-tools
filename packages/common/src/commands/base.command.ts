@@ -88,7 +88,7 @@ export abstract class Command extends BaseCommand {
     }
 
     // factories of the command module read the parsed flags, so a failed parse boots without them
-    this.app = await CliModule.create(err ? await this.fallback() : (this.ctor as typeof Command).module, this.options())
+    this.app = err ? await CliModule.createFallback(this.options()) : await CliModule.create((this.ctor as typeof Command).module, this.options())
 
     await this.app.init()
 
@@ -122,7 +122,7 @@ export abstract class Command extends BaseCommand {
   protected async catch(err: Error): Promise<never> {
     process.exitCode = process.exitCode ?? (err as any).exitCode ?? 1
 
-    this.app ??= await CliModule.create(await this.fallback(), this.options())
+    this.app ??= await CliModule.createFallback(this.options())
 
     const logger = await this.app.resolve(LoggerService)
 
@@ -143,9 +143,5 @@ export abstract class Command extends BaseCommand {
       flags: this.input?.flags,
       args: this.input?.args
     }
-  }
-
-  private fallback(): Promise<DynamicModule> {
-    return CliModule.forFallback((this.ctor as typeof Command).module, this.options())
   }
 }
