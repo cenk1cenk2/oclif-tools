@@ -3,7 +3,6 @@ import { Inject } from '@nestjs/common'
 
 export * from './commands'
 export * from './constants'
-export * from './hooks'
 export * from './interfaces'
 export * from './lib'
 export * from './utils'

@@ -19,6 +19,11 @@
     },
     "./package.json": "./package.json"
   },
+  "oclif": {
+    "hooks": {
+      "command_not_found": "./dist/hooks/not-found.hook.mjs"
+    }
+  },
   "files": [
     "dist/"
   ],

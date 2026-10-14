@@ -14,7 +14,19 @@ The package is ESM-only. Node.js >= 24 is required.
 
 ## Usage
 
-Extend the exported base classes and wire the hooks in your CLI's `oclif.manifest.json` / `package.json` oclif configuration. The `commands/`, `hooks/` and `lib/` exports cover the shared command factory, init hooks and the DI container setup used across the CLIs built on this package.
+Extend the exported base command and its modules. The `commands/` and `lib/` exports cover the shared command and the DI container setup used across the CLIs built on this package.
+
+### Plugin
+
+The package is also an oclif plugin that registers a `command_not_found` hook, which reports the unknown command and prints the help. Enable it by listing the package in the plugins of your CLI's `package.json`:
+
+```json
+{
+  "oclif": {
+    "plugins": ["@cenk1cenk2/oclif-common"]
+  }
+}
+```
 
 ### Modules and services
 
