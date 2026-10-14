@@ -1,13 +1,14 @@
 import { Test } from '@nestjs/testing'
 import type { Config } from '@oclif/core'
 import type { StandardSchemaV1 } from '@standard-schema/spec'
+import { cloneDeep, mergeWith, uniq } from 'es-toolkit'
 import { mkdir, mkdtemp, rm, writeFile } from 'fs/promises'
 import { tmpdir } from 'os'
 import { join } from 'path'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { RcModuleOptions } from '../src'
-import { CommandModule, ConfigModule, LogLevels, LoggerModule, MergeStrategy, RcModule, RcService, TOKEN_RC, ValidationError } from '../src'
+import { CommandModule, ConfigModule, LogLevels, LoggerModule, RcModule, RcService, TOKEN_RC, ValidationError } from '../src'
 
 describe('RcModule', () => {
   const name = 'oclif-common-rc-test'
@@ -99,12 +100,28 @@ describe('RcModule', () => {
       expect((await load({ cosmiconfig: { searchStrategy: 'none' } })).config).toEqual({})
     })
 
-    it('merges with the given strategy', async() => {
+    it('merges with the given function', async() => {
       await writeFile(join(root, `.${name}rc.json`), JSON.stringify({ list: ['rc'] }))
 
       expect((await load({ defaults: { list: ['default'] } })).config).toEqual({ list: ['rc'] })
-      expect((await load({ defaults: { list: ['default'] }, merge: MergeStrategy.EXTEND })).config).toEqual({ list: ['default', 'rc'] })
+      expect(
+        (
+          await load({
+            defaults: { list: ['default'] },
+            merge: (defaults, rc) =>
+              mergeWith(cloneDeep(defaults), rc, (target, value) => (Array.isArray(target) && Array.isArray(value) ? uniq([...target, ...value]) : undefined))
+          })
+        ).config
+      ).toEqual({ list: ['default', 'rc'] })
     })
+  })
+
+  it('keeps a __proto__ key of the rc file off the prototype', async() => {
+    await writeFile(join(root, `.${name}rc.json`), '{ "__proto__": { "polluted": true } }')
+
+    await load({ defaults: {} })
+
+    expect(({} as Record<string, unknown>).polluted).toBeUndefined()
   })
 
   describe('with a schema', () => {
