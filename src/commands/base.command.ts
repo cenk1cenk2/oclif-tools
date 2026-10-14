@@ -11,6 +11,8 @@ import type { CliRuntimeOptions } from '@lib'
 import { LogLevels, LoggerService } from '@lib'
 import { CliFactory } from '@lib/cli.factory'
 import { NestLogger } from '@lib/logger/nest-logger.service'
+import { validate } from '@lib/validator/validate'
+import { ValidationError } from '@lib/validator/validator.error'
 import { isNestLogging } from '@utils'
 
 export abstract class Command extends BaseCommand {
@@ -43,6 +45,8 @@ export abstract class Command extends BaseCommand {
   protected readonly signals: NodeJS.Signals[] = ['SIGINT', 'SIGTERM']
 
   private app: INestApplicationContext
+  /** the flags and args as oclif parsed them, which the runtime config reads before any schema of the command */
+  private raw: Omit<CommandInput, 'signal'>
   private input: Omit<CommandInput, 'signal'>
   private interrupted: NodeJS.Signals
   private readonly abort = new AbortController()
@@ -88,13 +92,23 @@ export abstract class Command extends BaseCommand {
         strict: this.ctor.strict
       })
 
-      this.input = { flags, args }
+      this.raw = { flags, args }
+      this.input = this.raw
     } catch(e: any) {
       err = e
     }
 
     if (!err && !this.registration()) {
       err = new Error(`Command ${this.id} has no handler, decorate it with @UseHandler({ module, handler }).`)
+    }
+
+    if (!err && this.registration().schema) {
+      try {
+        this.input = (await validate(this.registration().schema, this.raw)) as Omit<CommandInput, 'signal'>
+      } catch(e: any) {
+        // a rejected input fails like a flag oclif can not parse
+        err = e instanceof ValidationError ? new Errors.CLIError(e.describe()) : e
+      }
     }
 
     // factories of the command module read the parsed flags, so a failed parse boots without them
@@ -170,8 +184,8 @@ export abstract class Command extends BaseCommand {
       oclif: this.config,
       command: this.ctor,
       config: {
-        logLevel: this.input?.flags['log-level'] ?? LogLevels.INFO,
-        isJson: this.input?.flags.json ?? false
+        logLevel: this.raw?.flags['log-level'] ?? LogLevels.INFO,
+        isJson: this.raw?.flags.json ?? false
       },
       flags: this.input?.flags,
       args: this.input?.args

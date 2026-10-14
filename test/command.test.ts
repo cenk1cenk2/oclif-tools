@@ -1,10 +1,12 @@
 import type { DynamicModule, OnModuleDestroy, Provider, Type } from '@nestjs/common'
 import { ConfigurableModuleBuilder, Inject, Injectable, Module, Scope, forwardRef } from '@nestjs/common'
 import { ModuleRef } from '@nestjs/core'
+import type { StandardSchemaV1 } from '@standard-schema/spec'
 import { join } from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { z } from 'zod'
 
-import type { CliModuleImport, CommandHandler, CommandInput } from '../src'
+import type { CliModuleImport, CommandHandler, CommandInput, CommandSchemaInput, UseHandlerOptions } from '../src'
 import {
   Args,
   CliFactory,
@@ -90,7 +92,7 @@ describe('Command', () => {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  function greet(module?: CliModuleImport, handler: Type<CommandHandler<any>> = GreetHandler) {
+  function greet(module?: CliModuleImport, handler: Type<CommandHandler<any>> = GreetHandler, schema?: StandardSchemaV1) {
     class Greet extends Command {
       static flags = {
         name: Flags.string({ default: 'world' }),
@@ -104,7 +106,12 @@ describe('Command', () => {
     }
 
     if (module) {
-      UseHandler({ module, handler })(Greet)
+      // the handlers of these tests take any input, which the schema check of the decorator can not tell apart
+      UseHandler({
+        module,
+        handler,
+        schema
+      } as UseHandlerOptions<CommandHandler<any>, undefined>)(Greet)
     }
 
     return Greet
@@ -174,6 +181,58 @@ describe('Command', () => {
       json: false
     })
     expect(input.flags['log-level']).toBe(LogLevels.INFO)
+  })
+
+  describe('with a schema', () => {
+    const schema = z.object({
+      flags: z
+        .object({
+          name: z.string().transform((name) => name.toUpperCase()),
+          loud: z.boolean(),
+          times: z.number()
+        })
+        .refine((flags) => !flags.loud || flags.times > 1, { message: '--loud needs --times above 1' }),
+      args: z.object({ person: z.string().optional() })
+    })
+
+    it('hands the output of the schema to the module factories and the handler', async() => {
+      let input: unknown
+
+      @Injectable()
+      class SchemaHandler {
+        constructor(private readonly greet: GreetService) {}
+
+        public async run(received: CommandSchemaInput<typeof schema>): Promise<void> {
+          input = { flags: received.flags, args: received.args }
+
+          process.stdout.write(this.greet.hello() + '\n')
+        }
+      }
+
+      const { stdout, error } = await run(greet(app({ providers: [SchemaHandler] }), SchemaHandler, schema), ['--name', 'schema', '--log-level', 'debug'])
+
+      expect(error).toBeUndefined()
+      expect(stdout).toContain('hello SCHEMA')
+      expect(input).toEqual({
+        flags: {
+          name: 'SCHEMA',
+          loud: false,
+          times: 1
+        },
+        args: {}
+      })
+    })
+
+    it('fails a rejected input like a flag error before the command boots', async() => {
+      const module = app()
+      const created = vi.spyOn(CliFactory, 'create')
+      const { error, stderr } = await run(greet(module, GreetHandler, schema), ['--loud'])
+
+      expect(created.mock.calls.map(([booted]) => booted)).not.toContain(module)
+      created.mockRestore()
+      expect(error).toMatchObject({ message: 'flags: --loud needs --times above 1', oclif: { exit: 2 } })
+      expect(stderr.split('\n').filter((line) => line.startsWith('[F]'))).toEqual(['[F] flags: --loud needs --times above 1'])
+    })
   })
 
   it('feeds parsed flags into module factories', async() => {

@@ -43,14 +43,14 @@ describe('fixture cli', () => {
     expect(goodbye.stdout).toContain('› goodbye world')
   })
 
-  it('validates a flag with its schema', () => {
-    const valid = cli('hello', '--times', '3')
-    const invalid = cli('hello', '--times', '0')
+  it('validates the input with the schema of the command', () => {
+    const valid = cli('hello', '--times', '3', '--excited')
+    const invalid = cli('hello', '--excited')
 
     expect(valid.status).toBe(0)
-    expect(valid.stdout).toContain('› hello world from fixture x3')
+    expect(valid.stdout).toContain('› hello world from fixture x3!')
     expect(invalid.status).toBe(2)
-    expect(invalid.stderr.split('\n').filter((line) => line.includes('Too small'))).toHaveLength(1)
+    expect(invalid.stderr.split('\n').filter((line) => line.includes('--excited needs --times above 1'))).toEqual(['[F] flags: --excited needs --times above 1'])
     expect(invalid.stderr).not.toContain('Error:')
   })
 

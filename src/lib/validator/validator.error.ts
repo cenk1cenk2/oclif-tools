@@ -11,4 +11,9 @@ export class ValidationError extends Error {
   public path(issue: StandardSchemaV1.Issue): string {
     return issue.path?.map((segment) => (typeof segment === 'object' ? segment.key : segment).toString()).join('.') ?? ''
   }
+
+  /** Every issue on its own line, prefixed by its path when it has one. */
+  public describe(): string {
+    return this.issues.map((issue) => [this.path(issue), issue.message].filter(Boolean).join(': ')).join('\n')
+  }
 }

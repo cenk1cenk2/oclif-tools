@@ -1,4 +1,5 @@
 import type { Type } from '@nestjs/common'
+import type { StandardSchemaV1 } from '@standard-schema/spec'
 
 import type { Command } from './base.command'
 import type { InferArgs, InferFlags } from '@interfaces'
@@ -15,8 +16,13 @@ export interface CommandHandler<T extends typeof Command = typeof Command> {
   run: (input: CommandInput<T>) => Promise<void>
 }
 
-export interface UseHandlerOptions<H extends CommandHandler<any> = CommandHandler<any>> {
+export interface UseHandlerOptions<H extends { run: (input: any) => Promise<void> } = CommandHandler<any>, S extends StandardSchemaV1 | undefined = StandardSchemaV1 | undefined> {
   /** the root module the command boots, which provides the handler */
   module: CliModuleImport
   handler: Type<H>
+  /** validates the parsed `{ flags, args }` before the command boots, its output replacing them for the modules and the handler */
+  schema?: S
 }
+
+/** The input of a handler whose command validates with a schema: the output of the schema and the abort signal. */
+export type CommandSchemaInput<S extends StandardSchemaV1> = StandardSchemaV1.InferOutput<S> & Pick<CommandInput, 'signal'>

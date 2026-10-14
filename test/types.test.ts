@@ -1,7 +1,8 @@
 import { Injectable, Module } from '@nestjs/common'
 import { describe, expectTypeOf, it } from 'vitest'
+import { z } from 'zod'
 
-import type { CommandHandler, CommandInput, LogLevels } from '../src'
+import type { CommandHandler, CommandInput, CommandSchemaInput, LogLevels } from '../src'
 import { Args, Command, Flags, UseHandler } from '../src'
 
 describe('CommandInput', () => {
@@ -64,6 +65,51 @@ describe('UseHandler', () => {
       expectTypeOf(flags.from).toEqualTypeOf<string>()
     }
   }
+
+  describe('with a schema', () => {
+    const schema = z.object({
+      flags: z.object({ from: z.string().transform((from) => from.length) }),
+      // a command without args parses them into an open record, which an empty strict object does not take
+      args: z.looseObject({})
+    })
+
+    @Injectable()
+    class SchemaHandler {
+      public async run({ flags, signal }: CommandSchemaInput<typeof schema>): Promise<void> {
+        expectTypeOf(flags.from).toEqualTypeOf<number>()
+        expectTypeOf(signal).toEqualTypeOf<AbortSignal>()
+      }
+    }
+
+    it('requires the handler to take the output of the schema, and the schema the flags and args of the command', () => {
+      @UseHandler({
+        module: EmptyModule,
+        handler: SchemaHandler,
+        schema
+      })
+      class Accepted extends Greet {}
+
+      // @ts-expect-error the handler takes the input of the command instead of the output of the schema
+      @UseHandler({
+        module: EmptyModule,
+        handler: GreetHandler,
+        schema
+      })
+      class CommandInputHandler extends Greet {}
+
+      // @ts-expect-error the schema takes a flag the command does not declare
+      @UseHandler({
+        module: EmptyModule,
+        handler: SchemaHandler,
+        schema
+      })
+      class Undeclared extends Leave {}
+
+      expectTypeOf(Accepted).toExtend<typeof Command>()
+      expectTypeOf(CommandInputHandler).toExtend<typeof Command>()
+      expectTypeOf(Undeclared).toExtend<typeof Command>()
+    })
+  })
 
   it('accepts the handler of the command and rejects a handler of another command', () => {
     @UseHandler({ module: EmptyModule, handler: GreetHandler })

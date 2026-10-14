@@ -132,26 +132,35 @@ A handler needs no oclif to be tested: compile it in a `Test.createTestingModule
 
 ### Validation
 
-`validate(schema, input)` and `validateSync(schema, input)` validate with any [Standard Schema](https://standardschema.dev), such as zod, valibot or arktype, return its output and throw a `ValidationError` with the `issues`. They need no application, so flags and args use them before the command boots: `schemaFlag(schema)` and `schemaArg(schema)` are oclif flag and arg definitions, called with their options like `Flags.custom`, whose value is the output of the schema. A rejected value fails like any flag or arg oclif can not parse, once and with exit code 2, and the handler sees the output type of the schema.
+oclif parses the flags and args. A schema in `@UseHandler({ module, handler, schema })`, any [Standard Schema](https://standardschema.dev) such as zod, valibot or arktype, then validates the parsed `{ flags, args }` as a whole before the command boots, so it can check rules across flags and coerce or transform values. Its output replaces the input: `TOKEN_COMMAND_FLAGS`, `TOKEN_COMMAND_ARGS` and the handler see only checked values, while the log level and JSON flags are read from what oclif parsed. A rejected input fails like a flag oclif can not parse, once and with exit code 2. The handler takes `CommandSchemaInput<typeof schema>`, and the decorator rejects a handler that does not take the output of the schema, or a schema that does not take the flags and args of the command. A command without args parses them into an open record, so give its schema an open `args`, such as `z.looseObject({})`, or none.
 
 ```ts
-import { Command, UseHandler, schemaArg, schemaFlag } from '@cenk1cenk2/oclif-common'
-import { z } from 'zod'
+// src/modules/deploy/deploy.schema.ts
+export const deploySchema = z.object({
+  flags: z
+    .object({ target: z.enum(['staging', 'production']), force: z.boolean(), tag: z.string().optional() })
+    .refine((flags) => flags.target !== 'production' || flags.force || flags.tag, { message: 'production needs --force or --tag' }),
+  args: z.looseObject({})
+})
 
-@UseHandler({ module: DeployModule, handler: DeployHandler })
+// src/commands/deploy.ts
+@UseHandler({ module: DeployModule, handler: DeployHandler, schema: deploySchema })
 export default class Deploy extends Command {
   static flags = {
-    port: schemaFlag(z.coerce.number().int().min(1))({ description: 'The port to listen on.', default: 8080 }),
-    tags: schemaFlag(z.string().toUpperCase())({ multiple: true })
+    target: Flags.string({ options: ['staging', 'production'], required: true }),
+    force: Flags.boolean({ default: false }),
+    tag: Flags.string()
   }
+}
 
-  static args = {
-    target: schemaArg(z.enum(['staging', 'production']))({ required: true })
-  }
+// src/modules/deploy/deploy.handler.ts
+@Injectable()
+export class DeployHandler {
+  public async run({ flags }: CommandSchemaInput<typeof deploySchema>): Promise<void> {}
 }
 ```
 
-In services, `ValidatorModule.forRoot()` provides `ValidatorService` with the same two methods, which log every issue by its path before they throw.
+`validate(schema, input)` and `validateSync(schema, input)` validate anything else without an application, returning the output of the schema and throwing a `ValidationError` with the `issues`. In services, `ValidatorModule.forRoot()` provides `ValidatorService` with the same two methods, which log every issue by its path before they throw.
 
 ### Modules and services
 
