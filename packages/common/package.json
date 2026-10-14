@@ -60,16 +60,11 @@
     "yaml": "^2.9.1"
   },
   "peerDependencies": {
-    "@listr2/manager": ">= 1",
+    "@listr2/manager": ">= 4",
     "@nestjs/common": ">= 12",
     "@nestjs/core": ">= 12",
-    "@oclif/core": ">= 1",
-    "listr2": ">= 7",
+    "@oclif/core": ">= 5",
+    "listr2": ">= 11",
     "yaml": ">= 2"
-  },
-  "peerDependenciesMeta": {
-    "yaml": {
-      "optional": true
-    }
   }
 }
