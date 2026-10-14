@@ -1,6 +1,5 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
 import type { Command, Config } from '@oclif/core'
-import op from 'object-path-immutable'
 import { join } from 'path'
 
 import { ConfigEnvKeys, TOKEN_CONFIG_MODULE_OPTIONS } from './config.constants'
@@ -9,7 +8,7 @@ import { FileConstants } from '@constants'
 import type { LockableData } from '@lib/locker'
 import { LoggerService } from '@lib/logger'
 import { ParserService } from '@lib/parser/parser.service'
-import { MergeStrategy, isDebug, isSilent, isVerbose, merge } from '@utils'
+import { MergeStrategy, isDebug, isSilent, isVerbose, merge, setPath } from '@utils'
 
 @Injectable()
 export class ConfigService implements OnModuleInit {
@@ -152,7 +151,7 @@ export class ConfigService implements OnModuleInit {
 
       this.logger.trace('Overwriting config with environment variable: %s -> %s', variable.key.join('.'), variable.env)
 
-      return op.set(config, variable.key, data)
+      return setPath(config, variable.key, data)
     }
 
     parsed.forEach((variable) => {

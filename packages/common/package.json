@@ -36,8 +36,6 @@
     "docs:api": "typedoc --options .typedoc.json --hideInPageTOC --hideBreadcrumbs"
   },
   "dependencies": {
-    "deepmerge": "^4.3.1",
-    "object-path-immutable": "^4.1.2",
     "reflect-metadata": "^0.2.1",
     "winston": "^3.19.0"
   },

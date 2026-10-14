@@ -1,15 +1,13 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
-import op from 'object-path-immutable'
 
 import type { CommonLockerData, LockData, LockableData, LockerServiceOptions, UnlockData } from './locker.interface'
 import { FileSystemService } from '@lib/fs'
 import { LoggerService } from '@lib/logger'
 import { ParserService } from '@lib/parser'
-import { merge } from '@utils'
+import { deletePath, getPath, merge, setPath } from '@utils'
 
 @Injectable()
 export class LockerService<LockFile extends LockableData = LockableData> implements OnModuleInit {
-  public readonly op = op
   private toLock: LockData[] = []
   private toUnlock: UnlockData[] = []
 
@@ -101,7 +99,7 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
 
         // check if array else merge as object
         if (typeof d.data === 'object') {
-          parsed = merge(d.merge, this.op.get(lock, path, Array.isArray(d.data) ? [] : {}), d.data)
+          parsed = merge(d.merge, getPath(lock, path, Array.isArray(d.data) ? [] : {}), d.data)
         } else {
           this.logger.warn('"%s" path with type "%s" is not mergeable.', path, typeof d.data)
 
@@ -109,14 +107,14 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
         }
 
         // set lock data
-        lock = this.op.set(lock, path, parsed)
+        lock = setPath(lock, path, parsed)
         this.logger.verbose('Merge lock: %s -> %o', path, d.data)
 
         return
       }
 
       // dont merge directly set the data
-      lock = this.op.set(lock, path, d.data)
+      lock = setPath(lock, path, d.data)
       this.logger.verbose('Override lock: %s -> %o', path, d.data)
     })
 
@@ -144,18 +142,18 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
         const path = this.buildPath(d)
 
         // set unlock
-        lock = op.del(lock, path)
+        lock = deletePath(lock, path)
         this.logger.verbose('Unlocked: %s', path)
 
         for (let i = path.length - 1; i >= 0; i--) {
           const parentPath = path.slice(0, i)
 
-          const parent = this.op.get(lock, parentPath)
+          const parent = getPath(lock, parentPath)
 
           if (!parent || (Array.isArray(parent) && parent.length === 0) || (typeof parent === 'object' && Object.keys(parent).length === 0)) {
             this.logger.verbose('Unlocked parent: %s -> %s', path, parentPath)
 
-            lock = op.del(lock, parentPath)
+            lock = deletePath(lock, parentPath)
           } else {
             break
           }
@@ -165,7 +163,7 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
       return lock
     }
 
-    lock = op.del(lock, this.options.root)
+    lock = deletePath(lock, this.options.root)
     this.logger.verbose('Unlocked module: %s', this.options.root)
 
     return lock
