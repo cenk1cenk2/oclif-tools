@@ -31,7 +31,6 @@ describe('ValidatorService', () => {
   it('returns the output of the schema', async() => {
     const { service } = validator()
 
-    expect(service.validateSync(name, { name: 'sync' })).toEqual({ name: 'SYNC' })
     await expect(service.validate(name, { name: 'async' })).resolves.toEqual({ name: 'ASYNC' })
     await expect(service.validate(later, '5')).resolves.toBe(5)
   })
@@ -40,13 +39,6 @@ describe('ValidatorService', () => {
     const { service, error } = validator()
 
     await expect(service.validate(name, {})).rejects.toSatisfy((e: ValidationError) => e instanceof ValidationError && e.issues[0].message === 'Expected a string.')
-    expect(() => service.validateSync(name, {})).toThrow(ValidationError)
     expect(error).toHaveBeenCalledWith('Field "%s" failed validation: %s', 'name', 'Expected a string.')
-  })
-
-  it('refuses to validate an asynchronous schema synchronously', () => {
-    const { service } = validator()
-
-    expect(() => service.validateSync(later, '5')).toThrow('Schema from "test" validates asynchronously, use validate instead.')
   })
 })

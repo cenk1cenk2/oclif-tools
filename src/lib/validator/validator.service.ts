@@ -1,11 +1,11 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
 import type { StandardSchemaV1 } from '@standard-schema/spec'
 
-import { validate, validateSync } from './validate'
+import { validate } from './validate'
 import { ValidationError } from './validator.error'
 import { LoggerService } from '@lib/logger'
 
-/** Validates like validate and validateSync, logging every issue by its path before it throws. */
+/** Validates like validate, logging every issue by its path before it throws. */
 @Injectable()
 export class ValidatorService implements OnModuleInit {
   constructor(private readonly logger: LoggerService) {}
@@ -18,14 +18,6 @@ export class ValidatorService implements OnModuleInit {
     return validate(schema, input).catch((e: unknown) => {
       throw this.report(e)
     })
-  }
-
-  public validateSync<T extends StandardSchemaV1>(schema: T, input: unknown): StandardSchemaV1.InferOutput<T> {
-    try {
-      return validateSync(schema, input)
-    } catch(e: any) {
-      throw this.report(e)
-    }
   }
 
   private report(error: unknown): unknown {
