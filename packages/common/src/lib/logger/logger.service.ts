@@ -92,7 +92,13 @@ export class LoggerService {
   private parseMessage(level: LogLevels, data: string | Buffer, args: any[] = [], fields: Partial<LoggerFormat> = {}): void {
     const levels = Object.values(LogLevels)
 
-    if (this.options.config.logLevel === LogLevels.SILENT || this.options.config.isJson || levels.indexOf(level) > levels.indexOf(this.options.config.logLevel)) {
+    // nest calls log(message, context) once this is its logger, so anything that is not a level is not ours to print
+    if (
+      !levels.includes(level) ||
+      this.options.config.logLevel === LogLevels.SILENT ||
+      this.options.config.isJson ||
+      levels.indexOf(level) > levels.indexOf(this.options.config.logLevel)
+    ) {
       return
     }
 

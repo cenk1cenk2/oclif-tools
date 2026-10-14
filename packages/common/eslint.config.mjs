@@ -6,6 +6,14 @@ export default [
   ...base,
   ...utils.configImportGroup({ tsconfigDir: import.meta.dirname, tsconfig: 'tsconfig.json' }),
   {
-    ignores: ['/tsdown.config.ts']
+    files: ['test/**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        project: 'test/tsconfig.json'
+      }
+    }
+  },
+  {
+    ignores: ['tsdown.config.ts', 'vitest.config.ts']
   }
 ]
