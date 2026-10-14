@@ -150,10 +150,13 @@ describe('Command', () => {
   it('logs a module boot failure with the logger options of the command module', async() => {
     const { stdout, stderr, error } = await run(greet(app(true, BrokenModule)), ['--log-level', 'debug'])
 
+    const [fatal, debug, ...stack] = stderr.trimEnd().split('\n')
+
     expect(error.message).toBe('factory exploded')
     expect(stdout).toBe('')
-    expect(stderr).toContain('[F] factory exploded')
-    expect(stderr).toContain('[D] Error: factory exploded')
+    expect([fatal, debug]).toEqual(['[F] factory exploded', '[D] Error: factory exploded'])
+    expect(stack.length).toBeGreaterThan(0)
+    expect(stack.every((line) => line.startsWith('[D]     at '))).toBe(true)
   })
 
   it('closes the application when the command fails', async() => {

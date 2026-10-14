@@ -5,7 +5,7 @@ import type { CliModuleOptions } from './cli.interface'
 import type { ConfigModuleOptions } from './config'
 import { ConfigModule } from './config'
 import { FilesystemModule } from './fs'
-import { LoggerModule } from './logger'
+import { LogLevels, LoggerModule } from './logger'
 import { LogoModule } from './logo'
 import { ParserModule } from './parser'
 
@@ -18,14 +18,17 @@ export class CliModule {
   }
 
   public static create(module: Type | DynamicModule, options: ConfigModuleOptions): Promise<INestApplicationContext> {
-    if (process.env.LOG_LEVEL === 'trace') {
+    const trace = options.config.logLevel === LogLevels.TRACE
+
+    if (trace) {
       process.env.NEST_DEBUG = 'true'
     }
 
     return NestFactory.createApplicationContext(
       { ...ConfigModule.forRoot(options), imports: [module] },
       {
-        logger: [process.env.LOG_LEVEL === 'trace' ? 'debug' : 'error'],
+        // a boot failure is thrown to the command, which logs it once through its own logger
+        logger: trace ? ['fatal', 'error', 'warn', 'log', 'debug', 'verbose'] : false,
         abortOnError: false
       }
     )
