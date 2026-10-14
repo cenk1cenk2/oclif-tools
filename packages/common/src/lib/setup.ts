@@ -1,5 +1,4 @@
 export async function setup(): Promise<void> {
-  // debug port
   const inspect = process.argv.indexOf('--inspect')
 
   if (inspect !== -1) {
@@ -7,7 +6,6 @@ export async function setup(): Promise<void> {
     process.argv.splice(inspect, 1)
   }
 
-  // source map support
   const sourceMaps = process.argv.indexOf('--source-map')
 
   if (sourceMaps !== -1) {

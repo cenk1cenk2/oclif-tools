@@ -85,7 +85,6 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
 
   public async applyLock<T extends LockableData = LockFile>(lock: LockFile, ...data: LockData<T>[]): Promise<LockFile> {
     data.forEach((d) => {
-      // enabled flag for not if checking every time
       if (d?.enabled === false) {
         return
       } else if (!d?.data || (Array.isArray(d?.data) && d.data.length === 0) || (typeof d?.data === 'object' && Object.keys(d.data).length === 0)) {
@@ -94,11 +93,9 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
 
       const path = this.buildPath(d)
 
-      // set lock
       if (d?.merge) {
         let parsed: LockableData
 
-        // check if array else merge as object
         if (typeof d.data === 'object') {
           parsed = merge(d.merge, get(lock, path, Array.isArray(d.data) ? [] : {}), d.data)
         } else {
@@ -107,14 +104,12 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
           parsed = d.data
         }
 
-        // set lock data
         lock = set<LockFile>(clonePath(lock, path), path, parsed)
         this.logger.verbose('Merge lock: %s -> %o', path, d.data)
 
         return
       }
 
-      // dont merge directly set the data
       lock = set<LockFile>(clonePath(lock, path), path, d.data)
       this.logger.verbose('Override lock: %s -> %o', path, d.data)
     })
@@ -125,24 +120,20 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
   public async lock<T extends LockableData = LockFile>(...data: LockData<T>[]): Promise<LockFile> {
     const lock = await this.applyLock((await this.tryRead()) ?? ({} as LockFile), ...data)
 
-    // write data
     await this.write(lock)
 
     return lock
   }
 
   public async applyUnlock(lock: LockFile, ...data: UnlockData[]): Promise<LockFile> {
-    // option to delete all, or specific locks
     if (data.length > 0) {
       data.forEach((d) => {
-        // enabled flag for not if checking every time
         if (d?.enabled === false) {
           return
         }
 
         const path = this.buildPath(d)
 
-        // set unlock
         lock = clonePath(lock, path)
         unset(lock, path)
         this.logger.verbose('Unlocked: %s', path)
@@ -191,7 +182,6 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
 
     const lock = await this.applyUnlock(state, ...data)
 
-    // write data
     await this.write(lock)
 
     return lock

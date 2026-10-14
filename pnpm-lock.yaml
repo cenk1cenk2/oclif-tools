@@ -145,9 +145,6 @@ importers:
       '@types/node':
         specifier: ^24.19.1
         version: 24.19.2
-      '@types/through':
-        specifier: ^0.0.33
-        version: 0.0.33
       '@types/update-notifier':
         specifier: ^6.0.8
         version: 6.0.8
@@ -1030,9 +1027,6 @@ packages:
 
   '@types/node@24.19.2':
     resolution: {integrity: sha512-93d49wCWJkCyN87MxLpNN6KXPCwFw7bVUg79mGUV1OS40JGWwVCr8n61DXCSqz7CV6/VfPkb7xec7uP2M+QHWQ==}
-
-  '@types/through@0.0.33':
-    resolution: {integrity: sha512-HsJ+z3QuETzP3cswwtzt2vEIiHBk/dCcHGhbmG5X3ecnwFD/lPrMpliGXxSCg03L9AhrdwA4Oz/qfspkDW+xGQ==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -4409,10 +4403,6 @@ snapshots:
   '@types/node@24.19.2':
     dependencies:
       undici-types: 7.24.6
-
-  '@types/through@0.0.33':
-    dependencies:
-      '@types/node': 24.19.2
 
   '@types/unist@3.0.3': {}
 

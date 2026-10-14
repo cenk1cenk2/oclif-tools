@@ -82,7 +82,6 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     return pipeProcessThroughListr(task, instance)
   }
 
-  /** Initial functions / constructor */
   // can not override constructor, init function is defined by oclif
   protected async init(): Promise<void> {
     await super.init()
@@ -182,7 +181,6 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
   }
 
   /** Catch any error occurred during command. */
-  // catch all those errors, not verbose
   protected async catch(err: Error): Promise<never> {
     process.exitCode = process.exitCode ?? (err as any).exitCode ?? 1
 
