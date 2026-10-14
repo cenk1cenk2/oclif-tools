@@ -5,14 +5,14 @@ import { createInterface } from 'readline'
 import type { CommandHandler, CommandInput } from './base.command.interface'
 import { HelpGroups } from '@constants'
 import type { CliRuntimeOptions } from '@lib'
-import { LogLevels, LoggerService, LogoService } from '@lib'
+import { LogLevels, LoggerService } from '@lib'
 import { CliModule } from '@lib/cli.module'
 import { NestLogger } from '@lib/logger/nest-logger.service'
 
 import 'reflect-metadata'
 
 export abstract class Command extends BaseCommand {
-  static module: Type | DynamicModule = CliModule.forRoot()
+  static module: Type | DynamicModule
   static handler: Type<CommandHandler<any>>
 
   static baseFlags = {
@@ -83,6 +83,10 @@ export abstract class Command extends BaseCommand {
       err = e
     }
 
+    if (!err && !(this.ctor as typeof Command).module) {
+      err = new Error(`Command ${this.id} declares no module, set "static module" to the module that provides its handler.`)
+    }
+
     // factories of the command module read the parsed flags, so a failed parse boots without them
     this.app = await CliModule.create(err ? await this.fallback() : (this.ctor as typeof Command).module, this.options())
 
@@ -90,8 +94,6 @@ export abstract class Command extends BaseCommand {
 
     this.app.useLogger(this.app.get(NestLogger))
     this.app.enableShutdownHooks(['SIGINT', 'SIGTERM'])
-
-    this.app.get(LogoService).generate()
 
     if (err) {
       throw err

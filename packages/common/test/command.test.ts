@@ -1,25 +1,29 @@
 import type { DynamicModule, OnModuleDestroy, Provider, Type } from '@nestjs/common'
 import { ConfigurableModuleBuilder, Inject, Injectable, Module } from '@nestjs/common'
+import { ModuleRef } from '@nestjs/core'
 import { join } from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import type { CommandHandler, CommandInput } from '../src'
 import {
   Args,
-  CliModule,
   Command,
+  ConfigLoaderService,
   ConfigService,
-  FilesystemModule,
+  FileSystemService,
   Flags,
   LogLevels,
   LoggerModule,
   LoggerService,
   LogoModule,
-  ParserModule,
+  LogoService,
+  ParserService,
   TaskManager,
+  TaskModule,
   TOKEN_COMMAND,
   TOKEN_COMMAND_FLAGS,
-  TOKEN_OCLIF_CONFIG
+  TOKEN_OCLIF_CONFIG,
+  ValidatorService
 } from '../src'
 
 describe('Command', () => {
@@ -67,7 +71,8 @@ describe('Command', () => {
   function app(options: { stderr?: LogLevels[]; providers?: Provider[]; imports?: (Type | DynamicModule)[] } = {}): Type {
     @Module({
       imports: [
-        CliModule.forRoot({ logger: { stderr: options.stderr } }),
+        LoggerModule.forRoot({ stderr: options.stderr }),
+        LogoModule.forRoot(),
         GreetModule.forRootAsync({
           inject: [TOKEN_COMMAND_FLAGS],
           useFactory: (flags: { name: string }) => ({ name: flags.name })
@@ -196,9 +201,10 @@ describe('Command', () => {
     expect(context).toEqual([Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' }), Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' })])
   })
 
-  it('provides a task manager that follows the runtime config', async() => {
+  it('provides the task manager with its own options over the runtime config', async() => {
     const task = vi.fn()
     let fallback: unknown
+    let exitOnError: unknown
 
     @Injectable()
     class TaskHandler implements CommandHandler {
@@ -206,6 +212,7 @@ describe('Command', () => {
 
       public async run(): Promise<void> {
         fallback = this.tasks.options.fallbackRendererCondition
+        exitOnError = this.tasks.options.exitOnError
 
         this.tasks.add([{ task }])
 
@@ -213,10 +220,11 @@ describe('Command', () => {
       }
     }
 
-    const { error } = await run(greet(app({ providers: [TaskHandler] }), TaskHandler), ['--log-level', 'debug'])
+    const { error } = await run(greet(app({ providers: [TaskHandler], imports: [TaskModule.forRoot({ exitOnError: false })] }), TaskHandler), ['--log-level', 'debug'])
 
     expect(error).toBeUndefined()
     expect(fallback).toBe(true)
+    expect(exitOnError).toBe(false)
     expect(task).toHaveBeenCalledOnce()
   })
 
@@ -225,6 +233,83 @@ describe('Command', () => {
 
     expect(error.message).toBe('Can not run command greet, its module does not provide the handler: GreetHandler')
     expect(stderr).toContain('[F] Can not run command greet')
+  })
+
+  it('boots with only the runtime modules when the command imports nothing', async() => {
+    let missing: string[]
+
+    @Injectable()
+    class MinimalHandler implements CommandHandler {
+      constructor(
+        private readonly logger: LoggerService,
+        private readonly ref: ModuleRef
+      ) {}
+
+      public async run(): Promise<void> {
+        this.logger.info('minimal')
+
+        missing = [TaskManager, ParserService, ConfigLoaderService, FileSystemService, LogoService, ValidatorService]
+          .filter((type) => {
+            try {
+              this.ref.get(type, { strict: false })
+
+              return false
+            } catch {
+              return true
+            }
+          })
+          .map((type) => type.name)
+      }
+    }
+
+    @Module({ providers: [MinimalHandler] })
+    class MinimalModule {}
+
+    const { stdout, stderr, error } = await run(greet(MinimalModule, MinimalHandler))
+
+    expect(error).toBeUndefined()
+    expect(stdout).toBe('› minimal\n')
+    expect(stderr).toBe('')
+    expect(missing).toEqual(['TaskManager', 'ParserService', 'ConfigLoaderService', 'FileSystemService', 'LogoService', 'ValidatorService'])
+  })
+
+  it('takes the logger options from a shared module, also when the module fails to boot', async() => {
+    @Injectable()
+    class SharedHandler implements CommandHandler {
+      constructor(private readonly logger: LoggerService) {}
+
+      public async run(): Promise<void> {
+        this.logger.info('shared')
+      }
+    }
+
+    function command(stderr: LogLevels[], ...imports: Type[]): ReturnType<typeof greet> {
+      @Module({ imports: [LoggerModule.forRoot({ stderr })] })
+      class SharedModule {}
+
+      @Module({ imports: [SharedModule, ...imports], providers: [SharedHandler] })
+      class CommandModule {}
+
+      return greet(CommandModule, SharedHandler)
+    }
+
+    const ran = await run(command([LogLevels.INFO]))
+
+    expect(ran.error).toBeUndefined()
+    expect(ran).toMatchObject({ stdout: '', stderr: '› shared\n' })
+
+    const crashed = await run(command([], BrokenModule))
+
+    expect(crashed.error.message).toBe('factory exploded')
+    expect(crashed.stdout).toBe('[F] factory exploded\n')
+    expect(crashed.stderr).toBe('')
+  })
+
+  it('fails clearly when the command declares no module', async() => {
+    const { error, stderr } = await run(greet(undefined))
+
+    expect(error.message).toBe('Command greet declares no module, set "static module" to the module that provides its handler.')
+    expect(stderr).toContain('[F] Command greet declares no module')
   })
 
   it('fails clearly when the command declares no handler', async() => {
@@ -247,13 +332,7 @@ describe('Command', () => {
 
   it('keeps a boot failure on stderr when the logger options come from a factory', async() => {
     @Module({
-      imports: [
-        LoggerModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: () => ({ stderr: Object.values(LogLevels) }) }),
-        FilesystemModule,
-        ParserModule.forRoot(),
-        LogoModule.forRoot({}),
-        BrokenModule
-      ]
+      imports: [LoggerModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: () => ({ stderr: Object.values(LogLevels) }) }), BrokenModule]
     })
     class AsyncModule {}
 

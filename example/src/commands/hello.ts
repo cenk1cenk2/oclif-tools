@@ -1,11 +1,11 @@
-import { HelloHandler } from './index.handler.js'
-import { HelloModule } from './index.module.js'
+import { HelloHandler } from '../modules/hello/hello.handler.js'
+import { HelloModule } from '../modules/hello/hello.module.js'
 import { Args, Command, Flags } from '@cenk1cenk2/oclif-common'
 
 export default class Hello extends Command {
   static description = 'Say hello'
 
-  static examples = ['$ oex hello friend --from oclif']
+  static examples = ['$ oclif2 hello friend --from oclif']
 
   static module = HelloModule
 

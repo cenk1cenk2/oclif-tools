@@ -1,3 +1,4 @@
+export * from './config-loader.service'
 export * from './fts'
 export * from './parser.constants'
 export * from './parser.interface'

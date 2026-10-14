@@ -1,3 +1,4 @@
+import type { OnApplicationBootstrap } from '@nestjs/common'
 import { Inject, Injectable } from '@nestjs/common'
 import { EOL } from 'os'
 
@@ -7,12 +8,16 @@ import { ConfigService } from '@lib/config'
 import { LogLevels, LoggerService } from '@lib/logger'
 
 @Injectable()
-export class LogoService {
+export class LogoService implements OnApplicationBootstrap {
   constructor(
     public readonly cs: ConfigService,
     @Inject(TOKEN_LOGO_MODULE_OPTIONS) private readonly options: LogoModuleOptions,
     private readonly logger: LoggerService
   ) {}
+
+  public onApplicationBootstrap(): void {
+    this.generate()
+  }
 
   public generate(): void {
     return (this.options.generator ?? this.fallback).call(this)

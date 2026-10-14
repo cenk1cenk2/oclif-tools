@@ -36,12 +36,7 @@
     "dirname": "oclif2",
     "commands": {
       "strategy": "pattern",
-      "target": "./dist/commands",
-      "globPatterns": [
-        "**/*.+(js|cjs|mjs|ts|tsx|mts|cts)",
-        "!**/*.+(d.ts|test.ts|test.js|spec.ts|spec.js|d.mts|d.cts)?(x)",
-        "!**/*.+(module|handler).*"
-      ]
+      "target": "./dist/commands"
     },
     "plugins": [
       "@cenk1cenk2/oclif-common",
