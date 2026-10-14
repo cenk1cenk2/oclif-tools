@@ -174,7 +174,8 @@ Everything this major changes for a CLI built on the previous one.
 
 - Node.js 24 or newer is required.
 - The peer dependencies start at `@oclif/core` 5, `listr2` 11, `@listr2/manager` 4, `@nestjs/common` and `@nestjs/core` 12, and `yaml` 2, which is no longer optional.
-- The `enquirer`, `source-map-support`, `class-validator`, `class-transformer`, `fs-extra` and `update-notifier` peers are gone; `--source-map` turns on the built-in source maps of Node.js.
+- The `enquirer`, `source-map-support`, `class-validator`, `class-transformer`, `fs-extra` and `update-notifier` peers are gone.
+- `setup()` and its `--inspect` / `--source-map` handling are removed: drop the call from your `bin/run`, and use `node --inspect` and `--enable-source-maps`, directly or through `NODE_OPTIONS`.
 - `winston` is gone: `WinstonService` and the `Winston` type are removed, resolve `LoggerService` from the application instead of constructing it or reaching into `WinstonService.instance`.
 - `Inject` and `DynamicModule` are no longer re-exported, import them from `@nestjs/common`; `ClassType` is replaced by the `Type` of Nest.
 - `DeepPartial` is removed, use the `PartialDeep` of [`type-fest`](https://github.com/sindresorhus/type-fest).
