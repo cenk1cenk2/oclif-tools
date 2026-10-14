@@ -3,10 +3,9 @@ import { NestFactory } from '@nestjs/core'
 
 import type { CliModuleImport, CliRuntimeOptions } from './cli.interface'
 import { CommandModule } from './command'
-import { ConfigModule } from './config'
+import { ConfigModule, ConfigService } from './config'
 import { LogLevels, LoggerModule, LoggerService } from './logger'
 import { NestLogger } from './logger/nest-logger.service'
-import { isNestLogging } from '@utils'
 
 export class CliFactory {
   /** Boots a command module with the runtime modules: the config, the running command and the logger. */
@@ -15,7 +14,7 @@ export class CliFactory {
       { ...ConfigModule.forRoot({ config }), imports: [CommandModule.forRoot(command), LoggerModule, module] },
       {
         // before the logger of the command exists, nest logs through one with the parsed level that keeps everything on stderr
-        logger: isNestLogging() ? new NestLogger(new LoggerService({ config }, { stderr: Object.values(LogLevels) })) : false,
+        logger: ConfigService.isNestLogging() ? new NestLogger(new LoggerService({ config }, { stderr: Object.values(LogLevels) })) : false,
         abortOnError: false
       }
     )

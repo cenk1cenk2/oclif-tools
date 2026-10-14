@@ -8,12 +8,11 @@ import { TOKEN_USE_HANDLER } from './base.command.constants'
 import type { CommandHandler, CommandInput, UseHandlerRegistration } from './base.command.interface'
 import { HelpGroups } from '@constants'
 import type { CliRuntimeOptions } from '@lib'
-import { LogLevels, LoggerService } from '@lib'
+import { ConfigService, LogLevels, LoggerService } from '@lib'
 import { CliFactory } from '@lib/cli.factory'
 import { NestLogger } from '@lib/logger/nest-logger.service'
 import { validate } from '@lib/validator/validate'
 import { ValidationError } from '@lib/validator/validator.error'
-import { isNestLogging } from '@utils'
 
 export abstract class Command extends BaseCommand {
   static baseFlags = {
@@ -115,7 +114,7 @@ export abstract class Command extends BaseCommand {
     // a fallback that can not boot either leaves the original error to catch
     this.app = err ? await CliFactory.createFallback(this.options()).catch(() => Promise.reject(err)) : await CliFactory.create(this.registration().module, this.options())
 
-    if (isNestLogging()) {
+    if (ConfigService.isNestLogging()) {
       this.app.useLogger(this.app.get(NestLogger))
     }
 
