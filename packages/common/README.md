@@ -156,6 +156,7 @@ From commands that ran themselves:
 
 - Move the command to `src/commands`, its module and handler to `src/modules/<command>`. Move the body of `run()` into the `run({ flags, args })` of an `@Injectable()` handler, provide it in the module and set `static module` and `static handler`. A command no longer implements `run()`, and every command declares its module.
 - Replace `CliModule.forRoot({ logger, parser, logo })` with the modules it configured: `LoggerModule.forRoot({ stderr })`, `ParserModule.forRoot({ parsers })`, `LogoModule.forRoot({ generator })`, plus `FilesystemModule.forRoot()`, `TaskModule.forRoot()` and `ValidatorModule.forRoot()` where the command uses them. None of them is provided by default any more, and none of them is global unless registered with `isGlobal: true`.
+- `CliModule` is renamed to `CliFactory`, with `CliFactory.create(module, options)` and `CliFactory.createFallback(options)`; `forMinimum`, `forFallback` and `forRoot` are gone.
 - Replace `ConfigService.read`, `write`, `extend`, `merge` and `env` with `ConfigLoaderService` from `ParserModule`.
 - Replace `ConfigService.oclif`, `command`, `root` and `defaults` with `@Inject(TOKEN_OCLIF_CONFIG)`, `@Inject(TOKEN_COMMAND)` and the `root` of the oclif config; `FileConstants` is removed.
 - Replace `@Inject()` properties with constructor parameters of the handler. `@Optional()` stays available on constructor parameters.

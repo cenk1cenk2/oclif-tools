@@ -7,6 +7,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { CommandHandler, CommandInput } from '../src'
 import {
   Args,
+  CliFactory,
   Command,
   ConfigLoaderService,
   ConfigService,
@@ -421,7 +422,11 @@ describe('Command', () => {
   it('logs a module boot failure to stderr whatever the logger options', async() => {
     const { stdout, stderr, error } = await run(greet(app({ stderr: [], imports: [BrokenModule] })), ['--log-level', 'debug'])
 
-    const [fatal, debug, ...stack] = stderr.trimEnd().split('\n')
+    // nest reports the bootstrap that failed on stderr as well
+    const [fatal, debug, ...stack] = stderr
+      .trimEnd()
+      .split('\n')
+      .filter((line) => !line.includes('[Nest]'))
 
     expect(error.message).toBe('factory exploded')
     expect(stdout).toBe('')
@@ -475,6 +480,17 @@ describe('Command', () => {
     await run(greet(app()))
 
     expect(signals.map((signal) => process.listenerCount(signal))).toEqual(before)
+  })
+
+  it('leaves the error to oclif when even the fallback can not boot', async() => {
+    const fallback = vi.spyOn(CliFactory, 'createFallback').mockRejectedValue(new Error('fallback exploded'))
+
+    const { error } = await run(greet(app()), ['--nope'])
+
+    fallback.mockRestore()
+
+    expect(error.message).toContain('Nonexistent flag: --nope')
+    expect((error as Error & { skipOclifErrorHandling?: boolean }).skipOclifErrorHandling).toBeFalsy()
   })
 
   it('reports an unknown flag through the fallback logger', async() => {

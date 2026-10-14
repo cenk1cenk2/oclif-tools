@@ -1,27 +1,24 @@
-import type { DynamicModule, INestApplicationContext, Type } from '@nestjs/common'
-import { ConsoleLogger } from '@nestjs/common'
+import type { DynamicModule, INestApplicationContext, LogLevel, Type } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 
 import type { CliRuntimeOptions } from './cli.interface'
 import { CommandModule } from './command'
 import { ConfigModule } from './config'
-import { LogLevels, LoggerModule } from './logger'
+import { LogLevels, LoggerModule, NEST_LOG_LEVELS } from './logger'
+import { NestBootstrapLogger } from './logger/nest-bootstrap-logger'
 
-export class CliModule {
+export class CliFactory {
   /** Boots a command module with the runtime modules: the config, the running command and the logger. */
   public static create(module: Type | DynamicModule, { config, ...command }: CliRuntimeOptions): Promise<INestApplicationContext> {
-    const trace = config.logLevel === LogLevels.TRACE
-
-    if (trace) {
-      process.env.NEST_DEBUG = 'true'
-    }
+    const levels = Object.values(LogLevels)
 
     return NestFactory.createApplicationContext(
       { ...ConfigModule.forRoot({ config }), imports: [CommandModule.forRoot(command), LoggerModule, module] },
       {
-        // a boot failure is thrown to the command, which logs it once through its own logger
-        // a logger instance replaces the process-wide one of nest, which a level list would only reconfigure, even when it is the logger of a closed application
-        logger: trace ? new ConsoleLogger({ logLevels: ['fatal', 'error', 'warn', 'log', 'debug', 'verbose'] }) : false,
+        // a logger instance replaces the process-wide one of nest, where a level list would only reconfigure it, even when it is the logger of a closed application
+        logger: new NestBootstrapLogger({
+          logLevels: config.isJson ? [] : (Object.keys(NEST_LOG_LEVELS) as LogLevel[]).filter((level) => levels.indexOf(NEST_LOG_LEVELS[level]) <= levels.indexOf(config.logLevel))
+        }),
         abortOnError: false
       }
     )
@@ -29,6 +26,6 @@ export class CliModule {
 
   /** Boots only the runtime modules for a command that failed before its own module did, writing every level to stderr, away from the command output. */
   public static createFallback(options: CliRuntimeOptions): Promise<INestApplicationContext> {
-    return CliModule.create(LoggerModule.forRoot({ stderr: Object.values(LogLevels) }), options)
+    return CliFactory.create(LoggerModule.forRoot({ stderr: Object.values(LogLevels) }), options)
   }
 }

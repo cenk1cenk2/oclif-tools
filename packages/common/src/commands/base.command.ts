@@ -8,7 +8,7 @@ import type { CommandHandler, CommandInput } from './base.command.interface'
 import { HelpGroups } from '@constants'
 import type { CliRuntimeOptions } from '@lib'
 import { LogLevels, LoggerService } from '@lib'
-import { CliModule } from '@lib/cli.module'
+import { CliFactory } from '@lib/cli.factory'
 import { NestLogger } from '@lib/logger/nest-logger.service'
 
 import 'reflect-metadata'
@@ -104,9 +104,10 @@ export abstract class Command extends BaseCommand {
     }
 
     // factories of the command module read the parsed flags, so a failed parse boots without them
-    this.app = err ? await CliModule.createFallback(this.options()) : await CliModule.create((this.ctor as typeof Command).module, this.options())
-
-    await this.app.init()
+    // a fallback that can not boot either leaves the original error to catch
+    this.app = err
+      ? await CliFactory.createFallback(this.options()).catch(() => Promise.reject(err))
+      : await CliFactory.create((this.ctor as typeof Command).module, this.options())
 
     this.app.useLogger(this.app.get(NestLogger))
 
@@ -149,9 +150,15 @@ export abstract class Command extends BaseCommand {
 
     process.exitCode = process.exitCode ?? (err as any).exitCode ?? 1
 
-    this.app ??= await CliModule.createFallback(this.options())
+    let logger: LoggerService
 
-    const logger = await this.app.resolve(LoggerService)
+    try {
+      this.app ??= await CliFactory.createFallback(this.options())
+      logger = await this.app.resolve(LoggerService)
+    } catch {
+      // without a logger the error handler of oclif prints the error of the command
+      throw err
+    }
 
     logger.fatal(err.message)
     logger.debug(err.stack, { context: 'crash' })
