@@ -9,7 +9,7 @@ import { createInterface } from 'readline'
 import { HelpGroups } from '@constants'
 import type { InferArgs, InferFlags } from '@interfaces'
 import type { ConfigModuleOptions, PipeProcessToLoggerOptions } from '@lib'
-import { ConfigService, LogFieldStatus, LogLevels, LoggerModule, LoggerService, LogoService, pipeProcessThroughListr, pipeProcessToLogger } from '@lib'
+import { ConfigService, LogFieldStatus, LogLevels, LoggerService, LogoService, pipeProcessThroughListr, pipeProcessToLogger } from '@lib'
 import { CliModule } from '@lib/cli.module'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
 import { setCtxAssign, setCtxDefaults } from '@utils'
@@ -105,7 +105,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     }
 
     // factories of the command module read the parsed flags, so a failed parse boots without them
-    this.app = await CliModule.create(err ? this.fallback() : (this.ctor as typeof Command).module, this.options())
+    this.app = await CliModule.create(err ? await this.fallback() : (this.ctor as typeof Command).module, this.options())
 
     await this.app.init()
 
@@ -172,7 +172,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     process.exitCode = process.exitCode ?? (err as any).exitCode ?? 1
 
     if (!this.logger) {
-      this.app = await CliModule.create(this.fallback(), this.options())
+      this.app = await CliModule.create(await this.fallback(), this.options())
 
       this.logger = await this.app.resolve(LoggerService)
     }
@@ -196,8 +196,8 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     }
   }
 
-  private fallback(): DynamicModule {
-    return CliModule.forRoot({ logger: LoggerModule.optionsOf((this.ctor as typeof Command).module) })
+  private fallback(): Promise<DynamicModule> {
+    return CliModule.forFallback((this.ctor as typeof Command).module, this.options())
   }
 
   public abstract run(): Promise<any>

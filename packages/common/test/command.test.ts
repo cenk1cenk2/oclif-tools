@@ -4,7 +4,9 @@ import { join } from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import type { LockerService } from '../src'
-import { CliModule, Command, ConfigService, Flags, JsonParser, LockerModule, TOKEN_COMMAND_FLAGS } from '../src'
+import {
+  CliModule, Command, ConfigService, FilesystemModule, Flags, JsonParser, LockerModule, LoggerModule, LogoModule, ParserModule, TOKEN_COMMAND_FLAGS
+} from '../src'
 
 describe('Command', () => {
   const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } = new ConfigurableModuleBuilder<{ name: string }>().setClassMethodName('forRoot').build()
@@ -157,6 +159,25 @@ describe('Command', () => {
     expect([fatal, debug]).toEqual(['[F] factory exploded', '[D] Error: factory exploded'])
     expect(stack.length).toBeGreaterThan(0)
     expect(stack.every((line) => line.startsWith('[D]     at '))).toBe(true)
+  })
+
+  it('keeps a boot failure on stderr when the logger options come from a factory', async() => {
+    @Module({
+      imports: [
+        LoggerModule.forRootAsync({ inject: [TOKEN_COMMAND_FLAGS], useFactory: () => ({ stderr: true }) }),
+        FilesystemModule,
+        ParserModule.forRoot(),
+        LogoModule.forRoot({}),
+        BrokenModule
+      ]
+    })
+    class AsyncModule {}
+
+    const { stdout, stderr } = await run(greet(AsyncModule), ['--log-level', 'debug'])
+
+    expect(stdout).toBe('')
+    expect(stderr).toContain('[F] factory exploded')
+    expect(stderr).toContain('[D] Error: factory exploded')
   })
 
   it('closes the application when the command fails', async() => {
