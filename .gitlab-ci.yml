@@ -19,6 +19,7 @@ include:
       - /node/install.gitlab-ci.yml
       - /node/build.gitlab-ci.yml
       - /node/lint.gitlab-ci.yml
+      - /node/run.gitlab-ci.yml
       - /node/test.gitlab-ci.yml
 
   - project: devops/pipelines
@@ -32,6 +33,11 @@ install:
 lint:
   stage: build
   extends: .node-lint
+typecheck:
+  stage: build
+  extends: .node-run
+  variables:
+    NODE_COMMAND_SCRIPT: typecheck
 test:
   stage: build
   extends: .node-test
