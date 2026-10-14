@@ -13,8 +13,6 @@ import { CliFactory } from '@lib/cli.factory'
 import { NestLogger } from '@lib/logger/nest-logger.service'
 import { isNestLogging } from '@utils'
 
-const SIGNALS: NodeJS.Signals[] = ['SIGINT', 'SIGTERM']
-
 export abstract class Command extends BaseCommand {
   static baseFlags = {
     ['log-level']: Flags.custom<LogLevels>({
@@ -40,6 +38,9 @@ export abstract class Command extends BaseCommand {
       helpGroup: HelpGroups.CLI
     })
   }
+
+  /** the signals that stop the command, which a command can override to handle others or none */
+  protected readonly signals: NodeJS.Signals[] = ['SIGINT', 'SIGTERM']
 
   private app: INestApplicationContext
   private input: Omit<CommandInput, 'signal'>
@@ -104,7 +105,7 @@ export abstract class Command extends BaseCommand {
       this.app.useLogger(this.app.get(NestLogger))
     }
 
-    for (const signal of SIGNALS) {
+    for (const signal of this.signals) {
       process.on(signal, this.interrupt)
     }
 
@@ -130,7 +131,7 @@ export abstract class Command extends BaseCommand {
   protected async finally(): Promise<void> {
     await this.app?.close()
 
-    for (const signal of SIGNALS) {
+    for (const signal of this.signals) {
       process.off(signal, this.interrupt)
     }
   }
