@@ -11,8 +11,6 @@ import { LogLevels, LoggerService } from '@lib'
 import { CliFactory } from '@lib/cli.factory'
 import { NestLogger } from '@lib/logger/nest-logger.service'
 
-import 'reflect-metadata'
-
 const SIGNALS: NodeJS.Signals[] = ['SIGINT', 'SIGTERM']
 
 export abstract class Command extends BaseCommand {

@@ -1,8 +1,8 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
+import type { Type } from '@nestjs/common'
 
 import { TOKEN_PARSERS } from './parser.constants'
 import type { GenericParser } from './parser.interface'
-import type { ClassType } from '@interfaces'
 import { FileSystemService } from '@lib/fs'
 import { LoggerService } from '@lib/logger'
 
@@ -29,7 +29,7 @@ export class ParserService implements OnModuleInit {
     return Parser
   }
 
-  public fetch<T extends GenericParser>(Parser: ClassType<T>): T {
+  public fetch<T extends GenericParser>(Parser: Type<T>): T {
     const parser = this.instances.find((instance) => instance instanceof Parser) as T
 
     if (!parser) {
@@ -55,7 +55,7 @@ export class ParserService implements OnModuleInit {
     return parser.parse<T>(data)
   }
 
-  public parseWith<T = unknown>(Parser: ClassType<GenericParser>, data: string | Buffer): T {
+  public parseWith<T = unknown>(Parser: Type<GenericParser>, data: string | Buffer): T {
     const parser = this.fetch(Parser)
 
     this.logger.trace('Parsing data with: %s', parser.constructor.name)
@@ -71,7 +71,7 @@ export class ParserService implements OnModuleInit {
     return parser.stringify<T>(data)
   }
 
-  public stringifyWith<T = any>(Parser: ClassType<GenericParser>, data: T): string {
+  public stringifyWith<T = any>(Parser: Type<GenericParser>, data: T): string {
     const parser = this.fetch(Parser)
 
     this.logger.trace('Stringifying data: %s', parser.constructor.name)

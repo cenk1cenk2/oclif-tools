@@ -1,4 +1,4 @@
-import type { ClassType } from '@interfaces'
+import type { Type } from '@nestjs/common'
 
 export declare class GenericParser {
   public readonly extensions: string[]
@@ -7,7 +7,7 @@ export declare class GenericParser {
 }
 
 export interface ParserModuleOptions {
-  parsers?: ClassType<GenericParser>[]
+  parsers?: Type<GenericParser>[]
 }
 
 export interface ConfigIterator {

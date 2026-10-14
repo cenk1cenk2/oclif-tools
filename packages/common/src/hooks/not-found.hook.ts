@@ -1,3 +1,6 @@
+// oclif loads the hook on its own, before anything else of the package
+import 'reflect-metadata'
+
 import type { Config, Hook } from '@oclif/core'
 import { Help } from '@oclif/core'
 
