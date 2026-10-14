@@ -43,4 +43,16 @@ describe('clonePath', () => {
   it('starts from an empty object without a target', () => {
     expect(set(clonePath(undefined, ['a']), ['a'], 1)).toEqual({ a: 1 })
   })
+
+  it('shares a class instance along the path, so setting through it changes the original', () => {
+    class Holder {
+      public value = { a: 1 }
+    }
+
+    const target = { holder: new Holder() }
+
+    set(clonePath(target, ['holder', 'value', 'a']), ['holder', 'value', 'a'], 2)
+
+    expect(target.holder.value.a).toBe(2)
+  })
 })
