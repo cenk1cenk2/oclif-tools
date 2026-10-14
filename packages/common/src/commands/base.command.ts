@@ -1,5 +1,6 @@
 import { Manager } from '@listr2/manager'
-import type { INestApplicationContext } from '@nestjs/common'
+import type { DynamicModule, INestApplicationContext, InjectionToken, Type } from '@nestjs/common'
+import { PROPERTY_DEPS_METADATA } from '@nestjs/common/constants.js'
 import { Command as BaseCommand, Flags } from '@oclif/core'
 import type { ChildProcess } from 'child_process'
 import type { ListrContext, ListrTaskWrapper } from 'listr2'
@@ -7,15 +8,17 @@ import { createInterface } from 'readline'
 
 import { HelpGroups } from '@constants'
 import type { InferArgs, InferFlags } from '@interfaces'
-import type { CliModuleOptions, PipeProcessToLoggerOptions } from '@lib'
-import { ConfigService, LogFieldStatus, LogLevels, LoggerService, LogoService, pipeProcessThroughListr, pipeProcessToLogger } from '@lib'
+import type { ConfigModuleOptions, PipeProcessToLoggerOptions } from '@lib'
+import { ConfigService, LogFieldStatus, LogLevels, LoggerModule, LoggerService, LogoService, pipeProcessThroughListr, pipeProcessToLogger } from '@lib'
 import { CliModule } from '@lib/cli.module'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
-import { isHookedWithRegister, isHookedWithShouldRunAfter, isHookedWithShouldRunBefore, setCtxAssign, setCtxDefaults } from '@utils'
+import { setCtxAssign, setCtxDefaults } from '@utils'
 
 import 'reflect-metadata'
 
 export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand, Ctx extends ListrContext = ListrContext> extends BaseCommand {
+  static module: Type | DynamicModule = CliModule.forRoot()
+
   static baseFlags = {
     ['log-level']: Flags.string({
       default: LogLevels.INFO,
@@ -101,20 +104,8 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
       err = e
     }
 
-    const options: CliModuleOptions = {
-      config: {
-        oclif: this.config,
-        command: this.ctor,
-        config: {
-          logLevel: this.flags?.['log-level'] ?? LogLevels.INFO,
-          isJson: this.flags?.json ?? false
-        }
-      }
-    }
-
-    const cli = CliModule.forRoot(options)
-
-    this.app = await CliModule.create(!err && isHookedWithRegister(this) ? await this.register(cli, options) : cli)
+    // factories of the command module read the parsed flags, so a failed parse boots without them
+    this.app = await CliModule.create(err ? this.fallback() : (this.ctor as typeof Command).module, this.options())
 
     await this.app.init()
 
@@ -131,6 +122,14 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     }
 
     this.logger.stage('Created application context.')
+
+    for (const { key, type } of (Reflect.getMetadata(PROPERTY_DEPS_METADATA, this.constructor) ?? []) as { key: string; type: InjectionToken }[]) {
+      try {
+        this[key] = await this.app.resolve(type)
+      } catch(e: any) {
+        throw new Error(`Can not inject property "${key}" of ${this.constructor.name}, no provider for: ${typeof type === 'function' ? type.name : String(type)}`, { cause: e })
+      }
+    }
 
     // initiate manager
     this.tasks = new Manager({
@@ -158,12 +157,6 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
 
     process.on('SIGINT', terminate)
     process.on('SIGTERM', terminate)
-
-    if (isHookedWithShouldRunBefore(this)) {
-      this.logger.stage('Running hook should-run-before.')
-      await this.shouldRunBefore()
-      this.logger.stage('Finished hook should-run-before.')
-    }
   }
 
   /** Tasks to run before end of the command. */
@@ -183,12 +176,6 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
       this.logger.stage('Finished tasks.')
     }
 
-    if (isHookedWithShouldRunAfter(this)) {
-      this.logger.stage('Running hook should-run-after.')
-      await this.shouldRunAfter(ctx)
-      this.logger.stage('Finished hook should-run-after.')
-    }
-
     await this.app.close()
 
     return { ctx }
@@ -200,7 +187,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     process.exitCode = process.exitCode ?? (err as any).exitCode ?? 1
 
     if (!this.logger) {
-      this.app = await CliModule.create(CliModule.forMinimum())
+      this.app = await CliModule.create(this.fallback(), this.options())
 
       this.logger = await this.app.resolve(LoggerService)
     }
@@ -209,6 +196,23 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     this.logger.debug(err.stack, { context: 'crash' })
 
     throw err
+  }
+
+  private options(): ConfigModuleOptions {
+    return {
+      oclif: this.config,
+      command: this.ctor,
+      config: {
+        logLevel: this.flags?.['log-level'] ?? LogLevels.INFO,
+        isJson: this.flags?.json ?? false
+      },
+      flags: this.flags,
+      args: this.args
+    }
+  }
+
+  private fallback(): DynamicModule {
+    return CliModule.forRoot({ logger: LoggerModule.optionsOf((this.ctor as typeof Command).module) })
   }
 
   public abstract run(): Promise<any>

@@ -1,10 +1,10 @@
-import type { Hook } from '@oclif/core'
+import type { Config, Hook } from '@oclif/core'
 import { Help } from '@oclif/core'
 
-import { CliModule, LoggerService } from '@lib'
+import { CliModule, LogLevels, LoggerService } from '@lib'
 
 export const notFoundHook: Hook<'command_not_found'> = async(opts) => {
-  const app = await CliModule.create(CliModule.forMinimum())
+  const app = await CliModule.create(CliModule.forRoot(), { oclif: opts.config as Config, config: { logLevel: LogLevels.INFO, isJson: false } })
   const logger = await app.resolve(LoggerService)
 
   // show info

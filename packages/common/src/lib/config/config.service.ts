@@ -22,16 +22,16 @@ export class ConfigService implements OnModuleInit {
   constructor(
     private readonly parser: ParserService,
     private readonly logger: LoggerService,
-    @Inject(TOKEN_CONFIG_MODULE_OPTIONS) private options: ConfigModuleOptions
-  ) {}
+    @Inject(TOKEN_CONFIG_MODULE_OPTIONS) options: ConfigModuleOptions
+  ) {
+    this.root = options.oclif.root
+    this.defaults = join(options.oclif.root, FileConstants.CONFIG_SERVICE_DEFAULTS_DIR)
+    this.oclif = options.oclif
+    this.config = options.config
+    this.command = options.command
+  }
 
   public async onModuleInit(): Promise<void> {
-    this.root = this.options.oclif?.root
-    this.defaults = join(this.options.oclif?.root, FileConstants.CONFIG_SERVICE_DEFAULTS_DIR)
-    this.oclif = this.options.oclif
-    this.config = this.options.config
-    this.command = this.options.command
-
     this.logger.setup(this.constructor.name)
   }
 

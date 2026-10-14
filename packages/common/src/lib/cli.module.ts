@@ -1,62 +1,33 @@
-import type { DynamicModule, INestApplicationContext } from '@nestjs/common'
+import type { DynamicModule, INestApplicationContext, Type } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 
 import type { CliModuleOptions } from './cli.interface'
 import type { ConfigModuleOptions } from './config'
 import { ConfigModule } from './config'
-import { TOKEN_CONFIG_MODULE_OPTIONS } from './config/config.constants'
 import { FilesystemModule } from './fs'
-import type { LoggerModuleOptions } from './logger'
-import { LogLevels, LoggerModule, TOKEN_LOGGER_MODULE_OPTIONS } from './logger'
+import { LoggerModule } from './logger'
 import { LogoModule } from './logo'
 import { ParserModule } from './parser'
 
 export class CliModule {
-  public static forRoot(options: CliModuleOptions): DynamicModule {
+  public static forRoot(options: CliModuleOptions = {}): DynamicModule {
     return {
       module: CliModule,
-      global: true,
-      imports: [ConfigModule, LoggerModule, FilesystemModule, ParserModule, LogoModule],
-      providers: [
-        {
-          provide: TOKEN_CONFIG_MODULE_OPTIONS,
-          useValue: options.config satisfies ConfigModuleOptions
-        },
-        {
-          provide: TOKEN_LOGGER_MODULE_OPTIONS,
-          useValue: (options.logger ?? {}) satisfies LoggerModuleOptions
-        }
-      ],
-      exports: [TOKEN_CONFIG_MODULE_OPTIONS, TOKEN_LOGGER_MODULE_OPTIONS]
+      imports: [LoggerModule.forRoot(options.logger ?? {}), FilesystemModule, ParserModule.forRoot(options.parser), LogoModule.forRoot(options.logo ?? {})]
     }
   }
 
-  public static forMinimum(): DynamicModule {
-    return {
-      module: CliModule,
-      global: true,
-      imports: [LoggerModule],
-      providers: [
-        {
-          provide: TOKEN_CONFIG_MODULE_OPTIONS,
-          useValue: { config: { logLevel: LogLevels.INFO, isJson: false } } satisfies ConfigModuleOptions
-        },
-        {
-          provide: TOKEN_LOGGER_MODULE_OPTIONS,
-          useValue: {} satisfies LoggerModuleOptions
-        }
-      ],
-      exports: [TOKEN_CONFIG_MODULE_OPTIONS, TOKEN_LOGGER_MODULE_OPTIONS]
-    }
-  }
-
-  public static create(cls: DynamicModule): Promise<INestApplicationContext> {
+  public static create(module: Type | DynamicModule, options: ConfigModuleOptions): Promise<INestApplicationContext> {
     if (process.env.LOG_LEVEL === 'trace') {
       process.env.NEST_DEBUG = 'true'
     }
 
-    return NestFactory.createApplicationContext(cls, {
-      logger: [process.env.LOG_LEVEL === 'trace' ? 'debug' : 'error']
-    })
+    return NestFactory.createApplicationContext(
+      { ...ConfigModule.forRoot(options), imports: [module] },
+      {
+        logger: [process.env.LOG_LEVEL === 'trace' ? 'debug' : 'error'],
+        abortOnError: false
+      }
+    )
   }
 }

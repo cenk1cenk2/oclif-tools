@@ -15,7 +15,9 @@ export interface ConfigIterator {
 }
 
 export interface ConfigModuleOptions {
-  oclif?: Config
+  oclif: Config
   command?: typeof Command
   config: GlobalConfig
+  flags?: Record<string, any>
+  args?: Record<string, any>
 }

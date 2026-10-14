@@ -1,6 +1,6 @@
-import { Injectable, OnModuleInit } from '@nestjs/common'
-import { ModuleRef } from '@nestjs/core'
+import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
 
+import { TOKEN_PARSERS } from './parser.constants'
 import type { GenericParser } from './parser.interface'
 import type { ClassType } from '@interfaces'
 import { FileSystemService } from '@lib/fs'
@@ -9,12 +9,10 @@ import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class ParserService implements OnModuleInit {
-  private readonly instances: GenericParser[] = []
-
   constructor(
-    private moduleRef: ModuleRef,
     private fs: FileSystemService,
-    private readonly logger: LoggerService
+    private readonly logger: LoggerService,
+    @Inject(TOKEN_PARSERS) private readonly instances: GenericParser[]
   ) {}
 
   public async onModuleInit(): Promise<void> {
@@ -40,25 +38,6 @@ export class ParserService implements OnModuleInit {
     }
 
     return parser
-  }
-
-  public async inject<T extends GenericParser>(Parser: ClassType<T>): Promise<T> {
-    // this is done through manual way to not make everything async with moduleRef.resolve
-
-    const parser = await this.moduleRef.create(Parser)
-
-    this.instances.push(parser)
-
-    return parser
-  }
-
-  public async register(...parsers: ClassType<GenericParser>[]): Promise<void> {
-    await Promise.all(parsers.map(async(parser) => this.inject(parser)))
-
-    this.logger.trace(
-      'Registered parsers: %o',
-      parsers.map((p) => p.name)
-    )
   }
 
   public async read<T = unknown>(file: string): Promise<T> {

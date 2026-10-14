@@ -1,4 +1,4 @@
-import type { InjectionToken } from '@nestjs/common'
+import type { FactoryProvider, InjectionToken, ModuleMetadata } from '@nestjs/common'
 
 import type { ClassType } from '@interfaces'
 import type { GenericParser } from '@lib/parser'
@@ -27,4 +27,9 @@ export interface LockerServiceOptions {
   root?: string[]
   context?: string
   token?: InjectionToken
+}
+
+export interface LockerModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'>, Pick<FactoryProvider, 'inject'> {
+  token?: InjectionToken
+  useFactory: (...args: any[]) => Omit<LockerServiceOptions, 'token'> | Promise<Omit<LockerServiceOptions, 'token'>>
 }

@@ -1,3 +1,3 @@
 import type { InjectionToken } from '@nestjs/common'
 
-export const TOKEN_LOGO_GENERATOR: InjectionToken = Symbol('TOKEN_LOGO_GENERATOR')
+export const TOKEN_LOGO_MODULE_OPTIONS: InjectionToken = Symbol('TOKEN_LOGO_MODULE_OPTIONS')

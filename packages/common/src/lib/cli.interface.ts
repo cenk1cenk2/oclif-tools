@@ -1,7 +1,9 @@
-import type { ConfigModuleOptions } from './config'
 import type { LoggerModuleOptions } from './logger'
+import type { LogoModuleOptions } from './logo'
+import type { ParserModuleOptions } from './parser'
 
 export interface CliModuleOptions {
-  config: ConfigModuleOptions
   logger?: LoggerModuleOptions
+  parser?: ParserModuleOptions
+  logo?: LogoModuleOptions
 }

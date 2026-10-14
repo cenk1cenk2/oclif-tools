@@ -1,42 +1,22 @@
-import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
-import { ModuleRef } from '@nestjs/core'
+import { Inject, Injectable } from '@nestjs/common'
 import { EOL } from 'os'
 
-import { TOKEN_LOGO_GENERATOR } from './logo.constants'
-import type { LogoGeneratorFn } from './logo.interface'
+import { TOKEN_LOGO_MODULE_OPTIONS } from './logo.constants'
+import type { LogoModuleOptions } from './logo.interface'
 import { ConfigService } from '@lib/config'
 import type { LoggerModuleOptions } from '@lib/logger'
 import { TOKEN_LOGGER_MODULE_OPTIONS } from '@lib/logger/logger.constants'
 
 @Injectable()
-export class LogoService implements OnModuleInit {
-  private generator: LogoGeneratorFn
-
+export class LogoService {
   constructor(
     public readonly cs: ConfigService,
-    private readonly moduleRef: ModuleRef,
-    @Inject(TOKEN_LOGGER_MODULE_OPTIONS) private readonly options: LoggerModuleOptions
+    @Inject(TOKEN_LOGO_MODULE_OPTIONS) private readonly options: LogoModuleOptions,
+    @Inject(TOKEN_LOGGER_MODULE_OPTIONS) private readonly loggerOptions: LoggerModuleOptions
   ) {}
 
-  public async onModuleInit(): Promise<void> {
-    try {
-      this.generator = this.moduleRef.get(TOKEN_LOGO_GENERATOR, { strict: false })
-    } catch {
-      this.generator = function(this: LogoService): void {
-        if (this.shouldBeSilent()) {
-          return
-        }
-
-        const logo = this.cs.oclif.name + ' ' + 'v' + this.cs.oclif.version
-
-        this.write(logo)
-        this.write('-'.repeat(logo.length))
-      }
-    }
-  }
-
   public generate(): void {
-    return this.generator.call(this)
+    return (this.options.generator ?? this.fallback).call(this)
   }
 
   public shouldBeSilent(): boolean {
@@ -44,8 +24,19 @@ export class LogoService implements OnModuleInit {
   }
 
   public write(...data: string[]): void {
-    const stream = this.options.stderr ? process.stderr : process.stdout
+    const stream = this.loggerOptions.stderr ? process.stderr : process.stdout
 
     stream.write(data.join(' ') + EOL)
+  }
+
+  private fallback(this: LogoService): void {
+    if (this.shouldBeSilent()) {
+      return
+    }
+
+    const logo = this.cs.oclif.name + ' ' + 'v' + this.cs.oclif.version
+
+    this.write(logo)
+    this.write('-'.repeat(logo.length))
   }
 }

@@ -1,42 +1,38 @@
-import { Injectable, OnModuleInit } from '@nestjs/common'
-import { ModuleRef } from '@nestjs/core'
+import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
 import { plainToClass } from 'class-transformer'
 import type { ValidationError } from 'class-validator'
 import { validate, validateSync } from 'class-validator'
 
-import { TOKEN_VALIDATOR_SERVICE_OPTIONS } from './validator.constants'
-import type { ValidatorServiceOptions } from './validator.interface'
+import { TOKEN_VALIDATOR_MODULE_OPTIONS } from './validator.constants'
+import type { ValidatorModuleOptions } from './validator.interface'
 import type { ClassType } from '@interfaces'
 import { LoggerService } from '@lib/logger'
 
 @Injectable()
 export class ValidatorService implements OnModuleInit {
-  private options: ValidatorServiceOptions
+  private readonly options: ValidatorModuleOptions
 
   constructor(
     private readonly logger: LoggerService,
-    private readonly moduleRef: ModuleRef
-  ) {}
-
-  public async onModuleInit(): Promise<void> {
-    this.logger.setup(this.constructor.name)
-
-    try {
-      this.options = this.moduleRef.get(TOKEN_VALIDATOR_SERVICE_OPTIONS, { strict: false })
-    } catch {
-      this.options = {
-        validator: {
-          skipMissingProperties: true,
-          whitelist: false,
-          always: true,
-          enableDebugMessages: true
-        },
-        transformer: { enableImplicitConversion: true }
-      }
+    @Inject(TOKEN_VALIDATOR_MODULE_OPTIONS) options: ValidatorModuleOptions
+  ) {
+    this.options = {
+      validator: {
+        skipMissingProperties: true,
+        whitelist: false,
+        always: true,
+        enableDebugMessages: true,
+        ...options.validator
+      },
+      transformer: { enableImplicitConversion: true, ...options.transformer }
     }
   }
 
-  public async validate<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorServiceOptions): Promise<T> {
+  public async onModuleInit(): Promise<void> {
+    this.logger.setup(this.constructor.name)
+  }
+
+  public async validate<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorModuleOptions): Promise<T> {
     const classObject = plainToClass(classType, object, { ...this.options.transformer, ...(options?.transformer ?? {}) })
 
     const errors = await validate(classObject, { ...this.options.validator, ...(options?.validator ?? {}) })
@@ -52,7 +48,7 @@ export class ValidatorService implements OnModuleInit {
     return classObject
   }
 
-  public validateSync<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorServiceOptions): T {
+  public validateSync<T extends Record<PropertyKey, any>>(classType: ClassType<T>, object: T, options?: ValidatorModuleOptions): T {
     const classObject = plainToClass(classType, object, { ...this.options.transformer, ...(options?.transformer ?? {}) })
 
     const errors = validateSync(classObject, { ...this.options.validator, ...(options?.validator ?? {}) })
