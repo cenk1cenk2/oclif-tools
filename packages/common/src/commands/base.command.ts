@@ -7,7 +7,7 @@ import { createInterface } from 'readline'
 
 import { HelpGroups } from '@constants'
 import type { InferArgs, InferFlags, InjectedProperty } from '@interfaces'
-import type { ConfigModuleOptions, PipeProcessToLoggerOptions } from '@lib'
+import type { CliRuntimeOptions, PipeProcessToLoggerOptions } from '@lib'
 import { ConfigService, LogFieldStatus, LogLevels, LoggerService, LogoService, pipeProcessThroughListr, pipeProcessToLogger } from '@lib'
 import { CliModule } from '@lib/cli.module'
 import { NestLogger } from '@lib/logger/nest-logger.service'
@@ -196,7 +196,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
     throw err
   }
 
-  private options(): ConfigModuleOptions {
+  private options(): CliRuntimeOptions {
     return {
       oclif: this.config,
       command: this.ctor,

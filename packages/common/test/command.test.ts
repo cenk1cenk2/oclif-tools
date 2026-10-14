@@ -5,7 +5,19 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import type { LockerService } from '../src'
 import {
-  CliModule, Command, ConfigService, FilesystemModule, Flags, JsonParser, LockerModule, LoggerModule, LogoModule, ParserModule, TOKEN_COMMAND_FLAGS
+  CliModule,
+  Command,
+  ConfigService,
+  FilesystemModule,
+  Flags,
+  JsonParser,
+  LockerModule,
+  LoggerModule,
+  LogoModule,
+  ParserModule,
+  TOKEN_COMMAND,
+  TOKEN_COMMAND_FLAGS,
+  TOKEN_OCLIF_CONFIG
 } from '../src'
 
 describe('Command', () => {
@@ -130,6 +142,23 @@ describe('Command', () => {
     const { stdout } = await run(greet(app(false)), ['--name', 'flags'])
 
     expect(stdout).toContain('hello flags')
+  })
+
+  it('provides the running command through the command module', async() => {
+    let context: unknown[]
+
+    class Context extends greet(app(false)) {
+      public async run(): Promise<void> {
+        const cs = this.app.get(ConfigService)
+
+        context = [this.app.get(TOKEN_COMMAND), this.app.get(TOKEN_OCLIF_CONFIG), cs.command, cs.oclif]
+      }
+    }
+
+    const { error } = await run(Context)
+
+    expect(error).toBeUndefined()
+    expect(context).toEqual([Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' }), Context, expect.objectContaining({ name: '@cenk1cenk2/oclif-common' })])
   })
 
   it('reads through a locker configured from the runtime config', async() => {

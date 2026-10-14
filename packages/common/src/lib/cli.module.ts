@@ -1,8 +1,8 @@
 import type { DynamicModule, INestApplicationContext, Type } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 
-import type { CliModuleOptions } from './cli.interface'
-import type { ConfigModuleOptions } from './config'
+import type { CliModuleOptions, CliRuntimeOptions } from './cli.interface'
+import { CommandModule } from './command'
 import { ConfigModule } from './config'
 import { FilesystemModule } from './fs'
 import type { LoggerModuleOptions } from './logger'
@@ -19,7 +19,7 @@ export class CliModule {
   }
 
   /** Boots only the logging of a command module, taking its logger options from a preview that runs none of its providers. */
-  public static async forFallback(module: Type | DynamicModule, options: ConfigModuleOptions): Promise<DynamicModule> {
+  public static async forFallback(module: Type | DynamicModule, options: CliRuntimeOptions): Promise<DynamicModule> {
     let logger: LoggerModuleOptions
 
     try {
@@ -36,15 +36,15 @@ export class CliModule {
     return CliModule.forRoot({ logger: logger ?? { stderr: true } })
   }
 
-  public static create(module: Type | DynamicModule, options: ConfigModuleOptions, preview = false): Promise<INestApplicationContext> {
-    const trace = options.config.logLevel === LogLevels.TRACE
+  public static create(module: Type | DynamicModule, { config, ...command }: CliRuntimeOptions, preview = false): Promise<INestApplicationContext> {
+    const trace = config.logLevel === LogLevels.TRACE
 
     if (trace) {
       process.env.NEST_DEBUG = 'true'
     }
 
     return NestFactory.createApplicationContext(
-      { ...ConfigModule.forRoot(options), imports: [module] },
+      { ...ConfigModule.forRoot({ config }), imports: [CommandModule.forRoot(command), module] },
       {
         // a boot failure is thrown to the command, which logs it once through its own logger
         logger: trace ? ['fatal', 'error', 'warn', 'log', 'debug', 'verbose'] : false,

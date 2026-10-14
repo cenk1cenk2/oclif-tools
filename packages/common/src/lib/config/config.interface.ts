@@ -1,5 +1,3 @@
-import type { Command, Config } from '@oclif/core'
-
 import type { LogLevels } from '@lib'
 
 export interface GlobalConfig {
@@ -15,9 +13,5 @@ export interface ConfigIterator {
 }
 
 export interface ConfigModuleOptions {
-  oclif: Config
-  command?: typeof Command
   config: GlobalConfig
-  flags?: Record<string, any>
-  args?: Record<string, any>
 }

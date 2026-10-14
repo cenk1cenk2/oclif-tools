@@ -6,6 +6,7 @@ import { join } from 'path'
 import { ConfigEnvKeys, TOKEN_CONFIG_MODULE_OPTIONS } from './config.constants'
 import type { ConfigIterator, ConfigModuleOptions, GlobalConfig } from './config.interface'
 import { FileConstants } from '@constants'
+import { TOKEN_COMMAND, TOKEN_OCLIF_CONFIG } from '@lib/command/command.constants'
 import type { LockableData } from '@lib/locker'
 import { LoggerService } from '@lib/logger'
 import { ParserService } from '@lib/parser/parser.service'
@@ -22,13 +23,15 @@ export class ConfigService implements OnModuleInit {
   constructor(
     private readonly parser: ParserService,
     private readonly logger: LoggerService,
-    @Inject(TOKEN_CONFIG_MODULE_OPTIONS) options: ConfigModuleOptions
+    @Inject(TOKEN_CONFIG_MODULE_OPTIONS) options: ConfigModuleOptions,
+    @Inject(TOKEN_OCLIF_CONFIG) oclif: Config,
+    @Inject(TOKEN_COMMAND) command: typeof Command
   ) {
-    this.root = options.oclif.root
-    this.defaults = join(options.oclif.root, FileConstants.CONFIG_SERVICE_DEFAULTS_DIR)
-    this.oclif = options.oclif
+    this.root = oclif.root
+    this.defaults = join(oclif.root, FileConstants.CONFIG_SERVICE_DEFAULTS_DIR)
+    this.oclif = oclif
     this.config = options.config
-    this.command = options.command
+    this.command = command
   }
 
   public async onModuleInit(): Promise<void> {

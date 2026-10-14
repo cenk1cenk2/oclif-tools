@@ -18,7 +18,7 @@ Extend the exported base classes and wire the hooks in your CLI's `oclif.manifes
 
 ### Modules and services
 
-Every command boots a NestJS application context from its `static module`, which defaults to `CliModule.forRoot()`. Declare your own root module to configure the shared modules and add your own, and read parsed flags or arguments in module factories through `TOKEN_COMMAND_FLAGS` and `TOKEN_COMMAND_ARGS`. Services reach the command through `@Inject()` properties, `@Optional()` ones stay empty when nothing provides them.
+Every command boots a NestJS application context from its `static module`, which defaults to `CliModule.forRoot()`. Declare your own root module to configure the shared modules and add your own, and read the running command in module factories from the global `CommandModule`: parsed flags through `TOKEN_COMMAND_FLAGS`, arguments through `TOKEN_COMMAND_ARGS`, the oclif `Config` through `TOKEN_OCLIF_CONFIG` and the command class through `TOKEN_COMMAND`. Services reach the command through `@Inject()` properties, `@Optional()` ones stay empty when nothing provides them.
 
 ```ts
 import { Module } from '@nestjs/common'

@@ -1,3 +1,4 @@
+export * from './command'
 export * from './config'
 export * from './fs'
 export * from './locker'
