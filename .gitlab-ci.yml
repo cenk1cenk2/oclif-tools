@@ -36,11 +36,6 @@ lint:
 test:
   stage: build
   extends: .node-test
-test-node-24:
-  stage: build
-  extends: .node-test
-  variables:
-    NODE_VERSION: 24-alpine
 build:
   stage: build
   extends: .node-build
