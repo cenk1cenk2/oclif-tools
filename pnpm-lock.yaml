@@ -117,15 +117,12 @@ importers:
 
   packages/common:
     dependencies:
-      '@nestjs/common':
-        specifier: '>= 12'
-        version: 12.1.3(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1)
-      '@nestjs/core':
-        specifier: '>= 12'
-        version: 12.1.3(@nestjs/common@12.1.3(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@standard-schema/spec':
         specifier: ^1.1.0
         version: 1.1.0
+      es-toolkit:
+        specifier: ^1.52.0
+        version: 1.52.0
       reflect-metadata:
         specifier: ^0.2.1
         version: 0.2.2
@@ -136,6 +133,12 @@ importers:
       '@listr2/manager':
         specifier: ^4.3.1
         version: 4.3.1(listr2@11.2.0)
+      '@nestjs/common':
+        specifier: ^12.1.3
+        version: 12.1.3(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1)
+      '@nestjs/core':
+        specifier: ^12.1.3
+        version: 12.1.3(@nestjs/common@12.1.3(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@oclif/core':
         specifier: ^5.1.2
         version: 5.1.7
@@ -5052,8 +5055,7 @@ snapshots:
 
   es-module-lexer@2.3.2: {}
 
-  es-toolkit@1.52.0:
-    optional: true
+  es-toolkit@1.52.0: {}
 
   escape-goat@4.0.0: {}
 

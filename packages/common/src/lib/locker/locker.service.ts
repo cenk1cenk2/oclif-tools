@@ -1,10 +1,11 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
+import { get, set, unset } from 'es-toolkit/compat'
 
 import type { CommonLockerData, LockData, LockableData, LockerServiceOptions, UnlockData } from './locker.interface'
 import { FileSystemService } from '@lib/fs'
 import { LoggerService } from '@lib/logger'
 import { ParserService } from '@lib/parser'
-import { deletePath, getPath, merge, setPath } from '@utils'
+import { clonePath, merge } from '@utils'
 
 @Injectable()
 export class LockerService<LockFile extends LockableData = LockableData> implements OnModuleInit {
@@ -99,7 +100,7 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
 
         // check if array else merge as object
         if (typeof d.data === 'object') {
-          parsed = merge(d.merge, getPath(lock, path, Array.isArray(d.data) ? [] : {}), d.data)
+          parsed = merge(d.merge, get(lock, path, Array.isArray(d.data) ? [] : {}), d.data)
         } else {
           this.logger.warn('"%s" path with type "%s" is not mergeable.', path, typeof d.data)
 
@@ -107,14 +108,14 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
         }
 
         // set lock data
-        lock = setPath(lock, path, parsed)
+        lock = set<LockFile>(clonePath(lock, path), path, parsed)
         this.logger.verbose('Merge lock: %s -> %o', path, d.data)
 
         return
       }
 
       // dont merge directly set the data
-      lock = setPath(lock, path, d.data)
+      lock = set<LockFile>(clonePath(lock, path), path, d.data)
       this.logger.verbose('Override lock: %s -> %o', path, d.data)
     })
 
@@ -142,18 +143,21 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
         const path = this.buildPath(d)
 
         // set unlock
-        lock = deletePath(lock, path)
+        lock = clonePath(lock, path)
+        unset(lock, path)
         this.logger.verbose('Unlocked: %s', path)
 
-        for (let i = path.length - 1; i >= 0; i--) {
+        // an emptied lock file is removed on write, so the walk stops at the top level key
+        for (let i = path.length - 1; i > 0; i--) {
           const parentPath = path.slice(0, i)
 
-          const parent = getPath(lock, parentPath)
+          const parent = get(lock, parentPath)
 
           if (!parent || (Array.isArray(parent) && parent.length === 0) || (typeof parent === 'object' && Object.keys(parent).length === 0)) {
             this.logger.verbose('Unlocked parent: %s -> %s', path, parentPath)
 
-            lock = deletePath(lock, parentPath)
+            lock = clonePath(lock, parentPath)
+            unset(lock, parentPath)
           } else {
             break
           }
@@ -163,7 +167,14 @@ export class LockerService<LockFile extends LockableData = LockableData> impleme
       return lock
     }
 
-    lock = deletePath(lock, this.options.root)
+    if (!this.options.root?.length) {
+      this.logger.warn('Nothing to unlock, there is neither a path to unlock nor a root for this locker.')
+
+      return lock
+    }
+
+    lock = clonePath(lock, this.options.root)
+    unset(lock, this.options.root)
     this.logger.verbose('Unlocked module: %s', this.options.root)
 
     return lock
