@@ -95,8 +95,8 @@ export class LoggerService {
   private parseMessage(level: LogLevels, data: string | Buffer, args: any[] = [], fields: Partial<LoggerFormat> = {}): void {
     const message = data.toString()
     const tokens = (message.match(/%[scdjifoO%]/g) ?? []).filter((token) => token !== '%%').length
-    // arguments past the placeholders are metadata, a level or status in them overrides the call's while the own context always wins
-    const meta: LoggerFormat = Object.assign({ level }, ...args.slice(tokens).filter((arg) => typeof arg === 'object' && arg !== null), { context: this.context, ...fields })
+    // arguments past the placeholders are metadata, which overrides the level, context and status of the call
+    const meta: LoggerFormat = Object.assign({ level, context: this.context }, fields, ...args.slice(tokens).filter((arg) => typeof arg === 'object' && arg !== null))
     const levels = Object.values(LogLevels)
 
     if (this.options.config.logLevel === LogLevels.SILENT || this.options.config.isJson || levels.indexOf(meta.level) > levels.indexOf(this.options.config.logLevel)) {

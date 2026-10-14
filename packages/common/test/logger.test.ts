@@ -76,10 +76,10 @@ describe('LoggerService', () => {
     const l = logger(LogLevels.TRACE).setup('Context')
 
     l.info('hello %s', 'world', 'unused')
-    l.trace('code -> %d', 5, { status: 'exit', context: 'ignored' })
-    l.run('command', { level: LogLevels.WARN })
+    l.trace('code -> %d', 5, { status: 'exit', context: 'Override' })
+    l.run('command', { level: LogLevels.WARN, status: 'spawn' })
 
-    expect(output.stdout).toEqual(['› [Context] hello world', '[T] [Context] [exit] code -> 5', '⚠ [Context] [run] command'])
+    expect(output.stdout).toEqual(['› [Context] hello world', '[T] [Override] [exit] code -> 5', '⚠ [Context] [spawn] command'])
   })
 
   it('prefixes every line and drops lines with only whitespace', () => {

@@ -353,9 +353,9 @@ describe('Command', () => {
 
     expect(error.message).toBe('factory exploded')
     expect(stdout).toBe('')
-    expect([fatal, debug]).toEqual(['[F] factory exploded', '[D] Error: factory exploded'])
+    expect([fatal, debug]).toEqual(['[F] factory exploded', '[D] [crash] Error: factory exploded'])
     expect(stack.length).toBeGreaterThan(0)
-    expect(stack.every((line) => line.startsWith('[D]     at '))).toBe(true)
+    expect(stack.every((line) => line.startsWith('[D] [crash]     at '))).toBe(true)
   })
 
   it('keeps a boot failure on stderr when the logger options come from a factory', async() => {
@@ -368,7 +368,7 @@ describe('Command', () => {
 
     expect(stdout).toBe('')
     expect(stderr).toContain('[F] factory exploded')
-    expect(stderr).toContain('[D] Error: factory exploded')
+    expect(stderr).toContain('[D] [crash] Error: factory exploded')
   })
 
   it('closes the application when the handler fails', async() => {
