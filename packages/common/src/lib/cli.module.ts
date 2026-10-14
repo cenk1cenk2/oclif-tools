@@ -6,7 +6,8 @@ import type { ConfigModuleOptions } from './config'
 import { ConfigModule } from './config'
 import { TOKEN_CONFIG_MODULE_OPTIONS } from './config/config.constants'
 import { FilesystemModule } from './fs'
-import { LogLevels, LoggerModule } from './logger'
+import type { LoggerModuleOptions } from './logger'
+import { LogLevels, LoggerModule, TOKEN_LOGGER_MODULE_OPTIONS } from './logger'
 import { LogoModule } from './logo'
 import { ParserModule } from './parser'
 
@@ -20,9 +21,13 @@ export class CliModule {
         {
           provide: TOKEN_CONFIG_MODULE_OPTIONS,
           useValue: options.config satisfies ConfigModuleOptions
+        },
+        {
+          provide: TOKEN_LOGGER_MODULE_OPTIONS,
+          useValue: (options.logger ?? {}) satisfies LoggerModuleOptions
         }
       ],
-      exports: [TOKEN_CONFIG_MODULE_OPTIONS]
+      exports: [TOKEN_CONFIG_MODULE_OPTIONS, TOKEN_LOGGER_MODULE_OPTIONS]
     }
   }
 
@@ -35,9 +40,13 @@ export class CliModule {
         {
           provide: TOKEN_CONFIG_MODULE_OPTIONS,
           useValue: { config: { logLevel: LogLevels.INFO, isJson: false } } satisfies ConfigModuleOptions
+        },
+        {
+          provide: TOKEN_LOGGER_MODULE_OPTIONS,
+          useValue: {} satisfies LoggerModuleOptions
         }
       ],
-      exports: [TOKEN_CONFIG_MODULE_OPTIONS]
+      exports: [TOKEN_CONFIG_MODULE_OPTIONS, TOKEN_LOGGER_MODULE_OPTIONS]
     }
   }
 
