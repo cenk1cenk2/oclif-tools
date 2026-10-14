@@ -1,10 +1,10 @@
 import type { DynamicModule, OnModuleDestroy, Provider, Type } from '@nestjs/common'
-import { ConfigurableModuleBuilder, Inject, Injectable, Module, Scope } from '@nestjs/common'
+import { ConfigurableModuleBuilder, Inject, Injectable, Module, Scope, forwardRef } from '@nestjs/common'
 import { ModuleRef } from '@nestjs/core'
 import { join } from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type { CommandHandler, CommandInput } from '../src'
+import type { CliModuleImport, CommandHandler, CommandInput } from '../src'
 import {
   Args,
   CliFactory,
@@ -90,7 +90,7 @@ describe('Command', () => {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  function greet(module: Type | DynamicModule, handler: Type<CommandHandler<any>> = GreetHandler) {
+  function greet(module: CliModuleImport, handler: Type<CommandHandler<any>> = GreetHandler) {
     class Greet extends Command {
       static module = module
       static handler = handler
@@ -286,6 +286,14 @@ describe('Command', () => {
     expect(error).toBeUndefined()
     expect(parsed).toEqual({ name: 'parsed' })
     expect(fs).toBeUndefined()
+  })
+
+  it('takes a promise of a module or a forward reference as the module', async() => {
+    @Module({ imports: [LoggerModule.forRoot(), GreetModule.forRoot({ name: 'later' })], providers: [GreetHandler] })
+    class LaterModule {}
+
+    expect(await run(greet(Promise.resolve({ module: LaterModule })))).toMatchObject({ stdout: '› hello later\n' })
+    expect(await run(greet(forwardRef(() => LaterModule)))).toMatchObject({ stdout: '› hello later\n' })
   })
 
   it('fails clearly when the module does not provide the handler', async() => {

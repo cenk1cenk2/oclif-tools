@@ -1,4 +1,4 @@
-import type { DynamicModule, INestApplicationContext, Type } from '@nestjs/common'
+import type { INestApplicationContext, Type } from '@nestjs/common'
 import { UnknownElementException } from '@nestjs/core/internal'
 import { Command as BaseCommand, Errors, Flags } from '@oclif/core'
 import { constants } from 'os'
@@ -6,7 +6,7 @@ import { createInterface } from 'readline'
 
 import type { CommandHandler, CommandInput } from './base.command.interface'
 import { HelpGroups } from '@constants'
-import type { CliRuntimeOptions } from '@lib'
+import type { CliModuleImport, CliRuntimeOptions } from '@lib'
 import { LogLevels, LoggerService } from '@lib'
 import { CliFactory } from '@lib/cli.factory'
 import { NestLogger } from '@lib/logger/nest-logger.service'
@@ -16,7 +16,7 @@ import 'reflect-metadata'
 const SIGNALS: NodeJS.Signals[] = ['SIGINT', 'SIGTERM']
 
 export abstract class Command extends BaseCommand {
-  static module: Type | DynamicModule
+  static module: CliModuleImport
   static handler: Type<CommandHandler<any>>
 
   static baseFlags = {

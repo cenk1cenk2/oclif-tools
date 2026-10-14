@@ -1,7 +1,7 @@
-import type { DynamicModule, INestApplicationContext, LogLevel, Type } from '@nestjs/common'
+import type { INestApplicationContext, LogLevel } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 
-import type { CliRuntimeOptions } from './cli.interface'
+import type { CliModuleImport, CliRuntimeOptions } from './cli.interface'
 import { CommandModule } from './command'
 import { ConfigModule } from './config'
 import { LogLevels, LoggerModule, NEST_LOG_LEVELS } from './logger'
@@ -9,7 +9,7 @@ import { NestBootstrapLogger } from './logger/nest-bootstrap-logger'
 
 export class CliFactory {
   /** Boots a command module with the runtime modules: the config, the running command and the logger. */
-  public static create(module: Type | DynamicModule, { config, ...command }: CliRuntimeOptions): Promise<INestApplicationContext> {
+  public static create(module: CliModuleImport, { config, ...command }: CliRuntimeOptions): Promise<INestApplicationContext> {
     const levels = Object.values(LogLevels)
 
     return NestFactory.createApplicationContext(
