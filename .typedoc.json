@@ -1,6 +1,11 @@
 {
+  "$schema": "https://typedoc.org/schema.json",
   "readme": "none",
   "allReflectionsHaveOwnDocument": true,
   "categorizeByGroup": false,
-  "sort": ["source-order"]
+  "sort": ["source-order"],
+  "entryPoints": ["./src/index.ts"],
+  "tsconfig": "./tsconfig.build.json",
+  "out": "./docs/",
+  "json": "./docs/api.json"
 }

@@ -7,39 +7,6 @@ settings:
 importers:
 
   .:
-    devDependencies:
-      '@cenk1cenk2/cz-cc':
-        specifier: ^3.0.6
-        version: 3.0.6(@types/node@24.19.2)(typescript@6.0.3)
-      '@cenk1cenk2/eslint-config':
-        specifier: ^3.3.9
-        version: 3.3.9(@typescript-eslint/utils@8.71.2(eslint@10.12.0(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(eslint@10.12.0(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
-      '@tsconfig/node24':
-        specifier: ^24.0.5
-        version: 24.0.5
-      commitizen:
-        specifier: ^4.3.2
-        version: 4.3.2(@types/node@24.19.2)(typescript@6.0.3)
-      eslint:
-        specifier: ^10.12.0
-        version: 10.12.0(jiti@2.6.1)(supports-color@8.1.1)
-      prettier:
-        specifier: ^3.9.9
-        version: 3.9.10
-      tsdown:
-        specifier: ^0.23.0
-        version: 0.23.1(typescript@6.0.3)
-      typedoc:
-        specifier: ^0.28.20
-        version: 0.28.20(typescript@6.0.3)
-      typedoc-plugin-markdown:
-        specifier: ^4.13.1
-        version: 4.13.1(typedoc@0.28.20(typescript@6.0.3))
-      typescript:
-        specifier: ^6.0.3
-        version: 6.0.3
-
-  packages/common:
     dependencies:
       '@standard-schema/spec':
         specifier: ^1.1.0
@@ -57,6 +24,12 @@ importers:
         specifier: ^0.2.1
         version: 0.2.2
     devDependencies:
+      '@cenk1cenk2/cz-cc':
+        specifier: ^3.0.6
+        version: 3.0.6(@types/node@24.19.2)(typescript@6.0.3)
+      '@cenk1cenk2/eslint-config':
+        specifier: ^3.3.9
+        version: 3.3.9(@typescript-eslint/utils@8.71.2(eslint@10.12.0(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(eslint@10.12.0(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       '@listr2/manager':
         specifier: ^4.3.1
         version: 4.3.1(listr2@11.2.0)
@@ -72,12 +45,36 @@ importers:
       '@oclif/core':
         specifier: ^5.1.2
         version: 5.1.7
+      '@tsconfig/node24':
+        specifier: ^24.0.5
+        version: 24.0.5
       '@types/node':
         specifier: ^24.19.1
         version: 24.19.2
+      commitizen:
+        specifier: ^4.3.2
+        version: 4.3.2(@types/node@24.19.2)(typescript@6.0.3)
+      eslint:
+        specifier: ^10.12.0
+        version: 10.12.0(jiti@2.6.1)(supports-color@8.1.1)
       listr2:
         specifier: ^11.2.0
         version: 11.2.0
+      prettier:
+        specifier: ^3.9.9
+        version: 3.9.10
+      tsdown:
+        specifier: ^0.23.0
+        version: 0.23.1(typescript@6.0.3)
+      typedoc:
+        specifier: ^0.28.20
+        version: 0.28.20(typescript@6.0.3)
+      typedoc-plugin-markdown:
+        specifier: ^4.13.1
+        version: 4.13.1(typedoc@0.28.20(typescript@6.0.3))
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
       vite:
         specifier: ^8.3.4
         version: 8.3.4(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1)

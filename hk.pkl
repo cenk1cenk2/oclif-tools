@@ -1,16 +1,17 @@
 amends "package://github.com/jdx/hk/releases/download/v2.6.0/hk@2.6.0#/Config.pkl"
 import "package://github.com/jdx/hk/releases/download/v2.6.0/hk@2.6.0#/Builtins.pkl"
 
-subprojects = List("packages/*")
-
 hooks {
   ["pre-commit"] {
     fix = true
     stash = "git"
     steps {
       ["prettier"] = (Builtins.prettier) {
-        glob = List("*.json", "*.md")
-        exclude = List("packages/**")
+        glob = List("**/*.ts", "**/*.json", "**/*.md")
+      }
+      ["eslint"] = (Builtins.eslint) {
+        glob = List("**/*.ts")
+        depends = List("prettier")
       }
     }
   }
