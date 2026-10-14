@@ -11,7 +11,7 @@ export async function setup(): Promise<void> {
   const sourceMaps = process.argv.indexOf('--source-map')
 
   if (sourceMaps !== -1) {
-    await import('source-map-support').then((mod) => mod.install())
+    await import('module').then((mod) => mod.setSourceMapsSupport(true))
 
     process.argv.splice(sourceMaps, 1)
   }
