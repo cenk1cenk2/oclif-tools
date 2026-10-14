@@ -146,13 +146,13 @@ Everything else is imported by the module of the command, each module with its o
 | Module | Provides |
 | --- | --- |
 | `TaskModule.forRoot(options?)` | `TaskManager`, the listr2 task manager, which renders plainly at debug level and stays silent for silent or JSON output; `options` override the defaults. |
-| `ParserModule.forRoot({ parsers })` | `ParserService` and `ConfigLoaderService` with the given parsers, `[JsonParser]` by default. |
+| `ParserModule.forRoot({ parsers })` | `ParserService`, which reads, writes, parses and stringifies files by their extension with the given parsers, `[JsonParser]` by default. |
 | `FilesystemModule.forRoot()` | `FileSystemService`. |
 | `LogoModule.forRoot({ generator })` | `LogoService`, which prints the logo when the command starts, at `INFO`, so it follows the stderr levels of the logger. |
 | `ValidatorModule.forRoot()` | `ValidatorService`, which validates with any Standard Schema. |
-| `RcModule.forRoot({ name, schema? })` | The configuration of the CLI from the first rc file upward from the working directory, as `TOKEN_RC`, and `RcService` with the `filepath` it came from. |
+| `RcModule.forRoot({ name, defaults?, schema? })` | The configuration of the CLI, the rc file of the user merged over the bundled defaults, as `TOKEN_RC`, and `RcService` with the `filepath` of the rc file. |
 
-`RcModule` looks for `.namerc` (YAML or JSON), `.namerc.{json,yaml,yml,js,ts,cjs,mjs}`, the same under `.config/`, `name.config.{js,ts,cjs,mjs}` and the `name` key of a `package.json`, from the working directory up to the home directory and then in the global config directory of the user. It provides `{}` when there is none, and validates the configuration with `schema`, a Standard Schema, when given. It does not touch the flags, so the handler decides the precedence, for example flags over the rc file over the defaults:
+`RcModule` looks for `.namerc` (YAML or JSON), `.namerc.{json,yaml,yml,js,ts,cjs,mjs}`, the same under `.config/`, `name.config.{js,ts,cjs,mjs}` and the `name` key of a `package.json`, from the working directory up to the home directory and then in the global config directory of the user. `defaults` is the base configuration the CLI ships: a file relative to the root of the CLI, read with the same loaders, or an object. The rc file is merged over it deeply: objects merge key by key, while arrays and every other value of the rc file replace those of the defaults. Without an rc file the configuration is the defaults alone, or `{}`. The merged configuration is validated with `schema`, a Standard Schema, when given. It does not touch the flags, so the handler decides the precedence, for example flags over the rc file over the defaults:
 
 ```ts
 @Injectable()
@@ -196,7 +196,7 @@ Everything this major changes for a CLI built on the previous one.
 - Only `ConfigModule`, `CommandModule` and `LoggerModule` are provided by default. Import the rest where the command uses it: `TaskModule.forRoot()`, `ParserModule.forRoot({ parsers })`, `FilesystemModule.forRoot()`, `LogoModule.forRoot({ generator })` and `ValidatorModule.forRoot()`. None of them is global unless registered with `isGlobal: true`, so a shared module exports the ones other modules use, and `ParserModule` no longer makes `FileSystemService` available.
 - Parsers default to `[JsonParser]`; `ParserService.register` and `inject` are removed. `TOKEN_LOGO_GENERATOR` is replaced by `LogoModule.forRoot({ generator })`, and a command without `LogoModule` prints no logo.
 - `TOKEN_COMMAND_FLAGS` and `TOKEN_COMMAND_ARGS` come from `CommandModule`, which also provides the oclif config as `TOKEN_OCLIF_CONFIG` and the command class as `TOKEN_COMMAND`. `ConfigModuleOptions` holds only `config`.
-- `ConfigService` keeps only the runtime config. Replace its `oclif`, `command`, `root` and `defaults` with `@Inject(TOKEN_OCLIF_CONFIG)`, `@Inject(TOKEN_COMMAND)` and the `root` of the oclif config; `FileConstants` is removed. Replace its `extend`, `merge` and `env` with `ConfigLoaderService` from `ParserModule`, and its `read` / `write` with `ParserService.read` / `write`.
+- `ConfigService` keeps only the runtime config. Replace its `oclif`, `command`, `root` and `defaults` with `@Inject(TOKEN_OCLIF_CONFIG)`, `@Inject(TOKEN_COMMAND)` and the `root` of the oclif config; `FileConstants` is removed. Replace its `read` / `write` with `ParserService.read` / `write` from `ParserModule`, and its `extend` / `merge` over bundled defaults with `RcModule.forRoot({ name, defaults })`. Its `env` and the environment variable definitions with `__name`, `__format` and `__element` are removed, together with `ConfigEnvKeys`, `ConfigIterator` and `clonePath`.
 
 ### Logger
 
@@ -211,7 +211,7 @@ Everything this major changes for a CLI built on the previous one.
 
 ### Utilities and services
 
-- The locker is removed: `LockerModule`, `LockerService` (including `op`) and their types `LockerServiceOptions`, `LockerModuleAsyncOptions`, `LockData`, `UnlockData`, `CommonLockerData` and `LockableData` are gone. Read and write the file with `ParserService.read` / `write`, merge with `merge(strategy, ...sources)`, set paths with the `set` of `es-toolkit/compat` on `clonePath(target, path)`, and check or remove files with `FileSystemService`.
+- The locker is removed: `LockerModule`, `LockerService` (including `op`) and their types `LockerServiceOptions`, `LockerModuleAsyncOptions`, `LockData`, `UnlockData`, `CommonLockerData` and `LockableData` are gone. Read and write the file with `ParserService.read` / `write`, merge with `merge(strategy, ...sources)`, and check or remove files with `FileSystemService`.
 - `ValidatorService` validates with any [Standard Schema](https://standardschema.dev) instead of class-validator classes: `validate(schema, input)` and `validateSync(schema, input)` take a `StandardSchemaV1`, return its output and throw `ValidationError` with its `issues`; `validateSync` throws a `TypeError` for schemas that validate asynchronously. `ValidatorModule` takes no options, and `TOKEN_VALIDATOR_SERVICE_OPTIONS` and `ValidatorServiceOptions` are removed.
 - `FileSystemService.extra` and the exported `fs` type are removed: use `node:fs` or `fs/promises` for anything outside the service, whose `stats`, `write` and `remove` take the `Stats`, `WriteFileOptions` and `RmOptions` of Node.js. File operations no longer go through graceful-fs.
 - `uniqueArrayFilter` is removed, use the `uniq` of es-toolkit. `merge(strategy, ...sources)` keeps its signature but no longer lets an `undefined` source value overwrite a defined one, and its result no longer shares objects with the sources.

@@ -4,6 +4,7 @@ import { Module } from '@nestjs/common'
 import { TOKEN_RC, TOKEN_RC_MODULE_OPTIONS } from './rc.constants'
 import type { RcModuleOptions } from './rc.interface'
 import { RcService } from './rc.service'
+import { TOKEN_OCLIF_CONFIG } from '@lib/command/command.constants'
 import { LoggerService } from '@lib/logger'
 import { buildScopedModule } from '@lib/scoped-module'
 import type { ScopedModuleExtras } from '@lib/scoped-module.interface'
@@ -16,7 +17,7 @@ const { ConfigurableModuleClass } = buildScopedModule<RcModuleOptions>(TOKEN_RC_
   providers: [
     {
       provide: RcService,
-      inject: [TOKEN_RC_MODULE_OPTIONS, ValidatorService, LoggerService],
+      inject: [TOKEN_RC_MODULE_OPTIONS, TOKEN_OCLIF_CONFIG, ValidatorService, LoggerService],
       useFactory: RcService.load
     },
     {

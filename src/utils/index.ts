@@ -1,4 +1,3 @@
-export * from './clone-path'
 export * from './defaults'
 export * from './environment'
 export * from './merge.constants'

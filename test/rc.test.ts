@@ -1,4 +1,5 @@
 import { Test } from '@nestjs/testing'
+import type { Config } from '@oclif/core'
 import type { StandardSchemaV1 } from '@standard-schema/spec'
 import { mkdir, mkdtemp, rm, writeFile } from 'fs/promises'
 import { tmpdir } from 'os'
@@ -6,7 +7,7 @@ import { join } from 'path'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { RcModuleOptions } from '../src'
-import { ConfigModule, LogLevels, LoggerModule, RcModule, RcService, TOKEN_RC, ValidationError } from '../src'
+import { CommandModule, ConfigModule, LogLevels, LoggerModule, RcModule, RcService, TOKEN_RC, ValidationError } from '../src'
 
 describe('RcModule', () => {
   const name = 'oclif-common-rc-test'
@@ -17,6 +18,7 @@ describe('RcModule', () => {
     const module = await Test.createTestingModule({
       imports: [
         ConfigModule.forRoot({ config: { logLevel: LogLevels.INFO, isJson: false } }),
+        CommandModule.forRoot({ oclif: { root } as Config }),
         LoggerModule,
         RcModule.forRoot({
           name,
@@ -63,6 +65,32 @@ describe('RcModule', () => {
     expect(rc.filepath).toBeUndefined()
   })
 
+  describe('with bundled defaults', () => {
+    it('merges the rc file over defaults from a file relative to the root of the cli', async() => {
+      await mkdir(join(root, 'config'))
+      await writeFile(join(root, 'config', 'defaults.yaml'), 'output: dist\nformat:\n  size: a4\n  margin: 1\nlist:\n  - default\n')
+      await writeFile(join(root, 'nested', `.${name}rc.json`), JSON.stringify({ format: { size: 'letter' }, list: ['rc'] }))
+
+      const { rc, config } = await load({ defaults: 'config/defaults.yaml' })
+
+      expect(config).toEqual({
+        output: 'dist',
+        format: { size: 'letter', margin: 1 },
+        list: ['rc']
+      })
+      expect(rc.filepath).toBe(join(root, 'nested', `.${name}rc.json`))
+    })
+
+    it('provides the defaults alone when there is no rc file', async() => {
+      const defaults = { output: 'dist', format: { size: 'a4' } }
+      const { rc, config } = await load({ defaults })
+
+      expect(config).toEqual(defaults)
+      expect(config).not.toBe(defaults)
+      expect(rc.filepath).toBeUndefined()
+    })
+  })
+
   describe('with a schema', () => {
     const schema: StandardSchemaV1<unknown, { output: string }> = {
       // the property name is fixed by the standard schema spec
@@ -85,7 +113,7 @@ describe('RcModule', () => {
       vi.spyOn(process.stderr, 'write').mockImplementation(() => true)
       await writeFile(join(root, `.${name}rc`), 'output: 1\n')
 
-      await expect(load({ schema })).rejects.toBeInstanceOf(ValidationError)
+      await expect(load({ schema, defaults: { output: 'dist' } })).rejects.toBeInstanceOf(ValidationError)
 
       vi.restoreAllMocks()
     })

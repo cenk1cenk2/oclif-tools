@@ -9,7 +9,6 @@ import {
   Args,
   CliFactory,
   Command,
-  ConfigLoaderService,
   ConfigService,
   FileSystemService,
   Flags,
@@ -316,7 +315,7 @@ describe('Command', () => {
       public async run(): Promise<void> {
         this.logger.info('minimal')
 
-        missing = [TaskManager, ParserService, ConfigLoaderService, FileSystemService, LogoService, ValidatorService]
+        missing = [TaskManager, ParserService, FileSystemService, LogoService, ValidatorService]
           .filter((type) => {
             try {
               this.ref.get(type, { strict: false })
@@ -338,7 +337,7 @@ describe('Command', () => {
     expect(error).toBeUndefined()
     expect(stdout).toBe('› minimal\n')
     expect(stderr).toBe('')
-    expect(missing).toEqual(['TaskManager', 'ParserService', 'ConfigLoaderService', 'FileSystemService', 'LogoService', 'ValidatorService'])
+    expect(missing).toEqual(['TaskManager', 'ParserService', 'FileSystemService', 'LogoService', 'ValidatorService'])
   })
 
   describe('logger options', () => {
