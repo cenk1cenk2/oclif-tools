@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import type { ConfigModuleOptions, LoggerModuleOptions } from '../src'
 import { LogLevels, LoggerService } from '../src'
+import { NestLogger } from '../src/lib/logger/nest-logger.service'
 
 describe('LoggerService', () => {
   function capture(): { stdout: string[]; stderr: string[] } {
@@ -89,11 +90,32 @@ describe('LoggerService', () => {
     expect(output.stdout).toEqual(['› first', '› ', '› second'])
   })
 
-  it('ignores calls whose level is not a log level', () => {
+  it('filters and routes by a level given in the metadata', () => {
     const output = capture()
+    const l = logger(LogLevels.INFO)
 
-    logger(LogLevels.TRACE).log('Starting Nest application...' as LogLevels, 'NestFactory')
+    l.run('hidden', { level: LogLevels.DEBUG })
+    l.info('raised', { level: LogLevels.ERROR })
 
-    expect(output).toEqual({ stdout: [], stderr: [] })
+    expect(output).toEqual({ stdout: [], stderr: ['✖ raised'] })
+  })
+})
+
+describe('NestLogger', () => {
+  it('translates nest levels and takes the trailing context', () => {
+    const log = vi.fn()
+    const setup = vi.fn(() => ({ log }))
+    const nest = new NestLogger({ setup } as unknown as LoggerService)
+
+    nest.log('Started', 'NestFactory')
+    nest.error('Failed', 'stack', 'ExceptionHandler')
+    nest.warn({ deprecated: true })
+
+    expect(setup.mock.calls).toEqual([['NestFactory'], ['ExceptionHandler'], [undefined]])
+    expect(log.mock.calls).toEqual([
+      [LogLevels.VERBOSE, 'Started'],
+      [LogLevels.ERROR, 'Failed'],
+      [LogLevels.WARN, '{ deprecated: true }']
+    ])
   })
 })

@@ -90,24 +90,17 @@ export class LoggerService {
   }
 
   private parseMessage(level: LogLevels, data: string | Buffer, args: any[] = [], fields: Partial<LoggerFormat> = {}): void {
+    const message = data.toString()
+    const tokens = (message.match(/%[scdjifoO%]/g) ?? []).filter((token) => token !== '%%').length
+    // arguments past the placeholders are metadata, a level or status in them overrides the call's while the own context always wins
+    const meta: LoggerFormat = Object.assign({ level }, ...args.slice(tokens).filter((arg) => typeof arg === 'object' && arg !== null), { context: this.context, ...fields })
     const levels = Object.values(LogLevels)
 
-    // nest calls log(message, context) once this is its logger, so anything that is not a level is not ours to print
-    if (
-      !levels.includes(level) ||
-      this.options.config.logLevel === LogLevels.SILENT ||
-      this.options.config.isJson ||
-      levels.indexOf(level) > levels.indexOf(this.options.config.logLevel)
-    ) {
+    if (this.options.config.logLevel === LogLevels.SILENT || this.options.config.isJson || levels.indexOf(meta.level) > levels.indexOf(this.options.config.logLevel)) {
       return
     }
 
-    const message = data.toString()
-    const tokens = (message.match(/%[scdjifoO%]/g) ?? []).filter((token) => token !== '%%').length
-    // arguments past the placeholders are metadata, a level or status in them restyles the line while the own context always wins
-    const meta: Partial<LoggerFormat> = Object.assign({}, ...args.slice(tokens).filter((arg) => typeof arg === 'object' && arg !== null), { context: this.context, ...fields })
-
-    const stream = this.loggerOptions.stderr || level === LogLevels.FATAL || level === LogLevels.ERROR ? process.stderr : process.stdout
+    const stream = this.loggerOptions.stderr || meta.level === LogLevels.FATAL || meta.level === LogLevels.ERROR ? process.stderr : process.stdout
 
     stream.write(
       format(message, ...args.slice(0, tokens))
@@ -115,10 +108,8 @@ export class LoggerService {
         .filter((line) => !line || line.trim() !== '')
         .map((line) =>
           this.logColoring({
-            level: meta.level ?? level,
-            message: line,
-            context: meta.context,
-            status: meta.status
+            ...meta,
+            message: line
           })
         )
         .join(EOL) + EOL
@@ -128,7 +119,6 @@ export class LoggerService {
   private logColoring({ level, message, context, status }: LoggerFormat): string {
     let icon: string
 
-    // do the coloring
     let coloring = (input: string): string => {
       return input
     }

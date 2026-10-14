@@ -10,6 +10,7 @@ import type { InferArgs, InferFlags, InjectedProperty } from '@interfaces'
 import type { ConfigModuleOptions, PipeProcessToLoggerOptions } from '@lib'
 import { ConfigService, LogFieldStatus, LogLevels, LoggerService, LogoService, pipeProcessThroughListr, pipeProcessToLogger } from '@lib'
 import { CliModule } from '@lib/cli.module'
+import { NestLogger } from '@lib/logger/nest-logger.service'
 import { OPTIONAL_PROPERTY_DEPS_METADATA, PROPERTY_DEPS_METADATA } from '@lib/nest.constants'
 import type { SetCtxAssignOptions, SetCtxDefaultsOptions } from '@utils'
 import { setCtxAssign, setCtxDefaults } from '@utils'
@@ -113,7 +114,7 @@ export abstract class Command<T extends typeof BaseCommand = typeof BaseCommand,
 
     this.logger = await this.app.resolve(LoggerService)
 
-    this.app.useLogger(this.logger)
+    this.app.useLogger(this.app.get(NestLogger))
     this.app.enableShutdownHooks(['SIGINT', 'SIGTERM'])
 
     this.app.get(LogoService).generate()
