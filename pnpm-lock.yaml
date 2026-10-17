@@ -31,8 +31,8 @@ importers:
         specifier: ^3.3.9
         version: 3.3.9(@typescript-eslint/utils@8.71.2(eslint@10.12.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.12.0(jiti@2.7.0))(typescript@6.0.3)
       '@listr2/manager':
-        specifier: ^4.3.2
-        version: 4.3.2(listr2@11.3.0)
+        specifier: ^4.3.3
+        version: 4.3.3(listr2@11.3.0)
       '@nestjs/common':
         specifier: ^12.1.3
         version: 12.1.3(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -391,8 +391,8 @@ packages:
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
-  '@listr2/manager@4.3.2':
-    resolution: {integrity: sha512-HaLB7uXyXrwb+M1xmDFAKhQwC5DRg/yis/70B/RHhEFSTZAPVGjZXnRmVg39l13FsqKlmSYulXwHh6zkFwfGng==}
+  '@listr2/manager@4.3.3':
+    resolution: {integrity: sha512-YEUmR41RI7n69Le4kyl+0D8c/gS8RxcSPVRqGGUKkYqh26nswIct8jOeaTKsZRvoGNbU/E51qkNCUYObdsLcaA==}
     engines: {node: '>=22.13.0'}
     peerDependencies:
       listr2: ^11.0.0
@@ -2626,7 +2626,7 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@listr2/manager@4.3.2(listr2@11.3.0)':
+  '@listr2/manager@4.3.3(listr2@11.3.0)':
     dependencies:
       listr2: 11.3.0
 
