@@ -57,7 +57,7 @@
     "@nestjs/common": "^12.3.2",
     "@nestjs/core": "^12.3.2",
     "@nestjs/testing": "^12.3.2",
-    "@oclif/core": "^5.1.9",
+    "@oclif/core": "^5.1.10",
     "@tsconfig/node24": "^24.0.5",
     "@types/node": "^26.6.5",
     "commitizen": "^4.3.2",
