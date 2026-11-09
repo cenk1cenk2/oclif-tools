@@ -51,8 +51,8 @@
     "reflect-metadata": "^0.2.1"
   },
   "devDependencies": {
-    "@cenk1cenk2/cz-cc": "^3.0.12",
-    "@cenk1cenk2/eslint-config": "^3.4.5",
+    "@cenk1cenk2/cz-cc": "^3.0.13",
+    "@cenk1cenk2/eslint-config": "^3.4.7",
     "@listr2/manager": "^4.3.4",
     "@nestjs/common": "^12.3.2",
     "@nestjs/core": "^12.3.2",
@@ -63,7 +63,7 @@
     "commitizen": "^4.3.2",
     "eslint": "^10.14.0",
     "jiti": "^2.7.0",
-    "listr2": "^11.4.0",
+    "listr2": "^11.4.1",
     "prettier": "^3.9.10",
     "tsdown": "^0.23.4",
     "typedoc": "^0.28.20",
