@@ -1,9 +1,9 @@
 import type { ChildProcess } from 'child_process'
 import { Writable } from 'stream'
 
-import type { PipeProcessToLoggerOptions } from './pipe-process-to-logger.interface'
 import { LogLevels } from '../logger.constants'
 import type { LoggerService } from '../logger.service'
+import type { PipeProcessToLoggerOptions } from './pipe-process-to-logger.interface'
 
 /**
  * Given the instance it will pipe process output through the logger to append prefixes such as the application name.
