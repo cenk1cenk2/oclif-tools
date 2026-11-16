@@ -43,7 +43,7 @@ importers:
         specifier: ^12.4.2
         version: 12.5.0(@nestjs/common@12.5.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.5.0(@nestjs/common@12.5.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(reflect-metadata@0.2.2)(rxjs@7.8.2))
       '@oclif/core':
-        specifier: ^5.1.11
+        specifier: ^5.1.12
         version: 5.1.12
       '@tsconfig/node26':
         specifier: ^26.0.1
