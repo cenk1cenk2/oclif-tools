@@ -55,7 +55,7 @@ importers:
         specifier: ^4.3.2
         version: 4.3.2(@types/node@26.6.6)(typescript@6.0.3)
       eslint:
-        specifier: ^10.14.0
+        specifier: ^10.15.0
         version: 10.15.0(jiti@2.7.0)(supports-color@8.1.1)
       jiti:
         specifier: ^2.7.0
@@ -64,7 +64,7 @@ importers:
         specifier: ^11.4.1
         version: 11.4.1
       prettier:
-        specifier: ^3.9.10
+        specifier: ^3.10.1
         version: 3.10.1
       tsdown:
         specifier: ^0.23.7
